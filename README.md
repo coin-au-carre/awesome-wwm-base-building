@@ -9,43 +9,43 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 ## Guild Bases
 
-| Guild ID | Guild Name       | Builders                      | Tags               | Discord Thread                                                               | Score |
-| -------- | ---------------- | ----------------------------- | ------------------ | ---------------------------------------------------------------------------- | ----- |
-|          | COBAKA           | KlavaCocka                    | Nature, Zen, River |                                                                              | 20    |
-|          | VN-HoàngKim      | zzBenT                        |                    |                                                                              | 20    |
-|          | NhatNguyet       | LôiThiênHàa                   |                    |                                                                              | 10    |
-| 10244476 | Jenova           | Ahlyam, Aihän                 | Zen, Nature        | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 2     |
-|          | Liberty-City     | Ju-Kyung, Seong-Je            |                    |                                                                              | 0     |
-|          | Noblesse         | HyyuK                         |                    |                                                                              | 0     |
-|          | Comfy            | MikeRize                      |                    |                                                                              | 0     |
-|          | EMH-Shogunate    | ToxotesToons                  |                    |                                                                              | 0     |
-|          | Fourberie        | Chocah                        |                    |                                                                              | 0     |
-|          | FeralSutra       | Zerxsai                       |                    |                                                                              | 0     |
-|          | Iridium          | xJiune, Devynn                |                    |                                                                              | 0     |
-|          | IronRiders       | The-Builder                   |                    |                                                                              | 0     |
-|          | Jardin-Lunaire   | Hüman, Orhann, Simiaomao      |                    |                                                                              | 0     |
-|          | KillByKill       |                               |                    |                                                                              | 0     |
-|          | La Guilde        | Keanu-Kai                     |                    |                                                                              | 0     |
-|          | LaTaverne        | Tuxanne, JinSupremo, soussous |                    |                                                                              | 0     |
-|          | APX              |                               |                    |                                                                              | 0     |
-|          | Melancolypse     | Aïk                           |                    |                                                                              | 0     |
-|          | Aurore           | Syphala                       |                    |                                                                              | 0     |
-|          | BrigadePhantom   | Ssyrena, Dovahline            |                    |                                                                              | 0     |
-|          | Saints           | SupremeLoner                  |                    |                                                                              | 0     |
-|          | Sanctuarys       | Nurami, Ichigor               |                    |                                                                              | 0     |
-|          | Seireitei        |                               |                    |                                                                              | 0     |
-|          | SixtyOne         | may                           |                    |                                                                              | 0     |
-|          | Tigres écarlates | Selkyy, Tavu, TristanPupu     |                    |                                                                              | 0     |
-|          | TSUKIBANA        | Min-Woh                       |                    |                                                                              | 0     |
-|          | ASWANG           | Kadlum                        |                    |                                                                              | 0     |
-|          | Visual           | Navil                         |                    |                                                                              | 0     |
-|          | Wolfions         | Sabi, Kojak                   |                    |                                                                              | 0     |
-|          | WushuChaos       | Sakiz, Kenshii-               |                    |                                                                              | 0     |
-|          | ZOOTOPIA         |                               |                    |                                                                              | 0     |
-|          | 湮琴閣           | 雲酹                          |                    |                                                                              | 0     |
-|          | AfterFlame       | FoxiKate                      |                    |                                                                              | 0     |
-| 10076053 | Star·Bound       |                               |                    |                                                                              | 0     |
-|          | Ao               |                               |                    |                                                                              | 0     |
+| Guild ID | Guild Name | Builders | Tags | Discord Thread | Score |
+|----------|------------|----------|-------------------|----------------|-------|
+|  | COBAKA | KlavaCocka | Nature, Zen, River |  | 20 |
+|  | VN-HoàngKim | zzBenT |  |  | 20 |
+|  | AfterFlame | FoxiKate |  |  | 10 |
+|  | NhatNguyet | LôiThiênHàa |  |  | 10 |
+|  | BrigadePhantom | Ssyrena, Dovahline |  |  | 10 |
+| 10076053 | Star·Bound |  |  |  | 10 |
+|  | Comfy | MikeRize |  |  | 10 |
+|  | EMH-Shogunate | ToxotesToons |  |  | 10 |
+|  | Visual | Navil |  |  | 10 |
+|  | Tigres écarlates | Selkyy, Tavu, TristanPupu |  |  | 10 |
+|  | Sanctuarys | Nurami, Ichigor |  |  | 10 |
+|  | Jardin-Lunaire | Hüman, Orhann, Simiaomao |  |  | 10 |
+| 10244476 | Jenova | Ahlyam, Aihän | Zen, Nature | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 2 |
+|  | Fourberie | Chocah |  |  | 0 |
+|  | Iridium | xJiune, Devynn |  |  | 0 |
+|  | LaTaverne | Tuxanne, JinSupremo, soussous |  |  | 0 |
+|  | Liberty-City | Ju-Kyung, Seong-Je |  |  | 0 |
+|  | Melancolypse | Aïk |  |  | 0 |
+|  | KillByKill |  |  |  | 0 |
+|  | Noblesse | HyyuK |  |  | 0 |
+|  | Saints | SupremeLoner |  |  | 0 |
+|  | IronRiders | The-Builder |  |  | 0 |
+|  | Seireitei |  |  |  | 0 |
+|  | SixtyOne | may |  |  | 0 |
+|  | La Guilde | Keanu-Kai |  |  | 0 |
+|  | TSUKIBANA | Min-Woh |  |  | 0 |
+|  | FeralSutra | Zerxsai |  |  | 0 |
+|  | APX |  |  |  | 0 |
+|  | Wolfions | Sabi, Kojak |  |  | 0 |
+|  | WushuChaos | Sakiz, Kenshii- |  |  | 0 |
+|  | ZOOTOPIA |  |  |  | 0 |
+|  | 湮琴閣 | 雲酹 |  |  | 0 |
+|  | Aurore | Syphala |  |  | 0 |
+|  | ASWANG | Kadlum |  |  | 0 |
+|  | Ao |  |  |  | 0 |
 
 ## Building Sources
 
