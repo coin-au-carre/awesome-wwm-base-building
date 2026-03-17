@@ -61,6 +61,12 @@ Official and community sources/guides for **Where Winds Meet** base building:
 - How to Start Building House: [Video Tutorial](https://www.youtube.com/watch?v=G4vR78IfkfI)
 - Building a Home by the Waterfall: [Video Tutorial](https://www.youtube.com/watch?v=L7oKjiS_vk4)
 
+## How Scoring Works
+
+Scoring ranks guild bases by community popularity, currently using a system based on Discord engagement.  
+We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
+Ultimately these scores will be overriden by the community vote!  
+
 ## Future Features
 
 Planned improvements when the community grows:
