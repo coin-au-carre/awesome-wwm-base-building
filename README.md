@@ -6,9 +6,8 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 ## Why This List Exists?
 
-This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too.  
-The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
-By centralizing showcases via Awesome Where Winds Meet Base Building, I hope it will sparks inspiration, collaboration, and community growth in base building.
+This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too. The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
+By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I hope it will sparks inspiration, collaboration, and community growth around base building.
 
 ---
 
