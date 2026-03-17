@@ -64,9 +64,9 @@ Official and community sources/guides for **Where Winds Meet** base building:
 
 Scoring ranks guild bases by community popularity, currently using a system based on Discord engagement in `#base-guild-showcase` with emojis. Here the details:
 
-⭐ = Best overall base (count as 2 votes)
-👍 = Good build, would visit (count as 1 vote)
-🔥 = Amazing creativity/technique (count as 1 vote)
+⭐ = Best overall base (count as 2 votes)  
+👍 = Good build, to visit absolutely! (count as 1 vote)  
+🔥 = Amazing creativity/technique (count as 1 vote)  
 
 Note: We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
 Ultimately, these scores will be overriden by the community vote! 
