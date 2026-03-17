@@ -2,14 +2,13 @@
 
 A curated list of **Where Winds Meet** guild bases and builders. Enjoy the players creativity in all Jiang hu! 🌟
 
-**Want to add your guild base?** Join our **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added here!  
-(Dev-savvy? Edit `guilds.json` directly and open a Pull Request.) 🏆
+**Want to add your guild base?** Join our **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added here! 🏆
 
 ## Why This List Exists?
 
 This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too.  
 The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
-By centralizing showcases via Awesome Where Winds Meet Base Building, it sparks inspiration, collaboration, and community growth in base building.
+By centralizing showcases via Awesome Where Winds Meet Base Building, I hope it will sparks inspiration, collaboration, and community growth in base building.
 
 ---
 
@@ -63,9 +62,14 @@ Official and community sources/guides for **Where Winds Meet** base building:
 
 ## How Scoring Works
 
-Scoring ranks guild bases by community popularity, currently using a system based on Discord engagement.  
-We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
-Ultimately these scores will be overriden by the community vote!  
+Scoring ranks guild bases by community popularity, currently using a system based on Discord engagement in `#base-guild-showcase` with emojis. Here the details:
+
+⭐ = Best overall base (count as 2 votes)
+👍 = Good build, would visit (count as 1 vote)
+🔥 = Amazing creativity/technique (count as 1 vote)
+
+Note: We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
+Ultimately, these scores will be overriden by the community vote! 
 
 ## Future Features
 
