@@ -1,9 +1,9 @@
 # Awesome Where Winds Meet Base Building
 
-A curated list of **Where Winds Meet** guild bases and builders. Enjoy the players creativity in all Jiang hu!
+A curated list of **Where Winds Meet** guild bases and builders. Enjoy the players creativity in all Jiang hu! 🌟
 
-**Want to add your guild?** Join our [Discord](https://discord.gg/Qygt9u26Bn) → post in `#base-guild-showcase` → it will be added here!  
-(Dev-savvy? Edit `guilds.json` directly and open a Pull Request.)
+**Want to add your guild base?** Join our **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added here!  
+(Dev-savvy? Edit `guilds.json` directly and open a Pull Request.) 🏆
 
 ## Why This List Exists?
 
@@ -75,8 +75,9 @@ Planned improvements when the community grows:
 
 ## Get Involved
 
-- **Share your base**: Join [#guild-base-showcase](https://discord.gg/Qygt9u26Bn) and post in the Forum channel
+- **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase` → Fame awaits! 📢
 - **Submit updates**: Open a GitHub Issue or Pull Request, or post in Discord
 - **Vote & discuss**: React with ⭐ on builds you like!
+- **Chat & collab**: Live builder Q&A, tips, and cross-guild tours.
 
 **Discord**: [Join our Awesome Where Winds Meet Base Building Community](https://discord.gg/Qygt9u26Bn)
