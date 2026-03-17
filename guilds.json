@@ -2,231 +2,231 @@
 	{
 		"name": "APX",
 		"builders": [],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Ao",
 		"builders": [],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "ASWANG",
 		"builders": ["Kadlum"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Aurore",
 		"builders": ["Syphala"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "BrigadePhantom",
 		"builders": ["Ssyrena", "Dovahline"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "COBAKA",
 		"builders": ["KlavaCocka"],
-		"tags": "Nature, Zen, River",
+		"tags": ["Nature", "Zen", "River"],
 		"discordThread": "",
 		"score": 20
 	},
 	{
 		"name": "Comfy",
 		"builders": ["MikeRize"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "EMH-Shogunate",
 		"builders": ["ToxotesToons"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Fourberie",
 		"builders": ["Chocah"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "FeralSutra",
 		"builders": ["Zerxsai"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Iridium",
 		"builders": ["xJiune", "Devynn"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "IronRiders",
 		"builders": ["The-Builder"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Jardin-Lunaire (ex BlackLotusHeir)",
 		"builders": ["Hüman", "Orhann", "Simiaomao"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "KillByKill",
 		"builders": [],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "La Guilde",
 		"builders": ["Keanu-Kai"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "LaTaverne",
 		"builders": ["Tuxanne", "JinSupremo", "soussous"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Liberty-City",
 		"builders": ["Ju-Kyung", "Seong-Je"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Melancolypse",
 		"builders": ["Aïk"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "NhatNguyet",
 		"builders": ["LôiThiênHàa"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 10
 	},
 	{
 		"name": "Noblesse",
 		"builders": ["HyyuK"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Saints",
 		"builders": ["SupremeLoner"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Sanctuarys",
 		"builders": ["Nurami", "Ichigor"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Seireitei",
 		"builders": [],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "SixtyOne",
 		"builders": ["may"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Tigres écarlates",
 		"builders": ["Selkyy", "Tavu", "TristanPupu"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "TSUKIBANA",
 		"builders": ["Min-Woh"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "VN-HoàngKim",
 		"builders": ["zzBenT"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 20
 	},
 	{
 		"name": "Visual",
 		"builders": ["Navil"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "Wolfions",
 		"builders": ["Sabi", "Kojak"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "WushuChaos",
 		"builders": ["Sakiz", "Kenshii-"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "ZOOTOPIA",
 		"builders": [],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "湮琴閣",
 		"builders": ["雲酹"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
 	{
 		"name": "AfterFlame",
 		"builders": ["FoxiKate"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	},
@@ -234,7 +234,7 @@
 		"name": "Star·Bound",
 		"id": "10076053",
 		"builders": ["FoxiKate"],
-		"tags": "",
+		"tags": [],
 		"discordThread": "",
 		"score": 0
 	}
