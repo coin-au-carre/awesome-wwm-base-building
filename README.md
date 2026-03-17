@@ -63,6 +63,7 @@ Planned improvements when the community grows:
 - **Photo gallery**: Screenshot albums linked to each guild base
 - **Search & filters**: Static website with tags, builders, and style search
 - **Base tours**: Video walkthroughs and interactive maps
+- **Discord language roles**: Channel by language with role (like the official WWM discord). Display supplementary channel in the language of your choice.
 
 ---
 
