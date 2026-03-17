@@ -8,7 +8,7 @@
 	},
 	{
 		"name": "Ao",
-		"builders": ["FallenAngell"],
+		"builders": [],
 		"link": "",
 		"discordThread": "",
 		"score": 0
@@ -39,7 +39,7 @@
 		"builders": ["KlavaCocka"],
 		"link": "https://www.reddit.com/r/WhereWindsMeet/comments/1qustoj/guild_base_building/",
 		"discordThread": "",
-		"score": 0
+		"score": 10
 	},
 	{
 		"name": "Comfy",
@@ -57,7 +57,7 @@
 	},
 	{
 		"name": "Fourberie",
-		"builders": ["Bonobonoya", "Chocah"],
+		"builders": ["Chocah"],
 		"link": "",
 		"discordThread": "",
 		"score": 0
@@ -113,7 +113,7 @@
 	},
 	{
 		"name": "Liberty-City",
-		"builders": ["Ai-Hinatsuru", "Ju-Kyung", "Seong-Je"],
+		"builders": ["Ju-Kyung", "Seong-Je"],
 		"link": "",
 		"discordThread": "",
 		"score": 0
@@ -130,7 +130,7 @@
 		"builders": ["LôiThiênHàa"],
 		"link": "",
 		"discordThread": "",
-		"score": 0
+		"score": 10
 	},
 	{
 		"name": "Noblesse",
@@ -141,7 +141,7 @@
 	},
 	{
 		"name": "Saints",
-		"builders": ["exca", "Meowr", "SupremeLoner"],
+		"builders": ["SupremeLoner"],
 		"link": "",
 		"discordThread": "",
 		"score": 0
@@ -190,7 +190,7 @@
 	},
 	{
 		"name": "Visual",
-		"builders": ["Qinzhue", "Navil"],
+		"builders": ["Navil"],
 		"link": "",
 		"discordThread": "",
 		"score": 0
