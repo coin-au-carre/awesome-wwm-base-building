@@ -34,7 +34,7 @@
 			"Dovahline"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "COBAKA",
@@ -47,7 +47,7 @@
 			"River"
 		],
 		"discordThread": "",
-		"score": 20
+		"score": 8
 	},
 	{
 		"name": "Comfy",
@@ -55,7 +55,7 @@
 			"MikeRize"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "EMH-Shogunate",
@@ -63,7 +63,7 @@
 			"ToxotesToons"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "Fourberie",
@@ -106,7 +106,7 @@
 			"Simiaomao"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "KillByKill",
@@ -125,7 +125,6 @@
 	{
 		"name": "LaTaverne",
 		"builders": [
-			"Tuxanne",
 			"JinSupremo",
 			"soussous"
 		],
@@ -155,7 +154,7 @@
 			"LôiThiênHàa"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "Noblesse",
@@ -180,7 +179,7 @@
 			"Ichigor"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "Seireitei",
@@ -204,7 +203,7 @@
 			"TristanPupu"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "TSUKIBANA",
@@ -220,7 +219,7 @@
 			"zzBenT"
 		],
 		"discordThread": "",
-		"score": 20
+		"score": 8
 	},
 	{
 		"name": "Visual",
@@ -228,7 +227,7 @@
 			"Navil"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"name": "Wolfions",
@@ -268,14 +267,75 @@
 			"FoxiKate"
 		],
 		"discordThread": "",
-		"score": 10
+		"score": 4
 	},
 	{
 		"id": "10076053",
 		"name": "Star·Bound",
 		"builders": [],
 		"discordThread": "",
-		"score": 10
+		"score": 4
+	},
+	{
+		"id": "10005556",
+		"name": "BlackFurry",
+		"builders": ["carnii"],
+		"discordThread": "",
+		"tags": [
+			"Nature"
+		],
+		"score": 8
+	},
+	{
+		"id": "10209300",
+		"name": "Clandestine",
+		"builders": ["HazelWind"],
+		"discordThread": "",
+		"tags": [
+			"Nature"
+		],
+		"score": 8
+	},
+	{
+		"id": "10082099",
+		"name": "Jasmin'Tea",
+		"builders": [],
+		"discordThread": "",
+		"tags": [
+			"Nature"
+		],
+		"score": 8
+	},
+	{
+		"id": "10057013",
+		"name": "PleasureSeeker",
+		"builders": [],
+		"discordThread": "",
+		"tags": [
+			"Nature"
+		],
+		"score": 4
+	},
+	{
+		"id": "",
+		"name": "CobraKai",
+		"builders": ["Dona"],
+		"discordThread": "",
+		"tags": [
+			"Nature"
+		],
+		"score": 8
+	},
+	{
+		"name": "Toronto",
+		"builders": [
+			"FoxiKate"
+		],
+		"discordThread": "",
+		"tags": [
+			"Fun"
+		],
+		"score": 4
 	},
 	{
 		"id": "10244476",
