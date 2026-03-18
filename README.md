@@ -13,43 +13,50 @@ By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I
 
 ## Guild Bases
 
-| Guild ID | Guild Name       | Builders                      | Tags               | Discord Thread                                                               | Score |
-| -------- | ---------------- | ----------------------------- | ------------------ | ---------------------------------------------------------------------------- | ----- |
-|          | COBAKA           | KlavaCocka                    | Nature, Zen, River |                                                                              | 20    |
-|          | VN-HoàngKim      | zzBenT                        |                    |                                                                              | 20    |
-|          | AfterFlame       | FoxiKate                      |                    |                                                                              | 10    |
-|          | NhatNguyet       | LôiThiênHàa                   |                    |                                                                              | 10    |
-|          | BrigadePhantom   | Ssyrena, Dovahline            |                    |                                                                              | 10    |
-| 10076053 | Star·Bound       |                               |                    |                                                                              | 10    |
-|          | Comfy            | MikeRize                      |                    |                                                                              | 10    |
-|          | EMH-Shogunate    | ToxotesToons                  |                    |                                                                              | 10    |
-|          | Visual           | Navil                         |                    |                                                                              | 10    |
-|          | Tigres écarlates | Selkyy, Tavu, TristanPupu     |                    |                                                                              | 10    |
-|          | Sanctuarys       | Nurami, Ichigor               |                    |                                                                              | 10    |
-|          | Jardin-Lunaire   | Hüman, Orhann, Simiaomao      |                    |                                                                              | 10    |
-| 10244476 | Jenova           | Ahlyam, Aihän                 | Zen, Nature        | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 2     |
-|          | Fourberie        | Chocah                        |                    |                                                                              | 0     |
-|          | Iridium          | xJiune, Devynn                |                    |                                                                              | 0     |
-|          | LaTaverne        | Tuxanne, JinSupremo, soussous |                    |                                                                              | 0     |
-|          | Liberty-City     | Ju-Kyung, Seong-Je            |                    |                                                                              | 0     |
-|          | Melancolypse     | Aïk                           |                    |                                                                              | 0     |
-|          | KillByKill       |                               |                    |                                                                              | 0     |
-|          | Noblesse         | HyyuK                         |                    |                                                                              | 0     |
-|          | Saints           | SupremeLoner                  |                    |                                                                              | 0     |
-|          | IronRiders       | The-Builder                   |                    |                                                                              | 0     |
-|          | Seireitei        |                               |                    |                                                                              | 0     |
-|          | SixtyOne         | may                           |                    |                                                                              | 0     |
-|          | La Guilde        | Keanu-Kai                     |                    |                                                                              | 0     |
-|          | TSUKIBANA        | Min-Woh                       |                    |                                                                              | 0     |
-|          | FeralSutra       | Zerxsai                       |                    |                                                                              | 0     |
-|          | APX              |                               |                    |                                                                              | 0     |
-|          | Wolfions         | Sabi, Kojak                   |                    |                                                                              | 0     |
-|          | WushuChaos       | Sakiz, Kenshii-               |                    |                                                                              | 0     |
-|          | ZOOTOPIA         |                               |                    |                                                                              | 0     |
-|          | 湮琴閣           | 雲酹                          |                    |                                                                              | 0     |
-|          | Aurore           | Syphala                       |                    |                                                                              | 0     |
-|          | ASWANG           | Kadlum                        |                    |                                                                              | 0     |
-|          | Ao               |                               |                    |                                                                              | 0     |
+| Guild ID | Guild Name        | Builders                  | Tags               | Discord Thread                                                               | Score |
+| -------- | ----------------- | ------------------------- | ------------------ | ---------------------------------------------------------------------------- | ----- |
+| 10082099 | Jasmin'Tea        |                           | Nature             |                                                                              | 8     |
+|          | VN-HoàngKim      | zzBenT                    |                    |                                                                              | 8     |
+| 10005556 | BlackFurry        | carnii                    | Nature             |                                                                              | 8     |
+|          | CobraKai          | Dona                      | Nature             |                                                                              | 8     |
+| 10209300 | Clandestine       | HazelWind                 | Nature             |                                                                              | 8     |
+|          | COBAKA            | KlavaCocka                | Nature, Zen, River |                                                                              | 8     |
+| 10057013 | PleasureSeeker    |                           | Nature             |                                                                              | 4     |
+|          | EMH-Shogunate     | ToxotesToons              |                    |                                                                              | 4     |
+|          | Sanctuarys        | Nurami, Ichigor           |                    |                                                                              | 4     |
+|          | Comfy             | MikeRize                  |                    |                                                                              | 4     |
+|          | BrigadePhantom    | Ssyrena, Dovahline        |                    |                                                                              | 4     |
+|          | Toronto           | FoxiKate                  | Fun                |                                                                              | 4     |
+|          | Jardin-Lunaire    | Hüman, Orhann, Simiaomao |                    |                                                                              | 4     |
+| 10076053 | Star·Bound       |                           |                    |                                                                              | 4     |
+|          | AfterFlame        | FoxiKate                  |                    |                                                                              | 4     |
+|          | Visual            | Navil                     |                    |                                                                              | 4     |
+|          | Tigres écarlates | Selkyy, Tavu, TristanPupu |                    |                                                                              | 4     |
+|          | NhatNguyet        | LôiThiênHàa            |                    |                                                                              | 4     |
+| 10244476 | Jenova            | Ahlyam, Aihän            | Zen, Nature        | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 2     |
+|          | Saints            | SupremeLoner              |                    |                                                                              | 0     |
+|          | ZOOTOPIA          |                           |                    |                                                                              | 0     |
+|          | Noblesse          | HyyuK                     |                    |                                                                              | 0     |
+|          | Seireitei         |                           |                    |                                                                              | 0     |
+|          | SixtyOne          | may                       |                    |                                                                              | 0     |
+|          | Melancolypse      | Aïk                      |                    |                                                                              | 0     |
+|          | TSUKIBANA         | Min-Woh                   |                    |                                                                              | 0     |
+|          | Liberty-City      | Ju-Kyung, Seong-Je        |                    |                                                                              | 0     |
+|          | LaTaverne         | JinSupremo, soussous      |                    |                                                                              | 0     |
+|          | Wolfions          | Sabi, Kojak               |                    |                                                                              | 0     |
+|          | WushuChaos        | Sakiz, Kenshii-           |                    |                                                                              | 0     |
+|          | APX               |                           |                    |                                                                              | 0     |
+|          | 湮琴閣         | 雲酹                    |                    |                                                                              | 0     |
+|          | La Guilde         | Keanu-Kai                 |                    |                                                                              | 0     |
+|          | KillByKill        |                           |                    |                                                                              | 0     |
+|          | IronRiders        | The-Builder               |                    |                                                                              | 0     |
+|          | Iridium           | xJiune, Devynn            |                    |                                                                              | 0     |
+|          | FeralSutra        | Zerxsai                   |                    |                                                                              | 0     |
+|          | Fourberie         | Chocah                    |                    |                                                                              | 0     |
+|          | Aurore            | Syphala                   |                    |                                                                              | 0     |
+|          | ASWANG            | Kadlum                    |                    |                                                                              | 0     |
+|          | Ao                |                           |                    |                                                                              | 0     |
+
 
 ## Building Sources
 
@@ -63,8 +70,8 @@ Official and community sources/guides for **Where Winds Meet** base building:
 
 Scoring ranks guild bases by community popularity, currently using a system based on Discord engagement in `#base-guild-showcase` with emojis. Here the details:
 
-⭐ = Best overall base (count as 2 votes)  
-👍 = Good build, to visit absolutely! (count as 1 vote)  
+⭐ = Top Tiers Base (count as 2 votes)  
+👍 = Good build, Must-Visit (count as 1 vote)  
 🔥 = Amazing creativity/technique (count as 1 vote)  
 
 Note: We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
