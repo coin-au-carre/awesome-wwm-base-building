@@ -37,17 +37,28 @@
 		"score": 1
 	},
 	{
+		"id": "10209300",
 		"name": "COBAKA",
 		"builders": [
 			"KlavaCocka"
 		],
 		"tags": [
-			"Nature",
+			"River",
 			"Zen",
-			"River"
+			"Nature",
+			"Mountain"
 		],
-		"discordThread": "",
-		"score": 2
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484163652796809450",
+		"score": 5,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69bd3a9d\u0026is=69bbe91d\u0026hm=e8a5e5b910ccbcee956a2c9dc625f391d02c26807e9f9cdc2650032e637f36fa\u0026",
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163654227329114/guild-base-building-v0-kl3196pmdahg1.webp?ex=69bd3a9d\u0026is=69bbe91d\u0026hm=2e1e966d4828ceaec93d9415642ac7001fc869ae62babfad2307aa6009c0b5aa\u0026",
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163654889898086/guild-base-building-v0-d3waonuydahg1.webp?ex=69bd3a9d\u0026is=69bbe91d\u0026hm=bea2500c4d784f1866ccfa0eda92fcedac7054d7adb8054cbbbd348312221b1e\u0026",
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163655342886983/guild-base-building-v0-buc5bwfpdahg1.webp?ex=69bd3a9d\u0026is=69bbe91d\u0026hm=15c3c97f7be53285b0c4022faeb3305d0485bc82b8090466f28b21442824b7ab\u0026",
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163655779221504/guild-base-building-v0-bfg2cyxhdahg1.webp?ex=69bd3a9d\u0026is=69bbe91d\u0026hm=a268a28c24bee54a7a58d2e728b8a680cb82946f9c2410dd0055c228f56cd104\u0026",
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163656265498736/guild-base-building-v0-wtntumpqdahg1.webp?ex=69bd3a9e\u0026is=69bbe91e\u0026hm=ea193b13462882c3ba03633ac00ef77f56214f181920cc562cea49ca1d4d3dba\u0026",
+			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163656785727579/guild-base-building-v0-rct30eurdahg1.webp?ex=69bd3a9e\u0026is=69bbe91e\u0026hm=e8ec3ade14fcc29d3ebfb0f0f7d14c5196e24ddd1f64806578a81c71481bc1f8\u0026"
+		]
 	},
 	{
 		"name": "Comfy",
@@ -266,8 +277,19 @@
 		"builders": [
 			"FoxiKate"
 		],
-		"discordThread": "",
-		"score": 1
+		"tags": [
+			"Zen",
+			"Nature"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484168217453662248",
+		"score": 3,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69bd3edd\u0026is=69bbed5d\u0026hm=61e46641f00355a47059142d7ef0365ad2672f33b779d8ad145344533a62bbd6\u0026",
+			"https://cdn.discordapp.com/attachments/1484168217453662248/1484168219777302580/20263134920.png?ex=69bd3ede\u0026is=69bbed5e\u0026hm=5e88bc6f348381cc98b2a5d4b4e0cb35ea6b58d8ad90959ccea60da91544ae64\u0026",
+			"https://cdn.discordapp.com/attachments/1484168217453662248/1484168220612231260/2026313588.png?ex=69bd3ede\u0026is=69bbed5e\u0026hm=dfe65de9e102ef565583bbe3d7656d05ec29e28603cbbe7eca1504658b25d586\u0026",
+			"https://cdn.discordapp.com/attachments/1484168217453662248/1484168221396434964/20263135534.png?ex=69bd3ede\u0026is=69bbed5e\u0026hm=578fcde75632c681d9c1ea01b46d522277354b9e18a11e909181e5068e024a70\u0026",
+			"https://cdn.discordapp.com/attachments/1484168217453662248/1484168222067527790/20263135431.png?ex=69bd3ede\u0026is=69bbed5e\u0026hm=68e89c69f9fca6a9b775435460881edb533f35af857c3658af29450aada06081\u0026"
+		]
 	},
 	{
 		"id": "10076053",
@@ -289,7 +311,7 @@
 			"Mountain"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484133568908099584",
-		"score": 4,
+		"score": 5,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791\u0026",
 			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=4d7c8a1922ff67024bc7f11eea63a1125aae1403b88ea00170d66067f8a28d68\u0026",
@@ -306,7 +328,7 @@
 			"City"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484136356266512424",
-		"score": 3,
+		"score": 4,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1484136356266512424/1484136357415747655/2026319182427.png?ex=69bd2131\u0026is=69bbcfb1\u0026hm=056d6661203292743471df67bcf2a3e811e4c1de73a0de0cfc211d471a18a24c\u0026",
 			"https://cdn.discordapp.com/attachments/1484136356266512424/1484136360112820396/2026319182256.png?ex=69bd2132\u0026is=69bbcfb2\u0026hm=9143cb9c4cd1cc326a3eafd1d5861f6c97f606dbd8d1a3f5fd36a752c82fec43\u0026",
@@ -316,12 +338,16 @@
 	{
 		"id": "10082099",
 		"name": "Jasmin'Tea",
-		"builders": [],
-		"tags": [
-			"Nature"
+		"builders": [
+			"Sidereus"
 		],
-		"discordThread": "",
-		"score": 2
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484169335260971058",
+		"score": 1,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484169335260971058/1484169336166809671/2026319202142.png?ex=69bd3fe8\u0026is=69bbee68\u0026hm=8b30486b7f1ed46fc300fe3f006de76e1a094b90a825b731ec881a6a897570b9\u0026",
+			"https://cdn.discordapp.com/attachments/1484169335260971058/1484169337001738361/2026319203711.png?ex=69bd3fe8\u0026is=69bbee68\u0026hm=631a40aa64734af5675be39878f78cce43c60bafd4711e77d739d0ac5e588bc3\u0026",
+			"https://cdn.discordapp.com/attachments/1484169335260971058/1484169337647530047/2026319203624.png?ex=69bd3fe8\u0026is=69bbee68\u0026hm=3fbf6d74ce5c857333764db9f78a94d5992a996377a2bcf05a6546f354dbe7d4\u0026"
+		]
 	},
 	{
 		"id": "10057013",
@@ -343,7 +369,7 @@
 			"Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484131605428703262",
-		"score": 4,
+		"score": 5,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4\u0026is=69bbcb44\u0026hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a\u0026",
 			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131607408283648/202631918313.png?ex=69bd1cc5\u0026is=69bbcb45\u0026hm=08cc414454d9dbc2bef88495087e4c5ae7c6670889c06622baf27ddbc22bff22\u0026",
@@ -374,7 +400,7 @@
 			"Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1483464416480465018",
-		"score": 3,
+		"score": 4,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c\u0026is=69bb70bc\u0026hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=e309a9544b7a78e15a5eea717a283c71dba0088c5c0d0fb00a8876c84f9dfcbb\u0026",

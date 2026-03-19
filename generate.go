@@ -82,7 +82,7 @@ func buildTopShowcase(guilds []Guild) string {
 		if len(g.Screenshots) > 0 {
 			top = append(top, g)
 		}
-		if len(top) == 3 {
+		if len(top) == 10 {
 			break
 		}
 	}
