@@ -1,5 +1,5 @@
-ruby/*
+# ruby/*
 .env
-*.go
-go.mod
-go.sum
+# *.go
+# go.mod
+# go.sum
