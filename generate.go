@@ -10,6 +10,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"time"
 )
 
 type Guild struct {
@@ -23,13 +24,15 @@ type Guild struct {
 }
 
 const (
-	guildsDir       = "guilds"
-	discordInvite   = "https://discord.gg/Qygt9u26Bn"
-	showcaseChannel = "`#base-guild-showcase`"
-	startMarker     = "<!-- GENERATED_TABLE_START -->"
-	endMarker       = "<!-- GENERATED_TABLE_END -->"
-	showcaseStart   = "<!-- TOP_SHOWCASE_START -->"
-	showcaseEnd     = "<!-- TOP_SHOWCASE_END -->"
+	guildsDir        = "guilds"
+	discordInvite    = "https://discord.gg/Qygt9u26Bn"
+	showcaseChannel  = "`#base-guild-showcase`"
+	startMarker      = "<!-- GENERATED_TABLE_START -->"
+	endMarker        = "<!-- GENERATED_TABLE_END -->"
+	showcaseStart    = "<!-- TOP_SHOWCASE_START -->"
+	showcaseEnd      = "<!-- TOP_SHOWCASE_END -->"
+	lastUpdatedStart = "<!-- LAST_UPDATED_START -->"
+	lastUpdatedEnd   = "<!-- LAST_UPDATED_END -->"
 )
 
 func main() {
@@ -67,6 +70,12 @@ func main() {
 
 	if err := injectBetweenMarkers("README.md", showcaseStart, showcaseEnd, buildTopShowcase(guilds)); err != nil {
 		fmt.Fprintf(os.Stderr, "error injecting top showcase: %v\n", err)
+		os.Exit(1)
+	}
+
+	lastUpdated := fmt.Sprintf("🔄 **Last synchronized:**  %s", time.Now().UTC().Format("January 2, 2006 at 15:04 UTC"))
+	if err := injectBetweenMarkers("README.md", lastUpdatedStart, lastUpdatedEnd, lastUpdated); err != nil {
+		fmt.Fprintf(os.Stderr, "error injecting last updated: %v\n", err)
 		os.Exit(1)
 	}
 
