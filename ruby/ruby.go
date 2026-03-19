@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
+	"path/filepath"
 	"regexp"
 	"strings"
 
@@ -36,12 +37,20 @@ var (
 
 const (
 	GUILD_BUILDING_CHANNEL_FORUM_ID = "1483455027250200639"
-	GUILDS_JSON                     = "guilds.json"
 	DRY_RUN                         = false
 )
 
+// rootDir returns the repo root, whether ruby.go is run from / or ruby/
+func rootDir() string {
+	if _, err := os.Stat("LICENSE"); err == nil {
+		return "."
+	}
+	return ".."
+}
+
 func main() {
-	if err := godotenv.Load("../.env"); err != nil {
+	root := rootDir()
+	if err := godotenv.Load(filepath.Join(root, ".env")); err != nil {
 		slog.Error("loading .env", "err", err)
 		os.Exit(1)
 	}
@@ -62,14 +71,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := sync(session); err != nil {
+	if err := sync(session, root); err != nil {
 		slog.Error("sync failed", "err", err)
 		os.Exit(1)
 	}
 }
 
-func sync(s *discordgo.Session) error {
-	guilds, err := loadGuilds()
+func sync(s *discordgo.Session, root string) error {
+	guilds, err := loadGuilds(root)
 	if err != nil {
 		slog.Warn("loading guilds, starting fresh", "err", err)
 		guilds = []Guild{}
@@ -156,7 +165,7 @@ func sync(s *discordgo.Session) error {
 		return nil
 	}
 
-	if err := saveGuilds(guilds); err != nil {
+	if err := saveGuilds(root, guilds); err != nil {
 		return fmt.Errorf("saving guilds: %w", err)
 	}
 
@@ -271,8 +280,8 @@ func getExt(filename string) string {
 	return ""
 }
 
-func loadGuilds() ([]Guild, error) {
-	data, err := os.ReadFile(GUILDS_JSON)
+func loadGuilds(root string) ([]Guild, error) {
+	data, err := os.ReadFile(filepath.Join(root, "guilds.json"))
 	if err != nil {
 		return nil, err
 	}
@@ -280,10 +289,10 @@ func loadGuilds() ([]Guild, error) {
 	return guilds, json.Unmarshal(data, &guilds)
 }
 
-func saveGuilds(guilds []Guild) error {
+func saveGuilds(root string, guilds []Guild) error {
 	data, err := json.MarshalIndent(guilds, "", "\t")
 	if err != nil {
 		return err
 	}
-	return os.WriteFile(GUILDS_JSON, data, 0644)
+	return os.WriteFile(filepath.Join(root, "guilds.json"), data, 0644)
 }
