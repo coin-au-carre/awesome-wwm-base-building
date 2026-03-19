@@ -65,57 +65,24 @@ func main() {
 }
 
 func buildTable(guilds []Guild) string {
-	headers := []string{"Guild ID", "Guild Name", "Builders", "Tags", "Discord Thread", "Score"}
+	var sb strings.Builder
 
-	rows := make([][]string, len(guilds))
-	for i, g := range guilds {
+	sb.WriteString("| Guild ID | Guild Name | Builders | Tags | Discord Thread | Score |\n")
+	sb.WriteString("| --- | --- | --- | --- | --- | --- |\n")
+
+	for _, g := range guilds {
 		thread := ""
 		if g.DiscordThread != "" {
 			thread = fmt.Sprintf("[Join](%s)", g.DiscordThread)
 		}
-		rows[i] = []string{
+		sb.WriteString(fmt.Sprintf("| %s | [%s](%s/%s.md) | %s | %s | %s | %d |\n",
 			g.ID,
-			fmt.Sprintf("[%s](%s/%s.md)", g.Name, guildsDir, slugify(g.Name)),
+			g.Name, guildsDir, slugify(g.Name),
 			strings.Join(g.Builders, ", "),
 			strings.Join(g.Tags, ", "),
 			thread,
-			fmt.Sprintf("%d", g.Score),
-		}
-	}
-
-	// compute column widths
-	widths := make([]int, len(headers))
-	for i, h := range headers {
-		widths[i] = len(h)
-	}
-	for _, row := range rows {
-		for i, cell := range row {
-			if len(cell) > widths[i] {
-				widths[i] = len(cell)
-			}
-		}
-	}
-
-	pad := func(s string, w int) string {
-		return s + strings.Repeat(" ", w-len(s))
-	}
-	formatRow := func(cells []string) string {
-		parts := make([]string, len(cells))
-		for i, c := range cells {
-			parts[i] = pad(c, widths[i])
-		}
-		return "| " + strings.Join(parts, " | ") + " |"
-	}
-
-	var sb strings.Builder
-	sb.WriteString(formatRow(headers) + "\n")
-	seps := make([]string, len(headers))
-	for i, w := range widths {
-		seps[i] = strings.Repeat("-", w)
-	}
-	sb.WriteString(formatRow(seps) + "\n")
-	for _, row := range rows {
-		sb.WriteString(formatRow(row) + "\n")
+			g.Score,
+		))
 	}
 
 	return sb.String()

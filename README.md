@@ -14,49 +14,49 @@ By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I
 ## Guild Bases
 
 <!-- GENERATED_TABLE_START -->
-| Guild ID | Guild Name                                       | Builders                  | Tags               | Discord Thread                                                               | Score |
-| -------- | ------------------------------------------------ | ------------------------- | ------------------ | ---------------------------------------------------------------------------- | ----- |
-| 10082099 | [Jasmin'Tea](guilds/jasmin-tea.md)               |                           | Nature             |                                                                              | 8     |
-|          | [VN-HoàngKim](guilds/vn-hoàngkim.md)           | zzBenT                    |                    |                                                                              | 8     |
-| 10005556 | [BlackFurry](guilds/blackfurry.md)               | carnii                    | Nature             |                                                                              | 8     |
-|          | [CobraKai](guilds/cobrakai.md)                   | Dona                      | Nature             |                                                                              | 8     |
-| 10209300 | [Clandestine](guilds/clandestine.md)             | HazelWind                 | Nature             |                                                                              | 8     |
-|          | [COBAKA](guilds/cobaka.md)                       | KlavaCocka                | Nature, Zen, River |                                                                              | 8     |
-| 10057013 | [PleasureSeeker](guilds/pleasureseeker.md)       |                           | Nature             |                                                                              | 4     |
-|          | [EMH-Shogunate](guilds/emh-shogunate.md)         | ToxotesToons              |                    |                                                                              | 4     |
-|          | [Sanctuarys](guilds/sanctuarys.md)               | Nurami, Ichigor           |                    |                                                                              | 4     |
-|          | [Comfy](guilds/comfy.md)                         | MikeRize                  |                    |                                                                              | 4     |
-|          | [BrigadePhantom](guilds/brigadephantom.md)       | Ssyrena, Dovahline        |                    |                                                                              | 4     |
-|          | [Toronto](guilds/toronto.md)                     | FoxiKate                  | Fun                |                                                                              | 4     |
-|          | [Jardin-Lunaire](guilds/jardin-lunaire.md)       | Hüman, Orhann, Simiaomao |                    |                                                                              | 4     |
-| 10076053 | [Star·Bound](guilds/star-bound.md)              |                           |                    |                                                                              | 4     |
-|          | [AfterFlame](guilds/afterflame.md)               | FoxiKate                  |                    |                                                                              | 4     |
-|          | [Visual](guilds/visual.md)                       | Navil                     |                    |                                                                              | 4     |
-|          | [Tigres écarlates](guilds/tigres-écarlates.md) | Selkyy, Tavu, TristanPupu |                    |                                                                              | 4     |
-|          | [NhatNguyet](guilds/nhatnguyet.md)               | LôiThiênHàa            |                    |                                                                              | 4     |
-| 10244476 | [Jenova](guilds/jenova.md)                       | Ahlyam, Aihän            | Zen, Nature        | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 3     |
-|          | [Saints](guilds/saints.md)                       | SupremeLoner              |                    |                                                                              | 0     |
-|          | [ZOOTOPIA](guilds/zootopia.md)                   |                           |                    |                                                                              | 0     |
-|          | [Noblesse](guilds/noblesse.md)                   | HyyuK                     |                    |                                                                              | 0     |
-|          | [Seireitei](guilds/seireitei.md)                 |                           |                    |                                                                              | 0     |
-|          | [SixtyOne](guilds/sixtyone.md)                   | may                       |                    |                                                                              | 0     |
-|          | [Melancolypse](guilds/melancolypse.md)           | Aïk                      |                    |                                                                              | 0     |
-|          | [TSUKIBANA](guilds/tsukibana.md)                 | Min-Woh                   |                    |                                                                              | 0     |
-|          | [Liberty-City](guilds/liberty-city.md)           | Ju-Kyung, Seong-Je        |                    |                                                                              | 0     |
-|          | [LaTaverne](guilds/lataverne.md)                 | JinSupremo, soussous      |                    |                                                                              | 0     |
-|          | [Wolfions](guilds/wolfions.md)                   | Sabi, Kojak               |                    |                                                                              | 0     |
-|          | [WushuChaos](guilds/wushuchaos.md)               | Sakiz, Kenshii-           |                    |                                                                              | 0     |
-|          | [APX](guilds/apx.md)                             |                           |                    |                                                                              | 0     |
-|          | [湮琴閣](guilds/湮琴閣.md)                 | 雲酹                    |                    |                                                                              | 0     |
-|          | [La Guilde](guilds/la-guilde.md)                 | Keanu-Kai                 |                    |                                                                              | 0     |
-|          | [KillByKill](guilds/killbykill.md)               |                           |                    |                                                                              | 0     |
-|          | [IronRiders](guilds/ironriders.md)               | The-Builder               |                    |                                                                              | 0     |
-|          | [Iridium](guilds/iridium.md)                     | xJiune, Devynn            |                    |                                                                              | 0     |
-|          | [FeralSutra](guilds/feralsutra.md)               | Zerxsai                   |                    |                                                                              | 0     |
-|          | [Fourberie](guilds/fourberie.md)                 | Chocah                    |                    |                                                                              | 0     |
-|          | [Aurore](guilds/aurore.md)                       | Syphala                   |                    |                                                                              | 0     |
-|          | [ASWANG](guilds/aswang.md)                       | Kadlum                    |                    |                                                                              | 0     |
-|          | [Ao](guilds/ao.md)                               |                           |                    |                                                                              | 0     |
+| Guild ID | Guild Name | Builders | Tags | Discord Thread | Score |
+| --- | --- | --- | --- | --- | --- |
+| 10082099 | [Jasmin'Tea](guilds/jasmin-tea.md) |  | Nature |  | 8 |
+|  | [VN-HoàngKim](guilds/vn-hoàngkim.md) | zzBenT |  |  | 8 |
+| 10005556 | [BlackFurry](guilds/blackfurry.md) | carnii | Nature |  | 8 |
+|  | [CobraKai](guilds/cobrakai.md) | Dona | Nature |  | 8 |
+| 10209300 | [Clandestine](guilds/clandestine.md) | HazelWind | Nature |  | 8 |
+|  | [COBAKA](guilds/cobaka.md) | KlavaCocka | Nature, Zen, River |  | 8 |
+| 10057013 | [PleasureSeeker](guilds/pleasureseeker.md) |  | Nature |  | 4 |
+|  | [EMH-Shogunate](guilds/emh-shogunate.md) | ToxotesToons |  |  | 4 |
+|  | [Sanctuarys](guilds/sanctuarys.md) | Nurami, Ichigor |  |  | 4 |
+|  | [Comfy](guilds/comfy.md) | MikeRize |  |  | 4 |
+|  | [BrigadePhantom](guilds/brigadephantom.md) | Ssyrena, Dovahline |  |  | 4 |
+|  | [Toronto](guilds/toronto.md) | FoxiKate | Fun |  | 4 |
+|  | [Jardin-Lunaire](guilds/jardin-lunaire.md) | Hüman, Orhann, Simiaomao |  |  | 4 |
+| 10076053 | [Star·Bound](guilds/star-bound.md) |  |  |  | 4 |
+|  | [AfterFlame](guilds/afterflame.md) | FoxiKate |  |  | 4 |
+|  | [Visual](guilds/visual.md) | Navil |  |  | 4 |
+|  | [Tigres écarlates](guilds/tigres-écarlates.md) | Selkyy, Tavu, TristanPupu |  |  | 4 |
+|  | [NhatNguyet](guilds/nhatnguyet.md) | LôiThiênHàa |  |  | 4 |
+| 10244476 | [Jenova](guilds/jenova.md) | Ahlyam, Aihän | Zen, Nature | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 3 |
+|  | [Saints](guilds/saints.md) | SupremeLoner |  |  | 0 |
+|  | [ZOOTOPIA](guilds/zootopia.md) |  |  |  | 0 |
+|  | [Noblesse](guilds/noblesse.md) | HyyuK |  |  | 0 |
+|  | [Seireitei](guilds/seireitei.md) |  |  |  | 0 |
+|  | [SixtyOne](guilds/sixtyone.md) | may |  |  | 0 |
+|  | [Melancolypse](guilds/melancolypse.md) | Aïk |  |  | 0 |
+|  | [TSUKIBANA](guilds/tsukibana.md) | Min-Woh |  |  | 0 |
+|  | [Liberty-City](guilds/liberty-city.md) | Ju-Kyung, Seong-Je |  |  | 0 |
+|  | [LaTaverne](guilds/lataverne.md) | JinSupremo, soussous |  |  | 0 |
+|  | [Wolfions](guilds/wolfions.md) | Sabi, Kojak |  |  | 0 |
+|  | [WushuChaos](guilds/wushuchaos.md) | Sakiz, Kenshii- |  |  | 0 |
+|  | [APX](guilds/apx.md) |  |  |  | 0 |
+|  | [湮琴閣](guilds/湮琴閣.md) | 雲酹 |  |  | 0 |
+|  | [La Guilde](guilds/la-guilde.md) | Keanu-Kai |  |  | 0 |
+|  | [KillByKill](guilds/killbykill.md) |  |  |  | 0 |
+|  | [IronRiders](guilds/ironriders.md) | The-Builder |  |  | 0 |
+|  | [Iridium](guilds/iridium.md) | xJiune, Devynn |  |  | 0 |
+|  | [FeralSutra](guilds/feralsutra.md) | Zerxsai |  |  | 0 |
+|  | [Fourberie](guilds/fourberie.md) | Chocah |  |  | 0 |
+|  | [Aurore](guilds/aurore.md) | Syphala |  |  | 0 |
+|  | [ASWANG](guilds/aswang.md) | Kadlum |  |  | 0 |
+|  | [Ao](guilds/ao.md) |  |  |  | 0 |
 <!-- GENERATED_TABLE_END -->
 
 
