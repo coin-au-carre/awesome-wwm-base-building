@@ -94,9 +94,7 @@ Scores reflect Discord reactions (emojis) in `#base-guild-showcase`. Here the de
 | 👍 | 1 pt | Good build, must-visit |
 | 🔥 | 1 pt | Amazing creativity |
 
-Note: We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
-Ultimately, these scores will be overriden by the community vote! 
-
+> Some scores (the one not highlighted) are manually set by until community voting matures.
 
 ## 💡Why This List Exists?
 
