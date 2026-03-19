@@ -10,3 +10,17 @@
 footer.inner {
   display: none;
 }
+
+.outer {
+  max-width: 100% !important;
+  padding: 0 2rem !important;
+}
+
+.inner {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+#main_content_wrap {
+  padding: 2rem !important;
+}
