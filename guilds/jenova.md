@@ -3,7 +3,7 @@
 **ID:** 10244476  
 **Builders:** Ahlyam, Aihän  
 **Tags:** Zen, Nature  
-**Score:** 3  
+**Score:** 4  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1483464416480465018)  
 
 ---
