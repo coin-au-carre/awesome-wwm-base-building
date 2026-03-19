@@ -14,6 +14,7 @@ By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I
 ## Guild Bases
 
 <!-- GENERATED_TABLE_START -->
+
 | Guild ID | Guild Name | Builders | Tags | Discord Thread | Score |
 | --- | --- | --- | --- | --- | --- |
 | 10082099 | [Jasmin'Tea](guilds/jasmin-tea.md) |  | Nature |  | 8 |
@@ -57,6 +58,7 @@ By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I
 |  | [Aurore](guilds/aurore.md) | Syphala |  |  | 0 |
 |  | [ASWANG](guilds/aswang.md) | Kadlum |  |  | 0 |
 |  | [Ao](guilds/ao.md) |  |  |  | 0 |
+
 <!-- GENERATED_TABLE_END -->
 
 
