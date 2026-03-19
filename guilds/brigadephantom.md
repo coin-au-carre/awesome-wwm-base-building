@@ -1,7 +1,7 @@
 # BrigadePhantom
 
 **Builders:** Ssyrena, Dovahline  
-**Score:** 4  
+**Score:** 1  
 
 ---
 

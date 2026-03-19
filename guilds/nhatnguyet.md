@@ -1,7 +1,7 @@
 # NhatNguyet
 
 **Builders:** LôiThiênHàa  
-**Score:** 4  
+**Score:** 1  
 
 ---
 

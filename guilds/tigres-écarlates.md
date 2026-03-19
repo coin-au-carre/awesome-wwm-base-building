@@ -1,7 +1,7 @@
 # Tigres écarlates
 
 **Builders:** Selkyy, Tavu, TristanPupu  
-**Score:** 4  
+**Score:** 1  
 
 ---
 

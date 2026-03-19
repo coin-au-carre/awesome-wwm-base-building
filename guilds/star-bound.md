@@ -1,7 +1,7 @@
 # Star·Bound
 
 **ID:** 10076053  
-**Score:** 4  
+**Score:** 1  
 
 ---
 

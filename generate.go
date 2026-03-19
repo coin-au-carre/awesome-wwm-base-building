@@ -1,3 +1,4 @@
+// generate.go
 package main
 
 import (
@@ -26,6 +27,8 @@ const (
 	showcaseChannel = "`#base-guild-showcase`"
 	startMarker     = "<!-- GENERATED_TABLE_START -->"
 	endMarker       = "<!-- GENERATED_TABLE_END -->"
+	showcaseStart   = "<!-- TOP_SHOWCASE_START -->"
+	showcaseEnd     = "<!-- TOP_SHOWCASE_END -->"
 )
 
 func main() {
@@ -56,12 +59,50 @@ func main() {
 		}
 	}
 
-	if err := injectTable(buildTable(guilds)); err != nil {
+	if err := injectBetweenMarkers("README.md", startMarker, endMarker, buildTable(guilds)); err != nil {
 		fmt.Fprintf(os.Stderr, "error injecting table: %v\n", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("done: %d guild pages updated, README.md table injected\n", len(guilds))
+	if err := injectBetweenMarkers("README.md", showcaseStart, showcaseEnd, buildTopShowcase(guilds)); err != nil {
+		fmt.Fprintf(os.Stderr, "error injecting top showcase: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("done: %d guild pages updated, README.md table and showcase injected\n", len(guilds))
+}
+
+// buildTopShowcase returns a markdown snippet with the first screenshot of the
+// top 3 guilds (by score) that have at least one screenshot.
+func buildTopShowcase(guilds []Guild) string {
+	var sb strings.Builder
+
+	var top []Guild
+	for _, g := range guilds {
+		if len(g.Screenshots) > 0 {
+			top = append(top, g)
+		}
+		if len(top) == 3 {
+			break
+		}
+	}
+
+	if len(top) == 0 {
+		sb.WriteString("*No screenshots available yet — be the first to [share yours](" + discordInvite + ")!*\n")
+		return sb.String()
+	}
+
+	for _, g := range top {
+		sb.WriteString(fmt.Sprintf(
+			`<a href="%s" title="%s"><img src="%s" width="260" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
+			g.Screenshots[0], g.Name,
+			g.Screenshots[0],
+			g.Name,
+		))
+	}
+	sb.WriteString("\n")
+
+	return sb.String()
 }
 
 func buildTable(guilds []Guild) string {
@@ -88,28 +129,24 @@ func buildTable(guilds []Guild) string {
 	return sb.String()
 }
 
-func injectTable(table string) error {
-	src, err := os.ReadFile("README.md")
+func injectBetweenMarkers(file, startMk, endMk, content string) error {
+	src, err := os.ReadFile(file)
 	if err != nil {
-		return fmt.Errorf("reading README.md: %w", err)
+		return fmt.Errorf("reading %s: %w", file, err)
 	}
-	content := string(src)
+	s := string(src)
 
-	start := strings.Index(content, startMarker)
-	end := strings.Index(content, endMarker)
+	start := strings.Index(s, startMk)
+	end := strings.Index(s, endMk)
 	if start == -1 || end == -1 {
-		return fmt.Errorf("markers not found in README.md — add %q and %q around the table", startMarker, endMarker)
+		return fmt.Errorf("markers %q / %q not found in %s", startMk, endMk, file)
 	}
 	if start > end {
-		return fmt.Errorf("start marker appears after end marker in README.md")
+		return fmt.Errorf("start marker appears after end marker in %s", file)
 	}
 
-	updated := content[:start] +
-		startMarker + "\n\n" +
-		table + "\n" +
-		content[end:]
-
-	return os.WriteFile("README.md", []byte(updated), 0644)
+	updated := s[:start] + startMk + "\n\n" + content + "\n" + s[end:]
+	return os.WriteFile(file, []byte(updated), 0644)
 }
 
 func generateGuildPage(g *Guild) error {

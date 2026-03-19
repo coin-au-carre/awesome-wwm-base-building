@@ -41,7 +41,7 @@ const (
 )
 
 func main() {
-	if err := godotenv.Load(".env"); err != nil {
+	if err := godotenv.Load("../.env"); err != nil {
 		slog.Error("loading .env", "err", err)
 		os.Exit(1)
 	}
@@ -106,28 +106,28 @@ func sync(s *discordgo.Session) error {
 		threads = append(threads, archived.Threads...)
 	}
 
-	guildMap := make(map[string]*Guild)
+	guildMap := make(map[string]int)
 	for i := range guilds {
-		guildMap[strings.ToLower(guilds[i].Name)] = &guilds[i]
+		guildMap[strings.ToLower(guilds[i].Name)] = i
 	}
 
 	for _, thread := range threads {
 		name := extractGuildName(thread.Name)
-		g, exists := guildMap[strings.ToLower(name)]
+		idx, exists := guildMap[strings.ToLower(name)]
 		if !exists {
 			guilds = append(guilds, Guild{Name: name, Builders: []string{}})
-			g = &guilds[len(guilds)-1]
-			guildMap[strings.ToLower(name)] = g
+			idx = len(guilds) - 1
+			guildMap[strings.ToLower(name)] = idx
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 
 		data := fetchThreadData(s, thread.ID)
 
-		if g.ID == "" && data.ID != "" {
-			g.ID = data.ID
+		if guilds[idx].ID == "" && data.ID != "" {
+			guilds[idx].ID = data.ID
 		}
-		if len(g.Builders) == 0 && len(data.Builders) > 0 {
-			g.Builders = data.Builders
+		if len(guilds[idx].Builders) == 0 && len(data.Builders) > 0 {
+			guilds[idx].Builders = data.Builders
 		}
 
 		var tags []string
@@ -136,18 +136,18 @@ func sync(s *discordgo.Session) error {
 				tags = append(tags, tagName)
 			}
 		}
-		g.Tags = tags
-		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
-		g.Score = data.Score
-		g.Screenshots = data.Screenshots
+		guilds[idx].Tags = tags
+		guilds[idx].DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+		guilds[idx].Score = data.Score
+		guilds[idx].Screenshots = data.Screenshots
 
 		slog.Info("guild synced",
-			"name", g.Name,
-			"id", g.ID,
-			"score", g.Score,
-			"builders", strings.Join(g.Builders, ", "),
-			"tags", strings.Join(g.Tags, ", "),
-			"screenshots", len(g.Screenshots),
+			"name", guilds[idx].Name,
+			"id", guilds[idx].ID,
+			"score", guilds[idx].Score,
+			"builders", strings.Join(guilds[idx].Builders, ", "),
+			"tags", strings.Join(guilds[idx].Tags, ", "),
+			"screenshots", len(guilds[idx].Screenshots),
 		)
 	}
 

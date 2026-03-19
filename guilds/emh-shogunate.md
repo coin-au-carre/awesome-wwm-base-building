@@ -1,7 +1,7 @@
 # EMH-Shogunate
 
 **Builders:** ToxotesToons  
-**Score:** 4  
+**Score:** 1  
 
 ---
 
