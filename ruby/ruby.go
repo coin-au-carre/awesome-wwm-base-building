@@ -19,12 +19,14 @@ type Guild struct {
 	Tags          []string `json:"tags,omitempty"`
 	DiscordThread string   `json:"discordThread"`
 	Score         int      `json:"score"`
+	Screenshots   []string `json:"screenshots,omitempty"`
 }
 
 type threadData struct {
-	ID       string
-	Builders []string
-	Score    int
+	ID          string
+	Builders    []string
+	Score       int
+	Screenshots []string
 }
 
 var (
@@ -121,7 +123,6 @@ func sync(s *discordgo.Session) error {
 
 		data := fetchThreadData(s, thread.ID)
 
-		// only update if not set manually
 		if g.ID == "" && data.ID != "" {
 			g.ID = data.ID
 		}
@@ -131,13 +132,14 @@ func sync(s *discordgo.Session) error {
 
 		var tags []string
 		for _, tagID := range thread.AppliedTags {
-			if name, ok := tagMap[tagID]; ok {
-				tags = append(tags, name)
+			if tagName, ok := tagMap[tagID]; ok {
+				tags = append(tags, tagName)
 			}
 		}
 		g.Tags = tags
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 		g.Score = data.Score
+		g.Screenshots = data.Screenshots
 
 		slog.Info("guild synced",
 			"name", g.Name,
@@ -145,16 +147,17 @@ func sync(s *discordgo.Session) error {
 			"score", g.Score,
 			"builders", strings.Join(g.Builders, ", "),
 			"tags", strings.Join(g.Tags, ", "),
-			"thread", g.DiscordThread,
+			"screenshots", len(g.Screenshots),
 		)
 	}
 
 	if DRY_RUN {
 		slog.Info("dry-run: skipping save")
-	} else {
-		if err := saveGuilds(guilds); err != nil {
-			return fmt.Errorf("saving guilds: %w", err)
-		}
+		return nil
+	}
+
+	if err := saveGuilds(guilds); err != nil {
+		return fmt.Errorf("saving guilds: %w", err)
 	}
 
 	slog.Info("sync complete", "total_guilds", len(guilds), "threads_processed", len(threads))
@@ -187,7 +190,49 @@ func fetchThreadData(s *discordgo.Session, threadID string) threadData {
 		score += pts
 	}
 
-	return threadData{ID: id, Builders: builders, Score: score}
+	return threadData{
+		ID:          id,
+		Builders:    builders,
+		Score:       score,
+		Screenshots: collectScreenshotURLs(s, threadID),
+	}
+}
+
+func collectScreenshotURLs(s *discordgo.Session, threadID string) []string {
+	seen := make(map[string]bool)
+	var urls []string
+	var lastID string
+
+	for {
+		msgs, err := s.ChannelMessages(threadID, 100, lastID, "", "")
+		if err != nil || len(msgs) == 0 {
+			break
+		}
+
+		for _, msg := range msgs {
+			for _, att := range msg.Attachments {
+				if isImage(att.Filename) && !seen[att.URL] {
+					seen[att.URL] = true
+					urls = append(urls, att.URL)
+					slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
+				}
+			}
+			for _, embed := range msg.Embeds {
+				if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
+					seen[embed.Image.URL] = true
+					urls = append(urls, embed.Image.URL)
+					slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
+				}
+			}
+		}
+
+		lastID = msgs[len(msgs)-1].ID
+		if len(msgs) < 100 {
+			break
+		}
+	}
+
+	return urls
 }
 
 func parseFirstPost(content string) (id string, builders []string) {
@@ -207,6 +252,23 @@ func parseFirstPost(content string) (id string, builders []string) {
 func extractGuildName(threadName string) string {
 	parts := strings.SplitN(threadName, " -", 2)
 	return strings.TrimSpace(strings.Trim(parts[0], "[]🏯📍"))
+}
+
+func isImage(filename string) bool {
+	switch strings.ToLower(getExt(filename)) {
+	case ".jpg", ".jpeg", ".png", ".gif", ".webp":
+		return true
+	}
+	return false
+}
+
+func getExt(filename string) string {
+	for i := len(filename) - 1; i >= 0; i-- {
+		if filename[i] == '.' {
+			return filename[i:]
+		}
+	}
+	return ""
 }
 
 func loadGuilds() ([]Guild, error) {
