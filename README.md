@@ -10,7 +10,7 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="guilds/cobrakai.md" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobaka.md" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69bd3a9d&is=69bbe91d&hm=e8a5e5b910ccbcee956a2c9dc625f391d02c26807e9f9cdc2650032e637f36fa&" width="260" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.md" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99&is=69bbcd19&hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/clandestine.md" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1484136356266512424/1484136357415747655/2026319182427.png?ex=69bd2131&is=69bbcfb1&hm=056d6661203292743471df67bcf2a3e811e4c1de73a0de0cfc211d471a18a24c&" width="260" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jenova.md" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/afterflame.md" title="AfterFlame"><img src="https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69bd3edd&is=69bbed5d&hm=61e46641f00355a47059142d7ef0365ad2672f33b779d8ad145344533a62bbd6&" width="260" alt="AfterFlame"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jasmin-tea.md" title="Jasmin'Tea"><img src="https://cdn.discordapp.com/attachments/1484169335260971058/1484169336166809671/2026319202142.png?ex=69bd3fe8&is=69bbee68&hm=8b30486b7f1ed46fc300fe3f006de76e1a094b90a825b731ec881a6a897570b9&" width="260" alt="Jasmin'Tea"></a>&nbsp;&nbsp;&nbsp;
+<a href="guilds/cobrakai.md" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131608087891998/202631918327.png?ex=69bd1cc5&is=69bbcb45&hm=dc4205006c6ce2e091aa362d5c53e84f9f9f9e0432dc926e09d46f71f496f90a&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.md" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69bd1e99&is=69bbcd19&hm=4d7c8a1922ff67024bc7f11eea63a1125aae1403b88ea00170d66067f8a28d68&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobaka.md" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163654227329114/guild-base-building-v0-kl3196pmdahg1.webp?ex=69bd3a9d&is=69bbe91d&hm=2e1e966d4828ceaec93d9415642ac7001fc869ae62babfad2307aa6009c0b5aa&" width="260" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jenova.md" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/clandestine.md" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1484136356266512424/1484136360112820396/2026319182256.png?ex=69bd2132&is=69bbcfb2&hm=9143cb9c4cd1cc326a3eafd1d5861f6c97f606dbd8d1a3f5fd36a752c82fec43&" width="260" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/afterflame.md" title="AfterFlame"><img src="https://cdn.discordapp.com/attachments/1484168217453662248/1484168220612231260/2026313588.png?ex=69bd3ede&is=69bbed5e&hm=dfe65de9e102ef565583bbe3d7656d05ec29e28603cbbe7eca1504658b25d586&" width="260" alt="AfterFlame"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jasmin-tea.md" title="Jasmin'Tea"><img src="https://cdn.discordapp.com/attachments/1484169335260971058/1484169336166809671/2026319202142.png?ex=69bd3fe8&is=69bbee68&hm=8b30486b7f1ed46fc300fe3f006de76e1a094b90a825b731ec881a6a897570b9&" width="260" alt="Jasmin'Tea"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/comfy.md" title="Comfy"><img src="https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69bd486e&is=69bbf6ee&hm=145334bc5624060526d098e1d0f2af9dc7c2dd5caddb53b0766ab51447309cbf&" width="260" alt="Comfy"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/aswang.md" title="ASWANG"><img src="https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69bd4674&is=69bbf4f4&hm=bbbf544a7343ed80a81ab5aa12c7a7856e8fb7f116575476de57f3be278f7560&" width="260" alt="ASWANG"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/ħao.md" title="Ħao"><img src="https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69bd4b8d&is=69bbfa0d&hm=a05ad45cca2cb0cce620a9d1d789d8630a415a1bd31b86f995c8e9eea35a250b&" width="260" alt="Ħao"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -23,37 +23,39 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 | Guild ID | Guild Name | Builders | Tags | Discord Score |
 | --- | --- | --- | --- | --- |
 |  | [**CobraKai**](guilds/cobrakai.md) | Dona | City, Nature | [5](https://discord.com/channels/1483447710617960508/1484131605428703262) |
-| 10209300 | [**COBAKA**](guilds/cobaka.md) | KlavaCocka | River, Zen, Nature, Mountain | [5](https://discord.com/channels/1483447710617960508/1484163652796809450) |
 | 10005556 | [**BlackFurry**](guilds/blackfurry.md) | carnii | City, River, Nature, Mountain | [5](https://discord.com/channels/1483447710617960508/1484133568908099584) |
-| 10209300 | [**Clandestine**](guilds/clandestine.md) | HazelWind | City | [4](https://discord.com/channels/1483447710617960508/1484136356266512424) |
+| 10209300 | [**COBAKA**](guilds/cobaka.md) | KlavaCocka | River, Zen, Nature, Mountain | [5](https://discord.com/channels/1483447710617960508/1484163652796809450) |
 | 10244476 | [**Jenova**](guilds/jenova.md) | Ahlyam, Aihän | Zen, Nature | [4](https://discord.com/channels/1483447710617960508/1483464416480465018) |
+| 10209300 | [**Clandestine**](guilds/clandestine.md) | HazelWind | City | [4](https://discord.com/channels/1483447710617960508/1484136356266512424) |
 |  | [**AfterFlame**](guilds/afterflame.md) | FoxiKate | Zen, Nature | [3](https://discord.com/channels/1483447710617960508/1484168217453662248) |
 |  | [**VN-HoàngKim**](guilds/vn-hoàngkim.md) | zzBenT |  | 2 |
 | 10057013 | [**PleasureSeeker**](guilds/pleasureseeker.md) |  | Nature | 1 |
+|  | [**BrigadePhantom**](guilds/brigadephantom.md) | Ssyrena, Dovahline |  | 1 |
+|  | [**EMH-Shogunate**](guilds/emh-shogunate.md) | ToxotesToons |  | 1 |
 |  | [**Sanctuarys**](guilds/sanctuarys.md) | Nurami, Ichigor |  | 1 |
 | 10082099 | [**Jasmin'Tea**](guilds/jasmin-tea.md) | Sidereus |  | [1](https://discord.com/channels/1483447710617960508/1484169335260971058) |
-|  | [**EMH-Shogunate**](guilds/emh-shogunate.md) | ToxotesToons |  | 1 |
-|  | [**Comfy**](guilds/comfy.md) | MikeRize |  | 1 |
 |  | [**Jardin-Lunaire**](guilds/jardin-lunaire.md) | Hüman, Orhann, Simiaomao |  | 1 |
-| 10076053 | [**Star·Bound**](guilds/star-bound.md) |  |  | 1 |
-|  | [**BrigadePhantom**](guilds/brigadephantom.md) | Ssyrena, Dovahline |  | 1 |
-|  | [**Visual**](guilds/visual.md) | Navil |  | 1 |
+|  | [**Comfy**](guilds/comfy.md) | MikeRize |  | [1](https://discord.com/channels/1483447710617960508/1484178485407911966) |
 |  | [**Toronto**](guilds/toronto.md) | FoxiKate | Fun | 1 |
-|  | [**Tigres écarlates**](guilds/tigres-écarlates.md) | Selkyy, Tavu, TristanPupu |  | 1 |
+| 10076053 | [**Star·Bound**](guilds/star-bound.md) |  |  | 1 |
+|  | [**ASWANG**](guilds/aswang.md) | Kadlum | Fun | [1](https://discord.com/channels/1483447710617960508/1484176367989031002) |
+|  | [**Visual**](guilds/visual.md) | Navil |  | 1 |
 |  | [**NhatNguyet**](guilds/nhatnguyet.md) | LôiThiênHàa |  | 1 |
+|  | [**Ħao**](guilds/ħao.md) | Rastawar |  | [1](https://discord.com/channels/1483447710617960508/1484181836694556772) |
+|  | [**Tigres écarlates**](guilds/tigres-écarlates.md) | Selkyy, Tavu, TristanPupu |  | 1 |
 |  | [**Saints**](guilds/saints.md) | SupremeLoner |  | 0 |
-|  | [**ZOOTOPIA**](guilds/zootopia.md) |  |  | 0 |
-|  | [**Noblesse**](guilds/noblesse.md) | HyyuK |  | 0 |
 |  | [**Seireitei**](guilds/seireitei.md) |  |  | 0 |
 |  | [**SixtyOne**](guilds/sixtyone.md) | may |  | 0 |
-|  | [**Melancolypse**](guilds/melancolypse.md) | Aïk |  | 0 |
+|  | [**APX**](guilds/apx.md) |  |  | 0 |
 |  | [**TSUKIBANA**](guilds/tsukibana.md) | Min-Woh |  | 0 |
-|  | [**Liberty-City**](guilds/liberty-city.md) | Ju-Kyung, Seong-Je |  | 0 |
-|  | [**LaTaverne**](guilds/lataverne.md) | JinSupremo, soussous |  | 0 |
+|  | [**Noblesse**](guilds/noblesse.md) | HyyuK |  | 0 |
+|  | [**Melancolypse**](guilds/melancolypse.md) | Aïk |  | 0 |
 |  | [**Wolfions**](guilds/wolfions.md) | Sabi, Kojak |  | 0 |
 |  | [**WushuChaos**](guilds/wushuchaos.md) | Sakiz, Kenshii- |  | 0 |
-|  | [**APX**](guilds/apx.md) |  |  | 0 |
+|  | [**ZOOTOPIA**](guilds/zootopia.md) |  |  | 0 |
 |  | [**湮琴閣**](guilds/湮琴閣.md) | 雲酹 |  | 0 |
+|  | [**Liberty-City**](guilds/liberty-city.md) | Ju-Kyung, Seong-Je |  | [0](https://discord.com/channels/1483447710617960508/1484175329537953973) |
+|  | [**LaTaverne**](guilds/lataverne.md) | JinSupremo, soussous |  | 0 |
 |  | [**La Guilde**](guilds/la-guilde.md) | Keanu-Kai |  | 0 |
 |  | [**KillByKill**](guilds/killbykill.md) |  |  | 0 |
 |  | [**IronRiders**](guilds/ironriders.md) | The-Builder |  | 0 |
@@ -61,7 +63,6 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 |  | [**FeralSutra**](guilds/feralsutra.md) | Zerxsai |  | 0 |
 |  | [**Fourberie**](guilds/fourberie.md) | Chocah |  | 0 |
 |  | [**Aurore**](guilds/aurore.md) | Syphala |  | 0 |
-|  | [**ASWANG**](guilds/aswang.md) | Kadlum |  | 0 |
 |  | [**Ao**](guilds/ao.md) |  |  | 0 |
 
 <!-- GENERATED_TABLE_END -->
