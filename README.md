@@ -1,6 +1,6 @@
-# Awesome Where Winds Meet Base Building
+<!-- # Awesome Where Winds Meet Base Building -->
 
-A curated list of **Where Winds Meet** guild bases and builders. Enjoy the players creativity in all Jiang hu! 🌟
+A curated list of **Where Winds Meet** guild bases and builders. 🌟
 
 **Want to add your guild base?** Join **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added on this page! 🏆
 
