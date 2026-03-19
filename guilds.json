@@ -283,10 +283,18 @@
 			"carnii"
 		],
 		"tags": [
-			"Nature"
+			"City",
+			"River",
+			"Nature",
+			"Mountain"
 		],
-		"discordThread": "",
-		"score": 8
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484133568908099584",
+		"score": 4,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791\u0026",
+			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=4d7c8a1922ff67024bc7f11eea63a1125aae1403b88ea00170d66067f8a28d68\u0026",
+			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133572808802384/2026319181533.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=cd2246677a06ebebe2a6defbe4f00155eb43618ca62acf458f57f623a1d0321c\u0026"
+		]
 	},
 	{
 		"id": "10209300",
@@ -295,10 +303,15 @@
 			"HazelWind"
 		],
 		"tags": [
-			"Nature"
+			"City"
 		],
-		"discordThread": "",
-		"score": 8
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484136356266512424",
+		"score": 3,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484136356266512424/1484136357415747655/2026319182427.png?ex=69bd2131\u0026is=69bbcfb1\u0026hm=056d6661203292743471df67bcf2a3e811e4c1de73a0de0cfc211d471a18a24c\u0026",
+			"https://cdn.discordapp.com/attachments/1484136356266512424/1484136360112820396/2026319182256.png?ex=69bd2132\u0026is=69bbcfb2\u0026hm=9143cb9c4cd1cc326a3eafd1d5861f6c97f606dbd8d1a3f5fd36a752c82fec43\u0026",
+			"https://cdn.discordapp.com/attachments/1484136356266512424/1484136360767000676/2026319182244.png?ex=69bd2132\u0026is=69bbcfb2\u0026hm=96fff36aeae58f7846b4e72801c9eceea3613306c1b71211c04fba79335240cf\u0026"
+		]
 	},
 	{
 		"id": "10082099",
@@ -326,10 +339,17 @@
 			"Dona"
 		],
 		"tags": [
+			"City",
 			"Nature"
 		],
-		"discordThread": "",
-		"score": 8
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484131605428703262",
+		"score": 4,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4\u0026is=69bbcb44\u0026hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a\u0026",
+			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131607408283648/202631918313.png?ex=69bd1cc5\u0026is=69bbcb45\u0026hm=08cc414454d9dbc2bef88495087e4c5ae7c6670889c06622baf27ddbc22bff22\u0026",
+			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131608087891998/202631918327.png?ex=69bd1cc5\u0026is=69bbcb45\u0026hm=dc4205006c6ce2e091aa362d5c53e84f9f9f9e0432dc926e09d46f71f496f90a\u0026",
+			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131608654118992/20263199404.png?ex=69bd1cc5\u0026is=69bbcb45\u0026hm=48f908b8251a4e338ac86f5baf1169cf73f2c1662670d0c83f0cefb77c80c300\u0026"
+		]
 	},
 	{
 		"name": "Toronto",
