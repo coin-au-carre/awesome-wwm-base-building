@@ -4,10 +4,6 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 **Want to add your guild base?** Join our **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added here! 🏆
 
-## Why This List Exists?
-
-This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too. The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
-By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I hope it will sparks inspiration, collaboration, and community growth around base building.
 
 ---
 
@@ -61,6 +57,13 @@ By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I
 
 <!-- GENERATED_TABLE_END -->
 
+---
+
+## Why This List Exists?
+
+This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too. The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
+By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I hope it will sparks inspiration, collaboration, and community growth around base building.
+
 
 ## Building Sources
 
@@ -85,11 +88,8 @@ Ultimately, these scores will be overriden by the community vote!
 
 Planned improvements when the community grows:
 
-- **Voting system**: ⭐ reaction counts on Discord threads → live rankings in this table (currently arbitrary system)
-- **Photo gallery**: Screenshot albums linked to each guild base
-- **Search & filters**: Static website with tags, builders, and style search
+- **Search & filters**: Website with tags, builders, and style search
 - **Base tours**: Video walkthroughs and interactive maps
-- **Discord language roles**: Channel by language with role (like the official WWM discord). Display supplementary channel in the language of your choice.
 
 ---
 
