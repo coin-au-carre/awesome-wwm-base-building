@@ -82,9 +82,7 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 > No GitHub account needed. No pull request. Just post on Discord and you're in.
 
-
 ## ⭐ How Scoring Works
-
 
 Scores reflect Discord reactions (emojis) in `#base-guild-showcase`. Here the details:
 
