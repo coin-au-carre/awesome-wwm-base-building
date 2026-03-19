@@ -105,8 +105,8 @@ func injectTable(table string) error {
 	}
 
 	updated := content[:start] +
-		startMarker + "\n" +
-		table +
+		startMarker + "\n\n" +
+		table + "\n" +
 		content[end:]
 
 	return os.WriteFile("README.md", []byte(updated), 0644)
