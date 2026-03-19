@@ -3,7 +3,7 @@
 **ID:** 10005556  
 **Builders:** carnii  
 **Tags:** City, River, Nature, Mountain  
-**Score:** 5  
+**Score:** 6  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484133568908099584)  
 
 ---
