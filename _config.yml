@@ -5,3 +5,6 @@ url: "https://coin-au-carre.github.io"
 remote_theme: pages-themes/slate@v0.2.0
 plugins:
   - jekyll-remote-theme
+
+header_tagline: "Discover the most beautiful bases in Jiang Hu 🏯"
+footer_text: "2026 - Made with ❤️ by the <a href='https://discord.gg/Qygt9u26Bn'>WWM community</a>"
