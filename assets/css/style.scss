@@ -13,5 +13,8 @@ footer.inner {
 
 .inner {
   max-width: 1400px !important;
+  width: 100% !important;
   margin: 0 auto !important;
+  padding: 0 20px !important;
+  box-sizing: border-box !important;
 }

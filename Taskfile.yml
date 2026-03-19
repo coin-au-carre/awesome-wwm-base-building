@@ -1,0 +1,14 @@
+# Taskfile.yml
+version: '3'
+
+tasks:
+  generate:
+    cmd: go run generate.go
+
+  ruby:
+    dir: ruby
+    cmd: go run ruby.go
+
+  all:
+    deps: [ruby]
+    cmd: go run generate.go
