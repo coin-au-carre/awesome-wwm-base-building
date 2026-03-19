@@ -16,8 +16,15 @@
 		"builders": [
 			"Kadlum"
 		],
-		"discordThread": "",
-		"score": 0
+		"tags": [
+			"Fun"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484176367989031002",
+		"score": 1,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69bd4674\u0026is=69bbf4f4\u0026hm=bbbf544a7343ed80a81ab5aa12c7a7856e8fb7f116575476de57f3be278f7560\u0026",
+			"https://cdn.discordapp.com/attachments/1484176367989031002/1484176369398321303/202631921521.png?ex=69bd4675\u0026is=69bbf4f5\u0026hm=6781c65fffac5f5b745512cb9660e88eb0c900a5708dd36663fe970cc44f294d\u0026"
+		]
 	},
 	{
 		"name": "Aurore",
@@ -65,8 +72,14 @@
 		"builders": [
 			"MikeRize"
 		],
-		"discordThread": "",
-		"score": 1
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484178485407911966",
+		"score": 1,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69bd486d\u0026is=69bbf6ed\u0026hm=6caa7970681ee7fc671da9e760a49d7f3de86dba7e0af6ff04467a3e02bee9dd\u0026",
+			"https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69bd486e\u0026is=69bbf6ee\u0026hm=c32e0ccd14e6d513a84939708a105c6594e40030d66143361fc53c8d0bffa8d8\u0026",
+			"https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69bd486e\u0026is=69bbf6ee\u0026hm=145334bc5624060526d098e1d0f2af9dc7c2dd5caddb53b0766ab51447309cbf\u0026",
+			"https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69bd486e\u0026is=69bbf6ee\u0026hm=3c5b6b8dc90058c9969bd1b5cdebb6545542b3237fbd2a6c9bf5e41d275d6ada\u0026"
+		]
 	},
 	{
 		"name": "EMH-Shogunate",
@@ -148,8 +161,11 @@
 			"Ju-Kyung",
 			"Seong-Je"
 		],
-		"discordThread": "",
-		"score": 0
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484175329537953973",
+		"score": 0,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69bd457d\u0026is=69bbf3fd\u0026hm=7afcc1cd4e55805e8647c9bdaa0119b17a224b08c40be94fee1a3dd3dd528feb\u0026"
+		]
 	},
 	{
 		"name": "Melancolypse",
@@ -406,6 +422,19 @@
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=e309a9544b7a78e15a5eea717a283c71dba0088c5c0d0fb00a8876c84f9dfcbb\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=7901dbc0cce06b901310261eaa9e91f4d7338132f136ce2e11a83c85b41efc8e\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=6c0e3b8d8ad603114c53e9f33ac4a60659e92388be1ea5441001af43d04f91af\u0026"
+		]
+	},
+	{
+		"name": "Ħao",
+		"builders": [
+			"Rastawar"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1484181836694556772",
+		"score": 1,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69bd4b8c\u0026is=69bbfa0c\u0026hm=482b847b2929742c2dfc4cfaf7a78addde56633ffa29f2802eea752fc538aa41\u0026",
+			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69bd4b8d\u0026is=69bbfa0d\u0026hm=c434690346f680ff5a805d788361ec3921c694585fdb72e56297a8f973b68d3d\u0026",
+			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69bd4b8d\u0026is=69bbfa0d\u0026hm=a05ad45cca2cb0cce620a9d1d789d8630a415a1bd31b86f995c8e9eea35a250b\u0026"
 		]
 	}
 ]

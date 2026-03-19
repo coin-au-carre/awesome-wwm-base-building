@@ -4,6 +4,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -93,10 +94,11 @@ func buildTopShowcase(guilds []Guild) string {
 	}
 
 	for _, g := range top {
+		screenshot := g.Screenshots[rand.Intn(len(g.Screenshots))]
 		sb.WriteString(fmt.Sprintf(
 			`<a href="%s/%s.md" title="%s"><img src="%s" width="260" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
 			guildsDir, slugify(g.Name), g.Name,
-			g.Screenshots[0],
+			screenshot,
 			g.Name,
 		))
 	}
