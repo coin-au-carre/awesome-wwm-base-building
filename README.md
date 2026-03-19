@@ -2,7 +2,7 @@
 
 A curated list of **Where Winds Meet** guild bases and builders. Enjoy the players creativity in all Jiang hu! 🌟
 
-**Want to add your guild base?** Join our **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added here ! 🏆
+**Want to add your guild base?** Join **[Discord](https://discord.gg/Qygt9u26Bn)** → post in `#base-guild-showcase` → it will be added on this page! 🏆
 
 ---
 
@@ -16,11 +16,11 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 ---
 
-## Guild Bases
+## 📸 Guild Bases
 
 <!-- LAST_UPDATED_START -->
 
-🔄 **Last synchronized:**  March 19, 2026 at 14:34 UTC
+🔄 **Last sync:**  March 19, 2026 at 14:34 UTC
 <!-- LAST_UPDATED_END -->
 
 <!-- GENERATED_TABLE_START -->
@@ -75,30 +75,30 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 ## 🏗️ Are You a Builder?
 
-**Your base deserves to be here.** Here is how it works:
-
 1. 📸 Take screenshots of your guild base in-game
 2. 💬 [Join our Discord](https://discord.gg/Qygt9u26Bn) and post them in `#base-guild-showcase`
 3. ⭐ The community votes — the more reactions, the higher your rank
-4. 🤖 **This page auto-updates every week** — your guild appears here automatically!
+4. 🤖 **This page will auto udpate every day** — your guild appears here automatically!
 
 > No GitHub account needed. No pull request. Just post on Discord and you're in.
 
 
-## How Scoring Works
+## ⭐ How Scoring Works
 
 
 Scores reflect Discord reactions (emojis) in `#base-guild-showcase`. Here the details:
 
-⭐ = Top Tiers Base (count as 2 votes)  
-👍 = Good build, Must-Visit (count as 1 vote)  
-🔥 = Amazing creativity/technique (count as 1 vote)  
+| Reaction | Weight | Meaning |
+|---|---|---|
+| ⭐ | 2 pts | Top tier base |
+| 👍 | 1 pt | Good build, must-visit |
+| 🔥 | 1 pt | Amazing creativity |
 
 Note: We don't have enough users yet for robust voting, so some scores are arbitrary values set manually in guilds.json by admins—e.g., COBAKA at 20 reflects early buzz. 
 Ultimately, these scores will be overriden by the community vote! 
 
 
-## Why This List Exists?
+## 💡Why This List Exists?
 
 This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too. The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
 By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I hope it will sparks inspiration, collaboration, and community growth around base building.
@@ -122,7 +122,7 @@ Planned improvements when the community grows:
 
 ## Get Involved
 
-- **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase` → Fame awaits! 📢
-- **Vote & discuss**: React with ⭐ on builds you like!
+- **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase`
+- **Vote & discuss**: React on builds you love
 - **Chat & collab**: Live builder Q&A, tips, and cross-guild tours.
-- **Developers**: Open a GitHub Issue or Pull Request, our code is open source!
+- **Dev**: Open a GitHub Issue or PR, whole code is open source!
