@@ -75,7 +75,7 @@ func buildTable(guilds []Guild) string {
 		if g.DiscordThread != "" {
 			thread = fmt.Sprintf("[Join](%s)", g.DiscordThread)
 		}
-		sb.WriteString(fmt.Sprintf("| %s | [%s](%s/%s.md) | %s | %s | %s | %d |\n",
+		sb.WriteString(fmt.Sprintf("| %s | [**%s**](%s/%s.md) | %s | %s | %s | %d |\n",
 			g.ID,
 			g.Name, guildsDir, slugify(g.Name),
 			strings.Join(g.Builders, ", "),
