@@ -10,7 +10,7 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99&is=69bbcd19&hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791&" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99&is=69bbcd19&hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;
+<a href="guilds/cobrakai.md" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.md" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99&is=69bbcd19&hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jenova.md" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -105,8 +105,6 @@ Planned improvements when the community grows:
 ## Get Involved
 
 - **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase` → Fame awaits! 📢
-- **Submit updates**: Open a GitHub Issue or Pull Request, or post in Discord
 - **Vote & discuss**: React with ⭐ on builds you like!
 - **Chat & collab**: Live builder Q&A, tips, and cross-guild tours.
-
-**Discord**: [Join our Awesome Where Winds Meet Base Building Community](https://discord.gg/Qygt9u26Bn)
+- **Developers**: Open a GitHub Issue or Pull Request, our code is open source!
