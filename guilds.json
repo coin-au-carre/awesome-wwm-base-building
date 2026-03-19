@@ -279,51 +279,56 @@
 	{
 		"id": "10005556",
 		"name": "BlackFurry",
-		"builders": ["carnii"],
-		"discordThread": "",
+		"builders": [
+			"carnii"
+		],
 		"tags": [
 			"Nature"
 		],
+		"discordThread": "",
 		"score": 8
 	},
 	{
 		"id": "10209300",
 		"name": "Clandestine",
-		"builders": ["HazelWind"],
-		"discordThread": "",
+		"builders": [
+			"HazelWind"
+		],
 		"tags": [
 			"Nature"
 		],
+		"discordThread": "",
 		"score": 8
 	},
 	{
 		"id": "10082099",
 		"name": "Jasmin'Tea",
 		"builders": [],
-		"discordThread": "",
 		"tags": [
 			"Nature"
 		],
+		"discordThread": "",
 		"score": 8
 	},
 	{
 		"id": "10057013",
 		"name": "PleasureSeeker",
 		"builders": [],
-		"discordThread": "",
 		"tags": [
 			"Nature"
 		],
+		"discordThread": "",
 		"score": 4
 	},
 	{
-		"id": "",
 		"name": "CobraKai",
-		"builders": ["Dona"],
-		"discordThread": "",
+		"builders": [
+			"Dona"
+		],
 		"tags": [
 			"Nature"
 		],
+		"discordThread": "",
 		"score": 8
 	},
 	{
@@ -331,10 +336,10 @@
 		"builders": [
 			"FoxiKate"
 		],
-		"discordThread": "",
 		"tags": [
 			"Fun"
 		],
+		"discordThread": "",
 		"score": 4
 	},
 	{
@@ -349,6 +354,12 @@
 			"Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1483464416480465018",
-		"score": 2
+		"score": 3,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c\u0026is=69bb70bc\u0026hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6\u0026",
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=e309a9544b7a78e15a5eea717a283c71dba0088c5c0d0fb00a8876c84f9dfcbb\u0026",
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=7901dbc0cce06b901310261eaa9e91f4d7338132f136ce2e11a83c85b41efc8e\u0026",
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69bca9a6\u0026is=69bb5826\u0026hm=6c0e3b8d8ad603114c53e9f33ac4a60659e92388be1ea5441001af43d04f91af\u0026"
+		]
 	}
 ]
