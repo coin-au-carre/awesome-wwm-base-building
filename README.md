@@ -99,7 +99,7 @@ Scores reflect Discord reactions (emojis) in `#base-guild-showcase`. Here the de
 This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too. The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
 By centralizing showcases in our **[Discord](https://discord.gg/Qygt9u26Bn)**, I hope it will sparks inspiration, collaboration, and community growth around base building.
 
-## Building Sources
+## 📚 Building Resources
 
 Official and community sources/guides for **Where Winds Meet** base building:
 
@@ -107,18 +107,19 @@ Official and community sources/guides for **Where Winds Meet** base building:
 - How to Start Building House: [Video Tutorial](https://www.youtube.com/watch?v=G4vR78IfkfI)
 - Building a Home by the Waterfall: [Video Tutorial](https://www.youtube.com/watch?v=L7oKjiS_vk4)
 
-## Future Features
+## 🗺️ Roadmap
 
 Planned improvements when the community grows:
 
+- **Website**: a proper website more interactive
 - **Search & filters**: Website with tags, builders, and style search
-- **Base tours**: Video walkthroughs and interactive maps
+- **Base tours**: Video walkthroughs
 
 ---
 
-## Get Involved
+## 🤝Get Involved
 
-- **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase`
-- **Vote & discuss**: React on builds you love
-- **Chat & collab**: Live builder Q&A, tips, and cross-guild tours.
-- **Dev**: Open a GitHub Issue or PR, whole code is open source!
+- 📢 **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase`
+- ⭐ **Vote & discuss**: React on builds you love
+- 💬 **Chat & collab**: Live builder Q&A, tips, and cross-guild tours.
+- 🛠️ **Dev**: Open a GitHub Issue or PR, whole code is open source!
