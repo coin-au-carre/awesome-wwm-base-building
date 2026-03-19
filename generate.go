@@ -108,21 +108,20 @@ func buildTopShowcase(guilds []Guild) string {
 func buildTable(guilds []Guild) string {
 	var sb strings.Builder
 
-	sb.WriteString("| Guild ID | Guild Name | Builders | Tags | Discord Thread | Score |\n")
-	sb.WriteString("| --- | --- | --- | --- | --- | --- |\n")
+	sb.WriteString("| Guild ID | Guild Name | Builders | Tags | Discord Score |\n")
+	sb.WriteString("| --- | --- | --- | --- | --- |\n")
 
 	for _, g := range guilds {
-		thread := ""
+		score := fmt.Sprintf("%d", g.Score)
 		if g.DiscordThread != "" {
-			thread = fmt.Sprintf("[Join](%s)", g.DiscordThread)
+			score = fmt.Sprintf("[%d](%s)", g.Score, g.DiscordThread)
 		}
-		sb.WriteString(fmt.Sprintf("| %s | [**%s**](%s/%s.md) | %s | %s | %s | %d |\n",
+		sb.WriteString(fmt.Sprintf("| %s | [**%s**](%s/%s.md) | %s | %s | %s |\n",
 			g.ID,
 			g.Name, guildsDir, slugify(g.Name),
 			strings.Join(g.Builders, ", "),
 			strings.Join(g.Tags, ", "),
-			thread,
-			g.Score,
+			score,
 		))
 	}
 
