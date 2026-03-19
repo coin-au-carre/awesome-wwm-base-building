@@ -2,7 +2,7 @@
 
 **Builders:** KlavaCocka  
 **Tags:** Nature, Zen, River  
-**Score:** 8  
+**Score:** 2  
 
 ---
 

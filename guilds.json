@@ -34,7 +34,7 @@
 			"Dovahline"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "COBAKA",
@@ -47,7 +47,7 @@
 			"River"
 		],
 		"discordThread": "",
-		"score": 8
+		"score":2
 	},
 	{
 		"name": "Comfy",
@@ -55,7 +55,7 @@
 			"MikeRize"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "EMH-Shogunate",
@@ -63,7 +63,7 @@
 			"ToxotesToons"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "Fourberie",
@@ -106,7 +106,7 @@
 			"Simiaomao"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "KillByKill",
@@ -154,7 +154,7 @@
 			"LôiThiênHàa"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "Noblesse",
@@ -179,7 +179,7 @@
 			"Ichigor"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "Seireitei",
@@ -203,7 +203,7 @@
 			"TristanPupu"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "TSUKIBANA",
@@ -219,7 +219,7 @@
 			"zzBenT"
 		],
 		"discordThread": "",
-		"score": 8
+		"score":2
 	},
 	{
 		"name": "Visual",
@@ -227,7 +227,7 @@
 			"Navil"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "Wolfions",
@@ -267,14 +267,14 @@
 			"FoxiKate"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"id": "10076053",
 		"name": "Star·Bound",
 		"builders": [],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"id": "10005556",
@@ -289,7 +289,7 @@
 			"Mountain"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484133568908099584",
-		"score": 4,
+		"score":1,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791\u0026",
 			"https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69bd1e99\u0026is=69bbcd19\u0026hm=4d7c8a1922ff67024bc7f11eea63a1125aae1403b88ea00170d66067f8a28d68\u0026",
@@ -321,7 +321,7 @@
 			"Nature"
 		],
 		"discordThread": "",
-		"score": 8
+		"score":2
 	},
 	{
 		"id": "10057013",
@@ -331,7 +331,7 @@
 			"Nature"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"name": "CobraKai",
@@ -343,7 +343,7 @@
 			"Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484131605428703262",
-		"score": 4,
+		"score":1,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4\u0026is=69bbcb44\u0026hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a\u0026",
 			"https://cdn.discordapp.com/attachments/1484131605428703262/1484131607408283648/202631918313.png?ex=69bd1cc5\u0026is=69bbcb45\u0026hm=08cc414454d9dbc2bef88495087e4c5ae7c6670889c06622baf27ddbc22bff22\u0026",
@@ -360,7 +360,7 @@
 			"Fun"
 		],
 		"discordThread": "",
-		"score": 4
+		"score":1
 	},
 	{
 		"id": "10244476",

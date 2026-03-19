@@ -1,7 +1,7 @@
 # Sanctuarys
 
 **Builders:** Nurami, Ichigor  
-**Score:** 4  
+**Score:** 1  
 
 ---
 

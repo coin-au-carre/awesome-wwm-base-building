@@ -1,7 +1,7 @@
 # VN-HoàngKim
 
 **Builders:** zzBenT  
-**Score:** 8  
+**Score:** 2  
 
 ---
 

@@ -1,7 +1,7 @@
 # AfterFlame
 
 **Builders:** FoxiKate  
-**Score:** 4  
+**Score:** 1  
 
 ---
 
