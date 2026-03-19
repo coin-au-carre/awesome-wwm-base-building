@@ -94,8 +94,8 @@ func buildTopShowcase(guilds []Guild) string {
 
 	for _, g := range top {
 		sb.WriteString(fmt.Sprintf(
-			`<a href="%s" title="%s"><img src="%s" width="260" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
-			g.Screenshots[0], g.Name,
+			`<a href="%s/%s.md" title="%s"><img src="%s" width="260" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
+			guildsDir, slugify(g.Name), g.Name,
 			g.Screenshots[0],
 			g.Name,
 		))
