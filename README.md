@@ -10,7 +10,7 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;<a href="https://cdn.discordapp.com/attachments/1484136356266512424/1484136357415747655/2026319182427.png?ex=69bd2131&is=69bbcfb1&hm=056d6661203292743471df67bcf2a3e811e4c1de73a0de0cfc211d471a18a24c&" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1484136356266512424/1484136357415747655/2026319182427.png?ex=69bd2131&is=69bbcfb1&hm=056d6661203292743471df67bcf2a3e811e4c1de73a0de0cfc211d471a18a24c&" width="260" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;
+<a href="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69bd1cc4&is=69bbcb44&hm=9dafc43559594d55730bd76ebef9da8386ab752c8d016086e0e0e577b5ccf19a&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99&is=69bbcd19&hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791&" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69bd1e99&is=69bbcd19&hm=b06869d3696573d6c62ef00d5ccc70099211ff89992643cbc026b1cec024a791&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69bcc23c&is=69bb70bc&hm=67574bb79ef13cac4e789f8615626077e6c02ad670391a2fded811e832f3bcc6&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -22,19 +22,19 @@ A curated list of **Where Winds Meet** guild bases and builders. Enjoy the playe
 
 | Guild ID | Guild Name | Builders | Tags | Discord Thread | Score |
 | --- | --- | --- | --- | --- | --- |
+|  | [**CobraKai**](guilds/cobrakai.md) | Dona | City, Nature | [Join](https://discord.com/channels/1483447710617960508/1484131605428703262) | 4 |
+| 10005556 | [**BlackFurry**](guilds/blackfurry.md) | carnii | City, River, Nature, Mountain | [Join](https://discord.com/channels/1483447710617960508/1484133568908099584) | 4 |
 | 10244476 | [**Jenova**](guilds/jenova.md) | Ahlyam, Aihän | Zen, Nature | [Join](https://discord.com/channels/1483447710617960508/1483464416480465018) | 3 |
 | 10209300 | [**Clandestine**](guilds/clandestine.md) | HazelWind | City | [Join](https://discord.com/channels/1483447710617960508/1484136356266512424) | 3 |
-|  | [**COBAKA**](guilds/cobaka.md) | KlavaCocka | Nature, Zen, River |  | 2 |
-|  | [**VN-HoàngKim**](guilds/vn-hoàngkim.md) | zzBenT |  |  | 2 |
 | 10082099 | [**Jasmin'Tea**](guilds/jasmin-tea.md) |  | Nature |  | 2 |
+|  | [**VN-HoàngKim**](guilds/vn-hoàngkim.md) | zzBenT |  |  | 2 |
+|  | [**COBAKA**](guilds/cobaka.md) | KlavaCocka | Nature, Zen, River |  | 2 |
 | 10057013 | [**PleasureSeeker**](guilds/pleasureseeker.md) |  | Nature |  | 1 |
-|  | [**Jardin-Lunaire**](guilds/jardin-lunaire.md) | Hüman, Orhann, Simiaomao |  |  | 1 |
-|  | [**EMH-Shogunate**](guilds/emh-shogunate.md) | ToxotesToons |  |  | 1 |
 |  | [**Sanctuarys**](guilds/sanctuarys.md) | Nurami, Ichigor |  |  | 1 |
-|  | [**BrigadePhantom**](guilds/brigadephantom.md) | Ssyrena, Dovahline |  |  | 1 |
-|  | [**CobraKai**](guilds/cobrakai.md) | Dona | City, Nature | [Join](https://discord.com/channels/1483447710617960508/1484131605428703262) | 1 |
-| 10005556 | [**BlackFurry**](guilds/blackfurry.md) | carnii | City, River, Nature, Mountain | [Join](https://discord.com/channels/1483447710617960508/1484133568908099584) | 1 |
+|  | [**EMH-Shogunate**](guilds/emh-shogunate.md) | ToxotesToons |  |  | 1 |
 |  | [**Comfy**](guilds/comfy.md) | MikeRize |  |  | 1 |
+|  | [**BrigadePhantom**](guilds/brigadephantom.md) | Ssyrena, Dovahline |  |  | 1 |
+|  | [**Jardin-Lunaire**](guilds/jardin-lunaire.md) | Hüman, Orhann, Simiaomao |  |  | 1 |
 | 10076053 | [**Star·Bound**](guilds/star-bound.md) |  |  |  | 1 |
 |  | [**AfterFlame**](guilds/afterflame.md) | FoxiKate |  |  | 1 |
 |  | [**Visual**](guilds/visual.md) | Navil |  |  | 1 |
