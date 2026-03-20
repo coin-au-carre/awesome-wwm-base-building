@@ -32,12 +32,13 @@ type threadData struct {
 
 var (
 	reBracketID = regexp.MustCompile(`\[(\d+)\]`)
-	reBuilders  = regexp.MustCompile(`(?i)builders?:\s*(.+)`)
+	reBuilders  = regexp.MustCompile(`(?i)builders?:\s*([^\n\r]+)`)
+
+	guildBaseShowcaseChannelForumID string
 )
 
 const (
-	GUILD_BUILDING_CHANNEL_FORUM_ID = "1483455027250200639"
-	DRY_RUN                         = false
+	DRY_RUN = false
 )
 
 // rootDir returns the repo root, whether ruby.go is run from / or ruby/
@@ -52,6 +53,12 @@ func main() {
 	root := rootDir()
 	if err := godotenv.Load(filepath.Join(root, ".env")); err != nil {
 		slog.Error("loading .env", "err", err)
+		os.Exit(1)
+	}
+
+	guildBaseShowcaseChannelForumID = os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	if guildBaseShowcaseChannelForumID == "" {
+		slog.Error("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID not set")
 		os.Exit(1)
 	}
 
@@ -84,7 +91,7 @@ func sync(s *discordgo.Session, root string) error {
 		guilds = []Guild{}
 	}
 
-	forumChannel, err := s.Channel(GUILD_BUILDING_CHANNEL_FORUM_ID)
+	forumChannel, err := s.Channel(guildBaseShowcaseChannelForumID)
 	if err != nil {
 		return fmt.Errorf("fetching channel: %w", err)
 	}
@@ -100,14 +107,14 @@ func sync(s *discordgo.Session, root string) error {
 		return fmt.Errorf("fetching active threads: %w", err)
 	}
 
-	archived, err := s.ThreadsArchived(GUILD_BUILDING_CHANNEL_FORUM_ID, nil, 0)
+	archived, err := s.ThreadsArchived(guildBaseShowcaseChannelForumID, nil, 0)
 	if err != nil {
 		slog.Warn("fetching archived threads", "err", err)
 	}
 
 	var threads []*discordgo.Channel
 	for _, t := range active.Threads {
-		if t.ParentID == GUILD_BUILDING_CHANNEL_FORUM_ID {
+		if t.ParentID == guildBaseShowcaseChannelForumID {
 			threads = append(threads, t)
 		}
 	}
@@ -132,12 +139,11 @@ func sync(s *discordgo.Session, root string) error {
 
 		data := fetchThreadData(s, thread.ID)
 
+		// sync – always overwrite builders from live thread data
 		if guilds[idx].ID == "" && data.ID != "" {
 			guilds[idx].ID = data.ID
 		}
-		if len(guilds[idx].Builders) == 0 && len(data.Builders) > 0 {
-			guilds[idx].Builders = data.Builders
-		}
+		guilds[idx].Builders = data.Builders
 
 		var tags []string
 		for _, tagID := range thread.AppliedTags {

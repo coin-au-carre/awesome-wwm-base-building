@@ -56,7 +56,6 @@
 			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163654227329114/guild-base-building-v0-kl3196pmdahg1.webp?ex=69bde35d\u0026is=69bc91dd\u0026hm=f49e9e92b17bef3227369c12e011aac48fd107e2607a3411a5f1d378712d4eeb\u0026",
 			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163654889898086/guild-base-building-v0-d3waonuydahg1.webp?ex=69bde35d\u0026is=69bc91dd\u0026hm=36039a95cf70ba1de9343c6fc779238183c527a3bb79c4d8c548fd780d572e04\u0026",
 			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163655342886983/guild-base-building-v0-buc5bwfpdahg1.webp?ex=69bde35d\u0026is=69bc91dd\u0026hm=292f0795f8512261f73ad184e9be82acea6e78ed6b7b0cde2d51442cc1d993ed\u0026",
-			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163655779221504/guild-base-building-v0-bfg2cyxhdahg1.webp?ex=69bde35d\u0026is=69bc91dd\u0026hm=587754474185d5dfa45be7e517eeaa04d68ef04e48a7b685b4459c7d2177a297\u0026",
 			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163656265498736/guild-base-building-v0-wtntumpqdahg1.webp?ex=69bde35e\u0026is=69bc91de\u0026hm=bdf18c1edbef81a263836bc24a7a54fc5a28d1154ea90766afd886c162b46281\u0026",
 			"https://cdn.discordapp.com/attachments/1484163652796809450/1484163656785727579/guild-base-building-v0-rct30eurdahg1.webp?ex=69bde35e\u0026is=69bc91de\u0026hm=288c6b2077e36b8e450cf42178b2ad3e322290b03e49d975765a7398ec90ac8d\u0026"
 		]
@@ -64,7 +63,8 @@
 	{
 		"name": "Comfy",
 		"builders": [
-			"MikeRize"
+			"MikeRize",
+			"Plumi"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484178485407911966",
 		"score": 2,
@@ -368,7 +368,7 @@
 		"id": "10057013",
 		"name": "PleasureSeeker",
 		"builders": [
-			"### 📝 Lore"
+			"TBD"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484266666564255847",
 		"score": 5,
@@ -435,9 +435,9 @@
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484181836694556772",
 		"score": 2,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69bd4b8c\u0026is=69bbfa0c\u0026hm=482b847b2929742c2dfc4cfaf7a78addde56633ffa29f2802eea752fc538aa41\u0026",
-			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69bd4b8d\u0026is=69bbfa0d\u0026hm=c434690346f680ff5a805d788361ec3921c694585fdb72e56297a8f973b68d3d\u0026",
-			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69bd4b8d\u0026is=69bbfa0d\u0026hm=a05ad45cca2cb0cce620a9d1d789d8630a415a1bd31b86f995c8e9eea35a250b\u0026"
+			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69bdf44c\u0026is=69bca2cc\u0026hm=3d7fe963f0c19af2df6f444f155742e258e634906d6f89a3835867879ba3ca5a\u0026",
+			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69bdf44d\u0026is=69bca2cd\u0026hm=d4c18c2b2ad0f3df16e50aa1b67f36635c64c323a28db04b66e0f528006176e2\u0026",
+			"https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69bdf44d\u0026is=69bca2cd\u0026hm=a5b9756529a888e616b287e45ce8c8bdfe01ade82cb1bad0426fdbee28df38cc\u0026"
 		]
 	},
 	{

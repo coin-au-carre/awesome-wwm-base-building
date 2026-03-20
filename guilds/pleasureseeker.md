@@ -1,7 +1,7 @@
 # PleasureSeeker
 
 **ID:** 10057013  
-**Builders:** ### 📝 Lore  
+**Builders:** TBD  
 **Score:** 5  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484266666564255847)  
 

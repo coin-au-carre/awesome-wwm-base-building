@@ -1,6 +1,6 @@
 # Comfy
 
-**Builders:** MikeRize  
+**Builders:** MikeRize, Plumi  
 **Score:** 2  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484178485407911966)  
 

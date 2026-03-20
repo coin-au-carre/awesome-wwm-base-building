@@ -11,5 +11,3 @@ Browse individual guild base pages:
 - [{{ page.title }}]({{ page.url }})
 {% endif %}
 {% endfor %}
-```
-
