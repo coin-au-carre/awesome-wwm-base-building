@@ -2,7 +2,7 @@
 
 **Builders:** Navil  
 **Tags:** Nature, Military  
-**Score:** 1  
+**Score:** 2  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484261413210816602)  
 
 ---

@@ -2,7 +2,7 @@
 
 **Builders:** Aïk  
 **Tags:** Fun  
-**Score:** 0  
+**Score:** 1  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484258514540167178)  
 
 ---

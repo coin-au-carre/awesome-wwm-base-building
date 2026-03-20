@@ -1,7 +1,7 @@
 # Ħao
 
 **Builders:** Rastawar  
-**Score:** 1  
+**Score:** 2  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484181836694556772)  
 
 ---
