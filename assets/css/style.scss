@@ -3,15 +3,10 @@
 
 @import "{{ site.theme }}";
 
-#forkme_banner {
-  display: none;
-}
-
 .main-content {
   max-width: 1400px !important;
 }
 
-/* Mobile-friendly table */
 .main-content table {
   display: block;
   width: 100%;

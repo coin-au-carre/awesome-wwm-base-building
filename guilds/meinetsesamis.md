@@ -2,7 +2,7 @@
 
 **Builders:** Selkyy  
 **Tags:** River, Zen, Nature  
-**Score:** 4  
+**Score:** 5  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484262546352635955)  
 
 ---
