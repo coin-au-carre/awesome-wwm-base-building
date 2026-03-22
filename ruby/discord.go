@@ -238,7 +238,7 @@ func collectScreenshotURLs(s *discordgo.Session, threadID string) []string {
 
 func formatSyncSummary(s SyncStats) string {
 	lines := []string{
-		"✅ **Sync complete!**",
+		"✅ **I have synchronized the guilds data!**",
 		fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
 	}
 	if s.New > 0 {

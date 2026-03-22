@@ -60,7 +60,7 @@ func main() {
 
 	stats, err := syncGuilds(session, root, guildBaseShowcaseChannelForumID)
 	if err != nil {
-		notify(session, botChannelID, "💥 **Sync failed** — "+err.Error())
+		notify(session, botChannelID, "💥 **I have failed to synchronized the guilds data** — "+err.Error())
 		slog.Error("sync failed", "err", err)
 		os.Exit(1)
 	}
