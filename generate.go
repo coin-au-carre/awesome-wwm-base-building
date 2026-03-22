@@ -24,15 +24,17 @@ type Guild struct {
 }
 
 const (
-	guildsDir        = "guilds"
-	discordInvite    = "https://discord.gg/Qygt9u26Bn"
-	showcaseChannel  = "`#base-guild-showcase`"
-	startMarker      = "<!-- GENERATED_TABLE_START -->"
-	endMarker        = "<!-- GENERATED_TABLE_END -->"
-	showcaseStart    = "<!-- TOP_SHOWCASE_START -->"
-	showcaseEnd      = "<!-- TOP_SHOWCASE_END -->"
-	lastUpdatedStart = "<!-- LAST_UPDATED_START -->"
-	lastUpdatedEnd   = "<!-- LAST_UPDATED_END -->"
+	guildsDir            = "guilds"
+	discordInvite        = "https://discord.gg/Qygt9u26Bn"
+	showcaseChannel      = "`#base-guild-showcase`"
+	startMarker          = "<!-- GENERATED_TABLE_START -->"
+	endMarker            = "<!-- GENERATED_TABLE_END -->"
+	showcaseStart        = "<!-- TOP_SHOWCASE_START -->"
+	showcaseEnd          = "<!-- TOP_SHOWCASE_END -->"
+	lastUpdatedStart     = "<!-- LAST_UPDATED_START -->"
+	lastUpdatedEnd       = "<!-- LAST_UPDATED_END -->"
+	discordTemplateStart = "<!-- DISCORD_TEMPLATE_START -->"
+	discordTemplateEnd   = "<!-- DISCORD_TEMPLATE_END -->"
 )
 
 func main() {
@@ -70,6 +72,11 @@ func main() {
 
 	if err := injectBetweenMarkers("README.md", showcaseStart, showcaseEnd, buildTopShowcase(guilds)); err != nil {
 		fmt.Fprintf(os.Stderr, "error injecting top showcase: %v\n", err)
+		os.Exit(1)
+	}
+
+	if err := injectBetweenMarkers("README.md", discordTemplateStart, discordTemplateEnd, buildGenericDiscordTemplate()); err != nil {
+		fmt.Fprintf(os.Stderr, "error injecting discord template: %v\n", err)
 		os.Exit(1)
 	}
 
@@ -199,11 +206,63 @@ func generateGuildPage(g *Guild) error {
 		))
 	}
 
+	sb.WriteString("\n---\n\n")
+	sb.WriteString(buildDiscordTemplate(g))
+
 	filename := filepath.Join(guildsDir, slugify(g.Name)+".md")
 	return os.WriteFile(filename, []byte(sb.String()), 0644)
+}
+
+func buildDiscordTemplate(g *Guild) string {
+	id := "YOUR_GUILD_ID"
+	if g.ID != "" {
+		id = g.ID
+	}
+
+	builders := "Builder1, Builder2"
+	if len(g.Builders) > 0 {
+		builders = strings.Join(g.Builders, ", ")
+	}
+
+	var sb strings.Builder
+	sb.WriteString("## 📋 Post Your Base on Discord\n\n")
+	sb.WriteString(fmt.Sprintf(
+		"Is this your guild? [Join our Discord](%s) and post in %s to add screenshots and get votes!\n\n",
+		discordInvite, showcaseChannel,
+	))
+	sb.WriteString("Copy and paste this template into your Discord thread:\n\n")
+	sb.WriteString("```\n")
+	sb.WriteString(fmt.Sprintf("## :japanese_castle: %s [%s]\n", g.Name, id))
+	sb.WriteString(fmt.Sprintf(":construction_worker: Builders: %s\n", builders))
+	sb.WriteString("\n### :pencil: Lore\n")
+	sb.WriteString("REPLACE_WITH_YOUR_LORE\n")
+	sb.WriteString("\n### :mage: What to visit\n")
+	sb.WriteString("DESCRIBE_POINT_OF_INTEREST\n")
+	sb.WriteString("\n:ballot_box: Vote with reactions:\n")
+	sb.WriteString(":star: Best overall | :thumbsup: Good base | :fire: Amazing creativity\n")
+	sb.WriteString("```\n")
+
+	return sb.String()
 }
 
 func slugify(name string) string {
 	re := regexp.MustCompile(`[^\p{L}\p{N}]+`)
 	return strings.Trim(re.ReplaceAllString(strings.ToLower(name), "-"), "-")
+}
+
+func buildGenericDiscordTemplate() string {
+	var sb strings.Builder
+
+	sb.WriteString("```\n")
+	sb.WriteString("## :japanese_castle: YOUR_GUILD_NAME [YOUR_GUILD_ID]\n")
+	sb.WriteString(":construction_worker: Builders: Builder1, Builder2\n")
+	sb.WriteString("\n### :pencil: Lore\n")
+	sb.WriteString("REPLACE_WITH_YOUR_LORE\n")
+	sb.WriteString("\n### :mage: What to visit\n")
+	sb.WriteString("DESCRIBE_POINT_OF_INTEREST\n")
+	sb.WriteString("\n:ballot_box: Vote with reactions:\n")
+	sb.WriteString(":star: Best overall | :thumbsup: Good base | :fire: Amazing creativity\n")
+	sb.WriteString("```\n")
+
+	return sb.String()
 }

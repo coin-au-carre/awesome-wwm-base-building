@@ -16,3 +16,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484136356266512424/1484136360767000676/2026319182244.png?ex=69c115b2&is=69bfc432&hm=d4922ef2677f4dc58ec0c8cd6605c71504aba08029604182b3d08dd84bfaff8a&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: Clandestine [10209300]
+:construction_worker: Builders: HazelWind
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```

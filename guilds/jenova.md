@@ -20,3 +20,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c09e26&is=69bf4ca6&hm=3dc100428441283a397f29829db8e027b84c82ffe41c0f1a7184fdbbf7ba39ca&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: Jenova [10244476]
+:construction_worker: Builders: Ahlyam, Aihän
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```

@@ -24,3 +24,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163656785727579/guild-base-building-v0-rct30eurdahg1.webp?ex=69c0865e&is=69bf34de&hm=ddcd1a55d99d744d28b6bcdeee2a0fceb32c9a548f5c7358224fd53a5dbac7a4&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: COBAKA [10209300]
+:construction_worker: Builders: KlavaCocka
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```

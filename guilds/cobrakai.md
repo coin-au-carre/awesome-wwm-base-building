@@ -17,3 +17,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484131605428703262/1484131608654118992/20263199404.png?ex=69c11145&is=69bfbfc5&hm=95fbe4311ff9865b52ab9b297eaef65f148a06e581b436b2e83ab1f7c4884371&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: CobraKai [YOUR_GUILD_ID]
+:construction_worker: Builders: Dona
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```

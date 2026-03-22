@@ -19,3 +19,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485058092247810109/1485058096715005992/202632265058.png?ex=69c07ba1&is=69bf2a21&hm=8eb73559b0f1ff070917b632b0db1cabb5b0d6979e2752d28ce080ab99e0809f&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: 会Ashura [YOUR_GUILD_ID]
+:construction_worker: Builders: PynMeo, Onikishi, Kkulgomi
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```

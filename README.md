@@ -10,7 +10,7 @@ A curated list of **Where Winds Meet** guild bases and builders. 🌟
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69c11319&is=69bfc199&hm=b37c9652a9fdc821647719e6aa96cb23a2d0543e85b2722b8496570c9dec14a4&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/meinetsesamis.html" title="MeInEtSesAmis"><img src="https://cdn.discordapp.com/attachments/1484262546352635955/1484262547354816694/202632024759.png?ex=69c0e277&is=69bf90f7&hm=d5425096d3b6eb6910cf4bca04ef5bee28b8ea38737cbe46d84ec800b46b858b&" width="260" alt="MeInEtSesAmis"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobrakai.html" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131608087891998/202631918327.png?ex=69c11145&is=69bfbfc5&hm=dd7ac00c2ad651a4cc0c3e3774288e3d420c0472af997b7128f380da905bf6e8&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485058092247810109/1485058093556564088/20263227554.png?ex=69c07ba0&is=69bf2a20&hm=2c904baa1f0f5718321345d3a0b9ebcc252c0305d5e70c8f36aad954e83ff54a&" width="260" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobaka.html" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69c0865d&is=69bf34dd&hm=65cb0e2d490fd5a1382986175addad93aaba27c6137c97c7a960bcb270cc9e64&" width="260" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063347048284160/202632263546.png?ex=69c08085&is=69bf2f05&hm=5970df78a3603231ef412c2613f46398cfeb97be0de8fd16e34beb0c700c50d9&" width="260" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/pleasureseeker.html" title="PleasureSeeker"><img src="https://cdn.discordapp.com/attachments/1484266666564255847/1484266668526932201/20263203352.png?ex=69c0e64e&is=69bf94ce&hm=af369caf4e5178bfdcd59f5ce5dc25683c5e92b26442bbb9be688fcae9969152&" width="260" alt="PleasureSeeker"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/afterflame.html" title="AfterFlame"><img src="https://cdn.discordapp.com/attachments/1484168217453662248/1484168221396434964/20263135534.png?ex=69c08a9e&is=69bf391e&hm=5d4544867df0d00fe76c2aaa1c322200d18caf48fb223b8d0a1fa108515bcf89&" width="260" alt="AfterFlame"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/clandestine.html" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1484136356266512424/1484136360112820396/2026319182256.png?ex=69c115b2&is=69bfc432&hm=28799849b58bdec6b01911c076e7c315bca5e96c8356708b2a76d79fb40da940&" width="260" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jenova.html" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c09e26&is=69bf4ca6&hm=eab2b9c6a62a949b5a4617d5c740e0ed7386606f0259b113fbcb73230f510b4e&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;
+<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69c11319&is=69bfc199&hm=72ebe7a1001c0c6e97bb3bca9ba7ff62194dadf39d18cefb9f12de1cf5e01b6d&" width="260" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/meinetsesamis.html" title="MeInEtSesAmis"><img src="https://cdn.discordapp.com/attachments/1484262546352635955/1484262548848246986/202632024729.png?ex=69c0e277&is=69bf90f7&hm=c471697110b0e036ad5bbb34d32e3748d6094dfe3d0c0b2b8c1162e8c22751ef&" width="260" alt="MeInEtSesAmis"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobrakai.html" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131606628270191/202631918225.png?ex=69c11144&is=69bfbfc4&hm=bcf5a706cab616c3db1121eefbedc4edbae349ace32334a0261ce3c0bd6a9569&" width="260" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485058092247810109/1485058095125368912/202632265454.png?ex=69c07ba0&is=69bf2a20&hm=bf3f25b75673bd5aec19f001fdf4bc1b4bc97438f97d5f01e21cd532346d2970&" width="260" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobaka.html" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163654227329114/guild-base-building-v0-kl3196pmdahg1.webp?ex=69c0865d&is=69bf34dd&hm=f9d0bf5d33dd4ad6f425e6b6864f2693c7d2e3254174f960e62cf9d883b43b41&" width="260" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063345017979032/20263226341.png?ex=69c08084&is=69bf2f04&hm=7bcd996d701cd2af23a975f4c36557fa5fd6358f3f0531a78d9278fb0823666d&" width="260" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/pleasureseeker.html" title="PleasureSeeker"><img src="https://cdn.discordapp.com/attachments/1484266666564255847/1484266669546410076/20263203319.png?ex=69c0e64e&is=69bf94ce&hm=3ace7cb93f68cac872c3cff10249cd54df99db60e60466f3744109d9900c27d5&" width="260" alt="PleasureSeeker"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/afterflame.html" title="AfterFlame"><img src="https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69c08a9d&is=69bf391d&hm=de6e7dad1e54bd073b10b086fd0dd5cfd01245dedbd8700c8a5cf3b0c5614465&" width="260" alt="AfterFlame"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/clandestine.html" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1484136356266512424/1484136360112820396/2026319182256.png?ex=69c115b2&is=69bfc432&hm=28799849b58bdec6b01911c076e7c315bca5e96c8356708b2a76d79fb40da940&" width="260" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/jenova.html" title="Jenova"><img src="https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c09e26&is=69bf4ca6&hm=eab2b9c6a62a949b5a4617d5c740e0ed7386606f0259b113fbcb73230f510b4e&" width="260" alt="Jenova"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -20,7 +20,7 @@ A curated list of **Where Winds Meet** guild bases and builders. 🌟
 
 <!-- LAST_UPDATED_START -->
 
-🔄 **Last synchronized:**  March 22, 2026 at 10:47 UTC
+🔄 **Last synchronized:**  March 22, 2026 at 10:59 UTC
 <!-- LAST_UPDATED_END -->
 
 <!-- GENERATED_TABLE_START -->
@@ -80,11 +80,32 @@ A curated list of **Where Winds Meet** guild bases and builders. 🌟
 ## 🏗️ Are You a Builder?
 
 1. 📸 Take screenshots of your guild base in-game
-2. 💬 [Join our Discord](https://discord.gg/Qygt9u26Bn) and post them in `#base-guild-showcase`
+2. 💬 [Join our Discord](https://discord.gg/Qygt9u26Bn) and post the template shown below in `#base-guild-showcase`
 3. ⭐ The community votes — the more reactions, the higher your rank
 4. 🤖 **This page will auto update regularly (several times a day)** — your guild appears here automatically!
 
-> No GitHub account needed. No pull request. Just post on Discord and you're in.
+<!-- DISCORD_TEMPLATE_START -->
+
+1. 📸 Take screenshots of your guild base in-game
+2. 💬 [Join our Discord](https://discord.gg/Qygt9u26Bn) and create a thread in `#base-guild-showcase`
+3. 📋 Copy-paste the template below and fill it in
+4. ⭐ The community votes — the more reactions, the higher your rank
+
+```
+## :japanese_castle: YOUR_GUILD_NAME [YOUR_GUILD_ID]
+:construction_worker: Builders: Builder1, Builder2
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```
+
+<!-- DISCORD_TEMPLATE_END -->
 
 ## ⭐ How Scoring Works
 

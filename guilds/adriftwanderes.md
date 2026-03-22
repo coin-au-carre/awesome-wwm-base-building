@@ -17,3 +17,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485056219675623514/1485056222729211904/202632271813.png?ex=69c079e2&is=69bf2862&hm=65bfc6ff94b2b5376d6541d7bf891192d30b0f1d79faf3cf6bea9a584c95fae8&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: AdriftWanderes [YOUR_GUILD_ID]
+:construction_worker: Builders: Alscend
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```
