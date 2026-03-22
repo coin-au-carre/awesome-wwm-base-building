@@ -23,7 +23,7 @@ type threadResult struct {
 	guild Guild
 }
 
-func syncGuilds(s *discordgo.Session, root string) error {
+func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForumID string) (SyncStats, error) {
 	guilds, err := loadGuilds(root)
 	if err != nil {
 		slog.Warn("loading guilds, starting fresh", "err", err)
@@ -32,7 +32,7 @@ func syncGuilds(s *discordgo.Session, root string) error {
 
 	forumChannel, err := s.Channel(guildBaseShowcaseChannelForumID)
 	if err != nil {
-		return fmt.Errorf("fetching channel: %w", err)
+		return SyncStats{}, fmt.Errorf("fetching channel: %w", err)
 	}
 
 	tagMap := make(map[string]string)
@@ -43,7 +43,7 @@ func syncGuilds(s *discordgo.Session, root string) error {
 
 	active, err := s.GuildThreadsActive(forumChannel.GuildID)
 	if err != nil {
-		return fmt.Errorf("fetching active threads: %w", err)
+		return SyncStats{}, fmt.Errorf("fetching active threads: %w", err)
 	}
 
 	archived, err := s.ThreadsArchived(guildBaseShowcaseChannelForumID, nil, 0)
@@ -62,6 +62,7 @@ func syncGuilds(s *discordgo.Session, root string) error {
 	}
 
 	var mu sync.Mutex
+	var newCount int
 	guildMap := make(map[string]int)
 	for i := range guilds {
 		guildMap[strings.ToLower(guilds[i].Name)] = i
@@ -71,6 +72,7 @@ func syncGuilds(s *discordgo.Session, root string) error {
 		if _, exists := guildMap[strings.ToLower(name)]; !exists {
 			guilds = append(guilds, Guild{Name: name, Builders: []string{}})
 			guildMap[strings.ToLower(name)] = len(guilds) - 1
+			newCount++
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 	}
@@ -126,7 +128,15 @@ func syncGuilds(s *discordgo.Session, root string) error {
 		close(results)
 	}()
 
+	var updatedCount int
 	for r := range results {
+		prev := guilds[r.idx]
+		changed := prev.Score != r.guild.Score ||
+			len(prev.Screenshots) != len(r.guild.Screenshots) ||
+			strings.Join(prev.Builders, ",") != strings.Join(r.guild.Builders, ",")
+		if changed {
+			updatedCount++
+		}
 		guilds[r.idx] = r.guild
 		slog.Info("guild synced",
 			"name", r.guild.Name,
@@ -138,17 +148,23 @@ func syncGuilds(s *discordgo.Session, root string) error {
 		)
 	}
 
+	stats := SyncStats{
+		Total:   len(guilds),
+		New:     newCount,
+		Updated: updatedCount,
+	}
+
 	if DRY_RUN {
 		slog.Info("dry-run: skipping save")
-		return nil
+		return stats, nil
 	}
 
 	if err := saveGuilds(root, guilds); err != nil {
-		return fmt.Errorf("saving guilds: %w", err)
+		return SyncStats{}, fmt.Errorf("saving guilds: %w", err)
 	}
 
-	slog.Info("sync complete", "total_guilds", len(guilds), "threads_processed", len(threads))
-	return nil
+	slog.Info("sync complete", "total_guilds", stats.Total, "new", stats.New, "updated", stats.Updated, "threads_processed", len(threads))
+	return stats, nil
 }
 
 func fetchThreadData(s *discordgo.Session, threadID string) threadData {
@@ -218,4 +234,32 @@ func collectScreenshotURLs(s *discordgo.Session, threadID string) []string {
 	}
 
 	return urls
+}
+
+func formatSyncSummary(s SyncStats) string {
+	lines := []string{
+		"✅ **Sync complete!**",
+		fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
+	}
+	if s.New > 0 {
+		lines = append(lines, fmt.Sprintf("🆕 **%d** new guild(s) discovered", s.New))
+	}
+	if s.Updated > 0 {
+		lines = append(lines, fmt.Sprintf("🔄 **%d** guild(s) refreshed", s.Updated))
+	}
+	// if s.New == 0 && s.Updated == 0 {
+	// 	lines = append(lines, "💤 Nothing changed")
+	// }
+	// lines = append(lines, fmt.Sprintf("🕐 %s UTC", time.Now().UTC().Format("Jan 2, 2006 · 15:04")))
+	return strings.Join(lines, "\n")
+}
+
+func notify(s *discordgo.Session, channelID, msg string) {
+	if channelID == "" {
+		slog.Warn("BOT_CHANNEL_ID not set, skipping notification")
+		return
+	}
+	if _, err := s.ChannelMessageSend(channelID, msg); err != nil {
+		slog.Warn("failed to send bot notification", "err", err)
+	}
 }
