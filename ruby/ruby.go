@@ -27,8 +27,7 @@ func rootDir() string {
 func main() {
 	root := rootDir()
 	if err := godotenv.Load(filepath.Join(root, ".env")); err != nil {
-		slog.Error("loading .env", "err", err)
-		os.Exit(1)
+		slog.Warn("no .env file, relying on environment variables")
 	}
 
 	guildBaseShowcaseChannelForumID := os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
