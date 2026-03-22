@@ -99,7 +99,7 @@ func buildTopShowcase(guilds []Guild) string {
 		if len(g.Screenshots) > 0 {
 			top = append(top, g)
 		}
-		if len(top) == 10 {
+		if len(top) == 9 {
 			break
 		}
 	}
@@ -112,7 +112,7 @@ func buildTopShowcase(guilds []Guild) string {
 	for _, g := range top {
 		screenshot := g.Screenshots[rand.Intn(len(g.Screenshots))]
 		sb.WriteString(fmt.Sprintf(
-			`<a href="%s/%s.html" title="%s"><img src="%s" width="260" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
+			`<a href="%s/%s.html" title="%s"><img src="%s" width="320" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
 			guildsDir, slugify(g.Name), g.Name,
 			screenshot,
 			g.Name,
