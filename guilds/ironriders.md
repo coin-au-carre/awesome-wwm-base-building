@@ -15,7 +15,7 @@
 
 ---
 
-## 📋 Post Your Base on Discord
+## 📋 Post Your base guild on Discord
 
 Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
 
