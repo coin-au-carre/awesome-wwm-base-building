@@ -2,7 +2,7 @@
 
 **Builders:** Alscend  
 **Tags:** Cave, Nature, Mountain  
-**Score:** 2  
+**Score:** 3  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485056219675623514)  
 
 ---

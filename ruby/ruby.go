@@ -32,7 +32,7 @@ type threadData struct {
 
 var (
 	reBracketID = regexp.MustCompile(`\[(\d+)\]`)
-	reBuilders  = regexp.MustCompile(`(?i)builders?:\s*([^\n\r]+)`)
+	reBuilders  = regexp.MustCompile(`(?i)builders?:\s*([^\n]*)`)
 
 	guildBaseShowcaseChannelForumID string
 )
@@ -256,7 +256,8 @@ func parseFirstPost(content string) (id string, builders []string) {
 	}
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
 		for _, b := range strings.Split(m[1], ",") {
-			if b = strings.TrimSpace(b); b != "" {
+			b = strings.TrimSpace(b)
+			if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
 				builders = append(builders, b)
 			}
 		}
