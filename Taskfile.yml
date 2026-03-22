@@ -7,7 +7,7 @@ tasks:
 
   ruby:
     dir: ruby
-    cmd: go run ruby.go
+    cmd: go run .
 
   all:
     deps: [ruby]
