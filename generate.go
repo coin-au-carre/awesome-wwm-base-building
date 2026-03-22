@@ -225,7 +225,7 @@ func buildDiscordTemplate(g *Guild) string {
 	}
 
 	var sb strings.Builder
-	sb.WriteString("## 📋 Post Your Base on Discord\n\n")
+	sb.WriteString("## 📋 Post Your base guild on Discord\n\n")
 	sb.WriteString(fmt.Sprintf(
 		"Is this your guild? [Join our Discord](%s) and post in %s to add screenshots and get votes!\n\n",
 		discordInvite, showcaseChannel,
