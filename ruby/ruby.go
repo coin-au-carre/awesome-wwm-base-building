@@ -11,7 +11,11 @@ import (
 
 const DRY_RUN = false
 
-var guildBaseShowcaseChannelForumID string
+type SyncStats struct {
+	Total   int
+	Updated int
+	New     int
+}
 
 func rootDir() string {
 	if _, err := os.Stat("LICENSE"); err == nil {
@@ -27,9 +31,15 @@ func main() {
 		os.Exit(1)
 	}
 
-	guildBaseShowcaseChannelForumID = os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	guildBaseShowcaseChannelForumID := os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
 	if guildBaseShowcaseChannelForumID == "" {
 		slog.Error("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID not set")
+		os.Exit(1)
+	}
+
+	botChannelID := os.Getenv("BOT_CHANNEL_ID")
+	if botChannelID == "" {
+		slog.Error("BOT_CHANNEL_ID not set")
 		os.Exit(1)
 	}
 
@@ -49,8 +59,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := syncGuilds(session, root); err != nil {
+	stats, err := syncGuilds(session, root, guildBaseShowcaseChannelForumID)
+	if err != nil {
+		notify(session, botChannelID, "💥 **Sync failed** — "+err.Error())
 		slog.Error("sync failed", "err", err)
 		os.Exit(1)
 	}
+
+	notify(session, botChannelID, formatSyncSummary(stats))
 }
