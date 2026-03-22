@@ -1,8 +1,7 @@
 # KALYANMITR
 
-**Builders:** ### 📝 Lore  
 **Tags:** Fun  
-**Score:** 1  
+**Score:** 2  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485062058444853379)  
 
 ---
