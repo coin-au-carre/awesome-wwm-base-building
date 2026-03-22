@@ -134,9 +134,9 @@ func buildTable(guilds []Guild) string {
 		if g.DiscordThread != "" {
 			score = fmt.Sprintf("[%d](%s)", g.Score, g.DiscordThread)
 		}
-		link := fmt.Sprintf("[**%s**](%s/%s.md)", g.Name, guildsDir, slugify(g.Name))
+		link := fmt.Sprintf("[**%s**](%s/%s.html)", g.Name, guildsDir, slugify(g.Name))
 		if g.ID != "" {
-			link = fmt.Sprintf("[**%s**](%s/%s.md \"ID: %s\")", g.Name, guildsDir, slugify(g.Name), g.ID)
+			link = fmt.Sprintf("[**%s**](%s/%s.html \"ID: %s\")", g.Name, guildsDir, slugify(g.Name), g.ID)
 		}
 
 		sb.WriteString(fmt.Sprintf("| %s | %s | %s | %s |\n",
