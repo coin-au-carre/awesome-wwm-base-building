@@ -112,8 +112,6 @@ Scores reflect Discord reactions (emojis) in `#base-guild-showcase`. Here the de
 | 👍 | 1 pt | Good build, must-visit |
 | 🔥 | 1 pt | Amazing creativity |
 
-> Some scores (the one not highlighted) are manually set by until community voting matures.
-
 ## 💡Why This List Exists?
 
 This repository was born from a simple idea: I compiled a personal list of guild bases I visited in Where Winds Meet, and it felt wasteful to keep it to myself when others could benefit too. The goal is to foster knowledge sharing among builders and let all players discover and enjoy these stunning creations.  
