@@ -15,3 +15,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261416146829432/202632024251.png?ex=69c0e169&is=69bf8fe9&hm=7cb21b1da9ec8b0e4b00d50c74d98bb841f7a93d0a51640edc6cf1eee5288d86&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: Visual [YOUR_GUILD_ID]
+:construction_worker: Builders: Navil
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```

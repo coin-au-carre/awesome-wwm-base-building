@@ -3,7 +3,7 @@ version: '3'
 
 tasks:
   generate:
-    cmd: go run generate.go
+    cmd: go run .
 
   ruby:
     dir: ruby

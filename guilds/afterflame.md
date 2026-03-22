@@ -19,3 +19,25 @@
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168222067527790/20263135431.png?ex=69c08a9e&is=69bf391e&hm=cda17f3d18e003b04ce9d2100bf948f99f3ba75d2ecc0a3de5f66a884ee05285&)
 
+
+---
+
+## 📋 Post Your Base on Discord
+
+Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+
+Copy and paste this template into your Discord thread:
+
+```
+## :japanese_castle: AfterFlame [YOUR_GUILD_ID]
+:construction_worker: Builders: FoxiKate
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```
