@@ -8,7 +8,7 @@
 
 ## Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69c1e2bd&is=69c0913d&hm=c0504137af21c375cf0a2baaa351913f784e85b1422a50360235248f8b76218f&)
+![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69c28b7d&is=69c139fd&hm=cdb3ad1130e77c481bbb95a7eae84d61736a7f74c0975799c8f0bea6bc3eea1f&)
 
 
 ---
