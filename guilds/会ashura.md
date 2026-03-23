@@ -1,26 +1,26 @@
 # 会Ashura
 
 **Builders:** Onikishi, PynMeo, Kkulgomi  
-**Score:** 5  
+**Score:** 6  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485331669136441477)  
 
 ---
 
 ## Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331670398795927/202632285057.png?ex=69c17a6a&is=69c028ea&hm=1f9d8d746674840b98961c3b7fbf98916bba439c075a82e711bca819518323ba&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331670398795927/202632285057.png?ex=69c2232a&is=69c0d1aa&hm=3ab664309133d5085bfce89812b15bcfb0e5db5c6fbb2df58fe408b2c44bb2c3&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331671808217138/GB10.png?ex=69c17a6a&is=69c028ea&hm=fc3eefab8ef0efbaa9c6cdeae9ff5d7dec672a93d5f72c64183934a03bbb8957&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331671808217138/GB10.png?ex=69c2232a&is=69c0d1aa&hm=3a967e3dfbdf179599566d1981151195eb83b5947cd6d8c922364d55e3ad8bc8&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331673112641546/202632265248.png?ex=69c17a6a&is=69c028ea&hm=eb56d6553b68ff829b664f0fa024842bc282ab5f109160f54ae0799a5612034a&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331673112641546/202632265248.png?ex=69c2232a&is=69c0d1aa&hm=78bb901712142e8e5d9be5b8a12762cc107d6800e5e579fa1fbc0dcc4e71f3d0&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331673699717181/GB28.png?ex=69c17a6b&is=69c028eb&hm=0f1bea396434038b8a71115e546633f8dfb4ad6cccd82632ee53554ce7ad92ec&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331673699717181/GB28.png?ex=69c2232b&is=69c0d1ab&hm=24b6e371b5dc89aadbf52ccc6c6047b15a5ab482a461f6ef3a7dd4f428c5279c&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331674328993883/GB29.png?ex=69c17a6b&is=69c028eb&hm=f7ca778fa5fcc8a3c099167380a54abab75aea5d9fa0fcc64749a4a3dce76ab4&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331674328993883/GB29.png?ex=69c2232b&is=69c0d1ab&hm=cba177096572faf1df9e4b8b4720000e2567178d0124780fab7f062ad40956a3&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331674891026533/202632284924.png?ex=69c17a6b&is=69c028eb&hm=bb1bb523de53b13322e1e7112f71759dd3443e17fed23d264b18d3b42e2351ea&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331674891026533/202632284924.png?ex=69c2232b&is=69c0d1ab&hm=3240a0f63147915222b07a6433692f9dcaf9534aaeec224c3adc0509f05184ae&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331675889008721/20263227554.png?ex=69c17a6b&is=69c028eb&hm=27b16819bf14855e20700cfcc50fe08b8b1fed55c83e0afc0c6bb71cb4caa5c4&)
+![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331675889008721/20263227554.png?ex=69c2232b&is=69c0d1ab&hm=6e12a331d429abfd7a09f7f6afc24051b1e15b11afbbb307b9608846debecaa9&)
 
 
 ---
