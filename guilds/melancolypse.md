@@ -1,13 +1,15 @@
 # Melancolypse
 
-**Builders:** Aïk, KimmiSenpai  
-**Tags:** Fun  
-**Score:** 1  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484258514540167178)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Aïk, KimmiSenpai</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Fun</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484258514540167178">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69c381b6&is=69c23036&hm=365b537f6d7dde8d186d893d6de0d8211dd49d1721dc82d44b13e852e0edb12f&)
 

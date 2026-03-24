@@ -1,20 +1,22 @@
 # BlackFurry
 
-**ID:** 10005556  
-**Builders:** carnii  
-**Tags:** City, River, Nature, Mountain  
-**Score:** 6  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484133568908099584)  
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10005556</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>carnii</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>City, River, Nature, Mountain</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>6</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484133568908099584">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69c30d59&is=69c1bbd9&hm=5e0baaacca81d8b898b0d69bcfa2d8f6e86efb20060d55384742d0c25598deeb&)
+![screenshot](https://cdn.discordapp.com/attachments/1484133568908099584/1484133570254733333/202631973932.png?ex=69c3b619&is=69c26499&hm=46ceda8e059bf20280f7053a20f769038f3d9a53221bd8891ed2e753e1f29c1e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69c30d59&is=69c1bbd9&hm=852b0a8811a2a142070c0a7583b420a7b85c566261acb735dc811db41fc4024b&)
+![screenshot](https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69c3b619&is=69c26499&hm=38967ad91f13f7eb0c25ef0311f7f0e812bf533b7cf6b56a90538cd175b6eba8&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484133568908099584/1484133572808802384/2026319181533.png?ex=69c30d59&is=69c1bbd9&hm=c55ff232364c6d1145bac706a89eaae5c62585a8a140319f795fa4bf1e62b835&)
+![screenshot](https://cdn.discordapp.com/attachments/1484133568908099584/1484133572808802384/2026319181533.png?ex=69c3b619&is=69c26499&hm=151643487c6d6302ef55498d55af2bd4a08c93f456aa002e4efdc50e408d7615&)
 
 
 ---

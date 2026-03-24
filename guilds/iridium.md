@@ -1,13 +1,15 @@
 # Iridium
 
-**Builders:** xJiune  
-**Tags:** Nature  
-**Score:** 3  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485061672036208681)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>xJiune</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Nature</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1485061672036208681">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061673168666795/202632273243.png?ex=69c321f5&is=69c1d075&hm=1b331795953d9574483e4143028456f8231197c7970d878448784e2e40d3f528&)
 

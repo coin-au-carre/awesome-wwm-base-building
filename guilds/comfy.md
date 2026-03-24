@@ -1,12 +1,14 @@
 # Comfy
 
-**Builders:** MikeRize, Plumi  
-**Score:** 2  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484178485407911966)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>MikeRize, Plumi</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484178485407911966">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69c3372d&is=69c1e5ad&hm=62a42fa25bf276ea381c6adefbdba48067757eda662f64842ff7ed7cdfadddff&)
 

@@ -1,13 +1,15 @@
 # AfterFlame
 
-**Builders:** FoxiKate  
-**Tags:** Zen, Nature  
-**Score:** 4  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484168217453662248)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>FoxiKate</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484168217453662248">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69c32d9d&is=69c1dc1d&hm=f9ca5b8c5bd8c1edf1676e4ac03853af9b32b86b7316851b294ae891b78d1718&)
 

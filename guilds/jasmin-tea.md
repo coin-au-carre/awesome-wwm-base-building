@@ -1,13 +1,15 @@
 # Jasmin'Tea
 
-**ID:** 10082099  
-**Builders:** Sidereus  
-**Score:** 2  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484169335260971058)  
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10082099</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>Sidereus</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484169335260971058">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484169335260971058/1484169336166809671/2026319202142.png?ex=69c32ea8&is=69c1dd28&hm=460e1b3c43644c45a090720dd39935bd7999d320623e8184989f930b42463df1&)
 

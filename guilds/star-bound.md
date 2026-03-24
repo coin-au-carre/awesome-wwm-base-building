@@ -1,11 +1,13 @@
 # Star·Bound
 
-**ID:** 10076053  
-**Score:** 1  
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10076053</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

@@ -1,13 +1,15 @@
 # MeInEtSesAmis
 
-**Builders:** Selkyy  
-**Tags:** River, Zen, Nature  
-**Score:** 5  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484262546352635955)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Selkyy</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>River, Zen, Nature</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484262546352635955">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262547354816694/202632024759.png?ex=69c38577&is=69c233f7&hm=2a8a87dad4e72c8117535a0e83b246c97954e80a952deaccc18ec050b28ee772&)
 

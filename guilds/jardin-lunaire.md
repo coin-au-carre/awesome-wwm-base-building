@@ -1,11 +1,13 @@
 # Jardin-Lunaire
 
-**Builders:** Hüman, Orhann, Simiaomao  
-**Score:** 1  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Hüman, Orhann, Simiaomao</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

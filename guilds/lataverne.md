@@ -1,11 +1,13 @@
 # LaTaverne
 
-**Builders:** JinSupremo, soussous  
-**Score:** 0  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>JinSupremo, soussous</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>0</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

@@ -1,11 +1,13 @@
 # EMH-Shogunate
 
-**Builders:** ToxotesToons  
-**Score:** 1  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>ToxotesToons</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

@@ -20,6 +20,8 @@ type Guild struct {
 	Builders      []string `json:"builders"`
 	Tags          []string `json:"tags,omitempty"`
 	DiscordThread string   `json:"discordThread"`
+	Lore          string   `json:"lore,omitempty"`
+	WhatToVisit   string   `json:"whatToVisit,omitempty"`
 	Score         int      `json:"score"`
 	Screenshots   []string `json:"screenshots,omitempty"`
 }
@@ -186,22 +188,35 @@ func generateGuildPage(g *Guild) error {
 
 	sb.WriteString(fmt.Sprintf("# %s\n\n", g.Name))
 
+	// metadata block
+	sb.WriteString("<table>\n")
 	if g.ID != "" {
-		sb.WriteString(fmt.Sprintf("**ID:** %s  \n", g.ID))
+		sb.WriteString(fmt.Sprintf("  <tr><td>🆔 <b>Guild ID</b></td><td>%s</td></tr>\n", g.ID))
 	}
 	if len(g.Builders) > 0 {
-		sb.WriteString(fmt.Sprintf("**Builders:** %s  \n", strings.Join(g.Builders, ", ")))
+		sb.WriteString(fmt.Sprintf("  <tr><td>🔨 <b>Builders</b></td><td>%s</td></tr>\n", strings.Join(g.Builders, ", ")))
 	}
 	if len(g.Tags) > 0 {
-		sb.WriteString(fmt.Sprintf("**Tags:** %s  \n", strings.Join(g.Tags, ", ")))
+		sb.WriteString(fmt.Sprintf("  <tr><td>🏷️ <b>Tags</b></td><td>%s</td></tr>\n", strings.Join(g.Tags, ", ")))
 	}
-	sb.WriteString(fmt.Sprintf("**Score:** %d  \n", g.Score))
+	sb.WriteString(fmt.Sprintf("  <tr><td>⭐ <b>Score</b></td><td>%d</td></tr>\n", g.Score))
 	if g.DiscordThread != "" {
-		sb.WriteString(fmt.Sprintf("**Discord Thread:** [View](%s)  \n", g.DiscordThread))
+		sb.WriteString(fmt.Sprintf("  <tr><td>💬 <b>Discord</b></td><td><a href=\"%s\">View thread</a></td></tr>\n", g.DiscordThread))
+	}
+	sb.WriteString("</table>\n\n")
+
+	if g.Lore != "" {
+		sb.WriteString("## 📜 Lore\n\n")
+		sb.WriteString(g.Lore + "\n\n")
 	}
 
-	sb.WriteString("\n---\n\n")
-	sb.WriteString("## Screenshots\n\n")
+	if g.WhatToVisit != "" {
+		sb.WriteString("## 🗺️ What to Visit\n\n")
+		sb.WriteString(g.WhatToVisit + "\n\n")
+	}
+
+	sb.WriteString("---\n\n")
+	sb.WriteString("## 📸 Screenshots\n\n")
 
 	if len(g.Screenshots) > 0 {
 		for _, url := range g.Screenshots {

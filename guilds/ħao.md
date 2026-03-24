@@ -1,12 +1,14 @@
 # Ħao
 
-**Builders:** Rastawar  
-**Score:** 2  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484181836694556772)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Rastawar</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484181836694556772">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69c33a4c&is=69c1e8cc&hm=cf27ab08359bd8ee91cc4a132f30934e75194c3768dbdbc7e78a267dbb22a6dc&)
 

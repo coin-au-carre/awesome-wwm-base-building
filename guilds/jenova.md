@@ -1,14 +1,24 @@
 # Jenova
 
-**ID:** 10244476  
-**Builders:** Ahlyam, Aihän  
-**Tags:** Zen, Nature  
-**Score:** 4  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1483464416480465018)  
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10244476</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>Ahlyam, Aihän</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1483464416480465018">View thread</a></td></tr>
+</table>
+
+## 📜 Lore
+
+An open view vegetal base where you can encounter many details.
+
+## 🗺️ What to Visit
+
+Arena gradins (bleachers), zen garden, hidden room
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69c3266c&is=69c1d4ec&hm=b761bc869abf8f234e2fbe368ee17959c42e589c70e8d18fff73bb76b2dd0ac9&)
 

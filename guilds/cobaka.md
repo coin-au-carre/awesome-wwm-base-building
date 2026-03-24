@@ -1,14 +1,16 @@
 # COBAKA
 
-**ID:** 10209300  
-**Builders:** KlavaCocka  
-**Tags:** River, Zen, Nature, Mountain  
-**Score:** 5  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484163652796809450)  
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10209300</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>KlavaCocka</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>River, Zen, Nature, Mountain</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484163652796809450">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c36ae1&is=69c21961&hm=731228e18e56fc261ded7d1e3172510ddd25361b0945e33bf4cd073c440f372f&)
 
