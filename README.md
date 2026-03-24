@@ -29,6 +29,10 @@ A curated list of **Where Winds Meet** guild bases and builders. 🌟
 | --- | --- | --- | --- |
 | [**会Ashura**](guilds/会ashura.html) | Onikishi, PynMeo, Kkulgomi |  | [6](https://discord.com/channels/1483447710617960508/1485331669136441477) |
 | [**BlackFurry**](guilds/blackfurry.html "ID: 10005556") | carnii | City, River, Nature, Mountain | [6](https://discord.com/channels/1483447710617960508/1484133568908099584) |
+| [**会Ashura**](guilds/会ashura.html) | Onikishi, PynMeo, Kkulgomi |  | [6](https://discord.com/channels/1483447710617960508/1485331669136441477) |
+| [**COBAKA**](guilds/cobaka.html "ID: 10209300") | KlavaCocka | River, Zen, Nature, Mountain | [5](https://discord.com/channels/1483447710617960508/1484163652796809450) |
+| [**PleasureSeeker**](guilds/pleasureseeker.html "ID: 10057013") | TBD |  | [5](https://discord.com/channels/1483447710617960508/1484266666564255847) |
+| [**連燈**](guilds/連燈.html "ID: 10031978") |  |  | [5](https://discord.com/channels/1483447710617960508/1485063342551732525) |
 | [**MeInEtSesAmis**](guilds/meinetsesamis.html) | Selkyy | River, Zen, Nature | [5](https://discord.com/channels/1483447710617960508/1484262546352635955) |
 | [**連燈**](guilds/連燈.html "ID: 10031978") |  |  | [5](https://discord.com/channels/1483447710617960508/1485063342551732525) |
 | [**COBAKA**](guilds/cobaka.html "ID: 10209300") | KlavaCocka | River, Zen, Nature, Mountain | [5](https://discord.com/channels/1483447710617960508/1484163652796809450) |
@@ -47,30 +51,30 @@ A curated list of **Where Winds Meet** guild bases and builders. 🌟
 | [**ASWANG**](guilds/aswang.html) | Kadlum | Fun | [2](https://discord.com/channels/1483447710617960508/1484176367989031002) |
 | [**Visual**](guilds/visual.html) | Navil | Nature, Military | [2](https://discord.com/channels/1483447710617960508/1484261413210816602) |
 | [**Jardin-Lunaire**](guilds/jardin-lunaire.html) | Hüman, Orhann, Simiaomao |  | 1 |
-| [**NhatNguyet**](guilds/nhatnguyet.html) | LôiThiênHàa |  | 1 |
+| [**Star·Bound**](guilds/star-bound.html "ID: 10076053") |  |  | 1 |
 | [**BrigadePhantom**](guilds/brigadephantom.html) | Ssyrena, Dovahline |  | 1 |
 | [**EMH-Shogunate**](guilds/emh-shogunate.html) | ToxotesToons |  | 1 |
+| [**Sanctuarys**](guilds/sanctuarys.html) | Nurami, Ichigor |  | 1 |
 | [**Toronto**](guilds/toronto.html) | FoxiKate | Fun | 1 |
 | [**Liberty-City**](guilds/liberty-city.html) | Ju-Kyung, Seong-Je |  | [1](https://discord.com/channels/1483447710617960508/1484175329537953973) |
-| [**Melancolypse**](guilds/melancolypse.html) | Aïk | Fun | [1](https://discord.com/channels/1483447710617960508/1484258514540167178) |
-| [**Sanctuarys**](guilds/sanctuarys.html) | Nurami, Ichigor |  | 1 |
-| [**Star·Bound**](guilds/star-bound.html "ID: 10076053") |  |  | 1 |
-| [**Wolfions**](guilds/wolfions.html) | Sabi, Kojak |  | 0 |
-| [**TSUKIBANA**](guilds/tsukibana.html) | Min-Woh |  | 0 |
-| [**ZOOTOPIA**](guilds/zootopia.html) |  |  | 0 |
+| [**Melancolypse**](guilds/melancolypse.html) | Aïk, KimmiSenpai | Fun | [1](https://discord.com/channels/1483447710617960508/1484258514540167178) |
+| [**NhatNguyet**](guilds/nhatnguyet.html) | LôiThiênHàa |  | 1 |
 | [**WushuChaos**](guilds/wushuchaos.html) | Sakiz, Kenshii- |  | 0 |
-| [**Noblesse**](guilds/noblesse.html) | HyyuK |  | 0 |
-| [**Saints**](guilds/saints.html) | SupremeLoner |  | 0 |
-| [**LaTaverne**](guilds/lataverne.html) | JinSupremo, soussous |  | 0 |
-| [**La Guilde**](guilds/la-guilde.html) | Keanu-Kai |  | 0 |
 | [**KillByKill**](guilds/killbykill.html) |  |  | 0 |
 | [**湮琴閣**](guilds/湮琴閣.html) | 雲酹 |  | 0 |
+| [**ZOOTOPIA**](guilds/zootopia.html) |  |  | 0 |
+| [**Seireitei**](guilds/seireitei.html) |  |  | 0 |
+| [**Wolfions**](guilds/wolfions.html) | Sabi, Kojak |  | 0 |
+| [**LaTaverne**](guilds/lataverne.html) | JinSupremo, soussous |  | 0 |
+| [**La Guilde**](guilds/la-guilde.html) | Keanu-Kai |  | 0 |
+| [**Saints**](guilds/saints.html) | SupremeLoner |  | 0 |
+| [**Noblesse**](guilds/noblesse.html) | HyyuK |  | 0 |
 | [**APX**](guilds/apx.html) |  |  | 0 |
 | [**IronRiders**](guilds/ironriders.html) | The-Builder |  | 0 |
 | [**FeralSutra**](guilds/feralsutra.html) | Zerxsai |  | 0 |
 | [**Fourberie**](guilds/fourberie.html) | Chocah |  | 0 |
+| [**TSUKIBANA**](guilds/tsukibana.html) | Min-Woh |  | 0 |
 | [**SixtyOne**](guilds/sixtyone.html) | may |  | 0 |
-| [**Seireitei**](guilds/seireitei.html) |  |  | 0 |
 | [**Aurore**](guilds/aurore.html) | Syphala |  | 0 |
 
 <!-- GENERATED_TABLE_END -->

@@ -2,8 +2,8 @@ name: Sync Guild Data
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # 10:00 UTC
-    - cron: '0 22 * * *'  # 22:00 UTC
+    - cron: '0 8 * * *'  # 8:00 UTC
+    - cron: '0 20 * * *'  # 20:00 UTC
   workflow_dispatch:       # manual trigger from GitHub UI
 
 jobs:
