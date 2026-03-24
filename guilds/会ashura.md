@@ -1,12 +1,23 @@
 # 会Ashura
 
-**Builders:** Onikishi, PynMeo, Kkulgomi  
-**Score:** 6  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485331669136441477)  
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10011051</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>Onikishi, PynMeo, Kkulgomi</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>6</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1485331669136441477">View thread</a></td></tr>
+</table>
+
+## 🗺️ What to Visit
+
+- **Yggdrasil** - our majestic flying tree, heart of the guild
+- **The Theatre** - where stories, music and gatherings come alive
+- **Meditation Spots** - hidden corners of peace and reflection
+- **Lantern-Lit Bridges** - glowing paths across tranquil waters
+- **Sacred Gardens & Courtyards** - perfect for ralxing and exploring
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331670398795927/202632285057.png?ex=69c374aa&is=69c2232a&hm=13be4f460093df85a9a19f6e4123a1c0fbf5cffdb232bf25a7a38b889472fabf&)
 
@@ -32,7 +43,7 @@ Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post i
 Copy and paste this template into your Discord thread:
 
 ```
-## :japanese_castle: 会Ashura [YOUR_GUILD_ID]
+## :japanese_castle: 会Ashura [10011051]
 :construction_worker: Builders: Onikishi, PynMeo, Kkulgomi
 
 ### :pencil: Lore

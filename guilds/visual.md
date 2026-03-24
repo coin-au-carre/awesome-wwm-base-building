@@ -1,13 +1,15 @@
 # Visual
 
-**Builders:** Navil  
-**Tags:** Nature, Military  
-**Score:** 2  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484261413210816602)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Navil</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Nature, Military</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484261413210816602">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261414620365020/20263202445.png?ex=69c38469&is=69c232e9&hm=a46e8b779add8bd88d44053030423300e1a6aa16c1bfe3d31f0206aecf70add4&)
 

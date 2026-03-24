@@ -6,11 +6,34 @@ import (
 )
 
 var (
-	reBracketID = regexp.MustCompile(`\[(\d+)\]`)
-	reBuilders  = regexp.MustCompile(`(?i)builders?:\s*([^\n]*)`)
+	reBracketID   = regexp.MustCompile(`[\[(](\d+)[\])]`)
+	reBuilders    = regexp.MustCompile(`(?i)builders?:\s*([^\n]*)`)
+	reLore        = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
+	reWhatToVisit = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
 )
 
-func parseFirstPost(content string) (id string, builders []string) {
+var skipPhrases = []string{
+	"replace_with_your_lore",
+	"describe_point_of_interest",
+	"claim ownership",
+	"contact us",
+}
+
+func cleanSection(s string) string {
+	s = strings.TrimSpace(s)
+	if len(s) < 15 {
+		return ""
+	}
+	lower := strings.ToLower(s)
+	for _, phrase := range skipPhrases {
+		if strings.Contains(lower, phrase) {
+			return ""
+		}
+	}
+	return s
+}
+
+func parseFirstPost(content string) (id string, builders []string, lore string, whatToVisit string) {
 	if m := reBracketID.FindStringSubmatch(content); len(m) > 1 {
 		id = m[1]
 	}
@@ -21,6 +44,12 @@ func parseFirstPost(content string) (id string, builders []string) {
 				builders = append(builders, b)
 			}
 		}
+	}
+	if m := reLore.FindStringSubmatch(content); len(m) > 1 {
+		lore = cleanSection(m[1])
+	}
+	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
+		whatToVisit = cleanSection(m[1])
 	}
 	return
 }

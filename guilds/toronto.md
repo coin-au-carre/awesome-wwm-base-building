@@ -1,12 +1,14 @@
 # Toronto
 
-**Builders:** FoxiKate  
-**Tags:** Fun  
-**Score:** 1  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>FoxiKate</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Fun</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

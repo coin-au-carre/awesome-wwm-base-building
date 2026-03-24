@@ -1,10 +1,12 @@
 # APX
 
-**Score:** 0  
+<table>
+  <tr><td>⭐ <b>Score</b></td><td>0</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

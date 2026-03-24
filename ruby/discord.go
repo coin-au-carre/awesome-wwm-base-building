@@ -16,6 +16,8 @@ type threadData struct {
 	Builders    []string
 	Score       int
 	Screenshots []string
+	Lore        string
+	WhatToVisit string
 }
 
 type threadResult struct {
@@ -114,6 +116,8 @@ func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForum
 				g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", j.thread.GuildID, j.thread.ID)
 				g.Score = data.Score
 				g.Screenshots = data.Screenshots
+				g.Lore = data.Lore
+				g.WhatToVisit = data.WhatToVisit
 
 				results <- threadResult{idx: j.idx, guild: g}
 			}
@@ -181,7 +185,7 @@ func fetchThreadData(s *discordgo.Session, threadID string) threadData {
 		return threadData{}
 	}
 
-	id, builders := parseFirstPost(msgs[0].Content)
+	id, builders, lore, whatToVisit := parseFirstPost(msgs[0].Content)
 
 	score := 0
 	for _, r := range msgs[0].Reactions {
@@ -205,6 +209,8 @@ func fetchThreadData(s *discordgo.Session, threadID string) threadData {
 		Builders:    builders,
 		Score:       score,
 		Screenshots: collectScreenshotURLs(s, threadID),
+		Lore:        lore,
+		WhatToVisit: whatToVisit,
 	}
 }
 

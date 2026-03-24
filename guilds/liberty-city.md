@@ -1,12 +1,14 @@
 # Liberty-City
 
-**Builders:** Ju-Kyung, Seong-Je  
-**Score:** 1  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484175329537953973)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Ju-Kyung, Seong-Je</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484175329537953973">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69c3343d&is=69c1e2bd&hm=823289e2fa264138fe092d3ec056d20373fea01e0e4caa55ea33a16ded10e3de&)
 

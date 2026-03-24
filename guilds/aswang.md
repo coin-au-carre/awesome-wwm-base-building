@@ -1,13 +1,15 @@
 # ASWANG
 
-**Builders:** Kadlum  
-**Tags:** Fun  
-**Score:** 2  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484176367989031002)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Kadlum</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Fun</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484176367989031002">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69c33534&is=69c1e3b4&hm=be13f9f6d50d008b46c208c6d3b70035184d5aa360b33f0619263cdaf040f04f&)
 

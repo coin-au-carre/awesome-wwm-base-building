@@ -1,13 +1,15 @@
 # AdriftWanderes
 
-**Builders:** Alscend  
-**Tags:** Cave, Nature, Mountain  
-**Score:** 3  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485056219675623514)  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>Alscend</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Cave, Nature, Mountain</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1485056219675623514">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485056219675623514/1485056220774662144/202632271542.png?ex=69c31ce2&is=69c1cb62&hm=816b4fcd3337b9022a9956a7f91f9584da1f86ba969b34d6ce302adde071ea1b&)
 

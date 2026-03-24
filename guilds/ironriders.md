@@ -1,11 +1,13 @@
 # IronRiders
 
-**Builders:** The-Builder  
-**Score:** 0  
+<table>
+  <tr><td>🔨 <b>Builders</b></td><td>The-Builder</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>0</td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *No screenshots available yet.*
 

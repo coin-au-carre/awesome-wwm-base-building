@@ -1,12 +1,14 @@
 # Zhou
 
-**Tags:** Nature, Fun  
-**Score:** 2  
-**Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1485832235117707386)  
+<table>
+  <tr><td>🏷️ <b>Tags</b></td><td>Nature, Fun</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1485832235117707386">View thread</a></td></tr>
+</table>
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69c34c9a&is=69c1fb1a&hm=22d35657b7805d7a8dfc9aaf00e0a142812e5f83ea26c2489441c36295272c22&)
 
