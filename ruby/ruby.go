@@ -10,6 +10,7 @@ import (
 )
 
 const DRY_RUN = false
+const DO_NOT_NOTIFY = true
 
 type SyncStats struct {
 	Total        int
@@ -62,7 +63,7 @@ func main() {
 
 	stats, err := syncGuilds(session, root, guildBaseShowcaseChannelForumID)
 	if err != nil {
-		notify(session, botChannelID, "💥 **I have failed to synchronized the guilds data** — "+err.Error())
+		notify(session, botChannelID, "💥 **Guilds have failed to synchronize grrr!** — "+err.Error())
 		slog.Error("sync failed", "err", err)
 		os.Exit(1)
 	}

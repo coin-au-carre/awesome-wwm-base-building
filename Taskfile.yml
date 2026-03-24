@@ -5,6 +5,9 @@ tasks:
   generate:
     cmd: go run .
 
+  generate:clean:
+    cmd: go run generate.go -clean
+
   ruby:
     dir: ruby
     cmd: go run .
