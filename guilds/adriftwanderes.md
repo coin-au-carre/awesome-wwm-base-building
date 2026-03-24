@@ -3,7 +3,7 @@
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>Alscend</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Cave, Nature, Mountain</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1485056219675623514">View thread</a></td></tr>
 </table>
 
