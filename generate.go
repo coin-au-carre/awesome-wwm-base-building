@@ -147,10 +147,15 @@ func buildTopShowcase(guilds []Guild) string {
 func buildTable(guilds []Guild) string {
 	var sb strings.Builder
 
-	sb.WriteString("| Guild Name | Builders | Tags | Discord Score |\n")
-	sb.WriteString("| --- | --- | --- | --- |\n")
+	sb.WriteString("| Rank | Guild Name | Builders | Tags | Score |\n")
+	sb.WriteString("| --- | --- | --- | --- | --- |\n")
 
-	for _, g := range guilds {
+	rank := 1
+	for i, g := range guilds {
+		if i > 0 && g.Score < guilds[i-1].Score {
+			rank = i + 1
+		}
+
 		score := fmt.Sprintf("%d", g.Score)
 		if g.DiscordThread != "" {
 			score = fmt.Sprintf("[%d](%s)", g.Score, g.DiscordThread)
@@ -160,7 +165,18 @@ func buildTable(guilds []Guild) string {
 			link = fmt.Sprintf("[**%s**](%s/%s.html \"ID: %s\")", g.Name, guildsDir, slugify(g.Name), g.ID)
 		}
 
-		sb.WriteString(fmt.Sprintf("| %s | %s | %s | %s |\n",
+		rankStr := fmt.Sprintf("%d", rank)
+		switch rank {
+		case 1:
+			rankStr = "🥇"
+		case 2:
+			rankStr = "🥈"
+		case 3:
+			rankStr = "🥉"
+		}
+
+		sb.WriteString(fmt.Sprintf("| %s | %s | %s | %s | %s |\n",
+			rankStr,
 			link,
 			strings.Join(g.Builders, ", "),
 			strings.Join(g.Tags, ", "),
