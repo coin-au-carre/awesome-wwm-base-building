@@ -245,7 +245,7 @@ func collectScreenshotURLs(s *discordgo.Session, threadID string) []string {
 
 func formatSyncSummary(s SyncStats) string {
 	lines := []string{
-		"✅ **I have synchronized the guilds data!**",
+		"✨ **All guilds have been synchronized!**",
 		fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
 	}
 	if s.New > 0 {
@@ -264,6 +264,10 @@ func formatSyncSummary(s SyncStats) string {
 }
 
 func notify(s *discordgo.Session, channelID, msg string) {
+	if DO_NOT_NOTIFY {
+		slog.Info("Discord notification ignored", "msg", msg)
+		return
+	}
 	if channelID == "" {
 		slog.Warn("BOT_CHANNEL_ID not set, skipping notification")
 		return
@@ -271,4 +275,5 @@ func notify(s *discordgo.Session, channelID, msg string) {
 	if _, err := s.ChannelMessageSend(channelID, msg); err != nil {
 		slog.Warn("failed to send bot notification", "err", err)
 	}
+
 }

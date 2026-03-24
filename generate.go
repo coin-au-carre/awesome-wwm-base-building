@@ -3,6 +3,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"math/rand"
 	"os"
@@ -38,6 +39,9 @@ const (
 )
 
 func main() {
+	clean := flag.Bool("clean", false, "remove guild pages that no longer exist in guilds.json")
+	flag.Parse()
+
 	data, err := os.ReadFile("guilds.json")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error reading guilds.json: %v\n", err)
@@ -53,6 +57,13 @@ func main() {
 	sort.Slice(guilds, func(i, j int) bool {
 		return guilds[i].Score > guilds[j].Score
 	})
+
+	if *clean {
+		if err := cleanGuildPages(guilds); err != nil {
+			fmt.Fprintf(os.Stderr, "error cleaning guild pages: %v\n", err)
+			os.Exit(1)
+		}
+	}
 
 	if err := os.MkdirAll(guildsDir, 0755); err != nil {
 		fmt.Fprintf(os.Stderr, "error creating guilds dir: %v\n", err)
@@ -265,4 +276,34 @@ func buildGenericDiscordTemplate() string {
 	sb.WriteString("```\n")
 
 	return sb.String()
+}
+
+func cleanGuildPages(guilds []Guild) error {
+	known := make(map[string]bool, len(guilds))
+	for _, g := range guilds {
+		known[slugify(g.Name)+".md"] = true
+	}
+
+	entries, err := os.ReadDir(guildsDir)
+	if err != nil {
+		return fmt.Errorf("reading %s: %w", guildsDir, err)
+	}
+
+	var removed int
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") || e.Name() == "index.md" {
+			continue
+		}
+		if !known[e.Name()] {
+			path := filepath.Join(guildsDir, e.Name())
+			if err := os.Remove(path); err != nil {
+				return fmt.Errorf("removing %s: %w", path, err)
+			}
+			fmt.Printf("removed stale guild page: %s\n", path)
+			removed++
+		}
+	}
+
+	fmt.Printf("clean: %d stale guild page(s) removed\n", removed)
+	return nil
 }
