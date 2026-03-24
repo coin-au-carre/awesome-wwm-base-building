@@ -1,6 +1,6 @@
 # Melancolypse
 
-**Builders:** Aïk  
+**Builders:** Aïk, KimmiSenpai  
 **Tags:** Fun  
 **Score:** 1  
 **Discord Thread:** [View](https://discord.com/channels/1483447710617960508/1484258514540167178)  
@@ -22,7 +22,7 @@ Copy and paste this template into your Discord thread:
 
 ```
 ## :japanese_castle: Melancolypse [YOUR_GUILD_ID]
-:construction_worker: Builders: Aïk
+:construction_worker: Builders: Aïk, KimmiSenpai
 
 ### :pencil: Lore
 REPLACE_WITH_YOUR_LORE

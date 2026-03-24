@@ -12,9 +12,11 @@ import (
 const DRY_RUN = false
 
 type SyncStats struct {
-	Total   int
-	Updated int
-	New     int
+	Total        int
+	Updated      int
+	New          int
+	UpdatedNames []string
+	NewNames     []string
 }
 
 func rootDir() string {

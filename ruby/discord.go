@@ -63,6 +63,10 @@ func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForum
 
 	var mu sync.Mutex
 	var newCount int
+	var newNames []string
+	var updatedCount int
+	var updatedNames []string
+
 	guildMap := make(map[string]int)
 	for i := range guilds {
 		guildMap[strings.ToLower(guilds[i].Name)] = i
@@ -73,6 +77,7 @@ func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForum
 			guilds = append(guilds, Guild{Name: name, Builders: []string{}})
 			guildMap[strings.ToLower(name)] = len(guilds) - 1
 			newCount++
+			newNames = append(newNames, name)
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 	}
@@ -128,7 +133,6 @@ func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForum
 		close(results)
 	}()
 
-	var updatedCount int
 	for r := range results {
 		prev := guilds[r.idx]
 		changed := prev.Score != r.guild.Score ||
@@ -136,6 +140,7 @@ func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForum
 			strings.Join(prev.Builders, ",") != strings.Join(r.guild.Builders, ",")
 		if changed {
 			updatedCount++
+			updatedNames = append(updatedNames, r.guild.Name)
 		}
 		guilds[r.idx] = r.guild
 		slog.Info("guild synced",
@@ -149,9 +154,11 @@ func syncGuilds(s *discordgo.Session, root string, guildBaseShowcaseChannelForum
 	}
 
 	stats := SyncStats{
-		Total:   len(guilds),
-		New:     newCount,
-		Updated: updatedCount,
+		Total:        len(guilds),
+		New:          newCount,
+		NewNames:     newNames,
+		Updated:      updatedCount,
+		UpdatedNames: updatedNames,
 	}
 
 	if DRY_RUN {
@@ -242,10 +249,12 @@ func formatSyncSummary(s SyncStats) string {
 		fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
 	}
 	if s.New > 0 {
-		lines = append(lines, fmt.Sprintf("🆕 **%d** new guild(s) discovered", s.New))
+		names := strings.Join(s.NewNames, ", ")
+		lines = append(lines, fmt.Sprintf("🆕 **%d** new guild(s) discovered: %s", s.New, names))
 	}
 	if s.Updated > 0 {
-		lines = append(lines, fmt.Sprintf("🔄 **%d** guild(s) refreshed", s.Updated))
+		names := strings.Join(s.UpdatedNames, ", ")
+		lines = append(lines, fmt.Sprintf("🔄 **%d** guild(s) refreshed: %s", s.Updated, names))
 	}
 	// if s.New == 0 && s.Updated == 0 {
 	// 	lines = append(lines, "💤 Nothing changed")
