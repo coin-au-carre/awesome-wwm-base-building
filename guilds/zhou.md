@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🏷️ <b>Tags</b></td><td>Nature, Fun</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1485832235117707386">View thread</a></td></tr>
 </table>
 
@@ -10,13 +10,13 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69c34c9a&is=69c1fb1a&hm=22d35657b7805d7a8dfc9aaf00e0a142812e5f83ea26c2489441c36295272c22&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69c3f55a&is=69c2a3da&hm=7188e325744c889d32dcf79f28bc6cae2bae224f58d39b8ed12901be1c24a7dd&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832237294420040/2026324102420.png?ex=69c34c9a&is=69c1fb1a&hm=2d509bbf079f19237e05c99ef1bab459ca764815c6216eb15eb468096cf2b259&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832237294420040/2026324102420.png?ex=69c3f55a&is=69c2a3da&hm=3d7f5efdbc946988c1451a17e0ddde55fbc6c11ba577be2d7839e7a71ed32948&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238099599514/2026324102337.png?ex=69c34c9a&is=69c1fb1a&hm=dafff2717ca0f7498176700bbc536f7849154ba4ebeedf3b221b54c84034aab6&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238099599514/2026324102337.png?ex=69c3f55a&is=69c2a3da&hm=66578c6380f2ce14139bac6b8399a3deddd883ffd8f873ecafbfd7052dec3335&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238640795648/2026324102118.png?ex=69c34c9b&is=69c1fb1b&hm=77c90d24faaaf4ffe7d6c09bc06bd1ec33cd869cba6da2e0c8423f8ceeb814db&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238640795648/2026324102118.png?ex=69c3f55b&is=69c2a3db&hm=bbe75cc09070dac7a6ed44390bae3d809de4836f7504f2de11f002d204e68579&)
 
 
 ---

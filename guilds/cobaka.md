@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10209300</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>KlavaCocka</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>River, Zen, Nature, Mountain</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>7</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484163652796809450">View thread</a></td></tr>
 </table>
 
@@ -12,7 +12,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c36ae1&is=69c21961&hm=731228e18e56fc261ded7d1e3172510ddd25361b0945e33bf4cd073c440f372f&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c413a1&is=69c2c221&hm=ba024626a8ddf31946185201a3d97cc17fabd567412a505084b593e3488a415a&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69c3d21d&is=69c2809d&hm=33795f26876ab4bb0691f7ee7695ee84ef1f0eb04e481a48c099e24514dd5e42&)
 
