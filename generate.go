@@ -30,6 +30,8 @@ const (
 	guildsDir            = "guilds"
 	discordInvite        = "https://discord.gg/Qygt9u26Bn"
 	showcaseChannel      = "`#base-guild-showcase`"
+	introStart           = "<!-- INTRO_START -->"
+	introEnd             = "<!-- INTRO_END -->"
 	startMarker          = "<!-- GENERATED_TABLE_START -->"
 	endMarker            = "<!-- GENERATED_TABLE_END -->"
 	showcaseStart        = "<!-- TOP_SHOWCASE_START -->"
@@ -76,6 +78,12 @@ func main() {
 		if err := generateGuildPage(&guilds[i]); err != nil {
 			fmt.Fprintf(os.Stderr, "error generating page for %s: %v\n", guilds[i].Name, err)
 		}
+	}
+
+	intro := fmt.Sprintf("🏰 **%d guild bases** listed — [add yours on Discord!](%s)", len(guilds), discordInvite)
+	if err := injectBetweenMarkers("README.md", introStart, introEnd, intro); err != nil {
+		fmt.Fprintf(os.Stderr, "error injecting intro: %v\n", err)
+		os.Exit(1)
 	}
 
 	if err := injectBetweenMarkers("README.md", startMarker, endMarker, buildTable(guilds)); err != nil {
