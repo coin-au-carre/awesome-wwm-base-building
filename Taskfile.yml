@@ -17,3 +17,10 @@ tasks:
   all:
     deps: [ruby]
     cmd: go run generate.go
+
+  push:
+    desc: build check then push
+    cmds:
+      - go build ./...
+      - cd ruby && go build ./...
+      - git push {{.CLI_ARGS}}
