@@ -3,7 +3,7 @@
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>yar</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Cave, Fun</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>0</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1486191443558006804">View thread</a></td></tr>
 </table>
 
@@ -15,11 +15,11 @@ The labyrinth...
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444313247836/2026325103113.png?ex=69c49b24&is=69c349a4&hm=4f466847903c3ae8052df008ec614c03f1ddf623b88e9c4149b3b0cf0f16faf0&)
+![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444313247836/2026325103113.png?ex=69c543e4&is=69c3f264&hm=ff9a2f78b4da9e791f8d528ca92af45790d1da030e0094aaa6cbf14d9f07d516&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444866765013/2026325102531.png?ex=69c49b24&is=69c349a4&hm=835ee5911797a2d1e872ef111381e572225e0022d7381cb27e8ce771ea6761e0&)
+![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444866765013/2026325102531.png?ex=69c543e4&is=69c3f264&hm=c856352e3e078761dd8cae5549cb254ef3dcf3dd3b5c69fb33d51b2f6c2f7471&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191445386854422/202632510251.png?ex=69c49b24&is=69c349a4&hm=05593156b1437aa13481706f63cdcffd83c1f51ce6e17416c2e199f103d745ad&)
+![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191445386854422/202632510251.png?ex=69c543e4&is=69c3f264&hm=90cbc9eb4ed770c3df21bcc357c9e3364794c7d8f5ee981a7a211be929983189&)
 
 
 ---
