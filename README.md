@@ -2,7 +2,7 @@
 
 <!-- INTRO_START -->
 
-🏰 **48 guild bases** listed — [add yours on Discord!](https://discord.gg/Qygt9u26Bn)
+🏰 **49 guild bases** listed — [add yours on Discord!](https://discord.gg/Qygt9u26Bn)
 <!-- INTRO_END -->
 
 ---
@@ -11,7 +11,7 @@
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="guilds/cobaka.html" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163655342886983/guild-base-building-v0-buc5bwfpdahg1.webp?ex=69c47add&is=69c3295d&hm=0b3d08ef129549bd3369fae782b1d449b87423c7e638990f37f3a79318c5bbbf&" width="320" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063344359604295/202632263416.png?ex=69c47504&is=69c32384&hm=e9cb0bc323fb741c5f5da0ea09cb4defe8e1f9d37b72a08b2ca6bbf59ed67eaa&" width="320" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485331669136441477/1485331670398795927/202632285057.png?ex=69c41d6a&is=69c2cbea&hm=7557d93a67bdda6e588538fb634e453a16b2db18cc36cd504525c9465a0120c3&" width="320" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133572808802384/2026319181533.png?ex=69c45ed9&is=69c30d59&hm=c448f03cca1305e61cee0fbfed6ac695ea5515bd749ef818fb78b99692d1c36a&" width="320" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/iridium.html" title="Iridium"><img src="https://cdn.discordapp.com/attachments/1485061672036208681/1485061673168666795/202632273243.png?ex=69c47375&is=69c321f5&hm=65ce2179b950bedc8c59422e17eae3ce41f3139c85020ca687ded0fd9853c8a2&" width="320" alt="Iridium"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/zhou.html" title="Zhou"><img src="https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69c3f55a&is=69c2a3da&hm=7188e325744c889d32dcf79f28bc6cae2bae224f58d39b8ed12901be1c24a7dd&" width="320" alt="Zhou"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/meinetsesamis.html" title="MeInEtSesAmis"><img src="https://cdn.discordapp.com/attachments/1484262546352635955/1484262548848246986/202632024729.png?ex=69c42e37&is=69c2dcb7&hm=0c10954248dc4a03b8c1f50d77554feb3e1402e2e832ed3b96f0a4857c1e89ea&" width="320" alt="MeInEtSesAmis"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/melancolypse.html" title="Melancolypse"><img src="https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69c42a76&is=69c2d8f6&hm=4246b2214e28c7c3ea1cf3ae4f50d978fb0f0e342cb0ab0fbf47de634533de0c&" width="320" alt="Melancolypse"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobrakai.html" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131607408283648/202631918313.png?ex=69c45d05&is=69c30b85&hm=991ddcfda2cb445ffe6af9bfe44c7b2b5f5281ac9b4e073d01d8b22e0ee56fde&" width="320" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;
+<a href="guilds/cobaka.html" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69c47add&is=69c3295d&hm=e0aa921c48a9462b6d0e37a993265b692ac720542c48fecfa5f503e18ef33650&" width="320" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063345017979032/20263226341.png?ex=69c47504&is=69c32384&hm=cd036cd4a20612f9238b0e87fdf93204671c73de761b5cb6033777b7dcd43c8c&" width="320" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485331669136441477/1485331673699717181/GB28.png?ex=69c4c62b&is=69c374ab&hm=29504814a22dfec914e958b9b930525fb8c22971800f21fc28a5427437887a0b&" width="320" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1484133568908099584/1484133571726803004/2026319181459.png?ex=69c45ed9&is=69c30d59&hm=595c91efd14963d88763ffcbcb7110884cd1a4f44465d850f539904faea7a5e4&" width="320" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/iridium.html" title="Iridium"><img src="https://cdn.discordapp.com/attachments/1485061672036208681/1485061674259058878/202632273223.png?ex=69c47376&is=69c321f6&hm=808f7529d6701ea2c537ed35b83300d4d8ad8a2392d9faf624844a614bb6f007&" width="320" alt="Iridium"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/zhou.html" title="Zhou"><img src="https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69c49e1a&is=69c34c9a&hm=4434a63ca68ea99f1824822645a9130dc0b2e04d9eeb099022040ee47095fad5&" width="320" alt="Zhou"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/meinetsesamis.html" title="MeInEtSesAmis"><img src="https://cdn.discordapp.com/attachments/1484262546352635955/1484262548848246986/202632024729.png?ex=69c4d6f7&is=69c38577&hm=30f5abdd89acb73dc4007965f584e422e07600bfc1c5751942a6831e09a54537&" width="320" alt="MeInEtSesAmis"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/melancolypse.html" title="Melancolypse"><img src="https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69c4d336&is=69c381b6&hm=3e2d38023e57e74ba4e515209a216aff0472df09e876bbd67e09ef62005baf81&" width="320" alt="Melancolypse"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobrakai.html" title="CobraKai"><img src="https://cdn.discordapp.com/attachments/1484131605428703262/1484131608654118992/20263199404.png?ex=69c45d05&is=69c30b85&hm=09777b289dd28456d2c7c562356869cdbc2cf0b45ff14b85beb0633f533725b8&" width="320" alt="CobraKai"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -21,7 +21,7 @@
 
 <!-- LAST_UPDATED_START -->
 
-🔄 **Last synchronized:**  March 25, 2026 at 01:57 UTC
+🔄 **Last synchronized:**  March 25, 2026 at 08:41 UTC
 <!-- LAST_UPDATED_END -->
 
 <!-- GENERATED_TABLE_START -->
@@ -76,6 +76,7 @@
 | 32 | [**Aurore**](guilds/aurore.html) | Syphala |  | 0 |
 | 32 | [**Saints**](guilds/saints.html) | SupremeLoner |  | 0 |
 | 32 | [**Noblesse**](guilds/noblesse.html) | HyyuK |  | 0 |
+| 32 | [**Party-Crashers**](guilds/party-crashers.html) | yar | Cave, Fun | [0](https://discord.com/channels/1483447710617960508/1486191443558006804) |
 
 <!-- GENERATED_TABLE_END -->
 
