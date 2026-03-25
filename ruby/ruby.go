@@ -10,7 +10,7 @@ import (
 )
 
 const DRY_RUN = false
-const DO_NOT_NOTIFY = true
+const DO_NOT_NOTIFY = false
 
 type SyncStats struct {
 	Total        int
