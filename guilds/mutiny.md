@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10000929</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>SugaredKoi</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Mountain, River, Nature, City</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>7</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1486392790836576456">View thread</a></td></tr>
 </table>
 
