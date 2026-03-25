@@ -3,14 +3,16 @@ version: '3'
 
 tasks:
   generate:
-    cmd: go run .
+    cmd: go run generate.go
 
   generate:clean:
     cmd: go run generate.go -clean
 
   ruby:
     dir: ruby
-    cmd: go run .
+    cmds:
+      - git -C .. pull
+      - go run . {{.CLI_ARGS}}
 
   all:
     deps: [ruby]

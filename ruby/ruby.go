@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -28,6 +29,9 @@ func rootDir() string {
 }
 
 func main() {
+	noNotify := flag.Bool("no-notify", false, "disable Discord notifications")
+	flag.Parse()
+
 	root := rootDir()
 	if err := godotenv.Load(filepath.Join(root, ".env")); err != nil {
 		slog.Warn("no .env file, relying on environment variables")
@@ -68,5 +72,5 @@ func main() {
 		os.Exit(1)
 	}
 
-	notify(session, botChannelID, formatSyncSummary(stats))
+	notify(session, botChannelID, formatSyncSummary(stats), noNotify)
 }
