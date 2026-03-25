@@ -269,8 +269,8 @@ func formatSyncSummary(s SyncStats) string {
 	return strings.Join(lines, "\n")
 }
 
-func notify(s *discordgo.Session, channelID, msg string) {
-	if DO_NOT_NOTIFY {
+func notify(s *discordgo.Session, channelID, msg string, noNotify *bool) {
+	if *noNotify {
 		slog.Info("Discord notification ignored", "msg", msg)
 		return
 	}
