@@ -27,6 +27,7 @@ func main() {
 	token := requireEnv("RUBY_BOT_TOKEN")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	forumChannelID := requireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
@@ -36,7 +37,7 @@ func main() {
 	defer bot.Close()
 
 	bot.Session.AddHandler(onReady())
-	bot.Session.AddHandler(onThreadCreate(bot, *root, forumChannelID))
+	bot.Session.AddHandler(onThreadCreate(bot, *root, forumChannelID, baseBuilderRoleID))
 	bot.Session.AddHandler(onReactionAdd(bot, *root, forumChannelID))
 
 	if err := bot.Open(); err != nil {
@@ -60,12 +61,15 @@ func onReady() func(*discordgo.Session, *discordgo.Ready) {
 
 // onThreadCreate fires when a new post appears in the guild showcase forum.
 // It triggers an incremental sync for that single thread.
-func onThreadCreate(bot *discord.Bot, root, forumChannelID string) func(*discordgo.Session, *discordgo.ThreadCreate) {
+func onThreadCreate(bot *discord.Bot, root, forumChannelID string, baseBuilderRoleID string) func(*discordgo.Session, *discordgo.ThreadCreate) {
 	return func(s *discordgo.Session, t *discordgo.ThreadCreate) {
 		if t.ParentID != forumChannelID {
 			return
 		}
-		slog.Info("new forum thread", "name", t.Name, "id", t.ID)
+		slog.Info("new forum thread", "name", t.Name, "id", t.ID, "owner", t.OwnerID)
+
+		// assign role immediately without waiting for sync
+		discord.AssignBaseBuilderRole(s, t.GuildID, t.OwnerID, baseBuilderRoleID)
 
 		guilds, err := guild.Load(root)
 		if err != nil {
@@ -74,7 +78,8 @@ func onThreadCreate(bot *discord.Bot, root, forumChannelID string) func(*discord
 		}
 
 		updated, stats, err := discord.Sync(bot, guilds, discord.SyncConfig{
-			ForumChannelID: forumChannelID,
+			ForumChannelID:    forumChannelID,
+			BaseBuilderRoleID: baseBuilderRoleID,
 		})
 		if err != nil {
 			slog.Error("thread sync failed", "thread", t.Name, "err", err)

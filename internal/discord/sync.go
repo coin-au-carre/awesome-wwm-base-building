@@ -22,12 +22,15 @@ type SyncStats struct {
 }
 
 type SyncConfig struct {
-	ForumChannelID string
-	DryRun         bool
+	ForumChannelID    string
+	BaseBuilderRoleID string
+	DryRun            bool
+	ForceRoleAssign   bool
 }
 
 type threadData struct {
 	ID          string
+	AuthorID    string
 	Builders    []string
 	Score       int
 	Screenshots []string
@@ -36,8 +39,9 @@ type threadData struct {
 }
 
 type threadResult struct {
-	idx   int
-	guild guild.Guild
+	idx      int
+	guild    guild.Guild
+	authorID string
 }
 
 func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStats, error) {
@@ -110,7 +114,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 				g.Lore = data.Lore
 				g.WhatToVisit = data.WhatToVisit
 
-				results <- threadResult{idx: j.idx, guild: g}
+				results <- threadResult{idx: j.idx, guild: g, authorID: data.AuthorID}
 			}
 		}()
 	}
@@ -126,11 +130,33 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		close(results)
 	}()
 
+	// build set of users who already have the role — skipped when forcing
+	assignedUsers := make(map[string]bool)
+	if !cfg.ForceRoleAssign {
+		for _, g := range guilds {
+			if g.BuilderDiscordID != "" {
+				assignedUsers[g.BuilderDiscordID] = true
+			}
+		}
+	}
+
 	for r := range results {
-		if !newIndices[r.idx] && hasChanged(guilds[r.idx], r.guild) {
+		prev := guilds[r.idx]
+
+		if !newIndices[r.idx] && hasChanged(prev, r.guild) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, r.guild.Name)
 		}
+
+		// assign role once per user across all guilds, safe because results loop is sequential
+		if !cfg.DryRun && cfg.BaseBuilderRoleID != "" && r.authorID != "" {
+			if !assignedUsers[r.authorID] {
+				AssignBaseBuilderRole(b.Session, forumChannel.GuildID, r.authorID, cfg.BaseBuilderRoleID)
+				assignedUsers[r.authorID] = true
+			}
+		}
+		r.guild.BuilderDiscordID = r.authorID
+
 		guilds[r.idx] = r.guild
 		slog.Info("guild synced",
 			"name", r.guild.Name,
@@ -190,6 +216,7 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 
 	return threadData{
 		ID:          id,
+		AuthorID:    msgs[0].Author.ID, // <--
 		Builders:    builders,
 		Score:       score,
 		Screenshots: collectScreenshots(s, thread.ID),
