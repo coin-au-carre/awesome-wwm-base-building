@@ -59,13 +59,16 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 
 	var stats SyncStats
 	guildMap := buildGuildMap(guilds)
+	newIndices := make(map[int]bool) // track which slice indices are brand-new so we don't also flag them as updated
 
 	for _, thread := range threads {
 		name := guild.ExtractName(thread.Name)
 		key := strings.ToLower(name)
 		if _, exists := guildMap[key]; !exists {
+			idx := len(guilds)
 			guilds = append(guilds, guild.Guild{Name: name, Builders: []string{}})
 			guildMap[key] = len(guilds) - 1
+			newIndices[idx] = true //
 			stats.New++
 			stats.NewNames = append(stats.NewNames, name)
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
@@ -124,7 +127,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 	}()
 
 	for r := range results {
-		if hasChanged(guilds[r.idx], r.guild) {
+		if !newIndices[r.idx] && hasChanged(guilds[r.idx], r.guild) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, r.guild.Name)
 		}
