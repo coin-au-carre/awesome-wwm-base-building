@@ -158,7 +158,7 @@ func buildTable(guilds []Guild) string {
 
 		score := fmt.Sprintf("%d", g.Score)
 		if g.DiscordThread != "" {
-			score = fmt.Sprintf("[%d](%s)", g.Score, g.DiscordThread)
+			score = fmt.Sprintf("[%d](%s)", g.Score, discordInvite)
 		}
 		link := fmt.Sprintf("[**%s**](%s/%s.html)", g.Name, guildsDir, slugify(g.Name))
 		if g.ID != "" {
@@ -225,7 +225,10 @@ func generateGuildPage(g *Guild) error {
 	}
 	sb.WriteString(fmt.Sprintf("  <tr><td>⭐ <b>Score</b></td><td>%d</td></tr>\n", g.Score))
 	if g.DiscordThread != "" {
-		sb.WriteString(fmt.Sprintf("  <tr><td>💬 <b>Discord</b></td><td><a href=\"%s\">View thread</a></td></tr>\n", g.DiscordThread))
+		sb.WriteString(fmt.Sprintf(
+			"  <tr><td>💬 <b>Discord</b></td><td><a href=\"%s\">Join server</a> · <a href=\"%s\">View thread</a></td></tr>\n",
+			discordInvite, g.DiscordThread,
+		))
 	}
 	sb.WriteString("</table>\n\n")
 

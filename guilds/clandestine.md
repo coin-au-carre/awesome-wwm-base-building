@@ -5,7 +5,7 @@
   <tr><td>🔨 <b>Builders</b></td><td>HazelWind</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>City</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
-  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484136356266512424">View thread</a></td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484136356266512424">View thread</a></td></tr>
 </table>
 
 ---
