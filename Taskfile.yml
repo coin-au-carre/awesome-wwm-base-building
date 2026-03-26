@@ -10,7 +10,9 @@ tasks:
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
     desc: crawl Discord threads → update guilds.json
-    cmd: go run ./cmd/sync {{.CLI_ARGS}}
+    cmds:
+      - git pull
+      - go run ./cmd/sync {{.CLI_ARGS}}
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
