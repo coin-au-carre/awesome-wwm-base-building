@@ -2,18 +2,23 @@
 
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>zzBenT</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Arena, Cave, Mountain</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486645667878404247">View thread</a></td></tr>
 </table>
+
+## 🗺️ What to Visit
+
+Ying Yang arena, prison, mountain
 
 ---
 
 ## 📸 Screenshots
 
-*No screenshots available yet.*
+![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645668926853120/202632645236.png?ex=69c6422c&is=69c4f0ac&hm=d9e60edb91aed4fad6da32d04355b9e1a681463be8f423c31ebb9f0d75f2fb27&)
 
-📸 **Want to showcase this guild base?**
+![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69c6422c&is=69c4f0ac&hm=a8049b4233b07c80a2ac73f99a5a181f5c6d30174c1cc7bfc80f12f61354785e&)
 
-[Join our Discord](https://discord.gg/Qygt9u26Bn) and post your screenshots in `#base-guild-showcase` — they will appear here automatically!
 
 ---
 

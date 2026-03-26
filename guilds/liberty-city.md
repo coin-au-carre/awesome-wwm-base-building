@@ -10,7 +10,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69c52e7d&is=69c3dcfd&hm=0471b43417343fdbc64362a5cfc72cd2547d3c18f1a46b43f93afd4fc53b870d&)
+![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69c5d73d&is=69c485bd&hm=85961cf6ae2e33727acbad39b28cb0ec2d6681d8b241f569b412638d256f5eb1&)
 
 
 ---

@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10244476</td></tr>
-  <tr><td>🔨 <b>Builders</b></td><td>Ahlyam, Aihän</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>Dovahline, Ahlyam</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1483464416480465018">View thread</a></td></tr>
@@ -20,15 +20,15 @@ Arena gradins (bleachers), zen garden, hidden room
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69c520ac&is=69c3cf2c&hm=261fc0c3accd1bb8ae46fccf0dc4d4a92a695251687aa71201b81463197e4c2f&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69c5c96c&is=69c477ec&hm=9bd2736a8b55ec65dfdf1b8f31825f4889788763adc8e5fbb7616fbda0432108&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69c553fc&is=69c4027c&hm=a7f5ef932ff7d584963952e6d4b45afb71cbdedf31e69dec9dd7b431063906f3&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69c5fcbc&is=69c4ab3c&hm=9878f75bc3aa3fdebac6b8b96cb35ca676461e81c6ad12ae300f1caab0a91d3d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c53b66&is=69c3e9e6&hm=2cb1818bd53b39814d0c86de1cda8c974061e926ef8d7de6c9cf2f148c7ea43c&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c5e426&is=69c492a6&hm=c98bba744f9e43a69d4c50c8862208135061bad198ae5a5dd2a8e9ae840c0bb7&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69c53b66&is=69c3e9e6&hm=9b98e5b252978b2c184daafeccae4dcb49305c62cc75f6c4716980f064be400e&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69c5e426&is=69c492a6&hm=9330b0cb123a097ff3fe0feadbc0dc2b288f1d103ca81b7dba9043b6e4f0006b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c53b66&is=69c3e9e6&hm=2eed5f1f4409584a4ea2a42f7e880e74391dbf6778e85515fe648760dc3d1cf1&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c5e426&is=69c492a6&hm=bc4f7e5a20653a7cb38f697a636c79e3b45f54613c7531de1f145b3773e20840&)
 
 
 ---
@@ -41,7 +41,7 @@ Copy and paste this template into your Discord thread:
 
 ```
 ## :japanese_castle: Jenova [10244476]
-:construction_worker: Builders: Ahlyam, Aihän
+:construction_worker: Builders: Dovahline, Ahlyam
 
 ### :pencil: Lore
 REPLACE_WITH_YOUR_LORE
