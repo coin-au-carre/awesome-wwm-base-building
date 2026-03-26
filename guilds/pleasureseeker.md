@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10057013</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>TBD</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
-  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.com/channels/1483447710617960508/1484266666564255847">View thread</a></td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484266666564255847">View thread</a></td></tr>
 </table>
 
 ---
