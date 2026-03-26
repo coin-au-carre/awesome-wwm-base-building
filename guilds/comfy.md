@@ -32,7 +32,7 @@
 <details>
 <summary>📋 Copy this template</summary>
 
-```
+<pre>
 ## :japanese_castle: Comfy [YOUR_GUILD_ID]
 :construction_worker: Builders: MikeRize, Plumi
 
@@ -44,6 +44,6 @@ DESCRIBE_POINT_OF_INTEREST
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```
+</pre>
 
 </details>

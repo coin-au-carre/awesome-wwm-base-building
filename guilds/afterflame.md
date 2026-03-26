@@ -35,7 +35,7 @@
 <details>
 <summary>📋 Copy this template</summary>
 
-```
+<pre>
 ## :japanese_castle: AfterFlame [YOUR_GUILD_ID]
 :construction_worker: Builders: FoxiKate
 
@@ -47,6 +47,6 @@ DESCRIBE_POINT_OF_INTEREST
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```
+</pre>
 
 </details>

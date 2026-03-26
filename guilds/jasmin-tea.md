@@ -31,7 +31,7 @@
 <details>
 <summary>📋 Copy this template</summary>
 
-```
+<pre>
 ## :japanese_castle: Jasmin'Tea [10082099]
 :construction_worker: Builders: Sidereus
 
@@ -43,6 +43,6 @@ DESCRIBE_POINT_OF_INTEREST
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```
+</pre>
 
 </details>
