@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10000929</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>SugaredKoi</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Mountain, River, Nature, City</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>14</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>17</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486392790836576456">View thread</a></td></tr>
 </table>
 
@@ -51,22 +51,3 @@ Throne Room – a grand hall with a commanding presence
 
 ---
 
-## 📋 Post Your base guild on Discord
-
-Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
-
-Copy and paste this template into your Discord thread:
-
-```
-## :japanese_castle: Mutiny [10000929]
-:construction_worker: Builders: SugaredKoi
-
-### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
-
-### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
-
-:ballot_box: Vote with reactions:
-:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```

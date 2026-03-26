@@ -89,22 +89,3 @@ Just immerse yourself in the world of a simple mountain village, its narrow stre
 
 ---
 
-## 📋 Post Your base guild on Discord
-
-Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
-
-Copy and paste this template into your Discord thread:
-
-```
-## :japanese_castle: BlackFurry [10005556]
-:construction_worker: Builders: carnii
-
-### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
-
-### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
-
-:ballot_box: Vote with reactions:
-:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```

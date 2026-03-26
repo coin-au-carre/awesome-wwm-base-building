@@ -15,6 +15,7 @@ import (
 const (
 	DiscordInvite   = "https://discord.gg/Qygt9u26Bn"
 	ShowcaseChannel = "`#base-guild-showcase`"
+	OwnerDiscordID  = "149790526076354561"
 )
 
 const (

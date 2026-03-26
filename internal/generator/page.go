@@ -69,7 +69,9 @@ func buildPage(g *guild.Guild, dir string) string {
 	}
 
 	sb.WriteString("\n---\n\n")
-	sb.WriteString(buildDiscordTemplate(g))
+	if g.BuilderDiscordID == OwnerDiscordID {
+		sb.WriteString(buildDiscordTemplate(g))
+	}
 
 	return sb.String()
 }
