@@ -3,6 +3,7 @@
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10011051</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Onikishi, PynMeo, Kkulgomi</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>11</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1485331669136441477">View thread</a></td></tr>
 </table>
@@ -32,7 +33,4 @@
 ![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331674891026533/202632284924.png?ex=69c617ab&is=69c4c62b&hm=b149cdbed2059670739fde41b6d7da7a420f64936100a8dd2eea1a4fbdb5c68f&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1485331669136441477/1485331675889008721/20263227554.png?ex=69c617ab&is=69c4c62b&hm=fdc35120f90ec84c98714c4f4071f5b616b878c49555069d16fe5e14de642f63&)
-
-
----
 

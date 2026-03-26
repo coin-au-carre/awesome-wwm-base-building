@@ -32,6 +32,3 @@ We have a dragon, 4 castle style builds including our spectator stand, guild spa
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479089878696129/Screenshot_671.png?ex=69c64fc8&is=69c4fe48&hm=79f55b3b933ea05bfbaf336a46784289f2329bfd6d1880aea312c42fc8c7c5a5&)
 
-
----
-

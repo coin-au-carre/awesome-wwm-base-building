@@ -12,7 +12,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c60de1&is=69c4bc61&hm=9ce6a9d1e606ab898165f3f86fc72dbb30fcadabb9c996d5c6c1d7946c10c272&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c6b6a1&is=69c56521&hm=8d03b1e0a559fa2367b371f91d04895248fbeb75bb702eaaa3894e3a835c955f&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69c6751d&is=69c5239d&hm=30f2ffed66926651a21391b29e6f3eea85ed45d2885691cf08722371c2d7eb6b&)
 
@@ -29,11 +29,16 @@
 
 ---
 
-## 📋 Post Your base guild on Discord
+## 🏰 Is this your guild?
 
-Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+**COBAKA** is missing lore — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
 
-Copy and paste this template into your Discord thread:
+- Add your lore & points of interest
+- Upload screenshots
+- Collect votes ⭐
+
+<details>
+<summary>📋 Copy this template</summary>
 
 ```
 ## :japanese_castle: COBAKA [10209300]
@@ -48,3 +53,5 @@ DESCRIBE_POINT_OF_INTEREST
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
 ```
+
+</details>

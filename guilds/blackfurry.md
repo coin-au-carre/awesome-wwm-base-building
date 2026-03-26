@@ -86,6 +86,3 @@ Just immerse yourself in the world of a simple mountain village, its narrow stre
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486717348718313553/1486717349146001470/202632621644.png?ex=69c684ed&is=69c5336d&hm=05580a48e9ff1edcef79bef1cfbaac51b57753a6ebe5fa00ca19c21e2699d718&)
 
-
----
-

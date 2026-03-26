@@ -46,6 +46,3 @@ This build was inspired by my love for Xianxia dramas — I wanted to recreate t
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736309018951700/2026322133537.png?ex=69c69696&is=69c54516&hm=94d678d3cc70510a24fc3a9420b20c56bc11a23ed62082c1df2d62299f5faa3b&)
 
-
----
-
