@@ -17,22 +17,3 @@
 
 ---
 
-## 📋 Post Your base guild on Discord
-
-Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
-
-Copy and paste this template into your Discord thread:
-
-```
-## :japanese_castle: Star·Bound [10076053]
-:construction_worker: Builders: Builder1, Builder2
-
-### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
-
-### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
-
-:ballot_box: Vote with reactions:
-:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```

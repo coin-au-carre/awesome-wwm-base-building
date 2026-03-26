@@ -11,7 +11,7 @@ tasks:
   sync:
     desc: crawl Discord threads → update guilds.json
     cmds:
-      - git pull
+      # - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
 
   # ── bot (long-running) ──────────────────────────────────────
