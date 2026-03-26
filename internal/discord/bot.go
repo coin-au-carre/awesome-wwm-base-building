@@ -1,0 +1,52 @@
+// internal/discord/bot.go
+package discord
+
+import (
+	"fmt"
+	"log/slog"
+
+	"github.com/bwmarrin/discordgo"
+)
+
+type Bot struct {
+	Session   *discordgo.Session
+	channelID string
+}
+
+func NewBot(token, channelID string) (*Bot, error) {
+	s, err := discordgo.New("Bot " + token)
+	if err != nil {
+		return nil, fmt.Errorf("creating session: %w", err)
+	}
+	s.Identify.Intents = discordgo.IntentsGuilds |
+		discordgo.IntentsGuildMessages |
+		discordgo.IntentsMessageContent
+
+	return &Bot{Session: s, channelID: channelID}, nil
+}
+
+func (b *Bot) Open() error {
+	return b.Session.Open()
+}
+
+func (b *Bot) Close() {
+	if err := b.Session.Close(); err != nil {
+		slog.Warn("closing session", "err", err)
+	}
+}
+
+func (b *Bot) Notify(msg string) {
+	if b.channelID == "" {
+		slog.Warn("no channel ID configured, skipping notification")
+		return
+	}
+	if _, err := b.Session.ChannelMessageSend(b.channelID, msg); err != nil {
+		slog.Warn("failed to send notification", "err", err)
+	}
+}
+
+func (b *Bot) NotifyIf(cond bool, msg string) {
+	if cond {
+		b.Notify(msg)
+	}
+}

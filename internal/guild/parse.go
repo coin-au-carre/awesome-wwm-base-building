@@ -1,4 +1,4 @@
-package main
+package guild
 
 import (
 	"regexp"
@@ -19,6 +19,48 @@ var skipPhrases = []string{
 	"contact us",
 }
 
+// ParseFirstPost extracts structured data from the first message of a Discord thread.
+func ParseFirstPost(content string) (id string, builders []string, lore string, whatToVisit string) {
+	if m := reBracketID.FindStringSubmatch(content); len(m) > 1 {
+		id = m[1]
+	}
+
+	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
+		for _, b := range strings.Split(m[1], ",") {
+			b = strings.TrimSpace(b)
+			if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
+				builders = append(builders, b)
+			}
+		}
+	}
+
+	if m := reLore.FindStringSubmatch(content); len(m) > 1 {
+		lore = cleanSection(m[1])
+	}
+
+	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
+		whatToVisit = cleanSection(m[1])
+	}
+
+	return
+}
+
+// ExtractName strips decorators and suffixes from a Discord thread name.
+// e.g. "🏯 Iron Keep - Season 2" → "Iron Keep"
+func ExtractName(threadName string) string {
+	parts := strings.SplitN(threadName, " -", 2)
+	return strings.TrimSpace(strings.Trim(parts[0], "[]🏯📍"))
+}
+
+// IsImage reports whether filename has a recognised image extension.
+func IsImage(filename string) bool {
+	switch strings.ToLower(fileExt(filename)) {
+	case ".jpg", ".jpeg", ".png", ".gif", ".webp":
+		return true
+	}
+	return false
+}
+
 func cleanSection(s string) string {
 	s = strings.TrimSpace(s)
 	if len(s) < 15 {
@@ -33,41 +75,7 @@ func cleanSection(s string) string {
 	return s
 }
 
-func parseFirstPost(content string) (id string, builders []string, lore string, whatToVisit string) {
-	if m := reBracketID.FindStringSubmatch(content); len(m) > 1 {
-		id = m[1]
-	}
-	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
-		for _, b := range strings.Split(m[1], ",") {
-			b = strings.TrimSpace(b)
-			if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
-				builders = append(builders, b)
-			}
-		}
-	}
-	if m := reLore.FindStringSubmatch(content); len(m) > 1 {
-		lore = cleanSection(m[1])
-	}
-	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
-		whatToVisit = cleanSection(m[1])
-	}
-	return
-}
-
-func extractGuildName(threadName string) string {
-	parts := strings.SplitN(threadName, " -", 2)
-	return strings.TrimSpace(strings.Trim(parts[0], "[]🏯📍"))
-}
-
-func isImage(filename string) bool {
-	switch strings.ToLower(getExt(filename)) {
-	case ".jpg", ".jpeg", ".png", ".gif", ".webp":
-		return true
-	}
-	return false
-}
-
-func getExt(filename string) string {
+func fileExt(filename string) string {
 	for i := len(filename) - 1; i >= 0; i-- {
 		if filename[i] == '.' {
 			return filename[i:]
