@@ -48,5 +48,7 @@ func (b *Bot) Notify(msg string) {
 func (b *Bot) NotifyIf(cond bool, msg string) {
 	if cond {
 		b.Notify(msg)
+	} else {
+		slog.Info("notification suppressed (no-notify)", "msg", msg)
 	}
 }
