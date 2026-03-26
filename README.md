@@ -113,11 +113,13 @@ DESCRIBE_POINT_OF_INTEREST
 
 Scores reflect Discord reactions (emojis) in `#base-guild-showcase`. Here the details:
 
-| Reaction | Weight | Meaning |
+| Source | Points | Reason |
 |---|---|---|
-| ⭐ | 2 pts | Top tier base |
-| 👍 | 1 pt | Good build, must-visit |
-| 🔥 | 1 pt | Amazing creativity |
+| ⭐ reaction | +2 pts each | Top tier base |
+| 👍 reaction | +1 pt each | Good build, must-visit |
+| 🔥 reaction | +1 pt each | Amazing creativity |
+| 📜 Lore filled | +1 pt | Guild has a backstory |
+| 🗺️ What to visit filled | +1 pt | Guild has points of interest |
 
 ## 💡Why This List Exists?
 
