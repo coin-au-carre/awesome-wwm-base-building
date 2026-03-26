@@ -11,6 +11,14 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+const (
+	scorePerStar    = 2
+	scorePerLike    = 1
+	scorePerFire    = 1
+	scoreLoreBonus  = 1
+	scoreVisitBonus = 1
+)
+
 const numWorkers = 10
 
 type SyncStats struct {
@@ -208,15 +216,29 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 	for _, r := range msgs[0].Reactions {
 		switch r.Emoji.Name {
 		case "⭐":
-			score += r.Count * 2
+			score += r.Count * scorePerStar
 		case "👍", "🔥":
-			score += r.Count
+			score += r.Count * scorePerLike
 		}
 	}
 
+	if lore != "" {
+		score += scoreLoreBonus
+	}
+	if whatToVisit != "" {
+		score += scoreVisitBonus
+	}
+
+	slog.Debug("score calculated",
+		"thread", thread.Name,
+		"reactions", score,
+		"lore_bonus", lore != "",
+		"visit_bonus", whatToVisit != "",
+	)
+
 	return threadData{
 		ID:          id,
-		AuthorID:    msgs[0].Author.ID, // <--
+		AuthorID:    msgs[0].Author.ID,
 		Builders:    builders,
 		Score:       score,
 		Screenshots: collectScreenshots(s, thread.ID),

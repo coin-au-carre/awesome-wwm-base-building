@@ -3,7 +3,7 @@
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10011051</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Onikishi, PynMeo, Kkulgomi</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>9</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>10</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1485331669136441477">View thread</a></td></tr>
 </table>
 
