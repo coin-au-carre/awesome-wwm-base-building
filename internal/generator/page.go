@@ -68,8 +68,8 @@ func buildPage(g *guild.Guild, dir string) string {
 		))
 	}
 
-	sb.WriteString("\n---\n\n")
-	if g.BuilderDiscordID == OwnerDiscordID {
+	if g.BuilderDiscordID == "" || g.BuilderDiscordID == OwnerDiscordID {
+		sb.WriteString("\n---\n\n")
 		sb.WriteString(buildDiscordTemplate(g))
 	}
 
@@ -86,13 +86,24 @@ func buildDiscordTemplate(g *guild.Guild) string {
 		builders = strings.Join(g.Builders, ", ")
 	}
 
+	missing := []string{}
+	if g.Lore == "" {
+		missing = append(missing, "lore")
+	}
+	if len(g.Screenshots) == 0 {
+		missing = append(missing, "screenshots")
+	}
+
 	var sb strings.Builder
-	sb.WriteString("## 📋 Post Your base guild on Discord\n\n")
+	sb.WriteString("## 🏰 Is this your guild?\n\n")
 	sb.WriteString(fmt.Sprintf(
-		"Is this your guild? [Join our Discord](%s) and post in %s to add screenshots and get votes!\n\n",
-		DiscordInvite, ShowcaseChannel,
+		"**%s** is missing %s — if you're one of the builders, [join our Discord](%s) and post in %s to:\n\n",
+		g.Name, strings.Join(missing, " and "), DiscordInvite, ShowcaseChannel,
 	))
-	sb.WriteString("Copy and paste this template into your Discord thread:\n\n")
+	sb.WriteString("- Add your lore & points of interest\n")
+	sb.WriteString("- Upload screenshots\n")
+	sb.WriteString("- Collect votes ⭐\n\n")
+	sb.WriteString("<details>\n<summary>📋 Copy this template</summary>\n\n")
 	sb.WriteString("```\n")
 	sb.WriteString(fmt.Sprintf("## :japanese_castle: %s [%s]\n", g.Name, id))
 	sb.WriteString(fmt.Sprintf(":construction_worker: Builders: %s\n", builders))
@@ -100,12 +111,14 @@ func buildDiscordTemplate(g *guild.Guild) string {
 	sb.WriteString("\n### :mage: What to visit\nDESCRIBE_POINT_OF_INTEREST\n")
 	sb.WriteString("\n:ballot_box: Vote with reactions:\n")
 	sb.WriteString(":star: Best overall | :thumbsup: Good base | :fire: Amazing creativity\n")
-	sb.WriteString("```\n")
+	sb.WriteString("```\n\n")
+	sb.WriteString("</details>\n")
 	return sb.String()
 }
 
 func buildGenericDiscordTemplate() string {
 	var sb strings.Builder
+	sb.WriteString("<details>\n<summary>📋 Copy this template</summary>\n\n")
 	sb.WriteString("```\n")
 	sb.WriteString("## :japanese_castle: YOUR_GUILD_NAME [YOUR_GUILD_ID]\n")
 	sb.WriteString(":construction_worker: Builders: Builder1, Builder2\n")
@@ -113,6 +126,7 @@ func buildGenericDiscordTemplate() string {
 	sb.WriteString("\n### :mage: What to visit\nDESCRIBE_POINT_OF_INTEREST\n")
 	sb.WriteString("\n:ballot_box: Vote with reactions:\n")
 	sb.WriteString(":star: Best overall | :thumbsup: Good base | :fire: Amazing creativity\n")
-	sb.WriteString("```\n")
+	sb.WriteString("```\n\n")
+	sb.WriteString("</details>\n")
 	return sb.String()
 }

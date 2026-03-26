@@ -22,7 +22,7 @@ Arena gradins (bleachers), zen garden, hidden room
 
 ![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69c6722c&is=69c520ac&hm=7f142449a43f29fe18ca08238f62ed5e23e1a1c4f6542f4a9af12e0ef9a338f2&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69c5fcbc&is=69c4ab3c&hm=9878f75bc3aa3fdebac6b8b96cb35ca676461e81c6ad12ae300f1caab0a91d3d&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69c6a57c&is=69c553fc&hm=42bd385022ad51b8a96bbc09703c5fa360132d24cbdbb5dcfe26d1271d297991&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c68ce6&is=69c53b66&hm=0c327c8cd8f34111e1ae064346d3a7040786898c996f082470ce86f7b280a41e&)
 
@@ -33,11 +33,16 @@ Arena gradins (bleachers), zen garden, hidden room
 
 ---
 
-## 📋 Post Your base guild on Discord
+## 🏰 Is this your guild?
 
-Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+**Jenova** is missing  — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
 
-Copy and paste this template into your Discord thread:
+- Add your lore & points of interest
+- Upload screenshots
+- Collect votes ⭐
+
+<details>
+<summary>📋 Copy this template</summary>
 
 ```
 ## :japanese_castle: Jenova [10244476]
@@ -52,3 +57,5 @@ DESCRIBE_POINT_OF_INTEREST
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
 ```
+
+</details>

@@ -17,3 +17,29 @@
 
 ---
 
+## 🏰 Is this your guild?
+
+**Sanctuarys** is missing lore and screenshots — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
+
+- Add your lore & points of interest
+- Upload screenshots
+- Collect votes ⭐
+
+<details>
+<summary>📋 Copy this template</summary>
+
+```
+## :japanese_castle: Sanctuarys [YOUR_GUILD_ID]
+:construction_worker: Builders: Nurami, Ichigor
+
+### :pencil: Lore
+REPLACE_WITH_YOUR_LORE
+
+### :mage: What to visit
+DESCRIBE_POINT_OF_INTEREST
+
+:ballot_box: Vote with reactions:
+:star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
+```
+
+</details>

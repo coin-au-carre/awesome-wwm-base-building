@@ -18,11 +18,16 @@
 
 ---
 
-## 📋 Post Your base guild on Discord
+## 🏰 Is this your guild?
 
-Is this your guild? [Join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to add screenshots and get votes!
+**The-Inner-Ways** is missing lore — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
 
-Copy and paste this template into your Discord thread:
+- Add your lore & points of interest
+- Upload screenshots
+- Collect votes ⭐
+
+<details>
+<summary>📋 Copy this template</summary>
 
 ```
 ## :japanese_castle: The-Inner-Ways [10183152]
@@ -37,3 +42,5 @@ DESCRIBE_POINT_OF_INTEREST
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
 ```
+
+</details>

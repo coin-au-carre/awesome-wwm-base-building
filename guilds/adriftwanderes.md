@@ -53,6 +53,3 @@ No lore as of yet but perhaps future builds may shape or reveal a story to us âœ
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718954406809661/10.png?ex=69c6866c&is=69c534ec&hm=e8e35246d3c19341cb6be215ce5e3d83c59610855d8d2edeef05df180272c21e&)
 
-
----
-
