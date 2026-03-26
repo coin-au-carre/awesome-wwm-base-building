@@ -33,7 +33,7 @@ Ying Yang arena, prison, mountain
 <details>
 <summary>📋 Copy this template</summary>
 
-```
+<pre>
 ## :japanese_castle: VN-HoàngKim [YOUR_GUILD_ID]
 :construction_worker: Builders: zzBenT
 
@@ -45,6 +45,6 @@ DESCRIBE_POINT_OF_INTEREST
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```
+</pre>
 
 </details>

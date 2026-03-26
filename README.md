@@ -11,7 +11,7 @@
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="guilds/mutiny.html" title="Mutiny"><img src="https://cdn.discordapp.com/attachments/1486392790836576456/1486392797798989924/2026325223319.png?ex=69c6a82a&is=69c556aa&hm=cd75365501e310a2b93c63f9178f00b2ca06a82e72f34aa8cdcb4e50f2dd1b60&" width="320" alt="Mutiny"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1486718056620363946/1774529418_x6dvWR2F.jpg?ex=69c68596&is=69c53416&hm=f15416e4c86b9d26d9d146f7adba25b6c573ca4fd700e1698851aa365f5c78f9&" width="320" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485331669136441477/1485331673699717181/GB28.png?ex=69c617ab&is=69c4c62b&hm=0f71f2733143fdfefeb536dc08ecb53dec7c0208d349705e1dcada13d7320e4a&" width="320" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/echoes-of-sin.html" title="Echoes-of-Sin"><img src="https://cdn.discordapp.com/attachments/1486175479185539152/1486175483535298600/image.png?ex=69c68687&is=69c53507&hm=5a388ef587ce4e78a02b95a620eb56f49062c0542ff4e28716c4b0177a23ef71&" width="320" alt="Echoes-of-Sin"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/velocity.html" title="Velocity"><img src="https://cdn.discordapp.com/attachments/1486479083121672284/1486479085914816563/Screenshot_659.png?ex=69c64fc7&is=69c4fe47&hm=60bb870879f5cd7eab90ee10650ca0fa25655c39974ba48a3a95c72c2e93de82&" width="320" alt="Velocity"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063345017979032/20263226341.png?ex=69c66f44&is=69c51dc4&hm=064950223c52e81c74eb9a5280f19cc0b727f374426b09bdf1b6222d648cdf45&" width="320" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/adriftwanderes.html" title="AdriftWanderes"><img src="https://cdn.discordapp.com/attachments/1486718947335082155/1486718953110900736/8.png?ex=69c6866c&is=69c534ec&hm=c11de4127f6e7a0acc016421efc1676a8bda68f9ab49dd33e405c54cf1e3bf07&" width="320" alt="AdriftWanderes"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobaka.html" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69c6751d&is=69c5239d&hm=30f2ffed66926651a21391b29e6f3eea85ed45d2885691cf08722371c2d7eb6b&" width="320" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/vn-hoàngkim.html" title="VN-HoàngKim"><img src="https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69c6422c&is=69c4f0ac&hm=a8049b4233b07c80a2ac73f99a5a181f5c6d30174c1cc7bfc80f12f61354785e&" width="320" alt="VN-HoàngKim"></a>&nbsp;&nbsp;&nbsp;
+<a href="guilds/mutiny.html" title="Mutiny"><img src="https://cdn.discordapp.com/attachments/1486392790836576456/1486392795081084999/202632451916.png?ex=69c6a82a&is=69c556aa&hm=4ccea43f5f9b187f195dd58cddc11d52c84952ae2d2478ad5fd69d1ee307b113&" width="320" alt="Mutiny"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1486718743710273606/2026326211558.png?ex=69c6863a&is=69c534ba&hm=c3789d76be3d9d9bf6133548b6110cc42323a7a207807bc4af4bd7469d2b39fe&" width="320" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485331669136441477/1485331674891026533/202632284924.png?ex=69c617ab&is=69c4c62b&hm=b149cdbed2059670739fde41b6d7da7a420f64936100a8dd2eea1a4fbdb5c68f&" width="320" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/echoes-of-sin.html" title="Echoes-of-Sin"><img src="https://cdn.discordapp.com/attachments/1486175479185539152/1486175483535298600/image.png?ex=69c68687&is=69c53507&hm=5a388ef587ce4e78a02b95a620eb56f49062c0542ff4e28716c4b0177a23ef71&" width="320" alt="Echoes-of-Sin"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/velocity.html" title="Velocity"><img src="https://cdn.discordapp.com/attachments/1486479083121672284/1486479083876520178/Screenshot_655.png?ex=69c64fc7&is=69c4fe47&hm=b5b87350753efd9b236dbc7c25e3413c2b91aa53650b1086f47f297719ba1019&" width="320" alt="Velocity"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063343718006886/202632262854.png?ex=69c66f44&is=69c51dc4&hm=01a4ec49fa80627dc064abcbed3e1e98fc6f814cd254839b2b5be7dc1e5eebdd&" width="320" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/adriftwanderes.html" title="AdriftWanderes"><img src="https://cdn.discordapp.com/attachments/1486718947335082155/1486718954406809661/10.png?ex=69c6866c&is=69c534ec&hm=e8e35246d3c19341cb6be215ce5e3d83c59610855d8d2edeef05df180272c21e&" width="320" alt="AdriftWanderes"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/cobaka.html" title="COBAKA"><img src="https://cdn.discordapp.com/attachments/1484163652796809450/1484163656785727579/guild-base-building-v0-rct30eurdahg1.webp?ex=69c6751e&is=69c5239e&hm=fbf487719a1d56c3950d723f01edac1c80afaaf19517f4aafae301c74366bd7e&" width="320" alt="COBAKA"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/vn-hoàngkim.html" title="VN-HoàngKim"><img src="https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69c6422c&is=69c4f0ac&hm=a8049b4233b07c80a2ac73f99a5a181f5c6d30174c1cc7bfc80f12f61354785e&" width="320" alt="VN-HoàngKim"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -21,7 +21,7 @@
 
 <!-- LAST_UPDATED_START -->
 
-🔄 **Last synchronized:**  March 26, 2026 at 17:07 UTC
+🔄 **Last synchronized:**  March 26, 2026 at 17:20 UTC
 <!-- LAST_UPDATED_END -->
 
 <!-- GENERATED_TABLE_START -->
@@ -97,7 +97,7 @@
 <details>
 <summary>📋 Copy this template</summary>
 
-```
+<pre>
 ## :japanese_castle: YOUR_GUILD_NAME [YOUR_GUILD_ID]
 :construction_worker: Builders: Builder1, Builder2
 
@@ -109,7 +109,7 @@ DESCRIBE_POINT_OF_INTEREST
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
-```
+</pre>
 
 </details>
 
