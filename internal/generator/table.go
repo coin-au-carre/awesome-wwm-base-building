@@ -43,13 +43,20 @@ func buildTable(guilds []guild.Guild) string {
 		sb.WriteString(fmt.Sprintf("| %s | %s | %s | %s | %s |\n",
 			rankStr,
 			link,
-			strings.Join(g.Builders, ", "),
+			truncate(strings.Join(g.Builders, ", "), 40),
 			strings.Join(g.Tags, ", "),
 			score,
 		))
 	}
 
 	return sb.String()
+}
+
+func truncate(s string, max int) string {
+	if len(s) <= max {
+		return s
+	}
+	return s[:max] + "..."
 }
 
 func buildTopShowcase(guilds []guild.Guild) string {

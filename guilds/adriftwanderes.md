@@ -1,6 +1,7 @@
 # AdriftWanderes
 
 <table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10171733</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Alscend (with credits to LuckyBags and Lurzi for pitching in for some areas)</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Cave, Nature, Mountain</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>9</td></tr>

@@ -9,10 +9,14 @@ tasks:
 
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
-    desc: crawl Discord threads → update guilds.json
+    desc: git pull then crawl Discord threads → update guilds.json
     cmds:
-      # - git pull
+      - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
+
+  sync:nopull:
+    desc: crawl Discord threads → update guilds.json (no git pull)
+    cmd: go run ./cmd/sync {{.CLI_ARGS}}
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
@@ -69,7 +73,8 @@ tasks:
       - echo "  task generate"
       - echo "        -- -clean          remove stale guild pages"
       - echo ""
-      - echo "  task sync"
+      - echo "  task sync                git pull + crawl"
+      - echo "  task sync:nopull         crawl only (no git pull)"
       - echo "        -- -dry-run        crawl only, skip writing guilds.json"
       - echo "        -- -no-notify      skip Discord notification"
       - echo "        -- -force-role     reassign Base Builder role to all authors"
