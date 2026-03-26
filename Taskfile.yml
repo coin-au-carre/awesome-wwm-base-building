@@ -5,24 +5,12 @@ tasks:
   # ── codegen ────────────────────────────────────────────────
   generate:
     desc: generate markdown pages and inject README
-    cmd: go run ./cmd/generate
-
-  generate:clean:
-    desc: generate + remove stale guild pages
-    cmd: go run ./cmd/generate -clean
+    cmd: go run ./cmd/generate {{.CLI_ARGS}}
 
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
     desc: crawl Discord threads → update guilds.json
     cmd: go run ./cmd/sync {{.CLI_ARGS}}
-
-  sync:dry:
-    desc: sync without writing guilds.json
-    cmd: go run ./cmd/sync -dry-run
-
-  sync:no-notify:
-    desc: sync without posting to Discord bot channel
-    cmd: go run ./cmd/sync -no-notify
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
@@ -50,6 +38,12 @@ tasks:
       - task: sync
       - task: generate
 
+  all:push:
+    desc: full cycle + git push
+    cmds:
+      - task: all
+      - task: push
+
   # ── dev / ci ────────────────────────────────────────────────
   vet:
     desc: run go vet on all packages
@@ -59,3 +53,37 @@ tasks:
     desc: vet then push
     deps: [vet]
     cmd: git push {{.CLI_ARGS}}
+
+  # ── help ────────────────────────────────────────────────────
+  help:
+    desc: show usage and available options
+    silent: true
+    cmds:
+      - echo ""
+      - echo "Usage:"
+      - echo "  task <command> [-- -flag1 -flag2]"
+      - echo ""
+      - echo "Commands & flags:"
+      - echo "  task generate"
+      - echo "        -- -clean          remove stale guild pages"
+      - echo ""
+      - echo "  task sync"
+      - echo "        -- -dry-run        crawl only, skip writing guilds.json"
+      - echo "        -- -no-notify      skip Discord notification"
+      - echo "        -- -force-role     reassign Base Builder role to all authors"
+      - echo ""
+      - echo "  task bot                 run long-running bot (dev)"
+      - echo "  task bot:build           build Linux binary → dist/bot"
+      - echo "  task bot:deploy          build + scp + restart systemd service"
+      - echo ""
+      - echo "  task all                 sync + generate"
+      - echo "  task all:push            sync + generate + git push"
+      - echo "  task push                vet + git push"
+      - echo ""
+      - echo "Examples:"
+      - echo "  task sync -- -dry-run"
+      - echo "  task sync -- -no-notify -force-role"
+      - echo "  task sync -- -dry-run -no-notify -force-role"
+      - echo "  task generate -- -clean"
+      - echo "  task bot:deploy VPS_USER=ubuntu VPS_HOST=1.2.3.4"
+      - echo ""
