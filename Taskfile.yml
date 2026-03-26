@@ -2,25 +2,60 @@
 version: '3'
 
 tasks:
+  # ── codegen ────────────────────────────────────────────────
   generate:
-    cmd: go run generate.go
+    desc: generate markdown pages and inject README
+    cmd: go run ./cmd/generate
 
   generate:clean:
-    cmd: go run generate.go -clean
+    desc: generate + remove stale guild pages
+    cmd: go run ./cmd/generate -clean
 
-  ruby:
-    dir: ruby
+  # ── discord sync (one-shot) ─────────────────────────────────
+  sync:
+    desc: crawl Discord threads → update guilds.json
+    cmd: go run ./cmd/sync {{.CLI_ARGS}}
+
+  sync:dry:
+    desc: sync without writing guilds.json
+    cmd: go run ./cmd/sync -dry-run
+
+  sync:no-notify:
+    desc: sync without posting to Discord bot channel
+    cmd: go run ./cmd/sync -no-notify
+
+  # ── bot (long-running) ──────────────────────────────────────
+  bot:
+    desc: run the long-running Discord bot (dev)
+    cmd: go run ./cmd/bot {{.CLI_ARGS}}
+
+  bot:build:
+    desc: build bot binary for VPS deployment
+    cmd: GOOS=linux GOARCH=amd64 go build -o dist/bot ./cmd/bot
+
+  bot:deploy:
+    desc: build and scp binary to VPS, restart service
+    deps: [bot:build]
     cmds:
-      - git -C .. pull
-      - go run . {{.CLI_ARGS}}
+      - scp dist/bot {{.VPS_USER}}@{{.VPS_HOST}}:/opt/ruby/bot
+      - ssh {{.VPS_USER}}@{{.VPS_HOST}} "systemctl restart ruby-bot"
+    vars:
+      VPS_USER: '{{.VPS_USER | default "deploy"}}'
+      VPS_HOST: '{{.VPS_HOST | default "your.vps.host"}}'
 
+  # ── combined ────────────────────────────────────────────────
   all:
-    deps: [ruby]
-    cmd: go run generate.go
+    desc: full sync + generate cycle (used by cron)
+    cmds:
+      - task: sync
+      - task: generate
+
+  # ── dev / ci ────────────────────────────────────────────────
+  vet:
+    desc: run go vet on all packages
+    cmd: go vet ./...
 
   push:
-    desc: build check then push
-    cmds:
-      - go vet ./...
-      - cd ruby && go vet ./...
-      - git push {{.CLI_ARGS}}
+    desc: vet then push
+    deps: [vet]
+    cmd: git push {{.CLI_ARGS}}
