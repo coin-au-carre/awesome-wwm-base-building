@@ -134,14 +134,6 @@ Official and community sources/guides for **Where Winds Meet** base building:
 - How to Start Building House: [Video Tutorial](https://www.youtube.com/watch?v=G4vR78IfkfI)
 - Building a Home by the Waterfall: [Video Tutorial](https://www.youtube.com/watch?v=L7oKjiS_vk4)
 
-## 🗺️ Roadmap
-
-Planned improvements when the community grows:
-
-- **Website**: a proper website more interactive
-- **Search & filters**: Website with tags, builders, and style search
-- **Base tours**: Video walkthroughs
-
 ---
 
 ## 🤝Get Involved
