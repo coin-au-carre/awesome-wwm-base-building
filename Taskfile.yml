@@ -37,6 +37,11 @@ tasks:
       VPS_USER: '{{.VPS_USER | default "deploy"}}'
       VPS_HOST: '{{.VPS_HOST | default "your.vps.host"}}'
 
+  # ── send (one-shot message as Ruby) ────────────────────────
+  send:
+    desc: "send a message (or image) as Ruby. Usage: task send -- [-channel <id>] [-image path] \"text\""
+    cmd: go run ./cmd/send {{.CLI_ARGS}}
+
   # ── combined ────────────────────────────────────────────────
   all:
     desc: full sync + generate cycle (used by cron)
@@ -82,6 +87,11 @@ tasks:
       - echo "  task bot                 run long-running bot (dev)"
       - echo "  task bot:build           build Linux binary → dist/bot"
       - echo "  task bot:deploy          build + scp + restart systemd service"
+      - echo ""
+      - echo "  task send                post a message as Ruby (one-shot)"
+      - echo "        -- \"text\"          message to send"
+      - 'echo "        -- -channel ID     override channel (default: RUBY_CHANNEL_ID)"'
+      - echo "        -- -image path     attach an image (text optional)"
       - echo ""
       - echo "  task all                 sync + generate"
       - echo "  task all:push            sync + generate + git push"

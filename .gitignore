@@ -1,5 +1,6 @@
 # ruby/*
 .env
+.vscode/settings.json
 # *.go
 # go.mod
 # go.sum
