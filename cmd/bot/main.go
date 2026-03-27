@@ -19,6 +19,7 @@ import (
 
 func main() {
 	root := flag.String("root", rootDir(), "root directory")
+	dev := flag.Bool("dev", false, "use DEV_CHANNEL_ID instead of RUBY_CHANNEL_ID")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -26,10 +27,18 @@ func main() {
 	}
 
 	token := requireEnv("RUBY_BOT_TOKEN")
-	rubyChannelID := os.Getenv("RUBY_CHANNEL_ID")
 	claudeKey := requireEnv("ANTHROPIC_API_KEY")
 
-	bot, err := discord.NewBot(token, rubyChannelID)
+	channelEnvKey := "RUBY_CHANNEL_ID"
+	if *dev {
+		channelEnvKey = "DEV_CHANNEL_ID"
+	}
+	activeChannelID := requireEnv(channelEnvKey)
+	slog.Info("bot mode", "channel_env", channelEnvKey, "channel", activeChannelID)
+
+	allowedChannels := map[string]bool{activeChannelID: true}
+
+	bot, err := discord.NewBot(token, activeChannelID)
 	if err != nil {
 		slog.Error("creating bot", "err", err)
 		os.Exit(1)
@@ -39,7 +48,7 @@ func main() {
 	responder := discord.NewResponder(claudeKey)
 
 	bot.Session.AddHandler(onReady())
-	bot.Session.AddHandler(onMessageCreate(bot, responder))
+	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -62,10 +71,21 @@ func onReady() func(*discordgo.Session, *discordgo.Ready) {
 
 var reMention = regexp.MustCompile(`<@!?\d+>`)
 
+// spotlightKeywords are exact single-word triggers that bypass Claude entirely.
+var spotlightKeywords = map[string]bool{
+	"spotlight": true,
+	"random":    true,
+}
+
 // onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
-func onMessageCreate(bot *discord.Bot, responder *discord.Responder) func(*discordgo.Session, *discordgo.MessageCreate) {
+func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string, allowedChannels map[string]bool) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Author.ID == s.State.User.ID {
+			return
+		}
+
+		// Ignore messages outside allowed channels.
+		if !allowedChannels[m.ChannelID] {
 			return
 		}
 
@@ -81,10 +101,18 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder) func(*disco
 			return
 		}
 
-		// Strip mention tags and trim so Claude gets clean text.
+		// Strip mention tags and trim so we get clean text.
 		text := strings.TrimSpace(reMention.ReplaceAllString(m.Content, ""))
 		if text == "" {
 			text = "Hello!"
+		}
+
+		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", text)
+
+		// Fast path: single keyword commands skip Claude entirely.
+		if spotlightKeywords[strings.ToLower(text)] {
+			handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
+			return
 		}
 
 		// Collect image attachment URLs.
@@ -95,18 +123,21 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder) func(*disco
 			}
 		}
 
-		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", text, "images", len(imageURLs))
-
 		_ = s.ChannelTyping(m.ChannelID)
 
-		reply, err := responder.Reply(context.Background(), m.ChannelID, text, imageURLs)
+		result, err := responder.Reply(context.Background(), m.ChannelID, text, imageURLs)
 		if err != nil {
 			slog.Error("claude reply", "err", err)
-			bot.Reply(m.ChannelID, m.ID, "*(The winds are silent for now… try again in a moment.)*")
+			bot.Reply(m.ChannelID, m.ID, "*(the winds are silent for now… try again in a moment.)*")
 			return
 		}
 
-		bot.Reply(m.ChannelID, m.ID, reply)
+		if result.ShowSpotlight {
+			handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
+			return
+		}
+
+		bot.Reply(m.ChannelID, m.ID, result.Text)
 	}
 }
 

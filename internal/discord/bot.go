@@ -3,6 +3,7 @@ package discord
 
 import (
 	"fmt"
+	"io"
 	"log/slog"
 
 	"github.com/bwmarrin/discordgo"
@@ -48,6 +49,24 @@ func (b *Bot) Notify(msg string) {
 func (b *Bot) Reply(channelID, messageID, msg string) {
 	if _, err := b.Session.ChannelMessageSendReply(channelID, msg, &discordgo.MessageReference{MessageID: messageID}); err != nil {
 		slog.Warn("failed to send reply", "err", err)
+	}
+}
+
+func (b *Bot) ReplyWithFile(channelID, messageID, content, filename string, file io.Reader) error {
+	_, err := b.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
+		Content: content,
+		Files:   []*discordgo.File{{Name: filename, Reader: file}},
+		Reference: &discordgo.MessageReference{MessageID: messageID},
+	})
+	if err != nil {
+		slog.Warn("failed to send file reply", "err", err)
+	}
+	return err
+}
+
+func (b *Bot) Send(channelID, msg string) {
+	if _, err := b.Session.ChannelMessageSend(channelID, msg); err != nil {
+		slog.Warn("failed to send message", "err", err)
 	}
 }
 
