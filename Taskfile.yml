@@ -20,7 +20,7 @@ tasks:
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
-    desc: run the long-running Discord bot (dev)
+    desc: "run the bot on RUBY_CHANNEL_ID (prod). Use -- -dev for DEV_CHANNEL_ID"
     cmd: go run ./cmd/bot {{.CLI_ARGS}}
 
   bot:build:
