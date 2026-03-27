@@ -3,7 +3,7 @@
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10183152</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Nature</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486174351710621736">View thread</a></td></tr>
 </table>
 
@@ -11,9 +11,9 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174352947810396/202632592135.png?ex=69c68579&is=69c533f9&hm=463e73382250712d066d6d2fb182f08ec514bff5eb6124deb17c0443d585eca0&)
+![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174352947810396/202632592135.png?ex=69c72e39&is=69c5dcb9&hm=8a4ccf2dbab72dd0b4da111cf5c6864da20b1a9ede364419f771ae7283ac79d7&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174354193649734/20263259218.png?ex=69c68579&is=69c533f9&hm=b3e4e801839eafadd0839a7db1f72773d09befd86cfad5397fdaf844731f3ac9&)
+![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174354193649734/20263259218.png?ex=69c72e39&is=69c5dcb9&hm=63459f160136ff6fee23c9885c18dd2a368797101c2ce0e2e49f3c104ff943f7&)
 
 
 ---
