@@ -27,9 +27,9 @@ No specific lore, was just trying to make the base aesthetically appealing to th
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064832900468849/2026327183117.png?ex=69c7c88c&is=69c6770c&hm=3d7a1c3d3b35dc40475865037d575b1862906d8b247d76da7afc801855892d43&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487068337904025714/image.png?ex=69c7cbd0&is=69c67a50&hm=4a2a90fd9db2965c99fcf47ae13226a1d1ed6dc374d686637abb5b7afedf389e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064833621758093/2026327182630.png?ex=69c7c88c&is=69c6770c&hm=002b718bf50d86629b9e8895bcdaaaba26581f71b6553edfd9f39d0d0b214a89&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487067636461211709/1774603105_3Ai9F629.png?ex=69c7cb28&is=69c679a8&hm=845352e2de4df40418ee52e9ff9c6735a4cffd32b99ee9ee5f73ee24595ed113&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064834267676783/2026327182255.png?ex=69c7c88c&is=69c6770c&hm=be9a57a5889504b68c88fd514a45c9ff68a0174461690a21c764eef060de7184&)
 
