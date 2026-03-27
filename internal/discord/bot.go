@@ -54,9 +54,10 @@ func (b *Bot) Reply(channelID, messageID, msg string) {
 
 func (b *Bot) ReplyWithFile(channelID, messageID, content, filename string, file io.Reader) error {
 	_, err := b.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
-		Content: content,
-		Files:   []*discordgo.File{{Name: filename, Reader: file}},
+		Content:   content,
+		Files:     []*discordgo.File{{Name: filename, Reader: file}},
 		Reference: &discordgo.MessageReference{MessageID: messageID},
+		Flags:     discordgo.MessageFlagsSuppressEmbeds,
 	})
 	if err != nil {
 		slog.Warn("failed to send file reply", "err", err)
