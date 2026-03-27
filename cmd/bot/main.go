@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"flag"
 	"log/slog"
 	"os"
 	"os/signal"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"syscall"
 
@@ -25,6 +27,7 @@ func main() {
 
 	token := requireEnv("RUBY_BOT_TOKEN")
 	rubyChannelID := os.Getenv("RUBY_CHANNEL_ID")
+	claudeKey := requireEnv("ANTHROPIC_API_KEY")
 
 	bot, err := discord.NewBot(token, rubyChannelID)
 	if err != nil {
@@ -33,8 +36,10 @@ func main() {
 	}
 	defer bot.Close()
 
+	responder := discord.NewResponder(claudeKey)
+
 	bot.Session.AddHandler(onReady())
-	bot.Session.AddHandler(onMessageCreate(bot))
+	bot.Session.AddHandler(onMessageCreate(bot, responder))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -55,8 +60,10 @@ func onReady() func(*discordgo.Session, *discordgo.Ready) {
 	}
 }
 
+var reMention = regexp.MustCompile(`<@!?\d+>`)
+
 // onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
-func onMessageCreate(bot *discord.Bot) func(*discordgo.Session, *discordgo.MessageCreate) {
+func onMessageCreate(bot *discord.Bot, responder *discord.Responder) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Author.ID == s.State.User.ID {
 			return
@@ -74,8 +81,32 @@ func onMessageCreate(bot *discord.Bot) func(*discordgo.Session, *discordgo.Messa
 			return
 		}
 
-		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", m.Content)
-		bot.Reply(m.ChannelID, m.ID, "Hey! You called?")
+		// Strip mention tags and trim so Claude gets clean text.
+		text := strings.TrimSpace(reMention.ReplaceAllString(m.Content, ""))
+		if text == "" {
+			text = "Hello!"
+		}
+
+		// Collect image attachment URLs.
+		var imageURLs []string
+		for _, a := range m.Attachments {
+			if strings.HasPrefix(a.ContentType, "image/") {
+				imageURLs = append(imageURLs, a.URL)
+			}
+		}
+
+		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", text, "images", len(imageURLs))
+
+		_ = s.ChannelTyping(m.ChannelID)
+
+		reply, err := responder.Reply(context.Background(), m.ChannelID, text, imageURLs)
+		if err != nil {
+			slog.Error("claude reply", "err", err)
+			bot.Reply(m.ChannelID, m.ID, "*(The winds are silent for now… try again in a moment.)*")
+			return
+		}
+
+		bot.Reply(m.ChannelID, m.ID, reply)
 	}
 }
 
