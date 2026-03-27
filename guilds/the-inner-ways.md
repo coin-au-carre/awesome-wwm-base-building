@@ -2,6 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10183152</td></tr>
+  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 The-Inner-Ways</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Nature</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486174351710621736">View thread</a></td></tr>
@@ -30,7 +31,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: The-Inner-Ways [10183152]
+## :japanese_castle: 🏯 The-Inner-Ways [10183152]
 :construction_worker: Builders: Builder1, Builder2
 
 ### :pencil: Lore

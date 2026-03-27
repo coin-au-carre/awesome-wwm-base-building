@@ -38,6 +38,7 @@ type SyncConfig struct {
 
 type threadData struct {
 	ID          string
+	GuildName   string
 	AuthorID    string
 	Builders    []string
 	Score       int
@@ -113,6 +114,9 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 				g := guilds[j.idx]
 				if g.ID == "" && data.ID != "" {
 					g.ID = data.ID
+				}
+				if data.GuildName != "" && !strings.EqualFold(data.GuildName, g.Name) {
+					g.GuildName = data.GuildName
 				}
 				g.Builders = data.Builders
 				g.Tags = tags
@@ -210,7 +214,7 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 		return threadData{}
 	}
 
-	id, builders, lore, whatToVisit := guild.ParseFirstPost(msgs[0].Content)
+	id, guildName, builders, lore, whatToVisit := guild.ParseFirstPost(msgs[0].Content)
 
 	score := 0
 	for _, r := range msgs[0].Reactions {
@@ -238,6 +242,7 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 
 	return threadData{
 		ID:          id,
+		GuildName:   guildName,
 		AuthorID:    msgs[0].Author.ID,
 		Builders:    builders,
 		Score:       score,

@@ -2,6 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10042805</td></tr>
+  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Echoes-of-Sin</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>MoonlightYozora</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature, Mountain</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>12</td></tr>
@@ -37,7 +38,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Echoes-of-Sin [10042805]
+## :japanese_castle: 🏯 Echoes-of-Sin [10042805]
 :construction_worker: Builders: MoonlightYozora
 
 ### :pencil: Lore

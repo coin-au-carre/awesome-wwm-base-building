@@ -344,6 +344,7 @@
 	{
 		"id": "10005556",
 		"name": "BlackFurry",
+		"guildName": "🏯 BlackFurry",
 		"builders": [
 			"carnii"
 		],
@@ -396,7 +397,7 @@
 		"id": "10209300",
 		"name": "Clandestine",
 		"builders": [
-			"HazelWind"
+			"HazelWind (credit for the Summer Palace complex also goes to Jiziuu who built the main residence)"
 		],
 		"tags": [
 			"Arena",
@@ -405,8 +406,8 @@
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1487085991041826961",
 		"builderDiscordId": "690759797951430716",
-		"lore": "Our base is designed as an open space area with various structures to accommodate all our members. It features Yin and Yang aspects, with the western half of the guild representing Yin (elegance, healing), and the eastern half representing Yang (power, status).",
-		"whatToVisit": "Feel free to come and visit us, we have:  \n🍁 Maple Avenue  \n⚔️ Arena viewing platform  \n🪷 Lake Pavilion complex with wooden bridge and roundabout  \n🛀 a Zen Garden and Bath House  \n🎍 Bamboo Forest (inspired by the Arashiyama bamboo forest in Kyoto)  \n🔭  Hanging Gardens with Torii Gates and Vantage Point at the top.  \n🏟️ Colosseum  \n🛣️ Grand Boulevard just past the Maple Avenue  \n☕ Shopping Street with a Ghibli-style Cafe, a Bookstore, and a Boutique, very photogenic!  \n🏰 A huge Summer Palace complex\n🏇  and... a Derby circuit!",
+		"lore": "The Hidden Sanctuary\n\nClandestine reveals itself only to those who seek stillness and tranquility in the Jianghu. It is a quiet haven of maple-lined paths, lakeside pavilions, and serene gardens where time seems to slow. \n\nWithin its grounds, every space invites reflection. The Bamboo Forest softens the mind, the Zen Garden and baths restore both body and spirit, and the Hanging Gardens rise as a silent reminder of the connection between earth and sky. Even the grand avenues and imperial structures serve not symbols of power, but of legacy—echoes of a past devoted to defending peace rather than to conquer the world.\n\nAt its heart stands the Summer Palace, where those who guard this sanctuary gather not to rule, but to guide. They remain unseen, not out of secrecy, but out of safety, allowing the base to exist as a refuge for those who arrive not by chance, but by need for peace.\n\n🧙",
+		"whatToVisit": "Feel free to come and visit us, we have:  \n🍁 Maple Avenue  \n⚔️ Arena viewing platform  \n🪷 Lake Pavilion complex with wooden bridge and roundabout  \n🛀 a Zen Garden and Bath House  \n🎍 Bamboo Forest (inspired by the Arashiyama bamboo forest in Kyoto)  \n🔭  Hanging Gardens with Torii Gates and Vantage Point at the top.  \n🏟️ Colosseum  \n🛣️ Grand Boulevard just past the Maple Avenue  \n☕ Shopping Street with a Ghibli-style Cafe, a Bookstore, and a Boutique, very photogenic!  \n🏰 A huge Summer Palace complex (this is the latest addition, built with the help of our new builder Jiziuu)\n🏇  and... a Derby circuit!",
 		"score": 6,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1487085993205956810/Clandestine_Base_Showcase_4.4_MB.png?ex=69c7dc41\u0026is=69c68ac1\u0026hm=4c13e0658ba2b9cb204bd6278983030a80267daa63cb0b9c9e441ee20a6c052f\u0026",
@@ -420,6 +421,7 @@
 	{
 		"id": "10082099",
 		"name": "Jasmin'Tea",
+		"guildName": "🏯 Jasmin'Tea",
 		"builders": [
 			"Sidereus"
 		],
@@ -481,6 +483,7 @@
 	{
 		"id": "10244476",
 		"name": "Jenova",
+		"guildName": "🏯 Jenova",
 		"builders": [
 			"Dovahline",
 			"Ahlyam"
@@ -497,9 +500,9 @@
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69c7c3ac\u0026is=69c6722c\u0026hm=12f0586f2b70d5f094369243e5a7658d26120a08638862d8dd7096eaed5a1f30\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69c74e3c\u0026is=69c5fcbc\u0026hm=994e643be9aa9f9bb1c2358476dffc3ecf6ebf9c6d2ed65a5249e0a100921d7d\u0026",
-			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c735a6\u0026is=69c5e426\u0026hm=0e1a908ee23905ff911ca70e08ba8974eaca98b3363ae02dc10813cc7dd80e0e\u0026",
-			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69c735a6\u0026is=69c5e426\u0026hm=0b62289e02e0ffad1c5bfc953bceff48f70a81418fb8a8e2d6a78b51f80d5400\u0026",
-			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c735a6\u0026is=69c5e426\u0026hm=c1acbb9635081e5738bb2aa2c9b61ad97db2acc492ed9734fdf0b9ae38a7ce6a\u0026"
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c7de66\u0026is=69c68ce6\u0026hm=2a57a313e885ed79bc0b2bf5e03a1c3ab9ff28029912a8ed8b5384338e59eafa\u0026",
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69c7de66\u0026is=69c68ce6\u0026hm=8975d28b1ef382fa10b875ca812790202260cbf4955b741c246838f3fcc52bf4\u0026",
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c7de66\u0026is=69c68ce6\u0026hm=588d4469ec09041bf6d6b410cb0a04318d6dcc86c7446753de628c0dba4035cb\u0026"
 		]
 	},
 	{
@@ -539,6 +542,7 @@
 	{
 		"id": "10031978",
 		"name": "連燈",
+		"guildName": "🏯 連燈",
 		"builders": null,
 		"tags": [
 			"Zen",
@@ -574,6 +578,7 @@
 	{
 		"id": "10011051",
 		"name": "会Ashura",
+		"guildName": "🏯 **会Ashura",
 		"builders": [
 			"Onikishi",
 			"PynMeo",
@@ -649,6 +654,7 @@
 	{
 		"id": "10042805",
 		"name": "Echoes-of-Sin",
+		"guildName": "🏯 Echoes-of-Sin",
 		"builders": [
 			"MoonlightYozora"
 		],
@@ -671,6 +677,7 @@
 	{
 		"id": "10183152",
 		"name": "The-Inner-Ways",
+		"guildName": "🏯 The-Inner-Ways",
 		"builders": null,
 		"tags": [
 			"Nature"
@@ -705,6 +712,7 @@
 	{
 		"id": "10000929",
 		"name": "Mutiny",
+		"guildName": "🏯 Mutiny",
 		"builders": [
 			"SugaredKoi"
 		],
@@ -756,6 +764,7 @@
 	{
 		"id": "10028994",
 		"name": "Hellsing(SEA)",
+		"guildName": "🏯 Hellsing(SEA)",
 		"builders": [
 			"Eulreiss"
 		],
@@ -785,6 +794,7 @@
 	{
 		"id": "10256194",
 		"name": "MoonlitPath",
+		"guildName": "🏯 MoonlitPath",
 		"builders": [
 			"Meffphy/cresa"
 		],
@@ -819,6 +829,7 @@
 	{
 		"id": "10057013",
 		"name": "Pleasure Seekers (OCE/SEA)",
+		"guildName": "🏯 PleasureSeeker",
 		"builders": [
 			"영미  ( B/ _babe)"
 		],
@@ -870,6 +881,7 @@
 	{
 		"id": "10111177",
 		"name": "Dragons-Heirs",
+		"guildName": "🏯 Dragons-Heirs",
 		"builders": [
 			"Izanagi-cz"
 		],

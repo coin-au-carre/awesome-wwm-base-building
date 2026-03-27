@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10209300</td></tr>
-  <tr><td>🔨 <b>Builders</b></td><td>HazelWind</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>HazelWind (credit for the Summer Palace complex also goes to Jiziuu who built the main residence)</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Nature, Zen</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>6</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487085991041826961">View thread</a></td></tr>
@@ -10,7 +10,15 @@
 
 ## 📜 Lore
 
-Our base is designed as an open space area with various structures to accommodate all our members. It features Yin and Yang aspects, with the western half of the guild representing Yin (elegance, healing), and the eastern half representing Yang (power, status).
+The Hidden Sanctuary
+
+Clandestine reveals itself only to those who seek stillness and tranquility in the Jianghu. It is a quiet haven of maple-lined paths, lakeside pavilions, and serene gardens where time seems to slow. 
+
+Within its grounds, every space invites reflection. The Bamboo Forest softens the mind, the Zen Garden and baths restore both body and spirit, and the Hanging Gardens rise as a silent reminder of the connection between earth and sky. Even the grand avenues and imperial structures serve not symbols of power, but of legacy—echoes of a past devoted to defending peace rather than to conquer the world.
+
+At its heart stands the Summer Palace, where those who guard this sanctuary gather not to rule, but to guide. They remain unseen, not out of secrecy, but out of safety, allowing the base to exist as a refuge for those who arrive not by chance, but by need for peace.
+
+🧙
 
 ## 🗺️ What to Visit
 
@@ -24,7 +32,7 @@ Feel free to come and visit us, we have:
 🏟️ Colosseum  
 🛣️ Grand Boulevard just past the Maple Avenue  
 ☕ Shopping Street with a Ghibli-style Cafe, a Bookstore, and a Boutique, very photogenic!  
-🏰 A huge Summer Palace complex
+🏰 A huge Summer Palace complex (this is the latest addition, built with the help of our new builder Jiziuu)
 🏇  and... a Derby circuit!
 
 ---
