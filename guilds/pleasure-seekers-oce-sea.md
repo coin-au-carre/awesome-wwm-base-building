@@ -14,14 +14,14 @@ No specific lore, was just trying to make the base aesthetically appealing to th
 
 ## 🗺️ What to Visit
 
-🎄  Wishing Tree
-⚔️  Sky Arena
-👗  Runway
-🍵  Teahouse on the Lake
-🧼   Private bath by the lake
-🛖  TreeHouse
-🚧    Guild Traitor locked up
-🍲  Snacks cart by entrance
+🎄  Wishing Tree  
+⚔️  Sky Arena  
+👗  Runway  
+🍵  Teahouse on the Lake  
+🧼   Private bath by the lake  
+🛖  TreeHouse  
+🚧    Guild Traitor locked up  
+🍲  Snacks cart by entrance  
 🏟️  Arena Viewing area
 
 ---

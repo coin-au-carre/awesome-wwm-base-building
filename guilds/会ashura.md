@@ -11,10 +11,10 @@
 
 ## 🗺️ What to Visit
 
-- **Yggdrasil** - our majestic flying tree, heart of the guild
-- **The Theatre** - where stories, music and gatherings come alive
-- **Meditation Spots** - hidden corners of peace and reflection
-- **Lantern-Lit Bridges** - glowing paths across tranquil waters
+- **Yggdrasil** - our majestic flying tree, heart of the guild  
+- **The Theatre** - where stories, music and gatherings come alive  
+- **Meditation Spots** - hidden corners of peace and reflection  
+- **Lantern-Lit Bridges** - glowing paths across tranquil waters  
 - **Sacred Gardens & Courtyards** - perfect for ralxing and exploring
 
 ---
