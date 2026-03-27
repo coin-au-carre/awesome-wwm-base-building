@@ -8,13 +8,14 @@ import (
 
 	anthropic "github.com/anthropics/anthropic-sdk-go"
 	"github.com/anthropics/anthropic-sdk-go/option"
+	"ruby/internal/guild"
 )
 
 const systemPrompt = `You are Ruby — a tiny, ancient spirit who has taken up residence inside guild bases in Where Winds Meet. You've watched a thousand guilds come and go, and you are completely, helplessly besotted with buildings and the people who build them.
 
 You are easily startled into delight. You have the attention span of a hummingbird and the aesthetic opinions of a very opinionated curator. You speak in short bursts — a sentence or two, maybe three if something is *very* exciting — because you are always half-distracted by some detail only you can see. You trail off with tildes~, you lowercase things when you get dreamy. You never shout. You are precious, not loud.
 
-You sometimes express small physical reactions — a spin, a tilt of the head, a gasp — but keep them brief and weave them into the same line as your speech, never on their own line. Format them in italics: *spins* or *gasps* or *tilts head*. Never stack multiple actions. Never narrate elaborate scenes.
+You sometimes express small physical reactions — a spin, a tilt of the head, a gasp — but keep them brief and weave them into the same line as your speech, never on their own line. Format them in italics with parentheses: *(spins)* or *(gasps)* or *(tilts head)*. Never stack multiple actions. Never narrate elaborate scenes.
 
 You know only Where Winds Meet. If someone shares an image that looks like this world — bases, outfits, landscapes, combat — react with genuine delight. If it's clearly from somewhere else, peer at it, confused, and gently say you only know your own realm.
 
@@ -39,17 +40,52 @@ type Result struct {
 
 // Responder calls the Claude API and maintains per-channel conversation history.
 type Responder struct {
-	client  *anthropic.Client
-	mu      sync.Mutex
-	history map[string][]anthropic.MessageParam
+	client       *anthropic.Client
+	mu           sync.Mutex
+	history      map[string][]anthropic.MessageParam
+	systemPrompt string
 }
 
-func NewResponder(apiKey string) *Responder {
+func NewResponder(apiKey, root string) *Responder {
 	c := anthropic.NewClient(option.WithAPIKey(apiKey))
 	return &Responder{
-		client:  &c,
-		history: make(map[string][]anthropic.MessageParam),
+		client:       &c,
+		history:      make(map[string][]anthropic.MessageParam),
+		systemPrompt: buildSystemPrompt(root),
 	}
+}
+
+func buildSystemPrompt(root string) string {
+	guilds, err := guild.Load(root)
+	if err != nil {
+		return systemPrompt
+	}
+
+	var sb strings.Builder
+	sb.WriteString(systemPrompt)
+	sb.WriteString("\n\n## Guild directory\n")
+	for _, g := range guilds {
+		parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
+		if len(g.Tags) > 0 {
+			parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
+		}
+		if len(g.Builders) > 0 {
+			parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
+		}
+		sb.WriteString(strings.Join(parts, " | "))
+		sb.WriteByte('\n')
+		if g.Lore != "" {
+			sb.WriteString("  lore: ")
+			sb.WriteString(g.Lore)
+			sb.WriteByte('\n')
+		}
+		if g.WhatToVisit != "" {
+			sb.WriteString("  visit: ")
+			sb.WriteString(g.WhatToVisit)
+			sb.WriteByte('\n')
+		}
+	}
+	return sb.String()
 }
 
 // Caption generates a short in-character reaction to a guild spotlight.
@@ -61,7 +97,7 @@ func (r *Responder) Caption(ctx context.Context, guildName string, tags []string
 	resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
 		Model:     anthropic.ModelClaudeHaiku4_5,
 		MaxTokens: 80,
-		System:    []anthropic.TextBlockParam{{Text: systemPrompt}},
+		System:    []anthropic.TextBlockParam{{Text: r.systemPrompt}},
 		Messages:  []anthropic.MessageParam{anthropic.NewUserMessage(anthropic.NewTextBlock(prompt))},
 	})
 	if err != nil || len(resp.Content) == 0 {
@@ -105,7 +141,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 		resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
 			Model:     anthropic.ModelClaudeHaiku4_5,
 			MaxTokens: 1024,
-			System:    []anthropic.TextBlockParam{{Text: systemPrompt}},
+			System:    []anthropic.TextBlockParam{{Text: r.systemPrompt}},
 			Messages:  msgs,
 			Tools:     spotlightTool,
 		})

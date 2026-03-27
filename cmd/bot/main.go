@@ -45,7 +45,7 @@ func main() {
 	}
 	defer bot.Close()
 
-	responder := discord.NewResponder(claudeKey)
+	responder := discord.NewResponder(claudeKey, *root)
 
 	bot.Session.AddHandler(onReady())
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
