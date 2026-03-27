@@ -2,6 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10244476</td></tr>
+  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Jenova</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Dovahline, Ahlyam</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>6</td></tr>
@@ -24,11 +25,11 @@ Arena gradins (bleachers), zen garden, hidden room
 
 ![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69c74e3c&is=69c5fcbc&hm=994e643be9aa9f9bb1c2358476dffc3ecf6ebf9c6d2ed65a5249e0a100921d7d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c735a6&is=69c5e426&hm=0e1a908ee23905ff911ca70e08ba8974eaca98b3363ae02dc10813cc7dd80e0e&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=69c7de66&is=69c68ce6&hm=2a57a313e885ed79bc0b2bf5e03a1c3ab9ff28029912a8ed8b5384338e59eafa&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69c735a6&is=69c5e426&hm=0b62289e02e0ffad1c5bfc953bceff48f70a81418fb8a8e2d6a78b51f80d5400&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=69c7de66&is=69c68ce6&hm=8975d28b1ef382fa10b875ca812790202260cbf4955b741c246838f3fcc52bf4&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c735a6&is=69c5e426&hm=c1acbb9635081e5738bb2aa2c9b61ad97db2acc492ed9734fdf0b9ae38a7ce6a&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=69c7de66&is=69c68ce6&hm=588d4469ec09041bf6d6b410cb0a04318d6dcc86c7446753de628c0dba4035cb&)
 
 
 ---
@@ -45,7 +46,7 @@ Arena gradins (bleachers), zen garden, hidden room
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Jenova [10244476]
+## :japanese_castle: 🏯 Jenova [10244476]
 :construction_worker: Builders: Dovahline, Ahlyam
 
 ### :pencil: Lore

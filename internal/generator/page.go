@@ -31,6 +31,9 @@ func buildPage(g *guild.Guild, dir string) string {
 	if g.ID != "" {
 		sb.WriteString(fmt.Sprintf("  <tr><td>🆔 <b>Guild ID</b></td><td>%s</td></tr>\n", g.ID))
 	}
+	if g.GuildName != "" {
+		sb.WriteString(fmt.Sprintf("  <tr><td>🏰 <b>Guild Name</b></td><td>%s</td></tr>\n", g.GuildName))
+	}
 	if len(g.Builders) > 0 {
 		sb.WriteString(fmt.Sprintf("  <tr><td>🔨 <b>Builders</b></td><td>%s</td></tr>\n", strings.Join(g.Builders, ", ")))
 	}
@@ -81,6 +84,10 @@ func buildDiscordTemplate(g *guild.Guild) string {
 	if g.ID != "" {
 		id = g.ID
 	}
+	templateName := g.Name
+	if g.GuildName != "" {
+		templateName = g.GuildName
+	}
 	builders := "Builder1, Builder2"
 	if len(g.Builders) > 0 {
 		builders = strings.Join(g.Builders, ", ")
@@ -105,7 +112,7 @@ func buildDiscordTemplate(g *guild.Guild) string {
 	sb.WriteString("- Collect votes ⭐\n\n")
 	sb.WriteString("<details>\n<summary>📋 Copy this template</summary>\n\n")
 	sb.WriteString("<pre>\n")
-	sb.WriteString(fmt.Sprintf("## :japanese_castle: %s [%s]\n", g.Name, id))
+	sb.WriteString(fmt.Sprintf("## :japanese_castle: %s [%s]\n", templateName, id))
 	sb.WriteString(fmt.Sprintf(":construction_worker: Builders: %s\n", builders))
 	sb.WriteString("\n### :pencil: Lore\nREPLACE_WITH_YOUR_LORE\n")
 	sb.WriteString("\n### :mage: What to visit\nDESCRIBE_POINT_OF_INTEREST\n")

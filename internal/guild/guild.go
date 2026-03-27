@@ -3,6 +3,7 @@ package guild
 type Guild struct {
 	ID               string   `json:"id,omitempty"`
 	Name             string   `json:"name"`
+	GuildName        string   `json:"guildName,omitempty"`
 	Builders         []string `json:"builders"`
 	Tags             []string `json:"tags,omitempty"`
 	DiscordThread    string   `json:"discordThread"`
