@@ -12,7 +12,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c75f61&is=69c60de1&hm=d032e137bb9282f687c02197be4b6196a3fbc03be70ee5f684119b318f4e8186&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69c80821&is=69c6b6a1&hm=55e13df0df87a1dd1059980f37de4e59b0427241da6539f25aef5e1a957baa5e&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69c7c69d&is=69c6751d&hm=07135358f1d80c8fe8e8923a0427fb00c83e9f03e0fcd07b9d5c2c9e4f54b3ed&)
 
