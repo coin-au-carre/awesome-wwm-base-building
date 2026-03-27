@@ -2,22 +2,21 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log/slog"
 	"os"
 	"os/signal"
 	"path/filepath"
+	"strings"
 	"syscall"
 
 	"ruby/internal/discord"
-	"ruby/internal/guild"
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
 )
 
 func main() {
-	root := flag.String("root", rootDir(), "root directory containing guilds.json")
+	root := flag.String("root", rootDir(), "root directory")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -25,11 +24,9 @@ func main() {
 	}
 
 	token := requireEnv("RUBY_BOT_TOKEN")
-	botChannelID := os.Getenv("BOT_CHANNEL_ID")
-	forumChannelID := requireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
-	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
+	rubyChannelID := os.Getenv("RUBY_CHANNEL_ID")
 
-	bot, err := discord.NewBot(token, botChannelID)
+	bot, err := discord.NewBot(token, rubyChannelID)
 	if err != nil {
 		slog.Error("creating bot", "err", err)
 		os.Exit(1)
@@ -37,15 +34,14 @@ func main() {
 	defer bot.Close()
 
 	bot.Session.AddHandler(onReady())
-	bot.Session.AddHandler(onThreadCreate(bot, *root, forumChannelID, baseBuilderRoleID))
-	bot.Session.AddHandler(onReactionAdd(bot, *root, forumChannelID))
+	bot.Session.AddHandler(onMessageCreate(bot))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
 		os.Exit(1)
 	}
 
-	slog.Info("bot running", "forum_channel", forumChannelID)
+	slog.Info("bot running")
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
 	<-stop
@@ -59,58 +55,27 @@ func onReady() func(*discordgo.Session, *discordgo.Ready) {
 	}
 }
 
-// onThreadCreate fires when a new post appears in the guild showcase forum.
-// It triggers an incremental sync for that single thread.
-func onThreadCreate(bot *discord.Bot, root, forumChannelID string, baseBuilderRoleID string) func(*discordgo.Session, *discordgo.ThreadCreate) {
-	return func(s *discordgo.Session, t *discordgo.ThreadCreate) {
-		if t.ParentID != forumChannelID {
-			return
-		}
-		slog.Info("new forum thread", "name", t.Name, "id", t.ID, "owner", t.OwnerID)
-
-		// assign role immediately without waiting for sync
-		discord.AssignBaseBuilderRole(s, t.GuildID, t.OwnerID, baseBuilderRoleID)
-
-		guilds, err := guild.Load(root)
-		if err != nil {
-			slog.Warn("loading guilds for thread sync", "err", err)
-			guilds = []guild.Guild{}
-		}
-
-		updated, stats, err := discord.Sync(bot, guilds, discord.SyncConfig{
-			ForumChannelID:    forumChannelID,
-			BaseBuilderRoleID: baseBuilderRoleID,
-		})
-		if err != nil {
-			slog.Error("thread sync failed", "thread", t.Name, "err", err)
-			bot.Notify(fmt.Sprintf("💥 Failed to sync new thread **%s**: %s", t.Name, err))
+// onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
+func onMessageCreate(bot *discord.Bot) func(*discordgo.Session, *discordgo.MessageCreate) {
+	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
+		if m.Author.ID == s.State.User.ID {
 			return
 		}
 
-		if err := guild.Save(root, updated); err != nil {
-			slog.Error("saving guilds after thread sync", "err", err)
+		mentioned := false
+		for _, u := range m.Mentions {
+			if u.ID == s.State.User.ID {
+				mentioned = true
+				break
+			}
+		}
+
+		if !mentioned && !strings.Contains(strings.ToLower(m.Content), "ruby") {
 			return
 		}
 
-		bot.Notify(discord.FormatSyncSummary(stats))
-		slog.Info("thread sync complete", "thread", t.Name)
-	}
-}
-
-// onReactionAdd fires when a reaction is added to any message.
-// Reactions on the first post of a showcase thread update that guild's score.
-func onReactionAdd(bot *discord.Bot, root, forumChannelID string) func(*discordgo.Session, *discordgo.MessageReactionAdd) {
-	return func(s *discordgo.Session, r *discordgo.MessageReactionAdd) {
-		ch, err := s.State.Channel(r.ChannelID)
-		if err != nil || ch.ParentID != forumChannelID {
-			return
-		}
-		slog.Info("reaction on showcase thread",
-			"emoji", r.Emoji.Name,
-			"channel", r.ChannelID,
-			"user", r.UserID,
-		)
-		// TODO: targeted score update without a full sync
+		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", m.Content)
+		bot.Reply(m.ChannelID, m.ID, "Hey! You called?")
 	}
 }
 

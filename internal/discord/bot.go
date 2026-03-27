@@ -45,6 +45,12 @@ func (b *Bot) Notify(msg string) {
 	}
 }
 
+func (b *Bot) Reply(channelID, messageID, msg string) {
+	if _, err := b.Session.ChannelMessageSendReply(channelID, msg, &discordgo.MessageReference{MessageID: messageID}); err != nil {
+		slog.Warn("failed to send reply", "err", err)
+	}
+}
+
 func (b *Bot) NotifyIf(cond bool, msg string) {
 	if cond {
 		b.Notify(msg)
