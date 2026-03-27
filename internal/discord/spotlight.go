@@ -19,19 +19,27 @@ func PickRandomGuild(guilds []guild.Guild) (guild.Guild, string, bool) {
 			candidates = append(candidates, g)
 		}
 	}
-	if len(candidates) == 0 {
+	return PickFromGuilds(candidates)
+}
+
+// PickFromGuilds returns a random guild and screenshot URL from the given slice (all assumed to have screenshots).
+func PickFromGuilds(guilds []guild.Guild) (guild.Guild, string, bool) {
+	if len(guilds) == 0 {
 		return guild.Guild{}, "", false
 	}
-	pick := candidates[rand.IntN(len(candidates))]
+	pick := guilds[rand.IntN(len(guilds))]
 	imgURL := pick.Screenshots[rand.IntN(len(pick.Screenshots))]
 	return pick, imgURL, true
 }
 
 // FormatSpotlightMessage builds the Discord message for a guild spotlight.
-func FormatSpotlightMessage(g guild.Guild) string {
+// Pass random=true to include the "randomly picked" subtitle.
+func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "## 🏰 Guild Spotlight: **%s**\n", g.Name)
-	fmt.Fprintf(&sb, "-# 🎲 Randomly picked from the list\n")
+	if random {
+		fmt.Fprintf(&sb, "-# 🎲 Randomly picked from the list\n")
+	}
 	var meta []string
 	if len(g.Builders) > 0 {
 		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))

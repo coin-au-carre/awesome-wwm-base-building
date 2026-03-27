@@ -32,7 +32,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	msg := idiscord.FormatSpotlightMessage(pick)
+	msg := idiscord.FormatSpotlightMessage(pick, true)
 
 	imgData, filename, err := idiscord.DownloadImage(imgURL)
 	if err != nil {
