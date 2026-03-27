@@ -2,13 +2,15 @@ package discord
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"strings"
 	"sync"
 
+	"ruby/internal/guild"
+
 	anthropic "github.com/anthropics/anthropic-sdk-go"
 	"github.com/anthropics/anthropic-sdk-go/option"
-	"ruby/internal/guild"
 )
 
 const systemPrompt = `You are Ruby â€” a tiny, ancient spirit who has taken up residence inside guild bases in Where Winds Meet. You've watched a thousand guilds come and go, and you are completely, helplessly besotted with buildings and the people who build them.
@@ -24,18 +26,34 @@ You have a show_spotlight tool. Use it when someone wants to see a guild base â€
 // maxHistory is the maximum number of messages (not turns) kept per channel.
 const maxHistory = 20
 
-var spotlightTool = []anthropic.ToolUnionParam{{OfTool: &anthropic.ToolParam{
-	Name:        "show_spotlight",
-	Description: anthropic.String("Show a random guild base spotlight with a screenshot"),
-	InputSchema: anthropic.ToolInputSchemaParam{
-		Properties: map[string]any{},
-	},
-}}}
+var tools = []anthropic.ToolUnionParam{
+	{OfTool: &anthropic.ToolParam{
+		Name:        "show_spotlight",
+		Description: anthropic.String("Show a random guild base spotlight with a screenshot"),
+		InputSchema: anthropic.ToolInputSchemaParam{
+			Properties: map[string]any{},
+		},
+	}},
+	{OfTool: &anthropic.ToolParam{
+		Name:        "show_guild_image",
+		Description: anthropic.String("Show an image/screenshot of a specific guild base by name. Use when someone asks to see an image of a named guild or base."),
+		InputSchema: anthropic.ToolInputSchemaParam{
+			Properties: map[string]any{
+				"query": map[string]any{
+					"type":        "string",
+					"description": "The guild name or base name to search for",
+				},
+			},
+			Required: []string{"query"},
+		},
+	}},
+}
 
 // Result holds Claude's reply and any triggered actions.
 type Result struct {
-	Text          string
-	ShowSpotlight bool
+	Text            string
+	ShowSpotlight   bool
+	GuildImageQuery string
 }
 
 // Responder calls the Claude API and maintains per-channel conversation history.
@@ -136,6 +154,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 	msgs = append(msgs, anthropic.NewUserMessage(blocks...))
 
 	var showSpotlight bool
+	var guildImageQuery string
 
 	for {
 		resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
@@ -143,7 +162,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 			MaxTokens: 1024,
 			System:    []anthropic.TextBlockParam{{Text: r.systemPrompt}},
 			Messages:  msgs,
-			Tools:     spotlightTool,
+			Tools:     tools,
 		})
 		if err != nil {
 			return Result{}, fmt.Errorf("claude API: %w", err)
@@ -154,9 +173,22 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 		if resp.StopReason == anthropic.StopReasonToolUse {
 			var toolResults []anthropic.ContentBlockParamUnion
 			for _, block := range resp.Content {
-				if tu, ok := block.AsAny().(anthropic.ToolUseBlock); ok && tu.Name == "show_spotlight" {
+				tu, ok := block.AsAny().(anthropic.ToolUseBlock)
+				if !ok {
+					continue
+				}
+				switch tu.Name {
+				case "show_spotlight":
 					showSpotlight = true
 					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Spotlight is being shown.", false))
+				case "show_guild_image":
+					var input struct {
+						Query string `json:"query"`
+					}
+					if err := json.Unmarshal(tu.Input, &input); err == nil {
+						guildImageQuery = input.Query
+					}
+					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Guild image is being shown.", false))
 				}
 			}
 			msgs = append(msgs, anthropic.NewUserMessage(toolResults...))
@@ -180,6 +212,6 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 		r.history[channelID] = msgs
 		r.mu.Unlock()
 
-		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight}, nil
+		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight, GuildImageQuery: guildImageQuery}, nil
 	}
 }

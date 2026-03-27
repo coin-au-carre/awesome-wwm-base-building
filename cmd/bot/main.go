@@ -137,6 +137,11 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 			return
 		}
 
+		if result.GuildImageQuery != "" {
+			handleGuildImageReply(bot, s, responder, m.ChannelID, m.ID, root, result.GuildImageQuery)
+			return
+		}
+
 		bot.Reply(m.ChannelID, m.ID, result.Text)
 	}
 }
