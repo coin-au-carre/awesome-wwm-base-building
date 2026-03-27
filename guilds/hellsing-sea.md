@@ -16,12 +16,12 @@ This build was inspired by my love for Xianxia dramas — I wanted to recreate t
 
 ## 🗺️ What to Visit
 
-☁️ A floating Sky Palace with a grand, mystical atmosphere
-⚔️ Sky Arena – fight or run… one wrong move and you fall to your death 
-♨️ Outdoor Onsen – relax in nature with mountain views
-🏠 Indoor Onsen – a more private, cozy retreat
-🎋 A bamboo walkway for a calm, immersive journey through the build
-🌌 Stargazing Platform – take in the night sky above the clouds
+☁️ A floating Sky Palace with a grand, mystical atmosphere  
+⚔️ Sky Arena – fight or run… one wrong move and you fall to your death   
+♨️ Outdoor Onsen – relax in nature with mountain views  
+🏠 Indoor Onsen – a more private, cozy retreat  
+🎋 A bamboo walkway for a calm, immersive journey through the build  
+🌌 Stargazing Platform – take in the night sky above the clouds  
 🛏️ Suite Room – your own luxurious space in the palace
 
 ---

@@ -14,15 +14,15 @@ No lore as of yet but perhaps future builds may shape or reveal a story to us �
 
 ## 🗺️ What to Visit
 
-- A market 🧺
-- Guild tavern 🍻
-- Quaint garden 🪴
-- Performance stage 🥁
-- Buddha shrine ⛩️
-- Guild court 👑
-- Crescent moon 🌙
-- Arena viewing platform 🏟️ 
-
+- A market 🧺  
+- Guild tavern 🍻  
+- Quaint garden 🪴  
+- Performance stage 🥁  
+- Buddha shrine ⛩️  
+- Guild court 👑  
+- Crescent moon 🌙  
+- Arena viewing platform 🏟️   
+  
 + a few other areas to find!
 
 ---

@@ -18,12 +18,12 @@ There is no lore, it is an ordinary mountain village.
 
 ## 🗺️ What to Visit
 
-- natural hot springs and park with many benches and small places to check (we also have benches prepared for couples)
-- little SPA next to hot springs
-- Lake and swing at the center of it, village for guildies
-- Mountains, tree house with pub, hidden cave with springs next to it
-- Second village with shrine
-- Marketplace and stage
+- natural hot springs and park with many benches and small places to check (we also have benches prepared for couples)  
+- little SPA next to hot springs  
+- Lake and swing at the center of it, village for guildies  
+- Mountains, tree house with pub, hidden cave with springs next to it  
+- Second village with shrine  
+- Marketplace and stage  
 - Training grounds and parkour
 
 ---

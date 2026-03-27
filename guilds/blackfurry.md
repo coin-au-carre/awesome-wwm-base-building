@@ -15,10 +15,10 @@
 
 ## 🗺️ What to Visit
 
-Just immerse yourself in the world of a simple mountain village, its narrow streets and cozy houses. 
-- A modest bar and sauna are waiting for you at the entrance.
-- A pond with a ghost ship is waiting for you on the right (do not be afraid, there is only one ghost and it does not leave its lair). 
-- The central street with a hotel, a square and residential buildings. There are also a lot of stalls there, you will definitely have to buy some of our village's goods.
+Just immerse yourself in the world of a simple mountain village, its narrow streets and cozy houses.   
+- A modest bar and sauna are waiting for you at the entrance.  
+- A pond with a ghost ship is waiting for you on the right (do not be afraid, there is only one ghost and it does not leave its lair).   
+- The central street with a hotel, a square and residential buildings. There are also a lot of stalls there, you will definitely have to buy some of our village's goods.  
 - The leftmost part is the arena, be careful, because many warriors died there.
 
 ---

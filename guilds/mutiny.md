@@ -15,14 +15,14 @@ From the remains of a forgotten age, where stone crumbled and nature took over, 
 
 ## 🗺️ What to Visit
 
-Arena – a big majestic place for our community to gather, spar, dance, battle, or just chill,
-Town – vibrant, full of commerce, and perfect for pics,
-Palace – large, luxurious, and spacious homes for members, featuring many rooms,
-Dining Hall – a grand space to share meals together,
-Kitchen – where all preparations come to life,
-Training Area – dedicated to practice and improvement,
-Management Area – the center of organization and planning,
-Small Theatre – an intimate space for performances and gatherings,
+Arena – a big majestic place for our community to gather, spar, dance, battle, or just chill,  
+Town – vibrant, full of commerce, and perfect for pics,  
+Palace – large, luxurious, and spacious homes for members, featuring many rooms,  
+Dining Hall – a grand space to share meals together,  
+Kitchen – where all preparations come to life,  
+Training Area – dedicated to practice and improvement,  
+Management Area – the center of organization and planning,  
+Small Theatre – an intimate space for performances and gatherings,  
 Throne Room – a grand hall with a commanding presence
 
 ---

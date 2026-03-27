@@ -22,17 +22,17 @@ At its heart stands the Summer Palace, where those who guard this sanctuary gath
 
 ## 🗺️ What to Visit
 
-Feel free to come and visit us, we have:  
-🍁 Maple Avenue  
-⚔️ Arena viewing platform  
-🪷 Lake Pavilion complex with wooden bridge and roundabout  
-🛀 a Zen Garden and Bath House  
-🎍 Bamboo Forest (inspired by the Arashiyama bamboo forest in Kyoto)  
-🔭  Hanging Gardens with Torii Gates and Vantage Point at the top.  
-🏟️ Colosseum  
-🛣️ Grand Boulevard just past the Maple Avenue  
-☕ Shopping Street with a Ghibli-style Cafe, a Bookstore, and a Boutique, very photogenic!  
-🏰 A huge Summer Palace complex (this is the latest addition, built with the help of our new builder Jiziuu)
+Feel free to come and visit us, we have:    
+🍁 Maple Avenue    
+⚔️ Arena viewing platform    
+🪷 Lake Pavilion complex with wooden bridge and roundabout    
+🛀 a Zen Garden and Bath House    
+🎍 Bamboo Forest (inspired by the Arashiyama bamboo forest in Kyoto)    
+🔭  Hanging Gardens with Torii Gates and Vantage Point at the top.    
+🏟️ Colosseum    
+🛣️ Grand Boulevard just past the Maple Avenue    
+☕ Shopping Street with a Ghibli-style Cafe, a Bookstore, and a Boutique, very photogenic!    
+🏰 A huge Summer Palace complex (this is the latest addition, built with the help of our new builder Jiziuu)  
 🏇  and... a Derby circuit!
 
 ---

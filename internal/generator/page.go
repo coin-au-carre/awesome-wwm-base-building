@@ -53,7 +53,7 @@ func buildPage(g *guild.Guild, dir string) string {
 		sb.WriteString("## 📜 Lore\n\n" + g.Lore + "\n\n")
 	}
 	if g.WhatToVisit != "" {
-		sb.WriteString("## 🗺️ What to Visit\n\n" + g.WhatToVisit + "\n\n")
+		sb.WriteString("## 🗺️ What to Visit\n\n" + strings.ReplaceAll(g.WhatToVisit, "\n", "  \n") + "\n\n")
 	}
 
 	sb.WriteString("---\n\n## 📸 Screenshots\n\n")

@@ -15,15 +15,15 @@ Dragon City is the seat of Dragons-Heirs — a living capital shaped by the will
 
 ## 🗺️ What to Visit
 
-• Dragon Palace (Throne Room)
-• Royal Garden
-• Barracks & Training Grounds
-• Dragon Shrine
-• Performance Court
-• Inn & Wedding Area
-• Party Pool & Bar
-• Arena Food Stalls
-• City Roads & Bridge Platforms
+• Dragon Palace (Throne Room)  
+• Royal Garden  
+• Barracks & Training Grounds  
+• Dragon Shrine  
+• Performance Court  
+• Inn & Wedding Area  
+• Party Pool & Bar  
+• Arena Food Stalls  
+• City Roads & Bridge Platforms  
 • Hidden Basement — the secret domain of our Vice Master, hidden beneath the city…
 
 ---
