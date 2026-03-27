@@ -23,7 +23,7 @@ func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder *id
 		return
 	}
 
-	const maxAttempts = 3
+	const maxAttempts = 5
 	for attempt := range maxAttempts {
 		pick, imgURL, ok := idiscord.PickRandomGuild(guilds)
 		if !ok {

@@ -16,6 +16,7 @@ const (
 	DiscordInvite   = "https://discord.gg/Qygt9u26Bn"
 	ShowcaseChannel = "`#base-guild-showcase`"
 	OwnerDiscordID  = "149790526076354561"
+	WebsiteBase     = "https://coin-au-carre.github.io/awesome-wwm-base-building"
 )
 
 const (

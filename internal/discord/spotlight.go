@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"strings"
 
+	"ruby/internal/generator"
 	"ruby/internal/guild"
 )
 
@@ -31,15 +32,20 @@ func FormatSpotlightMessage(g guild.Guild) string {
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "## 🏰 Guild Spotlight: **%s**\n", g.Name)
 	fmt.Fprintf(&sb, "-# 🎲 Randomly picked from the list\n")
+	var meta []string
 	if len(g.Builders) > 0 {
-		fmt.Fprintf(&sb, "👷 Built by: %s\n", strings.Join(g.Builders, ", "))
+		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))
 	}
 	if len(g.Tags) > 0 {
-		fmt.Fprintf(&sb, "🏷️ %s\n", strings.Join(g.Tags, ", "))
+		meta = append(meta, "🏷️ "+strings.Join(g.Tags, ", "))
 	}
-	fmt.Fprintf(&sb, "⭐ Score: %d\n", g.Score)
+	meta = append(meta, fmt.Sprintf("⭐ %d", g.Score))
+	fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	websiteURL := fmt.Sprintf("%s/guilds/%s", generator.WebsiteBase, generator.Slugify(g.Name))
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s", g.DiscordThread)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
 	}
 	return sb.String()
 }
