@@ -1,0 +1,59 @@
+# DanmeiSect
+
+<table>
+  <tr><td>🆔 <b>Guild ID</b></td><td>10001878</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>HamHua, mattoddle, LíuQingge</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Cave, Zen, Nature, Fun</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
+  <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487186326263435304">View thread</a></td></tr>
+</table>
+
+## 📜 Lore
+
+DanmeiSect has no set lore, as we are all danmei fans! We have plenty of people who in-game cosplay and roleplay as their characters in the game, and even have OC's people have created! Our builds were all made with the ability to take pictures in mind!
+
+## 🗺️ What to Visit
+
+We have different themed areas to go along with different danmei's people may or may not have read!   
+Come visit our best adaptations of:  
+  
+- the Thousand Autumns home! (*taken inspiration from the donghua*)  
+- Chu Wanning's house (*taken inspiration from The Husky and His White Cat Shizun novels*)  
+- Puqi Shrine (*taken inspiration from Heaven Official's Blessing donghua and novels*)  
+- the Inn (*taken inspiration from The Grandmaster of Demonic Cultivation donghua and novels*)  
+- the Bamboo House and woodshed (*taken inspiration from Scum Villains Self Saving System novels and donghua*)  
+- Lan clan rules and Ling Xi Caves (*taken inspiration from Scum Villain and Grandmaster*)  
+  
+Even though we have themed builds, we also have custom builds as well! Such as:  
+  
+- Our mini maze!  
+- Our medical malpractice ladder <3  
+- Our performance hall  
+- Our guild party area!   
+  
+Thank you for taking the time to read this, and we hope you come by and try to find our 25 hidden guild pickles~   
+  
+*Not everything is pictured as to keep things brief!*
+
+---
+
+## 📸 Screenshots
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186330298618058/1774642750_zpM6dJ1F.jpg?ex=69c839b3&is=69c6e833&hm=d26e6d92bc99feb5adcf493b7690ab6bf1d3b4a59359e85809f71938ffa32385&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186331577614456/1774642789_5WfVchCi.jpg?ex=69c839b4&is=69c6e834&hm=d59189c895ae06a79d0b8fe6b5d8873c2e3afa826ddf17356a45b448d60b1df5&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332148043996/1774642818_gG61KWEn.jpg?ex=69c839b4&is=69c6e834&hm=523ebe41284a1d822be2dcfc58a19327ab17e0cd476bd0ff7ba9da32bae06637&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332668395550/1774642855_F55ElQti.jpg?ex=69c839b4&is=69c6e834&hm=9a84e68b091491ae95f00b3f3ae0bfb90aa4083cb621eb722f70432f06f092e4&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333196615711/1774642876_ERfZqnXs.jpg?ex=69c839b4&is=69c6e834&hm=f865f84fc7ef58a604310a6f4edf3a2a4d139ecada01e446f5cdc1a01512758e&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333683286117/1774642915_bsJXuqrB.jpg?ex=69c839b4&is=69c6e834&hm=7867b8b9891e208a8ae4d9978dd8dd293b87a691230f9b3ac41ef6b8740de591&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334203510844/1774642946_oYzxj0cY.jpg?ex=69c839b4&is=69c6e834&hm=93bcf0442d20e02bbb9208b267520102c798dc556b48f2150759fe532550b4b2&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334685593680/1774643026_Kd0v7kuR.jpg?ex=69c839b4&is=69c6e834&hm=91d331ce080b581b1a9fe0a633aeec0aaaeaba49e422949b41a256b68060dddf&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186335210012692/1774643088_IrGYYaSl.jpg?ex=69c839b4&is=69c6e834&hm=ad00510fcbdfd17be9726c8b222f3c75fd7259fc86069aa5fe73ac6735da242d&)
+
