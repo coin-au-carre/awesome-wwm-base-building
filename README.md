@@ -11,7 +11,7 @@
 
 <!-- TOP_SHOWCASE_START -->
 
-<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1486718351479803999/1774529869_doI9sNzY.jpg?ex=69c7d75c&is=69c685dc&hm=c83ce9bba13d6120d651b0cf7071c0d9c512c9abc4742da717dc42ff5df407cd&" width="320" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/mutiny.html" title="Mutiny"><img src="https://cdn.discordapp.com/attachments/1486392790836576456/1486392793717932102/20263245412.png?ex=69c7f9a9&is=69c6a829&hm=0a0afd3295a303908dcc0d4a46243b0fddf67a8f73017d17b2535e9a4380ab17&" width="320" alt="Mutiny"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/dragons-heirs.html" title="Dragons-Heirs"><img src="https://cdn.discordapp.com/attachments/1487058305653411951/1487058316751540345/DH-Base_07.jpg?ex=69c86b3a&is=69c719ba&hm=00fc3bcbb626887c8b4342bbfd4e920bf9ea1cda9ae0d4d46d4dc7d18e0e3d15&" width="320" alt="Dragons-Heirs"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485331669136441477/1485331675889008721/20263227554.png?ex=69c811eb&is=69c6c06b&hm=d6352bb416bdfb4b74d81f6e38e11cdd74f606aa21824cbafdf53b5487d45089&" width="320" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063344359604295/202632263416.png?ex=69c86984&is=69c71804&hm=37a06e263b9f50a8aa4fca3fb255d5aaeca3aab70f51f9d668f99c228c7ee162&" width="320" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/echoes-of-sin.html" title="Echoes-of-Sin"><img src="https://cdn.discordapp.com/attachments/1486175479185539152/1486175484541796372/2026218233529.png?ex=69c7d807&is=69c68687&hm=9635a89959c664a174d6e75a1d7bc9932d9cebfcebffda96875b755b18282819&" width="320" alt="Echoes-of-Sin"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/clandestine.html" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1487085991041826961/1487085997245206568/202612784019.png?ex=69c7dc42&is=69c68ac2&hm=922d5d88d8514ed9703c4bcc2445821e712e9d5efecc69d615591b73ea30ee40&" width="320" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/velocity.html" title="Velocity"><img src="https://cdn.discordapp.com/attachments/1486479083121672284/1486479083876520178/Screenshot_655.png?ex=69c84a07&is=69c6f887&hm=3d0380e1d5291a1f961abcb26a23f6e04f662b7b89359eb2b243ff245fc110df&" width="320" alt="Velocity"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/adriftwanderes.html" title="AdriftWanderes"><img src="https://cdn.discordapp.com/attachments/1486718947335082155/1486721270480637962/202632272024.png?ex=69c7da14&is=69c68894&hm=ee06c66b13c2420d1404d205af2f2dde680df17586676a3ac7b6f1a87d8513a0&" width="320" alt="AdriftWanderes"></a>&nbsp;&nbsp;&nbsp;
+<a href="guilds/clandestine.html" title="Clandestine"><img src="https://cdn.discordapp.com/attachments/1487085991041826961/1487275497124794398/202632885818.png?ex=69c88cbe&is=69c73b3e&hm=3092194a3d0c742f313d355d563c77d985b15ab1857309ea4c813d6be8f14b3f&" width="320" alt="Clandestine"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/blackfurry.html" title="BlackFurry"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1486718056620363946/1774529418_x6dvWR2F.jpg?ex=69c87fd6&is=69c72e56&hm=a795d51e0a947f20bd9bde30cdd1078897a5782f5b27e22ad1d95982dc5d1e01&" width="320" alt="BlackFurry"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/mutiny.html" title="Mutiny"><img src="https://cdn.discordapp.com/attachments/1486392790836576456/1486392796461011114/202632452454.png?ex=69c8a26a&is=69c750ea&hm=dc763a93a9e81ec6095842f10460c84e0b32920110f7a0b2b1335953f6e3af00&" width="320" alt="Mutiny"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/dragons-heirs.html" title="Dragons-Heirs"><img src="https://cdn.discordapp.com/attachments/1487058305653411951/1487058318861008976/DH-Base_04.jpg?ex=69c86b3b&is=69c719bb&hm=d4c4d7cf4faeefddb695dc64d0d6f3f1dd1b8ba3f1ddcfd148fc435e2a3f47c7&" width="320" alt="Dragons-Heirs"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/pleasure-seekers-oce-sea.html" title="Pleasure Seekers (OCE/SEA)"><img src="https://cdn.discordapp.com/attachments/1487064831486853311/1487067636461211709/1774603105_3Ai9F629.png?ex=69c873e8&is=69c72268&hm=6f68ae5b54c2be5c84d17768eb75df0b08b5c6b04e38623988aa51f45a0e7b85&" width="320" alt="Pleasure Seekers (OCE/SEA)"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/会ashura.html" title="会Ashura"><img src="https://cdn.discordapp.com/attachments/1485331669136441477/1485331674891026533/202632284924.png?ex=69c8baab&is=69c7692b&hm=a8f1e790990d65817fbac207435e1de43a478ed16fa5bdd7ad7173511086d924&" width="320" alt="会Ashura"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/連燈.html" title="連燈"><img src="https://cdn.discordapp.com/attachments/1485063342551732525/1485063345017979032/20263226341.png?ex=69c86984&is=69c71804&hm=28589d3ef99b0f22aa2d511bb5c973834f64af93914bdd6d79365fe67bc2572f&" width="320" alt="連燈"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/echoes-of-sin.html" title="Echoes-of-Sin"><img src="https://cdn.discordapp.com/attachments/1486175479185539152/1486175481085689886/20262163646.png?ex=69c880c6&is=69c72f46&hm=f3309eeccc9902aa278250d2ccf6d492c7b3a1fe38c696b5593e3326c546ee9f&" width="320" alt="Echoes-of-Sin"></a>&nbsp;&nbsp;&nbsp;<a href="guilds/velocity.html" title="Velocity"><img src="https://cdn.discordapp.com/attachments/1486479083121672284/1486479083876520178/Screenshot_655.png?ex=69c84a07&is=69c6f887&hm=3d0380e1d5291a1f961abcb26a23f6e04f662b7b89359eb2b243ff245fc110df&" width="320" alt="Velocity"></a>&nbsp;&nbsp;&nbsp;
 
 <!-- TOP_SHOWCASE_END -->
 
@@ -21,52 +21,52 @@
 
 <!-- LAST_UPDATED_START -->
 
-🔄 **Last synchronized:**  March 28, 2026 at 00:27 UTC
+🔄 **Last synchronized:**  March 28, 2026 at 08:30 UTC
 <!-- LAST_UPDATED_END -->
 
 <!-- GENERATED_TABLE_START -->
 
 | Rank | Guild Name | Builders | Tags | Score |
 | --- | --- | --- | --- | --- |
-| 🥇 | [**BlackFurry**](guilds/blackfurry.html "ID: 10005556") | carnii | City, River, Nature, Mountain | [20](https://discord.gg/Qygt9u26Bn) |
-| 🥈 | [**Mutiny**](guilds/mutiny.html "ID: 10000929") | SugaredKoi | Arena, Mountain, River, Nature, City | [18](https://discord.gg/Qygt9u26Bn) |
-| 🥉 | [**Dragons-Heirs**](guilds/dragons-heirs.html "ID: 10111177") | Izanagi-cz | City, Zen, Fun | [15](https://discord.gg/Qygt9u26Bn) |
-| 4 | [**会Ashura**](guilds/会ashura.html "ID: 10011051") | Onikishi, PynMeo, Kkulgomi | Zen, Nature | [13](https://discord.gg/Qygt9u26Bn) |
-| 4 | [**連燈**](guilds/連燈.html "ID: 10031978") |  | Zen, Nature, Mountain | [13](https://discord.gg/Qygt9u26Bn) |
-| 6 | [**Echoes-of-Sin**](guilds/echoes-of-sin.html "ID: 10042805") | MoonlightYozora | Zen, Nature, Mountain | [12](https://discord.gg/Qygt9u26Bn) |
-| 6 | [**Clandestine**](guilds/clandestine.html "ID: 10209300") | HazelWind (Additional credit: Jiziuu - S... | Arena, Nature, Zen | [12](https://discord.gg/Qygt9u26Bn) |
-| 6 | [**Velocity**](guilds/velocity.html) | (PhetaOkiya and Harass) |  | [12](https://discord.gg/Qygt9u26Bn) |
-| 9 | [**AdriftWanderes**](guilds/adriftwanderes.html "ID: 10171733") | Alscend (with credits to LuckyBags and L... | Zen, Cave, Nature, Mountain | [11](https://discord.gg/Qygt9u26Bn) |
-| 9 | [**Pleasure Seekers (OCE/SEA)**](guilds/pleasure-seekers-oce-sea.html "ID: 10057013") | 영미  ( B/ _babe) |  | [11](https://discord.gg/Qygt9u26Bn) |
-| 11 | [**COBAKA**](guilds/cobaka.html "ID: 10209300") | KlavaCocka | River, Zen, Nature, Mountain | [8](https://discord.gg/Qygt9u26Bn) |
+| 🥇 | [**Clandestine**](guilds/clandestine.html "ID: 10209300") | HazelWind (Credits to Jiziuu - Summer Pa... | Arena, Nature, Zen | [21](https://discord.gg/Qygt9u26Bn) |
+| 🥈 | [**BlackFurry**](guilds/blackfurry.html "ID: 10005556") | carnii | City, River, Nature, Mountain | [20](https://discord.gg/Qygt9u26Bn) |
+| 🥉 | [**Mutiny**](guilds/mutiny.html "ID: 10000929") | SugaredKoi | Arena, Mountain, River, Nature, City | [18](https://discord.gg/Qygt9u26Bn) |
+| 4 | [**Dragons-Heirs**](guilds/dragons-heirs.html "ID: 10111177") | Izanagi-cz | City, Zen, Fun | [15](https://discord.gg/Qygt9u26Bn) |
+| 4 | [**Pleasure Seekers (OCE/SEA)**](guilds/pleasure-seekers-oce-sea.html "ID: 10057013") | 영미  ( B/ _babe) | Arena, Floating island, Nature, Zen | [15](https://discord.gg/Qygt9u26Bn) |
+| 6 | [**会Ashura**](guilds/会ashura.html "ID: 10011051") | Onikishi, PynMeo, Kkulgomi | Zen, Nature | [13](https://discord.gg/Qygt9u26Bn) |
+| 6 | [**連燈**](guilds/連燈.html "ID: 10031978") |  | Zen, Nature, Mountain | [13](https://discord.gg/Qygt9u26Bn) |
+| 8 | [**Echoes-of-Sin**](guilds/echoes-of-sin.html "ID: 10042805") | MoonlightYozora | Zen, Nature, Mountain | [12](https://discord.gg/Qygt9u26Bn) |
+| 8 | [**Velocity**](guilds/velocity.html) | (PhetaOkiya and Harass) |  | [12](https://discord.gg/Qygt9u26Bn) |
+| 10 | [**AdriftWanderes**](guilds/adriftwanderes.html "ID: 10171733") | Alscend (with credits to LuckyBags and L... | Zen, Cave, Nature, Mountain | [11](https://discord.gg/Qygt9u26Bn) |
+| 11 | [**Imperialis**](guilds/imperialis.html "ID: 10081906") | xyria | Zen, Nature, Mountain | [8](https://discord.gg/Qygt9u26Bn) |
 | 11 | [**VN-HoàngKim**](guilds/vn-hoàngkim.html) | zzBenT | Arena, Cave, Mountain | [8](https://discord.gg/Qygt9u26Bn) |
-| 13 | [**Party-Crashers**](guilds/party-crashers.html) | yar | Cave, Fun | [7](https://discord.gg/Qygt9u26Bn) |
-| 13 | [**Hellsing(SEA)**](guilds/hellsing-sea.html "ID: 10028994") | Eulreiss | Arena, Floating island, Nature | [7](https://discord.gg/Qygt9u26Bn) |
-| 13 | [**Zhou**](guilds/zhou.html) |  | Nature, Fun | [7](https://discord.gg/Qygt9u26Bn) |
-| 16 | [**Iridium**](guilds/iridium.html) | xJiune | Nature | [6](https://discord.gg/Qygt9u26Bn) |
-| 16 | [**Imperialis**](guilds/imperialis.html "ID: 10081906") | xyria | Zen, Nature, Mountain | [6](https://discord.gg/Qygt9u26Bn) |
-| 16 | [**Jenova**](guilds/jenova.html "ID: 10244476") | Dovahline, Ahlyam | Zen, Nature | [6](https://discord.gg/Qygt9u26Bn) |
-| 19 | [**MeInEtSesAmis**](guilds/meinetsesamis.html) | Selkyy | River, Zen, Nature | [5](https://discord.gg/Qygt9u26Bn) |
+| 11 | [**COBAKA**](guilds/cobaka.html "ID: 10209300") | KlavaCocka | River, Zen, Nature, Mountain | [8](https://discord.gg/Qygt9u26Bn) |
+| 14 | [**Hellsing(SEA)**](guilds/hellsing-sea.html "ID: 10028994") | Eulreiss | Arena, Floating island, Nature | [7](https://discord.gg/Qygt9u26Bn) |
+| 14 | [**Zhou**](guilds/zhou.html) |  | Nature, Fun | [7](https://discord.gg/Qygt9u26Bn) |
+| 14 | [**Party-Crashers**](guilds/party-crashers.html) | yar | Cave, Fun | [7](https://discord.gg/Qygt9u26Bn) |
+| 17 | [**Jenova**](guilds/jenova.html "ID: 10244476") | Dovahline, Ahlyam | Zen, Nature | [6](https://discord.gg/Qygt9u26Bn) |
+| 17 | [**Iridium**](guilds/iridium.html) | xJiune | Nature | [6](https://discord.gg/Qygt9u26Bn) |
 | 19 | [**Melancolypse**](guilds/melancolypse.html) | Aïk, KimmiSenpai | Fun | [5](https://discord.gg/Qygt9u26Bn) |
 | 19 | [**CobraKai**](guilds/cobrakai.html) | Dona | City, Nature | [5](https://discord.gg/Qygt9u26Bn) |
+| 19 | [**MeInEtSesAmis**](guilds/meinetsesamis.html) | Selkyy | River, Zen, Nature | [5](https://discord.gg/Qygt9u26Bn) |
+| 22 | [**DanmeiSect**](guilds/danmeisect.html "ID: 10001878") | HamHua, mattoddle, LíuQingge | Cave, Zen, Nature, Fun | [4](https://discord.gg/Qygt9u26Bn) |
+| 22 | [**The-Inner-Ways**](guilds/the-inner-ways.html "ID: 10183152") |  | Nature | [4](https://discord.gg/Qygt9u26Bn) |
 | 22 | [**MoonlitPath**](guilds/moonlitpath.html "ID: 10256194") | Meffphy/cresa | Cave, Nature, Mountain | [4](https://discord.gg/Qygt9u26Bn) |
 | 22 | [**AfterFlame**](guilds/afterflame.html) | FoxiKate | Zen, Nature | [4](https://discord.gg/Qygt9u26Bn) |
-| 22 | [**The-Inner-Ways**](guilds/the-inner-ways.html "ID: 10183152") |  | Nature | [4](https://discord.gg/Qygt9u26Bn) |
-| 22 | [**DanmeiSect**](guilds/danmeisect.html "ID: 10001878") | HamHua, mattoddle, LíuQingge | Cave, Zen, Nature, Fun | [4](https://discord.gg/Qygt9u26Bn) |
 | 26 | [**Jasmin'Tea**](guilds/jasmin-tea.html "ID: 10082099") | Sidereus |  | [2](https://discord.gg/Qygt9u26Bn) |
 | 26 | [**ASWANG**](guilds/aswang.html) | Kadlum | Fun | [2](https://discord.gg/Qygt9u26Bn) |
 | 26 | [**Ħao**](guilds/ħao.html) | Rastawar |  | [2](https://discord.gg/Qygt9u26Bn) |
 | 26 | [**KALYANMITR**](guilds/kalyanmitr.html) |  | Fun | [2](https://discord.gg/Qygt9u26Bn) |
-| 26 | [**Comfy**](guilds/comfy.html) | MikeRize, Plumi |  | [2](https://discord.gg/Qygt9u26Bn) |
 | 26 | [**Visual**](guilds/visual.html) | Navil | Nature, Military | [2](https://discord.gg/Qygt9u26Bn) |
-| 32 | [**Jardin-Lunaire**](guilds/jardin-lunaire.html) | Hüman, Orhann, Simiaomao |  | 1 |
-| 32 | [**Sanctuarys**](guilds/sanctuarys.html) | Nurami, Ichigor |  | 1 |
+| 26 | [**Comfy**](guilds/comfy.html) | MikeRize, Plumi |  | [2](https://discord.gg/Qygt9u26Bn) |
 | 32 | [**BrigadePhantom**](guilds/brigadephantom.html) | Ssyrena, Dovahline |  | 1 |
-| 32 | [**Star·Bound**](guilds/star-bound.html "ID: 10076053") |  |  | 1 |
 | 32 | [**EMH-Shogunate**](guilds/emh-shogunate.html) | ToxotesToons |  | 1 |
-| 32 | [**Toronto**](guilds/toronto.html) | FoxiKate | Fun | 1 |
+| 32 | [**Star·Bound**](guilds/star-bound.html "ID: 10076053") |  |  | 1 |
+| 32 | [**Jardin-Lunaire**](guilds/jardin-lunaire.html) | Hüman, Orhann, Simiaomao |  | 1 |
 | 32 | [**NhatNguyet**](guilds/nhatnguyet.html) | LôiThiênHàa |  | 1 |
+| 32 | [**Toronto**](guilds/toronto.html) | FoxiKate | Fun | 1 |
 | 32 | [**Liberty-City**](guilds/liberty-city.html) | Ju-Kyung, Seong-Je |  | [1](https://discord.gg/Qygt9u26Bn) |
+| 32 | [**Sanctuarys**](guilds/sanctuarys.html) | Nurami, Ichigor |  | 1 |
 | 40 | [**La Guilde**](guilds/la-guilde.html) | Keanu-Kai |  | 0 |
 | 40 | [**湮琴閣**](guilds/湮琴閣.html) | 雲酹 |  | 0 |
 | 40 | [**ZOOTOPIA**](guilds/zootopia.html) |  |  | 0 |
