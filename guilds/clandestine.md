@@ -2,9 +2,9 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10209300</td></tr>
-  <tr><td>🔨 <b>Builders</b></td><td>HazelWind (Additional credit: Jiziuu - Summer Palace main residence)</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>HazelWind (Credits to Jiziuu - Summer Palace main residence)</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Nature, Zen</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>12</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>21</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487085991041826961">View thread</a></td></tr>
 </table>
 
@@ -39,15 +39,19 @@ Feel free to come and visit us, we have:
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085993205956810/Clandestine_Base_Showcase_4.4_MB.png?ex=69c7dc41&is=69c68ac1&hm=4c13e0658ba2b9cb204bd6278983030a80267daa63cb0b9c9e441ee20a6c052f&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487275495442874589/Summer_Palace.png?ex=69c88cbe&is=69c73b3e&hm=0082e1c9da73b53563a56ff55a1559ec2d2c0a846f690691e76226dc322aa1fc&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085995500376104/2026220203313.png?ex=69c7dc42&is=69c68ac2&hm=34fb46a9a142ce8829c72a0ce2a8eb9f1e97917b3c73266cb9f2b290d24a8182&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487275497124794398/202632885818.png?ex=69c88cbe&is=69c73b3e&hm=3092194a3d0c742f313d355d563c77d985b15ab1857309ea4c813d6be8f14b3f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085996209078272/2026292354.png?ex=69c7dc42&is=69c68ac2&hm=ecdc7817171608081ce3873d474c405ebc84fde1e52e1446d5b863da1ffcb4e2&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085993205956810/Clandestine_Base_Showcase_4.4_MB.png?ex=69c88501&is=69c73381&hm=26699c54137d16270d9fa419113d3a49efe0a5b8d2f092a4f8895503d85b5053&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085997245206568/202612784019.png?ex=69c7dc42&is=69c68ac2&hm=922d5d88d8514ed9703c4bcc2445821e712e9d5efecc69d615591b73ea30ee40&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085995500376104/2026220203313.png?ex=69c88502&is=69c73382&hm=b4f3d1edf8aa7dd76581b8dd391a0ecf038f7a5fc759eef64b6d64ccdc19fcc6&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085998922924032/2026311181854.png?ex=69c7dc42&is=69c68ac2&hm=1829966acdd4ae528cad2e008e70adc33550e247047b59b9a9d352114731ce1a&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085996209078272/2026292354.png?ex=69c88502&is=69c73382&hm=47149e2a7c2999473cbeec22d3a55a7340a5221cd58c140b5ae3614cc8f95bd6&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085999686422578/2026327111211.png?ex=69c7dc43&is=69c68ac3&hm=812e79eae8c9eca7472a5183429a5f60c7216571a9949ad45f0bf1a73a5fb8ae&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085997245206568/202612784019.png?ex=69c88502&is=69c73382&hm=3ebe4133d90eeffb5d9d6c83717bbce188b0eb4e6ba00ba2dc6e401c17d04196&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085998922924032/2026311181854.png?ex=69c88502&is=69c73382&hm=5845eae11cf2470271ec3b00ce58e2a6a2e5e1d1f8da7808b94588bde71f372e&)
+
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085999686422578/2026327111211.png?ex=69c88503&is=69c73383&hm=3631c8dfcb77ebb499dd51a2238774626c6642b3cda136105355009c1c42db82&)
 

@@ -4,7 +4,8 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10057013</td></tr>
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 PleasureSeeker</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>영미  ( B/ _babe)</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>11</td></tr>
+  <tr><td>🏷️ <b>Tags</b></td><td>Arena, Floating island, Nature, Zen</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>15</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487064831486853311">View thread</a></td></tr>
 </table>
 
@@ -28,9 +29,9 @@ No specific lore, was just trying to make the base aesthetically appealing to th
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487068337904025714/image.png?ex=69c7cbd0&is=69c67a50&hm=4a2a90fd9db2965c99fcf47ae13226a1d1ed6dc374d686637abb5b7afedf389e&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487068337904025714/image.png?ex=69c87490&is=69c72310&hm=506284c3c10702b52948bda3f8ffd22b628cbd786cd2a42e5c8ccd3609e42c6f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487067636461211709/1774603105_3Ai9F629.png?ex=69c7cb28&is=69c679a8&hm=845352e2de4df40418ee52e9ff9c6735a4cffd32b99ee9ee5f73ee24595ed113&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487067636461211709/1774603105_3Ai9F629.png?ex=69c873e8&is=69c72268&hm=6f68ae5b54c2be5c84d17768eb75df0b08b5c6b04e38623988aa51f45a0e7b85&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064834267676783/2026327182255.png?ex=69c8714c&is=69c71fcc&hm=84f5940e20fa9e0957b4b732aa5636ffca48ec6911e5e2b204a809e345fb4fad&)
 
