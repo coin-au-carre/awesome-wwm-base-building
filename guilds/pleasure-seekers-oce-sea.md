@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10057013</td></tr>
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 PleasureSeeker</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>영미  ( B/ _babe)</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>10</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>11</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487064831486853311">View thread</a></td></tr>
 </table>
 
@@ -32,19 +32,19 @@ No specific lore, was just trying to make the base aesthetically appealing to th
 
 ![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487067636461211709/1774603105_3Ai9F629.png?ex=69c7cb28&is=69c679a8&hm=845352e2de4df40418ee52e9ff9c6735a4cffd32b99ee9ee5f73ee24595ed113&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064834267676783/2026327182255.png?ex=69c7c88c&is=69c6770c&hm=be9a57a5889504b68c88fd514a45c9ff68a0174461690a21c764eef060de7184&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064834267676783/2026327182255.png?ex=69c8714c&is=69c71fcc&hm=84f5940e20fa9e0957b4b732aa5636ffca48ec6911e5e2b204a809e345fb4fad&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064834842562644/2026327181420.png?ex=69c7c88c&is=69c6770c&hm=208cf0b17c4743b051adb2b36b53650ba0968f92ea195834bae0932a4d170bff&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064834842562644/2026327181420.png?ex=69c8714c&is=69c71fcc&hm=7078561f5623c7c6bb9cbb760efc1dcc07dd5d1649726671e520b1dd87cadec1&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064835333292213/2026327181055.png?ex=69c7c88d&is=69c6770d&hm=2754a6d79a5b282d543d330c1dbc024391ce04768d8ed5160f8cc27092f89d50&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064835333292213/2026327181055.png?ex=69c8714d&is=69c71fcd&hm=9e9312ae4e761a261678b036d4b0488e7be74468776ddfb42a0fc4f86b0b5ffb&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064835811315762/202632718538.png?ex=69c7c88d&is=69c6770d&hm=1884ccd05413622b4544cc3a89c569992a5a94ef9989db0be96c4617c733e3bb&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064835811315762/202632718538.png?ex=69c8714d&is=69c71fcd&hm=85b8f202db136d6db2a0323f243b07fa25eed8e86531a42567b5fcb6b00e99ef&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064836230877265/202632718145.png?ex=69c7c88d&is=69c6770d&hm=c022b75dab7ee7214d4bf0f55220c5ee4410e8edfac7a80f367fbb4dff0abbf8&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064836230877265/202632718145.png?ex=69c8714d&is=69c71fcd&hm=e159f923b88246ec1ec1d0cf0a7319daf84421f29b3b15007ad7a8eb7ea1652d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064836767481987/2026327175939.png?ex=69c7c88d&is=69c6770d&hm=a5a27dbb6320e793dd59dddd2b2d8331c2ec873e8ddaf4169f0fc0015617369a&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064836767481987/2026327175939.png?ex=69c8714d&is=69c71fcd&hm=d85dc89f9f1b6110045f4921a9bcf4210838e0cacbbc1f4d85f9f0f17d1a81cb&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064837216403506/202632717564.png?ex=69c7c88d&is=69c6770d&hm=ea5449f792184f3f56d31db7283da13452bfc096f09af1c866cdf60d87e62220&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064837216403506/202632717564.png?ex=69c8714d&is=69c71fcd&hm=209cb70e0d97bc27b3d75fdd3c75dd77facfc92cba21bb1fa28de1d6b53979c6&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064837719855124/2026327175139.png?ex=69c7c88d&is=69c6770d&hm=4416c1c6a5bdc1cd3298383b8175a8d4a32961f53d6de941641356189c6c56f6&)
+![screenshot](https://cdn.discordapp.com/attachments/1487064831486853311/1487064837719855124/2026327175139.png?ex=69c8714d&is=69c71fcd&hm=12b8afb1d3da15c371c150764aefbab03631ee27084974f4544491aa4f726635&)
 
