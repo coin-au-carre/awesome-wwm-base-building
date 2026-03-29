@@ -18,17 +18,17 @@ We have a dragon, 4 castle style builds including our spectator stand, guild spa
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479083876520178/Screenshot_655.png?ex=69c8f2c7&is=69c7a147&hm=91eec744ae92802ec20590ad974bc98d70bc62cad19dd5b336a3c1b2f2d01ec3&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479083876520178/Screenshot_655.png?ex=69c99b87&is=69c84a07&hm=29496bcf07b3cf9c9c11d357469abfb8f22b6e6f0be31b01ccee4b287b64fe5b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479085113839757/Screenshot_658.png?ex=69c8f2c7&is=69c7a147&hm=61797f722d9f8d2d551d264903ebfa7b50ed7327fc0b29e7a357afc49fe2ebd8&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479085113839757/Screenshot_658.png?ex=69c99b87&is=69c84a07&hm=51e66c41f6aaae949865b38edee92116571d6735fbdae4ab05e0ffd2bac77f61&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479085914816563/Screenshot_659.png?ex=69c8f2c7&is=69c7a147&hm=47e547c1003a462f2a39162ee27a40c33f0943ad26ca5284a64dff4d8c127819&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479085914816563/Screenshot_659.png?ex=69c99b87&is=69c84a07&hm=fe09e62d37f2531b98ab4f29adcba6b8d6d8cfee791f82697788aef3297de0d5&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479086934163657/Screenshot_664.png?ex=69c8f2c7&is=69c7a147&hm=f314ac324fc0480f04b18786aa521c093de3afe98b260250d3bb473460ab1c7f&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479086934163657/Screenshot_664.png?ex=69c99b87&is=69c84a07&hm=283587f6becbe4eb1486226ffea25bef06f70684d440942a776b78e990fb9be5&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479088788050023/Screenshot_665.png?ex=69c8f2c8&is=69c7a148&hm=0891653da8c640f9c2fcb5d122ce5179c99697ef99de54ceb66db8e7b58cee23&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479088788050023/Screenshot_665.png?ex=69c99b88&is=69c84a08&hm=c5bb6c2cadf7cc47074287d7c51e314e2f01bd0672d1d164198d573a2670cdd6&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479089295691929/Screenshot_668.png?ex=69c8f2c8&is=69c7a148&hm=cb1d6b807bac8dfc41e6d6986eda94aa1968d48d8d3951568cbd52919024bfec&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479089295691929/Screenshot_668.png?ex=69c99b88&is=69c84a08&hm=53ae4d0902e2f91a153b2760f808653001f79ba5ac4356d1e9858a601dc19c7e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479089878696129/Screenshot_671.png?ex=69c8f2c8&is=69c7a148&hm=0020d187fe82f079e9a5ab53f3e9db5fd84376595a39fb7a45721bdf1305dc63&)
+![screenshot](https://cdn.discordapp.com/attachments/1486479083121672284/1486479089878696129/Screenshot_671.png?ex=69c99b88&is=69c84a08&hm=b39eae096881a7d5a1086dcaa02b4bc29cc8b807a53547a88cee2078e3004ee6&)
 
