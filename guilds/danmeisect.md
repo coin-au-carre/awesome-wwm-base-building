@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10001878</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>HamHua, mattoddle, LíuQingge</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Cave, Zen, Nature, Fun</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487186326263435304">View thread</a></td></tr>
 </table>
 
@@ -39,21 +39,21 @@ Thank you for taking the time to read this, and we hope you come by and try to f
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186330298618058/1774642750_zpM6dJ1F.jpg?ex=69cb8573&is=69ca33f3&hm=47a6c52070195bfd401fe4e743901591a29e5203e560a1717addc15dd2e1d437&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186330298618058/1774642750_zpM6dJ1F.jpg?ex=69cc2e33&is=69cadcb3&hm=e5165bbc074d1b51568ffda000fcd56f8361d860636131ae053ca741125584df&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186331577614456/1774642789_5WfVchCi.jpg?ex=69cb8574&is=69ca33f4&hm=b643dd23214f7ad865b499dacc8e16cc775759c201f7768cd27aa64c5f6e48f7&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186331577614456/1774642789_5WfVchCi.jpg?ex=69cc2e34&is=69cadcb4&hm=a8cbf2f7aecc31523de7e815cbfbb2a7fb86432ce70a1af8a6694b83eb87ab31&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332148043996/1774642818_gG61KWEn.jpg?ex=69cb8574&is=69ca33f4&hm=7477a468e17efd60e0b98250dfa00ab19ea01f9cd689bbe2d7cd83743a4b6ada&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332148043996/1774642818_gG61KWEn.jpg?ex=69cc2e34&is=69cadcb4&hm=ac5844dd4d2bbd32e53c8262d15285266770b53dc42bfd5775d499234e0507dc&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332668395550/1774642855_F55ElQti.jpg?ex=69cb8574&is=69ca33f4&hm=fb6ad71baed9324667ee5362e6a625b05b14fafa60e4e25965bcd14e04887520&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332668395550/1774642855_F55ElQti.jpg?ex=69cc2e34&is=69cadcb4&hm=d7de58cd2f571a36fa7663955652a9bb143fb60158f8b0fefb3f0d5307071b12&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333196615711/1774642876_ERfZqnXs.jpg?ex=69cb8574&is=69ca33f4&hm=995e284f5d5aaf88978904434ea2a75f9ebb83efd1a89e26e1c82eb9e5087692&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333196615711/1774642876_ERfZqnXs.jpg?ex=69cc2e34&is=69cadcb4&hm=01b8c6c7a90541dd7ac27ada48845b8fa38d96695b9f813043c2bd9ac622b294&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333683286117/1774642915_bsJXuqrB.jpg?ex=69cb8574&is=69ca33f4&hm=d454e54d839d1be7167e4a89815e4b4d6efc73f3dfee2c4ece4745c01c2625ba&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333683286117/1774642915_bsJXuqrB.jpg?ex=69cc2e34&is=69cadcb4&hm=90c92da62a016a526b19725a1f43f155740972b7abed6f881cbc7c4bb116b573&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334203510844/1774642946_oYzxj0cY.jpg?ex=69cb8574&is=69ca33f4&hm=cb270dc4670f416b959d1595ca502a323555d0bdccda4acd994e9629b6c639f1&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334203510844/1774642946_oYzxj0cY.jpg?ex=69cc2e34&is=69cadcb4&hm=003b19d7c6a44876a8f65361ab43a37c41cfa79da4df28214f933722a41e5583&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334685593680/1774643026_Kd0v7kuR.jpg?ex=69cb8574&is=69ca33f4&hm=4e983bb79b8fe3cee8520eba46603e4f37ccdba399778f3514ec1c033d55de4f&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334685593680/1774643026_Kd0v7kuR.jpg?ex=69cc2e34&is=69cadcb4&hm=58ea6f933b02857ac2fb2d0e14fdd8a1683a2bfa3a7b907cd8be6146417e2f8e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186335210012692/1774643088_IrGYYaSl.jpg?ex=69cb8574&is=69ca33f4&hm=188c6e0d03da880487170e03f1e199da01646d91c4859a03523b87f9a0f2d5f6&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186335210012692/1774643088_IrGYYaSl.jpg?ex=69cc2e34&is=69cadcb4&hm=eec1767c0e86c6283fd6aab4bdba7ce1f863430be0ee3282330bb0a655f1ab2f&)
 

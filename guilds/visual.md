@@ -3,7 +3,7 @@
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>Navil</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Nature, Military</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484261413210816602">View thread</a></td></tr>
 </table>
 
@@ -11,11 +11,11 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261414620365020/20263202445.png?ex=69cb6d69&is=69ca1be9&hm=cd7afb6befba9f67088532f9b9fb7a19bb4e35a525e24c73a9c15e493b259f50&)
+![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261414620365020/20263202445.png?ex=69cc1629&is=69cac4a9&hm=2a89fb9aa6d966e8e133493ec6b12ac14b7b8a20acca1bf417ad17047c22fc60&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261415274545253/202632024352.png?ex=69cb6d69&is=69ca1be9&hm=1f59d6cec78d64d203f2cd5d71ba8e0df8002cded44bf604456612dfd8ca76ba&)
+![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261415274545253/202632024352.png?ex=69cc1629&is=69cac4a9&hm=a4b09f0c444f359a9705c78e0126129c2108801ded53e8ae62189797dd2af05b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261416146829432/202632024251.png?ex=69cb6d69&is=69ca1be9&hm=b4f4b5404b475f65a596af8b17133b0d980e0fce8d172a2b33468270e5828ce6&)
+![screenshot](https://cdn.discordapp.com/attachments/1484261413210816602/1484261416146829432/202632024251.png?ex=69cc1629&is=69cac4a9&hm=caca17e6b986fd9cb52413205b18b29600902fb3c5ab225f0d86d66cfb6cadbe&)
 
 
 ---
