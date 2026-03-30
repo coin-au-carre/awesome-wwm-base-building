@@ -3,7 +3,7 @@
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>Kadlum</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Fun</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484176367989031002">View thread</a></td></tr>
 </table>
 
@@ -11,9 +11,9 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69cb1e34&is=69c9ccb4&hm=5ab9913c87b94d624101a06aeaa2e4e3717e26435c2eed895d46d9c255dab09e&)
+![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69cbc6f4&is=69ca7574&hm=ccd2b2d795a353146bca9bfafe33cd0f7562193d5c5de20c83526533391b145e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176369398321303/202631921521.png?ex=69cb1e35&is=69c9ccb5&hm=eb77ec6fb625ff980a106ef7070c133fb3e89d723f13f574852dfc5eba3a3f0e&)
+![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176369398321303/202631921521.png?ex=69cbc6f5&is=69ca7575&hm=814ca81034f9044816dd8b61e1aa8b4e5e4bb6d11cd6b9a83208f3a4928e10b7&)
 
 
 ---

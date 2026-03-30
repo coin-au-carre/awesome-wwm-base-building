@@ -3,7 +3,7 @@
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>Selkyy</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>River, Zen, Nature</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>6</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484262546352635955">View thread</a></td></tr>
 </table>
 
@@ -11,13 +11,13 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262547354816694/202632024759.png?ex=69cb6e77&is=69ca1cf7&hm=89840a8177181e4e6e9af7345c935dc335fa9f5b8f06f0107d56cd31f685f809&)
+![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262547354816694/202632024759.png?ex=69cc1737&is=69cac5b7&hm=ce180edaff02442ee23013744e8c6317b58d8c9c04e9d1162f0b9bf9559d797f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262548214911076/202632024742.png?ex=69cb6e77&is=69ca1cf7&hm=df639ea99b127e8225b2156a186f6a60df68e00c52c2a1622a1df18b7ecd6574&)
+![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262548214911076/202632024742.png?ex=69cc1737&is=69cac5b7&hm=621f9c9c50c02e1ce0a2330dee6223cd64168011150652d7864734cb115c8ecb&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262548848246986/202632024729.png?ex=69cb6e77&is=69ca1cf7&hm=ff03ff6d86fb872ce7f681503b5a5d6fdcc7cd735577d1ddef7d8eb577976f7b&)
+![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262548848246986/202632024729.png?ex=69cc1737&is=69cac5b7&hm=0a231bf9ab51447a479b24d8e08f7770a68543d2701677061bb8347b494608ff&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262549548699748/202632024716.png?ex=69cb6e78&is=69ca1cf8&hm=5df3e13d0e4030eee2df077d004135461124b6dcc464b5f1bcc2e9abed646f4c&)
+![screenshot](https://cdn.discordapp.com/attachments/1484262546352635955/1484262549548699748/202632024716.png?ex=69cc1738&is=69cac5b8&hm=b397b6f78ab457c3b4f6b302d808c26b9beea1bdd5a459371f9ae84ac7c18a93&)
 
 
 ---

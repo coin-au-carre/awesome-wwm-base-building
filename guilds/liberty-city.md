@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>Ju-Kyung, Seong-Je</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>1</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484175329537953973">View thread</a></td></tr>
 </table>
 
@@ -10,7 +10,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69cb1d3d&is=69c9cbbd&hm=a1309c06a25153faa7588ad1bfc5e241bc9502ed7005c9e400e299a57bc799b4&)
+![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69cbc5fd&is=69ca747d&hm=5c82e9a342ac24c44f6e40554c1e8355e654a44894fbd814ea012e938031f74b&)
 
 
 ---

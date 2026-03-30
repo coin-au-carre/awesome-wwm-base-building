@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>Rastawar</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484181836694556772">View thread</a></td></tr>
 </table>
 
@@ -10,11 +10,11 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69cb234c&is=69c9d1cc&hm=f3978a676367a957236e4a751adb30e05e079fb248bdab0f955a4ce18dc31ebd&)
+![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69cbcc0c&is=69ca7a8c&hm=b8056c9dc077037bc9c0661268ffbd8c5fa3ec393731d38247bbea293497a485&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69cb234d&is=69c9d1cd&hm=76d799e89682ee5914a03f6cf6a505a90768e6bb15a7e8a90908ff217805098c&)
+![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69cbcc0d&is=69ca7a8d&hm=23c50792c822e8a7952c2477af0690bceb55d38dc4b2efff885e619036719c0f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69cb234d&is=69c9d1cd&hm=56232b1a96579a61b3e5ccbbcd1f1b2643c4ab81136fb38cc2cf6b55f0334b29&)
+![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69cbcc0d&is=69ca7a8d&hm=4e1fc4aa4c2d4ae9f868c7d9f039d82e8e4fc2a8832c55f4e1ca10dde84df8b8&)
 
 
 ---

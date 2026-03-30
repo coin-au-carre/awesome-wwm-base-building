@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>MikeRize, Plumi</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>2</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484178485407911966">View thread</a></td></tr>
 </table>
 
@@ -10,13 +10,13 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69cb202d&is=69c9cead&hm=c513be2c5079954e78d8d45b5479ec53afcc6e89c16f7884888d61dd146b636e&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69cbc8ed&is=69ca776d&hm=b5f6f89bc1c87ec607e82926feff524eb5686f4592f4ec90d2bf52e889823a20&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69cb202e&is=69c9ceae&hm=dc5dae95eb8b3dfbe994b609e53d24db9f2735792204e4a5e613299510ad228c&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69cbc8ee&is=69ca776e&hm=e6d2f9e6842081a72593eacdedc92b00150627b46222a6d911bc72c34ca73739&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69cb202e&is=69c9ceae&hm=cb9de649c52d1d71f0deb2035a1f9c424416c7e10161b403a6165898a4778d82&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69cbc8ee&is=69ca776e&hm=2de3630a717289ee9f157e55b892cbe6a7c7dd5dd12d2c5c993e3e043c542669&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69cb202e&is=69c9ceae&hm=b0a774b235e1ab8d75ce7daaa2ce6eec7c0486a11014af8d981c82217fda2bc6&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69cbc8ee&is=69ca776e&hm=da5ae6d78749e10c14446cde000c605baea003f6d27f4c2d9fbd737fe7b08cbc&)
 
 
 ---

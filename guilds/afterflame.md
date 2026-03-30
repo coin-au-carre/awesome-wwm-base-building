@@ -3,7 +3,7 @@
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>FoxiKate</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>4</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484168217453662248">View thread</a></td></tr>
 </table>
 
@@ -11,15 +11,15 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69cb169d&is=69c9c51d&hm=7cf3d190fd61014207e932030925a3fde58a52024f048a108a3e7cd057a1f57f&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69cbbf5d&is=69ca6ddd&hm=dd2ce08b3f854a00d22bdbf0487700f82bd59fdd9f28b90769075764e8caae3e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168219777302580/20263134920.png?ex=69cb169e&is=69c9c51e&hm=cff5ea172b526be6e4e08523bed04345e3092fc01cc4a19e865d013926558c7b&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168219777302580/20263134920.png?ex=69cbbf5e&is=69ca6dde&hm=815e2c400d6a1bb38db0067a3be5fa022d996e696ee9adf7a50c21325fe98f43&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168220612231260/2026313588.png?ex=69cb169e&is=69c9c51e&hm=645982ae1eb52f46db145322497ddbed9738249886683b182ce7ff7f9b68d681&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168220612231260/2026313588.png?ex=69cbbf5e&is=69ca6dde&hm=4559a275c0b63ac0c02f101d6c7b896b8462e0bcdd6145c3b0fa44184b5d4c7c&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168221396434964/20263135534.png?ex=69cb169e&is=69c9c51e&hm=2e8cfc016b52fe635a78c494351eef37d4862ffb684df524eb1bfa65c36d5a56&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168221396434964/20263135534.png?ex=69cbbf5e&is=69ca6dde&hm=3832abd903364022caa744103b33a09b9b2e18556ad1fa56bbd31fd035145475&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168222067527790/20263135431.png?ex=69cb169e&is=69c9c51e&hm=972e4161ba6f715c895d84a8c0d5984f24b54f038460fb333f52d47e61988dfe&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168222067527790/20263135431.png?ex=69cbbf5e&is=69ca6dde&hm=3bc828e3b5e887a51b684dc28a823301318bce8f3854e27db9eb0fe81c1f2b5b&)
 
 
 ---
