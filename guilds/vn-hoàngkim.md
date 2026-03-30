@@ -15,9 +15,9 @@ Ying Yang arena, prison, mountain
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645668926853120/202632645236.png?ex=69ca36ac&is=69c8e52c&hm=e4f17a651c9fa68d29d857909c0a8186fd72ca2b6482ae9a2dfd61f3033cc5d4&)
+![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645668926853120/202632645236.png?ex=69cb882c&is=69ca36ac&hm=7c8bbfd7ba75855347af4831872c30bf45ba4473476a8c7418d85f21486824f2&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69ca36ac&is=69c8e52c&hm=e007434e1951492383bf73f5b3fe1924ec513ac7dcc87d8bf3beacea3131db64&)
+![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69cb882c&is=69ca36ac&hm=2176ad4f5f574fdeaff9915cd967e2785cd89cc50617d420c47baa204eb1c64a&)
 
 
 ---
