@@ -11,9 +11,9 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69cbc6f4&is=69ca7574&hm=ccd2b2d795a353146bca9bfafe33cd0f7562193d5c5de20c83526533391b145e&)
+![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69cc6fb4&is=69cb1e34&hm=56251c392a0c95b028f386e9e754e5d1d147ed568bc987c823612e96c8d11f5e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176369398321303/202631921521.png?ex=69cbc6f5&is=69ca7575&hm=814ca81034f9044816dd8b61e1aa8b4e5e4bb6d11cd6b9a83208f3a4928e10b7&)
+![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176369398321303/202631921521.png?ex=69cc6fb5&is=69cb1e35&hm=91a667588787eed9dca7caf2b4c30bc8e97452c9a096f11858dd75f584fb0d18&)
 
 
 ---
@@ -34,10 +34,10 @@
 :construction_worker: Builders: Kadlum
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

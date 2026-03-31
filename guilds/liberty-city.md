@@ -10,7 +10,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69cbc5fd&is=69ca747d&hm=5c82e9a342ac24c44f6e40554c1e8355e654a44894fbd814ea012e938031f74b&)
+![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69cc6ebd&is=69cb1d3d&hm=ba3ad8eb9dc6510b32fe84b9ee47c3b4718be6b612e792435aa81804e2307769&)
 
 
 ---
@@ -31,10 +31,10 @@
 :construction_worker: Builders: Ju-Kyung, Seong-Je
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

@@ -10,11 +10,11 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69cbcc0c&is=69ca7a8c&hm=b8056c9dc077037bc9c0661268ffbd8c5fa3ec393731d38247bbea293497a485&)
+![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181837583482912/2026319212553.png?ex=69cc74cc&is=69cb234c&hm=e5f709044ef5de6a62c87ff26867785cbe3b8b0d6af18405da405af814fd13ca&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69cbcc0d&is=69ca7a8d&hm=23c50792c822e8a7952c2477af0690bceb55d38dc4b2efff885e619036719c0f&)
+![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838288261241/2026319212752.png?ex=69cc74cd&is=69cb234d&hm=1f3cdc01ad097f10f00d9e18305fef4aa87b2629b5434928d27db4d7f6b2b667&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69cbcc0d&is=69ca7a8d&hm=4e1fc4aa4c2d4ae9f868c7d9f039d82e8e4fc2a8832c55f4e1ca10dde84df8b8&)
+![screenshot](https://cdn.discordapp.com/attachments/1484181836694556772/1484181838959476826/202631921269.png?ex=69cc74cd&is=69cb234d&hm=008d5186553092897dffcc4f2426c306db6822d9292e30bd3c37f63ba6d3029e&)
 
 
 ---
@@ -35,10 +35,10 @@
 :construction_worker: Builders: Rastawar
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

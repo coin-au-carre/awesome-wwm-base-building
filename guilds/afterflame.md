@@ -11,15 +11,15 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69cbbf5d&is=69ca6ddd&hm=dd2ce08b3f854a00d22bdbf0487700f82bd59fdd9f28b90769075764e8caae3e&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168218867273739/20263135228.png?ex=69cc681d&is=69cb169d&hm=5851d967de44714935f3c32e778a6672d7a182118e39214caabf10311e4dc1e5&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168219777302580/20263134920.png?ex=69cbbf5e&is=69ca6dde&hm=815e2c400d6a1bb38db0067a3be5fa022d996e696ee9adf7a50c21325fe98f43&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168219777302580/20263134920.png?ex=69cc681e&is=69cb169e&hm=20fd7f54e202b6cc5afc041daca7956f12e682b34e1906196cf1d4ecece2a1c0&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168220612231260/2026313588.png?ex=69cbbf5e&is=69ca6dde&hm=4559a275c0b63ac0c02f101d6c7b896b8462e0bcdd6145c3b0fa44184b5d4c7c&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168220612231260/2026313588.png?ex=69cc681e&is=69cb169e&hm=4d7b1c5b9cdca219cb2ec1453a67745ac146589623a1d36d0a087851ba6f0872&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168221396434964/20263135534.png?ex=69cbbf5e&is=69ca6dde&hm=3832abd903364022caa744103b33a09b9b2e18556ad1fa56bbd31fd035145475&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168221396434964/20263135534.png?ex=69cc681e&is=69cb169e&hm=c82db2f2cf9b254c86b361a24ae1b2ac6ba38b4e69643383a310f54933397dca&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168222067527790/20263135431.png?ex=69cbbf5e&is=69ca6dde&hm=3bc828e3b5e887a51b684dc28a823301318bce8f3854e27db9eb0fe81c1f2b5b&)
+![screenshot](https://cdn.discordapp.com/attachments/1484168217453662248/1484168222067527790/20263135431.png?ex=69cc681e&is=69cb169e&hm=223e7855798f69d3e8b9759f8bd72fd257bbb8f9e8176d864e1c4f0b212a3e13&)
 
 
 ---
@@ -40,10 +40,10 @@
 :construction_worker: Builders: FoxiKate
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

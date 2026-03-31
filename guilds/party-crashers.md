@@ -15,11 +15,11 @@ The labyrinth...
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444313247836/2026325103113.png?ex=69cbdb64&is=69ca89e4&hm=13bb7c781c6f2fcce614c63d29e14fd1cc0261a0f8e4d76483f841237e3b3732&)
+![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444313247836/2026325103113.png?ex=69cc8424&is=69cb32a4&hm=522739388749b5045f3955d6b485f32bcb0342e8dd666058075f933aa6522716&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444866765013/2026325102531.png?ex=69cbdb64&is=69ca89e4&hm=8325b988f99027610fc53ef720b59444d3fdc30f30b742c1e0a2d2f7baacb381&)
+![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191444866765013/2026325102531.png?ex=69cc8424&is=69cb32a4&hm=3a871c9a80911547b3bd978e06fff2dadd5c7bd977961785534829bc95e5a88d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191445386854422/202632510251.png?ex=69cbdb64&is=69ca89e4&hm=1b0227467816922132ff9f257f99cca90ed939f371758fd248e3283f17a85134&)
+![screenshot](https://cdn.discordapp.com/attachments/1486191443558006804/1486191445386854422/202632510251.png?ex=69cc8424&is=69cb32a4&hm=9b4cc11c5186e665064d7b8f55fbb2aeb0d018994722f687d9734f0e87f7fe19&)
 
 
 ---
@@ -40,10 +40,10 @@ The labyrinth...
 :construction_worker: Builders: yar
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

@@ -11,7 +11,7 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69cc1376&is=69cac1f6&hm=c292f7007706be6083d1c9b20fb095e6e61b3bcd2784066aed662424a555ee1a&)
+![screenshot](https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69ccbc36&is=69cb6ab6&hm=1779b0f05fe874de564dced7da59a206a3f7b6b81818d6cafb415a614cb836bd&)
 
 
 ---
@@ -32,10 +32,10 @@
 :construction_worker: Builders: Aïk, KimmiSenpai
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
