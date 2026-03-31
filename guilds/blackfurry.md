@@ -27,7 +27,7 @@ Just immerse yourself in the world of a simple mountain village, its narrow stre
 
 ### 🎥 Videos
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8vw7ymmBJiM" frameborder="0" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/8vw7ymmBJiM" frameborder="0" allowfullscreen></iframe>
 
 ### 📸 Screenshots
 
