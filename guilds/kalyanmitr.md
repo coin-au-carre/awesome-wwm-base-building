@@ -10,9 +10,9 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1485062058444853379/1485062059283447978/202632264424.png?ex=69cbb412&is=69ca6292&hm=b551bc5fbc21c7c1cd14f48e6846eb6a33114ed1b954ee992feec89129cb3aab&)
+![screenshot](https://cdn.discordapp.com/attachments/1485062058444853379/1485062059283447978/202632264424.png?ex=69cc5cd2&is=69cb0b52&hm=8ca2baba8f0a13c240aa0f850d62c0955200caabb10520144142c474d13664f8&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485062058444853379/1485062059975512134/202632264339.png?ex=69cbb412&is=69ca6292&hm=3f149695aaa575df8da3f032c962633756c849a240fe71391d217c20e2447450&)
+![screenshot](https://cdn.discordapp.com/attachments/1485062058444853379/1485062059975512134/202632264339.png?ex=69cc5cd2&is=69cb0b52&hm=5d71a669b18e6e1bf436c2013520d0bc0440ad1bfefb4af926f7bd1542e28924&)
 
 
 ---
@@ -33,10 +33,10 @@
 :construction_worker: Builders: Builder1, Builder2
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

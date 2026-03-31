@@ -10,13 +10,13 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69cbc8ed&is=69ca776d&hm=b5f6f89bc1c87ec607e82926feff524eb5686f4592f4ec90d2bf52e889823a20&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69cc71ad&is=69cb202d&hm=e070bb47b6930aa3347419844a4883ea2ad615160504b8fc84393a63c7158e98&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69cbc8ee&is=69ca776e&hm=e6d2f9e6842081a72593eacdedc92b00150627b46222a6d911bc72c34ca73739&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69cc71ae&is=69cb202e&hm=5148163c978f43c427f10ed57389e30de55ae4095d482c96f20bb07b029e753b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69cbc8ee&is=69ca776e&hm=2de3630a717289ee9f157e55b892cbe6a7c7dd5dd12d2c5c993e3e043c542669&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69cc71ae&is=69cb202e&hm=a268a974c79b41e9308f4c84e8ade07d143055e105ce9c7dbd46c6c73b3ff096&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69cbc8ee&is=69ca776e&hm=da5ae6d78749e10c14446cde000c605baea003f6d27f4c2d9fbd737fe7b08cbc&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69cc71ae&is=69cb202e&hm=bb5efca776c35c0bb0fddf4f1ff0c753259407969ed6dc666b8d18b51122e194&)
 
 
 ---
@@ -37,10 +37,10 @@
 :construction_worker: Builders: MikeRize, Plumi
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

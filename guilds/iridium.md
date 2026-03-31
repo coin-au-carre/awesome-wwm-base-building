@@ -11,11 +11,11 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061673168666795/202632273243.png?ex=69cbb3b5&is=69ca6235&hm=4e1bf9191c71e94244a3df8d7b8ae233b26f393f559b7e8ae0da0fbc960302ae&)
+![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061673168666795/202632273243.png?ex=69cc5c75&is=69cb0af5&hm=eb0fba31ea75bc2aedb594268531b438974607cf87aaa2f11433275a9aa031d9&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061674259058878/202632273223.png?ex=69cbb3b6&is=69ca6236&hm=f07f167618ec57186cfb26937e1cce2450239d74863b25501e4d3c2b34082828&)
+![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061674259058878/202632273223.png?ex=69cc5c76&is=69cb0af6&hm=5f7e6ab66aa8362c45de707d21ed196a67fec0958170e29361964dc2f63a83f5&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061675143925940/20263227324.png?ex=69cbb3b6&is=69ca6236&hm=f55a3cd643f99e16dbb6fcaccd55659688be342d7eb14b9241f71b7ad574a442&)
+![screenshot](https://cdn.discordapp.com/attachments/1485061672036208681/1485061675143925940/20263227324.png?ex=69cc5c76&is=69cb0af6&hm=a547dcdf46c504c8379bc68f420a3272b276dd206d08b57f2bc2d61c1f573705&)
 
 
 ---
@@ -36,10 +36,10 @@
 :construction_worker: Builders: xJiune
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

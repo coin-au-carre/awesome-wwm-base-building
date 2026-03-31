@@ -13,15 +13,15 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175480016277594/202621902216.png?ex=69cbcc86&is=69ca7b06&hm=7b2b05143990c345055615b88219dd08ebc51a0bd5599bb6218741bb9950a7e9&)
+![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175480016277594/202621902216.png?ex=69cc7546&is=69cb23c6&hm=7c4cab71194b0ddc83dbaaef551e62d00affb388257593767c85c5c6958a66db&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175481085689886/20262163646.png?ex=69cbcc86&is=69ca7b06&hm=6248a182c56b67a042f941d1b42042c996b594c6f69244641046420ac67cd107&)
+![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175481085689886/20262163646.png?ex=69cc7546&is=69cb23c6&hm=2250875b57cec75f798e0aa48764add836655dc4d3d5edd5c6811c78a401f87d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175481865961583/20262162710.png?ex=69cbcc86&is=69ca7b06&hm=9926dd41b1119096dced29077f5d1177d0f7aa66519b901c36becd0827195678&)
+![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175481865961583/20262162710.png?ex=69cc7546&is=69cb23c6&hm=42c66465770bfcc3b7c16ce60a1f983313fdf68fc7ae24fb7965ce00e649acdf&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175483535298600/image.png?ex=69cbcc87&is=69ca7b07&hm=5823e19b986c54df99d82a1b2acac3d9bff874bf4042c3f845239f918eb63045&)
+![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175483535298600/image.png?ex=69cc7547&is=69cb23c7&hm=6ce0dc4d6a0d3ba9cac05a11cc64e0c2c7e33c68c63de8b34094afc3b4d4a9cc&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175484541796372/2026218233529.png?ex=69cbcc87&is=69ca7b07&hm=41dc94c2dab16fc50d8905b735ac4e5cbd064b51b76d59aa016c7936d00558b2&)
+![screenshot](https://cdn.discordapp.com/attachments/1486175479185539152/1486175484541796372/2026218233529.png?ex=69cc7547&is=69cb23c7&hm=73d181a0c613e182f4ca45e303563f4378ab8f2d95506bd64dead1c868c4d90f&)
 
 
 ---
@@ -42,10 +42,10 @@
 :construction_worker: Builders: MoonlightYozora
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity

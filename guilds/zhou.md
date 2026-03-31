@@ -10,13 +10,13 @@
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69cbde5a&is=69ca8cda&hm=ed4915517adbf1cbb2bb555e655cb4911567f942c5faae64a7f1af1ddfe31b66&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69cc871a&is=69cb359a&hm=99ee7f15274ecabc56542d4bcc818aac49368abcc489fcf3308ef1c15aa90d66&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832237294420040/2026324102420.png?ex=69cbde5a&is=69ca8cda&hm=be07cfe3eb66fad8baaa2610ebbf1e5dd8af6f12001e3733f2108ace2fe599f5&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832237294420040/2026324102420.png?ex=69cc871a&is=69cb359a&hm=248bf2f294b17d1880d7c07c524e236b8db118b718a0ffb8e4dedc6469feb943&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238099599514/2026324102337.png?ex=69cbde5a&is=69ca8cda&hm=b600aa897f800094222f5e036da349c4856972c45837a1564dbeb2baadd0fef9&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238099599514/2026324102337.png?ex=69cc871a&is=69cb359a&hm=a3fc1913feb2c61f50c7eb391503fd9281005dcfbad93daf22050accb1071812&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238640795648/2026324102118.png?ex=69cbde5b&is=69ca8cdb&hm=3dfc99f281178ec97cb54c9975a95b9b4db18b54e058f4d73d0dd7243bcb1025&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238640795648/2026324102118.png?ex=69cc871b&is=69cb359b&hm=1ff6cdb503e487a1dd4db3239fb44763717b8868408d182abb792215d5b879a9&)
 
 
 ---
@@ -37,10 +37,10 @@
 :construction_worker: Builders: Builder1, Builder2
 
 ### :pencil: Lore
-REPLACE_WITH_YOUR_LORE
+Lore of the guild to fill if any...
 
 ### :mage: What to visit
-DESCRIBE_POINT_OF_INTEREST
+Points of interests to fill...
 
 :ballot_box: Vote with reactions:
 :star: Best overall | :thumbsup: Good base | :fire: Amazing creativity
