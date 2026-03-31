@@ -5,7 +5,7 @@
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 BlackFurry</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>carnii</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>City, River, Nature, Mountain</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>23</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>42</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486717348718313553">View thread</a></td></tr>
 </table>
 

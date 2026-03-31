@@ -5,7 +5,7 @@
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Hellsing(SEA)</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Eulreiss</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Floating island, Nature</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>14</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>22</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486736303264497817">View thread</a></td></tr>
 </table>
 
