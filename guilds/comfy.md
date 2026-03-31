@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🔨 <b>Builders</b></td><td>MikeRize, Plumi</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>3</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>8</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1484178485407911966">View thread</a></td></tr>
 </table>
 
@@ -10,13 +10,13 @@
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69cc71ad&is=69cb202d&hm=e070bb47b6930aa3347419844a4883ea2ad615160504b8fc84393a63c7158e98&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178486582055044/2026319211448.png?ex=69cd1a6d&is=69cbc8ed&hm=6f9449888548ac27ec0a7e4ae7644af813c86c5b1b64556fab4d6f92aff8effb&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69cc71ae&is=69cb202e&hm=5148163c978f43c427f10ed57389e30de55ae4095d482c96f20bb07b029e753b&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178487303471104/2026319211133.png?ex=69cd1a6e&is=69cbc8ee&hm=1a4c83c1d69de8b00388ef4c9a01a724c41530880e0c0f39585f1e079b77528a&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69cc71ae&is=69cb202e&hm=a268a974c79b41e9308f4c84e8ade07d143055e105ce9c7dbd46c6c73b3ff096&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488100519976/2026319211115.png?ex=69cd1a6e&is=69cbc8ee&hm=081e42566cc51fbe9eb0735175e88adfbd3baed3f5a61b4726da726256256856&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69cc71ae&is=69cb202e&hm=bb5efca776c35c0bb0fddf4f1ff0c753259407969ed6dc666b8d18b51122e194&)
+![screenshot](https://cdn.discordapp.com/attachments/1484178485407911966/1484178488784195654/2026319211059.png?ex=69cd1a6e&is=69cbc8ee&hm=ad5e8cf59740c5dee768e7b4776254517c5bc82b7cd6c0a34d3c255c3e00f499&)
 
 
 ---

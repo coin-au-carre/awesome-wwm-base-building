@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10171733</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Alscend (with credits to LuckyBags and Lurzi for pitching in for some areas)</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Cave, Nature, Mountain</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>12</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>24</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486718947335082155">View thread</a></td></tr>
 </table>
 
@@ -29,23 +29,23 @@ No lore as of yet but perhaps future builds may shape or reveal a story to us �
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718948341973145/2.png?ex=69cc752b&is=69cb23ab&hm=9a761229fad463a18a81048c75e7c500013ee2bde47635140d883eb324173a12&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718948341973145/2.png?ex=69cd1deb&is=69cbcc6b&hm=744bfed57a9a4698d12df482112d0687e1a0de05614f8c92a773c2175327c509&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718949075845361/3.png?ex=69cc752b&is=69cb23ab&hm=df21dc9f4bcc285371d3639c45eb752d69952f59f2f8dadbf341899342c9ae14&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718949075845361/3.png?ex=69cd1deb&is=69cbcc6b&hm=7eb279fe2e3e00b897184ad8beaae1c7b2bc5f56fba8f9e6f8593c0f46315bce&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718949994532874/4.png?ex=69cc752b&is=69cb23ab&hm=7eeebbf2dcbf79b7100fa83e73abfdd3d320331561dfff328e216fd1e351a826&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718949994532874/4.png?ex=69cd1deb&is=69cbcc6b&hm=67b2969f75c1d0e79a5e3502ec4d9cfd0841a55abe4c888af3a27914b0ff8acd&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718950523011183/1.png?ex=69cc752b&is=69cb23ab&hm=e45d3dd4f0d8c11b3433bb813d9bb9888207fb2ea6f244b8a6ce93dc9692bb00&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718950523011183/1.png?ex=69cd1deb&is=69cbcc6b&hm=03229fb3f06a9b3951b4da557bd180034b1aa1a3a31bc3360c0edb3e7b995085&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718951130927124/5.png?ex=69cc752b&is=69cb23ab&hm=ddfc937ce954542f43ec1b9738281d313b1434eff04db7ce4b3e102227e0b971&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718951130927124/5.png?ex=69cd1deb&is=69cbcc6b&hm=e6639d946fa9688c5928c1e7a52cb9ecfe8a98e18de912e8f377716fe4a0de80&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718951814594711/6.png?ex=69cc752c&is=69cb23ac&hm=e658779a3e74e63853a0c3b65f5f15850361306f913552b62244b2e30439c8e6&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718951814594711/6.png?ex=69cd1dec&is=69cbcc6c&hm=7de80ae220edf715c54777b272d795948b7d6d0d36df5cc7e23f2c1893d0782b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718952435482786/7.png?ex=69cc752c&is=69cb23ac&hm=fcbca25eb0349a80d4a0446de46e823f156e0ddd0e09400642ca3205662395eb&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718952435482786/7.png?ex=69cd1dec&is=69cbcc6c&hm=9b023a7fa709aee1a06443b0c0fe5043fa505f4bfea0f066f452f4daa4f6857f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718953110900736/8.png?ex=69cc752c&is=69cb23ac&hm=56bd5d50d3c77f8a4cc35fcbefb58dc4e64a079077678cb2dd5bf8aa08d3e162&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718953110900736/8.png?ex=69cd1dec&is=69cbcc6c&hm=dba68fd5314c4e63515a7d8badfb26c2c0b70b196682397754cb93a603bd11af&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718953874128917/9.png?ex=69cc752c&is=69cb23ac&hm=c60e2a70fc98cf7f648258ce5227a50a5f03b88d2c4f703f65332acce390e3f8&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718953874128917/9.png?ex=69cd1dec&is=69cbcc6c&hm=35728021ed73fb56fd13cce4b3ee10a1cf272f589e5fb18e37e8491b732b2f28&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718954406809661/10.png?ex=69cc752c&is=69cb23ac&hm=71a9ac1bd7a1f814ec6003b98a46d0b9b52b3879b2a03512931c0e94f9aa4fab&)
+![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718954406809661/10.png?ex=69cd1dec&is=69cbcc6c&hm=bc0fe09711d8a5d6a8fac52ae01e8b9c0083ef413c7b5ba189efacfd30938c79&)
 

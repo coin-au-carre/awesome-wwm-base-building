@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🏷️ <b>Tags</b></td><td>Nature, Fun</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>7</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>10</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1485832235117707386">View thread</a></td></tr>
 </table>
 
@@ -10,13 +10,13 @@
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69cc871a&is=69cb359a&hm=99ee7f15274ecabc56542d4bcc818aac49368abcc489fcf3308ef1c15aa90d66&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832236262625330/2026324102434.png?ex=69cd2fda&is=69cbde5a&hm=e7de3c3a68a4d37e8e3aa1fdc1f0bea37e40c6f280f070b3ae28a434f68f48ff&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832237294420040/2026324102420.png?ex=69cc871a&is=69cb359a&hm=248bf2f294b17d1880d7c07c524e236b8db118b718a0ffb8e4dedc6469feb943&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832237294420040/2026324102420.png?ex=69cd2fda&is=69cbde5a&hm=483013b819feeda5bee94200565170af415c5c298dd80ddd1066c741b3c86188&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238099599514/2026324102337.png?ex=69cc871a&is=69cb359a&hm=a3fc1913feb2c61f50c7eb391503fd9281005dcfbad93daf22050accb1071812&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238099599514/2026324102337.png?ex=69cd2fda&is=69cbde5a&hm=51589e9d67265c852ab9cbb6e2fb44b1653cf6c67a1499371dcd67e1f443c222&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238640795648/2026324102118.png?ex=69cc871b&is=69cb359b&hm=1ff6cdb503e487a1dd4db3239fb44763717b8868408d182abb792215d5b879a9&)
+![screenshot](https://cdn.discordapp.com/attachments/1485832235117707386/1485832238640795648/2026324102118.png?ex=69cd2fdb&is=69cbde5b&hm=909b2e33e4a94772f1af2959c6de15efef91c3a4efb886f6bc55330416d0cc52&)
 
 
 ---
