@@ -7,13 +7,13 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os/exec"
 	"strings"
 	"sync"
 
 	"ruby/internal/guild"
 
 	anthropic "github.com/anthropics/anthropic-sdk-go"
-	"github.com/anthropics/anthropic-sdk-go/option"
 )
 
 const systemPrompt = `You are Ruby — a tiny, ancient spirit who has taken up residence inside guild bases in Where Winds Meet. You've watched a thousand guilds come and go, and you are completely, helplessly besotted with buildings and the people who build them.
@@ -76,17 +76,26 @@ type Result struct {
 
 // Responder calls the Claude API and maintains per-channel conversation history.
 type Responder struct {
-	client       *anthropic.Client
+	client       *anthropic.Client // nil in CLI mode
 	mu           sync.Mutex
-	history      map[string][]anthropic.MessageParam
+	history      map[string][]anthropic.MessageParam // API mode
+	sessions     map[string]string                   // CLI mode: channelID → session ID
 	systemPrompt string
 }
 
-func NewResponder(apiKey, root string) *Responder {
-	c := anthropic.NewClient(option.WithAPIKey(apiKey))
+func NewResponder(client *anthropic.Client, root string) *Responder {
 	return &Responder{
-		client:       &c,
+		client:       client,
 		history:      make(map[string][]anthropic.MessageParam),
+		systemPrompt: buildSystemPrompt(root),
+	}
+}
+
+// NewCLIResponder returns a Responder that shells out to the `claude` CLI,
+// using the Pro subscription via Claude Code's stored credentials.
+func NewCLIResponder(root string) *Responder {
+	return &Responder{
+		sessions:     make(map[string]string),
 		systemPrompt: buildSystemPrompt(root),
 	}
 }
@@ -129,6 +138,13 @@ func (r *Responder) Caption(ctx context.Context, guildName string, tags []string
 	prompt := fmt.Sprintf("React in one tiny sentence to this guild base spotlight: %s", guildName)
 	if len(tags) > 0 {
 		prompt += fmt.Sprintf(" (tags: %s)", strings.Join(tags, ", "))
+	}
+	if r.client == nil {
+		result, err := runCLI(ctx, r.systemPrompt, "", prompt)
+		if err != nil {
+			return ""
+		}
+		return removeBlankLines(result.text)
 	}
 	resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
 		Model:     anthropic.ModelClaudeHaiku4_5,
@@ -263,6 +279,10 @@ func removeBlankLines(s string) string {
 }
 
 func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, imageURLs []string) (Result, error) {
+	if r.client == nil {
+		return r.replyViaCLI(ctx, channelID, userMessage)
+	}
+
 	// Snapshot history without holding the lock during the API call.
 	r.mu.Lock()
 	msgs := make([]anthropic.MessageParam, len(r.history[channelID]))
@@ -347,4 +367,58 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 
 		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight, GuildImageQuery: guildImageQuery}, nil
 	}
+}
+
+// replyViaCLI handles the CLI mode: shells out to `claude -p`, resuming the
+// per-channel session so conversation history is maintained by Claude Code.
+func (r *Responder) replyViaCLI(ctx context.Context, channelID, userMessage string) (Result, error) {
+	r.mu.Lock()
+	sessionID := r.sessions[channelID]
+	r.mu.Unlock()
+
+	result, err := runCLI(ctx, r.systemPrompt, sessionID, userMessage)
+	if err != nil {
+		return Result{}, fmt.Errorf("claude CLI: %w", err)
+	}
+
+	r.mu.Lock()
+	r.sessions[channelID] = result.sessionID
+	r.mu.Unlock()
+
+	return Result{Text: removeBlankLines(result.text)}, nil
+}
+
+type cliResult struct {
+	text      string
+	sessionID string
+}
+
+// runCLI invokes `claude -p` and returns the response text and session ID.
+// Pass sessionID="" to start a new conversation; non-empty to resume one.
+func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliResult, error) {
+	args := []string{"--print", "--output-format", "json", "--no-mcp"}
+	if sessionID != "" {
+		args = append(args, "--resume", sessionID)
+	} else if systemPrompt != "" {
+		args = append(args, "--system-prompt", systemPrompt)
+	}
+	args = append(args, message)
+
+	out, err := exec.CommandContext(ctx, "claude", args...).Output()
+	if err != nil {
+		return cliResult{}, err
+	}
+
+	var resp struct {
+		Result    string `json:"result"`
+		SessionID string `json:"session_id"`
+		IsError   bool   `json:"is_error"`
+	}
+	if err := json.Unmarshal(out, &resp); err != nil {
+		return cliResult{}, fmt.Errorf("parse output: %w", err)
+	}
+	if resp.IsError {
+		return cliResult{}, fmt.Errorf("%s", resp.Result)
+	}
+	return cliResult{text: resp.Result, sessionID: resp.SessionID}, nil
 }
