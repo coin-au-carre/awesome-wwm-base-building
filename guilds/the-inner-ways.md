@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10183152</td></tr>
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 The-Inner-Ways</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Nature</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>10</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486174351710621736">View thread</a></td></tr>
 </table>
 
@@ -12,9 +12,9 @@
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174352947810396/202632592135.png?ex=69cc7439&is=69cb22b9&hm=0f643737a7cc544a505cd2b34485b0bc0ac1a786fd0bea9de22ab00cf5ea1d95&)
+![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174352947810396/202632592135.png?ex=69cd1cf9&is=69cbcb79&hm=c11f4eceab060c2455a36885bece3b06963c1a93691d1b78f41c80d1bbefaf95&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174354193649734/20263259218.png?ex=69cc7439&is=69cb22b9&hm=9c94213612e59b021ef824e98f6e6b7adba357c9f1bbbcd4178f76d5ae121454&)
+![screenshot](https://cdn.discordapp.com/attachments/1486174351710621736/1486174354193649734/20263259218.png?ex=69cd1cf9&is=69cbcb79&hm=0a662d2c3304a46867f0cd49954824ec9f6d09dbfa7028e38f0a76b75360daaf&)
 
 
 ---

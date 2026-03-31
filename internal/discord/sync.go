@@ -89,9 +89,14 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		}
 	}
 
+	slog.Info("collecting reaction data for voter weights", "threads", len(threads))
+	threadReactions, voterWeights := collectReactions(b.Session, threads)
+	slog.Info("voter weights computed", "voters", len(voterWeights))
+
 	type work struct {
-		thread *discordgo.Channel
-		idx    int
+		thread    *discordgo.Channel
+		idx       int
+		reactions map[string][]string // emoji → []userID, pre-fetched
 	}
 
 	jobs := make(chan work, len(threads))
@@ -103,7 +108,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		go func() {
 			defer wg.Done()
 			for j := range jobs {
-				data := fetchThreadData(b.Session, j.thread)
+				data := fetchThreadData(b.Session, j.thread, j.reactions, voterWeights)
 
 				var tags []string
 				for _, tagID := range j.thread.AppliedTags {
@@ -135,7 +140,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 
 	for _, thread := range threads {
 		idx := guildMap[strings.ToLower(guild.ExtractName(thread.Name))]
-		jobs <- work{thread: thread, idx: idx}
+		jobs <- work{thread: thread, idx: idx, reactions: threadReactions[thread.ID]}
 	}
 	close(jobs)
 
@@ -209,7 +214,7 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 	return threads, nil
 }
 
-func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData {
+func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel, reactions map[string][]string, weights map[string]int) threadData {
 	msgs, err := s.ChannelMessages(thread.ID, 1, "", "0", "")
 	if err != nil || len(msgs) == 0 {
 		slog.Warn("fetching messages", "thread", thread.ID, "err", err)
@@ -219,12 +224,16 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 	id, guildName, builders, lore, whatToVisit := guild.ParseFirstPost(msgs[0].Content)
 
 	score := 0
-	for _, r := range msgs[0].Reactions {
-		switch r.Emoji.Name {
+	for emoji, users := range reactions {
+		pts := 0
+		switch emoji {
 		case "⭐":
-			score += r.Count * scorePerStar
+			pts = scorePerStar
 		case "👍", "🔥":
-			score += r.Count * scorePerLike
+			pts = scorePerLike
+		}
+		for _, uid := range users {
+			score += pts * weights[uid]
 		}
 	}
 
@@ -237,7 +246,7 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 
 	slog.Debug("score calculated",
 		"thread", thread.Name,
-		"reactions", score,
+		"weighted_score", score,
 		"lore_bonus", lore != "",
 		"visit_bonus", whatToVisit != "",
 	)
@@ -256,6 +265,110 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 		Lore:        lore,
 		WhatToVisit: whatToVisit,
 	}
+}
+
+// voterWeight returns the reaction weight for a user based on how many distinct
+// guilds they reacted to: 0 if <4, 1 if 4–7, 2 if 8+.
+func voterWeight(distinctGuilds int) int {
+	switch {
+	case distinctGuilds >= 8:
+		return 2
+	case distinctGuilds >= 4:
+		return 1
+	default:
+		return 0
+	}
+}
+
+var scoredEmojis = []string{"⭐", "👍", "🔥"}
+
+const numReactionWorkers = 20
+
+type reactionJob struct {
+	threadID string
+	emoji    string
+}
+
+type reactionResult struct {
+	threadID string
+	emoji    string
+	userIDs  []string
+}
+
+// collectReactions fetches all reactor user IDs for each scored emoji across
+// all threads in parallel. Returns:
+//   - threadReactions: threadID → emoji → []userID
+//   - voterWeights:    userID → weight (based on breadth of voting)
+func collectReactions(s *discordgo.Session, threads []*discordgo.Channel) (map[string]map[string][]string, map[string]int) {
+	jobs := make(chan reactionJob, len(threads)*len(scoredEmojis))
+	results := make(chan reactionResult, len(threads)*len(scoredEmojis))
+
+	var wg sync.WaitGroup
+	for range numReactionWorkers {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for j := range jobs {
+				var ids []string
+				var after string
+				for {
+					page, err := s.MessageReactions(j.threadID, j.threadID, j.emoji, 100, "", after)
+					if err != nil || len(page) == 0 {
+						break
+					}
+					for _, u := range page {
+						ids = append(ids, u.ID)
+					}
+					after = page[len(page)-1].ID
+					if len(page) < 100 {
+						break
+					}
+				}
+				results <- reactionResult{threadID: j.threadID, emoji: j.emoji, userIDs: ids}
+			}
+		}()
+	}
+
+	for _, thread := range threads {
+		for _, emoji := range scoredEmojis {
+			jobs <- reactionJob{threadID: thread.ID, emoji: emoji}
+		}
+	}
+	close(jobs)
+
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
+
+	threadReactions := make(map[string]map[string][]string, len(threads))
+	userGuilds := make(map[string]map[string]bool)
+
+	for r := range results {
+		if len(r.userIDs) == 0 {
+			continue
+		}
+		if threadReactions[r.threadID] == nil {
+			threadReactions[r.threadID] = make(map[string][]string)
+		}
+		threadReactions[r.threadID][r.emoji] = r.userIDs
+		for _, uid := range r.userIDs {
+			if userGuilds[uid] == nil {
+				userGuilds[uid] = make(map[string]bool)
+			}
+			userGuilds[uid][r.threadID] = true
+		}
+	}
+
+	weights := make(map[string]int, len(userGuilds))
+	for uid, guilds := range userGuilds {
+		w := voterWeight(len(guilds))
+		if w > 0 {
+			weights[uid] = w
+		}
+		slog.Debug("voter weight", "user", uid, "distinct_guilds", len(guilds), "weight", w)
+	}
+	return threadReactions, weights
 }
 
 func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots, videos []string) {
