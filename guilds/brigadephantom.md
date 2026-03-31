@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: BrigadePhantom [YOUR_GUILD_ID]
+## :japanese_castle: BrigadePhantom [guild_id]
 :construction_worker: Builders: Ssyrena, Dovahline
 
 ### :pencil: Lore

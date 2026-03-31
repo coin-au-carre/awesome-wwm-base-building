@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: SixtyOne [YOUR_GUILD_ID]
+## :japanese_castle: SixtyOne [guild_id]
 :construction_worker: Builders: may
 
 ### :pencil: Lore

@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: EMH-Shogunate [YOUR_GUILD_ID]
+## :japanese_castle: EMH-Shogunate [guild_id]
 :construction_worker: Builders: ToxotesToons
 
 ### :pencil: Lore

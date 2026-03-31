@@ -34,7 +34,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: CobraKai [YOUR_GUILD_ID]
+## :japanese_castle: CobraKai [guild_id]
 :construction_worker: Builders: Dona
 
 ### :pencil: Lore

@@ -33,7 +33,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Zhou [YOUR_GUILD_ID]
+## :japanese_castle: Zhou [guild_id]
 :construction_worker: Builders: Builder1, Builder2
 
 ### :pencil: Lore

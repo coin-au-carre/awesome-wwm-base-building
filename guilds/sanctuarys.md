@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Sanctuarys [YOUR_GUILD_ID]
+## :japanese_castle: Sanctuarys [guild_id]
 :construction_worker: Builders: Nurami, Ichigor
 
 ### :pencil: Lore

@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Jardin-Lunaire [YOUR_GUILD_ID]
+## :japanese_castle: Jardin-Lunaire [guild_id]
 :construction_worker: Builders: Hüman, Orhann, Simiaomao
 
 ### :pencil: Lore

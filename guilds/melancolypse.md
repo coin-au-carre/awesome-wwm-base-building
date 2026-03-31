@@ -28,7 +28,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Melancolypse [YOUR_GUILD_ID]
+## :japanese_castle: Melancolypse [guild_id]
 :construction_worker: Builders: Aïk, KimmiSenpai
 
 ### :pencil: Lore

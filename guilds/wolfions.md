@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Wolfions [YOUR_GUILD_ID]
+## :japanese_castle: Wolfions [guild_id]
 :construction_worker: Builders: Sabi, Kojak
 
 ### :pencil: Lore

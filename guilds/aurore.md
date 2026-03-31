@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Aurore [YOUR_GUILD_ID]
+## :japanese_castle: Aurore [guild_id]
 :construction_worker: Builders: Syphala
 
 ### :pencil: Lore

@@ -31,7 +31,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Ħao [YOUR_GUILD_ID]
+## :japanese_castle: Ħao [guild_id]
 :construction_worker: Builders: Rastawar
 
 ### :pencil: Lore

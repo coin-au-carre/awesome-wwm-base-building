@@ -28,7 +28,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: KillByKill [YOUR_GUILD_ID]
+## :japanese_castle: KillByKill [guild_id]
 :construction_worker: Builders: Builder1, Builder2
 
 ### :pencil: Lore

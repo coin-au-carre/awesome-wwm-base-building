@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: La Guilde [YOUR_GUILD_ID]
+## :japanese_castle: La Guilde [guild_id]
 :construction_worker: Builders: Keanu-Kai
 
 ### :pencil: Lore

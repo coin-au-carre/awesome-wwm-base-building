@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: LaTaverne [YOUR_GUILD_ID]
+## :japanese_castle: LaTaverne [guild_id]
 :construction_worker: Builders: JinSupremo, soussous
 
 ### :pencil: Lore

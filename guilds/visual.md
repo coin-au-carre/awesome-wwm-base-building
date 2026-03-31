@@ -32,7 +32,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Visual [YOUR_GUILD_ID]
+## :japanese_castle: Visual [guild_id]
 :construction_worker: Builders: Navil
 
 ### :pencil: Lore

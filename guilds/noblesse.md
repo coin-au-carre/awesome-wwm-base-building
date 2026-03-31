@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Noblesse [YOUR_GUILD_ID]
+## :japanese_castle: Noblesse [guild_id]
 :construction_worker: Builders: HyyuK
 
 ### :pencil: Lore
