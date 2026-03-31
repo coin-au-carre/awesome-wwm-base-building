@@ -1,4 +1,10 @@
 [ 
+  {
+    "name": "Nínelives",
+    "builders": ["Skysnip"],
+    "discordThread": "",
+    "score": 0
+  },
 	{
     "name": "Nínelives",
     "builders": ["OPM","plop"],
