@@ -69,6 +69,15 @@ func IsImage(filename string) bool {
 	return false
 }
 
+// IsVideo reports whether filename has a recognised video extension.
+func IsVideo(filename string) bool {
+	switch strings.ToLower(fileExt(filename)) {
+	case ".mp4", ".mov", ".webm", ".mkv", ".avi":
+		return true
+	}
+	return false
+}
+
 func cleanSection(s string) string {
 	s = strings.TrimSpace(s)
 	if len(s) < 15 {

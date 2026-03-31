@@ -43,6 +43,7 @@ type threadData struct {
 	Builders    []string
 	Score       int
 	Screenshots []string
+	Videos      []string
 	Lore        string
 	WhatToVisit string
 }
@@ -123,6 +124,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 				g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", j.thread.GuildID, j.thread.ID)
 				g.Score = data.Score
 				g.Screenshots = data.Screenshots
+				g.Videos = data.Videos
 				g.Lore = data.Lore
 				g.WhatToVisit = data.WhatToVisit
 
@@ -240,21 +242,24 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel) threadData
 		"visit_bonus", whatToVisit != "",
 	)
 
+	authorID := msgs[0].Author.ID
+	screenshots, videos := collectMedia(s, thread.ID, authorID)
+
 	return threadData{
 		ID:          id,
 		GuildName:   guildName,
-		AuthorID:    msgs[0].Author.ID,
+		AuthorID:    authorID,
 		Builders:    builders,
 		Score:       score,
-		Screenshots: collectScreenshots(s, thread.ID),
+		Screenshots: screenshots,
+		Videos:      videos,
 		Lore:        lore,
 		WhatToVisit: whatToVisit,
 	}
 }
 
-func collectScreenshots(s *discordgo.Session, threadID string) []string {
+func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots, videos []string) {
 	seen := make(map[string]bool)
-	var urls []string
 	var lastID string
 
 	for {
@@ -263,17 +268,30 @@ func collectScreenshots(s *discordgo.Session, threadID string) []string {
 			break
 		}
 		for _, msg := range msgs {
+			if msg.Author == nil || msg.Author.ID != authorID {
+				continue
+			}
 			for _, att := range msg.Attachments {
-				if guild.IsImage(att.Filename) && !seen[att.URL] {
-					seen[att.URL] = true
-					urls = append(urls, att.URL)
+				if seen[att.URL] {
+					continue
+				}
+				seen[att.URL] = true
+				if guild.IsImage(att.Filename) {
+					screenshots = append(screenshots, att.URL)
 					slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
+				} else if guild.IsVideo(att.Filename) {
+					videos = append(videos, att.URL)
+					slog.Debug("video found", "thread", threadID, "url", att.URL)
 				}
 			}
 			for _, embed := range msg.Embeds {
-				if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
+				if embed.Type == discordgo.EmbedTypeVideo && embed.URL != "" && !seen[embed.URL] {
+					seen[embed.URL] = true
+					videos = append(videos, embed.URL)
+					slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
+				} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
 					seen[embed.Image.URL] = true
-					urls = append(urls, embed.Image.URL)
+					screenshots = append(screenshots, embed.Image.URL)
 					slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
 				}
 			}
@@ -283,7 +301,7 @@ func collectScreenshots(s *discordgo.Session, threadID string) []string {
 			break
 		}
 	}
-	return urls
+	return
 }
 
 func buildGuildMap(guilds []guild.Guild) map[string]int {
@@ -297,5 +315,6 @@ func buildGuildMap(guilds []guild.Guild) map[string]int {
 func hasChanged(prev, next guild.Guild) bool {
 	return prev.Score != next.Score ||
 		len(prev.Screenshots) != len(next.Screenshots) ||
+		len(prev.Videos) != len(next.Videos) ||
 		strings.Join(prev.Builders, ",") != strings.Join(next.Builders, ",")
 }

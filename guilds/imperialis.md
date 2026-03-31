@@ -24,15 +24,15 @@ There’s no special lore, I just love building and wanted to create a place tha
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209137057300490/rhd2v6n.png?ex=69cc4371&is=69caf1f1&hm=c1314e08d742427eaab7bc2c041a03b664d662e7326a657800571acba2ec5e80&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209137057300490/rhd2v6n.png?ex=69ccec31&is=69cb9ab1&hm=394c9fe2e9b566e8518afae9303618dace8377340336e5f8b0bdc84e45f0bdb0&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209062222266539/9nf4bmv.png?ex=69cc435f&is=69caf1df&hm=260c078ff37acc7be3d078e5a3422dcf30dd45d9112343f4c37897fcf2809988&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209062222266539/9nf4bmv.png?ex=69ccec1f&is=69cb9a9f&hm=6e407c93e9efd6bf021dfa95b04d711c4eef592c4126a02c622901037af63c97&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209011366592665/555jxsn.png?ex=69cc4353&is=69caf1d3&hm=bd149916fd7e287d6f8295657c6e1c64ccb31f58fe110a41f7c14c1c5b828472&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209011366592665/555jxsn.png?ex=69ccec13&is=69cb9a93&hm=90c72c34303e10fb1f56e0eaa1ad366395b68e6b6476c826dd05cb73fc207bb9&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208982941536286/3nqvrj4.png?ex=69cc434c&is=69caf1cc&hm=223c9147548dc4e1feac5d221cf88fa4173d2dafccf74c318aeffbc89fec15fd&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208982941536286/3nqvrj4.png?ex=69ccec0c&is=69cb9a8c&hm=c153afcb0e12ea724000b2ab5f8e7d82c6be771a8026bf93c30b30a9bc957e07&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208853081948160/v2h3s9q.png?ex=69cc432d&is=69caf1ad&hm=b9f647baace99abc3039f939171699ef510e43170c015df218c400fd65539ffb&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208853081948160/v2h3s9q.png?ex=69ccebed&is=69cb9a6d&hm=dfb9b114dd3e165df6099a4d74309a21dec61fa1563c126aeb231933a275b922&)
 

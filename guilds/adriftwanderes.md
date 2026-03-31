@@ -27,11 +27,7 @@ No lore as of yet but perhaps future builds may shape or reveal a story to us �
 
 ---
 
-## 📸 Screenshots
-
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486721269578596382/202632271542.png?ex=69cc7754&is=69cb25d4&hm=e793e518779ad1560c9e12c6d2beffdd0d07bb496bececa079c7f67c571d25b0&)
-
-![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486721270480637962/202632272024.png?ex=69cc7754&is=69cb25d4&hm=98306936b474861ec765f3affb55676da57cceb320f4d15692068fa1dfc8b7b0&)
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486718947335082155/1486718948341973145/2.png?ex=69cc752b&is=69cb23ab&hm=9a761229fad463a18a81048c75e7c500013ee2bde47635140d883eb324173a12&)
 

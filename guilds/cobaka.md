@@ -10,21 +10,21 @@
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484596389148360724/202631233016.png?ex=69cca561&is=69cb53e1&hm=3ad88b5b871ff7eae3338bba24a3c211380f23a943d941e495c4aeb74cb33a73&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69cc63dd&is=69cb125d&hm=b32a7fd0474e505163a28b7a4efdaae261d52e9db46076099db41f8daadcbe8d&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163653321232584/guild-base-building-v0-m0a0rjpjdahg1.webp?ex=69cd0c9d&is=69cbbb1d&hm=63dd19c4ec51a7987c98c1cf13333ab735c5a32ef18e2a4ff406dc2127a14d6b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163654227329114/guild-base-building-v0-kl3196pmdahg1.webp?ex=69cc63dd&is=69cb125d&hm=f4c3357ec5a7bd542d1acf80a02b2976818a12b461511a339f833de0f6a02fc2&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163654227329114/guild-base-building-v0-kl3196pmdahg1.webp?ex=69cd0c9d&is=69cbbb1d&hm=113a266468ed046e11a2c0dc6f483a62b1d4931696cd79e8cba1728993cba013&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163654889898086/guild-base-building-v0-d3waonuydahg1.webp?ex=69cc63dd&is=69cb125d&hm=8e93be32930e2d9b4c6ae6d538b4e5ed92067ce56fc95bd416a73f6d34b9bfc9&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163654889898086/guild-base-building-v0-d3waonuydahg1.webp?ex=69cd0c9d&is=69cbbb1d&hm=b7d26523639457d47477503d902c988da2f3f932fa8288976a1b3e83bec22cc2&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163655342886983/guild-base-building-v0-buc5bwfpdahg1.webp?ex=69cc63dd&is=69cb125d&hm=bcdb4e61828edd022b48858f52b7444eac29fdc097936e3b321eabcc41ff86a1&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163655342886983/guild-base-building-v0-buc5bwfpdahg1.webp?ex=69cd0c9d&is=69cbbb1d&hm=39039f34a3cf6bb1ec4e12a42a48930abdb8e3d0f2918bdaa0b2008762f023e9&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163656265498736/guild-base-building-v0-wtntumpqdahg1.webp?ex=69cc63de&is=69cb125e&hm=f121421fb795a846469fcd3387abdbc2dbdbe365a9d370179d656ed856ec0ad8&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163656265498736/guild-base-building-v0-wtntumpqdahg1.webp?ex=69cd0c9e&is=69cbbb1e&hm=2a6ea4fe0311b324daeac9195a43579789575132f85a39d6ee53c4dc97e25c5b&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163656785727579/guild-base-building-v0-rct30eurdahg1.webp?ex=69cc63de&is=69cb125e&hm=78f35c70ad64db5e54db7afaad82984595297181b593b4cc009667d4989c4c58&)
+![screenshot](https://cdn.discordapp.com/attachments/1484163652796809450/1484163656785727579/guild-base-building-v0-rct30eurdahg1.webp?ex=69cd0c9e&is=69cbbb1e&hm=d0decad0a7aac9fb5f83860076104f97d32a34586a6e7284b6791d8bf9bb5430&)
 
 
 ---

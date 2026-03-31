@@ -7,9 +7,9 @@
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
-*No screenshots available yet.*
+*No media available yet.*
 
 📸 **Want to showcase this guild base?**
 

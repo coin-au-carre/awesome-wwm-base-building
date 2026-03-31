@@ -27,7 +27,7 @@ Throne Room – a grand hall with a commanding presence
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486392790836576456/1486392792111386644/2026324533.png?ex=69cc96e9&is=69cb4569&hm=b69ba9f27c0b264db4aa8ee1e26c563b2e38e0801ea4d7431b9deaef09ad08f8&)
 

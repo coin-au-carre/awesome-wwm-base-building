@@ -4,7 +4,7 @@
   <tr><td>🆔 <b>Guild ID</b></td><td>10001878</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>HamHua, mattoddle, LíuQingge</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Cave, Zen, Nature, Fun</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>5</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>6</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487186326263435304">View thread</a></td></tr>
 </table>
 
@@ -37,7 +37,7 @@ Thank you for taking the time to read this, and we hope you come by and try to f
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186330298618058/1774642750_zpM6dJ1F.jpg?ex=69ccd6f3&is=69cb8573&hm=37115ee6b6cab80e70319c73709ebbd4f087948e03bc06d7c9f1c166e0f73148&)
 

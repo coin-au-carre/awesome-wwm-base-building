@@ -19,9 +19,9 @@ Arena gradins (bleachers), zen garden, hidden room
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69cc60ec&is=69cb0f6c&hm=11c61cbe6d2a88c7edf8c134898ca89bbb3bf77ca6c8e69329711f83479ed3a9&)
+![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=69cd09ac&is=69cbb82c&hm=bf40f1f56470946997fa5267e3a8eeb52a5e07186bc7c1786e6d5cd5cf575c87&)
 
 ![screenshot](https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=69cc943c&is=69cb42bc&hm=7ff091213fe3e894d1987142b19fd8a4055ea4422bc1e84bc0bb500cdfb98057&)
 
