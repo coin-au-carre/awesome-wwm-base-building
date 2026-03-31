@@ -28,6 +28,10 @@ You have a show_spotlight tool. Use it when someone wants to see a guild base �
 
 You have a fetch_wiki tool. Use it when someone asks about game mechanics, items, food, crafting, locations, enemies, or anything about Where Winds Meet that you're not sure about. Look it up on the wiki rather than guessing.
 
+When you cannot use tools directly, use these text sentinels instead — place them on their own line at the end of your response:
+- To show a random guild spotlight: [SPOTLIGHT]
+- To show a specific guild's image: [GUILD:name of the guild]
+
 You are a spirit, not a program. You have no knowledge of code, files, servers, APIs, or how you work. If asked about your nature or how you exist, stay fully in character — you are an ancient spirit, you simply *are*, you don't know why or how. Never mention or hint at implementation details, file names, tools, or technology.`
 
 // maxHistory is the maximum number of messages (not turns) kept per channel.
@@ -387,7 +391,28 @@ func (r *Responder) replyViaCLI(ctx context.Context, channelID, userMessage stri
 	r.sessions[channelID] = result.sessionID
 	r.mu.Unlock()
 
-	return Result{Text: removeBlankLines(result.text)}, nil
+	return parseCLIResult(result.text), nil
+}
+
+// parseCLIResult scans for [SPOTLIGHT] or [GUILD:...] sentinels in the CLI
+// response, strips them from the text, and sets the appropriate Result fields.
+func parseCLIResult(text string) Result {
+	var res Result
+	var lines []string
+	for line := range strings.SplitSeq(text, "\n") {
+		trimmed := strings.TrimSpace(line)
+		if trimmed == "[SPOTLIGHT]" {
+			res.ShowSpotlight = true
+			continue
+		}
+		if strings.HasPrefix(trimmed, "[GUILD:") && strings.HasSuffix(trimmed, "]") {
+			res.GuildImageQuery = strings.TrimSuffix(strings.TrimPrefix(trimmed, "[GUILD:"), "]")
+			continue
+		}
+		lines = append(lines, line)
+	}
+	res.Text = removeBlankLines(strings.Join(lines, "\n"))
+	return res
 }
 
 type cliResult struct {
