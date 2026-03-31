@@ -17,7 +17,7 @@ func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing guilds.json")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
 	root := flag.String("root", rootDir(), "root directory containing guilds.json")
-	forceRole := flag.Bool("force-role", false, "reassign Base Builder role to all thread authors")
+	_ = flag.Bool("force-role", false, "reassign Base Builder role to all thread authors (deprecated, now always runs)")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -26,6 +26,7 @@ func main() {
 
 	token := requireEnv("RUBY_BOT_TOKEN")
 	forumChannelID := requireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	soloForumChannelID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 
@@ -48,10 +49,8 @@ func main() {
 	}
 
 	updated, stats, err := discord.Sync(bot, guilds, discord.SyncConfig{
-		ForumChannelID:    forumChannelID,
-		BaseBuilderRoleID: baseBuilderRoleID,
-		DryRun:            *dryRun,
-		ForceRoleAssign:   *forceRole,
+		ForumChannelID: forumChannelID,
+		DryRun:         *dryRun,
 	})
 	if err != nil {
 		bot.NotifyIf(!*noNotify, "💥 **Guilds failed to synchronize!** — "+err.Error())
@@ -65,6 +64,17 @@ func main() {
 		if err := guild.Save(*root, updated); err != nil {
 			slog.Error("saving guilds", "err", err)
 			os.Exit(1)
+		}
+	}
+
+	if !*dryRun && baseBuilderRoleID != "" {
+		for _, ch := range []string{forumChannelID, soloForumChannelID} {
+			if ch == "" {
+				continue
+			}
+			if err := discord.AssignRoleToForumAuthors(bot.Session, ch, baseBuilderRoleID); err != nil {
+				slog.Warn("assigning base builder roles", "channel", ch, "err", err)
+			}
 		}
 	}
 

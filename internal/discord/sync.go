@@ -30,10 +30,8 @@ type SyncStats struct {
 }
 
 type SyncConfig struct {
-	ForumChannelID    string
-	BaseBuilderRoleID string
-	DryRun            bool
-	ForceRoleAssign   bool
+	ForumChannelID string
+	DryRun         bool
 }
 
 type threadData struct {
@@ -89,75 +87,101 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		}
 	}
 
-	slog.Info("collecting reaction data for voter weights", "threads", len(threads))
-	threadReactions, voterWeights := collectReactions(b.Session, threads)
-	slog.Info("voter weights computed", "voters", len(voterWeights))
-
-	type work struct {
-		thread    *discordgo.Channel
+	type contentWork struct {
+		thread *discordgo.Channel
+		idx    int
+	}
+	type contentResult struct {
 		idx       int
-		reactions map[string][]string // emoji → []userID, pre-fetched
+		thread    *discordgo.Channel
+		data      threadData
+		reactions map[string][]string // emoji → []userID for this thread
 	}
 
-	jobs := make(chan work, len(threads))
-	results := make(chan threadResult, len(threads))
+	contentJobs := make(chan contentWork, len(threads))
+	contentResults := make(chan contentResult, len(threads))
 
 	var wg sync.WaitGroup
 	for range numWorkers {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			for j := range jobs {
-				data := fetchThreadData(b.Session, j.thread, j.reactions, voterWeights)
-
-				var tags []string
-				for _, tagID := range j.thread.AppliedTags {
-					if name, ok := tagMap[tagID]; ok {
-						tags = append(tags, name)
-					}
+			for j := range contentJobs {
+				contentResults <- contentResult{
+					idx:       j.idx,
+					thread:    j.thread,
+					data:      fetchThreadContent(b.Session, j.thread),
+					reactions: fetchThreadReactions(b.Session, j.thread.ID),
 				}
-
-				g := guilds[j.idx]
-				if g.ID == "" && data.ID != "" {
-					g.ID = data.ID
-				}
-				if data.GuildName != "" && !strings.EqualFold(data.GuildName, g.Name) {
-					g.GuildName = data.GuildName
-				}
-				g.Builders = data.Builders
-				g.Tags = tags
-				g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", j.thread.GuildID, j.thread.ID)
-				g.Score = data.Score
-				g.Screenshots = data.Screenshots
-				g.Videos = data.Videos
-				g.Lore = data.Lore
-				g.WhatToVisit = data.WhatToVisit
-
-				results <- threadResult{idx: j.idx, guild: g, authorID: data.AuthorID}
 			}
 		}()
 	}
 
 	for _, thread := range threads {
 		idx := guildMap[strings.ToLower(guild.ExtractName(thread.Name))]
-		jobs <- work{thread: thread, idx: idx, reactions: threadReactions[thread.ID]}
+		contentJobs <- contentWork{thread: thread, idx: idx}
 	}
-	close(jobs)
+	close(contentJobs)
 
 	go func() {
 		wg.Wait()
-		close(results)
+		close(contentResults)
 	}()
 
-	// build set of users who already have the role — skipped when forcing
-	assignedUsers := make(map[string]bool)
-	if !cfg.ForceRoleAssign {
-		for _, g := range guilds {
-			if g.BuilderDiscordID != "" {
-				assignedUsers[g.BuilderDiscordID] = true
+	// Collect all results, then compute voter weights from the global reaction picture.
+	rawResults := make([]contentResult, 0, len(threads))
+	userGuilds := make(map[string]map[string]bool)
+	for r := range contentResults {
+		rawResults = append(rawResults, r)
+		for _, users := range r.reactions {
+			for _, uid := range users {
+				if userGuilds[uid] == nil {
+					userGuilds[uid] = make(map[string]bool)
+				}
+				userGuilds[uid][r.thread.ID] = true
 			}
 		}
 	}
+
+	voterWeights := make(map[string]int, len(userGuilds))
+	for uid, guilds := range userGuilds {
+		if w := voterWeight(len(guilds)); w > 0 {
+			voterWeights[uid] = w
+		}
+	}
+	slog.Info("voter weights computed", "voters", len(voterWeights))
+
+	results := make(chan threadResult, len(rawResults))
+	for _, r := range rawResults {
+		data := r.data
+		data.Score = computeScore(r.reactions, voterWeights, data.Lore, data.WhatToVisit)
+
+		var tags []string
+		for _, tagID := range r.thread.AppliedTags {
+			if name, ok := tagMap[tagID]; ok {
+				tags = append(tags, name)
+			}
+		}
+
+		g := guilds[r.idx]
+		if g.ID == "" && data.ID != "" {
+			g.ID = data.ID
+		}
+		if data.GuildName != "" && !strings.EqualFold(data.GuildName, g.Name) {
+			g.GuildName = data.GuildName
+		}
+		g.Builders = data.Builders
+		g.Tags = tags
+		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
+		g.Score = data.Score
+		g.Screenshots = data.Screenshots
+		g.Videos = data.Videos
+		g.Lore = data.Lore
+		g.WhatToVisit = data.WhatToVisit
+
+		results <- threadResult{idx: r.idx, guild: g, authorID: data.AuthorID}
+	}
+	close(results)
 
 	for r := range results {
 		prev := guilds[r.idx]
@@ -167,13 +191,6 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 			stats.UpdatedNames = append(stats.UpdatedNames, r.guild.Name)
 		}
 
-		// assign role once per user across all guilds, safe because results loop is sequential
-		if !cfg.DryRun && cfg.BaseBuilderRoleID != "" && r.authorID != "" {
-			if !assignedUsers[r.authorID] {
-				AssignBaseBuilderRole(b.Session, forumChannel.GuildID, r.authorID, cfg.BaseBuilderRoleID)
-				assignedUsers[r.authorID] = true
-			}
-		}
 		r.guild.BuilderDiscordID = r.authorID
 
 		guilds[r.idx] = r.guild
@@ -214,7 +231,7 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 	return threads, nil
 }
 
-func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel, reactions map[string][]string, weights map[string]int) threadData {
+func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadData {
 	msgs, err := s.ChannelMessages(thread.ID, 1, "", "0", "")
 	if err != nil || len(msgs) == 0 {
 		slog.Warn("fetching messages", "thread", thread.ID, "err", err)
@@ -222,7 +239,22 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel, reactions 
 	}
 
 	id, guildName, builders, lore, whatToVisit := guild.ParseFirstPost(msgs[0].Content)
+	authorID := msgs[0].Author.ID
+	screenshots, videos := collectMedia(s, thread.ID, authorID)
 
+	return threadData{
+		ID:          id,
+		GuildName:   guildName,
+		AuthorID:    authorID,
+		Builders:    builders,
+		Screenshots: screenshots,
+		Videos:      videos,
+		Lore:        lore,
+		WhatToVisit: whatToVisit,
+	}
+}
+
+func computeScore(reactions map[string][]string, weights map[string]int, lore, whatToVisit string) int {
 	score := 0
 	for emoji, users := range reactions {
 		pts := 0
@@ -236,35 +268,13 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel, reactions 
 			score += pts * weights[uid]
 		}
 	}
-
 	if lore != "" {
 		score += scoreLoreBonus
 	}
 	if whatToVisit != "" {
 		score += scoreVisitBonus
 	}
-
-	slog.Debug("score calculated",
-		"thread", thread.Name,
-		"weighted_score", score,
-		"lore_bonus", lore != "",
-		"visit_bonus", whatToVisit != "",
-	)
-
-	authorID := msgs[0].Author.ID
-	screenshots, videos := collectMedia(s, thread.ID, authorID)
-
-	return threadData{
-		ID:          id,
-		GuildName:   guildName,
-		AuthorID:    authorID,
-		Builders:    builders,
-		Score:       score,
-		Screenshots: screenshots,
-		Videos:      videos,
-		Lore:        lore,
-		WhatToVisit: whatToVisit,
-	}
+	return score
 }
 
 // voterWeight returns the reaction weight for a user based on how many distinct
@@ -288,93 +298,31 @@ var scoredEmojis = []string{
 	"🔥",
 }
 
-const numReactionWorkers = 20
-
-type reactionJob struct {
-	threadID string
-	emoji    string
-}
-
-type reactionResult struct {
-	threadID string
-	emoji    string
-	userIDs  []string
-}
-
-// collectReactions fetches all reactor user IDs for each scored emoji across
-// all threads in parallel. Returns:
-//   - threadReactions: threadID → emoji → []userID
-//   - voterWeights:    userID → weight (based on breadth of voting)
-func collectReactions(s *discordgo.Session, threads []*discordgo.Channel) (map[string]map[string][]string, map[string]int) {
-	jobs := make(chan reactionJob, len(threads)*len(scoredEmojis))
-	results := make(chan reactionResult, len(threads)*len(scoredEmojis))
-
-	var wg sync.WaitGroup
-	for range numReactionWorkers {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for j := range jobs {
-				var ids []string
-				var after string
-				for {
-					page, err := s.MessageReactions(j.threadID, j.threadID, j.emoji, 100, "", after)
-					if err != nil || len(page) == 0 {
-						break
-					}
-					for _, u := range page {
-						ids = append(ids, u.ID)
-					}
-					after = page[len(page)-1].ID
-					if len(page) < 100 {
-						break
-					}
-				}
-				results <- reactionResult{threadID: j.threadID, emoji: j.emoji, userIDs: ids}
+// fetchThreadReactions fetches all reactor user IDs for each scored emoji in a single thread.
+// Returns emoji → []userID.
+func fetchThreadReactions(s *discordgo.Session, threadID string) map[string][]string {
+	reactions := make(map[string][]string)
+	for _, emoji := range scoredEmojis {
+		var ids []string
+		var after string
+		for {
+			page, err := s.MessageReactions(threadID, threadID, emoji, 100, "", after)
+			if err != nil || len(page) == 0 {
+				break
 			}
-		}()
-	}
-
-	for _, thread := range threads {
-		for _, emoji := range scoredEmojis {
-			jobs <- reactionJob{threadID: thread.ID, emoji: emoji}
-		}
-	}
-	close(jobs)
-
-	go func() {
-		wg.Wait()
-		close(results)
-	}()
-
-	threadReactions := make(map[string]map[string][]string, len(threads))
-	userGuilds := make(map[string]map[string]bool)
-
-	for r := range results {
-		if len(r.userIDs) == 0 {
-			continue
-		}
-		if threadReactions[r.threadID] == nil {
-			threadReactions[r.threadID] = make(map[string][]string)
-		}
-		threadReactions[r.threadID][r.emoji] = r.userIDs
-		for _, uid := range r.userIDs {
-			if userGuilds[uid] == nil {
-				userGuilds[uid] = make(map[string]bool)
+			for _, u := range page {
+				ids = append(ids, u.ID)
 			}
-			userGuilds[uid][r.threadID] = true
+			after = page[len(page)-1].ID
+			if len(page) < 100 {
+				break
+			}
+		}
+		if len(ids) > 0 {
+			reactions[emoji] = ids
 		}
 	}
-
-	weights := make(map[string]int, len(userGuilds))
-	for uid, guilds := range userGuilds {
-		w := voterWeight(len(guilds))
-		if w > 0 {
-			weights[uid] = w
-		}
-		slog.Debug("voter weight", "user", uid, "distinct_guilds", len(guilds), "weight", w)
-	}
-	return threadReactions, weights
+	return reactions
 }
 
 func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots, videos []string) {

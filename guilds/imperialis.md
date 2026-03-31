@@ -26,13 +26,13 @@ There’s no special lore, I just love building and wanted to create a place tha
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209137057300490/rhd2v6n.png?ex=69ccec31&is=69cb9ab1&hm=394c9fe2e9b566e8518afae9303618dace8377340336e5f8b0bdc84e45f0bdb0&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209137057300490/rhd2v6n.png?ex=69cd94f1&is=69cc4371&hm=0c67c724672a9c865849121de5b3b56b95bf47d8887dc57c5f216fec7d05cf4c&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209062222266539/9nf4bmv.png?ex=69ccec1f&is=69cb9a9f&hm=6e407c93e9efd6bf021dfa95b04d711c4eef592c4126a02c622901037af63c97&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209062222266539/9nf4bmv.png?ex=69cd94df&is=69cc435f&hm=ba8e7d64b5d4f30db081288c359524095b5e28db18e29162f2d141e93163c5a4&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209011366592665/555jxsn.png?ex=69ccec13&is=69cb9a93&hm=90c72c34303e10fb1f56e0eaa1ad366395b68e6b6476c826dd05cb73fc207bb9&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209011366592665/555jxsn.png?ex=69cd94d3&is=69cc4353&hm=c327724f47df1c2d9c012770c2c766263d60990b5ba77fb4d98cdd833852e07a&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208982941536286/3nqvrj4.png?ex=69ccec0c&is=69cb9a8c&hm=c153afcb0e12ea724000b2ab5f8e7d82c6be771a8026bf93c30b30a9bc957e07&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208982941536286/3nqvrj4.png?ex=69cd94cc&is=69cc434c&hm=f524e2a15e41251b48bb346c4cb0885b03460582a32ca5ebda40b60e98a0ec81&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208853081948160/v2h3s9q.png?ex=69ccebed&is=69cb9a6d&hm=dfb9b114dd3e165df6099a4d74309a21dec61fa1563c126aeb231933a275b922&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208853081948160/v2h3s9q.png?ex=69cd94ad&is=69cc432d&hm=0ad8dcf5d4a9902df73c6ed8cd6b7e00c36074215bf0f6d623fbb1a765550563&)
 
