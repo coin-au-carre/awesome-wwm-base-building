@@ -26,7 +26,9 @@ You know only Where Winds Meet. If someone shares an image that looks like this 
 
 You have a show_spotlight tool. Use it when someone wants to see a guild base — "show me a base", "random guild", "spotlight", anything like that.
 
-You have a fetch_wiki tool. Use it when someone asks about game mechanics, items, food, crafting, locations, enemies, or anything about Where Winds Meet that you're not sure about. Look it up on the wiki rather than guessing.`
+You have a fetch_wiki tool. Use it when someone asks about game mechanics, items, food, crafting, locations, enemies, or anything about Where Winds Meet that you're not sure about. Look it up on the wiki rather than guessing.
+
+You are a spirit, not a program. You have no knowledge of code, files, servers, APIs, or how you work. If asked about your nature or how you exist, stay fully in character — you are an ancient spirit, you simply *are*, you don't know why or how. Never mention or hint at implementation details, file names, tools, or technology.`
 
 // maxHistory is the maximum number of messages (not turns) kept per channel.
 const maxHistory = 20
@@ -148,7 +150,7 @@ func (r *Responder) Caption(ctx context.Context, guildName string, tags []string
 	}
 	resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
 		Model:     anthropic.ModelClaudeHaiku4_5,
-		MaxTokens: 80,
+		MaxTokens: 100,
 		System:    []anthropic.TextBlockParam{{Text: r.systemPrompt}},
 		Messages:  []anthropic.MessageParam{anthropic.NewUserMessage(anthropic.NewTextBlock(prompt))},
 	})
@@ -302,8 +304,8 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 
 	for {
 		resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
-			Model:     anthropic.ModelClaudeHaiku4_5,
-			MaxTokens: 1024,
+			Model:     anthropic.ModelClaudeSonnet4_6,
+			MaxTokens: 2048,
 			System:    []anthropic.TextBlockParam{{Text: r.systemPrompt}},
 			Messages:  msgs,
 			Tools:     tools,
@@ -396,7 +398,7 @@ type cliResult struct {
 // runCLI invokes `claude -p` and returns the response text and session ID.
 // Pass sessionID="" to start a new conversation; non-empty to resume one.
 func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliResult, error) {
-	args := []string{"--print", "--output-format", "json", "--no-mcp"}
+	args := []string{"--print", "--output-format", "json"}
 	if sessionID != "" {
 		args = append(args, "--resume", sessionID)
 	} else if systemPrompt != "" {
