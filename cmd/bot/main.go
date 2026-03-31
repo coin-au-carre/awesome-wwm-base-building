@@ -13,6 +13,8 @@ import (
 
 	"ruby/internal/discord"
 
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
 )
@@ -27,7 +29,6 @@ func main() {
 	}
 
 	token := requireEnv("RUBY_BOT_TOKEN")
-	claudeKey := requireEnv("ANTHROPIC_API_KEY")
 
 	channelEnvKey := "RUBY_CHANNEL_ID"
 	if *dev {
@@ -45,7 +46,7 @@ func main() {
 	}
 	defer bot.Close()
 
-	responder := discord.NewResponder(claudeKey, *root)
+	responder := buildResponder(*root)
 
 	bot.Session.AddHandler(onReady())
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
@@ -160,4 +161,16 @@ func rootDir() string {
 		return "."
 	}
 	return ".."
+}
+
+// buildResponder returns a Responder using ANTHROPIC_API_KEY if set,
+// otherwise falls back to the `claude` CLI (Pro subscription via Claude Code).
+func buildResponder(root string) *discord.Responder {
+	if key := os.Getenv("ANTHROPIC_API_KEY"); key != "" {
+		slog.Info("claude: using ANTHROPIC_API_KEY")
+		c := anthropic.NewClient(option.WithAPIKey(key))
+		return discord.NewResponder(&c, root)
+	}
+	slog.Info("claude: no API key found, using Claude Code CLI (Pro subscription)")
+	return discord.NewCLIResponder(root)
 }
