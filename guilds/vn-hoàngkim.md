@@ -13,7 +13,7 @@ Ying Yang arena, prison, mountain
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645668926853120/202632645236.png?ex=69ccd9ac&is=69cb882c&hm=e12fb113e180904c131a2de03aa001d2eaa16785eb0a7ddb975f8196de88f67d&)
 

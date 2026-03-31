@@ -23,7 +23,13 @@ Just immerse yourself in the world of a simple mountain village, its narrow stre
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
+
+### 🎥 Videos
+
+<iframe width="100%" src="https://www.youtube.com/embed/8vw7ymmBJiM" frameborder="0" allowfullscreen></iframe>
+
+### 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486717348718313553/1486719466535653636/image.png?ex=69cc75a6&is=69cb2426&hm=e510114d4675a13a1a00e0890ebf6ffe1bba12be02812c2c352aaa1cba5929db&)
 

@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -60,13 +61,29 @@ func buildPage(g *guild.Guild, dir string) string {
 		sb.WriteString("## 🗺️ What to Visit\n\n" + strings.ReplaceAll(g.WhatToVisit, "\n", "  \n") + "\n\n")
 	}
 
-	sb.WriteString("---\n\n## 📸 Screenshots\n\n")
-	if len(g.Screenshots) > 0 {
+	hasVideos := len(g.Videos) > 0
+	hasShots := len(g.Screenshots) > 0
+	hasBoth := hasVideos && hasShots
+
+	sb.WriteString("---\n\n## 🎬 Media\n\n")
+	if hasVideos {
+		if hasBoth {
+			sb.WriteString("### 🎥 Videos\n\n")
+		}
+		for _, v := range g.Videos {
+			sb.WriteString(renderVideo(v))
+		}
+	}
+	if hasShots {
+		if hasBoth {
+			sb.WriteString("### 📸 Screenshots\n\n")
+		}
 		for _, url := range g.Screenshots {
 			fmt.Fprintf(&sb, "![screenshot](%s)\n\n", url)
 		}
-	} else {
-		sb.WriteString("*No screenshots available yet.*\n\n")
+	}
+	if !hasVideos && !hasShots {
+		sb.WriteString("*No media available yet.*\n\n")
 		fmt.Fprintf(&sb,
 			"📸 **Want to showcase this guild base?**\n\n"+
 				"[Join our Discord](%s) and post your screenshots in %s — "+
@@ -132,6 +149,33 @@ func buildDiscordTemplate(g *guild.Guild) string {
 	sb.WriteString("- Collect votes ⭐\n\n")
 	sb.WriteString(discordTemplateBody(templateName, id, builders))
 	return sb.String()
+}
+
+// renderVideo returns an HTML snippet for a video URL.
+// YouTube links are embedded as iframes; direct video files use <video>.
+func renderVideo(rawURL string) string {
+	if id := youtubeVideoID(rawURL); id != "" {
+		return fmt.Sprintf(
+			"<iframe width=\"100%%\" src=\"https://www.youtube.com/embed/%s\" frameborder=\"0\" allowfullscreen></iframe>\n\n",
+			id,
+		)
+	}
+	return fmt.Sprintf("<video controls src=%q width=\"100%%\"></video>\n\n", rawURL)
+}
+
+// youtubeVideoID extracts the video ID from a YouTube URL, or returns "".
+func youtubeVideoID(rawURL string) string {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return ""
+	}
+	switch u.Host {
+	case "youtu.be":
+		return strings.TrimPrefix(u.Path, "/")
+	case "www.youtube.com", "youtube.com":
+		return u.Query().Get("v")
+	}
+	return ""
 }
 
 func buildGenericDiscordTemplate() string {

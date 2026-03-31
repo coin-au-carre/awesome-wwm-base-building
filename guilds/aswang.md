@@ -9,7 +9,7 @@
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1484176367989031002/1484176368571908227/202631921552.png?ex=69cc6fb4&is=69cb1e34&hm=56251c392a0c95b028f386e9e754e5d1d147ed568bc987c823612e96c8d11f5e&)
 

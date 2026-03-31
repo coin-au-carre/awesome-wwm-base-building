@@ -20,7 +20,7 @@ Plaza with giant ah tree
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1487878510260519063/1487878511950696530/20262905130.png?ex=69ccb898&is=69cb6718&hm=89d46e70ab47c830116b05b20fc278f966597f7070b2dc50a97d147d9fef63a6&)
 

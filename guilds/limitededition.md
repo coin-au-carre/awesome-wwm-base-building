@@ -42,7 +42,13 @@ If you continue through the garden, you’ll reach the massage salon (massage th
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
+
+### 🎥 Videos
+
+<video controls src="https://cdn.discordapp.com/attachments/1487805630382342216/1487806113461309490/c8c481454a0abc5f.mp4?ex=69cc752b&is=69cb23ab&hm=6617a0dd3df9746613d35216063d497e129c6f57453fa00f3bee08440fbcaef1&" width="100%"></video>
+
+### 📸 Screenshots
 
 ![screenshot](https://cdn.discordapp.com/attachments/1487805630382342216/1487806071106965595/19c727428605-screenshotUrl.jpg?ex=69cc7521&is=69cb23a1&hm=08d0e6f12d0d62a5e902d421c435634df71140edc05f100f680003c1207b182d&)
 

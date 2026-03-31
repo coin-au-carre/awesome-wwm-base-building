@@ -26,7 +26,7 @@ This build was inspired by my love for Xianxia dramas — I wanted to recreate t
 
 ---
 
-## 📸 Screenshots
+## 🎬 Media
 
 ![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736304103362590/2026322123318.png?ex=69cc8555&is=69cb33d5&hm=f318e8177692a594cb448bd592ac9861b72792f26d9c3715cdb2d29404d700bf&)
 
