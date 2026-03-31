@@ -5,7 +5,7 @@
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 MoonlitPath</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Meffphy/cresa</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Cave, Nature, Mountain</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>10</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>14</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1487038995929235556">View thread</a></td></tr>
 </table>
 

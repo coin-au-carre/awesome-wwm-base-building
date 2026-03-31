@@ -271,9 +271,11 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel, reactions 
 // guilds they reacted to: 0 if <4, 1 if 4–7, 2 if 8+.
 func voterWeight(distinctGuilds int) int {
 	switch {
-	case distinctGuilds >= 8:
+	case distinctGuilds >= 9:
+		return 3
+	case distinctGuilds >= 6:
 		return 2
-	case distinctGuilds >= 4:
+	case distinctGuilds >= 2:
 		return 1
 	default:
 		return 0
