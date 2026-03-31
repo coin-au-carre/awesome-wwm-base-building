@@ -229,7 +229,7 @@ func fetchThreadData(s *discordgo.Session, thread *discordgo.Channel, reactions 
 		switch emoji {
 		case "⭐":
 			pts = scorePerStar
-		case "👍", "🔥":
+		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥":
 			pts = scorePerLike
 		}
 		for _, uid := range users {
@@ -282,7 +282,11 @@ func voterWeight(distinctGuilds int) int {
 	}
 }
 
-var scoredEmojis = []string{"⭐", "👍", "🔥"}
+var scoredEmojis = []string{
+	"⭐",
+	"👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿",
+	"🔥",
+}
 
 const numReactionWorkers = 20
 
