@@ -156,11 +156,11 @@ func buildDiscordTemplate(g *guild.Guild) string {
 func renderVideo(rawURL string) string {
 	if id := youtubeVideoID(rawURL); id != "" {
 		return fmt.Sprintf(
-			"<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/%s\" frameborder=\"0\" allowfullscreen></iframe>\n\n",
+			"<iframe width=\"840\" height=\"472\" src=\"https://www.youtube.com/embed/%s\" frameborder=\"0\" allowfullscreen></iframe>\n\n",
 			id,
 		)
 	}
-	return fmt.Sprintf("<video controls src=%q width=\"560\" height=\"315\"></video>\n\n", rawURL)
+	return fmt.Sprintf("<video controls src=%q width=\"840\" height=\"472\"></video>\n\n", rawURL)
 }
 
 // youtubeVideoID extracts the video ID from a YouTube URL, or returns "".
