@@ -32,7 +32,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Iridium [YOUR_GUILD_ID]
+## :japanese_castle: Iridium [guild_id]
 :construction_worker: Builders: xJiune
 
 ### :pencil: Lore

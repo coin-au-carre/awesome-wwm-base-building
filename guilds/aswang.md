@@ -30,7 +30,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: ASWANG [YOUR_GUILD_ID]
+## :japanese_castle: ASWANG [guild_id]
 :construction_worker: Builders: Kadlum
 
 ### :pencil: Lore

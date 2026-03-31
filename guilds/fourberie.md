@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Fourberie [YOUR_GUILD_ID]
+## :japanese_castle: Fourberie [guild_id]
 :construction_worker: Builders: Chocah
 
 ### :pencil: Lore

@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: WushuChaos [YOUR_GUILD_ID]
+## :japanese_castle: WushuChaos [guild_id]
 :construction_worker: Builders: Sakiz, Kenshii-
 
 ### :pencil: Lore

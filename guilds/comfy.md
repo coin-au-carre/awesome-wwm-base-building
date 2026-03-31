@@ -33,7 +33,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Comfy [YOUR_GUILD_ID]
+## :japanese_castle: Comfy [guild_id]
 :construction_worker: Builders: MikeRize, Plumi
 
 ### :pencil: Lore

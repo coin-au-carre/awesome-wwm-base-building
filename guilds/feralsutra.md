@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: FeralSutra [YOUR_GUILD_ID]
+## :japanese_castle: FeralSutra [guild_id]
 :construction_worker: Builders: Zerxsai
 
 ### :pencil: Lore

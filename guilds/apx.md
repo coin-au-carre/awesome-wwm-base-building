@@ -28,7 +28,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: APX [YOUR_GUILD_ID]
+## :japanese_castle: APX [guild_id]
 :construction_worker: Builders: Builder1, Builder2
 
 ### :pencil: Lore

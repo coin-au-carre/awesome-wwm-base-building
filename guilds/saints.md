@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Saints [YOUR_GUILD_ID]
+## :japanese_castle: Saints [guild_id]
 :construction_worker: Builders: SupremeLoner
 
 ### :pencil: Lore

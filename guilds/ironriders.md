@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: IronRiders [YOUR_GUILD_ID]
+## :japanese_castle: IronRiders [guild_id]
 :construction_worker: Builders: The-Builder
 
 ### :pencil: Lore

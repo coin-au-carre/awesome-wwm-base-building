@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: NhatNguyet [YOUR_GUILD_ID]
+## :japanese_castle: NhatNguyet [guild_id]
 :construction_worker: Builders: LôiThiênHàa
 
 ### :pencil: Lore

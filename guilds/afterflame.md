@@ -36,7 +36,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: AfterFlame [YOUR_GUILD_ID]
+## :japanese_castle: AfterFlame [guild_id]
 :construction_worker: Builders: FoxiKate
 
 ### :pencil: Lore

@@ -36,7 +36,7 @@ The labyrinth...
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Party-Crashers [YOUR_GUILD_ID]
+## :japanese_castle: Party-Crashers [guild_id]
 :construction_worker: Builders: yar
 
 ### :pencil: Lore

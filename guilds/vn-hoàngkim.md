@@ -15,9 +15,9 @@ Ying Yang arena, prison, mountain
 
 ## 📸 Screenshots
 
-![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645668926853120/202632645236.png?ex=69cc30ec&is=69cadf6c&hm=23ca8d3a9cd151d69021398d54997076ed3f34d68babf283c6868ed837c03979&)
+![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645668926853120/202632645236.png?ex=69ccd9ac&is=69cb882c&hm=e12fb113e180904c131a2de03aa001d2eaa16785eb0a7ddb975f8196de88f67d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69cc30ec&is=69cadf6c&hm=c16c17701b1a2e1fd0601b90d1e195a8dcbe64c802b120f3708444e9d5adb101&)
+![screenshot](https://cdn.discordapp.com/attachments/1486645667878404247/1486645669845270528/20263123748.png?ex=69ccd9ac&is=69cb882c&hm=d8f17f00cd746096ce16e9ba7d16db0653d39d1ac8f14b389cb31516219c5a1d&)
 
 
 ---
@@ -34,7 +34,7 @@ Ying Yang arena, prison, mountain
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: VN-HoàngKim [YOUR_GUILD_ID]
+## :japanese_castle: VN-HoàngKim [guild_id]
 :construction_worker: Builders: zzBenT
 
 ### :pencil: Lore

@@ -27,7 +27,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: Liberty-City [YOUR_GUILD_ID]
+## :japanese_castle: Liberty-City [guild_id]
 :construction_worker: Builders: Ju-Kyung, Seong-Je
 
 ### :pencil: Lore

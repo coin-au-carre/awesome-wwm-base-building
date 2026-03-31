@@ -29,7 +29,7 @@
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: TSUKIBANA [YOUR_GUILD_ID]
+## :japanese_castle: TSUKIBANA [guild_id]
 :construction_worker: Builders: Min-Woh
 
 ### :pencil: Lore
