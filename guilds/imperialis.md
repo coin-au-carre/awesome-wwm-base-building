@@ -26,13 +26,13 @@ There’s no special lore, I just love building and wanted to create a place tha
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209137057300490/rhd2v6n.png?ex=69cd94f1&is=69cc4371&hm=0c67c724672a9c865849121de5b3b56b95bf47d8887dc57c5f216fec7d05cf4c&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209137057300490/rhd2v6n.png?ex=69ce3db1&is=69ccec31&hm=6c633bdc5941a2500273713313d0b834b836a20c56a55ff08458a13628a1eefc&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209062222266539/9nf4bmv.png?ex=69cd94df&is=69cc435f&hm=ba8e7d64b5d4f30db081288c359524095b5e28db18e29162f2d141e93163c5a4&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209062222266539/9nf4bmv.png?ex=69ce3d9f&is=69ccec1f&hm=ba32a884bf2afcc2856771ebec2d7f3a19e70728f5c0648da3a9c76c359a6589&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209011366592665/555jxsn.png?ex=69cd94d3&is=69cc4353&hm=c327724f47df1c2d9c012770c2c766263d60990b5ba77fb4d98cdd833852e07a&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487209011366592665/555jxsn.png?ex=69ce3d93&is=69ccec13&hm=5dc7a3353241493811921b2c20fc354ee3eed8c5649b6a4d444cecc82eb647f3&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208982941536286/3nqvrj4.png?ex=69cd94cc&is=69cc434c&hm=f524e2a15e41251b48bb346c4cb0885b03460582a32ca5ebda40b60e98a0ec81&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208982941536286/3nqvrj4.png?ex=69ce3d8c&is=69ccec0c&hm=026fcca48d9f6596537f56a823ae2d996262aede62dab4472f517e822caf84e6&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208853081948160/v2h3s9q.png?ex=69cd94ad&is=69cc432d&hm=0ad8dcf5d4a9902df73c6ed8cd6b7e00c36074215bf0f6d623fbb1a765550563&)
+![screenshot](https://cdn.discordapp.com/attachments/1487208852649807983/1487208853081948160/v2h3s9q.png?ex=69ce3d6d&is=69ccebed&hm=86759c7d08e2441914c1c44fb47767698abf96faba6a3431eaa11a4b4121b138&)
 

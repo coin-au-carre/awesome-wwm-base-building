@@ -5,7 +5,7 @@
   <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Hellsing(SEA)</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Eulreiss</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Floating island, Nature</td></tr>
-  <tr><td>⭐ <b>Score</b></td><td>22</td></tr>
+  <tr><td>⭐ <b>Score</b></td><td>25</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1486736303264497817">View thread</a></td></tr>
 </table>
 
@@ -28,23 +28,23 @@ This build was inspired by my love for Xianxia dramas — I wanted to recreate t
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736304103362590/2026322123318.png?ex=69cdd6d5&is=69cc8555&hm=8452ced526576ad488a63666f778491b1477887e26d45f963d90f3b66fc7954b&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736304103362590/2026322123318.png?ex=69ce7f95&is=69cd2e15&hm=f6ea0f729930f67f2157e4e940b5aed0621113c56d7fbbec47fb139fe76ee944&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736304703275209/2026322123737.png?ex=69cdd6d5&is=69cc8555&hm=e14c8f0602a22a5f73b8e1afe01fdf407d8a0973d61216fb708e6d34f74281ee&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736304703275209/2026322123737.png?ex=69ce7f95&is=69cd2e15&hm=c12b71820c4c2bb31e3b439d08eb03e2f319346f44c3ad44761624584319fcd7&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736305227567330/2026322124239.png?ex=69cdd6d5&is=69cc8555&hm=829e90af19edf450c8029cb46166a83953195761024a260a743855176b42c5a7&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736305227567330/2026322124239.png?ex=69ce7f95&is=69cd2e15&hm=afc952347be7ea5865964229dd4e9e90196f153587815219bdb70f6440870f44&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736305722232932/2026322124647.png?ex=69cdd6d5&is=69cc8555&hm=56c64a9f0e08431f19097b81e73b0da34070340fdd2144d02b21c9c689fc839e&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736305722232932/2026322124647.png?ex=69ce7f95&is=69cd2e15&hm=1b07bf1a235af8bd8fe3ba1c598cb63689a7591505ac33b331f1679136325d9a&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736306191991088/2026322124824.png?ex=69cdd6d5&is=69cc8555&hm=c0f30d89f3aaa6ed4331cf96dbef3b962297628857d349225915ac9d4c0792c0&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736306191991088/2026322124824.png?ex=69ce7f95&is=69cd2e15&hm=4a21158668163ee1427c0733b61bfca1fda21a3ab2e31f235e81176a41645101&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736306951164134/2026322125048.png?ex=69cdd6d5&is=69cc8555&hm=109e13022d3fb9ff93197fdc3a307b2f766824881356151342a1a671d5efb3a5&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736306951164134/2026322125048.png?ex=69ce7f95&is=69cd2e15&hm=8a753a9ee03d9929641d44c20b75f5f488c007e0e5412644dafa7e990a039c04&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736307492487248/2026322125148.png?ex=69cdd6d5&is=69cc8555&hm=795ec8d74a138afe01ce499d2f93d235a184dd1cbed1909ba28ddd1df4b8e97b&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736307492487248/2026322125148.png?ex=69ce7f95&is=69cd2e15&hm=8dffcc17b0da39cb57bba459823b7db2fc803c5a2153dbc94932fcd8d7ee84ae&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736307945476238/2026322131332.png?ex=69cdd6d6&is=69cc8556&hm=03559656b00731e2401b3b3c3799061572d7dea0225cff6be7e53bfd6b1d6dee&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736307945476238/2026322131332.png?ex=69ce7f96&is=69cd2e16&hm=9f1a9396fde3ba7ee85e8039af6e7fa42df4906d6233668783b51e0625fce2d1&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736308478021793/2026322133137.png?ex=69cdd6d6&is=69cc8556&hm=61f594ec6c6fa2173a34e61fdf50be6db4d15b57cf9bd1cc9c41b9b4776e7d38&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736308478021793/2026322133137.png?ex=69ce7f96&is=69cd2e16&hm=adbc1900c1d8adb4d09af179e7eb61eb033b67cf2478d753e675dd6db380aaff&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736309018951700/2026322133537.png?ex=69cdd6d6&is=69cc8556&hm=ee526e09aed162bd53dbabe1eb195dd552433098145d587c61ab80285c01c235&)
+![screenshot](https://cdn.discordapp.com/attachments/1486736303264497817/1486736309018951700/2026322133537.png?ex=69ce7f96&is=69cd2e16&hm=eff0c3a027f311d59b50f678a66d3d5248089211b408ebad7c12c67a9f986dc2&)
 

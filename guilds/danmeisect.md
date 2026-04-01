@@ -39,21 +39,21 @@ Thank you for taking the time to read this, and we hope you come by and try to f
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186330298618058/1774642750_zpM6dJ1F.jpg?ex=69cd7fb3&is=69cc2e33&hm=59e029b016dc41767df54776c8da65fe8313c67db2cd134b3d5ec8448f6228f5&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186330298618058/1774642750_zpM6dJ1F.jpg?ex=69ce2873&is=69ccd6f3&hm=6315ddebfbc3f6b252c52bc20febfd796ddb4dc55f33974620cfcf87a36298c2&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186331577614456/1774642789_5WfVchCi.jpg?ex=69cd7fb4&is=69cc2e34&hm=b5e4569a695ef71c895960c0a68097297356e021813333b9a8b79ab81c7e304b&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186331577614456/1774642789_5WfVchCi.jpg?ex=69ce2874&is=69ccd6f4&hm=1d134a70e3ec2e63f6fcbafa2537168c9f073f5a1c3b5c388f809fa9522b8a91&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332148043996/1774642818_gG61KWEn.jpg?ex=69cd7fb4&is=69cc2e34&hm=6dd256591862b5c00c3714d93d42f24beb433bdac86c89fa1b770db88f0d95bf&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332148043996/1774642818_gG61KWEn.jpg?ex=69ce2874&is=69ccd6f4&hm=12abdbf2e729595cbca39dd29e0ec719fac9d42037cdf9ac3f9aa1006d471a4f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332668395550/1774642855_F55ElQti.jpg?ex=69cd7fb4&is=69cc2e34&hm=9b313c537de4af8bfaecd340e3792532d42ef45bfdea8492263267a19d2d604c&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186332668395550/1774642855_F55ElQti.jpg?ex=69ce2874&is=69ccd6f4&hm=b828c942e4d169ef52c3ccaafe4eb755e0671291dfd4181d4788c7cc89ed46e7&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333196615711/1774642876_ERfZqnXs.jpg?ex=69cd7fb4&is=69cc2e34&hm=5d773432511ae77af5571bcbe90d55fcfb0a4c6b417a06656000ef8639f2adb4&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333196615711/1774642876_ERfZqnXs.jpg?ex=69ce2874&is=69ccd6f4&hm=114ed261203885f3fada61be13df0029fb40ab3eaaba64bdfa70581ff5868545&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333683286117/1774642915_bsJXuqrB.jpg?ex=69cd7fb4&is=69cc2e34&hm=8867fed06c46d24a044f8dd51e35b23c18248047e06d5136d7db5e247d6f1dc7&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186333683286117/1774642915_bsJXuqrB.jpg?ex=69ce2874&is=69ccd6f4&hm=717b7fe86936230d72f5fcdffa9b514a1c5f23d6eab52bad4fd276962087d96e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334203510844/1774642946_oYzxj0cY.jpg?ex=69cd7fb4&is=69cc2e34&hm=a2ba99f3edf4f70c77ef8ebea25db6e10da97da72cbb8129c1c42329ff7d0166&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334203510844/1774642946_oYzxj0cY.jpg?ex=69ce2874&is=69ccd6f4&hm=b9cc4bf18604bb444d8a95bd40579d0969a35cacd1db795a048f8453824f26ab&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334685593680/1774643026_Kd0v7kuR.jpg?ex=69cd7fb4&is=69cc2e34&hm=5bf32a8daf15f07a0ee1e9d61975ffc14196cb8555b47efecd518eb3eee44402&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186334685593680/1774643026_Kd0v7kuR.jpg?ex=69ce2874&is=69ccd6f4&hm=f3dea7fef09786343de080a0488274730256400ebf665b52f423aa35c3aca605&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186335210012692/1774643088_IrGYYaSl.jpg?ex=69cd7fb4&is=69cc2e34&hm=4eb79f0c130153730dd7daad1054bc117f223177e23462ab90acdbabb1eae19f&)
+![screenshot](https://cdn.discordapp.com/attachments/1487186326263435304/1487186335210012692/1774643088_IrGYYaSl.jpg?ex=69ce2874&is=69ccd6f4&hm=dd3b8ad816bf6bb6d315d69d432a6dadd62e6c21a0e8ab2e1e842bb66acd4f48&)
 
