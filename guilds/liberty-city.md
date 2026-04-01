@@ -10,7 +10,7 @@
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69cd177d&is=69cbc5fd&hm=84d0f25f73cb83e0e7f0ee54d7adef977db4e41d2483a0f06e8bceb2d47dd4d9&)
+![screenshot](https://cdn.discordapp.com/attachments/1484175329537953973/1484175330175619252/202631921128.png?ex=69cdc03d&is=69cc6ebd&hm=38a6a7d3adfcca4d6a2dda76bcfed02629a1018b8b922066c8164c5cb20a2fe5&)
 
 
 ---
