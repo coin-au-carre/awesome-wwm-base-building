@@ -1,7 +1,7 @@
 # Nínelives
 
 <table>
-  <tr><td>🔨 <b>Builders</b></td><td>Skysnip</td></tr>
+  <tr><td>🔨 <b>Builders</b></td><td>OPM, plop</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>0</td></tr>
 </table>
 
@@ -30,7 +30,7 @@
 
 <pre>
 ## :japanese_castle: Nínelives [guild_id]
-:construction_worker: Builders: Skysnip
+:construction_worker: Builders: OPM, plop
 
 ### :pencil: Lore
 Lore of the guild to fill if any...
