@@ -25,8 +25,9 @@ func AssignBaseBuilderRole(s *discordgo.Session, guildID, userID, roleID string)
 }
 
 // AssignRoleToForumAuthors fetches all threads in forumChannelID and assigns
-// roleID to each thread's original poster. Safe to call repeatedly.
-func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID string) error {
+// roleID to each thread's original poster, skipping any user ID in skipUsers.
+// Pass nil skipUsers to assign everyone (e.g. with --force-role).
+func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID string, skipUsers map[string]bool) error {
 	if forumChannelID == "" || roleID == "" {
 		return nil
 	}
@@ -49,7 +50,7 @@ func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID strin
 			continue
 		}
 		authorID := msgs[0].Author.ID
-		if assigned[authorID] {
+		if assigned[authorID] || skipUsers[authorID] {
 			continue
 		}
 		AssignBaseBuilderRole(s, guildID, authorID, roleID)

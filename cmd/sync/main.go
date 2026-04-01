@@ -17,7 +17,7 @@ func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing guilds.json")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
 	root := flag.String("root", rootDir(), "root directory containing guilds.json")
-	_ = flag.Bool("force-role", false, "reassign Base Builder role to all thread authors (deprecated, now always runs)")
+	forceRole := flag.Bool("force-role", false, "reassign Base Builder role to all thread authors, including already-known ones")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -48,6 +48,17 @@ func main() {
 		guilds = []guild.Guild{}
 	}
 
+	// Build skip-set of already-known authors before sync adds new ones.
+	var knownAuthors map[string]bool
+	if !*forceRole {
+		knownAuthors = make(map[string]bool, len(guilds))
+		for _, g := range guilds {
+			if g.BuilderDiscordID != "" {
+				knownAuthors[g.BuilderDiscordID] = true
+			}
+		}
+	}
+
 	updated, stats, err := discord.Sync(bot, guilds, discord.SyncConfig{
 		ForumChannelID: forumChannelID,
 		DryRun:         *dryRun,
@@ -72,7 +83,7 @@ func main() {
 			if ch == "" {
 				continue
 			}
-			if err := discord.AssignRoleToForumAuthors(bot.Session, ch, baseBuilderRoleID); err != nil {
+			if err := discord.AssignRoleToForumAuthors(bot.Session, ch, baseBuilderRoleID, knownAuthors); err != nil {
 				slog.Warn("assigning base builder roles", "channel", ch, "err", err)
 			}
 		}
