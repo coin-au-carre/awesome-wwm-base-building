@@ -11,7 +11,7 @@
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69cd64f6&is=69cc1376&hm=b2218db2e65bec741db9d4a4f3beda83497c4dffed0a49e45a874744e03e71f1&)
+![screenshot](https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=69ce0db6&is=69ccbc36&hm=bda5301678f99744815901127b46c70e62ed47a2188aac510d154ad29fcb2a0d&)
 
 
 ---

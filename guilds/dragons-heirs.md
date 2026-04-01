@@ -40,23 +40,23 @@ Dragon City is the seat of Dragons-Heirs — a living capital shaped by the will
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058308190961674/DH-Base_05.jpg?ex=69cd0878&is=69cbb6f8&hm=d22362d2e57bae2bdbf1764cf0b4bdec400b23244b9100a2d55e583fa521f629&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058308190961674/DH-Base_05.jpg?ex=69cdb138&is=69cc5fb8&hm=b3e2bf0caaf371c28d1675bfe3b2c67681bc72c2421a2cf852f3a569bd3f081f&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058309394469054/DH-Base_21.jpg?ex=69cd0879&is=69cbb6f9&hm=cdc49b9c960586eccf04d7e43fd4469b35fe1753b918400d68ffd3e6b3dc866e&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058309394469054/DH-Base_21.jpg?ex=69cdb139&is=69cc5fb9&hm=631fe2062784b6f9b52ee313059ded933708b7e80f029c002a78c37ff4ea6f05&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058310623662090/Dh-Base_01.jpg?ex=69cd0879&is=69cbb6f9&hm=51d84f12ebbfbcf737886905adbfe6de74af04263ab7fe523d4367bbd9814f32&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058310623662090/Dh-Base_01.jpg?ex=69cdb139&is=69cc5fb9&hm=4146451d27bcb0e910fae4ff2c8394c9301ebea1bcea891ebbc4755f4fa03035&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058311793741834/DH-Base_13.jpg?ex=69cd0879&is=69cbb6f9&hm=529328b9c4301112e0f8b38d5970aaba55488394e8d491f30e4c288b7a5b54e0&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058311793741834/DH-Base_13.jpg?ex=69cdb139&is=69cc5fb9&hm=53cc881e472d67f94a1a45e8c67c6ee6a449b040ffc2a8efc0f70b783cf8123e&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058312754233436/DH-Base_16.jpg?ex=69cd0879&is=69cbb6f9&hm=f4d772a133468e94d63e4bc8e2813a9ca2f0de3a162ad696a11790e51681524c&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058312754233436/DH-Base_16.jpg?ex=69cdb139&is=69cc5fb9&hm=9821f36ecbb9c08a5f1dcdd152e74284d224058c3c69b8a02fd88813f355e633&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058314117386400/DH-Base_20.jpg?ex=69cd087a&is=69cbb6fa&hm=63cf4b2e3b4da48f86301c5353c3b1f1bf19670c0ff8969564c4e597bb8df396&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058314117386400/DH-Base_20.jpg?ex=69cdb13a&is=69cc5fba&hm=e90c29a494b930f1c271ecedf9774b857ea23b11c3ebd38327900f9d116ed6f8&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058315379736747/DH-Base_08.jpg?ex=69cd087a&is=69cbb6fa&hm=5df666d54487a21a1f8a8e38163bb28d1f6526bcb580cda8aa3abbc385bf8c1c&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058315379736747/DH-Base_08.jpg?ex=69cdb13a&is=69cc5fba&hm=5b41bc59a0d1aede67f25c6d877cc5028986fd76c3f7cdd3c5b8e2ef55387bec&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058316751540345/DH-Base_07.jpg?ex=69cd087a&is=69cbb6fa&hm=d606300a09e09365df28c60b661f0ca5a9c102d573cc06fafa9f8d79848dd4b3&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058316751540345/DH-Base_07.jpg?ex=69cdb13a&is=69cc5fba&hm=adac487f39353d6d2719cd131310724835c406a3ac625c62b83617f8f7f7b914&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058317783334972/DH-Base_10.jpg?ex=69cd087b&is=69cbb6fb&hm=34abe682ad268c4f60393b0dcbeec7d1360012b3c6932eab7c9340f61319d65d&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058317783334972/DH-Base_10.jpg?ex=69cdb13b&is=69cc5fbb&hm=df2d525a39f30ea370ea1b98f6fb69d58a95353848602c267d419cd7f9d5519d&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058318861008976/DH-Base_04.jpg?ex=69cd087b&is=69cbb6fb&hm=c43345e4016f445dba1e60f7fe72d873e085d04fd28990171aaa8a5f60a8bd96&)
+![screenshot](https://cdn.discordapp.com/attachments/1487058305653411951/1487058318861008976/DH-Base_04.jpg?ex=69cdb13b&is=69cc5fbb&hm=1186864c1d54010a54f496ff079d1c40c36a2a43dbc07cc037fb6c358934eb07&)
 
