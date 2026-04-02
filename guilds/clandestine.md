@@ -39,19 +39,19 @@ Feel free to come and visit us, we have:
 
 ## 🎬 Media
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1488745466479902912/202632812292.png?ex=69cf3742&is=69cde5c2&hm=bbfa61c5ea7eb1ad8c9f3cc3dbd75cae5d9d0423c6d66b9ecc09d88e5bac71d8&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1488745466479902912/202632812292.png?ex=69cfe002&is=69ce8e82&hm=83cce7ba25d86245345f91bbb21db62eded203d5ee8bd3b5a7504fadbd353c37&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487275495442874589/Summer_Palace.png?ex=69cf243e&is=69cdd2be&hm=bbeab21a9efe37a8ffa0ca32f7a674d392511cd078f6c0d15bac6628f599fb19&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487275495442874589/Summer_Palace.png?ex=69cfccfe&is=69ce7b7e&hm=d7337cd37c929950ace8e7448365ffe4196c3b4e46d6c8f070dc786994cbcef4&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085993205956810/Clandestine_Base_Showcase_4.4_MB.png?ex=69cf1c81&is=69cdcb01&hm=72ab69782d5d6f4ea9b31f296fdb00551fde085576ae9c2e7f12e63ed58c0177&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085993205956810/Clandestine_Base_Showcase_4.4_MB.png?ex=69cfc541&is=69ce73c1&hm=2f23314a660d73fb447a15bc5115d3e67dd6e7ac855b4576f5a14db3f8cedf04&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085995500376104/2026220203313.png?ex=69cf1c82&is=69cdcb02&hm=b1f1ebf76abac5a6e0673943c8a8c0ee9f35036e217153c302890c4ccc041dfe&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085995500376104/2026220203313.png?ex=69cfc542&is=69ce73c2&hm=c906badc46c49e0fb4d1d9b198820d47a512fce7b6ef16ae8a44f87bfed97d89&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085996209078272/2026292354.png?ex=69cf1c82&is=69cdcb02&hm=348122cf9373b74dc3d5854974585fbae73b2a9f8fbbef6a021769d3c0c594d8&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085996209078272/2026292354.png?ex=69cfc542&is=69ce73c2&hm=7f437339b025f651fbc4b4222310a661bd6b67dea949587b7ed4dd8ede40e5f9&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085997245206568/202612784019.png?ex=69cf1c82&is=69cdcb02&hm=046638d9270861c3935c7bf1778139ad9d6389ffaac297d1c5523ca20d175cbc&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085997245206568/202612784019.png?ex=69cfc542&is=69ce73c2&hm=af08b8ce673dc1e04abe415154883299cbc537ebb70d79d5ae6e1d793c9fa928&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085998922924032/2026311181854.png?ex=69cf1c82&is=69cdcb02&hm=c9289475862f21538c36ac5221f131dc706c4311c09636adc7de330ab4eea9af&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085998922924032/2026311181854.png?ex=69cfc542&is=69ce73c2&hm=d9da7f932113e7a1f22f19884eef59adc86ac077dc6aed64081eb4a64877eea9&)
 
-![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085999686422578/2026327111211.png?ex=69cf1c83&is=69cdcb03&hm=98cf93f532a1428e82bc2a40dd53e2e7a6383e786f0212fd941200e862a77dfa&)
+![screenshot](https://cdn.discordapp.com/attachments/1487085991041826961/1487085999686422578/2026327111211.png?ex=69cfc543&is=69ce73c3&hm=a16c092c9a52c26189257d7e751cf0f619cebcf8286fdbf2e7b7917024b3ae0b&)
 
