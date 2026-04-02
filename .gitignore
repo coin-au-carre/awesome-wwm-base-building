@@ -10,3 +10,4 @@ web/.astro
 web/package-lock.json
 web/node_modules
 web/*.log*
+web/dist/
