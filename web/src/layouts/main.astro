@@ -1,15 +1,69 @@
 ---
 import "@/styles/global.css"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = "Awesome WWM Base Building",
+  description = "Discover the most beautiful constructions in Jiang Hu 🏯",
+} = Astro.props
+
+const base = import.meta.env.BASE_URL
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Astro App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="google-site-verification" content="I2hHH7CU14QUGQNoWsiZPqkRVcfLky_Add6wnUzXbzc" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <title>{title}</title>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : ""
+        j.async = true
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, "script", "dataLayer", "GTM-NJQF6GDD")
+    </script>
   </head>
   <body>
-    <slot />
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NJQF6GDD"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <header class="border-b border-border">
+      <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+        <a href={base} class="font-heading font-semibold text-base hover:text-primary transition-colors">
+          🏯 Awesome WWM Base Building
+        </a>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">beta</span>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 py-8">
+      <slot />
+    </main>
+
+    <footer class="border-t border-border mt-16 py-6 text-center text-sm text-muted-foreground">
+      2026 — Made with ❤️ by the{" "}
+      <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
+        Awesome WWM building community
+      </a>
+    </footer>
   </body>
 </html>
