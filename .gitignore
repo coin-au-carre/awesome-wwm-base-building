@@ -4,3 +4,9 @@
 # *.go
 # go.mod
 # go.sum
+NOTES.md
+
+web/.astro
+web/package-lock.json
+web/node_modules
+web/*.log*

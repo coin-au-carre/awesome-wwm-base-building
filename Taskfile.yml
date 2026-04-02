@@ -60,6 +60,22 @@ tasks:
       - task: all
       - task: push
 
+  # ── web (Astro) ─────────────────────────────────────────────
+  web:
+    desc: start Astro dev server (http://localhost:4321)
+    dir: web
+    cmd: npm run dev
+
+  web:build:
+    desc: build Astro site for production (outputs to web/dist/)
+    dir: web
+    cmd: npm run build
+
+  web:preview:
+    desc: preview the production Astro build locally
+    dir: web
+    cmd: npm run preview
+
   # ── dev / ci ────────────────────────────────────────────────
   vet:
     desc: run go vet on all packages
@@ -99,6 +115,10 @@ tasks:
       - echo "        -- -image path     attach an image (text optional)"
       - echo ""
       - echo "  task spotlight           post a random guild screenshot to the Ruby channel"
+      - echo ""
+      - echo "  task web                 start Astro dev server"
+      - echo "  task web:build           build Astro for production"
+      - echo "  task web:preview         preview production build"
       - echo ""
       - echo "  task all                 sync + generate"
       - echo "  task all:push            sync + generate + git push"
