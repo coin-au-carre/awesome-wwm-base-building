@@ -3,6 +3,7 @@ package discord
 import (
 	"fmt"
 	"log/slog"
+	"regexp"
 	"strings"
 	"sync"
 	"time"
@@ -248,7 +249,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 		ID:          id,
 		GuildName:   guildName,
 		AuthorID:    authorID,
-		Builders:    builders,
+		Builders:    resolveBuilders(s, builders),
 		Screenshots: screenshots,
 		Videos:      videos,
 		Lore:        lore,
@@ -256,6 +257,22 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 	}
 }
 
+
+var reMention = regexp.MustCompile(`^<@!?(\d+)>$`)
+
+func resolveBuilders(s *discordgo.Session, builders []string) []string {
+	resolved := make([]string, 0, len(builders))
+	for _, b := range builders {
+		if m := reMention.FindStringSubmatch(b); len(m) == 2 {
+			if u, err := s.User(m[1]); err == nil {
+				resolved = append(resolved, u.Username)
+				continue
+			}
+		}
+		resolved = append(resolved, b)
+	}
+	return resolved
+}
 
 const maxScreenshots = 40
 
