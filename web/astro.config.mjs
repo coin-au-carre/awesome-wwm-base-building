@@ -7,7 +7,7 @@ import react from "@astrojs/react"
 // https://astro.build/config
 export default defineConfig({
   site: "https://coin-au-carre.github.io",
-  base: process.env.ASTRO_BASE ?? "/awesome-wwm-base-building",
+  base: "/awesome-wwm-base-building",
   output: "static",
   vite: {
     plugins: [tailwindcss()],
