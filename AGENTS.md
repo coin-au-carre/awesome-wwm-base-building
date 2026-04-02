@@ -5,13 +5,11 @@ This document provides comprehensive guidelines for AI agents working on the awe
 ## Architecture Overview
 
 ```
-Discord forum ──► task sync ──► guilds.json / solos.json ──► task generate ──► SHOWCASE.md + guilds/*.md
-                                         │
-                                         └──► Astro build (web/) ──► GitHub Pages
+Discord forum ──► task sync ──► guilds.json / solos.json ──► Astro build (web/) ──► GitHub Pages
 ```
 
 **Stack:**
-- **Go 1.24** — Discord sync bot, data parser, markdown generator
+- **Go 1.26** — Discord sync bot, data parser
 - **Astro 5 + shadcn/ui + Tailwind 4** — static website (`web/`)
 - **GitHub Actions** — `sync.yml` (data) + `deploy.yml` (site)
 - **Module name:** `ruby`
@@ -21,29 +19,21 @@ Discord forum ──► task sync ──► guilds.json / solos.json ──► t
 ```
 /cmd/
   sync/       # Crawl Discord → update guilds.json + solos.json
-  generate/   # JSON → SHOWCASE.md + SOLO_SHOWCASE.md + guilds/*.md + solos/*.md
   bot/        # Long-running Discord bot with Claude AI
   send/       # One-shot message sender
   spotlight/  # Post random guild screenshot to Discord
 /internal/
   discord/    # Sync logic, scoring, voter weights, roles, bot handlers
-  generator/  # Markdown page + table builder
   guild/      # Guild struct, JSON store (LoadFile/SaveFile), parser
 /web/         # Astro static site — DO NOT mix with Go code
-/guilds/      # Auto-generated guild markdown pages (DO NOT EDIT)
-/solos/       # Auto-generated solo build markdown pages (DO NOT EDIT)
 guilds.json   # Authoritative guild data — source of truth
 solos.json    # Authoritative solo build data — source of truth
-SHOWCASE.md   # Auto-generated guild ranking (DO NOT EDIT)
-SOLO_SHOWCASE.md  # Auto-generated solo ranking (DO NOT EDIT)
 README.md     # Dev documentation
 ```
 
 ## Key Data Files
 
-- `guilds.json` / `solos.json` — written by `cmd/sync`, read by `cmd/generate` and the Astro site at build time
-- `SHOWCASE.md` / `SOLO_SHOWCASE.md` — injected between HTML comment markers by `cmd/generate`; do not edit manually
-- Files in `guilds/` and `solos/` are auto-generated — **DO NOT EDIT**
+- `guilds.json` / `solos.json` — written by `cmd/sync`, read by the Astro site at build time
 
 ## Task Commands
 
@@ -54,11 +44,8 @@ task sync -- -dry-run      # crawl without writing JSON
 task sync -- -no-notify    # skip Discord notification
 task sync -- -force-role   # reassign roles to all authors
 
-task generate          # JSON → markdown pages + inject SHOWCASE.md
-task generate -- -clean    # also remove stale pages
-
-task all               # sync + generate (used by CI)
-task all:push          # sync + generate + git push
+task all               # sync (alias, used by CI)
+task all:push          # sync + git push
 
 task web               # start Astro dev server (localhost:4321)
 task web:build         # production Astro build → web/dist/
@@ -153,16 +140,6 @@ wg.Wait()
 Use `guild.LoadFile(path)` and `guild.SaveFile(path, guilds)` for arbitrary paths.
 `guild.Load(root)` / `guild.Save(root, guilds)` are convenience wrappers for `guilds.json` only.
 
-### generator.Config
-```go
-generator.Generate(guilds, generator.Config{
-    ReadmePath:  "SHOWCASE.md",   // target markdown file
-    GuildsDir:   "guilds",        // output directory
-    PagesSubdir: "guilds",        // used in markdown links
-    Clean:       true,            // remove stale pages
-})
-```
-
 ### Regular Expressions
 Compile at package level:
 ```go
@@ -175,7 +152,7 @@ var reGuildName = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?
 
 **Key files:**
 - `src/lib/guilds.ts` — loads `guilds.json` and `solos.json` at build time via `readFileSync`
-- `src/lib/slugify.ts` — port of Go `Slugify()` — **must stay in sync** with `internal/generator/page.go`
+- `src/lib/slugify.ts` — port of Go `slugify()` in `internal/discord/spotlight.go` — **must stay in sync**
 - `src/lib/url.ts` — `url(path)` helper for internal links inside React components (handles `BASE_URL`)
 - `src/types/guild.ts` — TypeScript mirror of `internal/guild/guild.go`
 - `src/components/GuildTable.tsx` — `client:load` React island, accepts `basePath` prop (`"guilds"` or `"solos"`)
@@ -200,12 +177,12 @@ var reGuildName = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?
 
 ## GitHub Actions
 
-- `sync.yml` — runs `task all` on schedule (2×/day), commits `guilds.json solos.json SHOWCASE.md SOLO_SHOWCASE.md guilds/ solos/`, push triggers deploy
+- `sync.yml` — runs `task sync` on schedule (2×/day), commits `guilds.json solos.json`, push triggers deploy
 - `deploy.yml` — triggered by push to `main`, uses `withastro/action@v3` with `path: web`
 - GitHub Pages source must be set to **GitHub Actions** (not "Deploy from branch")
 
 ## Git Workflow
 
 - Run `task vet` before committing (`task push` does this automatically)
-- Generated files (`guilds/*.md`, `solos/*.md`, `SHOWCASE.md`, `SOLO_SHOWCASE.md`) are committed by CI
+- Generated files (`guilds.json`, `solos.json`) are committed by CI
 - Use `task sync -- -dry-run` to test crawling without side effects

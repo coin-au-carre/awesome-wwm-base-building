@@ -2,11 +2,6 @@
 version: '3'
 
 tasks:
-  # ── codegen ────────────────────────────────────────────────
-  generate:
-    desc: generate markdown pages and inject README
-    cmd: go run ./cmd/generate {{.CLI_ARGS}}
-
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
     desc: git pull then crawl Discord threads → update guilds.json
@@ -49,15 +44,13 @@ tasks:
 
   # ── combined ────────────────────────────────────────────────
   all:
-    desc: full sync + generate cycle (used by cron)
-    cmds:
-      - task: sync
-      - task: generate
+    desc: sync cycle (used by cron)
+    cmd: task sync
 
   all:push:
-    desc: full cycle + git push
+    desc: sync + git push
     cmds:
-      - task: all
+      - task: sync
       - task: push
 
   # ── web (Astro) ─────────────────────────────────────────────
@@ -96,9 +89,6 @@ tasks:
       - echo "  task <command> [-- -flag1 -flag2]"
       - echo ""
       - echo "Commands & flags:"
-      - echo "  task generate"
-      - echo "        -- -clean          remove stale guild pages"
-      - echo ""
       - echo "  task sync                git pull + crawl"
       - echo "  task sync:nopull         crawl only (no git pull)"
       - echo "        -- -dry-run        crawl only, skip writing guilds.json"
@@ -120,14 +110,13 @@ tasks:
       - echo "  task web:build           build Astro for production"
       - echo "  task web:preview         preview production build"
       - echo ""
-      - echo "  task all                 sync + generate"
-      - echo "  task all:push            sync + generate + git push"
+      - echo "  task all                 sync (alias)"
+      - echo "  task all:push            sync + git push"
       - echo "  task push                vet + git push"
       - echo ""
       - echo "Examples:"
       - echo "  task sync -- -dry-run"
       - echo "  task sync -- -no-notify -force-role"
       - echo "  task sync -- -dry-run -no-notify -force-role"
-      - echo "  task generate -- -clean"
       - echo "  task bot:deploy VPS_USER=ubuntu VPS_HOST=1.2.3.4"
       - echo ""

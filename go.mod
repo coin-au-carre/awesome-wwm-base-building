@@ -1,14 +1,14 @@
 module ruby
 
-go 1.24.0
+go 1.26.0
 
 require (
+	github.com/anthropics/anthropic-sdk-go v1.27.1
 	github.com/bwmarrin/discordgo v0.29.0
 	github.com/joho/godotenv v1.5.1
 )
 
 require (
-	github.com/anthropics/anthropic-sdk-go v1.27.1 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/tidwall/gjson v1.18.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
