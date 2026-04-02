@@ -1,3 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a1 1 0 0 0 .67-.55L18 14l4.41 8.76a1 1 0 0 0 .67.55l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <!-- Battlements (merlons) -->
+  <rect fill="#4a4a4a" x="4" y="4" width="4" height="5"/>
+  <rect fill="#4a4a4a" x="11" y="4" width="4" height="5"/>
+  <rect fill="#4a4a4a" x="18" y="4" width="4" height="5"/>
+  <rect fill="#4a4a4a" x="25" y="4" width="4" height="5"/>
+  <!-- Main wall -->
+  <rect fill="#4a4a4a" x="4" y="9" width="25" height="12"/>
+  <!-- Gate arch -->
+  <rect fill="#1a1a1a" x="13" y="13" width="7" height="8"/>
+  <ellipse fill="#1a1a1a" cx="16.5" cy="13" rx="3.5" ry="3.5"/>
+  <!-- Gate portcullis lines -->
+  <line stroke="#4a4a4a" stroke-width="0.8" x1="14.5" y1="10" x2="14.5" y2="21"/>
+  <line stroke="#4a4a4a" stroke-width="0.8" x1="16.5" y1="10" x2="16.5" y2="21"/>
+  <line stroke="#4a4a4a" stroke-width="0.8" x1="18.5" y1="10" x2="18.5" y2="21"/>
+  <line stroke="#4a4a4a" stroke-width="0.8" x1="13" y1="14.5" x2="20" y2="14.5"/>
+  <line stroke="#4a4a4a" stroke-width="0.8" x1="13" y1="17" x2="20" y2="17"/>
+  <!-- Base -->
+  <rect fill="#4a4a4a" x="2" y="21" width="29" height="3"/>
+  <!-- Ground -->
+  <rect fill="#4a4a4a" x="0" y="24" width="33" height="2" rx="1"/>
 </svg>
