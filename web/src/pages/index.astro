@@ -1,0 +1,45 @@
+---
+import Layout from "@/layouts/main.astro"
+import TopShowcase from "@/components/TopShowcase.astro"
+import { GuildTable } from "@/components/GuildTable"
+import { getGuildsSortedByScore, getAllTags, getLastSyncDate } from "@/lib/guilds"
+
+const guilds = getGuildsSortedByScore()
+const allTags = getAllTags()
+const lastSync = getLastSyncDate()
+const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 9)
+---
+
+<Layout>
+  <div class="space-y-12">
+    <!-- Hero -->
+    <div>
+      <h1 class="font-heading text-2xl font-semibold mb-1">
+        🏰 {guilds.length} Guild Bases
+      </h1>
+      <p class="text-muted-foreground text-sm">
+        The most beautiful constructions in Jiang Hu ·{" "}
+        <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
+          add yours on Discord
+        </a>
+      </p>
+      <p class="text-xs text-muted-foreground mt-1">🔄 Last sync: {lastSync}</p>
+    </div>
+
+    <!-- Top showcase -->
+    {
+      topGuilds.length > 0 && (
+        <section>
+          <h2 class="font-heading text-base font-medium mb-3">✨ Top Guild Bases</h2>
+          <TopShowcase guilds={topGuilds} />
+        </section>
+      )
+    }
+
+    <!-- Ranked table -->
+    <section>
+      <h2 class="font-heading text-base font-medium mb-3">📸 All Guild Bases</h2>
+      <GuildTable client:load guilds={guilds} allTags={allTags} />
+    </section>
+  </div>
+</Layout>
