@@ -58,6 +58,30 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	return sb.String()
 }
 
+// FormatNewGuildMessage builds the Discord message announcing a newly discovered guild.
+func FormatNewGuildMessage(g guild.Guild) string {
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "## 🆕 New Guild Discovered: **%s**\n", g.Name)
+	fmt.Fprintf(&sb, "-# Just joined the list!\n")
+	var meta []string
+	if len(g.Builders) > 0 {
+		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))
+	}
+	if len(g.Tags) > 0 {
+		meta = append(meta, "🏷️ "+strings.Join(g.Tags, ", "))
+	}
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	websiteURL := fmt.Sprintf("%s/guilds/%s", generator.WebsiteBase, generator.Slugify(g.Name))
+	if g.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
+	}
+	return sb.String()
+}
+
 // DownloadImage fetches an image URL and returns its body and a derived filename.
 func DownloadImage(url string) (io.ReadCloser, string, error) {
 	resp, err := http.Get(url) //nolint:gosec

@@ -143,8 +143,8 @@ Scores reflect Discord reactions in `#base-guild-showcase`, weighted by how broa
 |---|---|
 | 1 guild | ✗ not counted |
 | 2–5 guilds | ×1 |
-| 6–9 guilds | ×2 |
-| 9+ guilds | ×3 |
+| 6–12 guilds | ×2 |
+| 12+ guilds | ×3 |
 
 The more guild bases you explore and react on, the more your votes count. If you only react on your own guild, they don't count at all.
 

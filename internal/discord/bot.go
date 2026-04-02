@@ -71,6 +71,22 @@ func (b *Bot) Send(channelID, msg string) {
 	}
 }
 
+func (b *Bot) NotifyWithFile(content, filename string, file io.Reader) error {
+	if b.channelID == "" {
+		slog.Warn("no channel ID configured, skipping notification")
+		return nil
+	}
+	_, err := b.Session.ChannelMessageSendComplex(b.channelID, &discordgo.MessageSend{
+		Content: content,
+		Files:   []*discordgo.File{{Name: filename, Reader: file}},
+		Flags:   discordgo.MessageFlagsSuppressEmbeds,
+	})
+	if err != nil {
+		slog.Warn("failed to send file notification", "err", err)
+	}
+	return err
+}
+
 func (b *Bot) NotifyIf(cond bool, msg string) {
 	if cond {
 		b.Notify(msg)

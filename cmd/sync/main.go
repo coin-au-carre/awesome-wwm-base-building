@@ -77,6 +77,28 @@ func main() {
 			slog.Error("saving guilds", "err", err)
 			os.Exit(1)
 		}
+		if !*noNotify && stats.New > 0 {
+			newByName := make(map[string]guild.Guild, len(updated))
+			for _, g := range updated {
+				newByName[g.Name] = g
+			}
+			for _, name := range stats.NewNames {
+				g, ok := newByName[name]
+				if !ok {
+					continue
+				}
+				msg := discord.FormatNewGuildMessage(g)
+				if len(g.Screenshots) > 0 {
+					imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
+					if err == nil {
+						bot.NotifyWithFile(msg, filename, imgData)
+						imgData.Close()
+						continue
+					}
+				}
+				bot.Notify(msg)
+			}
+		}
 	}
 
 	if !*dryRun && (baseBuilderRoleID != "" || baseCriticRoleID != "") {
