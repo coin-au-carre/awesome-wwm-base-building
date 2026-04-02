@@ -23,6 +23,7 @@ jobs:
         with:
           path: web
           node-version: 22
+          package-manager: npm@latest
 
   deploy:
     needs: build
