@@ -1,0 +1,199 @@
+---
+interface Props {
+  screenshots?: string[]
+  videos?: string[]
+}
+
+const { screenshots = [], videos = [] } = Astro.props
+
+function youtubeVideoID(rawURL: string): string {
+  try {
+    const u = new URL(rawURL)
+    if (u.hostname === "youtu.be") return u.pathname.replace(/^\//, "")
+    if (u.hostname === "www.youtube.com" || u.hostname === "youtube.com") {
+      return u.searchParams.get("v") ?? ""
+    }
+    return ""
+  } catch {
+    return ""
+  }
+}
+---
+
+{
+  videos.length > 0 && (
+    <section>
+      <h3 class="text-sm font-medium text-muted-foreground mb-3">Videos</h3>
+      <div class="space-y-4">
+        {videos.map((v) => {
+          const ytID = youtubeVideoID(v)
+          return ytID ? (
+            <div class="aspect-video w-full overflow-hidden rounded-xl">
+              <iframe
+                src={`https://www.youtube.com/embed/${ytID}`}
+                title="Guild video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="h-full w-full"
+              />
+            </div>
+          ) : (
+            <div class="aspect-video w-full overflow-hidden rounded-xl bg-muted">
+              <video src={v} controls class="h-full w-full object-cover" />
+            </div>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
+{
+  screenshots.length > 0 && (
+    <section>
+      <h3 class="text-sm font-medium text-muted-foreground mb-3">
+        Screenshots <span class="text-xs font-normal text-muted-foreground/60">· click to enlarge</span>
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {screenshots.map((src, i) => (
+          <button
+            type="button"
+            class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
+            data-src={src}
+            data-index={i}
+          >
+            <img
+              src={src}
+              alt={`Screenshot ${i + 1}`}
+              loading="lazy"
+              onerror="this.closest('button').style.display='none'"
+              class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <svg class="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+              </svg>
+            </div>
+          </button>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  screenshots.length === 0 && videos.length === 0 && (
+    <p class="text-muted-foreground text-sm">
+      No media yet —{" "}
+      <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
+        join the Discord
+      </a>{" "}
+      to add your guild's screenshots.
+    </p>
+  )
+}
+
+<!-- Lightbox overlay -->
+<div
+  id="lightbox"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image viewer"
+>
+  <!-- Close -->
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+    aria-label="Close"
+  >
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Prev -->
+  <button
+    id="lightbox-prev"
+    class="absolute left-3 sm:left-6 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
+    aria-label="Previous"
+  >
+    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  </button>
+
+  <!-- Image -->
+  <div class="flex items-center justify-center w-full h-full px-16 py-12">
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-h-full max-w-full rounded-xl object-contain shadow-2xl select-none"
+    />
+  </div>
+
+  <!-- Next -->
+  <button
+    id="lightbox-next"
+    class="absolute right-3 sm:right-6 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
+    aria-label="Next"
+  >
+    <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Counter -->
+  <div id="lightbox-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-sm tabular-nums"></div>
+</div>
+
+<script>
+  const triggers = document.querySelectorAll<HTMLButtonElement>(".lightbox-trigger")
+  const lightbox = document.getElementById("lightbox")!
+  const img = document.getElementById("lightbox-img") as HTMLImageElement
+  const btnClose = document.getElementById("lightbox-close")!
+  const btnPrev = document.getElementById("lightbox-prev") as HTMLButtonElement
+  const btnNext = document.getElementById("lightbox-next") as HTMLButtonElement
+  const counter = document.getElementById("lightbox-counter")!
+
+  const srcs = Array.from(triggers).map((t) => t.dataset.src ?? "")
+  let current = 0
+
+  function show(index: number) {
+    current = index
+    img.src = srcs[current]
+    img.alt = `Screenshot ${current + 1}`
+    counter.textContent = `${current + 1} / ${srcs.length}`
+    btnPrev.disabled = current === 0
+    btnNext.disabled = current === srcs.length - 1
+    lightbox.classList.remove("hidden")
+    lightbox.classList.add("flex")
+    document.body.style.overflow = "hidden"
+  }
+
+  function close() {
+    lightbox.classList.add("hidden")
+    lightbox.classList.remove("flex")
+    document.body.style.overflow = ""
+  }
+
+  triggers.forEach((t) => {
+    t.addEventListener("click", () => show(Number(t.dataset.index ?? 0)))
+  })
+
+  btnClose.addEventListener("click", close)
+  btnPrev.addEventListener("click", () => current > 0 && show(current - 1))
+  btnNext.addEventListener("click", () => current < srcs.length - 1 && show(current + 1))
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) close()
+  })
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.classList.contains("hidden")) return
+    if (e.key === "Escape") close()
+    if (e.key === "ArrowLeft" && current > 0) show(current - 1)
+    if (e.key === "ArrowRight" && current < srcs.length - 1) show(current + 1)
+  })
+</script>

@@ -1,0 +1,66 @@
+---
+import Layout from "@/layouts/main.astro"
+---
+
+<Layout
+  title="Solo Base Building — Awesome WWM"
+  description="Discover solo base builds in Where Winds Meet. Coming soon."
+>
+  <div class="space-y-8">
+    <!-- WIP Banner -->
+    <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
+      <span class="text-xl shrink-0">🚧</span>
+      <div>
+        <p class="font-medium text-sm">Work in progress</p>
+        <p class="text-sm text-muted-foreground mt-0.5">
+          Solo base building is a new category. We're collecting submissions and building the
+          showcase — check back soon or{" "}
+          <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
+            join the Discord
+          </a>{" "}
+          to be notified when it launches.
+        </p>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div>
+      <h1 class="font-heading text-2xl font-semibold mb-1">🏠 Solo Base Building</h1>
+      <p class="text-muted-foreground text-sm">
+        Individual builds from the Where Winds Meet community — one builder, one vision.
+      </p>
+    </div>
+
+    <!-- Placeholder grid -->
+    <section>
+      <h2 class="font-heading text-base font-medium mb-3">✨ Featured Builds</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        {
+          Array.from({ length: 6 }).map(() => (
+            <div class="aspect-video rounded-xl bg-muted/50 ring-1 ring-border flex items-center justify-center">
+              <span class="text-muted-foreground text-xs">Coming soon</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="rounded-xl bg-muted/40 ring-1 ring-border px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div class="flex-1">
+        <p class="font-medium text-sm">Want to showcase your solo build?</p>
+        <p class="text-sm text-muted-foreground mt-0.5">
+          Post your screenshots in the dedicated channel on our Discord server.
+        </p>
+      </div>
+      <a
+        href="https://discord.gg/Qygt9u26Bn"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+      >
+        Join Discord ↗
+      </a>
+    </section>
+  </div>
+</Layout>
