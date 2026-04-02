@@ -187,8 +187,12 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		if g.ID == "" && data.ID != "" {
 			g.ID = data.ID
 		}
-		if data.GuildName != "" && !strings.EqualFold(data.GuildName, g.Name) {
-			g.GuildName = data.GuildName
+		if data.GuildName != "" {
+			if strings.EqualFold(data.GuildName, g.Name) {
+				g.GuildName = "" // parsed name is same as base name, no need for a separate display name
+			} else {
+				g.GuildName = data.GuildName
+			}
 		}
 		prev := g
 		g.Builders = data.Builders

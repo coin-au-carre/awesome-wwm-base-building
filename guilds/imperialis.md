@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10081906</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Imperliais</td></tr>
+  <tr><td>🏰 <b>Guild Name</b></td><td>Imperliais</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>xyria</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature, Mountain</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>17</td></tr>

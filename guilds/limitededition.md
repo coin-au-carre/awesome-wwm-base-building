@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10057610</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 **LimitedEdition</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>** WeiXi, FrauMeow</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>River, Nature, Mountain</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>24</td></tr>

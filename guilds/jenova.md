@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10244476</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Jenova</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Dovahline, Ahlyam</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Zen, Nature</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>17</td></tr>
@@ -46,7 +45,7 @@ Arena gradins (bleachers), zen garden, hidden room
 <summary>📋 Copy this template</summary>
 
 <pre>
-## :japanese_castle: 🏯 Jenova [10244476]
+## :japanese_castle: Jenova [10244476]
 :construction_worker: Builders: Dovahline, Ahlyam
 
 ### :pencil: Lore

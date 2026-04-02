@@ -9,7 +9,7 @@ var (
 	reBracketID   = regexp.MustCompile(`[\[(](\d+)[\])]`)
 	reEightDigit  = regexp.MustCompile(`\b(\d{8})\b`)
 	reBuilders    = regexp.MustCompile(`(?i)builders?:\s*([^\n]*)`)
-	reGuildName   = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:\s*)?(.+?)\s*[\[(]\d{6,9}[\])]`)
+	reGuildName   = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
 	reLore        = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
 	reWhatToVisit = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
 )

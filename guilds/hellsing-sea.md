@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10028994</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Hellsing(SEA)</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Eulreiss</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Floating island, Nature</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>25</td></tr>

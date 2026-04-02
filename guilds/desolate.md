@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10027571</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Desolate</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Raekiro</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Mountain, Fun, Floating island, Military</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>16</td></tr>
