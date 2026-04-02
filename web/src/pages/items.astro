@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/main.astro"
+---
+
+<Layout
+  title="Building Items — Awesome WWM"
+  description="A complete catalog of buildable items in Where Winds Meet. Coming soon."
+>
+  <div class="max-w-2xl space-y-8">
+    <div>
+      <h1 class="font-heading text-2xl font-semibold mb-1">🧱 Building Items</h1>
+      <p class="text-muted-foreground text-sm">A catalog of every item you can place in Where Winds Meet.</p>
+    </div>
+
+    <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
+      <span class="text-xl shrink-0">🚧</span>
+      <div>
+        <p class="font-medium text-sm">Work in progress</p>
+        <p class="text-sm text-muted-foreground mt-1 leading-relaxed">
+          We're building a full catalog of buildable items — floors, walls, roofs, doors, pillars,
+          decorations — with pictures, names, and filters by category and build type (guild vs solo).
+          Think of it as the in-game building menu, but practical!
+        </p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-3 text-sm">
+      {
+        [
+          { icon: "🔍", label: "Search by name" },
+          { icon: "🗂️", label: "Filter by category" },
+          { icon: "🏯", label: "Guild & solo items" },
+        ].map(({ icon, label }) => (
+          <div class="rounded-xl bg-muted/40 ring-1 ring-border px-4 py-3 flex items-center gap-2 text-muted-foreground">
+            <span class="text-base">{icon}</span>
+            <span>{label}</span>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="text-sm text-muted-foreground">
+      Want to help catalog items?{" "}
+      <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
+        Join the Discord
+      </a>{" "}
+      and ping us.
+    </p>
+  </div>
+</Layout>
