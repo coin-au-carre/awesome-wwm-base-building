@@ -41,15 +41,9 @@ import Layout from "@/layouts/main.astro"
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">How it's built</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        A bot crawls the Discord forum, parses thread content, tallies reactions, and
-        writes the data to a JSON file. A GitHub Actions workflow runs the sync <strong class="text-foreground">4 times a day (every 6 hours)</strong> and
-        redeploys this static site automatically.
+        A bot watches the Discord forum, picks up new submissions, and counts community reactions.
+        Everything syncs automatically <strong class="text-foreground">~4 times a day</strong> so the showcase stays fresh without any manual work.
       </p>
-      <ul class="space-y-1.5 text-sm text-muted-foreground">
-        <li>🤖 <strong class="text-foreground">Discord bot</strong> — Go + discordgo</li>
-        <li>🌐 <strong class="text-foreground">Website</strong> — Astro + shadcn/ui + Tailwind</li>
-        <li>⚙️ <strong class="text-foreground">CI/CD</strong> — GitHub Actions → GitHub Pages</li>
-      </ul>
     </section>
 
     <section class="rounded-xl bg-muted/40 ring-1 ring-border px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">

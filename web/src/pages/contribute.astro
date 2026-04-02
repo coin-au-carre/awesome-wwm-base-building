@@ -4,16 +4,22 @@ import Layout from "@/layouts/main.astro"
 
 <Layout
   title="Contribute — Awesome WWM Base Building"
-  description="How to add your guild base to the showcase."
+  description="How to contribute to the showcase — as a builder, a voter, or a developer."
 >
   <div class="max-w-2xl space-y-10">
     <div>
       <h1 class="font-heading text-2xl font-semibold mb-1">🤝 Contribute</h1>
-      <p class="text-muted-foreground text-sm">Add your guild base to the showcase.</p>
+      <p class="text-muted-foreground text-sm">There are a few ways to help the showcase grow.</p>
     </div>
 
     <section class="space-y-6">
-      <h2 class="font-heading text-base font-medium">How to get listed</h2>
+      <div>
+        <h2 class="font-heading text-base font-medium">Submit your base</h2>
+        <p class="text-xs text-muted-foreground mt-0.5">For builders</p>
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed">
+        Built something you're proud of? Share it with the community by posting in the Discord forum.
+      </p>
 
       <ol class="space-y-5">
         {
@@ -26,23 +32,17 @@ import Layout from "@/layouts/main.astro"
             },
             {
               n: "2",
-              title: "Create a thread in the Guild Base forum",
-              body: 'Post in the dedicated forum channel. Your thread title should follow the format: 🏯 GuildName [GuildID]',
+              title: "Post your base",
+              body: (
+                <>
+                  Create a thread in the guild base forum. Title it <strong class="text-foreground">🏯 GuildName [GuildID]</strong>, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts.
+                </>
+              ),
             },
             {
               n: "3",
-              title: "Fill in your first post",
-              body: "The bot reads the first post of your thread. Include the fields below for the best listing.",
-            },
-            {
-              n: "4",
-              title: "Add screenshots",
-              body: "Attach your base screenshots as images in follow-up posts in the same thread. The bot collects them all.",
-            },
-            {
-              n: "5",
               title: "Wait for the next sync",
-              body: "The site syncs twice a day (7:00 and 19:00 UTC). Your guild will appear automatically after the next sync.",
+              body: "The site syncs ~4 times a day. Your guild will appear automatically after the next sync.",
             },
           ].map((step) => (
             <li class="flex gap-4">
@@ -67,12 +67,10 @@ import Layout from "@/layouts/main.astro"
           ))
         }
       </ol>
-    </section>
 
-    <section class="space-y-4">
-      <h2 class="font-heading text-base font-medium">Post template</h2>
-      <p class="text-sm text-muted-foreground">Copy this into your thread's first post:</p>
-      <pre class="rounded-xl bg-muted/60 ring-1 ring-border px-5 py-4 text-xs leading-relaxed overflow-x-auto"><code>🏯 YourGuildName [YourGuildID]
+      <div class="space-y-2">
+        <p class="text-sm text-muted-foreground">First post template:</p>
+        <pre class="rounded-xl bg-muted/60 ring-1 ring-border px-5 py-4 text-xs leading-relaxed overflow-x-auto"><code>🏯 YourGuildName [YourGuildID]
 👷 Builders: builder1, builder2
 
 📝 Lore
@@ -81,13 +79,27 @@ Write your guild's story here.
 🧙 What to visit
 - Point of interest 1
 - Point of interest 2</code></pre>
+        <p class="text-xs text-muted-foreground">Edit your first post at any time — changes are picked up on the next sync.</p>
+      </div>
     </section>
 
     <section class="space-y-3">
-      <h2 class="font-heading text-base font-medium">Updating your listing</h2>
+      <div>
+        <h2 class="font-heading text-base font-medium">Vote for your favorites</h2>
+        <p class="text-xs text-muted-foreground mt-0.5">For sightseers & construction enthusiasts</p>
+      </div>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        Edit the first post of your Discord thread at any time. Changes are picked up on the
-        next sync. New screenshots added to the thread will appear automatically.
+        React to threads in the Discord forum to vote for the builds you love. Votes shape the rankings on the showcase and help the best bases rise to the top.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <div>
+        <h2 class="font-heading text-base font-medium">Open source</h2>
+        <p class="text-xs text-muted-foreground mt-0.5">For developers</p>
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed">
+        The project is open source. Contributions are welcome — open an issue or a pull request.
       </p>
     </section>
 
