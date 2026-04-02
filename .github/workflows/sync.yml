@@ -26,13 +26,13 @@ jobs:
           RUBY_BOT_TOKEN: ${{ secrets.RUBY_BOT_TOKEN }}
           GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID: ${{ secrets.GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID }}
           BOT_CHANNEL_ID: ${{ secrets.BOT_CHANNEL_ID }}
-        run: task all
+        run: task sync
 
       - name: Commit changes if any
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add SHOWCASE.md SOLO_SHOWCASE.md guilds.json solos.json guilds/ solos/
+          git add guilds.json solos.json
           if git diff --cached --quiet; then
             echo "Nothing changed, skipping commit."
           else

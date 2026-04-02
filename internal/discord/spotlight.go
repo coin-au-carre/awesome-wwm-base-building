@@ -5,11 +5,18 @@ import (
 	"io"
 	"math/rand/v2"
 	"net/http"
+	"regexp"
 	"strings"
 
-	"ruby/internal/generator"
 	"ruby/internal/guild"
 )
+
+const websiteBase = "https://coin-au-carre.github.io/awesome-wwm-base-building"
+
+func slugify(name string) string {
+	re := regexp.MustCompile(`[^\p{L}\p{N}]+`)
+	return strings.Trim(re.ReplaceAllString(strings.ToLower(name), "-"), "-")
+}
 
 // PickRandomGuild returns a random guild that has at least one screenshot.
 func PickRandomGuild(guilds []guild.Guild) (guild.Guild, string, bool) {
@@ -49,7 +56,7 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	}
 	meta = append(meta, fmt.Sprintf("⭐ %d", g.Score))
 	fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
-	websiteURL := fmt.Sprintf("%s/guilds/%s", generator.WebsiteBase, generator.Slugify(g.Name))
+	websiteURL := fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
 	if g.DiscordThread != "" {
 		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
 	} else {
@@ -73,7 +80,7 @@ func FormatNewGuildMessage(g guild.Guild) string {
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	}
-	websiteURL := fmt.Sprintf("%s/guilds/%s", generator.WebsiteBase, generator.Slugify(g.Name))
+	websiteURL := fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
 	if g.DiscordThread != "" {
 		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
 	} else {
