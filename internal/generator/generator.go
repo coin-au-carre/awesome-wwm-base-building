@@ -14,7 +14,7 @@ import (
 
 const (
 	DiscordInvite   = "https://discord.gg/Qygt9u26Bn"
-	ShowcaseChannel = "`#base-guild-showcase`"
+	ShowcaseChannel = "`#guild-case-showcase`"
 	OwnerDiscordID  = "149790526076354561"
 	WebsiteBase     = "https://coin-au-carre.github.io/awesome-wwm-base-building"
 )
@@ -33,15 +33,19 @@ const (
 )
 
 type Config struct {
-	ReadmePath string
-	GuildsDir  string
-	Clean      bool
+	ReadmePath  string
+	GuildsDir   string
+	// PagesSubdir is the subdirectory name used in Markdown links (e.g. "guilds" or "solos").
+	// Defaults to the basename of GuildsDir.
+	PagesSubdir string
+	Clean       bool
 }
 
 func DefaultConfig() Config {
 	return Config{
-		ReadmePath: "SHOWCASE.md",
-		GuildsDir:  "guilds",
+		ReadmePath:  "SHOWCASE.md",
+		GuildsDir:   "guilds",
+		PagesSubdir: "guilds",
 	}
 }
 
@@ -77,8 +81,8 @@ func Generate(guilds []guild.Guild, cfg Config) error {
 			"🏰 **%d guild bases** listed — [add yours on Discord!](%s)",
 			len(guilds), DiscordInvite,
 		)},
-		{tableStart, tableEnd, buildTable(guilds)},
-		{showcaseStart, showcaseEnd, buildTopShowcase(guilds)},
+		{tableStart, tableEnd, buildTable(guilds, cfg.PagesSubdir)},
+		{showcaseStart, showcaseEnd, buildTopShowcase(guilds, cfg.PagesSubdir)},
 		{discordTemplateStart, discordTemplateEnd, buildGenericDiscordTemplate()},
 		{lastUpdatedStart, lastUpdatedEnd, lastUpdated},
 	}

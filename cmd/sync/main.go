@@ -14,9 +14,9 @@ import (
 )
 
 func main() {
-	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing guilds.json")
+	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing JSON files")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
-	root := flag.String("root", rootDir(), "root directory containing guilds.json")
+	root := flag.String("root", rootDir(), "root directory containing guilds.json and solos.json")
 	forceRole := flag.Bool("force-role", false, "reassign Base Builder role to all thread authors, including already-known ones")
 	flag.Parse()
 
@@ -25,11 +25,14 @@ func main() {
 	}
 
 	token := requireEnv("RUBY_BOT_TOKEN")
-	forumChannelID := requireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
-	soloForumChannelID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
+	guildForumID := requireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
+
+	guildsPath := filepath.Join(*root, "guilds.json")
+	solosPath := filepath.Join(*root, "solos.json")
 
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
@@ -43,88 +46,171 @@ func main() {
 		os.Exit(1)
 	}
 
-	guilds, err := guild.Load(*root)
+	// ── Load existing data ────────────────────────────────────────────────────
+
+	guilds, err := guild.LoadFile(guildsPath)
 	if err != nil {
 		slog.Warn("could not load guilds, starting fresh", "err", err)
 		guilds = []guild.Guild{}
 	}
 
-	// Build skip-set of already-known authors before sync adds new ones.
-	var knownAuthors map[string]bool
-	if !*forceRole {
-		knownAuthors = make(map[string]bool, len(guilds))
-		for _, g := range guilds {
-			if g.BuilderDiscordID != "" {
-				knownAuthors[g.BuilderDiscordID] = true
-			}
+	var solos []guild.Guild
+	if soloForumID != "" {
+		solos, err = guild.LoadFile(solosPath)
+		if err != nil {
+			slog.Warn("could not load solos, starting fresh", "err", err)
+			solos = []guild.Guild{}
 		}
 	}
 
-	updated, stats, err := discord.Sync(bot, guilds, discord.SyncConfig{
-		ForumChannelID: forumChannelID,
-		DryRun:         *dryRun,
+	// Build skip-sets of already-known authors before sync adds new ones.
+	var knownGuildAuthors, knownSoloAuthors map[string]bool
+	if !*forceRole {
+		knownGuildAuthors = knownAuthorSet(guilds)
+		knownSoloAuthors = knownAuthorSet(solos)
+	}
+
+	// ── Collect voter counts from both channels → merged weights ─────────────
+	// Voters who reacted across guild AND solo threads get a combined count,
+	// so e.g. 4 guild votes + 2 solo votes = 6 → 2× weight.
+
+	slog.Info("collecting voter counts from guild channel")
+	guildVoterCounts, err := discord.CollectVoterCounts(bot, guildForumID)
+	if err != nil {
+		slog.Warn("collecting guild voter counts", "err", err)
+		guildVoterCounts = map[string]int{}
+	}
+
+	soloVoterCounts := map[string]int{}
+	if soloForumID != "" {
+		slog.Info("collecting voter counts from solo channel")
+		soloVoterCounts, err = discord.CollectVoterCounts(bot, soloForumID)
+		if err != nil {
+			slog.Warn("collecting solo voter counts", "err", err)
+			soloVoterCounts = map[string]int{}
+		}
+	}
+
+	mergedCounts := discord.MergeVoterCounts(guildVoterCounts, soloVoterCounts)
+	mergedWeights := discord.ComputeVoterWeights(mergedCounts)
+	slog.Info("merged voter weights", "voters", len(mergedWeights))
+
+	// ── Sync guild channel ────────────────────────────────────────────────────
+
+	updatedGuilds, guildStats, err := discord.Sync(bot, guilds, discord.SyncConfig{
+		ForumChannelID:       guildForumID,
+		DryRun:               *dryRun,
+		ExternalVoterWeights: mergedWeights,
 	})
 	if err != nil {
 		bot.NotifyIf(!*noNotify, "💥 **Guilds failed to synchronize!** — "+err.Error())
-		slog.Error("sync failed", "err", err)
+		slog.Error("guild sync failed", "err", err)
 		os.Exit(1)
 	}
+
+	// ── Sync solo channel ─────────────────────────────────────────────────────
+
+	var updatedSolos []guild.Guild
+	var soloStats discord.SyncStats
+	if soloForumID != "" {
+		updatedSolos, soloStats, err = discord.Sync(bot, solos, discord.SyncConfig{
+			ForumChannelID:       soloForumID,
+			DryRun:               *dryRun,
+			ExternalVoterWeights: mergedWeights,
+		})
+		if err != nil {
+			bot.NotifyIf(!*noNotify, "💥 **Solo builds failed to synchronize!** — "+err.Error())
+			slog.Error("solo sync failed", "err", err)
+			os.Exit(1)
+		}
+	}
+
+	// ── Save ──────────────────────────────────────────────────────────────────
 
 	if *dryRun {
 		slog.Info("dry-run: skipping save")
 	} else {
-		if err := guild.Save(*root, updated); err != nil {
+		if err := guild.SaveFile(guildsPath, updatedGuilds); err != nil {
 			slog.Error("saving guilds", "err", err)
 			os.Exit(1)
 		}
-		if !*noNotify && stats.New > 0 {
-			newByName := make(map[string]guild.Guild, len(updated))
-			for _, g := range updated {
-				newByName[g.Name] = g
+		if soloForumID != "" {
+			if err := guild.SaveFile(solosPath, updatedSolos); err != nil {
+				slog.Error("saving solos", "err", err)
+				os.Exit(1)
 			}
-			for _, name := range stats.NewNames {
-				g, ok := newByName[name]
-				if !ok {
-					continue
-				}
-				msg := discord.FormatNewGuildMessage(g)
-				if len(g.Screenshots) > 0 {
-					imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
-					if err == nil {
-						bot.NotifyWithFile(msg, filename, imgData)
-						imgData.Close()
-						continue
-					}
-				}
-				bot.Notify(msg)
-			}
+		}
+
+		if !*noNotify && guildStats.New > 0 {
+			notifyNewEntries(bot, updatedGuilds, guildStats)
+		}
+		if !*noNotify && soloStats.New > 0 {
+			notifyNewEntries(bot, updatedSolos, soloStats)
 		}
 	}
 
+	// ── Role assignment ───────────────────────────────────────────────────────
+
 	if !*dryRun && (baseBuilderRoleID != "" || baseCriticRoleID != "") {
-		forumCh, err := bot.Session.Channel(forumChannelID)
+		forumCh, err := bot.Session.Channel(guildForumID)
 		if err != nil {
 			slog.Warn("fetching forum channel for role assignment", "err", err)
 		} else {
+			discordGuildID := forumCh.GuildID
 			if baseBuilderRoleID != "" {
-				// Use synced data directly — avoids re-fetching all threads from Discord.
-				slog.Info("assigning builder role from synced data", "guilds", len(updated))
-				discord.AssignRoleByScore(bot.Session, forumCh.GuildID, baseBuilderRoleID, updated, 0, knownAuthors)
+				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, knownGuildAuthors)
+				if soloForumID != "" {
+					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, knownSoloAuthors)
+				}
 			}
 			if baseCriticRoleID != "" {
-				slog.Info("assigning critic role", "total_voters", len(stats.VoterGuildCounts))
-				discord.AssignRoleToVoters(bot.Session, forumCh.GuildID, baseCriticRoleID, stats.VoterGuildCounts, 6)
-			}
-		}
-		if soloForumChannelID != "" && baseBuilderRoleID != "" {
-			if err := discord.AssignRoleToForumAuthors(bot.Session, soloForumChannelID, baseBuilderRoleID, knownAuthors); err != nil {
-				slog.Warn("assigning base builder roles", "channel", soloForumChannelID, "err", err)
+				// Use merged counts: voters across both channels are credited together
+				slog.Info("assigning critic role", "total_voters", len(mergedCounts))
+				discord.AssignRoleToVoters(bot.Session, discordGuildID, baseCriticRoleID, mergedCounts, 6)
 			}
 		}
 	}
 
-	bot.NotifyIf(!*noNotify, discord.FormatSyncSummary(stats))
-	slog.Info("sync complete", "total", stats.Total, "new", stats.New, "updated", stats.Updated)
+	// ── Summary ───────────────────────────────────────────────────────────────
+
+	bot.NotifyIf(!*noNotify, discord.FormatSyncSummary(guildStats))
+	slog.Info("guild sync complete", "total", guildStats.Total, "new", guildStats.New, "updated", guildStats.Updated)
+	if soloForumID != "" {
+		slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
+	}
+}
+
+func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.SyncStats) {
+	byName := make(map[string]guild.Guild, len(entries))
+	for _, g := range entries {
+		byName[g.Name] = g
+	}
+	for _, name := range stats.NewNames {
+		g, ok := byName[name]
+		if !ok {
+			continue
+		}
+		msg := discord.FormatNewGuildMessage(g)
+		if len(g.Screenshots) > 0 {
+			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
+			if err == nil {
+				bot.NotifyWithFile(msg, filename, imgData)
+				imgData.Close()
+				continue
+			}
+		}
+		bot.Notify(msg)
+	}
+}
+
+func knownAuthorSet(guilds []guild.Guild) map[string]bool {
+	m := make(map[string]bool, len(guilds))
+	for _, g := range guilds {
+		if g.BuilderDiscordID != "" {
+			m[g.BuilderDiscordID] = true
+		}
+	}
+	return m
 }
 
 func requireEnv(key string) string {

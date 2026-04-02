@@ -13,13 +13,13 @@
 
 📸 **Want to showcase this guild base?**
 
-[Join our Discord](https://discord.gg/Qygt9u26Bn) and post your screenshots in `#base-guild-showcase` — they will appear here automatically!
+[Join our Discord](https://discord.gg/Qygt9u26Bn) and post your screenshots in `#guild-case-showcase` — they will appear here automatically!
 
 ---
 
 ## 🏰 Is this your guild?
 
-**NhatNguyet** is missing lore and screenshots — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
+**NhatNguyet** is missing lore and screenshots — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#guild-case-showcase` to:
 
 - Add your lore & points of interest
 - Upload screenshots

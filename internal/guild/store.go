@@ -10,25 +10,34 @@ import (
 const filename = "guilds.json"
 
 func Load(root string) ([]Guild, error) {
-	data, err := os.ReadFile(filepath.Join(root, filename))
+	return LoadFile(filepath.Join(root, filename))
+}
+
+func Save(root string, guilds []Guild) error {
+	return SaveFile(filepath.Join(root, filename), guilds)
+}
+
+// LoadFile reads guild data from an arbitrary JSON file path.
+func LoadFile(path string) ([]Guild, error) {
+	data, err := os.ReadFile(path)
 	if err != nil {
-		return nil, fmt.Errorf("reading %s: %w", filename, err)
+		return nil, fmt.Errorf("reading %s: %w", path, err)
 	}
 	var guilds []Guild
 	if err := json.Unmarshal(data, &guilds); err != nil {
-		return nil, fmt.Errorf("parsing %s: %w", filename, err)
+		return nil, fmt.Errorf("parsing %s: %w", path, err)
 	}
 	return guilds, nil
 }
 
-func Save(root string, guilds []Guild) error {
+// SaveFile writes guild data to an arbitrary JSON file path.
+func SaveFile(path string, guilds []Guild) error {
 	data, err := json.MarshalIndent(guilds, "", "\t")
 	if err != nil {
 		return fmt.Errorf("marshalling guilds: %w", err)
 	}
-	dest := filepath.Join(root, filename)
-	if err := os.WriteFile(dest, data, 0644); err != nil {
-		return fmt.Errorf("writing %s: %w", dest, err)
+	if err := os.WriteFile(path, data, 0644); err != nil {
+		return fmt.Errorf("writing %s: %w", path, err)
 	}
 	return nil
 }
