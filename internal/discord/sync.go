@@ -22,7 +22,8 @@ type SyncStats struct {
 	Updated          int
 	NewNames         []string
 	UpdatedNames     []string
-	VoterGuildCounts map[string]int // userID → number of distinct guilds voted on
+	NewThreadLinks   map[string]string // guild name → discord thread URL
+	VoterGuildCounts map[string]int    // userID → number of distinct guilds voted on
 }
 
 type SyncConfig struct {
@@ -62,6 +63,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 	slog.Info("threads collected", "count", len(threads), "elapsed", time.Since(t0).Round(time.Millisecond))
 
 	var stats SyncStats
+	stats.NewThreadLinks = make(map[string]string)
 	guildMap := buildGuildMap(guilds)
 	newIndices := make(map[int]bool) // track which slice indices are brand-new so we don't also flag them as updated
 
@@ -75,6 +77,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 			newIndices[idx] = true //
 			stats.New++
 			stats.NewNames = append(stats.NewNames, name)
+			stats.NewThreadLinks[name] = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 	}
