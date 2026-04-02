@@ -1,0 +1,80 @@
+---
+interface Props {
+  screenshots?: string[]
+  videos?: string[]
+}
+
+const { screenshots = [], videos = [] } = Astro.props
+
+function youtubeVideoID(rawURL: string): string {
+  try {
+    const u = new URL(rawURL)
+    if (u.hostname === "youtu.be") return u.pathname.replace(/^\//, "")
+    if (u.hostname === "www.youtube.com" || u.hostname === "youtube.com") {
+      return u.searchParams.get("v") ?? ""
+    }
+    return ""
+  } catch {
+    return ""
+  }
+}
+---
+
+{
+  videos.length > 0 && (
+    <section>
+      <h3 class="text-sm font-medium text-muted-foreground mb-3">Videos</h3>
+      <div class="space-y-4">
+        {videos.map((v) => {
+          const ytID = youtubeVideoID(v)
+          return ytID ? (
+            <div class="aspect-video w-full overflow-hidden rounded-xl">
+              <iframe
+                src={`https://www.youtube.com/embed/${ytID}`}
+                title="Guild video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="h-full w-full"
+              />
+            </div>
+          ) : (
+            <div class="aspect-video w-full overflow-hidden rounded-xl bg-muted">
+              <video src={v} controls class="h-full w-full object-cover" />
+            </div>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
+{
+  screenshots.length > 0 && (
+    <section>
+      <h3 class="text-sm font-medium text-muted-foreground mb-3">Screenshots</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {screenshots.map((src, i) => (
+          <img
+            src={src}
+            alt={`Screenshot ${i + 1}`}
+            loading="lazy"
+            onerror="this.style.display='none'"
+            class="w-full rounded-xl object-cover aspect-video ring-1 ring-border"
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  screenshots.length === 0 && videos.length === 0 && (
+    <p class="text-muted-foreground text-sm">
+      No media yet —{" "}
+      <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
+        join the Discord
+      </a>{" "}
+      to add your guild's screenshots.
+    </p>
+  )
+}
