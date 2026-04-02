@@ -12,15 +12,8 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-const (
-	scorePerStar    = 2
-	scorePerLike    = 1
-	scorePerFire    = 1
-	scoreLoreBonus  = 1
-	scoreVisitBonus = 1
-)
 
-const numWorkers = 10
+const numWorkers = 20
 
 type SyncStats struct {
 	Total            int
@@ -47,7 +40,6 @@ type threadData struct {
 	Lore        string
 	WhatToVisit string
 }
-
 
 func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStats, error) {
 	forumChannel, err := b.Session.Channel(cfg.ForumChannelID)
@@ -118,6 +110,9 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 				wg2.Wait()
 				slog.Info("thread fetched",
 					"name", guild.ExtractName(j.thread.Name),
+					"id", data.ID,
+					"builders", strings.Join(data.Builders, ", "),
+					"screenshots", len(data.Screenshots),
 					"reactions", totalReactions(reactions),
 					"elapsed", time.Since(tThread).Round(time.Millisecond),
 				)
@@ -208,14 +203,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		}
 
 		guilds[r.idx] = g
-		slog.Info("guild synced",
-			"name", g.Name,
-			"id", g.ID,
-			"score", g.Score,
-			"builders", strings.Join(g.Builders, ", "),
-			"tags", strings.Join(g.Tags, ", "),
-			"screenshots", len(g.Screenshots),
-		)
+		slog.Info("guild scored", "name", g.Name, "score", g.Score, "tags", strings.Join(g.Tags, ", "))
 	}
 
 	stats.Total = len(guilds)
@@ -268,82 +256,17 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 	}
 }
 
-func computeScore(reactions map[string][]string, weights map[string]int, lore, whatToVisit string) int {
-	score := 0
-	for emoji, users := range reactions {
-		pts := 0
-		switch emoji {
-		case "⭐":
-			pts = scorePerStar
-		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥":
-			pts = scorePerLike
-		}
-		for _, uid := range users {
-			score += pts * weights[uid]
-		}
-	}
-	if lore != "" {
-		score += scoreLoreBonus
-	}
-	if whatToVisit != "" {
-		score += scoreVisitBonus
-	}
-	return score
-}
 
-// voterWeight returns the reaction weight for a user based on how many distinct
-// guilds they reacted to: 0 if <4, 1 if 4–7, 2 if 8+.
-func voterWeight(distinctGuilds int) int {
-	switch {
-	case distinctGuilds >= 9:
-		return 3
-	case distinctGuilds >= 6:
-		return 2
-	case distinctGuilds >= 2:
-		return 1
-	default:
-		return 0
-	}
-}
-
-var scoredEmojis = []string{
-	"⭐",
-	"👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿",
-	"🔥",
-}
-
-// fetchThreadReactions fetches all reactor user IDs for each scored emoji in a single thread.
-// Returns emoji → []userID.
-func fetchThreadReactions(s *discordgo.Session, threadID string) map[string][]string {
-	reactions := make(map[string][]string)
-	for _, emoji := range scoredEmojis {
-		var ids []string
-		var after string
-		for {
-			page, err := s.MessageReactions(threadID, threadID, emoji, 100, "", after)
-			if err != nil || len(page) == 0 {
-				break
-			}
-			for _, u := range page {
-				ids = append(ids, u.ID)
-			}
-			after = page[len(page)-1].ID
-			if len(page) < 100 {
-				break
-			}
-		}
-		if len(ids) > 0 {
-			reactions[emoji] = ids
-		}
-	}
-	return reactions
-}
+const maxScreenshots = 40
 
 func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots, videos []string) {
 	seen := make(map[string]bool)
 	var lastID string
 
 	for {
+		if len(screenshots) >= maxScreenshots {
+			break
+		}
 		msgs, err := s.ChannelMessages(threadID, 100, lastID, "", "")
 		if err != nil || len(msgs) == 0 {
 			break
