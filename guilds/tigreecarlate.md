@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10022523</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 TigreEcarlate</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Selkyy, Meln, Shin</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Zen, River, Nature, City</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>40</td></tr>

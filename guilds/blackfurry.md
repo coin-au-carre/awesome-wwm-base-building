@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10005556</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 BlackFurry</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>carnii</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>City, River, Nature, Mountain</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>45</td></tr>

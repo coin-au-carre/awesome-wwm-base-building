@@ -2,7 +2,7 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10057013</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 PleasureSeeker</td></tr>
+  <tr><td>🏰 <b>Guild Name</b></td><td>PleasureSeeker</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>영미  ( B/ _babe)</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Floating island, Nature, Zen</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>19</td></tr>

@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10011687</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 NíneLives</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>nshki_, hbx, opm.goat</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>8</td></tr>
   <tr><td>💬 <b>Discord</b></td><td><a href="https://discord.gg/Qygt9u26Bn">Join server</a> · <a href="https://discord.com/channels/1483447710617960508/1489094514327945377">View thread</a></td></tr>

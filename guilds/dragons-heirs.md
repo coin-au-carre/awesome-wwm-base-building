@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10111177</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Dragons-Heirs</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Izanagi-cz</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>City, Zen, Fun</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>26</td></tr>

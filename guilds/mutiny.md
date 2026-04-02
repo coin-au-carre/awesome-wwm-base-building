@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10000929</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 Mutiny</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>SugaredKoi</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Arena, Mountain, River, Nature, City</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>33</td></tr>

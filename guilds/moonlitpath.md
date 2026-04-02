@@ -2,7 +2,6 @@
 
 <table>
   <tr><td>🆔 <b>Guild ID</b></td><td>10256194</td></tr>
-  <tr><td>🏰 <b>Guild Name</b></td><td>🏯 MoonlitPath</td></tr>
   <tr><td>🔨 <b>Builders</b></td><td>Meffphy/cresa</td></tr>
   <tr><td>🏷️ <b>Tags</b></td><td>Cave, Nature, Mountain</td></tr>
   <tr><td>⭐ <b>Score</b></td><td>14</td></tr>
