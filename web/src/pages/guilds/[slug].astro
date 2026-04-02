@@ -14,6 +14,27 @@ export async function getStaticPaths() {
 
 const { guild: g } = Astro.props
 const base = import.meta.env.BASE_URL.replace(/\/$/, "")
+
+/** Render a subset of markdown: bold, bullet lists, blank-line paragraphs. */
+function renderMarkdown(text: string): string {
+  const bold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+
+  const paragraphs = text.trim().split(/\n{2,}/)
+  return paragraphs
+    .map((block) => {
+      const lines = block.split("\n").map((l) => l.trimEnd())
+      const isList = lines.every((l) => /^[-*]\s/.test(l.trim()) || l.trim() === "")
+      if (isList) {
+        const items = lines
+          .filter((l) => /^[-*]\s/.test(l.trim()))
+          .map((l) => `<li>${bold(l.trim().replace(/^[-*]\s/, ""))}</li>`)
+          .join("")
+        return `<ul class="space-y-1.5 list-none">${items}</ul>`
+      }
+      return `<p>${bold(lines.join("<br>"))}</p>`
+    })
+    .join("\n")
+}
 ---
 
 <Layout
@@ -97,9 +118,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "")
       g.lore && (
         <section>
           <h2 class="font-heading text-base font-medium mb-2">📜 Lore</h2>
-          <div class="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">
-            {g.lore}
-          </div>
+          <div
+            class="text-sm text-muted-foreground leading-relaxed prose-sm space-y-2 [&_strong]:text-foreground [&_strong]:font-medium"
+            set:html={renderMarkdown(g.lore)}
+          />
         </section>
       )
     }
@@ -109,7 +131,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "")
       g.whatToVisit && (
         <section>
           <h2 class="font-heading text-base font-medium mb-2">🗺️ What to Visit</h2>
-          <div class="text-sm leading-relaxed whitespace-pre-wrap">{g.whatToVisit}</div>
+          <div
+            class="text-sm leading-relaxed space-y-3 [&_ul]:space-y-1.5 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground [&_strong]:font-semibold"
+            set:html={renderMarkdown(g.whatToVisit)}
+          />
         </section>
       )
     }
