@@ -103,7 +103,7 @@ tasks:
       - echo "  task sync:nopull         crawl only (no git pull)"
       - echo "        -- -dry-run        crawl only, skip writing guilds.json"
       - echo "        -- -no-notify      skip Discord notification"
-      - echo "        -- -force-role     reassign Base Builder role to all authors"
+      - echo "        -- -force-role     reassign roles to all authors"
       - echo ""
       - echo "  task bot                 run long-running bot (dev)"
       - echo "  task bot:build           build Linux binary → dist/bot"

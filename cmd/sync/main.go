@@ -17,7 +17,7 @@ func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing JSON files")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
 	root := flag.String("root", rootDir(), "root directory containing guilds.json and solos.json")
-	forceRole := flag.Bool("force-role", false, "reassign Base Builder role to all thread authors, including already-known ones")
+	forceRole := flag.Bool("force-role", false, "reassign roles to all thread authors, including already-known ones")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
