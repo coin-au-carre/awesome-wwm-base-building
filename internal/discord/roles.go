@@ -16,17 +16,17 @@ func resolveUsername(s *discordgo.Session, userID string) string {
 	return userID
 }
 
-// AssignBaseBuilderRole grants the Base Builder role to a thread author.
+// AssignAwesomeBuilderRole grants the awesome Builder role to a thread author.
 // Safe to call repeatedly — Discord treats it as a no-op if already assigned.
-func AssignBaseBuilderRole(s *discordgo.Session, guildID, userID, roleID string) {
+func AssignAwesomeBuilderRole(s *discordgo.Session, guildID, userID, roleID string) {
 	if roleID == "" || userID == "" || guildID == "" {
 		return
 	}
 	if err := s.GuildMemberRoleAdd(guildID, userID, roleID); err != nil {
-		slog.Warn("assigning base builder role failed", "user", userID, "err", err)
+		slog.Warn("assigning awesome builder role failed", "user", userID, "err", err)
 		return
 	}
-	slog.Info("base builder role assigned", "user", resolveUsername(s, userID), "id", userID)
+	slog.Info("awesome builder role assigned", "user", resolveUsername(s, userID), "id", userID)
 }
 
 // AssignRoleToVoters assigns roleID to users who voted on at least minVotes distinct guilds.
@@ -65,7 +65,7 @@ func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guil
 			continue
 		}
 		if g.Score >= minScore {
-			AssignBaseBuilderRole(s, discordGuildID, userID, roleID)
+			AssignAwesomeBuilderRole(s, discordGuildID, userID, roleID)
 			assigned[userID] = true
 		}
 	}
@@ -100,7 +100,7 @@ func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID strin
 		if assigned[authorID] || skipUsers[authorID] {
 			continue
 		}
-		AssignBaseBuilderRole(s, guildID, authorID, roleID)
+		AssignAwesomeBuilderRole(s, guildID, authorID, roleID)
 		assigned[authorID] = true
 	}
 	return nil
