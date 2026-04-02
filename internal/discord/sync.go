@@ -27,8 +27,11 @@ type SyncStats struct {
 }
 
 type SyncConfig struct {
-	ForumChannelID string
-	DryRun         bool
+	ForumChannelID       string
+	DryRun               bool
+	// ExternalVoterWeights, when set, replaces the internally computed weights.
+	// Pass pre-merged weights from all channels for cross-channel scoring.
+	ExternalVoterWeights map[string]int
 }
 
 type threadData struct {
@@ -163,13 +166,14 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		voterGuildCounts[uid] = len(guilds)
 	}
 
-	voterWeights := make(map[string]int, len(userGuilds))
-	for uid, count := range voterGuildCounts {
-		if w := voterWeight(count); w > 0 {
-			voterWeights[uid] = w
-		}
+	var voterWeights map[string]int
+	if len(cfg.ExternalVoterWeights) > 0 {
+		voterWeights = cfg.ExternalVoterWeights
+		slog.Info("using external voter weights", "voters", len(voterWeights))
+	} else {
+		voterWeights = ComputeVoterWeights(voterGuildCounts)
+		slog.Info("voter weights computed", "voters", len(voterWeights))
 	}
-	slog.Info("voter weights computed", "voters", len(voterWeights))
 	stats.VoterGuildCounts = voterGuildCounts
 
 	for _, r := range rawResults {

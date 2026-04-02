@@ -11,28 +11,53 @@ import (
 )
 
 func main() {
-	clean := flag.Bool("clean", false, "remove stale guild pages")
-	root := flag.String("root", rootDir(), "root directory containing guilds.json and README.md")
+	clean := flag.Bool("clean", false, "remove stale guild/solo pages")
+	root := flag.String("root", rootDir(), "root directory containing guilds.json, solos.json, and SHOWCASE.md")
 	flag.Parse()
 
-	guilds, err := guild.Load(*root)
+	// ── Guilds ────────────────────────────────────────────────────────────────
+
+	guilds, err := guild.LoadFile(filepath.Join(*root, "guilds.json"))
 	if err != nil {
 		slog.Error("loading guilds", "err", err)
 		os.Exit(1)
 	}
 
-	cfg := generator.Config{
-		ReadmePath: filepath.Join(*root, "README.md"),
-		GuildsDir:  filepath.Join(*root, "guilds"),
-		Clean:      *clean,
+	if err := generator.Generate(guilds, generator.Config{
+		ReadmePath:  filepath.Join(*root, "SHOWCASE.md"),
+		GuildsDir:   filepath.Join(*root, "guilds"),
+		PagesSubdir: "guilds",
+		Clean:       *clean,
+	}); err != nil {
+		slog.Error("guild generation failed", "err", err)
+		os.Exit(1)
+	}
+	slog.Info("guilds done", "count", len(guilds))
+
+	// ── Solos ─────────────────────────────────────────────────────────────────
+
+	solosPath := filepath.Join(*root, "solos.json")
+	if _, err := os.Stat(solosPath); os.IsNotExist(err) {
+		slog.Info("solos.json not found, skipping solo generation")
+		return
 	}
 
-	if err := generator.Generate(guilds, cfg); err != nil {
-		slog.Error("generation failed", "err", err)
+	solos, err := guild.LoadFile(solosPath)
+	if err != nil {
+		slog.Error("loading solos", "err", err)
 		os.Exit(1)
 	}
 
-	slog.Info("done", "guilds", len(guilds))
+	if err := generator.Generate(solos, generator.Config{
+		ReadmePath:  filepath.Join(*root, "SOLO_SHOWCASE.md"),
+		GuildsDir:   filepath.Join(*root, "solos"),
+		PagesSubdir: "solos",
+		Clean:       *clean,
+	}); err != nil {
+		slog.Error("solo generation failed", "err", err)
+		os.Exit(1)
+	}
+	slog.Info("solos done", "count", len(solos))
 }
 
 func rootDir() string {

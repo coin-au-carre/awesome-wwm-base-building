@@ -23,7 +23,7 @@
 
 ## 🏰 Is this your guild?
 
-**Comfy** is missing lore — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
+**Comfy** is missing lore — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#guild-case-showcase` to:
 
 - Add your lore & points of interest
 - Upload screenshots

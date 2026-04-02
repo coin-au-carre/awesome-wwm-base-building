@@ -26,7 +26,7 @@
 
 ## 🏰 Is this your guild?
 
-**AfterFlame** is missing lore — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#base-guild-showcase` to:
+**AfterFlame** is missing lore — if you're one of the builders, [join our Discord](https://discord.gg/Qygt9u26Bn) and post in `#guild-case-showcase` to:
 
 - Add your lore & points of interest
 - Upload screenshots

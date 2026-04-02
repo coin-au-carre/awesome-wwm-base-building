@@ -8,7 +8,7 @@ import (
 	"ruby/internal/guild"
 )
 
-func buildTable(guilds []guild.Guild) string {
+func buildTable(guilds []guild.Guild, pagesSubdir string) string {
 	var sb strings.Builder
 
 	sb.WriteString("| Rank | Guild Name | Builders | Tags | Score |\n")
@@ -25,9 +25,9 @@ func buildTable(guilds []guild.Guild) string {
 			score = fmt.Sprintf("[%d](%s)", g.Score, DiscordInvite)
 		}
 
-		link := fmt.Sprintf("[**%s**](guilds/%s.html)", g.Name, Slugify(g.Name))
+		link := fmt.Sprintf("[**%s**](%s/%s.html)", g.Name, pagesSubdir, Slugify(g.Name))
 		if g.ID != "" {
-			link = fmt.Sprintf("[**%s**](guilds/%s.html \"ID: %s\")", g.Name, Slugify(g.Name), g.ID)
+			link = fmt.Sprintf("[**%s**](%s/%s.html \"ID: %s\")", g.Name, pagesSubdir, Slugify(g.Name), g.ID)
 		}
 
 		rankStr := fmt.Sprintf("%d", rank)
@@ -59,7 +59,7 @@ func truncate(s string, max int) string {
 	return s[:max] + "..."
 }
 
-func buildTopShowcase(guilds []guild.Guild) string {
+func buildTopShowcase(guilds []guild.Guild, pagesSubdir string) string {
 	var sb strings.Builder
 
 	var top []guild.Guild
@@ -80,8 +80,8 @@ func buildTopShowcase(guilds []guild.Guild) string {
 	for _, g := range top {
 		screenshot := g.Screenshots[rand.Intn(len(g.Screenshots))]
 		sb.WriteString(fmt.Sprintf(
-			`<a href="guilds/%s.html" title="%s"><img src="%s" width="320" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
-			Slugify(g.Name), g.Name, screenshot, g.Name,
+			`<a href="%s/%s.html" title="%s"><img src="%s" width="320" alt="%s"></a>&nbsp;&nbsp;&nbsp;`,
+			pagesSubdir, Slugify(g.Name), g.Name, screenshot, g.Name,
 		))
 	}
 	sb.WriteString("\n")

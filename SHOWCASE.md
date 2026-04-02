@@ -98,7 +98,7 @@
 ## <a name="are-you-a-builder"></a>🏗️ Are You a Builder?
 
 1. 📸 Take screenshots of your guild base in-game
-2. 💬 [Join our Discord](https://discord.gg/Qygt9u26Bn) and post the template shown below in `#base-guild-showcase`
+2. 💬 [Join our Discord](https://discord.gg/Qygt9u26Bn) and post the template shown below in `#guild-case-showcase`
 3. ⭐ The community votes — the more reactions, the higher your rank
 4. 🤖 **This page will auto update regularly (several times a day)** — your guild appears here automatically!
 
@@ -127,7 +127,7 @@ Points of interests to fill...
 
 ## <a name="how-scoring-works"></a>⭐ How Scoring Works
 
-Scores reflect Discord reactions in `#base-guild-showcase`, weighted by how broadly each person votes.
+Scores reflect Discord reactions in `#guild-case-showcase`, weighted by how broadly each person votes.
 
 | Source | Points |
 |---|---|
@@ -166,7 +166,7 @@ Official and community sources/guides for **Where Winds Meet** base building:
 
 ## <a name="get-involved"></a>🤝Get Involved
 
-- 📢 **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#base-guild-showcase`
+- 📢 **Share your base**: [Join Discord](https://discord.gg/Qygt9u26Bn) → `#guild-case-showcase`
 - ⭐ **Vote & discuss**: React on builds you love
 - 💬 **Chat & collab**: Live builder Q&A, tips, and cross-guild tours.
 - 🛠️ **Dev**: Open a GitHub Issue or PR, whole code is open source!

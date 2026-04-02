@@ -9,6 +9,7 @@ type SortDir = "asc" | "desc"
 interface Props {
   guilds: RankedGuild[]
   allTags: string[]
+  basePath?: string
 }
 
 function Tag({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
@@ -52,7 +53,7 @@ function SortButton({
   )
 }
 
-export function GuildTable({ guilds, allTags }: Props) {
+export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
@@ -149,7 +150,7 @@ export function GuildTable({ guilds, allTags }: Props) {
                 <td className="px-4 py-3 text-center font-medium">{rankLabel(g.rank)}</td>
                 <td className="px-4 py-3">
                   <a
-                    href={url(`/guilds/${g.slug}`)}
+                    href={url(`/${basePath}/${g.slug}`)}
                     className="font-medium hover:text-primary transition-colors"
                   >
                     {g.guildName || g.name}

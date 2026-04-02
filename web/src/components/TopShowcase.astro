@@ -3,9 +3,10 @@ import type { RankedGuild } from "@/types/guild"
 
 interface Props {
   guilds: RankedGuild[]
+  basePath?: string
 }
 
-const { guilds } = Astro.props
+const { guilds, basePath = "guilds" } = Astro.props
 const base = import.meta.env.BASE_URL.replace(/\/$/, "")
 ---
 
@@ -15,7 +16,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "")
       const img = g.screenshots?.[0]
       return (
         <a
-          href={`${base}/guilds/${g.slug}`}
+          href={`${base}/${basePath}/${g.slug}`}
           class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
         >
           {img && (
