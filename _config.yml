@@ -1,9 +1,0 @@
-title: Awesome WWM Base Building
-description: Discover the most beautiful constructions in Jiang Hu 🏯
-baseurl: "/awesome-wwm-base-building"
-url: "https://coin-au-carre.github.io"
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-  - jekyll-remote-theme
-google_analytics: GTM-NJQF6GDD
-footer_text: "2026 - Made with ❤️ by the <a href='https://discord.gg/Qygt9u26Bn'>Awesome WWM building community</a>"
