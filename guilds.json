@@ -4,9 +4,9 @@
 		"name": "Nínelives",
 		"guildName": "🏯 NíneLives",
 		"builders": [
-			"\u003c@362930492296921089\u003e",
-			"\u003c@569139020102238208\u003e",
-			"\u003c@226512871687847938\u003e"
+			"nshki_",
+			"hbx",
+			"opm.goat"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1489094514327945377",
 		"builderDiscordId": "226512871687847938",
@@ -582,7 +582,7 @@
 	},
 	{
 		"name": "KALYANMITR",
-		"builders": null,
+		"builders": [],
 		"tags": [
 			"Fun"
 		],
@@ -663,7 +663,7 @@
 	},
 	{
 		"name": "Zhou",
-		"builders": null,
+		"builders": [],
 		"tags": [
 			"Nature",
 			"Fun"
@@ -705,7 +705,7 @@
 		"id": "10183152",
 		"name": "The-Inner-Ways",
 		"guildName": "🏯 The-Inner-Ways",
-		"builders": null,
+		"builders": [],
 		"tags": [
 			"Nature"
 		],
