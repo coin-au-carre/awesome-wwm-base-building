@@ -40,7 +40,7 @@ type Config struct {
 
 func DefaultConfig() Config {
 	return Config{
-		ReadmePath: "README.md",
+		ReadmePath: "SHOWCASE.md",
 		GuildsDir:  "guilds",
 	}
 }
