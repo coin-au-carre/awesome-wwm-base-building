@@ -6,8 +6,8 @@
 # go.sum
 NOTES.md
 
-web/.astro
+web/.astro/
 web/package-lock.json
-web/node_modules
+web/node_modules/
 web/*.log*
 web/dist/
