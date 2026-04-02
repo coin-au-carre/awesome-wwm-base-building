@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log/slog"
 
+	"ruby/internal/guild"
+
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -22,6 +24,22 @@ func AssignBaseBuilderRole(s *discordgo.Session, guildID, userID, roleID string)
 		username = u.Username
 	}
 	slog.Info("base builder role assigned", "user", username)
+}
+
+// AssignRoleByScore assigns roleID to any guild author whose Score >= minScore.
+// skipUsers works the same as AssignRoleToForumAuthors — pass nil to assign everyone.
+func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guilds []guild.Guild, minScore int, skipUsers map[string]bool) {
+	assigned := make(map[string]bool)
+	for _, g := range guilds {
+		userID := g.BuilderDiscordID
+		if userID == "" || assigned[userID] || skipUsers[userID] {
+			continue
+		}
+		if g.Score >= minScore {
+			AssignBaseBuilderRole(s, discordGuildID, userID, roleID)
+			assigned[userID] = true
+		}
+	}
 }
 
 // AssignRoleToForumAuthors fetches all threads in forumChannelID and assigns

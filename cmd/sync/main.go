@@ -29,6 +29,7 @@ func main() {
 	soloForumChannelID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
+	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
@@ -78,13 +79,21 @@ func main() {
 		}
 	}
 
-	if !*dryRun && baseBuilderRoleID != "" {
-		for _, ch := range []string{forumChannelID, soloForumChannelID} {
-			if ch == "" {
-				continue
+	if !*dryRun && (baseBuilderRoleID != "" || baseCriticRoleID != "") {
+		forumCh, err := bot.Session.Channel(forumChannelID)
+		if err != nil {
+			slog.Warn("fetching forum channel for role assignment", "err", err)
+		} else {
+			if baseBuilderRoleID != "" {
+				discord.AssignRoleToForumAuthors(bot.Session, forumChannelID, baseBuilderRoleID, knownAuthors)
 			}
-			if err := discord.AssignRoleToForumAuthors(bot.Session, ch, baseBuilderRoleID, knownAuthors); err != nil {
-				slog.Warn("assigning base builder roles", "channel", ch, "err", err)
+			if baseCriticRoleID != "" {
+				discord.AssignRoleByScore(bot.Session, forumCh.GuildID, baseCriticRoleID, updated, 6, knownAuthors)
+			}
+		}
+		if soloForumChannelID != "" && baseBuilderRoleID != "" {
+			if err := discord.AssignRoleToForumAuthors(bot.Session, soloForumChannelID, baseBuilderRoleID, knownAuthors); err != nil {
+				slog.Warn("assigning base builder roles", "channel", soloForumChannelID, "err", err)
 			}
 		}
 	}
