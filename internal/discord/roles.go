@@ -9,6 +9,13 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+func resolveUsername(s *discordgo.Session, userID string) string {
+	if u, err := s.User(userID); err == nil {
+		return u.Username
+	}
+	return userID
+}
+
 // AssignBaseBuilderRole grants the Base Builder role to a thread author.
 // Safe to call repeatedly — Discord treats it as a no-op if already assigned.
 func AssignBaseBuilderRole(s *discordgo.Session, guildID, userID, roleID string) {
@@ -19,11 +26,33 @@ func AssignBaseBuilderRole(s *discordgo.Session, guildID, userID, roleID string)
 		slog.Warn("assigning base builder role failed", "user", userID, "err", err)
 		return
 	}
-	username := userID
-	if u, err := s.User(userID); err == nil {
-		username = u.Username
+	slog.Info("base builder role assigned", "user", resolveUsername(s, userID), "id", userID)
+}
+
+// AssignRoleToVoters assigns roleID to users who voted on at least minVotes distinct guilds.
+func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, voterGuildCounts map[string]int, minVotes int) {
+	qualified := 0
+	for uid, count := range voterGuildCounts {
+		if count >= minVotes {
+			qualified++
+		}
+		_ = uid
 	}
-	slog.Info("base builder role assigned", "user", username)
+	slog.Info("assigning critic role to voters", "qualified", qualified, "min_votes", minVotes)
+
+	assigned := 0
+	for uid, count := range voterGuildCounts {
+		if count < minVotes {
+			continue
+		}
+		if err := s.GuildMemberRoleAdd(discordGuildID, uid, roleID); err != nil {
+			slog.Warn("assigning critic role failed", "user", uid, "err", err)
+			continue
+		}
+		slog.Info("critic role assigned", "user", resolveUsername(s, uid), "id", uid, "guilds_voted", count)
+		assigned++
+	}
+	slog.Info("critic role assignment done", "assigned", assigned)
 }
 
 // AssignRoleByScore assigns roleID to any guild author whose Score >= minScore.

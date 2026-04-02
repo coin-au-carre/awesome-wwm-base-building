@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"strings"
 	"sync"
+	"time"
 
 	"ruby/internal/guild"
 
@@ -22,11 +23,12 @@ const (
 const numWorkers = 10
 
 type SyncStats struct {
-	Total        int
-	New          int
-	Updated      int
-	NewNames     []string
-	UpdatedNames []string
+	Total            int
+	New              int
+	Updated          int
+	NewNames         []string
+	UpdatedNames     []string
+	VoterGuildCounts map[string]int // userID → number of distinct guilds voted on
 }
 
 type SyncConfig struct {
@@ -46,11 +48,6 @@ type threadData struct {
 	WhatToVisit string
 }
 
-type threadResult struct {
-	idx      int
-	guild    guild.Guild
-	authorID string
-}
 
 func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStats, error) {
 	forumChannel, err := b.Session.Channel(cfg.ForumChannelID)
@@ -64,10 +61,12 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 	}
 	slog.Info("forum tags loaded", "count", len(tagMap))
 
+	t0 := time.Now()
 	threads, err := collectThreads(b.Session, cfg.ForumChannelID, forumChannel.GuildID)
 	if err != nil {
 		return nil, SyncStats{}, err
 	}
+	slog.Info("threads collected", "count", len(threads), "elapsed", time.Since(t0).Round(time.Millisecond))
 
 	var stats SyncStats
 	guildMap := buildGuildMap(guilds)
@@ -107,11 +106,26 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		go func() {
 			defer wg.Done()
 			for j := range contentJobs {
+				tThread := time.Now()
+				var (
+					data      threadData
+					reactions map[string][]string
+					wg2       sync.WaitGroup
+				)
+				wg2.Add(2)
+				go func() { defer wg2.Done(); data = fetchThreadContent(b.Session, j.thread) }()
+				go func() { defer wg2.Done(); reactions = fetchThreadReactions(b.Session, j.thread.ID) }()
+				wg2.Wait()
+				slog.Info("thread fetched",
+					"name", guild.ExtractName(j.thread.Name),
+					"reactions", totalReactions(reactions),
+					"elapsed", time.Since(tThread).Round(time.Millisecond),
+				)
 				contentResults <- contentResult{
 					idx:       j.idx,
 					thread:    j.thread,
-					data:      fetchThreadContent(b.Session, j.thread),
-					reactions: fetchThreadReactions(b.Session, j.thread.ID),
+					data:      data,
+					reactions: reactions,
 				}
 			}
 		}()
@@ -129,6 +143,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 	}()
 
 	// Collect all results, then compute voter weights from the global reaction picture.
+	tFetch := time.Now()
 	rawResults := make([]contentResult, 0, len(threads))
 	userGuilds := make(map[string]map[string]bool)
 	for r := range contentResults {
@@ -142,16 +157,22 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 			}
 		}
 	}
+	slog.Info("content and reactions fetched", "threads", len(rawResults), "elapsed", time.Since(tFetch).Round(time.Millisecond))
+
+	voterGuildCounts := make(map[string]int, len(userGuilds))
+	for uid, guilds := range userGuilds {
+		voterGuildCounts[uid] = len(guilds)
+	}
 
 	voterWeights := make(map[string]int, len(userGuilds))
-	for uid, guilds := range userGuilds {
-		if w := voterWeight(len(guilds)); w > 0 {
+	for uid, count := range voterGuildCounts {
+		if w := voterWeight(count); w > 0 {
 			voterWeights[uid] = w
 		}
 	}
 	slog.Info("voter weights computed", "voters", len(voterWeights))
+	stats.VoterGuildCounts = voterGuildCounts
 
-	results := make(chan threadResult, len(rawResults))
 	for _, r := range rawResults {
 		data := r.data
 		data.Score = computeScore(r.reactions, voterWeights, data.Lore, data.WhatToVisit)
@@ -170,6 +191,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		if data.GuildName != "" && !strings.EqualFold(data.GuildName, g.Name) {
 			g.GuildName = data.GuildName
 		}
+		prev := g
 		g.Builders = data.Builders
 		g.Tags = tags
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
@@ -178,29 +200,21 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		g.Videos = data.Videos
 		g.Lore = data.Lore
 		g.WhatToVisit = data.WhatToVisit
+		g.BuilderDiscordID = data.AuthorID
 
-		results <- threadResult{idx: r.idx, guild: g, authorID: data.AuthorID}
-	}
-	close(results)
-
-	for r := range results {
-		prev := guilds[r.idx]
-
-		if !newIndices[r.idx] && hasChanged(prev, r.guild) {
+		if !newIndices[r.idx] && hasChanged(prev, g) {
 			stats.Updated++
-			stats.UpdatedNames = append(stats.UpdatedNames, r.guild.Name)
+			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
 		}
 
-		r.guild.BuilderDiscordID = r.authorID
-
-		guilds[r.idx] = r.guild
+		guilds[r.idx] = g
 		slog.Info("guild synced",
-			"name", r.guild.Name,
-			"id", r.guild.ID,
-			"score", r.guild.Score,
-			"builders", strings.Join(r.guild.Builders, ", "),
-			"tags", strings.Join(r.guild.Tags, ", "),
-			"screenshots", len(r.guild.Screenshots),
+			"name", g.Name,
+			"id", g.ID,
+			"score", g.Score,
+			"builders", strings.Join(g.Builders, ", "),
+			"tags", strings.Join(g.Tags, ", "),
+			"screenshots", len(g.Screenshots),
 		)
 	}
 
@@ -369,6 +383,14 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots,
 		}
 	}
 	return
+}
+
+func totalReactions(reactions map[string][]string) int {
+	n := 0
+	for _, users := range reactions {
+		n += len(users)
+	}
+	return n
 }
 
 func buildGuildMap(guilds []guild.Guild) map[string]int {
