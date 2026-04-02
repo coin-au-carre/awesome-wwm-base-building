@@ -25,22 +25,25 @@ import Layout from "@/layouts/main.astro"
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">Why this site</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        There is no in-game gallery. Screenshots get buried in Discord threads and players
-        have no easy way to discover what other guilds have built. This site collects all
-        guild base threads from our community Discord, ranks them by community votes, and
-        presents them in a browsable showcase.
+        It all started after touring tons of incredible guild bases in Where Winds Meet — they were simply too good to keep secret! ✨
+        So this place was born: somewhere to share cool builds, swap ideas, and get inspired together.
       </p>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        It updates automatically twice a day from Discord — no manual curation needed.
+        The problem? There's no in-game gallery, and great screenshots tend to vanish in Discord threads. This site collects all
+        guild base submissions from the community Discord, ranks them by community votes, and presents them in a
+        browsable showcase — no build left behind.
+      </p>
+      <p class="text-sm text-muted-foreground leading-relaxed">
+        Hop into the Discord to show off your own base or just hang out with fellow builders! 🏗️🎮
       </p>
     </section>
 
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">How it's built</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        A Go bot crawls the Discord forum, parses thread content, tallies reactions, and
-        writes the data to a JSON file. A GitHub Actions workflow runs the sync every 12 hours
-        and redeploys this static site automatically.
+        A bot crawls the Discord forum, parses thread content, tallies reactions, and
+        writes the data to a JSON file. A GitHub Actions workflow runs the sync <strong class="text-foreground">4 times a day (every 6 hours)</strong> and
+        redeploys this static site automatically.
       </p>
       <ul class="space-y-1.5 text-sm text-muted-foreground">
         <li>🤖 <strong class="text-foreground">Discord bot</strong> — Go + discordgo</li>
