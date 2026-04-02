@@ -7,7 +7,7 @@
 NOTES.md
 
 web/.astro/
-web/package-lock.json
-web/node_modules/
 web/dist/
+web/node_modules/
+web/package-lock.json
 web/*.log*
