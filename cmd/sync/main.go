@@ -85,10 +85,13 @@ func main() {
 			slog.Warn("fetching forum channel for role assignment", "err", err)
 		} else {
 			if baseBuilderRoleID != "" {
-				discord.AssignRoleToForumAuthors(bot.Session, forumChannelID, baseBuilderRoleID, knownAuthors)
+				// Use synced data directly — avoids re-fetching all threads from Discord.
+				slog.Info("assigning builder role from synced data", "guilds", len(updated))
+				discord.AssignRoleByScore(bot.Session, forumCh.GuildID, baseBuilderRoleID, updated, 0, knownAuthors)
 			}
 			if baseCriticRoleID != "" {
-				discord.AssignRoleByScore(bot.Session, forumCh.GuildID, baseCriticRoleID, updated, 6, knownAuthors)
+				slog.Info("assigning critic role", "total_voters", len(stats.VoterGuildCounts))
+				discord.AssignRoleToVoters(bot.Session, forumCh.GuildID, baseCriticRoleID, stats.VoterGuildCounts, 6)
 			}
 		}
 		if soloForumChannelID != "" && baseBuilderRoleID != "" {

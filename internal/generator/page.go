@@ -11,6 +11,18 @@ import (
 	"ruby/internal/guild"
 )
 
+var reDiscordMention = regexp.MustCompile(`^<@!?\d+>$`)
+
+func visibleBuilders(builders []string) []string {
+	var out []string
+	for _, b := range builders {
+		if !reDiscordMention.MatchString(b) {
+			out = append(out, b)
+		}
+	}
+	return out
+}
+
 // Slugify converts a guild name to a URL-safe filename.
 func Slugify(name string) string {
 	re := regexp.MustCompile(`[^\p{L}\p{N}]+`)
@@ -39,8 +51,8 @@ func buildPage(g *guild.Guild, dir string) string {
 	if g.GuildName != "" {
 		sb.WriteString(tableRow("🏰", "Guild Name", g.GuildName))
 	}
-	if len(g.Builders) > 0 {
-		sb.WriteString(tableRow("🔨", "Builders", strings.Join(g.Builders, ", ")))
+	if names := visibleBuilders(g.Builders); len(names) > 0 {
+		sb.WriteString(tableRow("🔨", "Builders", strings.Join(names, ", ")))
 	}
 	if len(g.Tags) > 0 {
 		sb.WriteString(tableRow("🏷️", "Tags", strings.Join(g.Tags, ", ")))
