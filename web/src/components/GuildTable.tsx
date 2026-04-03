@@ -157,7 +157,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
                   </a>
                 </td>
                 <td className="px-4 py-3 text-muted-foreground hidden md:table-cell">
-                  {(() => { const s = g.builders.join(", ") || "—"; return s.length > 50 ? s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..." : s; })()}
+                  {(() => { const s = (g.builders ?? []).join(", ") || "—"; return s.length > 50 ? s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..." : s; })()}
                 </td>
                 <td className="px-4 py-3 hidden lg:table-cell">
                   <div className="flex flex-wrap gap-1">
