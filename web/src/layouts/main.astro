@@ -34,6 +34,16 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <meta name="google-site-verification" content="I2hHH7CU14QUGQNoWsiZPqkRVcfLky_Add6wnUzXbzc" />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title}</title>
+    <!-- Theme init (before paint to avoid flash) -->
+    <script is:inline>
+      ;(function () {
+        const stored = localStorage.getItem("theme")
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark")
+        }
+      })()
+    </script>
     <!-- Google Tag Manager -->
     <script is:inline>
       ;(function (w, d, s, l, i) {
@@ -105,6 +115,16 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
               Discord ↗
             </a>
 
+            <!-- Theme toggle -->
+            <button
+              id="theme-toggle"
+              aria-label="Toggle theme"
+              class="p-2 rounded-md hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
+            >
+              <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+              <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+
             <!-- Mobile hamburger -->
             <button
               id="menu-toggle"
@@ -166,6 +186,24 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
         Awesome WWM building community
       </a>
     </footer>
+
+    <script is:inline>
+      // Theme toggle
+      const themeBtn = document.getElementById("theme-toggle")
+      const iconSun = document.getElementById("icon-sun")
+      const iconMoon = document.getElementById("icon-moon")
+      function applyThemeIcons() {
+        const isDark = document.documentElement.classList.contains("dark")
+        iconSun.classList.toggle("hidden", !isDark)
+        iconMoon.classList.toggle("hidden", isDark)
+      }
+      applyThemeIcons()
+      themeBtn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark")
+        localStorage.setItem("theme", isDark ? "dark" : "light")
+        applyThemeIcons()
+      })
+    </script>
 
     <script is:inline>
       const toggle = document.getElementById("menu-toggle")

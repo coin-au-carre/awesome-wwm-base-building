@@ -59,10 +59,12 @@ export function hasSolos(): boolean {
 export function getLastSyncDate(): string {
   try {
     const stat = statSync(new URL("../../../guilds.json", import.meta.url))
-    return stat.mtime.toLocaleDateString("en-US", {
+    return stat.mtime.toLocaleString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     })
   } catch {
     return "Unknown"
