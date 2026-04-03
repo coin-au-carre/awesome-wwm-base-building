@@ -20,6 +20,9 @@ function buildTemplate(f: typeof PLACEHOLDERS) {
     ``,
     `🧙 What to visit`,
     f.whatToVisit,
+    ``,
+    `🗳️ Vote with reactions:`,
+    `⭐ Best overall | 👍 Good base | 🔥 Amazing creativity`,
   ].join("\n")
 }
 
