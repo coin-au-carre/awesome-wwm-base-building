@@ -31,7 +31,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="google-site-verification" content="I2hHH7CU14QUGQNoWsiZPqkRVcfLky_Add6wnUzXbzc" />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title}</title>
     <!-- Theme init (before paint to avoid flash) -->
@@ -43,29 +42,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
         }
       })()
     </script>
-    <!-- Google Tag Manager -->
-    <script is:inline>
-      ;(function (w, d, s, l, i) {
-        w[l] = w[l] || []
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : ""
-        j.async = true
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
-        f.parentNode.insertBefore(j, f)
-      })(window, document, "script", "dataLayer", "GTM-NJQF6GDD")
-    </script>
   </head>
   <body>
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NJQF6GDD"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe>
-    </noscript>
-
     <!-- Top nav -->
     <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <div class="mx-auto max-w-7xl px-4">
