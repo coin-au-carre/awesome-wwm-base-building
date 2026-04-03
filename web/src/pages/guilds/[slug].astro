@@ -78,7 +78,7 @@ function renderMarkdown(text: string): string {
           }
           <tr class="border-b border-border">
             <td class="px-4 py-2.5 text-muted-foreground font-medium">🔨 Builders</td>
-            <td class="px-4 py-2.5">{g.builders.join(", ") || "—"}</td>
+            <td class="px-4 py-2.5">{g.builders?.join(", ") || "—"}</td>
           </tr>
           <tr class="border-b border-border">
             <td class="px-4 py-2.5 text-muted-foreground font-medium">⭐ Score</td>
