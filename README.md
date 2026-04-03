@@ -1,8 +1,8 @@
-# awesome-wwm-base-building
+# Where Builders Meet (WBM)
 
 Community showcase of guild bases and solo builds for [Where Winds Meet](https://www.wherewindsmeetgame.com).
 
-**Live site:** https://coin-au-carre.github.io/awesome-wwm-base-building
+**Live site:** https://wherebuildersmeet.com
 
 ---
 
