@@ -86,94 +86,19 @@ ANTHROPIC_API_KEY                     # Claude AI (bot feature)
 
 ## Go Code Style
 
-### Import Groups
-```go
-import (
-    // 1. Standard library
-    "fmt"
-    "log/slog"
-
-    // 2. Internal packages
-    "ruby/internal/discord"
-    "ruby/internal/guild"
-
-    // 3. Third-party
-    "github.com/bwmarrin/discordgo"
-)
-```
-
-### Error Handling
-```go
-// main functions — fatal
-slog.Error("operation failed", "err", err)
-os.Exit(1)
-
-// library code — wrap and return
-return nil, fmt.Errorf("creating session: %w", err)
-
-// non-critical — warn and continue
-slog.Warn("optional operation failed", "err", err)
-```
-
-### Logging
-```go
-slog.Info("threads collected", "count", len(threads), "elapsed", time.Since(t0))
-```
-
-### Concurrency — worker pool
-```go
-jobs := make(chan Job, len(items))
-var wg sync.WaitGroup
-for range numWorkers {
-    wg.Add(1)
-    go func() {
-        defer wg.Done()
-        for job := range jobs { /* process */ }
-    }()
-}
-for _, item := range items { jobs <- item }
-close(jobs)
-wg.Wait()
-```
+- Imports: stdlib → internal (`ruby/...`) → third-party, separated by blank lines
+- Errors in `main`: `slog.Error(...); os.Exit(1)`. In libraries: `fmt.Errorf("op: %w", err)`. Non-critical: `slog.Warn`
+- Logging: `slog.Info("msg", "key", val, ...)` structured key-value pairs
+- Concurrency: use worker pool pattern (`jobs` channel + `sync.WaitGroup`)
+- Compile regexes at package level with `regexp.MustCompile`; use `\p{So}` for emoji, `\p{L}`/`\p{N}` for Unicode-aware slugs
 
 ### guild.LoadFile / SaveFile
-Use `guild.LoadFile(path)` and `guild.SaveFile(path, guilds)` for arbitrary paths.
+Use `guild.LoadFile(path)` / `guild.SaveFile(path, guilds)` for arbitrary paths.
 `guild.Load(root)` / `guild.Save(root, guilds)` are convenience wrappers for `guilds.json` only.
-
-### Regular Expressions
-Compile at package level:
-```go
-var reGuildName = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
-```
-- `\p{So}` matches Unicode symbol/emoji (e.g. 🏯)
-- `\p{L}`, `\p{N}` used in `Slugify()` for Unicode-aware slug generation
 
 ## Astro Site (`web/`)
 
-**Key files:**
-- `src/lib/guilds.ts` — loads `guilds.json` and `solos.json` at build time via `readFileSync`
-- `src/lib/slugify.ts` — port of Go `slugify()` in `internal/discord/spotlight.go` — **must stay in sync**
-- `src/lib/url.ts` — `url(path)` helper for internal links inside React components (handles `BASE_URL`)
-- `src/types/guild.ts` — TypeScript mirror of `internal/guild/guild.go`
-- `src/components/GuildTable.tsx` — `client:load` React island, accepts `basePath` prop (`"guilds"` or `"solos"`)
-- `src/components/TopShowcase.astro` — accepts `basePath` prop
-- `src/components/MediaGallery.astro` — lightbox, YouTube embed, `onerror` fallback
-
-**Pages:**
-| Route | Description |
-|---|---|
-| `/` | Guild bases index (showcase + ranked table) |
-| `/guilds/[slug]` | Guild detail page |
-| `/solo` | Solo builds index |
-| `/solos/[slug]` | Solo build detail page |
-| `/items` | Building items catalog (WIP) |
-| `/scoring` | Scoring rules |
-| `/about` | About the project |
-| `/contribute` | How to submit a guild/solo |
-
-**Base path:** configured in `astro.config.mjs` via `ASTRO_BASE` env var (default: `/awesome-wwm-base-building`).
-
-**Never hardcode internal paths in React components** — always use `url('/path')` from `src/lib/url.ts`.
+See `web/CLAUDE.md` for full details.
 
 ## GitHub Actions
 
