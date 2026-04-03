@@ -41,6 +41,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <link rel="canonical" href={Astro.url.href} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title}</title>
     <!-- Theme init (before paint to avoid flash) -->
