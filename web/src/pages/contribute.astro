@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
+import TemplateBuilder from "@/components/TemplateBuilder"
 ---
 
 <Layout
@@ -33,16 +34,7 @@ import Layout from "@/layouts/main.astro"
             {
               n: "2",
               title: "Post your base",
-              body: (
-                <>
-                  Create a thread in the guild base forum. Title it <strong class="text-foreground">🏯 GuildName [GuildID]</strong>, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts.
-                </>
-              ),
-            },
-            {
-              n: "3",
-              title: "Wait for the next sync",
-              body: "The site syncs ~4 times a day. Your guild will appear automatically after the next sync.",
+              body: "Create a thread in the guild base forum. Title it with your guild name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts.",
             },
           ].map((step) => (
             <li class="flex gap-4">
@@ -70,17 +62,21 @@ import Layout from "@/layouts/main.astro"
 
       <div class="space-y-2">
         <p class="text-sm text-muted-foreground">First post template:</p>
-        <pre class="rounded-xl bg-muted/60 ring-1 ring-border px-5 py-4 text-xs leading-relaxed overflow-x-auto"><code>🏯 YourGuildName [YourGuildID]
-👷 Builders: builder1, builder2
-
-📝 Lore
-Write your guild's story here.
-
-🧙 What to visit
-- Point of interest 1
-- Point of interest 2</code></pre>
+        <TemplateBuilder client:load />
         <p class="text-xs text-muted-foreground">Edit your first post at any time — changes are picked up on the next sync.</p>
       </div>
+
+      <ol class="space-y-5" start={3}>
+        <li class="flex gap-4">
+          <span class="shrink-0 flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-semibold">
+            3
+          </span>
+          <div class="space-y-1">
+            <p class="font-medium text-sm">Wait for the next sync</p>
+            <p class="text-sm text-muted-foreground">The site syncs ~4 times a day. Your guild will appear automatically after the next sync.</p>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section class="space-y-3">
