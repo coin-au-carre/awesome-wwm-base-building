@@ -87,6 +87,12 @@ export default function ContributeTabs() {
             body="The site syncs ~4 times a day. Your guild will appear automatically after the next sync."
           />
         </ol>
+
+        <div className="rounded-lg bg-muted/40 ring-1 ring-border px-4 py-3 space-y-2 text-sm text-muted-foreground">
+          <p><span className="font-medium text-foreground">Multiple guilds?</span> Submit each one in a separate thread — all your work is welcome.</p>
+          <p><span className="font-medium text-foreground">Image limit:</span> Up to 40 images total, spread across posts. 10 per post is recommended to avoid performance issues.</p>
+          <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
+        </div>
       </Tabs.Content>
 
       <Tabs.Content value="vote" className="space-y-4">
@@ -95,6 +101,9 @@ export default function ContributeTabs() {
         </p>
         <p className="text-sm text-muted-foreground leading-relaxed">
           Use ⭐ for 2 points, or 👍 🔥 for 1 point each. The more threads you vote on, the more weight your votes carry.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role on Discord.
         </p>
         <a
           href="https://discord.gg/Qygt9u26Bn"
@@ -106,7 +115,7 @@ export default function ContributeTabs() {
         </a>
       </Tabs.Content>
 
-      <Tabs.Content value="oss" className="space-y-4">
+      <Tabs.Content value="oss" className="space-y-6">
         <p className="text-sm text-muted-foreground leading-relaxed">
           The project is open source. Contributions are welcome — open an issue or a pull request.
         </p>
