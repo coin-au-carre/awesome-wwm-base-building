@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"regexp"
+	"slices"
 	"strings"
 	"sync"
 	"time"
@@ -251,14 +252,26 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 }
 
 func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*discordgo.Channel, error) {
-	active, err := s.GuildThreadsActive(guildID)
-	if err != nil {
-		return nil, fmt.Errorf("fetching active threads: %w", err)
-	}
+	var (
+		active    *discordgo.ThreadsList
+		archived  *discordgo.ThreadsList
+		activeErr error
+		wg        sync.WaitGroup
+	)
+	wg.Add(2)
+	go func() { defer wg.Done(); active, activeErr = s.GuildThreadsActive(guildID) }()
+	go func() {
+		defer wg.Done()
+		var err error
+		archived, err = s.ThreadsArchived(forumChannelID, nil, 0)
+		if err != nil {
+			slog.Warn("fetching archived threads", "err", err)
+		}
+	}()
+	wg.Wait()
 
-	archived, err := s.ThreadsArchived(forumChannelID, nil, 0)
-	if err != nil {
-		slog.Warn("fetching archived threads", "err", err)
+	if activeErr != nil {
+		return nil, fmt.Errorf("fetching active threads: %w", activeErr)
 	}
 
 	var threads []*discordgo.Channel
@@ -383,5 +396,5 @@ func hasChanged(prev, next guild.Guild) bool {
 	return prev.Score != next.Score ||
 		len(prev.Screenshots) != len(next.Screenshots) ||
 		len(prev.Videos) != len(next.Videos) ||
-		strings.Join(prev.Builders, ",") != strings.Join(next.Builders, ",")
+		!slices.Equal(prev.Builders, next.Builders)
 }

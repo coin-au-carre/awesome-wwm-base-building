@@ -1,6 +1,7 @@
 package guild
 
 import (
+	"path/filepath"
 	"regexp"
 	"strings"
 )
@@ -62,7 +63,7 @@ func ExtractName(threadName string) string {
 
 // IsImage reports whether filename has a recognised image extension.
 func IsImage(filename string) bool {
-	switch strings.ToLower(fileExt(filename)) {
+	switch strings.ToLower(filepath.Ext(filename)) {
 	case ".jpg", ".jpeg", ".png", ".gif", ".webp":
 		return true
 	}
@@ -71,7 +72,7 @@ func IsImage(filename string) bool {
 
 // IsVideo reports whether filename has a recognised video extension.
 func IsVideo(filename string) bool {
-	switch strings.ToLower(fileExt(filename)) {
+	switch strings.ToLower(filepath.Ext(filename)) {
 	case ".mp4", ".mov", ".webm", ".mkv", ".avi":
 		return true
 	}
@@ -92,11 +93,3 @@ func cleanSection(s string) string {
 	return s
 }
 
-func fileExt(filename string) string {
-	for i := len(filename) - 1; i >= 0; i-- {
-		if filename[i] == '.' {
-			return filename[i:]
-		}
-	}
-	return ""
-}

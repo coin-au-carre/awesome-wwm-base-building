@@ -8,19 +8,20 @@ import (
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
 
+	"ruby/internal/cmdutil"
 	idiscord "ruby/internal/discord"
 	"ruby/internal/guild"
 )
 
 func main() {
-	if err := godotenv.Load(filepath.Join(rootDir(), ".env")); err != nil {
+	if err := godotenv.Load(filepath.Join(cmdutil.RootDir(), ".env")); err != nil {
 		slog.Warn("no .env file found, relying on environment variables")
 	}
 
-	token := requireEnv("RUBY_BOT_TOKEN")
-	channelID := requireEnv("RUBY_CHANNEL_ID")
+	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
+	channelID := cmdutil.RequireEnv("RUBY_CHANNEL_ID")
 
-	guilds, err := guild.Load(rootDir())
+	guilds, err := guild.Load(cmdutil.RootDir())
 	if err != nil {
 		slog.Error("loading guilds", "err", err)
 		os.Exit(1)
@@ -53,20 +54,4 @@ func main() {
 	}
 
 	slog.Info("spotlight sent", "guild", pick.Name, "channel", channelID)
-}
-
-func requireEnv(key string) string {
-	v := os.Getenv(key)
-	if v == "" {
-		slog.Error("required env variable not set", "key", key)
-		os.Exit(1)
-	}
-	return v
-}
-
-func rootDir() string {
-	if _, err := os.Stat("LICENSE"); err == nil {
-		return "."
-	}
-	return ".."
 }

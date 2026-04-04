@@ -8,6 +8,8 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
+
+	"ruby/internal/cmdutil"
 )
 
 func main() {
@@ -15,15 +17,15 @@ func main() {
 	image := flag.String("image", "", "path to an image file to attach")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(rootDir(), ".env")); err != nil {
+	if err := godotenv.Load(filepath.Join(cmdutil.RootDir(), ".env")); err != nil {
 		slog.Warn("no .env file found, relying on environment variables")
 	}
 
-	token := requireEnv("RUBY_BOT_TOKEN")
+	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
 	channelID := *channel
 	if channelID == "" {
-		channelID = requireEnv("RUBY_CHANNEL_ID")
+		channelID = cmdutil.RequireEnv("RUBY_CHANNEL_ID")
 	}
 
 	text := flag.Arg(0)
@@ -59,20 +61,4 @@ func main() {
 	}
 
 	slog.Info("sent", "channel", channelID)
-}
-
-func requireEnv(key string) string {
-	v := os.Getenv(key)
-	if v == "" {
-		slog.Error("required env variable not set", "key", key)
-		os.Exit(1)
-	}
-	return v
-}
-
-func rootDir() string {
-	if _, err := os.Stat("LICENSE"); err == nil {
-		return "."
-	}
-	return ".."
 }
