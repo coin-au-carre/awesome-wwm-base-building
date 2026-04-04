@@ -71,7 +71,11 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   function toggleTag(tag: string) {
     setActiveTags((prev) => {
       const next = new Set(prev)
-      next.has(tag) ? next.delete(tag) : next.add(tag)
+      if (next.has(tag)) {
+        next.delete(tag)
+      } else {
+        next.add(tag)
+      }
       return next
     })
   }
@@ -79,17 +83,25 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()
     let result = guilds
-    if (activeTags.size > 0) result = result.filter((g) => g.tags?.some((t) => activeTags.has(t)))
-    if (q) result = result.filter((g) =>
-      (g.guildName || g.name).toLowerCase().includes(q) ||
-      (g.builders ?? []).some((b) => b.toLowerCase().includes(q))
-    )
+    if (activeTags.size > 0) {
+      result = result.filter((g) => g.tags?.some((t) => activeTags.has(t)))
+    }
+    if (q) {
+      result = result.filter((g) =>
+        (g.guildName || g.name).toLowerCase().includes(q) ||
+        (g.builders ?? []).some((b) => b.toLowerCase().includes(q))
+      )
+    }
 
     return [...result].sort((a, b) => {
       let cmp = 0
-      if (sortField === "rank") cmp = a.rank - b.rank
-      else if (sortField === "name") cmp = a.name.localeCompare(b.name)
-      else if (sortField === "score") cmp = b.score - a.score
+      if (sortField === "rank") {
+        cmp = a.rank - b.rank
+      } else if (sortField === "name") {
+        cmp = a.name.localeCompare(b.name)
+      } else if (sortField === "score") {
+        cmp = b.score - a.score
+      }
       return sortDir === "asc" ? cmp : -cmp
     })
   }, [guilds, activeTags, sortField, sortDir, search])
