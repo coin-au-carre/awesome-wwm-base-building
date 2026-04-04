@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"sync"
 
+	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
 	"ruby/internal/guild"
 
@@ -17,7 +18,7 @@ import (
 func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing JSON files")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
-	root := flag.String("root", rootDir(), "root directory containing guilds.json and solos.json")
+	root := flag.String("root", cmdutil.RootDir(), "root directory containing guilds.json and solos.json")
 	forceRole := flag.Bool("force-role", false, "reassign roles to all thread authors, including already-known ones")
 	flag.Parse()
 
@@ -25,8 +26,8 @@ func main() {
 		slog.Warn("no .env file found, relying on environment variables")
 	}
 
-	token := requireEnv("RUBY_BOT_TOKEN")
-	guildForumID := requireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
+	guildForumID := cmdutil.RequireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
@@ -223,18 +224,3 @@ func knownAuthorSet(guilds []guild.Guild) map[string]bool {
 	return m
 }
 
-func requireEnv(key string) string {
-	v := os.Getenv(key)
-	if v == "" {
-		slog.Error("required env variable not set", "key", key)
-		os.Exit(1)
-	}
-	return v
-}
-
-func rootDir() string {
-	if _, err := os.Stat("LICENSE"); err == nil {
-		return "."
-	}
-	return ".."
-}

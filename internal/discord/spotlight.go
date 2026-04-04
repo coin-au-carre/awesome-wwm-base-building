@@ -13,9 +13,10 @@ import (
 
 const websiteBase = "https://coin-au-carre.github.io/awesome-wwm-base-building"
 
+var reSlugify = regexp.MustCompile(`[^\p{L}\p{N}]+`)
+
 func slugify(name string) string {
-	re := regexp.MustCompile(`[^\p{L}\p{N}]+`)
-	return strings.Trim(re.ReplaceAllString(strings.ToLower(name), "-"), "-")
+	return strings.Trim(reSlugify.ReplaceAllString(strings.ToLower(name), "-"), "-")
 }
 
 // PickRandomGuild returns a random guild that has at least one screenshot.
@@ -39,6 +40,24 @@ func PickFromGuilds(guilds []guild.Guild) (guild.Guild, string, bool) {
 	return pick, imgURL, true
 }
 
+func buildGuildMeta(g guild.Guild, includeScore bool) []string {
+	var meta []string
+	if len(g.Builders) > 0 {
+		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))
+	}
+	if len(g.Tags) > 0 {
+		meta = append(meta, "🏷️ "+strings.Join(g.Tags, ", "))
+	}
+	if includeScore {
+		meta = append(meta, fmt.Sprintf("⭐ %d", g.Score))
+	}
+	return meta
+}
+
+func guildWebsiteURL(g guild.Guild) string {
+	return fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
+}
+
 // FormatSpotlightMessage builds the Discord message for a guild spotlight.
 // Pass random=true to include the "randomly picked" subtitle.
 func FormatSpotlightMessage(g guild.Guild, random bool) string {
@@ -47,20 +66,12 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	if random {
 		fmt.Fprintf(&sb, "-# 🎲 Randomly picked from the list\n")
 	}
-	var meta []string
-	if len(g.Builders) > 0 {
-		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))
-	}
-	if len(g.Tags) > 0 {
-		meta = append(meta, "🏷️ "+strings.Join(g.Tags, ", "))
-	}
-	meta = append(meta, fmt.Sprintf("⭐ %d", g.Score))
+	meta := buildGuildMeta(g, true)
 	fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
-	websiteURL := fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, guildWebsiteURL(g))
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", guildWebsiteURL(g))
 	}
 	return sb.String()
 }
@@ -75,21 +86,14 @@ func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 		fmt.Fprintf(&sb, "## 🆕 New Guild Discovered: **%s**\n", g.Name)
 	}
 	fmt.Fprintf(&sb, "-# Just joined the list!\n")
-	var meta []string
-	if len(g.Builders) > 0 {
-		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))
-	}
-	if len(g.Tags) > 0 {
-		meta = append(meta, "🏷️ "+strings.Join(g.Tags, ", "))
-	}
+	meta := buildGuildMeta(g, false)
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	}
-	websiteURL := fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, guildWebsiteURL(g))
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", guildWebsiteURL(g))
 	}
 	return sb.String()
 }

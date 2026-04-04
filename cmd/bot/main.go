@@ -11,6 +11,7 @@ import (
 	"strings"
 	"syscall"
 
+	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
 
 	"github.com/anthropics/anthropic-sdk-go"
@@ -20,7 +21,7 @@ import (
 )
 
 func main() {
-	root := flag.String("root", rootDir(), "root directory")
+	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	dev := flag.Bool("dev", false, "use DEV_CHANNEL_ID instead of RUBY_CHANNEL_ID")
 	flag.Parse()
 
@@ -28,13 +29,13 @@ func main() {
 		slog.Warn("no .env file found, relying on environment variables")
 	}
 
-	token := requireEnv("RUBY_BOT_TOKEN")
+	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
 	channelEnvKey := "RUBY_CHANNEL_ID"
 	if *dev {
 		channelEnvKey = "DEV_CHANNEL_ID"
 	}
-	activeChannelID := requireEnv(channelEnvKey)
+	activeChannelID := cmdutil.RequireEnv(channelEnvKey)
 	slog.Info("bot mode", "channel_env", channelEnvKey, "channel", activeChannelID)
 
 	allowedChannels := map[string]bool{activeChannelID: true}
@@ -145,22 +146,6 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 
 		bot.Reply(m.ChannelID, m.ID, result.Text)
 	}
-}
-
-func requireEnv(key string) string {
-	v := os.Getenv(key)
-	if v == "" {
-		slog.Error("required env variable not set", "key", key)
-		os.Exit(1)
-	}
-	return v
-}
-
-func rootDir() string {
-	if _, err := os.Stat("LICENSE"); err == nil {
-		return "."
-	}
-	return ".."
 }
 
 // buildResponder returns a Responder using ANTHROPIC_API_KEY if set,

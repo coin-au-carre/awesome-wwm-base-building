@@ -31,15 +31,6 @@ func AssignAwesomeBuilderRole(s *discordgo.Session, guildID, userID, roleID stri
 
 // AssignRoleToVoters assigns roleID to users who voted on at least minVotes distinct guilds.
 func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, voterGuildCounts map[string]int, minVotes int) {
-	qualified := 0
-	for uid, count := range voterGuildCounts {
-		if count >= minVotes {
-			qualified++
-		}
-		_ = uid
-	}
-	slog.Info("assigning critic role to voters", "qualified", qualified, "min_votes", minVotes)
-
 	assigned := 0
 	for uid, count := range voterGuildCounts {
 		if count < minVotes {
@@ -52,7 +43,7 @@ func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, vot
 		slog.Info("critic role assigned", "user", resolveUsername(s, uid), "id", uid, "guilds_voted", count)
 		assigned++
 	}
-	slog.Info("critic role assignment done", "assigned", assigned)
+	slog.Info("critic role assignment done", "assigned", assigned, "min_votes", minVotes)
 }
 
 // AssignRoleByScore assigns roleID to any guild author whose Score >= minScore.
