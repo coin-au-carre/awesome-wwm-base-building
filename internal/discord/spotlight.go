@@ -65,10 +65,15 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	return sb.String()
 }
 
-// FormatNewGuildMessage builds the Discord message announcing a newly discovered guild.
-func FormatNewGuildMessage(g guild.Guild) string {
+// FormatNewGuildMessage builds the Discord message announcing a newly discovered guild or solo build.
+// Pass isSolo=true to use solo-build wording.
+func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 	var sb strings.Builder
-	fmt.Fprintf(&sb, "## 🆕 New Guild Discovered: **%s**\n", g.Name)
+	if isSolo {
+		fmt.Fprintf(&sb, "## 🆕 New Solo Build Discovered: **%s**\n", g.Name)
+	} else {
+		fmt.Fprintf(&sb, "## 🆕 New Guild Discovered: **%s**\n", g.Name)
+	}
 	fmt.Fprintf(&sb, "-# Just joined the list!\n")
 	var meta []string
 	if len(g.Builders) > 0 {

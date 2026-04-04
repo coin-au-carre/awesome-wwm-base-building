@@ -142,10 +142,10 @@ func main() {
 		}
 
 		if !*noNotify && guildStats.New > 0 {
-			notifyNewEntries(bot, updatedGuilds, guildStats)
+			notifyNewEntries(bot, updatedGuilds, guildStats, false)
 		}
 		if !*noNotify && soloStats.New > 0 {
-			notifyNewEntries(bot, updatedSolos, soloStats)
+			notifyNewEntries(bot, updatedSolos, soloStats, true)
 		}
 	}
 
@@ -176,11 +176,12 @@ func main() {
 	bot.NotifyIf(!*noNotify, discord.FormatSyncSummary(guildStats))
 	slog.Info("guild sync complete", "total", guildStats.Total, "new", guildStats.New, "updated", guildStats.Updated)
 	if soloForumID != "" {
+		bot.NotifyIf(!*noNotify, discord.FormatSoloSyncSummary(soloStats))
 		slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
 	}
 }
 
-func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.SyncStats) {
+func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.SyncStats, isSolo bool) {
 	byName := make(map[string]guild.Guild, len(entries))
 	for _, g := range entries {
 		byName[g.Name] = g
@@ -190,7 +191,7 @@ func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.Syn
 		if !ok {
 			continue
 		}
-		msg := discord.FormatNewGuildMessage(g)
+		msg := discord.FormatNewGuildMessage(g, isSolo)
 		if len(g.Screenshots) > 0 {
 			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
 			if err == nil {
