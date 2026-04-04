@@ -18,7 +18,9 @@ export function getGuildsSortedByScore(): RankedGuild[] {
   const sorted = [...ALL_GUILDS].sort((a, b) => b.score - a.score)
   let rank = 1
   return sorted.map((g, i) => {
-    if (i > 0 && g.score < sorted[i - 1].score) rank = i + 1
+    if (i > 0 && g.score < sorted[i - 1].score) {
+      rank = i + 1
+    }
     return { ...g, slug: slugify(g.name), rank }
   })
 }
@@ -37,7 +39,9 @@ export function getSolosSortedByScore(): RankedGuild[] {
   const sorted = [...ALL_SOLOS].sort((a, b) => b.score - a.score)
   let rank = 1
   return sorted.map((g, i) => {
-    if (i > 0 && g.score < sorted[i - 1].score) rank = i + 1
+    if (i > 0 && g.score < sorted[i - 1].score) {
+      rank = i + 1
+    }
     return { ...g, slug: slugify(g.name), rank }
   })
 }
