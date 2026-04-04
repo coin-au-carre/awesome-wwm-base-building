@@ -6,6 +6,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"sync"
 
 	"ruby/internal/discord"
 	"ruby/internal/guild"
@@ -70,59 +71,68 @@ func main() {
 		knownSoloAuthors = knownAuthorSet(solos)
 	}
 
-	// ── Collect voter counts from both channels → merged weights ─────────────
-	// Voters who reacted across guild AND solo threads get a combined count,
-	// so e.g. 4 guild votes + 2 solo votes = 6 → 2× weight.
+	// ── Fetch both channels in parallel ──────────────────────────────────────
 
-	slog.Info("collecting voter counts from guild channel")
-	guildVoterCounts, err := discord.CollectVoterCounts(bot, guildForumID)
-	if err != nil {
-		slog.Warn("collecting guild voter counts", "err", err)
-		guildVoterCounts = map[string]int{}
+	type fetchOutcome struct {
+		result discord.SyncFetchResult
+		err    error
 	}
 
-	soloVoterCounts := map[string]int{}
+	guildCh := make(chan fetchOutcome, 1)
+	soloCh := make(chan fetchOutcome, 1)
+
+	var fetchWg sync.WaitGroup
+	fetchWg.Add(1)
+	go func() {
+		defer fetchWg.Done()
+		r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{ForumChannelID: guildForumID})
+		guildCh <- fetchOutcome{r, err}
+	}()
+
 	if soloForumID != "" {
-		slog.Info("collecting voter counts from solo channel")
-		soloVoterCounts, err = discord.CollectVoterCounts(bot, soloForumID)
-		if err != nil {
-			slog.Warn("collecting solo voter counts", "err", err)
-			soloVoterCounts = map[string]int{}
-		}
+		fetchWg.Add(1)
+		go func() {
+			defer fetchWg.Done()
+			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{ForumChannelID: soloForumID})
+			soloCh <- fetchOutcome{r, err}
+		}()
 	}
 
-	mergedCounts := discord.MergeVoterCounts(guildVoterCounts, soloVoterCounts)
-	mergedWeights := discord.ComputeVoterWeights(mergedCounts)
-	slog.Info("merged voter weights", "voters", len(mergedWeights))
+	fetchWg.Wait()
+	close(guildCh)
+	close(soloCh)
 
-	// ── Sync guild channel ────────────────────────────────────────────────────
-
-	updatedGuilds, guildStats, err := discord.Sync(bot, guilds, discord.SyncConfig{
-		ForumChannelID:       guildForumID,
-		DryRun:               *dryRun,
-		ExternalVoterWeights: mergedWeights,
-	})
-	if err != nil {
-		bot.NotifyIf(!*noNotify, "💥 **Guilds failed to synchronize!** — "+err.Error())
-		slog.Error("guild sync failed", "err", err)
+	guildFetch := <-guildCh
+	if guildFetch.err != nil {
+		bot.NotifyIf(!*noNotify, "💥 **Guilds failed to synchronize!** — "+guildFetch.err.Error())
+		slog.Error("guild fetch failed", "err", guildFetch.err)
 		os.Exit(1)
 	}
 
-	// ── Sync solo channel ─────────────────────────────────────────────────────
+	var soloFetch fetchOutcome
+	if soloForumID != "" {
+		soloFetch = <-soloCh
+		if soloFetch.err != nil {
+			bot.NotifyIf(!*noNotify, "💥 **Solo builds failed to synchronize!** — "+soloFetch.err.Error())
+			slog.Error("solo fetch failed", "err", soloFetch.err)
+			os.Exit(1)
+		}
+	}
+
+	// ── Merge voter counts → cross-channel weights ────────────────────────────
+
+	mergedCounts := discord.MergeVoterCounts(guildFetch.result.VoterCounts, soloFetch.result.VoterCounts)
+	mergedWeights := discord.ComputeVoterWeights(mergedCounts)
+	slog.Info("merged voter weights", "voters", len(mergedWeights))
+
+	// ── Finalize (score) both channels ────────────────────────────────────────
+
+	updatedGuilds, guildStats := discord.SyncFinalize(guildFetch.result, mergedWeights)
 
 	var updatedSolos []guild.Guild
 	var soloStats discord.SyncStats
 	if soloForumID != "" {
-		updatedSolos, soloStats, err = discord.Sync(bot, solos, discord.SyncConfig{
-			ForumChannelID:       soloForumID,
-			DryRun:               *dryRun,
-			ExternalVoterWeights: mergedWeights,
-		})
-		if err != nil {
-			bot.NotifyIf(!*noNotify, "💥 **Solo builds failed to synchronize!** — "+err.Error())
-			slog.Error("solo sync failed", "err", err)
-			os.Exit(1)
-		}
+		updatedSolos, soloStats = discord.SyncFinalize(soloFetch.result, mergedWeights)
 	}
 
 	// ── Save ──────────────────────────────────────────────────────────────────
@@ -164,7 +174,6 @@ func main() {
 				}
 			}
 			if baseCriticRoleID != "" {
-				// Use merged counts: voters across both channels are credited together
 				slog.Info("assigning critic role", "total_voters", len(mergedCounts))
 				discord.AssignRoleToVoters(bot.Session, discordGuildID, baseCriticRoleID, mergedCounts, 6)
 			}

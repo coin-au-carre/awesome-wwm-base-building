@@ -82,61 +82,6 @@ func ComputeVoterWeights(counts map[string]int) map[string]int {
 	return weights
 }
 
-// CollectVoterCounts fetches only reactions (no content/media) from all threads
-// in a forum channel and returns a map of userID → distinct thread count.
-func CollectVoterCounts(b *Bot, forumChannelID string) (map[string]int, error) {
-	ch, err := b.Session.Channel(forumChannelID)
-	if err != nil {
-		return nil, err
-	}
-	threads, err := collectThreads(b.Session, forumChannelID, ch.GuildID)
-	if err != nil {
-		return nil, err
-	}
-
-	type result struct {
-		threadID  string
-		reactions map[string][]string
-	}
-
-	jobs := make(chan string, len(threads))
-	results := make(chan result, len(threads))
-
-	var wg sync.WaitGroup
-	for range numWorkers {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for tid := range jobs {
-				results <- result{tid, fetchThreadReactions(b.Session, tid)}
-			}
-		}()
-	}
-	for _, t := range threads {
-		jobs <- t.ID
-	}
-	close(jobs)
-	go func() { wg.Wait(); close(results) }()
-
-	userThreads := make(map[string]map[string]bool)
-	for r := range results {
-		for _, users := range r.reactions {
-			for _, uid := range users {
-				if userThreads[uid] == nil {
-					userThreads[uid] = make(map[string]bool)
-				}
-				userThreads[uid][r.threadID] = true
-			}
-		}
-	}
-
-	counts := make(map[string]int, len(userThreads))
-	for uid, threads := range userThreads {
-		counts[uid] = len(threads)
-	}
-	return counts, nil
-}
-
 // fetchThreadReactions fetches all reactor user IDs for each scored emoji in a single thread.
 // All emojis are fetched in parallel. Returns emoji → []userID.
 func fetchThreadReactions(s *discordgo.Session, threadID string) map[string][]string {
