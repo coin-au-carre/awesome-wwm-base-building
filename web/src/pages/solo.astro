@@ -37,10 +37,10 @@ const isEmpty = !hasSolos()
 
     <div>
       <h1 class="font-heading text-2xl font-semibold mb-1">
-        🏠 {solos.length} Solo Build{solos.length !== 1 ? "s" : ""}
+        🏠 Solo Construction
       </h1>
       <p class="text-muted-foreground text-sm">
-        Individual builds from the Where Winds Meet community ·{" "}
+        {solos.length} build{solos.length !== 1 ? "s" : ""} · Individual builds from the Where Winds Meet community ·{" "}
         <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
           add yours on Discord
         </a>
@@ -51,7 +51,7 @@ const isEmpty = !hasSolos()
     {
       topSolos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3">✨ Top Solo construction</h2>
+          <h2 class="font-heading text-base font-medium mb-3">✨ Top-rated Solo Construction</h2>
           <TopShowcase guilds={topSolos} basePath="solos" />
         </section>
       )
