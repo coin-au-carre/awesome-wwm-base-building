@@ -55,10 +55,6 @@ export default function ContributeTabs() {
       </Tabs.List>
 
       <Tabs.Content value="submit" className="space-y-6">
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Built something you're proud of? Share it with the community by posting in the Discord forum.
-        </p>
-
         <ol className="space-y-5">
           <Step
             n="1"
@@ -76,7 +72,7 @@ export default function ContributeTabs() {
           <p className="text-sm text-muted-foreground">First post template:</p>
           <TemplateBuilder />
           <p className="text-xs text-muted-foreground">
-            Edit your posts at any time — changes are picked up on the next sync.
+            Edit your posts at any time. Changes are picked up on the next sync.
           </p>
         </div>
 
@@ -89,7 +85,7 @@ export default function ContributeTabs() {
         </ol>
 
         <div className="rounded-lg bg-muted/40 ring-1 ring-border px-4 py-3 space-y-2 text-sm text-muted-foreground">
-          <p><span className="font-medium text-foreground">Multiple guilds?</span> Submit each one in a separate thread — all your work is welcome.</p>
+          <p><span className="font-medium text-foreground">Multiple guilds?</span> Submit each one in a separate thread, all your work is welcome.</p>
           <p><span className="font-medium text-foreground">Image limit:</span> Up to 40 images total, spread across posts. 10 per post is recommended to avoid performance issues.</p>
           <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
         </div>
@@ -117,7 +113,7 @@ export default function ContributeTabs() {
 
       <Tabs.Content value="oss" className="space-y-6">
         <p className="text-sm text-muted-foreground leading-relaxed">
-          The project is open source. Contributions are welcome — open an issue or a pull request.
+          The project is open source. Contributions are welcome, open an issue or a pull request.
         </p>
         <a
           href="https://github.com/coin-au-carre/awesome-wwm-base-building"
