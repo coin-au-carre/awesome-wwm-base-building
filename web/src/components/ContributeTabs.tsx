@@ -9,7 +9,7 @@ function Step({
 }: {
   n: string
   title: string
-  body: string
+  body: React.ReactNode
   cta?: { label: string; href: string }
 }) {
   return (
@@ -63,13 +63,12 @@ export default function ContributeTabs() {
           <Step
             n="1"
             title="Join the Discord"
-            body="All submissions go through our Discord server. Join to get access to the guild base forum."
-            cta={{ label: "Join Discord ↗", href: "https://discord.gg/Qygt9u26Bn" }}
+            body={<>All submissions go through our Discord server. <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline transition-colors">Join Discord ↗</a></>}
           />
           <Step
             n="2"
             title="Post your base"
-            body="Create a thread in the guild base forum. Title it with your guild name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts."
+            body={<>Create a thread in <span className="font-medium text-foreground">#guild-base-showcase</span> or <span className="font-medium text-foreground">#solo-building-showcase</span>. Title it with your guild or build name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts.</>}
           />
         </ol>
 
@@ -77,7 +76,7 @@ export default function ContributeTabs() {
           <p className="text-sm text-muted-foreground">First post template:</p>
           <TemplateBuilder />
           <p className="text-xs text-muted-foreground">
-            Edit your first post at any time — changes are picked up on the next sync.
+            Edit your posts at any time — changes are picked up on the next sync.
           </p>
         </div>
 
