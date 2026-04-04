@@ -40,6 +40,7 @@ function renderMarkdown(text: string): string {
 <Layout
   title={`${g.name} — Where Builders Meet`}
   description={g.lore?.slice(0, 160) ?? `Guild base showcase for ${g.name} in Where Winds Meet.`}
+  image={g.screenshots?.[0]}
 >
   <script
     is:inline

@@ -4,11 +4,13 @@ import "@/styles/global.css"
 interface Props {
   title?: string
   description?: string
+  image?: string
 }
 
 const {
   title = "Where Builders Meet",
-  description = "Discover the most beautiful constructions in Jiang Hu 🏯",
+  description = "Community showcase of guild bases and solo builds for Where Winds Meet, ranked by community votes.",
+  image,
 } = Astro.props
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "")
@@ -33,14 +35,23 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <meta name="color-scheme" content="light dark" />
     <!-- OpenGraph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Where Builders Meet" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={Astro.url.href} />
+    {image && <meta property="og:image" content={image} />}
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={image} />}
     <link rel="canonical" href={Astro.url.href} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Where Builders Meet",
+      "url": "https://www.wherebuildersmeet.com",
+    })} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title}</title>
     <!-- Theme init (before paint to avoid flash) -->
