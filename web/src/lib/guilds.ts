@@ -11,54 +11,44 @@ function loadJSON(filename: string): Guild[] {
   }
 }
 
+function sortByScore(items: Guild[]): RankedGuild[] {
+  const sorted = [...items].sort((a, b) => b.score - a.score)
+  let rank = 1
+  return sorted.map((g, i) => {
+    if (i > 0 && g.score < sorted[i - 1].score) {
+      rank = i + 1
+    }
+    return { ...g, slug: slugify(g.name), rank }
+  })
+}
+
+function collectTags(items: Guild[]): string[] {
+  const tagSet = new Set<string>()
+  items.forEach((g) => g.tags?.forEach((t) => tagSet.add(t)))
+  return [...tagSet].sort()
+}
+
 const ALL_GUILDS: Guild[] = loadJSON("guilds.json")
 const ALL_SOLOS: Guild[] = loadJSON("solos.json")
 
-export function getGuildsSortedByScore(): RankedGuild[] {
-  const sorted = [...ALL_GUILDS].sort((a, b) => b.score - a.score)
-  let rank = 1
-  return sorted.map((g, i) => {
-    if (i > 0 && g.score < sorted[i - 1].score) {
-      rank = i + 1
-    }
-    return { ...g, slug: slugify(g.name), rank }
-  })
-}
+const RANKED_GUILDS = sortByScore(ALL_GUILDS)
+const RANKED_SOLOS = sortByScore(ALL_SOLOS)
+const GUILD_TAGS = collectTags(ALL_GUILDS)
+const SOLO_TAGS = collectTags(ALL_SOLOS)
 
+export function getGuildsSortedByScore(): RankedGuild[] { return RANKED_GUILDS }
 export function getGuildBySlug(slug: string): RankedGuild | undefined {
-  return getGuildsSortedByScore().find((g) => g.slug === slug)
+  return RANKED_GUILDS.find((g) => g.slug === slug)
 }
+export function getAllTags(): string[] { return GUILD_TAGS }
 
-export function getAllTags(): string[] {
-  const tagSet = new Set<string>()
-  ALL_GUILDS.forEach((g) => g.tags?.forEach((t) => tagSet.add(t)))
-  return [...tagSet].sort()
-}
-
-export function getSolosSortedByScore(): RankedGuild[] {
-  const sorted = [...ALL_SOLOS].sort((a, b) => b.score - a.score)
-  let rank = 1
-  return sorted.map((g, i) => {
-    if (i > 0 && g.score < sorted[i - 1].score) {
-      rank = i + 1
-    }
-    return { ...g, slug: slugify(g.name), rank }
-  })
-}
-
+export function getSolosSortedByScore(): RankedGuild[] { return RANKED_SOLOS }
 export function getSoloBySlug(slug: string): RankedGuild | undefined {
-  return getSolosSortedByScore().find((g) => g.slug === slug)
+  return RANKED_SOLOS.find((g) => g.slug === slug)
 }
+export function getAllSoloTags(): string[] { return SOLO_TAGS }
 
-export function getAllSoloTags(): string[] {
-  const tagSet = new Set<string>()
-  ALL_SOLOS.forEach((g) => g.tags?.forEach((t) => tagSet.add(t)))
-  return [...tagSet].sort()
-}
-
-export function hasSolos(): boolean {
-  return ALL_SOLOS.length > 0
-}
+export function hasSolos(): boolean { return ALL_SOLOS.length > 0 }
 
 export function getLastSyncDate(): string {
   try {
