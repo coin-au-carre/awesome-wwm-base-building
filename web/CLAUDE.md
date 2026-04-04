@@ -16,7 +16,7 @@
 |---|---|
 | `/` | Guild bases index (showcase + ranked table) |
 | `/guilds/[slug]` | Guild detail page |
-| `/solo` | Solo builds index |
+| `/solo` | Solo construction index |
 | `/solos/[slug]` | Solo build detail page |
 | `/items` | Building items catalog (WIP) |
 | `/scoring` | Scoring rules |

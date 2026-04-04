@@ -1,6 +1,6 @@
 # Where Builders Meet (WBM)
 
-Community showcase of guild bases and solo builds for [Where Winds Meet](https://www.wherewindsmeetgame.com).
+Community showcase of guild bases and solo construction for [Where Winds Meet](https://www.wherewindsmeetgame.com).
 
 **Live site:** https://wherebuildersmeet.com
 

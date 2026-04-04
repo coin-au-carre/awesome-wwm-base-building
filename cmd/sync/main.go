@@ -113,7 +113,7 @@ func main() {
 	if soloForumID != "" {
 		soloFetch = <-soloCh
 		if soloFetch.err != nil {
-			bot.NotifyIf(!*noNotify, "💥 **Solo builds failed to synchronize!** — "+soloFetch.err.Error())
+			bot.NotifyIf(!*noNotify, "💥 **Solo construction failed to synchronize!** — "+soloFetch.err.Error())
 			slog.Error("solo fetch failed", "err", soloFetch.err)
 			os.Exit(1)
 		}

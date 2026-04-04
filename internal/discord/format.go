@@ -17,8 +17,8 @@ func formatSyncSummary(s SyncStats, isSolo bool) string {
 	var lines []string
 	if isSolo {
 		lines = []string{
-			"✨ **All solo builds have been synchronized!**",
-			fmt.Sprintf("🏗️ **%d** solo builds tracked", s.Total),
+			"✨ **All solo construction have been synchronized!**",
+			fmt.Sprintf("🏗️ **%d** solo construction tracked", s.Total),
 		}
 	} else {
 		lines = []string{
