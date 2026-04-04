@@ -38,7 +38,21 @@ function renderMarkdown(text: string): string {
 <Layout
   title={`${g.name} — Where Builders Meet`}
   description={g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`}
+  image={g.screenshots?.[0]}
 >
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${g.name} — Solo Build`,
+      description: g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`,
+      image: g.screenshots?.[0] ?? undefined,
+      url: Astro.url.href,
+      author: g.builders?.map((name: string) => ({ "@type": "Person", name })) ?? [],
+    })}
+  />
   <div class="max-w-3xl space-y-8">
     <a
       href={`${base}/solo`}
