@@ -12,7 +12,7 @@ const isEmpty = !hasSolos()
 ---
 
 <Layout
-  title="Solo Builds — Where Builders Meet"
+  title="Solo construction — Where Builders Meet"
   description="Discover solo base builds in Where Winds Meet."
 >
   <div class="space-y-12">
@@ -51,7 +51,7 @@ const isEmpty = !hasSolos()
     {
       topSolos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3">✨ Top Solo Builds</h2>
+          <h2 class="font-heading text-base font-medium mb-3">✨ Top Solo construction</h2>
           <TopShowcase guilds={topSolos} basePath="solos" />
         </section>
       )
@@ -60,7 +60,7 @@ const isEmpty = !hasSolos()
     {
       solos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3">📸 All Solo Builds</h2>
+          <h2 class="font-heading text-base font-medium mb-3">📸 All Solo construction</h2>
           <GuildTable client:load guilds={solos} allTags={allTags} basePath="solos" />
         </section>
       )
