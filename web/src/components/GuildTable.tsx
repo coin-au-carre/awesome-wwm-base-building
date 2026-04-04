@@ -57,6 +57,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
+  const [search, setSearch] = useState("")
 
   function toggleSort(field: SortField) {
     if (sortField === field) {
@@ -76,9 +77,10 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   }
 
   const filtered = useMemo(() => {
-    let result = activeTags.size === 0
-      ? guilds
-      : guilds.filter((g) => g.tags?.some((t) => activeTags.has(t)))
+    const q = search.trim().toLowerCase()
+    let result = guilds
+    if (activeTags.size > 0) result = result.filter((g) => g.tags?.some((t) => activeTags.has(t)))
+    if (q) result = result.filter((g) => (g.guildName || g.name).toLowerCase().includes(q))
 
     return [...result].sort((a, b) => {
       let cmp = 0
@@ -87,10 +89,19 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
       else if (sortField === "score") cmp = b.score - a.score
       return sortDir === "asc" ? cmp : -cmp
     })
-  }, [guilds, activeTags, sortField, sortDir])
+  }, [guilds, activeTags, sortField, sortDir, search])
 
   return (
     <div className="space-y-4">
+      {/* Search */}
+      <input
+        type="search"
+        placeholder={basePath === "solos" ? "Search bases…" : "Search guilds…"}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full sm:w-64 rounded-lg border border-border bg-background px-3 py-1.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+      />
+
       {/* Tag filter */}
       {allTags.length > 0 && (
         <div className="flex flex-wrap gap-1.5 items-center">
@@ -144,22 +155,24 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
             </tr>
           </thead>
           <tbody>
-            {filtered.map((g, i) => (
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={5} className="px-4 py-8 text-center text-sm text-muted-foreground">
+                  {basePath === "solos" ? "No bases match your search." : "No guilds match your search."}
+                </td>
+              </tr>
+            ) : filtered.map((g, i) => (
               <tr
                 key={g.name}
+                onClick={() => window.location.href = url(`/${basePath}/${g.slug}`)}
                 className={[
-                  "border-b border-border last:border-0 transition-colors hover:bg-muted/30",
+                  "border-b border-border last:border-0 transition-colors hover:bg-muted/30 cursor-pointer",
                   i % 2 === 0 ? "" : "bg-muted/10",
                 ].join(" ")}
               >
                 <td className="px-4 py-3 text-center font-medium">{rankLabel(g.rank)}</td>
                 <td className="px-4 py-3">
-                  <a
-                    href={url(`/${basePath}/${g.slug}`)}
-                    className="font-medium hover:text-primary transition-colors"
-                  >
-                    {g.guildName || g.name}
-                  </a>
+                  <span className="font-medium">{g.guildName || g.name}</span>
                 </td>
                 <td className="px-4 py-3 text-muted-foreground hidden md:table-cell">
                   {(() => { const s = (g.builders ?? []).join(", ") || "—"; return s.length > 50 ? s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..." : s; })()}
