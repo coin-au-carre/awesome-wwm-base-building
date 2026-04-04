@@ -80,7 +80,10 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
     const q = search.trim().toLowerCase()
     let result = guilds
     if (activeTags.size > 0) result = result.filter((g) => g.tags?.some((t) => activeTags.has(t)))
-    if (q) result = result.filter((g) => (g.guildName || g.name).toLowerCase().includes(q))
+    if (q) result = result.filter((g) =>
+      (g.guildName || g.name).toLowerCase().includes(q) ||
+      (g.builders ?? []).some((b) => b.toLowerCase().includes(q))
+    )
 
     return [...result].sort((a, b) => {
       let cmp = 0
@@ -96,7 +99,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
       {/* Search */}
       <input
         type="search"
-        placeholder={basePath === "solos" ? "Search bases…" : "Search guilds…"}
+        placeholder={basePath === "solos" ? "Search bases or builders…" : "Search guilds or builders…"}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="w-full sm:w-64 rounded-lg border border-border bg-background px-3 py-1.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
