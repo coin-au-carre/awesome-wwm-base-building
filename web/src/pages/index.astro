@@ -15,10 +15,10 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
     <!-- Hero -->
     <div>
       <h1 class="font-heading text-2xl font-semibold mb-1">
-        🏰 {guilds.length} Guild Bases
+        🏰 Guild Bases
       </h1>
       <p class="text-muted-foreground text-sm">
-        The most beautiful constructions in Jiang Hu ·{" "}
+        {guilds.length} bases · The most beautiful constructions in Jiang Hu ·{" "}
         <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
           add yours on Discord
         </a>
@@ -30,7 +30,7 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
     {
       topGuilds.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3">✨ Top Guild Bases</h2>
+          <h2 class="font-heading text-base font-medium mb-3">✨ Top-rated Guild Bases</h2>
           <TopShowcase guilds={topGuilds} />
         </section>
       )
