@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 type Mode = "guild" | "solo"
 
@@ -130,7 +131,7 @@ export default function TemplateBuilder() {
             </Field>
             <Field label={c.idLabel} hint="optional">
               <input
-                className={inputClass + " w-32"}
+                className={cn(inputClass, "w-32")}
                 placeholder={c.idPlaceholder}
                 value={fields.primaryId}
                 onChange={set("primaryId")}
@@ -150,7 +151,7 @@ export default function TemplateBuilder() {
 
           <Field label="Lore" hint="optional">
             <textarea
-              className={inputClass + " resize-none"}
+              className={cn(inputClass, "resize-none")}
               rows={3}
               placeholder={c.lorePlaceholder}
               value={fields.lore}
@@ -160,7 +161,7 @@ export default function TemplateBuilder() {
 
           <Field label="What to visit" hint="optional">
             <textarea
-              className={inputClass + " resize-none"}
+              className={cn(inputClass, "resize-none")}
               rows={3}
               placeholder={c.whatToVisitPlaceholder}
               value={fields.whatToVisit}

@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css"
+import { BASE } from "@/lib/url"
 
 interface Props {
   title?: string
@@ -13,7 +14,7 @@ const {
   image,
 } = Astro.props
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, "")
+const base = BASE
 
 const navLinks = [
   { href: `${base}/`, label: "Guild Bases" },
