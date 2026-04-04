@@ -6,16 +6,36 @@ import (
 )
 
 func FormatSyncSummary(s SyncStats) string {
-	lines := []string{
-		"✨ **All guilds have been synchronized!**",
-		fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
+	return formatSyncSummary(s, false)
+}
+
+func FormatSoloSyncSummary(s SyncStats) string {
+	return formatSyncSummary(s, true)
+}
+
+func formatSyncSummary(s SyncStats, isSolo bool) string {
+	var lines []string
+	if isSolo {
+		lines = []string{
+			"✨ **All solo builds have been synchronized!**",
+			fmt.Sprintf("🏗️ **%d** solo builds tracked", s.Total),
+		}
+	} else {
+		lines = []string{
+			"✨ **All guilds have been synchronized!**",
+			fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
+		}
+	}
+	kind := "guild"
+	if isSolo {
+		kind = "solo build"
 	}
 	if s.Updated > 0 {
-		lines = append(lines, fmt.Sprintf("🔄 **%d** guild(s) refreshed: %s",
-			s.Updated, strings.Join(s.UpdatedNames, ", ")))
+		lines = append(lines, fmt.Sprintf("🔄 **%d** %s(s) refreshed: %s",
+			s.Updated, kind, strings.Join(s.UpdatedNames, ", ")))
 	}
 	if s.New > 0 {
-		lines = append(lines, fmt.Sprintf("🆕 **%d** new guild(s) discovered:", s.New))
+		lines = append(lines, fmt.Sprintf("🆕 **%d** new %s(s) discovered:", s.New, kind))
 		for _, name := range s.NewNames {
 			if link, ok := s.NewThreadLinks[name]; ok {
 				lines = append(lines, fmt.Sprintf("  • [%s](%s)", name, link))
