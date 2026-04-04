@@ -13,7 +13,6 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-
 const numWorkers = 20
 
 type SyncStats struct {
@@ -27,11 +26,8 @@ type SyncStats struct {
 }
 
 type SyncConfig struct {
-	ForumChannelID       string
-	DryRun               bool
-	// ExternalVoterWeights, when set, replaces the internally computed weights.
-	// Pass pre-merged weights from all channels for cross-channel scoring.
-	ExternalVoterWeights map[string]int
+	ForumChannelID string
+	DryRun         bool
 }
 
 type threadData struct {
@@ -46,10 +42,29 @@ type threadData struct {
 	WhatToVisit string
 }
 
-func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStats, error) {
+type fetchedThread struct {
+	idx       int
+	thread    *discordgo.Channel
+	data      threadData
+	reactions map[string][]string
+}
+
+// SyncFetchResult holds all raw data from SyncFetch, ready for SyncFinalize.
+type SyncFetchResult struct {
+	Guilds      []guild.Guild
+	VoterCounts map[string]int // userID → distinct thread count (this channel only)
+	threads     []fetchedThread
+	newIndices  map[int]bool
+	tagMap      map[string]string
+	Stats       SyncStats // partial: New, NewNames, NewThreadLinks filled; Updated/Total set by Finalize
+}
+
+// SyncFetch collects threads, fetches content and reactions, and returns raw results.
+// Call SyncFinalize with merged cross-channel voter weights to complete scoring.
+func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, error) {
 	forumChannel, err := b.Session.Channel(cfg.ForumChannelID)
 	if err != nil {
-		return nil, SyncStats{}, fmt.Errorf("fetching channel: %w", err)
+		return SyncFetchResult{}, fmt.Errorf("fetching channel: %w", err)
 	}
 
 	tagMap := make(map[string]string, len(forumChannel.AvailableTags))
@@ -61,14 +76,14 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 	t0 := time.Now()
 	threads, err := collectThreads(b.Session, cfg.ForumChannelID, forumChannel.GuildID)
 	if err != nil {
-		return nil, SyncStats{}, err
+		return SyncFetchResult{}, err
 	}
 	slog.Info("threads collected", "count", len(threads), "elapsed", time.Since(t0).Round(time.Millisecond))
 
-	var stats SyncStats
-	stats.NewThreadLinks = make(map[string]string)
+	var partialStats SyncStats
+	partialStats.NewThreadLinks = make(map[string]string)
 	guildMap := buildGuildMap(guilds)
-	newIndices := make(map[int]bool) // track which slice indices are brand-new so we don't also flag them as updated
+	newIndices := make(map[int]bool)
 
 	for _, thread := range threads {
 		name := guild.ExtractName(thread.Name)
@@ -77,10 +92,10 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 			idx := len(guilds)
 			guilds = append(guilds, guild.Guild{Name: name, Builders: []string{}})
 			guildMap[key] = len(guilds) - 1
-			newIndices[idx] = true //
-			stats.New++
-			stats.NewNames = append(stats.NewNames, name)
-			stats.NewThreadLinks[name] = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+			newIndices[idx] = true
+			partialStats.New++
+			partialStats.NewNames = append(partialStats.NewNames, name)
+			partialStats.NewThreadLinks[name] = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 	}
@@ -93,7 +108,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		idx       int
 		thread    *discordgo.Channel
 		data      threadData
-		reactions map[string][]string // emoji → []userID for this thread
+		reactions map[string][]string
 	}
 
 	contentJobs := make(chan contentWork, len(threads))
@@ -144,45 +159,57 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		close(contentResults)
 	}()
 
-	// Collect all results, then compute voter weights from the global reaction picture.
 	tFetch := time.Now()
-	rawResults := make([]contentResult, 0, len(threads))
-	userGuilds := make(map[string]map[string]bool)
+	var fetched []fetchedThread
+	userThreads := make(map[string]map[string]bool)
 	for r := range contentResults {
-		rawResults = append(rawResults, r)
+		fetched = append(fetched, fetchedThread{
+			idx:       r.idx,
+			thread:    r.thread,
+			data:      r.data,
+			reactions: r.reactions,
+		})
 		for _, users := range r.reactions {
 			for _, uid := range users {
-				if userGuilds[uid] == nil {
-					userGuilds[uid] = make(map[string]bool)
+				if userThreads[uid] == nil {
+					userThreads[uid] = make(map[string]bool)
 				}
-				userGuilds[uid][r.thread.ID] = true
+				userThreads[uid][r.thread.ID] = true
 			}
 		}
 	}
-	slog.Info("content and reactions fetched", "threads", len(rawResults), "elapsed", time.Since(tFetch).Round(time.Millisecond))
+	slog.Info("content and reactions fetched", "threads", len(fetched), "elapsed", time.Since(tFetch).Round(time.Millisecond))
 
-	voterGuildCounts := make(map[string]int, len(userGuilds))
-	for uid, guilds := range userGuilds {
-		voterGuildCounts[uid] = len(guilds)
+	voterCounts := make(map[string]int, len(userThreads))
+	for uid, threadSet := range userThreads {
+		voterCounts[uid] = len(threadSet)
 	}
 
-	var voterWeights map[string]int
-	if len(cfg.ExternalVoterWeights) > 0 {
-		voterWeights = cfg.ExternalVoterWeights
-		slog.Info("using external voter weights", "voters", len(voterWeights))
-	} else {
-		voterWeights = ComputeVoterWeights(voterGuildCounts)
-		slog.Info("voter weights computed", "voters", len(voterWeights))
-	}
-	stats.VoterGuildCounts = voterGuildCounts
+	return SyncFetchResult{
+		Guilds:      guilds,
+		VoterCounts: voterCounts,
+		threads:     fetched,
+		newIndices:  newIndices,
+		tagMap:      tagMap,
+		Stats:       partialStats,
+	}, nil
+}
 
-	for _, r := range rawResults {
+// SyncFinalize scores all fetched threads using the provided merged voter weights
+// and returns the final guild list and complete stats.
+func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.Guild, SyncStats) {
+	slog.Info("voter weights applied", "voters", len(voterWeights))
+
+	guilds := result.Guilds
+	stats := result.Stats
+
+	for _, r := range result.threads {
 		data := r.data
 		data.Score = computeScore(r.reactions, voterWeights, data.Lore, data.WhatToVisit)
 
 		var tags []string
 		for _, tagID := range r.thread.AppliedTags {
-			if name, ok := tagMap[tagID]; ok {
+			if name, ok := result.tagMap[tagID]; ok {
 				tags = append(tags, name)
 			}
 		}
@@ -193,7 +220,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		}
 		if data.GuildName != "" {
 			if strings.EqualFold(data.GuildName, g.Name) {
-				g.GuildName = "" // parsed name is same as base name, no need for a separate display name
+				g.GuildName = ""
 			} else {
 				g.GuildName = data.GuildName
 			}
@@ -209,7 +236,7 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 		g.WhatToVisit = data.WhatToVisit
 		g.BuilderDiscordID = data.AuthorID
 
-		if !newIndices[r.idx] && hasChanged(prev, g) {
+		if !result.newIndices[r.idx] && hasChanged(prev, g) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
 		}
@@ -219,7 +246,8 @@ func Sync(b *Bot, guilds []guild.Guild, cfg SyncConfig) ([]guild.Guild, SyncStat
 	}
 
 	stats.Total = len(guilds)
-	return guilds, stats, nil
+	stats.VoterGuildCounts = result.VoterCounts
+	return guilds, stats
 }
 
 func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*discordgo.Channel, error) {
@@ -267,7 +295,6 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 		WhatToVisit: whatToVisit,
 	}
 }
-
 
 var reMention = regexp.MustCompile(`^<@!?(\d+)>$`)
 
