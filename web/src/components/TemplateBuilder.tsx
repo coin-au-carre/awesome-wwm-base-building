@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Tabs } from "radix-ui"
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
@@ -37,6 +37,7 @@ function buildTemplate(
   const idPart = fields.primaryId ? ` [${fields.primaryId}]` : ""
   return [
     `${c.emoji} ${fields.primaryName || c.primaryPlaceholder}${idPart}`,
+    ``,
     `👷 Builders: ${fields.builders || c.buildersPlaceholder}`,
     ``,
     `📝 Lore`,
@@ -101,15 +102,11 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
   }
 
   return (
-    <Tabs.Root value={mode} onValueChange={(v) => switchMode(v as Mode)} className="space-y-6">
-      <Tabs.List className="flex gap-1 rounded-xl bg-muted/50 p-1 w-fit">
-        <Tabs.Trigger value="guild" className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm cursor-pointer">
-          Guild builder
-        </Tabs.Trigger>
-        <Tabs.Trigger value="solo" className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm cursor-pointer">
-          Solo builder
-        </Tabs.Trigger>
-      </Tabs.List>
+    <Tabs value={mode} onValueChange={(v) => switchMode(v as Mode)} className="space-y-6">
+      <TabsList>
+        <TabsTrigger value="guild">Guild builder</TabsTrigger>
+        <TabsTrigger value="solo">Solo builder</TabsTrigger>
+      </TabsList>
 
       <Card>
         <CardContent className="space-y-3">
@@ -171,6 +168,6 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
         </p>
       </div>
 
-    </Tabs.Root>
+    </Tabs>
   )
 }

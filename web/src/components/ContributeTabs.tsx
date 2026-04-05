@@ -1,7 +1,7 @@
-import { Tabs } from "radix-ui"
 import TemplateBuilder from "@/components/TemplateBuilder"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 
 function Step({
   n,
@@ -38,24 +38,20 @@ export default function ContributeTabs() {
   const p = new URLSearchParams(window.location.search).get("mode")
   const initialMode: "guild" | "solo" = p === "solo" ? "solo" : "guild"
   return (
-    <Tabs.Root defaultValue="submit" className="space-y-6">
-      <Tabs.List className="flex gap-1 rounded-xl bg-muted/50 p-1 w-fit">
+    <Tabs defaultValue="submit" className="space-y-6">
+      <TabsList>
         {[
           { value: "submit", label: "Builders" },
           { value: "vote", label: "Construction lovers" },
           { value: "oss", label: "Developers" },
         ].map((tab) => (
-          <Tabs.Trigger
-            key={tab.value}
-            value={tab.value}
-            className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm cursor-pointer"
-          >
+          <TabsTrigger key={tab.value} value={tab.value}>
             {tab.label}
-          </Tabs.Trigger>
+          </TabsTrigger>
         ))}
-      </Tabs.List>
+      </TabsList>
 
-      <Tabs.Content value="submit" className="space-y-6">
+      <TabsContent value="submit" className="space-y-6">
         <ol className="space-y-5">
           <Step
             n="1"
@@ -92,9 +88,9 @@ export default function ContributeTabs() {
             <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
           </CardContent>
         </Card>
-      </Tabs.Content>
+      </TabsContent>
 
-      <Tabs.Content value="vote" className="space-y-4">
+      <TabsContent value="vote" className="space-y-4">
         <p className="text-sm text-muted-foreground leading-relaxed">
           React to threads in the Discord forum to vote for the builds you love. Votes shape the rankings on the showcase and help the best bases rise to the top.
         </p>
@@ -109,18 +105,13 @@ export default function ContributeTabs() {
             Join Discord ↗
           </a>
         </Button>
-      </Tabs.Content>
+      </TabsContent>
 
-      <Tabs.Content value="oss" className="space-y-6">
+      <TabsContent value="oss" className="space-y-6">
         <p className="text-sm text-muted-foreground leading-relaxed">
           The project is open source. Contributions are welcome, chat with us, open an issue or a pull request.
         </p>
-        {/* <Button variant="link" size="sm" asChild className="h-auto p-0">
-          <a href="https://github.com/coin-au-carre/awesome-wwm-base-building" target="_blank" rel="noopener noreferrer">
-            View on GitHub ↗
-          </a>
-        </Button> */}
-      </Tabs.Content>
-    </Tabs.Root>
+      </TabsContent>
+    </Tabs>
   )
 }
