@@ -457,7 +457,7 @@
           "filename": "Wall_4_3.png",
           "tags": [],
           "styles": [
-            "wood"
+            "wood", "red wood"
           ],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -474,7 +474,7 @@
           "filename": "Wall_4_4.png",
           "tags": [],
           "styles": [
-            "wood"
+            "wood", "red wood"
           ],
           "hasVariants": true,
           "category": "Basic Structure",
