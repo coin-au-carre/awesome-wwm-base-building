@@ -28,3 +28,4 @@
 - **Never hardcode internal paths in React components** — always use `url('/path')` from `src/lib/url.ts`
 - Base path configured in `astro.config.mjs` via `ASTRO_BASE` env var (default: `/awesome-wwm-base-building`)
 - Do NOT mix web code with Go code
+- **Prefer shadcn/ui components** — use shadcn primitives (`src/components/ui/`) whenever possible instead of writing custom UI from scratch
