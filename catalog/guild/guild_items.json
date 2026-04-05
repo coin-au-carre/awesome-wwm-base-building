@@ -6,142 +6,6 @@
       "de": "",
       "jp": ""
     },
-    "Doors and Windows": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "Thatched Window",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Doors And Windows_1_1.png",
-          "tags": [
-            "window",
-            "guardrail"
-          ],
-          "styles": [
-            "wood"
-          ],
-          "hasVariants": true
-        },
-        {
-          "name": "Lattice Door",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Doors And Windows_1_2.png",
-          "tags": [
-            "door"
-          ],
-          "styles": [
-            "wood"
-          ],
-          "hasVariants": true
-        },
-        {
-          "name": "Plank Door",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Doors And Windows_1_3.png",
-          "tags": [
-            "door"
-          ],
-          "styles": [
-            "wood",
-            "frame"
-          ],
-          "hasVariants": true
-        },
-        {
-          "name": "Window",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Doors And Windows_1_4.png",
-          "tags": [
-            "window",
-            "guardrail",
-            "frame"
-          ],
-          "styles": [
-            "wood"
-          ],
-          "hasVariants": true
-        },
-        {
-          "name": "Window Frame",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Doors And Windows_1_5.png",
-          "tags": [
-            "frame"
-          ],
-          "styles": [
-            "wood"
-          ],
-          "hasVariants": false
-        },
-        {
-          "name": "Redwood Door",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Doors And Windows_2_1.png",
-          "tags": [
-            "door",
-            "frame"
-          ],
-          "styles": [
-            "wood",
-            "red"
-          ],
-          "hasVariants": true
-        },
-        {
-          "name": "Perimeter Wall Gate",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "tags": [
-            "door",
-            "gate"
-          ],
-          "styles": [
-            "wood"
-          ],
-          "filename": "Doors And Windows_2_2.png",
-          "hasVariants": false
-        }
-      ]
-    },
     "Floor": {
       "translations": {
         "cn": "",
@@ -276,481 +140,6 @@
             "jp": ""
           },
           "filename": "Floor_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        }
-      ]
-    },
-    "Ladder Pillar": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_1_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_1_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_1_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_1_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_1_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_2_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_2_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_2_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_2_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_3_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_3_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Ladder Pillar_3_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        }
-      ]
-    },
-    "Roof": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_1_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_1_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_1_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_1_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_1_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_2_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_2_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_2_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_2_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_3_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_3_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_3_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -1091,6 +480,617 @@
           "hasVariants": false
         }
       ]
+    },
+    "Roof": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_1_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_1_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_1_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_1_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_1_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_2_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_2_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_2_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_2_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_2_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_3_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_3_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_3_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_3_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_3_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_4_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_4_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_4_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_4_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Roof_4_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        }
+      ]
+    },
+    "Doors and Windows": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "Thatched Window",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_1_1.png",
+          "tags": [
+            "window",
+            "guardrail"
+          ],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": true
+        },
+        {
+          "name": "Lattice Door",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_1_2.png",
+          "tags": [
+            "door"
+          ],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": true
+        },
+        {
+          "name": "Plank Door",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_1_3.png",
+          "tags": [
+            "door"
+          ],
+          "styles": [
+            "wood",
+            "frame"
+          ],
+          "hasVariants": true
+        },
+        {
+          "name": "Window",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_1_4.png",
+          "tags": [
+            "window",
+            "guardrail",
+            "frame"
+          ],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": true
+        },
+        {
+          "name": "Window Frame",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_1_5.png",
+          "tags": [
+            "frame"
+          ],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false
+        },
+        {
+          "name": "Redwood Door",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_2_1.png",
+          "tags": [
+            "door",
+            "frame"
+          ],
+          "styles": [
+            "wood",
+            "red"
+          ],
+          "hasVariants": true
+        },
+        {
+          "name": "Perimeter Wall Gate",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "tags": [
+            "door",
+            "gate"
+          ],
+          "styles": [
+            "wood"
+          ],
+          "filename": "Doors And Windows_2_2.png",
+          "hasVariants": false
+        }
+      ]
+    },
+    "Ladder Pillar": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_1_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_1_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_1_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_1_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_1_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_2_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_2_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_2_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_2_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_2_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_3_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_3_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_3_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_3_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Ladder Pillar_3_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        }
+      ]
     }
   },
   "Furniture Decoration": {
@@ -1099,6 +1099,471 @@
       "fr": "",
       "de": "",
       "jp": ""
+    },
+    "Furniture": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_1_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_1_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_1_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_1_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_1_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_2_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_2_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_2_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_2_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_2_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_3_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_3_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_3_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_3_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_3_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_4_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_4_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_4_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_4_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_4_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_6_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_6_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_6_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_6_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_6_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_7_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_7_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_7_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_7_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_7_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        }
+      ]
     },
     "Accessory": {
       "translations": {
@@ -1695,806 +2160,6 @@
         }
       ]
     },
-    "Building": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_1_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_1_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_1_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_1_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_1_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_2_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_2_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_2_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_2_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_3_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_3_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_3_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_4_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_4_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_4_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_4_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_4_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_5_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_5_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_5_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_5_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Building_5_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        }
-      ]
-    },
-    "Furniture": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_1_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_1_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_1_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_1_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_1_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_2_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_2_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_2_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_2_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_3_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_3_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_3_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_7_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_7_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_7_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_7_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_7_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        }
-      ]
-    },
     "Miscellaneous": {
       "translations": {
         "cn": "",
@@ -2829,6 +2494,341 @@
           "hasVariants": false
         }
       ]
+    },
+    "Building": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_1_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_1_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_1_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_1_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_1_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_2_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_2_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_2_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_2_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_2_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_3_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_3_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_3_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_3_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_3_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_4_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_4_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_4_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_4_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_4_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_5_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_5_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_5_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_5_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Building_5_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        }
+      ]
     }
   },
   "Guild Construction": {
@@ -2838,7 +2838,7 @@
       "de": "",
       "jp": ""
     },
-    "Diagram": {
+    "Single Target": {
       "translations": {
         "cn": "",
         "fr": "",
@@ -2854,7 +2854,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_1_1.png",
+          "filename": "Single Target_1_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2867,7 +2867,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_1_2.png",
+          "filename": "Single Target_1_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2880,7 +2880,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_1_3.png",
+          "filename": "Single Target_1_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2893,7 +2893,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_1_4.png",
+          "filename": "Single Target_1_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2906,7 +2906,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_1_5.png",
+          "filename": "Single Target_1_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2919,7 +2919,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_2_1.png",
+          "filename": "Single Target_2_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2932,30 +2932,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_2_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        }
-      ]
-    },
-    "Interactive Component": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Interactive Component_1_1.png",
+          "filename": "Single Target_2_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2968,7 +2945,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_1_2.png",
+          "filename": "Single Target_2_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2981,7 +2958,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_1_3.png",
+          "filename": "Single Target_2_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -2994,7 +2971,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_1_4.png",
+          "filename": "Single Target_2_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3007,7 +2984,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_1_5.png",
+          "filename": "Single Target_3_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3020,7 +2997,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_2_1.png",
+          "filename": "Single Target_3_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3033,7 +3010,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_2_2.png",
+          "filename": "Single Target_3_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3046,7 +3023,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_2_3.png",
+          "filename": "Single Target_3_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3059,7 +3036,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_2_4.png",
+          "filename": "Single Target_3_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3072,7 +3049,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_2_5.png",
+          "filename": "Single Target_4_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3085,7 +3062,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_3_1.png",
+          "filename": "Single Target_4_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3098,7 +3075,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_3_2.png",
+          "filename": "Single Target_4_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3111,7 +3088,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_3_3.png",
+          "filename": "Single Target_4_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -3124,7 +3101,982 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Interactive Component_3_4.png",
+          "filename": "Single Target_4_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_5_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_5_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_5_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_5_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_5_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_6_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_6_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_6_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_6_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_6_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_7_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_7_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_7_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_7_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_7_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_8_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_8_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_8_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_8_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_8_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_9_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_9_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_9_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_9_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_9_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_10_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_10_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_10_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_10_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_10_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_11_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_11_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_11_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_11_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_11_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_12_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_12_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_12_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_12_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_12_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_13_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_13_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_13_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_13_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_13_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_14_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_14_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_14_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_14_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_14_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_15_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_15_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_15_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_15_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_15_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_16_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_16_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_16_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_16_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_16_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_17_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_17_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_17_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_17_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_17_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_18_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_18_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_18_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_18_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_18_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_19_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_19_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_19_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_19_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Single Target_19_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7256,7 +8208,7 @@
         }
       ]
     },
-    "Single Target": {
+    "Diagram": {
       "translations": {
         "cn": "",
         "fr": "",
@@ -7272,7 +8224,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_1_1.png",
+          "filename": "Diagram_1_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7285,7 +8237,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_1_2.png",
+          "filename": "Diagram_1_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7298,7 +8250,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_1_3.png",
+          "filename": "Diagram_1_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7311,7 +8263,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_1_4.png",
+          "filename": "Diagram_1_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7324,7 +8276,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_1_5.png",
+          "filename": "Diagram_1_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7337,7 +8289,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_2_1.png",
+          "filename": "Diagram_2_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -7350,804 +8302,21 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_2_2.png",
+          "filename": "Diagram_2_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_2_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_2_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_3_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_3_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_3_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_4_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_4_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_4_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_4_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_4_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_5_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_5_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_5_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_5_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_5_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_6_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_6_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_6_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_6_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_6_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_7_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_7_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_7_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_7_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_7_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_8_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_8_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_8_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_8_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_8_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_9_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_9_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_9_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_9_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_9_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_10_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_10_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_10_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_10_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_10_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_11_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_11_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_11_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_11_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_11_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_12_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_12_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_12_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_12_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_12_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_13_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_13_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_13_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_13_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_13_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_14_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_14_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_14_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false
-        },
+        }
+      ]
+    },
+    "Large Components": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
         {
           "name": "",
           "translations": {
@@ -8156,7 +8325,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_14_4.png",
+          "filename": "Large Components_1_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8169,7 +8338,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_14_5.png",
+          "filename": "Large Components_1_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8182,7 +8351,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_15_1.png",
+          "filename": "Large Components_1_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8195,7 +8364,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_15_2.png",
+          "filename": "Large Components_1_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8208,7 +8377,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_15_3.png",
+          "filename": "Large Components_1_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8221,7 +8390,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_15_4.png",
+          "filename": "Large Components_2_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8234,7 +8403,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_15_5.png",
+          "filename": "Large Components_2_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8247,7 +8416,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_16_1.png",
+          "filename": "Large Components_2_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8260,7 +8429,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_16_2.png",
+          "filename": "Large Components_2_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8273,7 +8442,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_16_3.png",
+          "filename": "Large Components_2_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8286,7 +8455,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_16_4.png",
+          "filename": "Large Components_3_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8299,7 +8468,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_16_5.png",
+          "filename": "Large Components_3_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8312,11 +8481,21 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_17_1.png",
+          "filename": "Large Components_3_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
-        },
+        }
+      ]
+    },
+    "Interactive Component": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
         {
           "name": "",
           "translations": {
@@ -8325,7 +8504,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_17_2.png",
+          "filename": "Interactive Component_1_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8338,7 +8517,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_17_3.png",
+          "filename": "Interactive Component_1_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8351,7 +8530,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_17_4.png",
+          "filename": "Interactive Component_1_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8364,7 +8543,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_17_5.png",
+          "filename": "Interactive Component_1_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8377,7 +8556,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_18_1.png",
+          "filename": "Interactive Component_1_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8390,7 +8569,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_18_2.png",
+          "filename": "Interactive Component_2_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8403,7 +8582,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_18_3.png",
+          "filename": "Interactive Component_2_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8416,7 +8595,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_18_4.png",
+          "filename": "Interactive Component_2_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8429,7 +8608,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_18_5.png",
+          "filename": "Interactive Component_2_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8442,7 +8621,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_19_1.png",
+          "filename": "Interactive Component_2_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8455,7 +8634,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_19_2.png",
+          "filename": "Interactive Component_3_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8468,7 +8647,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_19_3.png",
+          "filename": "Interactive Component_3_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8481,7 +8660,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_19_4.png",
+          "filename": "Interactive Component_3_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
@@ -8494,7 +8673,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Single Target_19_5.png",
+          "filename": "Interactive Component_3_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false
