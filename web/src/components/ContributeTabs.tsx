@@ -1,6 +1,7 @@
 import { Tabs } from "radix-ui"
 import TemplateBuilder from "@/components/TemplateBuilder"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 
 function Step({
   n,
@@ -84,11 +85,13 @@ export default function ContributeTabs() {
           />
         </ol>
 
-        <div className="rounded-lg bg-muted/40 ring-1 ring-border px-4 py-3 space-y-2 text-sm text-muted-foreground">
-          <p><span className="font-medium text-foreground">Multiple guilds?</span> Submit each one in a separate thread, all your work is welcome.</p>
-          <p><span className="font-medium text-foreground">Image limit:</span> Up to 40 images total, spread across posts. 10 per post is recommended to avoid performance issues.</p>
-          <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
-        </div>
+        <Card>
+          <CardContent className="space-y-2 text-sm text-muted-foreground">
+            <p><span className="font-medium text-foreground">Multiple guilds?</span> Submit each one in a separate thread, all your work is welcome.</p>
+            <p><span className="font-medium text-foreground">Image limit:</span> Up to 40 images total, spread across posts. 10 per post is recommended to avoid performance issues.</p>
+            <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
+          </CardContent>
+        </Card>
       </Tabs.Content>
 
       <Tabs.Content value="vote" className="space-y-4">
@@ -110,13 +113,13 @@ export default function ContributeTabs() {
 
       <Tabs.Content value="oss" className="space-y-6">
         <p className="text-sm text-muted-foreground leading-relaxed">
-          The project is open source. Contributions are welcome, open an issue or a pull request.
+          The project is open source. Contributions are welcome, chat with us, open an issue or a pull request.
         </p>
-        <Button variant="link" size="sm" asChild className="h-auto p-0">
+        {/* <Button variant="link" size="sm" asChild className="h-auto p-0">
           <a href="https://github.com/coin-au-carre/awesome-wwm-base-building" target="_blank" rel="noopener noreferrer">
             View on GitHub ↗
           </a>
-        </Button>
+        </Button> */}
       </Tabs.Content>
     </Tabs.Root>
   )

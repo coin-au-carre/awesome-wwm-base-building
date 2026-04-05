@@ -2,6 +2,8 @@
 import Layout from "@/layouts/main.astro"
 import TopShowcase from "@/components/TopShowcase.astro"
 import { GuildTable } from "@/components/GuildTable"
+import { buttonVariants } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate } from "@/lib/guilds"
 
 const solos = getSolosSortedByScore()
@@ -68,22 +70,17 @@ const isEmpty = !hasSolos()
 
     {
       isEmpty && (
-        <section class="rounded-xl bg-muted/40 ring-1 ring-border px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div class="flex-1">
-            <p class="font-medium text-sm">Want to showcase your solo build?</p>
-            <p class="text-sm text-muted-foreground mt-0.5">
-              Post your screenshots in the dedicated channel on our Discord server.
-            </p>
-          </div>
-          <a
-            href="https://discord.gg/Qygt9u26Bn"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-          >
-            Join Discord ↗
-          </a>
-        </section>
+        <Card>
+          <CardContent className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex-1">
+              <p class="font-medium text-sm">Want to showcase your solo build?</p>
+              <p class="text-sm text-muted-foreground mt-0.5">
+                Post your screenshots in the dedicated channel on our Discord server.
+              </p>
+            </div>
+            <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={`shrink-0 ${buttonVariants({ size: "lg" })}`}>Join Discord ↗</a>
+          </CardContent>
+        </Card>
       )
     }
   </div>

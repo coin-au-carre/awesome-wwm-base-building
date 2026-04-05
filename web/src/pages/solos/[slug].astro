@@ -2,7 +2,7 @@
 import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 import { getSolosSortedByScore } from "@/lib/guilds"
 import { rankLabel } from "@/lib/slugify"
@@ -124,16 +124,8 @@ const randomScreenshot = g.screenshots?.length
 
     {g.discordThread && (
       <div class="flex flex-wrap gap-3">
-        <Button asChild size="lg">
-          <a href={g.discordThread} target="_blank" rel="noopener noreferrer">
-            Vote on Discord ↗
-          </a>
-        </Button>
-        <Button variant="outline" asChild size="lg">
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">
-            Join server ↗
-          </a>
-        </Button>
+        <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })}>Vote on Discord ↗</a>
+        <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "outline", size: "lg" })}>Join server ↗</a>
       </div>
     )}
   </div>

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
 
 type Mode = "guild" | "solo"
 
@@ -65,8 +66,8 @@ function Field({
   )
 }
 
-const inputClass =
-  "w-full rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring transition-colors"
+const textareaClass =
+  "w-full rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring transition-colors resize-none"
 
 export default function TemplateBuilder({ initialMode = "guild" }: { initialMode?: Mode }) {
   const [mode, setMode] = useState<Mode>(initialMode)
@@ -117,59 +118,45 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
         ))}
       </div>
 
-      <div className="space-y-3 rounded-xl border border-border px-4 py-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Fill in your details</p>
-        <div className="grid gap-3">
-          <div className="grid grid-cols-[1fr_auto] gap-3 items-end">
-            <Field label={c.primaryLabel}>
-              <input
-                className={inputClass}
-                placeholder={c.primaryPlaceholder}
-                value={fields.primaryName}
-                onChange={set("primaryName")}
+      <Card>
+        <CardContent className="space-y-3">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Fill in your details</p>
+          <div className="grid gap-3">
+            <div className="grid grid-cols-[1fr_auto] gap-3 items-end">
+              <Field label={c.primaryLabel}>
+                <Input placeholder={c.primaryPlaceholder} value={fields.primaryName} onChange={set("primaryName")} />
+              </Field>
+              <Field label={c.idLabel} hint="optional">
+                <Input className="w-32" placeholder={c.idPlaceholder} value={fields.primaryId} onChange={set("primaryId")} inputMode="numeric" />
+              </Field>
+            </div>
+
+            <Field label="Builders" hint="in-game names, comma-separated">
+              <Input placeholder={c.buildersPlaceholder} value={fields.builders} onChange={set("builders")} />
+            </Field>
+
+            <Field label="Lore" hint="optional">
+              <textarea
+                className={textareaClass}
+                rows={3}
+                placeholder={c.lorePlaceholder}
+                value={fields.lore}
+                onChange={set("lore")}
               />
             </Field>
-            <Field label={c.idLabel} hint="optional">
-              <input
-                className={cn(inputClass, "w-32")}
-                placeholder={c.idPlaceholder}
-                value={fields.primaryId}
-                onChange={set("primaryId")}
-                inputMode="numeric"
+
+            <Field label="What to visit" hint="optional">
+              <textarea
+                className={textareaClass}
+                rows={3}
+                placeholder={c.whatToVisitPlaceholder}
+                value={fields.whatToVisit}
+                onChange={set("whatToVisit")}
               />
             </Field>
           </div>
-
-          <Field label="Builders" hint="in-game names, comma-separated">
-            <input
-              className={inputClass}
-              placeholder={c.buildersPlaceholder}
-              value={fields.builders}
-              onChange={set("builders")}
-            />
-          </Field>
-
-          <Field label="Lore" hint="optional">
-            <textarea
-              className={cn(inputClass, "resize-none")}
-              rows={3}
-              placeholder={c.lorePlaceholder}
-              value={fields.lore}
-              onChange={set("lore")}
-            />
-          </Field>
-
-          <Field label="What to visit" hint="optional">
-            <textarea
-              className={cn(inputClass, "resize-none")}
-              rows={3}
-              placeholder={c.whatToVisitPlaceholder}
-              value={fields.whatToVisit}
-              onChange={set("whatToVisit")}
-            />
-          </Field>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
 
       <div className="space-y-2">
         <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Your template</p>
