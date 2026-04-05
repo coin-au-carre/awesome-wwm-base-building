@@ -20,6 +20,7 @@ import numpy as np
 from PIL import Image
 
 TILE_SIZE = 200
+GRID_COLS = 5  # max columns; items fill left-to-right so all full rows have this many
 
 
 def find_dark_bands(signal, threshold, min_width=3, offset=0):
@@ -100,7 +101,41 @@ def detect_grid(arr):
     return col_ranges, row_ranges
 
 
-def crop_tiles(image_path, prefix=None, dry_run=False):
+def cols_for_row(row_idx, col_ranges, layout, arr, row_range):
+    """
+    Return column ranges for a given row.
+    If layout specifies a col count for this row, detect separators within that row's
+    pixel data to find the true content regions. A synthetic left-edge band anchors the
+    first cell. Falls back to linear extrapolation if detection yields too few regions.
+    Otherwise return the global auto-detected col_ranges.
+    """
+    if layout and row_idx < len(layout):
+        n = layout[row_idx]
+        y1, y2 = row_range
+        row_brightness = arr[y1:y2 + 1].mean(axis=(0, 2))
+        threshold = row_brightness.min() + 8
+        detected = merge_close_bands(find_dark_bands(row_brightness, threshold, min_width=15), gap=10)
+        # Prepend synthetic left-edge band so the region before the first separator
+        # (cell 1) is captured; skip any detected bands that fall in the left margin.
+        left_edge = (0, col_ranges[0][0] - 1)
+        bands = [left_edge] + [b for b in detected if b[0] >= col_ranges[0][0]]
+        content = [
+            (bands[i][1] + 1, bands[i + 1][0] - 1)
+            for i in range(len(bands) - 1)
+            if bands[i + 1][0] - 1 - (bands[i][1] + 1) > 20
+        ]
+        if len(content) >= n:
+            return content[:n]
+        # Fallback: extrapolate using center-to-center spacing of auto-detected cols
+        c0 = (col_ranges[0][0] + col_ranges[0][1]) // 2
+        c1 = (col_ranges[1][0] + col_ranges[1][1]) // 2
+        step = c1 - c0
+        half_cell = (col_ranges[0][1] - col_ranges[0][0]) // 2
+        return [(c0 + i * step - half_cell, c0 + i * step + half_cell) for i in range(n)]
+    return col_ranges
+
+
+def crop_tiles(image_path, prefix=None, dry_run=False, layout=None):
     img = Image.open(image_path)
     arr = np.array(img)
 
@@ -112,13 +147,27 @@ def crop_tiles(image_path, prefix=None, dry_run=False):
 
     col_ranges, row_ranges = detect_grid(arr)
 
+    # Auto-layout: if multiple rows, all rows except the last are full (GRID_COLS).
+    # The last row keeps however many cols were auto-detected.
+    if layout is None and len(row_ranges) > 1:
+        layout = [GRID_COLS] * (len(row_ranges) - 1) + [len(col_ranges)]
+
     print(f"Detected: {len(row_ranges)} row(s) x {len(col_ranges)} col(s)")
     for i, (s, e) in enumerate(col_ranges):
         print(f"  col {i+1}: x={s}-{e}  ({e-s}px)")
     for i, (s, e) in enumerate(row_ranges):
         print(f"  row {i+1}: y={s}-{e}  ({e-s}px)")
+    if layout:
+        print(f"Layout: {layout}")
 
     if dry_run:
+        if layout:
+            for r, row_range in enumerate(row_ranges):
+                row_cols = cols_for_row(r, col_ranges, layout, arr, row_range)
+                print(f"  row {r+1} layout ({len(row_cols)} cols):", end="")
+                for c, (x1, x2) in enumerate(row_cols):
+                    print(f"  x={x1}-{x2}", end="")
+                print()
         print("Dry run — no files written.")
         return
 
@@ -129,7 +178,8 @@ def crop_tiles(image_path, prefix=None, dry_run=False):
     for r, (y1, y2) in enumerate(row_ranges):
         # Anchor to bottom of cell so items extending upward aren't clipped
         cy = y2 - half
-        for c, (x1, x2) in enumerate(col_ranges):
+        row_cols = cols_for_row(r, col_ranges, layout, arr, (y1, y2))
+        for c, (x1, x2) in enumerate(row_cols):
             cx = (x1 + x2) // 2
             tile = img.crop((cx - half, cy - half, cx + half, cy + half))
             name = f"{prefix}_{r+1}{c+1}.png"
@@ -145,14 +195,23 @@ def main():
     parser.add_argument("--prefix", help="Tile name prefix. Defaults to the image filename stem.")
     parser.add_argument("--dry-run", action="store_true",
                         help="Detect grid and print info without saving files")
+    parser.add_argument("--layout", help="Cols per row as comma-separated ints, e.g. 5,2")
     args = parser.parse_args()
+
+    layout = None
+    if args.layout:
+        try:
+            layout = [int(x) for x in args.layout.split(",")]
+        except ValueError:
+            print(f"Error: --layout must be comma-separated integers, e.g. 5,2", file=sys.stderr)
+            sys.exit(1)
 
     if not os.path.isfile(args.image):
         print(f"Error: file not found: {args.image}", file=sys.stderr)
         sys.exit(1)
 
     try:
-        crop_tiles(args.image, prefix=args.prefix, dry_run=args.dry_run)
+        crop_tiles(args.image, prefix=args.prefix, dry_run=args.dry_run, layout=layout)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)

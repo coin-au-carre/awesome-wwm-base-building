@@ -1,0 +1,111 @@
+{
+  "Basic Structure": {
+    "translations": {
+      "cn": "",
+      "fr": "",
+      "de": "",
+      "jp": ""
+    },
+    "Doors and Windows": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "Thatched Window",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_11.png",
+          "tags": ["window", "guardrail"],
+          "styles": ["wood"],
+          "hasVariants": true
+        },
+        {
+          "name": "Lattice Door",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_12.png",
+          "tags": ["door"],
+          "styles": ["wood"],
+          "hasVariants": true
+        },
+        {
+          "name": "Plank Door",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_13.png",
+          "tags": ["door"],
+          "styles": ["wood", "frame"],
+          "hasVariants": true
+        },
+        {
+          "name": "Window",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_14.png",
+          "tags": ["window", "guardrail", "frame"],
+          "styles": ["wood"],
+          "hasVariants": true
+        },
+        {
+          "name": "Window Frame",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_15.png",
+          "tags": ["frame"],
+          "styles": ["wood"],
+          "hasVariants": false
+        },
+        {
+          "name": "Redwood Door",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Doors And Windows_21.png",
+          "tags": ["door", "frame"],
+          "styles": ["wood", "red"],
+          "hasVariants": true
+        },
+        {
+          "name": "Perimeter Wall Gate",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "tags": ["door", "gate"],
+          "styles": ["wood"],
+          "filename": "Doors And Windows_22.png",
+          "hasVariants": false
+        }
+      ]
+    }
+  }
+}
