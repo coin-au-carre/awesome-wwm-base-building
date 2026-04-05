@@ -457,7 +457,7 @@
           "filename": "Wall_4_3.png",
           "tags": [],
           "styles": [
-            "wood", "red wood"
+            "wood", "red"
           ],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -474,7 +474,7 @@
           "filename": "Wall_4_4.png",
           "tags": [],
           "styles": [
-            "wood", "red wood"
+            "wood", "red"
           ],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -555,7 +555,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Thatched Roof",
           "translations": {
             "cn": "",
             "fr": "",
@@ -570,7 +570,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Hipped-Gable Roof",
           "translations": {
             "cn": "",
             "fr": "",
@@ -585,7 +585,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Small Roof",
           "translations": {
             "cn": "",
             "fr": "",
@@ -600,7 +600,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Roof Ridge",
           "translations": {
             "cn": "",
             "fr": "",
@@ -615,7 +615,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Red Roof Surface",
           "translations": {
             "cn": "",
             "fr": "",
@@ -624,13 +624,13 @@
           },
           "filename": "Roof_1_5.png",
           "tags": [],
-          "styles": [],
+          "styles": ["wood", "red"],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Red Roof Outer Corner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -638,14 +638,14 @@
             "jp": ""
           },
           "filename": "Roof_2_1.png",
-          "tags": [],
-          "styles": [],
+          "tags": [""],
+          "styles": ["wood", "red"],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Red Roof Inner Corner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -654,13 +654,13 @@
           },
           "filename": "Roof_2_2.png",
           "tags": [],
-          "styles": [],
+          "styles": ["wood", "red"],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Red Roof Edge Trim",
           "translations": {
             "cn": "",
             "fr": "",
@@ -669,13 +669,13 @@
           },
           "filename": "Roof_2_3.png",
           "tags": [],
-          "styles": [],
+          "styles": ["wood", "red"],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Roof Tile",
           "translations": {
             "cn": "",
             "fr": "",
@@ -690,7 +690,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Black Tile Interior Corner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -705,7 +705,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Decorative Debris",
           "translations": {
             "cn": "",
             "fr": "",
@@ -720,7 +720,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Black Tile Outer Corner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -735,7 +735,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Decorative Gable",
           "translations": {
             "cn": "",
             "fr": "",
@@ -750,7 +750,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Ordinary Roof",
           "translations": {
             "cn": "",
             "fr": "",
@@ -765,7 +765,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Flat Tile Edge Trim",
           "translations": {
             "cn": "",
             "fr": "",
@@ -780,7 +780,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Flat Tile Corner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -795,7 +795,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Pyramid Roof",
           "translations": {
             "cn": "",
             "fr": "",
@@ -810,7 +810,7 @@
           "subCategory": "Roof"
         },
         {
-          "name": "",
+          "name": "Stone Roof",
           "translations": {
             "cn": "",
             "fr": "",
@@ -819,38 +819,8 @@
           },
           "filename": "Roof_4_3.png",
           "tags": [],
-          "styles": [],
+          "styles": ["stone"],
           "hasVariants": true,
-          "category": "Basic Structure",
-          "subCategory": "Roof"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Basic Structure",
-          "subCategory": "Roof"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Roof_4_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
           "category": "Basic Structure",
           "subCategory": "Roof"
         }
@@ -978,7 +948,7 @@
           ],
           "styles": [
             "wood",
-            "red wood"
+            "red"
           ],
           "hasVariants": true,
           "category": "Basic Structure",
