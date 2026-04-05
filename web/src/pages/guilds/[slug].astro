@@ -16,6 +16,8 @@ export async function getStaticPaths() {
 
 const { guild: g } = Astro.props
 const base = BASE
+const AHLYAM_ID = "149790526076354561"
+const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID
 ---
 
 <Layout
@@ -158,6 +160,28 @@ const base = BASE
           class="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
         >
           Join server ↗
+        </a>
+      </div>
+    )}
+
+    <!-- Incentive callout -->
+    {(enteredByAhlyam || !g.discordThread) && (
+      <div class="rounded-xl border border-border bg-muted/40 px-5 py-4 text-sm space-y-2">
+        <p class="font-medium">Is this your guild?</p>
+        <p class="text-muted-foreground">
+          This entry was added by the site maintainer. If you're a builder of {g.guildName || g.name}, you can post your base showcase yourself. See the
+          <a
+            href={base + "/contribute"}
+            class="underline hover:text-foreground transition-colors"
+          >contribute guide</a> to get started.
+        </p>
+        <a
+          href="https://discord.gg/Qygt9u26Bn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+        >
+          Post your base ↗
         </a>
       </div>
     )}
