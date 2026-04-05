@@ -6,48 +6,46 @@
 			"JEFFRO"
 		],
 		"discordThread": "",
-		"score": 1
+		"score": 1,
+		"note": "contacted JEFFRO disc"
 	},
 	{
-		"name": "FBI",
-		"builders": [
-			"Kim  Kardashian"
-		],
-		"discordThread": "",
-		"score": 1
-	},
-	{
-		"name": "MoonRiver",
-		"builders": [
-			"Losto"
-		],
-		"discordThread": "",
-		"score": 1
-	},
-	{
-		"name": "MiaoMeow",
-		"builders": [
-			"EasilyAbused"
-		],
-		"discordThread": "",
-		"score": 2
-	},
-	{
-		"name": "Hishaku",
-		"builders": [
-			"ZenőStar"
-		],
-		"discordThread": "",
-		"score": 2
-	},
-	{
-		"name": "GooseParkBoys",
-		"builders": [
-			""
-		],
-		"discordThread": "",
-		"score": 0
-	},
+    "id": "",
+    "name": "FBI",
+    "builders": ["Kim  Kardashian"],
+    "discordThread": "",
+    "score": 1,
+    "note": "funny people. contacted wwm"
+  },
+  {
+    "id": "",
+    "name": "MoonRiver",
+    "builders": ["Losto"],
+    "discordThread": "",
+    "score": 1,
+    "note": "Hexi style. contacted wwm"
+  },
+  {
+    "name": "MiaoMeow",
+    "builders": ["EasilyAbused"],
+    "discordThread": "",
+    "score": 2,
+    "note": "ship flying. contacted wwm."
+  },
+  {
+    "name": "Hishaku",
+    "builders": ["ZenőStar"],
+    "discordThread": "",
+    "score": 2,
+    "note": "very nice. contacted wwm."
+  },
+  {
+    "name": "GooseParkBoys",
+    "builders": [""],
+    "discordThread": "",
+    "score": 0,
+    "note": "very nice. contacted wwm."
+  },
 	{
 		"name": "APX",
 		"builders": [],
