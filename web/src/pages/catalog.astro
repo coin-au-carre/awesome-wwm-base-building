@@ -4,9 +4,9 @@ import { buttonVariants } from "@/components/ui/button"
 import { readFileSync } from "fs"
 
 const raw = readFileSync(new URL("../../../catalog/guild/guild_items.json", import.meta.url), "utf-8")
-const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; hasVariants: boolean }[] }>>
+const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean }[] }>>
 
-type Item = { name: string; filename: string; tags: string[]; hasVariants: boolean }
+type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean }
 type Subcategory = { name: string; items: Item[] }
 type Category = { name: string; subcategories: Subcategory[] }
 
@@ -39,7 +39,10 @@ const catalogJson = JSON.stringify(
         name: item.name,
         filename: item.filename,
         tags: item.tags ?? [],
+        styles: item.styles ?? [],
         hasVariants: item.hasVariants ?? false,
+        category: cat.name,
+        subCategory: sub.name,
         img: item.filename ? imgPath(cat.name, sub.name, item.filename) : "",
         variantsImg: item.hasVariants && item.filename
           ? variantsImgPath(cat.name, sub.name, item.filename)
@@ -94,7 +97,7 @@ const catalogJson = JSON.stringify(
       <input
         id="catalog-search"
         type="search"
-        placeholder="Search by name or #tag…"
+        placeholder="Search by name, #tag or @style…"
         autocomplete="off"
         class="w-full rounded-lg border border-border bg-muted/40 pl-9 pr-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50"
       />
@@ -176,6 +179,9 @@ const catalogJson = JSON.stringify(
                       data-img={item.filename ? imgPath(cat.name, sub.name, item.filename) : ""}
                       data-variants-img={item.hasVariants && item.filename ? variantsImgPath(cat.name, sub.name, item.filename) : ""}
                       data-has-variants={item.hasVariants ? "1" : ""}
+                      data-styles={JSON.stringify(item.styles ?? [])}
+                      data-category={cat.name}
+                      data-subcategory={sub.name}
                     >
                       {item.filename ? (
                         <img
@@ -232,11 +238,19 @@ const catalogJson = JSON.stringify(
             <img id="detail-img" src="" alt="" class="w-full object-contain max-h-48" />
           </div>
           <div class="p-4 space-y-3">
-            <h3 id="detail-name" class="font-semibold text-sm leading-snug"></h3>
+            <div>
+              <h3 id="detail-name" class="font-semibold text-sm leading-snug"></h3>
+              <p id="detail-location" class="text-xs text-muted-foreground mt-0.5"></p>
+            </div>
 
             <div id="detail-tags-section" style="display:none">
               <p class="text-xs text-muted-foreground mb-1.5">Tags</p>
               <div id="detail-tags" class="flex flex-wrap gap-1.5"></div>
+            </div>
+
+            <div id="detail-styles-section" style="display:none">
+              <p class="text-xs text-muted-foreground mb-1.5">Styles</p>
+              <div id="detail-styles" class="flex flex-wrap gap-1.5"></div>
             </div>
 
             <div id="detail-variants-section" style="display:none">
@@ -267,7 +281,7 @@ const catalogJson = JSON.stringify(
 <script>
   // ── types & data ─────────────────────────────────────────────────────────────
 
-  type CatalogItem = { name: string; filename: string; tags: string[]; hasVariants: boolean; img: string; variantsImg: string }
+  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; category: string; subCategory: string; img: string; variantsImg: string }
   type CatalogSub  = { name: string; items: CatalogItem[] }
   type CatalogCat  = { name: string; subcategories: CatalogSub[] }
 
@@ -284,8 +298,18 @@ const catalogJson = JSON.stringify(
     gate:              "bg-rose-600/80 text-white",
   }
 
+  const STYLE_COLORS: Record<string, string> = {
+    wood:      "bg-amber-700/80 text-white",
+    "red wood": "bg-rose-700/80 text-white",
+    frame:     "bg-neutral-500/80 text-white",
+  }
+
   function tagClass(tag: string) {
     return TAG_COLORS[tag] ?? "bg-primary/80 text-primary-foreground"
+  }
+
+  function styleClass(style: string) {
+    return STYLE_COLORS[style] ?? "bg-teal-600/80 text-white"
   }
 
   // ── detail panel ─────────────────────────────────────────────────────────────
@@ -294,13 +318,17 @@ const catalogJson = JSON.stringify(
   const detailContent     = document.getElementById("detail-content") as HTMLDivElement
   const detailImg         = document.getElementById("detail-img") as HTMLImageElement
   const detailName        = document.getElementById("detail-name") as HTMLElement
-  const detailTagsSection = document.getElementById("detail-tags-section") as HTMLDivElement
-  const detailTags        = document.getElementById("detail-tags") as HTMLDivElement
-  const detailVariants    = document.getElementById("detail-variants-section") as HTMLDivElement
+  const detailLocation    = document.getElementById("detail-location") as HTMLElement
+  const detailTagsSection    = document.getElementById("detail-tags-section") as HTMLDivElement
+  const detailTags           = document.getElementById("detail-tags") as HTMLDivElement
+  const detailStylesSection  = document.getElementById("detail-styles-section") as HTMLDivElement
+  const detailStyles         = document.getElementById("detail-styles") as HTMLDivElement
+  const detailVariants       = document.getElementById("detail-variants-section") as HTMLDivElement
   const detailVariantsImg = document.getElementById("detail-variants-img") as HTMLImageElement
 
-  function showDetail(item: { name: string; img: string; tags: string[]; hasVariants: boolean; variantsImg: string }) {
+  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; category: string; subCategory: string }) {
     detailName.textContent = item.name || "Unnamed"
+    detailLocation.textContent = item.category && item.subCategory ? `${item.category} › ${item.subCategory}` : ""
 
     detailImg.src = item.img
     detailImg.alt = item.name
@@ -317,6 +345,19 @@ const catalogJson = JSON.stringify(
       })
     } else {
       detailTagsSection.style.display = "none"
+    }
+
+    detailStyles.innerHTML = ""
+    if (item.styles.length > 0) {
+      detailStylesSection.style.display = ""
+      item.styles.forEach((style) => {
+        const badge = document.createElement("span")
+        badge.className = `inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${styleClass(style)}`
+        badge.textContent = `@${style}`
+        detailStyles.appendChild(badge)
+      })
+    } else {
+      detailStylesSection.style.display = "none"
     }
 
     if (item.hasVariants && item.variantsImg) {
@@ -343,8 +384,11 @@ const catalogJson = JSON.stringify(
         name:        card.querySelector<HTMLElement>("p")?.textContent?.trim() ?? "",
         img:         card.dataset.img ?? "",
         tags:        JSON.parse(card.dataset.tags ?? "[]"),
+        styles:      JSON.parse(card.dataset.styles ?? "[]"),
         hasVariants: card.dataset.hasVariants === "1",
         variantsImg: card.dataset.variantsImg ?? "",
+        category:    card.dataset.category ?? "",
+        subCategory: card.dataset.subcategory ?? "",
       })
     })
   }
@@ -408,9 +452,13 @@ const catalogJson = JSON.stringify(
   const searchEmpty       = document.getElementById("search-empty") as HTMLParagraphElement
   const searchSuggestions = document.getElementById("search-suggestions") as HTMLUListElement
 
-  // Build a flat list of all unique tags across the whole catalog
+  // Build flat lists of all unique tags and styles across the whole catalog
   const allTags: string[] = [...new Set(
     catalog.flatMap((cat) => cat.subcategories.flatMap((sub) => sub.items.flatMap((item) => item.tags)))
+  )].sort()
+
+  const allStyles: string[] = [...new Set(
+    catalog.flatMap((cat) => cat.subcategories.flatMap((sub) => sub.items.flatMap((item) => item.styles)))
   )].sort()
 
   let activeSuggestionIdx = -1
@@ -421,16 +469,20 @@ const catalogJson = JSON.stringify(
     activeSuggestionIdx = -1
   }
 
-  function showSuggestions(items: { label: string; value: string; isTag: boolean }[]) {
+  function showSuggestions(items: { label: string; value: string; isTag: boolean; isStyle?: boolean }[]) {
     if (items.length === 0) { hideSuggestions(); return }
     searchSuggestions.innerHTML = ""
     activeSuggestionIdx = -1
     items.forEach((s) => {
       const li = document.createElement("li")
       li.className = "flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-muted/60 transition-colors"
-      li.innerHTML = s.isTag
-        ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${tagClass(s.label)}">#${s.label}</span>`
-        : `<span class="text-sm">${s.label}</span>`
+      if (s.isStyle) {
+        li.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${styleClass(s.label)}">@${s.label}</span>`
+      } else if (s.isTag) {
+        li.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${tagClass(s.label)}">#${s.label}</span>`
+      } else {
+        li.innerHTML = `<span class="text-sm">${s.label}</span>`
+      }
       li.addEventListener("mousedown", (e) => {
         e.preventDefault()
         searchInput.value = s.value
@@ -443,12 +495,18 @@ const catalogJson = JSON.stringify(
   }
 
   function updateSuggestions(raw: string) {
-    const isTag = raw.startsWith("#")
-    const q = raw.slice(isTag ? 1 : 0).trim().toLowerCase()
+    const isTag   = raw.startsWith("#")
+    const isStyle = raw.startsWith("@")
+    const q = raw.slice(isTag || isStyle ? 1 : 0).trim().toLowerCase()
 
-    if (!q && !isTag) { hideSuggestions(); return }
+    if (!q && !isTag && !isStyle) { hideSuggestions(); return }
 
-    if (isTag) {
+    if (isStyle) {
+      const matches = (q ? allStyles.filter((s) => s.toLowerCase().includes(q)) : allStyles)
+        .slice(0, 12)
+        .map((s) => ({ label: s, value: `@${s}`, isTag: false, isStyle: true }))
+      showSuggestions(matches)
+    } else if (isTag) {
       const matches = (q ? allTags.filter((t) => t.toLowerCase().includes(q)) : allTags)
         .slice(0, 12)
         .map((t) => ({ label: t, value: `#${t}`, isTag: true }))
@@ -475,8 +533,11 @@ const catalogJson = JSON.stringify(
       "item-card group relative rounded-lg overflow-hidden bg-neutral-900 border border-border hover:border-primary/50 transition-colors cursor-pointer"
     card.dataset.img         = item.img
     card.dataset.tags        = JSON.stringify(item.tags)
+    card.dataset.styles      = JSON.stringify(item.styles)
     card.dataset.hasVariants = item.hasVariants ? "1" : ""
     card.dataset.variantsImg = item.variantsImg
+    card.dataset.category    = item.category
+    card.dataset.subcategory = item.subCategory
 
     if (item.img) {
       const img = document.createElement("img")
@@ -522,9 +583,10 @@ const catalogJson = JSON.stringify(
   }
 
   function runSearch(query: string) {
-    const raw     = query.trim()
-    const isTag   = raw.startsWith("#")
-    const q       = raw.slice(isTag ? 1 : 0).trim().toLowerCase()
+    const raw      = query.trim()
+    const isTag    = raw.startsWith("#")
+    const isStyle  = raw.startsWith("@")
+    const q        = raw.slice(isTag || isStyle ? 1 : 0).trim().toLowerCase()
 
     if (!q) {
       searchResults.style.display = "none"
@@ -541,7 +603,9 @@ const catalogJson = JSON.stringify(
     const matches: CatalogItem[] = []
     catData?.subcategories.forEach((sub) => {
       sub.items.forEach((item) => {
-        const hit = isTag
+        const hit = isStyle
+          ? item.styles.some((s) => s.toLowerCase().includes(q))
+          : isTag
           ? item.tags.some((t) => t.toLowerCase().includes(q))
           : item.name.toLowerCase().includes(q) || item.tags.some((t) => t.toLowerCase().includes(q))
         if (hit) matches.push(item)
