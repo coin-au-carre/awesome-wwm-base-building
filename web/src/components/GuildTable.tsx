@@ -3,6 +3,14 @@ import type { RankedGuild } from "@/types/guild"
 import { rankLabel } from "@/lib/slugify"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableHead,
+  TableRow,
+  TableCell,
+} from "@/components/ui/table"
 
 type SortField = "rank" | "name" | "score"
 type SortDir = "asc" | "desc"
@@ -60,12 +68,15 @@ function SortButton({
   )
 }
 
+const PAGE_SIZE = 40
+
 export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const isSolos = basePath === "solos"
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
   const [search, setSearch] = useState("")
+  const [page, setPage] = useState(1)
 
   function toggleSort(field: SortField) {
     if (sortField === field) {
@@ -74,6 +85,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
       setSortField(field)
       setSortDir(field === "rank" ? "asc" : "desc")
     }
+    setPage(1)
   }
 
   function toggleTag(tag: string) {
@@ -86,6 +98,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
       }
       return next
     })
+    setPage(1)
   }
 
   const filtered = useMemo(() => {
@@ -114,13 +127,16 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
     })
   }, [guilds, activeTags, sortField, sortDir, search])
 
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
+  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+
   return (
     <div className="space-y-4">
       <input
         type="search"
         placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={(e) => { setSearch(e.target.value); setPage(1) }}
         className="w-full sm:w-64 rounded-lg border border-border bg-background px-3 py-1.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
       />
 
@@ -151,53 +167,48 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-xl ring-1 ring-border">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b border-border bg-muted/40 text-muted-foreground text-left">
-              <th className="px-4 py-3 font-medium w-16">
+      <div className="rounded-xl ring-1 ring-border">
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-muted/40 text-muted-foreground">
+              <TableHead className="w-16">
                 <SortButton field="rank" current={sortField} dir={sortDir} onClick={toggleSort}>
                   Rank
                 </SortButton>
-              </th>
-              <th className="px-4 py-3 font-medium">
+              </TableHead>
+              <TableHead>
                 <SortButton field="name" current={sortField} dir={sortDir} onClick={toggleSort}>
                   Guild
                 </SortButton>
-              </th>
-              <th className="px-4 py-3 font-medium hidden md:table-cell">Builders</th>
-              <th className="px-4 py-3 font-medium hidden lg:table-cell">Tags</th>
-              <th className="px-4 py-3 font-medium w-20 text-right">
+              </TableHead>
+              <TableHead className="hidden md:table-cell">Builders</TableHead>
+              <TableHead className="hidden lg:table-cell">Tags</TableHead>
+              <TableHead className="w-20 text-right">
                 <SortButton field="score" current={sortField} dir={sortDir} onClick={toggleSort}>
                   Score
                 </SortButton>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.length === 0 ? (
-              <tr>
-                <td colSpan={5} className="px-4 py-8 text-center text-sm text-muted-foreground">
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {paginated.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={5} className="py-8 text-center text-muted-foreground">
                   {isSolos ? "No bases match your search." : "No guilds match your search."}
-                </td>
-              </tr>
-            ) : filtered.map((g, i) => (
-              <tr
+                </TableCell>
+              </TableRow>
+            ) : paginated.map((g, i) => (
+              <TableRow
                 key={g.name}
                 onClick={() => window.location.href = url(`/${basePath}/${g.slug}`)}
-                className={cn(
-                  "border-b border-border last:border-0 transition-colors hover:bg-muted/30 cursor-pointer",
-                  i % 2 !== 0 && "bg-muted/10",
-                )}
+                className={cn("cursor-pointer", i % 2 !== 0 && "bg-muted/10")}
               >
-                <td className="px-4 py-3 text-center font-medium">{rankLabel(g.rank)}</td>
-                <td className="px-4 py-3">
-                  <span className="font-medium">{g.guildName || g.name}</span>
-                </td>
-                <td className="px-4 py-3 text-muted-foreground hidden md:table-cell">
+                <TableCell className="text-center font-medium">{rankLabel(g.rank)}</TableCell>
+                <TableCell className="font-medium">{g.guildName || g.name}</TableCell>
+                <TableCell className="text-muted-foreground hidden md:table-cell">
                   {formatBuilders(g.builders)}
-                </td>
-                <td className="px-4 py-3 hidden lg:table-cell">
+                </TableCell>
+                <TableCell className="hidden lg:table-cell">
                   <div className="flex flex-wrap gap-1">
                     {g.tags?.map((tag) => (
                       <span
@@ -208,16 +219,48 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
                       </span>
                     ))}
                   </div>
-                </td>
-                <td className="px-4 py-3 text-right font-mono font-semibold">{g.score}</td>
-              </tr>
+                </TableCell>
+                <TableCell className="text-right font-mono font-semibold">{g.score}</TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
-      <p className="text-xs text-muted-foreground text-right">
-        {filtered.length} / {guilds.length} {isSolos ? "bases" : "guilds"}
-      </p>
+      <div className="flex items-center justify-between">
+        {totalPages > 1 ? (
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={page === 1}
+              className="px-2 py-1 text-xs rounded border border-border disabled:opacity-40 hover:bg-muted/50 transition-colors"
+            >
+              ←
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+              <button
+                key={p}
+                onClick={() => setPage(p)}
+                className={cn(
+                  "px-2 py-1 text-xs rounded border border-border transition-colors",
+                  p === page ? "bg-primary text-primary-foreground" : "hover:bg-muted/50",
+                )}
+              >
+                {p}
+              </button>
+            ))}
+            <button
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages}
+              className="px-2 py-1 text-xs rounded border border-border disabled:opacity-40 hover:bg-muted/50 transition-colors"
+            >
+              →
+            </button>
+          </div>
+        ) : <span />}
+        <p className="text-xs text-muted-foreground">
+          {filtered.length} / {guilds.length} {isSolos ? "bases" : "guilds"}
+        </p>
+      </div>
     </div>
   )
 }
