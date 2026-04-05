@@ -1,6 +1,8 @@
 ---
 import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { getSolosSortedByScore } from "@/lib/guilds"
 import { rankLabel } from "@/lib/slugify"
 import { renderMarkdown } from "@/lib/markdown"
@@ -52,9 +54,7 @@ const randomScreenshot = g.screenshots?.length
       <div class="flex flex-wrap gap-1.5 mt-2">
         {
           g.tags?.map((tag) => (
-            <span class="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground">
-              {tag}
-            </span>
+            <Badge variant="secondary">{tag}</Badge>
           ))
         }
       </div>
@@ -125,22 +125,16 @@ const randomScreenshot = g.screenshots?.length
 
     {g.discordThread && (
       <div class="flex flex-wrap gap-3">
-        <a
-          href={g.discordThread}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          Vote on Discord ↗
-        </a>
-        <a
-          href="https://discord.gg/Qygt9u26Bn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
-        >
-          Join server ↗
-        </a>
+        <Button asChild size="lg">
+          <a href={g.discordThread} target="_blank" rel="noopener noreferrer">
+            Vote on Discord ↗
+          </a>
+        </Button>
+        <Button variant="outline" asChild size="lg">
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">
+            Join server ↗
+          </a>
+        </Button>
       </div>
     )}
   </div>
