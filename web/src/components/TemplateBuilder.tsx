@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Tabs } from "radix-ui"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -100,23 +101,15 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
   }
 
   return (
-    <div className="space-y-6">
-
-      <div className="flex gap-1 rounded-xl bg-muted/50 p-1 w-fit">
-        {(["guild", "solo"] as Mode[]).map((m) => (
-          <button
-            key={m}
-            onClick={() => switchMode(m)}
-            className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer ${
-              mode === m
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            {m === "guild" ? "Guild builder" : "Solo builder"}
-          </button>
-        ))}
-      </div>
+    <Tabs.Root value={mode} onValueChange={(v) => switchMode(v as Mode)} className="space-y-6">
+      <Tabs.List className="flex gap-1 rounded-xl bg-muted/50 p-1 w-fit">
+        <Tabs.Trigger value="guild" className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm cursor-pointer">
+          Guild builder
+        </Tabs.Trigger>
+        <Tabs.Trigger value="solo" className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm cursor-pointer">
+          Solo builder
+        </Tabs.Trigger>
+      </Tabs.List>
 
       <Card>
         <CardContent className="space-y-3">
@@ -178,6 +171,6 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
         </p>
       </div>
 
-    </div>
+    </Tabs.Root>
   )
 }

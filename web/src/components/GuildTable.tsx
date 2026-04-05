@@ -169,7 +169,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
         </div>
       )}
 
-      <div className="rounded-xl ring-1 ring-border">
+      <div className="rounded-xl ring-1 ring-border overflow-hidden">
         <Table>
           <TableHeader>
             <TableRow className="bg-muted/40 text-muted-foreground">
