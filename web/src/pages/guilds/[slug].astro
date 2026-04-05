@@ -3,6 +3,7 @@ import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 import { getGuildsSortedByScore } from "@/lib/guilds"
 import { rankLabel } from "@/lib/slugify"
 import { renderMarkdown } from "@/lib/markdown"
@@ -65,52 +66,42 @@ const randomScreenshot = g.screenshots?.length
     </div>
 
     <!-- Metadata table -->
-    <div class="overflow-x-auto rounded-xl ring-1 ring-border">
-      <table class="w-full text-sm">
-        <tbody>
-          {
-            g.id && (
-              <tr class="border-b border-border">
-                <td class="px-4 py-2.5 text-muted-foreground font-medium w-32">🆔 Guild ID</td>
-                <td class="px-4 py-2.5">{g.id}</td>
-              </tr>
-            )
-          }
-          <tr class="border-b border-border">
-            <td class="px-4 py-2.5 text-muted-foreground font-medium">🔨 Builders</td>
-            <td class="px-4 py-2.5">{g.builders?.join(", ") || "—"}</td>
-          </tr>
-          <tr class="border-b border-border">
-            <td class="px-4 py-2.5 text-muted-foreground font-medium">⭐ Score</td>
-            <td class="px-4 py-2.5 font-semibold font-mono">{g.score}</td>
-          </tr>
-          <tr class="border-b border-border">
-            <td class="px-4 py-2.5 text-muted-foreground font-medium">🏆 Rank</td>
-            <td class="px-4 py-2.5">{rankLabel(g.rank)}</td>
-          </tr>
-          {
-            g.discordThread && (
-              <tr>
-                <td class="px-4 py-2.5 text-muted-foreground font-medium">💬 Discord</td>
-                <td class="px-4 py-2.5">
-                  <a
-                    href="https://discord.gg/Qygt9u26Bn"
-                    class="underline hover:text-foreground transition-colors mr-3"
-                  >
-                    Join server
-                  </a>
-                  <a
-                    href={g.discordThread}
-                    class="underline hover:text-foreground transition-colors"
-                  >
-                    View thread
-                  </a>
-                </td>
-              </tr>
-            )
-          }
-        </tbody>
-      </table>
+    <div class="rounded-xl ring-1 ring-border overflow-hidden">
+      <Table>
+        <TableBody>
+          {g.id && (
+            <TableRow>
+              <TableCell className="text-muted-foreground font-medium w-32 px-4 py-2.5">🆔 Guild ID</TableCell>
+              <TableCell className="px-4 py-2.5">{g.id}</TableCell>
+            </TableRow>
+          )}
+          <TableRow>
+            <TableCell className="text-muted-foreground font-medium px-4 py-2.5">🔨 Builders</TableCell>
+            <TableCell className="px-4 py-2.5">{g.builders?.join(", ") || "—"}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="text-muted-foreground font-medium px-4 py-2.5">⭐ Score</TableCell>
+            <TableCell className="px-4 py-2.5 font-semibold font-mono">{g.score}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell className="text-muted-foreground font-medium px-4 py-2.5">🏆 Rank</TableCell>
+            <TableCell className="px-4 py-2.5">{rankLabel(g.rank)}</TableCell>
+          </TableRow>
+          {g.discordThread && (
+            <TableRow>
+              <TableCell className="text-muted-foreground font-medium px-4 py-2.5">💬 Discord</TableCell>
+              <TableCell className="px-4 py-2.5">
+                <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors mr-3">
+                  Join server
+                </a>
+                <a href={g.discordThread} class="underline hover:text-foreground transition-colors">
+                  View thread
+                </a>
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
     </div>
 
     <!-- Lore -->
