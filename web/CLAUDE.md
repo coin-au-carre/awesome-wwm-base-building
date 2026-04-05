@@ -20,8 +20,8 @@
 | `/solos/[slug]` | Solo build detail page |
 | `/items` | Building items catalog (WIP) |
 | `/scoring` | Scoring rules |
-| `/about` | About the project |
 | `/contribute` | How to submit a guild/solo |
+| `/how-it-works` | How it works |
 
 ## Rules
 
