@@ -1,50 +1,374 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { readFileSync } from "fs"
+
+const raw = readFileSync(new URL("../../../catalog/guild/guild_items.json", import.meta.url), "utf-8")
+const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[] }[] }>>
+
+type Item = { name: string; filename: string; tags: string[] }
+type Subcategory = { name: string; items: Item[] }
+type Category = { name: string; subcategories: Subcategory[] }
+
+const categories: Category[] = Object.entries(catalogData)
+  .filter(([k]) => k !== "translations")
+  .map(([catName, catData]) => ({
+    name: catName,
+    subcategories: Object.entries(catData)
+      .filter(([k]) => k !== "translations")
+      .map(([subName, subData]) => ({
+        name: subName,
+        items: subData.items ?? [],
+      })),
+  }))
+
+function imgPath(category: string, subcategory: string, filename: string) {
+  return `/catalog/${encodeURIComponent(category)}/${encodeURIComponent(subcategory)}/${encodeURIComponent(filename)}`
+}
+
+// Serialise catalog for client-side filtering
+const catalogJson = JSON.stringify(
+  categories.map((cat) => ({
+    name: cat.name,
+    subcategories: cat.subcategories.map((sub) => ({
+      name: sub.name,
+      items: sub.items.map((item) => ({
+        name: item.name,
+        filename: item.filename,
+        tags: item.tags ?? [],
+        img: item.filename ? imgPath(cat.name, sub.name, item.filename) : "",
+      })),
+    })),
+  }))
+)
+
+const TAG_COLORS: Record<string, string> = {
+  "large component": "bg-purple-500/80 text-white",
+  window:            "bg-sky-500/80 text-white",
+  guardrail:         "bg-green-600/80 text-white",
+  door:              "bg-orange-500/80 text-white",
+  frame:             "bg-neutral-400/80 text-black",
+  gate:              "bg-rose-600/80 text-white",
+}
+
+function tagClass(tag: string) {
+  return TAG_COLORS[tag] ?? "bg-amber-500/80 text-black"
+}
 ---
 
 <Layout
   title="Building catalog — Where Builders Meet"
-  description="A complete catalog of buildable items in Where Winds Meet. Coming soon."
+  description="A catalog of every buildable item in Where Winds Meet."
 >
-  <div class="max-w-3xl space-y-8">
-    <div>
-      <h1 class="font-heading text-2xl font-semibold mb-1">🧱 Building catalog</h1>
-      <p class="text-muted-foreground text-sm">A catalog of every item you can place in Where Winds Meet.</p>
-    </div>
+  <div class="max-w-6xl space-y-5">
 
-    <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
-      <span class="text-xl shrink-0">🚧</span>
+    <!-- Header -->
+    <div class="flex items-start justify-between gap-4 flex-wrap">
       <div>
-        <p class="font-medium text-sm">Work in progress</p>
-        <p class="text-sm text-muted-foreground mt-1 leading-relaxed">
-          We're building a full catalog of buildable items: floors, walls, roofs, doors, pillars,
-          decorations, with pictures, names, and filters by category and build type (guild vs solo).
-          Think of it as the in-game building menu, but practical!
-        </p>
+        <h1 class="font-heading text-2xl font-semibold mb-1">Building catalog</h1>
+        <p class="text-muted-foreground text-sm">Every placeable item in Where Winds Meet.</p>
       </div>
+      <span class="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 px-3 py-1 text-xs font-medium text-amber-400">
+        Alpha — names being filled in progressively
+      </span>
     </div>
 
-    <div class="grid sm:grid-cols-3 gap-3 text-sm">
-      {
-        [
-          { icon: "🔍", label: "Search by name" },
-          { icon: "🗂️", label: "Filter by category" },
-          { icon: "🏯", label: "Guild & solo items" },
-        ].map(({ icon, label }) => (
-          <div class="rounded-xl bg-muted/40 ring-1 ring-border px-4 py-3 flex items-center gap-2 text-muted-foreground">
-            <span class="text-base">{icon}</span>
-            <span>{label}</span>
+    <!-- Search -->
+    <div class="relative">
+      <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input
+        id="catalog-search"
+        type="search"
+        placeholder="Search by name or tag…"
+        class="w-full rounded-lg border border-border bg-muted/40 pl-9 pr-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500/50"
+      />
+    </div>
+
+    <!-- Category tabs -->
+    <div class="flex gap-1 border-b border-border" id="cat-tabs">
+      {categories.map((cat, i) => (
+        <button
+          class:list={[
+            "cat-tab px-4 py-2 text-sm font-medium rounded-t border-b-2 transition-colors",
+            i === 0
+              ? "border-amber-500 text-amber-400"
+              : "border-transparent text-muted-foreground hover:text-foreground",
+          ]}
+          data-cat={cat.name}
+        >
+          {cat.name}
+        </button>
+      ))}
+    </div>
+
+    <!-- Search results panel (hidden until searching) -->
+    <div id="search-results" style="display:none" class="space-y-2">
+      <p id="search-count" class="text-xs text-muted-foreground"></p>
+      <div id="search-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2"></div>
+      <p id="search-empty" style="display:none" class="text-sm text-muted-foreground py-8 text-center">No items match your search.</p>
+    </div>
+
+    <!-- Category panels -->
+    {categories.map((cat, ci) => (
+      <div class="cat-panel space-y-4" data-cat={cat.name} style={ci !== 0 ? "display:none" : ""}>
+
+        <!-- Subcategory tabs -->
+        <div class="flex flex-wrap gap-1">
+          {cat.subcategories.map((sub, si) => (
+            <button
+              class:list={[
+                "sub-tab px-3 py-1.5 text-sm rounded-md transition-colors",
+                si === 0
+                  ? "bg-amber-500/20 text-amber-400 ring-1 ring-amber-500/40"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+              ]}
+              data-cat={cat.name}
+              data-sub={sub.name}
+            >
+              {sub.name}
+              <span class="ml-1 text-xs opacity-60">({sub.items.length})</span>
+            </button>
+          ))}
+        </div>
+
+        <!-- Subcategory panels -->
+        {cat.subcategories.map((sub, si) => (
+          <div
+            class="sub-panel"
+            data-cat={cat.name}
+            data-sub={sub.name}
+            style={si !== 0 ? "display:none" : ""}
+          >
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
+              {sub.items.map((item) => (
+                <div
+                  class="item-card group relative rounded-lg overflow-hidden bg-neutral-900 border border-border hover:border-amber-500/50 transition-colors"
+                  data-name={item.name.toLowerCase()}
+                  data-tags={JSON.stringify(item.tags ?? [])}
+                >
+                  <!-- Image -->
+                  {item.filename ? (
+                    <img
+                      src={imgPath(cat.name, sub.name, item.filename)}
+                      alt={item.name || item.filename}
+                      class="w-full aspect-square object-cover block"
+                      loading="lazy"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+                    />
+                  ) : null}
+                  <div
+                    class="w-full aspect-square bg-neutral-800 items-center justify-center text-muted-foreground text-xs"
+                    style={item.filename ? "display:none" : "display:flex"}
+                  >
+                    No image
+                  </div>
+
+                  <!-- Name + tags overlay -->
+                  <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-2 pt-6 pb-2">
+                    {item.name ? (
+                      <p class="text-white text-xs font-medium leading-tight drop-shadow">{item.name}</p>
+                    ) : (
+                      <p class="text-white/40 text-xs italic leading-tight">Unnamed</p>
+                    )}
+
+                    <!-- Tags: visible on hover -->
+                    {(item.tags ?? []).length > 0 && (
+                      <div class="flex flex-wrap gap-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                        {(item.tags ?? []).map((tag) => (
+                          <span class:list={["text-[10px] px-1.5 py-0.5 rounded font-medium", tagClass(tag)]}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        ))
-      }
-    </div>
-
-    <p class="text-sm text-muted-foreground">
-      Want to help catalog items?{" "}
-      <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
-        Join the Discord
-      </a>{" "}
-      and ping us.
-    </p>
+        ))}
+      </div>
+    ))}
   </div>
 </Layout>
+
+<!-- Embed catalog data for client-side search -->
+<script is:inline type="application/json" id="catalog-data" set:html={catalogJson} />
+
+<script>
+  // ── helpers ─────────────────────────────────────────────────────────────────
+
+  type CatalogItem = { name: string; filename: string; tags: string[]; img: string }
+  type CatalogSub  = { name: string; items: CatalogItem[] }
+  type CatalogCat  = { name: string; subcategories: CatalogSub[] }
+
+  const catalog: CatalogCat[] = JSON.parse(
+    document.getElementById("catalog-data")!.textContent!
+  )
+
+  // ── tab switching ────────────────────────────────────────────────────────────
+
+  const catTabs   = document.querySelectorAll<HTMLButtonElement>(".cat-tab")
+  const catPanels = document.querySelectorAll<HTMLDivElement>(".cat-panel")
+  const subTabs   = document.querySelectorAll<HTMLButtonElement>(".sub-tab")
+  const subPanels = document.querySelectorAll<HTMLDivElement>(".sub-panel")
+
+  let activeCat = catTabs[0]?.dataset.cat ?? ""
+
+  catTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      activeCat = tab.dataset.cat!
+      catTabs.forEach((t) => {
+        const on = t.dataset.cat === activeCat
+        t.classList.toggle("border-amber-500", on)
+        t.classList.toggle("text-amber-400", on)
+        t.classList.toggle("border-transparent", !on)
+        t.classList.toggle("text-muted-foreground", !on)
+      })
+      catPanels.forEach((p) => {
+        p.style.display = p.dataset.cat === activeCat ? "" : "none"
+      })
+      // re-run search in new category
+      runSearch((document.getElementById("catalog-search") as HTMLInputElement).value)
+    })
+  })
+
+  subTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const cat = tab.dataset.cat!
+      const sub = tab.dataset.sub!
+      subTabs.forEach((t) => {
+        if (t.dataset.cat !== cat) return
+        const on = t.dataset.sub === sub
+        t.classList.toggle("bg-amber-500/20", on)
+        t.classList.toggle("text-amber-400", on)
+        t.classList.toggle("ring-1", on)
+        t.classList.toggle("ring-amber-500/40", on)
+        t.classList.toggle("text-muted-foreground", !on)
+        t.classList.toggle("hover:text-foreground", !on)
+        t.classList.toggle("hover:bg-muted/50", !on)
+      })
+      subPanels.forEach((p) => {
+        if (p.dataset.cat !== cat) return
+        p.style.display = p.dataset.sub === sub ? "" : "none"
+      })
+    })
+  })
+
+  // ── search ───────────────────────────────────────────────────────────────────
+
+  const searchInput   = document.getElementById("catalog-search") as HTMLInputElement
+  const searchResults = document.getElementById("search-results") as HTMLDivElement
+  const searchGrid    = document.getElementById("search-grid") as HTMLDivElement
+  const searchCount   = document.getElementById("search-count") as HTMLParagraphElement
+  const searchEmpty   = document.getElementById("search-empty") as HTMLParagraphElement
+
+  const TAG_COLORS: Record<string, string> = {
+    "large component": "bg-purple-500/80 text-white",
+    window:            "bg-sky-500/80 text-white",
+    guardrail:         "bg-green-600/80 text-white",
+    door:              "bg-orange-500/80 text-white",
+    frame:             "bg-neutral-400/80 text-black",
+    gate:              "bg-rose-600/80 text-white",
+  }
+
+  function tagClass(tag: string) {
+    return TAG_COLORS[tag] ?? "bg-amber-500/80 text-black"
+  }
+
+  function buildCard(item: CatalogItem): HTMLElement {
+    const card = document.createElement("div")
+    card.className =
+      "group relative rounded-lg overflow-hidden bg-neutral-900 border border-border hover:border-amber-500/50 transition-colors"
+
+    if (item.img) {
+      const img = document.createElement("img")
+      img.src = item.img
+      img.alt = item.name || item.filename
+      img.className = "w-full aspect-square object-cover block"
+      img.loading = "lazy"
+      img.onerror = () => {
+        img.style.display = "none"
+        placeholder.style.display = "flex"
+      }
+      card.appendChild(img)
+    }
+
+    const placeholder = document.createElement("div")
+    placeholder.className =
+      "w-full aspect-square bg-neutral-800 items-center justify-center text-muted-foreground text-xs"
+    placeholder.style.display = item.img ? "none" : "flex"
+    placeholder.textContent = "No image"
+    card.appendChild(placeholder)
+
+    const overlay = document.createElement("div")
+    overlay.className =
+      "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent px-2 pt-6 pb-2"
+
+    const nameEl = document.createElement("p")
+    nameEl.className = item.name
+      ? "text-white text-xs font-medium leading-tight drop-shadow"
+      : "text-white/40 text-xs italic leading-tight"
+    nameEl.textContent = item.name || "Unnamed"
+    overlay.appendChild(nameEl)
+
+    if (item.tags.length > 0) {
+      const tagRow = document.createElement("div")
+      tagRow.className =
+        "flex flex-wrap gap-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+      item.tags.forEach((tag) => {
+        const badge = document.createElement("span")
+        badge.className = `text-[10px] px-1.5 py-0.5 rounded font-medium ${tagClass(tag)}`
+        badge.textContent = tag
+        tagRow.appendChild(badge)
+      })
+      overlay.appendChild(tagRow)
+    }
+
+    card.appendChild(overlay)
+    return card
+  }
+
+  function runSearch(query: string) {
+    const q = query.trim().toLowerCase()
+
+    if (!q) {
+      searchResults.style.display = "none"
+      catPanels.forEach((p) => {
+        p.style.display = p.dataset.cat === activeCat ? "" : "none"
+      })
+      return
+    }
+
+    // Hide category panels, show search results
+    catPanels.forEach((p) => (p.style.display = "none"))
+    searchResults.style.display = ""
+
+    const catData = catalog.find((c) => c.name === activeCat)
+    const matches: CatalogItem[] = []
+    catData?.subcategories.forEach((sub) => {
+      sub.items.forEach((item) => {
+        const nameMatch = item.name.toLowerCase().includes(q)
+        const tagMatch  = item.tags.some((t) => t.toLowerCase().includes(q))
+        if (nameMatch || tagMatch) matches.push(item)
+      })
+    })
+
+    searchGrid.innerHTML = ""
+    if (matches.length === 0) {
+      searchEmpty.style.display = ""
+      searchGrid.style.display = "none"
+      searchCount.textContent = ""
+    } else {
+      searchEmpty.style.display = "none"
+      searchGrid.style.display = ""
+      searchCount.textContent = `${matches.length} result${matches.length !== 1 ? "s" : ""} in ${activeCat}`
+      matches.forEach((item) => searchGrid.appendChild(buildCard(item)))
+    }
+  }
+
+  searchInput.addEventListener("input", (e) => {
+    runSearch((e.target as HTMLInputElement).value)
+  })
+</script>
