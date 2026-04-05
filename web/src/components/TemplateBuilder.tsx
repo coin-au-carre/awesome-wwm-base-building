@@ -69,7 +69,13 @@ const inputClass =
   "w-full rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring transition-colors"
 
 export default function TemplateBuilder() {
-  const [mode, setMode] = useState<Mode>("guild")
+  const [mode, setMode] = useState<Mode>(() => {
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search).get("mode")
+      if (p === "solo" || p === "guild") { return p }
+    }
+    return "guild"
+  })
   const [fields, setFields] = useState({
     primaryName: "",
     primaryId: "",
