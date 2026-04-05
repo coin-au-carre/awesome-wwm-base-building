@@ -985,7 +985,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Wooden Stairs",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1000,7 +1000,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Vertical Pillar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1015,7 +1015,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Horizontal Pillar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1030,7 +1030,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Green Pillar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1045,7 +1045,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Courtyard Railing",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1060,7 +1060,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1075,7 +1075,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Bridge",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1090,7 +1090,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Newel Post",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1105,7 +1105,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Handrail",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1120,7 +1120,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Ladder",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1135,7 +1135,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Redwood Railing",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1150,7 +1150,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Redwood Pillar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1165,7 +1165,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Snowy Ground Railing",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1180,7 +1180,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Large Staircase",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1195,7 +1195,7 @@
           "subCategory": "Ladder Pillar"
         },
         {
-          "name": "",
+          "name": "Stone Column",
           "translations": {
             "cn": "",
             "fr": "",
