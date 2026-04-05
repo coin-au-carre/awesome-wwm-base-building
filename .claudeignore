@@ -1,0 +1,8 @@
+web/node_modules/
+web/dist/
+web/.astro/
+guilds.json
+solos.json
+catalog/guild/guild_items.json
+catalog/**/*.png
+screenshots/
