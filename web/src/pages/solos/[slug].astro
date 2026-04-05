@@ -65,21 +65,21 @@ const randomScreenshot = g.screenshots?.length
       <Table>
         <TableBody>
           <TableRow>
-            <TableCell className="text-muted-foreground font-medium w-32 px-4 py-2.5">🔨 Builder</TableCell>
-            <TableCell className="px-4 py-2.5">{g.builders.join(", ") || "—"}</TableCell>
+            <TableCell className="text-muted-foreground font-medium w-32">🔨 Builder</TableCell>
+            <TableCell>{g.builders.join(", ") || "—"}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-muted-foreground font-medium px-4 py-2.5">⭐ Score</TableCell>
-            <TableCell className="px-4 py-2.5 font-semibold font-mono">{g.score}</TableCell>
+            <TableCell className="text-muted-foreground font-medium">⭐ Score</TableCell>
+            <TableCell className="font-semibold font-mono">{g.score}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell className="text-muted-foreground font-medium px-4 py-2.5">🏆 Rank</TableCell>
-            <TableCell className="px-4 py-2.5">{rankLabel(g.rank)}</TableCell>
+            <TableCell className="text-muted-foreground font-medium">🏆 Rank</TableCell>
+            <TableCell>{rankLabel(g.rank)}</TableCell>
           </TableRow>
           {g.discordThread && (
             <TableRow>
-              <TableCell className="text-muted-foreground font-medium px-4 py-2.5">💬 Discord</TableCell>
-              <TableCell className="px-4 py-2.5">
+              <TableCell className="text-muted-foreground font-medium">💬 Discord</TableCell>
+              <TableCell>
                 <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors mr-3">
                   Join server
                 </a>
