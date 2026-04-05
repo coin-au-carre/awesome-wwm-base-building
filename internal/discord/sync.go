@@ -3,6 +3,7 @@ package discord
 import (
 	"fmt"
 	"log/slog"
+	"net/url"
 	"regexp"
 	"slices"
 	"strings"
@@ -327,6 +328,14 @@ func resolveBuilders(s *discordgo.Session, builders []string) []string {
 
 const maxScreenshots = 40
 
+func isSupportedVideoURL(rawURL string) bool {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return false
+	}
+	return u.Hostname() == "www.tiktok.com" || u.Hostname() == "tiktok.com"
+}
+
 func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots, videos []string) {
 	seen := make(map[string]bool)
 	var lastID string
@@ -357,7 +366,8 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots,
 				}
 			}
 			for _, embed := range msg.Embeds {
-				if embed.Type == discordgo.EmbedTypeVideo && embed.URL != "" && !seen[embed.URL] {
+				isVideo := embed.Type == discordgo.EmbedTypeVideo || isSupportedVideoURL(embed.URL)
+				if isVideo && embed.URL != "" && !seen[embed.URL] {
 					seen[embed.URL] = true
 					videos = append(videos, embed.URL)
 					slog.Debug("embed video found", "thread", threadID, "url", embed.URL)

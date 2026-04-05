@@ -18,6 +18,19 @@ function youtubeVideoID(rawURL: string): string {
     return ""
   }
 }
+
+function tiktokVideoID(rawURL: string): string {
+  try {
+    const u = new URL(rawURL)
+    if (u.hostname === "www.tiktok.com" || u.hostname === "tiktok.com") {
+      const m = u.pathname.match(/\/video\/(\d+)/)
+      return m ? m[1] : ""
+    }
+    return ""
+  } catch {
+    return ""
+  }
+}
 ---
 
 {
@@ -27,7 +40,8 @@ function youtubeVideoID(rawURL: string): string {
       <div class="space-y-4">
         {videos.map((v) => {
           const ytID = youtubeVideoID(v)
-          return ytID ? (
+          const ttID = tiktokVideoID(v)
+          if (ytID) return (
             <div class="aspect-video w-full overflow-hidden rounded-xl">
               <iframe
                 src={`https://www.youtube.com/embed/${ytID}`}
@@ -37,7 +51,19 @@ function youtubeVideoID(rawURL: string): string {
                 class="h-full w-full"
               />
             </div>
-          ) : (
+          )
+          if (ttID) return (
+            <div style="width:325px;height:465px;overflow:hidden;border-radius:12px;margin:0 auto">
+              <iframe
+                src={`https://www.tiktok.com/embed/v2/${ttID}`}
+                title="TikTok video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="width:325px;height:740px;border:none"
+              />
+            </div>
+          )
+          return (
             <div class="aspect-video w-full overflow-hidden rounded-xl bg-muted">
               <video src={v} controls class="h-full w-full object-cover" />
             </div>
