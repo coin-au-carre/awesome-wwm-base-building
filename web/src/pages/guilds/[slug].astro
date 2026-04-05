@@ -18,12 +18,15 @@ const { guild: g } = Astro.props
 const base = BASE
 const AHLYAM_ID = "149790526076354561"
 const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID
+const randomScreenshot = g.screenshots?.length
+  ? g.screenshots[Math.floor(Math.random() * g.screenshots.length)]
+  : undefined
 ---
 
 <Layout
-  title={`${g.name} — Where Builders Meet`}
+  title={`${g.name} — A Where Winds Meet guild base`}
   description={g.lore?.slice(0, 160) ?? `Guild base showcase for ${g.name} in Where Winds Meet.`}
-  image={g.screenshots?.[0]}
+  image={randomScreenshot}
 >
   <script
     is:inline

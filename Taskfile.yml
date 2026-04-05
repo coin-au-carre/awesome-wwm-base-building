@@ -39,8 +39,8 @@ tasks:
 
   # ── spotlight (random guild image post) ─────────────────────
   spotlight:
-    desc: post a random guild screenshot to the Ruby channel
-    cmd: go run ./cmd/spotlight
+    desc: "post a guild screenshot to the Ruby channel. Use -- -guild <name> for a specific guild"
+    cmd: go run ./cmd/spotlight {{.CLI_ARGS}}
 
   # ── combined ────────────────────────────────────────────────
   all:
@@ -105,6 +105,7 @@ tasks:
       - echo "        -- -image path     attach an image (text optional)"
       - echo ""
       - echo "  task spotlight           post a random guild screenshot to the Ruby channel"
+      - echo "        -- -guild name     spotlight a specific guild (substring match)"
       - echo ""
       - echo "  task web                 start Astro dev server"
       - echo "  task web:build           build Astro for production"
