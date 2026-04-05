@@ -741,7 +741,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Doors And Windows_1_1.png",
+          "filename": "Doors and Windows_1_1.png",
           "tags": [
             "window",
             "guardrail"
@@ -759,7 +759,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Doors And Windows_1_2.png",
+          "filename": "Doors and Windows_1_2.png",
           "tags": [
             "door"
           ],
@@ -776,7 +776,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Doors And Windows_1_3.png",
+          "filename": "Doors and Windows_1_3.png",
           "tags": [
             "door"
           ],
@@ -794,7 +794,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Doors And Windows_1_4.png",
+          "filename": "Doors and Windows_1_4.png",
           "tags": [
             "window",
             "guardrail",
@@ -813,7 +813,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Doors And Windows_1_5.png",
+          "filename": "Doors and Windows_1_5.png",
           "tags": [
             "frame"
           ],
@@ -830,7 +830,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Doors And Windows_2_1.png",
+          "filename": "Doors and Windows_2_1.png",
           "tags": [
             "door",
             "frame"
@@ -856,7 +856,7 @@
           "styles": [
             "wood"
           ],
-          "filename": "Doors And Windows_2_2.png",
+          "filename": "Doors and Windows_2_2.png",
           "hasVariants": false
         }
       ]
