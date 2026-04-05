@@ -1,28 +1,39 @@
-[
+[     {
+			"id": "",
+			"name": "FBI",
+			"builders": ["Kim  Kardashian"],
+			"discordThread": "",
+			"score": 1,
+			"note": "funny people. contacted wwm"
+	  },
+		{
+			"id": "",
+			"name": "MoonRiver",
+			"builders": ["Losto"],
+			"discordThread": "",
+			"score": 1,
+			"note": "Heixi style. contacted wwm"
+	  },
+		{
+			"name": "MiaoMeow",
+			"builders": ["EasilyAbused"],
+			"discordThread": "",
+			"score": 2,
+			"note": "ship flying. contacted wwm."
+	},
 	{
-		"id": "10011687",
-		"name": "Nínelives",
-		"builders": [
-			"nshki_",
-			"hbx",
-			"opm.goat"
-		],
-		"discordThread": "https://discord.com/channels/1483447710617960508/1489094514327945377",
-		"builderDiscordId": "226512871687847938",
-		"lore": "We build, destroy, and evolve constantly.\n**",
-		"whatToVisit": "We recommend this route to see the best of our current rotation:\n\n**The Lobby Entrance: **Home to our custom mini cat tree, the \"human cat pen,\" and a serene Buddha shrine.\n\n**The Party Area:** Features a fully-stocked bar and interactive couple chairs. Every seat offers a different experience—results may vary! PS. You will also find a highly engineered toilet around this area with both sit and smell functionality built in.\n\n**The Arena:** A three-story complex. Relax in the lounge, visit the bar, or head to the roof for a seat right on the edge of the platform.\n\n**The Lake: **A modern architectural build with tranquil waterfront views. Visit the central pavilion to see our builders' creativity on full display.\n\nLast but not least...\n\n**The Wall: What lies beyond the wall??? You'll have to explore to find out.**\n\n**",
-		"score": 12,
-		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094516270043206/202642102159.png?ex=69d27696\u0026is=69d12516\u0026hm=414e66db479349f8e7514c4db583e4ab165fdaebb16dbe51500a0d91775c1f94\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094516932612248/20264210174.png?ex=69d27696\u0026is=69d12516\u0026hm=69b39fc4e23b0ff506b0ccb167ee3f1363adcb15e9197a1aaa65d535e3375618\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094517591113800/20264294829.png?ex=69d27697\u0026is=69d12517\u0026hm=2e8e38f2fe3935fd472332f46ea684958e60080e483e1c8a287e3ae5a7eeda88\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094518069268501/20264295417.png?ex=69d27697\u0026is=69d12517\u0026hm=b3bfe53439ae4aad5269b8ebf895bb078a7b3cf28740a578a73c5509f78fe2c9\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094518752936066/202642101431.png?ex=69d27697\u0026is=69d12517\u0026hm=77d9d7ac1b5cff6700f6e1e1abc5c83b51865434b39ce38e78857d5eaea2581c\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094519503847534/202642101634.png?ex=69d27697\u0026is=69d12517\u0026hm=827000a6a61766a849c38db74eb75427a864aba8cdaff5b3f742314dfceb66ba\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094520388718602/202642103210.png?ex=69d27697\u0026is=69d12517\u0026hm=8a967fb79529033cd261d6a252ec078b331d978eb717db6141028e5cd208baf1\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094521101746326/202642103524.png?ex=69d27697\u0026is=69d12517\u0026hm=d44763efb6a11b87bffa85544914db76aa07016ab75529b2cac887c322823eb5\u0026",
-			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094521768771594/202642103725.png?ex=69d27698\u0026is=69d12518\u0026hm=f6e77dff48b2cf9d3506f1a9263df3c59f24195bca91edc63b79bacbe89d1711\u0026"
-		]
+		"name": "Hishaku",
+		"builders": ["ZenőStar"],
+		"discordThread": "",
+		"score": 2,
+		"note": "very nice. contacted wwm."
+	},
+	{
+		"name": "GooseParkBoys",
+		"builders": [""],
+		"discordThread": "",
+		"score": 0,
+		"note": "very nice. contacted wwm."
 	},
 	{
 		"name": "APX",
@@ -1169,6 +1180,31 @@
 			"https://cdn.discordapp.com/attachments/1489085393562243082/1489085597766254774/image.png?ex=69d26e48\u0026is=69d11cc8\u0026hm=263c69d14cbd80692d94c06777bc2198b003edae2764b3cf6c747911174c5be7\u0026",
 			"https://cdn.discordapp.com/attachments/1489085393562243082/1489085541407391804/image.png?ex=69d26e3a\u0026is=69d11cba\u0026hm=386bbe805d41f87d62a7742aefd1e7e6bd5d2d18bc26f737dd085964522521bd\u0026",
 			"https://cdn.discordapp.com/attachments/1489085393562243082/1489085393818357830/image.png?ex=69d26e17\u0026is=69d11c97\u0026hm=9c0f3b697882d58b27322f3511bae8ce5d630aa3644f871a7223e26aa8ad877e\u0026"
+		]
+	},
+	{
+		"id": "10011687",
+		"name": "Nínelives",
+		"builders": [
+			"nshki_",
+			"hbx",
+			"opm.goat"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1489094514327945377",
+		"builderDiscordId": "226512871687847938",
+		"lore": "We build, destroy, and evolve constantly.\n**",
+		"whatToVisit": "We recommend this route to see the best of our current rotation:\n\n**The Lobby Entrance: **Home to our custom mini cat tree, the \"human cat pen,\" and a serene Buddha shrine.\n\n**The Party Area:** Features a fully-stocked bar and interactive couple chairs. Every seat offers a different experience—results may vary! PS. You will also find a highly engineered toilet around this area with both sit and smell functionality built in.\n\n**The Arena:** A three-story complex. Relax in the lounge, visit the bar, or head to the roof for a seat right on the edge of the platform.\n\n**The Lake: **A modern architectural build with tranquil waterfront views. Visit the central pavilion to see our builders' creativity on full display.\n\nLast but not least...\n\n**The Wall: What lies beyond the wall??? You'll have to explore to find out.**\n\n**",
+		"score": 12,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094516270043206/202642102159.png?ex=69d27696\u0026is=69d12516\u0026hm=414e66db479349f8e7514c4db583e4ab165fdaebb16dbe51500a0d91775c1f94\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094516932612248/20264210174.png?ex=69d27696\u0026is=69d12516\u0026hm=69b39fc4e23b0ff506b0ccb167ee3f1363adcb15e9197a1aaa65d535e3375618\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094517591113800/20264294829.png?ex=69d27697\u0026is=69d12517\u0026hm=2e8e38f2fe3935fd472332f46ea684958e60080e483e1c8a287e3ae5a7eeda88\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094518069268501/20264295417.png?ex=69d27697\u0026is=69d12517\u0026hm=b3bfe53439ae4aad5269b8ebf895bb078a7b3cf28740a578a73c5509f78fe2c9\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094518752936066/202642101431.png?ex=69d27697\u0026is=69d12517\u0026hm=77d9d7ac1b5cff6700f6e1e1abc5c83b51865434b39ce38e78857d5eaea2581c\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094519503847534/202642101634.png?ex=69d27697\u0026is=69d12517\u0026hm=827000a6a61766a849c38db74eb75427a864aba8cdaff5b3f742314dfceb66ba\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094520388718602/202642103210.png?ex=69d27697\u0026is=69d12517\u0026hm=8a967fb79529033cd261d6a252ec078b331d978eb717db6141028e5cd208baf1\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094521101746326/202642103524.png?ex=69d27697\u0026is=69d12517\u0026hm=d44763efb6a11b87bffa85544914db76aa07016ab75529b2cac887c322823eb5\u0026",
+			"https://cdn.discordapp.com/attachments/1489094514327945377/1489094521768771594/202642103725.png?ex=69d27698\u0026is=69d12518\u0026hm=f6e77dff48b2cf9d3506f1a9263df3c59f24195bca91edc63b79bacbe89d1711\u0026"
 		]
 	}
 ]
