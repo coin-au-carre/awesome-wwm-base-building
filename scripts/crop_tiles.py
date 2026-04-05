@@ -135,7 +135,7 @@ def cols_for_row(row_idx, col_ranges, layout, arr, row_range):
     return col_ranges
 
 
-def crop_tiles(image_path, prefix=None, dry_run=False, layout=None):
+def crop_tiles(image_path, prefix=None, dry_run=False, layout=None, offset=0, start_row=1):
     img = Image.open(image_path)
     arr = np.array(img)
 
@@ -151,6 +151,13 @@ def crop_tiles(image_path, prefix=None, dry_run=False, layout=None):
     # The last row keeps however many cols were auto-detected.
     if layout is None and len(row_ranges) > 1:
         layout = [GRID_COLS] * (len(row_ranges) - 1) + [len(col_ranges)]
+
+    if start_row > 1:
+        if start_row > len(row_ranges):
+            raise ValueError(f"--start-row {start_row} exceeds detected row count ({len(row_ranges)}).")
+        row_ranges = row_ranges[start_row - 1:]
+        if layout:
+            layout = layout[start_row - 1:]
 
     print(f"Detected: {len(row_ranges)} row(s) x {len(col_ranges)} col(s)")
     for i, (s, e) in enumerate(col_ranges):
@@ -182,7 +189,7 @@ def crop_tiles(image_path, prefix=None, dry_run=False, layout=None):
         for c, (x1, x2) in enumerate(row_cols):
             cx = (x1 + x2) // 2
             tile = img.crop((cx - half, cy - half, cx + half, cy + half))
-            name = f"{prefix}_{r+1}{c+1}.png"
+            name = f"{prefix}_{r+1+offset}_{c+1}.png"
             tile.save(os.path.join(out_dir, name), format="PNG")
             print(f"  Saved {name}  (center={cx},{cy})")
 
@@ -196,6 +203,10 @@ def main():
     parser.add_argument("--dry-run", action="store_true",
                         help="Detect grid and print info without saving files")
     parser.add_argument("--layout", help="Cols per row as comma-separated ints, e.g. 5,2")
+    parser.add_argument("--offset", type=int, default=0,
+                        help="Starting row number offset (default: 0, so first row is row 1)")
+    parser.add_argument("--start-row", type=int, default=1,
+                        help="First row to crop (1-indexed). Rows before this are ignored.")
     args = parser.parse_args()
 
     layout = None
@@ -211,7 +222,7 @@ def main():
         sys.exit(1)
 
     try:
-        crop_tiles(args.image, prefix=args.prefix, dry_run=args.dry_run, layout=layout)
+        crop_tiles(args.image, prefix=args.prefix, dry_run=args.dry_run, layout=layout, offset=args.offset, start_row=args.start_row)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
