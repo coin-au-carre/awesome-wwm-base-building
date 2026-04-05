@@ -125,7 +125,7 @@ const catalogJson = JSON.stringify(
         <!-- Search results -->
         <div id="search-results" style="display:none" class="space-y-2">
           <p id="search-count" class="text-xs text-muted-foreground"></p>
-          <div id="search-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2"></div>
+          <div id="search-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2"></div>
           <p id="search-empty" style="display:none" class="text-sm text-muted-foreground py-8 text-center">No items match your search.</p>
         </div>
 
@@ -160,7 +160,7 @@ const catalogJson = JSON.stringify(
                 data-sub={sub.name}
                 style={si !== 0 ? "display:none" : ""}
               >
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                   {sub.items.map((item) => (
                     <div
                       class="item-card group relative rounded-lg overflow-hidden bg-neutral-900 border border-border hover:border-primary/50 transition-colors cursor-pointer"
@@ -213,7 +213,7 @@ const catalogJson = JSON.stringify(
       </div>
 
       <!-- Right: detail panel -->
-      <div id="detail-panel" class="w-72 shrink-0 sticky top-20 self-start">
+      <div id="detail-panel" class="w-80 shrink-0 sticky top-20 self-start">
         <!-- Empty state -->
         <div id="detail-empty" class="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
           Click an item to see details
@@ -222,7 +222,7 @@ const catalogJson = JSON.stringify(
         <!-- Populated state -->
         <div id="detail-content" style="display:none" class="rounded-xl border border-border overflow-hidden">
           <div class="bg-neutral-900">
-            <img id="detail-img" src="" alt="" class="w-full object-contain max-h-56" />
+            <img id="detail-img" src="" alt="" class="w-full object-contain max-h-48" />
           </div>
           <div class="p-4 space-y-3">
             <h3 id="detail-name" class="font-semibold text-sm leading-snug"></h3>
@@ -234,7 +234,7 @@ const catalogJson = JSON.stringify(
 
             <div id="detail-variants-section" style="display:none">
               <p class="text-xs text-muted-foreground mb-2">Variants</p>
-              <div class="bg-neutral-900 rounded-lg overflow-hidden">
+              <div class="bg-neutral-900 rounded-lg overflow-hidden cursor-zoom-in" id="detail-variants-thumb">
                 <img id="detail-variants-img" src="" alt="Variants" class="w-full object-contain" />
               </div>
             </div>
@@ -243,6 +243,15 @@ const catalogJson = JSON.stringify(
       </div>
 
     </div>
+  </div>
+
+  <!-- Variants lightbox -->
+  <div
+    id="variants-lightbox"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+    style="display:none"
+  >
+    <img id="lightbox-img" src="" alt="Variants" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
   </div>
 </Layout>
 
@@ -482,5 +491,27 @@ const catalogJson = JSON.stringify(
 
   searchInput.addEventListener("input", (e) => {
     runSearch((e.target as HTMLInputElement).value)
+  })
+
+  // ── variants lightbox ─────────────────────────────────────────────────────────
+
+  const lightbox    = document.getElementById("variants-lightbox") as HTMLDivElement
+  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement
+
+  document.getElementById("detail-variants-thumb")!.addEventListener("click", () => {
+    lightboxImg.src = detailVariantsImg.src
+    lightbox.style.display = "flex"
+  })
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none"
+    lightboxImg.src = ""
+  })
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none"
+      lightboxImg.src = ""
+    }
   })
 </script>
