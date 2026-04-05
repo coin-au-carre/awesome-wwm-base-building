@@ -11,6 +11,9 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table"
+import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 
 type SortField = "rank" | "name" | "score"
 type SortDir = "asc" | "desc"
@@ -31,15 +34,13 @@ function formatBuilders(builders: string[] | undefined): string {
 
 function Tag({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
-    <button
+    <Badge
+      variant={active ? "default" : "secondary"}
       onClick={onClick}
-      className={cn(
-        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors cursor-pointer",
-        active ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/70",
-      )}
+      className="cursor-pointer"
     >
       {label}
-    </button>
+    </Badge>
   )
 }
 
@@ -132,12 +133,12 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
 
   return (
     <div className="space-y-4">
-      <input
+      <Input
         type="search"
         placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
         value={search}
         onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-        className="w-full sm:w-64 rounded-lg border border-border bg-background px-3 py-1.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+        className="w-full sm:w-64"
       />
 
       {allTags.length > 0 && (
@@ -152,9 +153,10 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
             />
           ))}
           {activeTags.size > 0 && (
-            <button
+            <Button
+              variant="ghost"
+              size="icon-xs"
               onClick={() => setActiveTags(new Set())}
-              className="text-muted-foreground hover:text-foreground transition-colors ml-1 cursor-pointer"
               title="Clear filters"
               aria-label="Clear filters"
             >
@@ -162,7 +164,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
-            </button>
+            </Button>
           )}
         </div>
       )}
@@ -211,12 +213,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
                 <TableCell className="hidden lg:table-cell">
                   <div className="flex flex-wrap gap-1">
                     {g.tags?.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground"
-                      >
-                        {tag}
-                      </span>
+                      <Badge key={tag} variant="secondary">{tag}</Badge>
                     ))}
                   </div>
                 </TableCell>
@@ -229,32 +226,32 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
       <div className="flex items-center justify-between">
         {totalPages > 1 ? (
           <div className="flex items-center gap-1">
-            <button
+            <Button
+              variant="outline"
+              size="xs"
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className="px-2 py-1 text-xs rounded border border-border disabled:opacity-40 hover:bg-muted/50 transition-colors"
             >
               ←
-            </button>
+            </Button>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-              <button
+              <Button
                 key={p}
+                variant={p === page ? "default" : "outline"}
+                size="xs"
                 onClick={() => setPage(p)}
-                className={cn(
-                  "px-2 py-1 text-xs rounded border border-border transition-colors",
-                  p === page ? "bg-primary text-primary-foreground" : "hover:bg-muted/50",
-                )}
               >
                 {p}
-              </button>
+              </Button>
             ))}
-            <button
+            <Button
+              variant="outline"
+              size="xs"
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="px-2 py-1 text-xs rounded border border-border disabled:opacity-40 hover:bg-muted/50 transition-colors"
             >
               →
-            </button>
+            </Button>
           </div>
         ) : <span />}
         <p className="text-xs text-muted-foreground">
