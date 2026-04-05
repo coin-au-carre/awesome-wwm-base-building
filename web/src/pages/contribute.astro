@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import ContributeTabs from "@/components/ContributeTabs"
+import { Card, CardContent } from "@/components/ui/card"
 ---
 
 <Layout
@@ -15,13 +16,13 @@ import ContributeTabs from "@/components/ContributeTabs"
 
     <ContributeTabs client:only="react" />
 
-    <section class="mt-10 rounded-xl bg-muted/40 ring-1 ring-border px-6 py-5">
-      <p class="text-sm">
+    <Card className="mt-10">
+      <CardContent className="text-sm">
         Something not working?{" "}
         <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
           Ping us on Discord.
         </a>
-      </p>
-    </section>
+      </CardContent>
+    </Card>
   </div>
 </Layout>

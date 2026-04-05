@@ -1,5 +1,8 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { buttonVariants } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Table, TableBody, TableHead, TableHeader, TableRow, TableCell } from "@/components/ui/table"
 import { BASE } from "@/lib/url"
 ---
 
@@ -44,33 +47,33 @@ import { BASE } from "@/lib/url"
         reacting to the thread's first post. Reactions are tallied automatically and converted into a score.
       </p>
 
-      <div class="overflow-x-auto rounded-xl ring-1 ring-border">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-border bg-muted/40 text-muted-foreground text-left">
-              <th class="px-4 py-3 font-medium">Reaction</th>
-              <th class="px-4 py-3 font-medium">Points</th>
-              <th class="px-4 py-3 font-medium">Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 text-lg">⭐</td>
-              <td class="px-4 py-3 font-mono font-semibold">+2</td>
-              <td class="px-4 py-3 text-muted-foreground">Best overall</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 text-lg">👍</td>
-              <td class="px-4 py-3 font-mono font-semibold">+1</td>
-              <td class="px-4 py-3 text-muted-foreground">Good base</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 text-lg">🔥</td>
-              <td class="px-4 py-3 font-mono font-semibold">+1</td>
-              <td class="px-4 py-3 text-muted-foreground">Amazing creativity</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="rounded-xl ring-1 ring-border overflow-hidden">
+        <Table>
+          <TableHeader className="bg-muted/40 text-muted-foreground">
+            <TableRow>
+              <TableHead className="text-muted-foreground">Reaction</TableHead>
+              <TableHead className="text-muted-foreground">Points</TableHead>
+              <TableHead className="text-muted-foreground">Notes</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="text-lg">⭐</TableCell>
+              <TableCell className="font-mono font-semibold">+2</TableCell>
+              <TableCell className="text-muted-foreground">Best overall</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="text-lg">👍</TableCell>
+              <TableCell className="font-mono font-semibold">+1</TableCell>
+              <TableCell className="text-muted-foreground">Good base</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="text-lg">🔥</TableCell>
+              <TableCell className="font-mono font-semibold">+1</TableCell>
+              <TableCell className="text-muted-foreground">Amazing creativity</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
       </div>
     </section>
 
@@ -101,27 +104,17 @@ import { BASE } from "@/lib/url"
       </ul>
     </section>
 
-    <section class="rounded-xl bg-muted/40 ring-1 ring-border px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-      <div class="flex-1">
-        <p class="font-medium text-sm">Want to get involved?</p>
-        <p class="text-sm text-muted-foreground mt-0.5">Join the community Discord or check how to contribute.</p>
-      </div>
-      <div class="flex gap-2 shrink-0">
-        <a
-          href="https://discord.gg/Qygt9u26Bn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          Discord ↗
-        </a>
-        <a
-          href={`${BASE}/contribute`}
-          class="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
-        >
-          Contribute
-        </a>
-      </div>
-    </section>
+    <Card>
+      <CardContent className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div class="flex-1">
+          <p class="font-medium text-sm">Want to get involved?</p>
+          <p class="text-sm text-muted-foreground mt-0.5">Join the community Discord or check how to contribute.</p>
+        </div>
+        <div class="flex gap-2 shrink-0">
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })}>Discord ↗</a>
+          <a href={`${BASE}/contribute`} class={buttonVariants({ variant: "outline", size: "lg" })}>Contribute</a>
+        </div>
+      </CardContent>
+    </Card>
   </div>
 </Layout>

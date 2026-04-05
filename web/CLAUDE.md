@@ -29,3 +29,4 @@
 - Base path configured in `astro.config.mjs` via `ASTRO_BASE` env var (default: `/awesome-wwm-base-building`)
 - Do NOT mix web code with Go code
 - **Prefer shadcn/ui components** — use shadcn primitives (`src/components/ui/`) whenever possible instead of writing custom UI from scratch
+- **Button-styled links in Astro pages**: use `buttonVariants` on `<a>` tags (`class={buttonVariants({ variant, size })}`), not `Button asChild` — Radix Slot requires React hydration

@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { buttonVariants } from "@/components/ui/button"
 import { BASE } from "@/lib/url"
 
 const base = BASE
@@ -15,11 +16,6 @@ const base = BASE
       <p class="text-muted-foreground text-sm">This page doesn't exist or was moved.</p>
     </div>
 
-    <a
-      href={`${base}/`}
-      class="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
-    >
-      ← Back to Guild Bases
-    </a>
+    <a href={`${base}/`} class={buttonVariants({ variant: "outline", size: "lg" })}>← Back to Guild Bases</a>
   </div>
 </Layout>
