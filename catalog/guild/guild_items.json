@@ -54,7 +54,9 @@
           },
           "filename": "Floor_1_3.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "stone"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Floor"
@@ -69,7 +71,9 @@
           },
           "filename": "Floor_1_4.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "stone"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Floor"
@@ -99,7 +103,9 @@
           },
           "filename": "Floor_2_1.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "stone"
+          ],
           "hasVariants": false,
           "category": "Basic Structure",
           "subCategory": "Floor"
@@ -114,7 +120,10 @@
           },
           "filename": "Floor_2_2.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "stone",
+            "snow"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Floor"
@@ -159,7 +168,9 @@
           },
           "filename": "Floor_2_5.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "snow"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Floor"
@@ -199,7 +210,9 @@
           },
           "filename": "Wall_1_2.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Wall"
@@ -304,7 +317,9 @@
           },
           "filename": "Wall_2_4.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Wall"
@@ -379,7 +394,9 @@
           },
           "filename": "Wall_3_4.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "stone"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Wall"
@@ -439,7 +456,9 @@
           },
           "filename": "Wall_4_3.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Wall"
@@ -454,7 +473,9 @@
           },
           "filename": "Wall_4_4.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Wall"
@@ -516,7 +537,9 @@
           },
           "filename": "Wall_5_3.png",
           "tags": [],
-          "styles": [],
+          "styles": [
+            "stone"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Wall"
@@ -890,7 +913,8 @@
           },
           "filename": "Doors and Windows_1_3.png",
           "tags": [
-            "door", "frame"
+            "door",
+            "frame"
           ],
           "styles": [
             "wood"
@@ -4676,7 +4700,9 @@
           },
           "filename": "Interior Decoration_1_1.png",
           "tags": [],
-          "styles": ["wood"],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
@@ -4691,7 +4717,9 @@
           },
           "filename": "Interior Decoration_1_2.png",
           "tags": [],
-          "styles": ["wood"],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
