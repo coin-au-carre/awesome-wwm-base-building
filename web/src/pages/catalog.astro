@@ -87,16 +87,23 @@ const catalogJson = JSON.stringify(
     </div>
 
     <!-- Search -->
-    <div class="relative">
+    <div class="relative" id="search-wrapper">
       <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
       <input
         id="catalog-search"
         type="search"
-        placeholder="Search by name or tag…"
+        placeholder="Search by name or #tag…"
+        autocomplete="off"
         class="w-full rounded-lg border border-border bg-muted/40 pl-9 pr-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50"
       />
+      <!-- Autocomplete dropdown -->
+      <ul
+        id="search-suggestions"
+        class="absolute z-20 mt-1 w-full rounded-lg border border-border bg-popover shadow-lg overflow-hidden text-sm"
+        style="display:none"
+      ></ul>
     </div>
 
     <!-- Category tabs -->
@@ -394,11 +401,73 @@ const catalogJson = JSON.stringify(
 
   // ── search ───────────────────────────────────────────────────────────────────
 
-  const searchInput   = document.getElementById("catalog-search") as HTMLInputElement
-  const searchResults = document.getElementById("search-results") as HTMLDivElement
-  const searchGrid    = document.getElementById("search-grid") as HTMLDivElement
-  const searchCount   = document.getElementById("search-count") as HTMLParagraphElement
-  const searchEmpty   = document.getElementById("search-empty") as HTMLParagraphElement
+  const searchInput       = document.getElementById("catalog-search") as HTMLInputElement
+  const searchResults     = document.getElementById("search-results") as HTMLDivElement
+  const searchGrid        = document.getElementById("search-grid") as HTMLDivElement
+  const searchCount       = document.getElementById("search-count") as HTMLParagraphElement
+  const searchEmpty       = document.getElementById("search-empty") as HTMLParagraphElement
+  const searchSuggestions = document.getElementById("search-suggestions") as HTMLUListElement
+
+  // Build a flat list of all unique tags across the whole catalog
+  const allTags: string[] = [...new Set(
+    catalog.flatMap((cat) => cat.subcategories.flatMap((sub) => sub.items.flatMap((item) => item.tags)))
+  )].sort()
+
+  let activeSuggestionIdx = -1
+
+  function hideSuggestions() {
+    searchSuggestions.style.display = "none"
+    searchSuggestions.innerHTML = ""
+    activeSuggestionIdx = -1
+  }
+
+  function showSuggestions(items: { label: string; value: string; isTag: boolean }[]) {
+    if (items.length === 0) { hideSuggestions(); return }
+    searchSuggestions.innerHTML = ""
+    activeSuggestionIdx = -1
+    items.forEach((s) => {
+      const li = document.createElement("li")
+      li.className = "flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-muted/60 transition-colors"
+      li.innerHTML = s.isTag
+        ? `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${tagClass(s.label)}">#${s.label}</span>`
+        : `<span class="text-sm">${s.label}</span>`
+      li.addEventListener("mousedown", (e) => {
+        e.preventDefault()
+        searchInput.value = s.value
+        hideSuggestions()
+        runSearch(s.value)
+      })
+      searchSuggestions.appendChild(li)
+    })
+    searchSuggestions.style.display = ""
+  }
+
+  function updateSuggestions(raw: string) {
+    const isTag = raw.startsWith("#")
+    const q = raw.slice(isTag ? 1 : 0).trim().toLowerCase()
+
+    if (!q && !isTag) { hideSuggestions(); return }
+
+    if (isTag) {
+      const matches = (q ? allTags.filter((t) => t.toLowerCase().includes(q)) : allTags)
+        .slice(0, 12)
+        .map((t) => ({ label: t, value: `#${t}`, isTag: true }))
+      showSuggestions(matches)
+    } else {
+      const catData = catalog.find((c) => c.name === activeCat)
+      const seen = new Set<string>()
+      const matches: { label: string; value: string; isTag: boolean }[] = []
+      catData?.subcategories.forEach((sub) => {
+        sub.items.forEach((item) => {
+          if (item.name && item.name.toLowerCase().includes(q) && !seen.has(item.name)) {
+            seen.add(item.name)
+            matches.push({ label: item.name, value: item.name, isTag: false })
+          }
+        })
+      })
+      showSuggestions(matches.slice(0, 8))
+    }
+  }
 
   function buildCard(item: CatalogItem): HTMLElement {
     const card = document.createElement("div")
@@ -453,7 +522,9 @@ const catalogJson = JSON.stringify(
   }
 
   function runSearch(query: string) {
-    const q = query.trim().toLowerCase()
+    const raw     = query.trim()
+    const isTag   = raw.startsWith("#")
+    const q       = raw.slice(isTag ? 1 : 0).trim().toLowerCase()
 
     if (!q) {
       searchResults.style.display = "none"
@@ -470,9 +541,10 @@ const catalogJson = JSON.stringify(
     const matches: CatalogItem[] = []
     catData?.subcategories.forEach((sub) => {
       sub.items.forEach((item) => {
-        const nameMatch = item.name.toLowerCase().includes(q)
-        const tagMatch  = item.tags.some((t) => t.toLowerCase().includes(q))
-        if (nameMatch || tagMatch) matches.push(item)
+        const hit = isTag
+          ? item.tags.some((t) => t.toLowerCase().includes(q))
+          : item.name.toLowerCase().includes(q) || item.tags.some((t) => t.toLowerCase().includes(q))
+        if (hit) matches.push(item)
       })
     })
 
@@ -490,7 +562,40 @@ const catalogJson = JSON.stringify(
   }
 
   searchInput.addEventListener("input", (e) => {
-    runSearch((e.target as HTMLInputElement).value)
+    const val = (e.target as HTMLInputElement).value
+    updateSuggestions(val)
+    runSearch(val)
+  })
+
+  searchInput.addEventListener("keydown", (e) => {
+    const items = searchSuggestions.querySelectorAll<HTMLLIElement>("li")
+    if (!items.length) return
+    if (e.key === "ArrowDown") {
+      e.preventDefault()
+      activeSuggestionIdx = Math.min(activeSuggestionIdx + 1, items.length - 1)
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault()
+      activeSuggestionIdx = Math.max(activeSuggestionIdx - 1, 0)
+    } else if (e.key === "Enter" && activeSuggestionIdx >= 0) {
+      e.preventDefault()
+      items[activeSuggestionIdx].dispatchEvent(new MouseEvent("mousedown"))
+      return
+    } else if (e.key === "Escape") {
+      hideSuggestions()
+      return
+    } else {
+      return
+    }
+    items.forEach((li, i) => li.classList.toggle("bg-muted/60", i === activeSuggestionIdx))
+  })
+
+  searchInput.addEventListener("blur", () => {
+    // small delay so mousedown on a suggestion fires first
+    setTimeout(hideSuggestions, 150)
+  })
+
+  searchInput.addEventListener("focus", () => {
+    if (searchInput.value) updateSuggestions(searchInput.value)
   })
 
   // ── variants lightbox ─────────────────────────────────────────────────────────
