@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -21,19 +22,34 @@ func main() {
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 	channelID := cmdutil.RequireEnv("RUBY_CHANNEL_ID")
 
+	guildName := flag.String("guild", "", "spotlight a specific guild by name (substring match)")
+	flag.Parse()
+
 	guilds, err := guild.Load(cmdutil.RootDir())
 	if err != nil {
 		slog.Error("loading guilds", "err", err)
 		os.Exit(1)
 	}
 
-	pick, imgURL, ok := idiscord.PickRandomGuild(guilds)
+	var pick guild.Guild
+	var imgURL string
+	var ok bool
+	random := *guildName == ""
+	if random {
+		pick, imgURL, ok = idiscord.PickRandomGuild(guilds)
+	} else {
+		pick, imgURL, ok = idiscord.PickGuildByName(guilds, *guildName)
+	}
 	if !ok {
-		slog.Error("no guilds with screenshots found")
+		if random {
+			slog.Error("no guilds with screenshots found")
+		} else {
+			slog.Error("no guild matching name", "name", *guildName)
+		}
 		os.Exit(1)
 	}
 
-	msg := idiscord.FormatSpotlightMessage(pick, true)
+	msg := idiscord.FormatSpotlightMessage(pick, random)
 
 	imgData, filename, err := idiscord.DownloadImage(imgURL)
 	if err != nil {

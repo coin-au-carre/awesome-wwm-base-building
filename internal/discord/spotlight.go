@@ -19,6 +19,19 @@ func slugify(name string) string {
 	return strings.Trim(reSlugify.ReplaceAllString(strings.ToLower(name), "-"), "-")
 }
 
+// PickGuildByName finds a guild whose name contains the given substring (case-insensitive)
+// and returns it with a random screenshot URL. Returns false if none found.
+func PickGuildByName(guilds []guild.Guild, name string) (guild.Guild, string, bool) {
+	lower := strings.ToLower(name)
+	var candidates []guild.Guild
+	for _, g := range guilds {
+		if strings.Contains(strings.ToLower(g.Name), lower) && len(g.Screenshots) > 0 {
+			candidates = append(candidates, g)
+		}
+	}
+	return PickFromGuilds(candidates)
+}
+
 // PickRandomGuild returns a random guild that has at least one screenshot.
 func PickRandomGuild(guilds []guild.Guild) (guild.Guild, string, bool) {
 	var candidates []guild.Guild
