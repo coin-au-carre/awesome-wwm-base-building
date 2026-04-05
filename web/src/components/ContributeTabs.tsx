@@ -36,6 +36,8 @@ function Step({
 }
 
 export default function ContributeTabs() {
+  const p = new URLSearchParams(window.location.search).get("mode")
+  const initialMode: "guild" | "solo" = p === "solo" ? "solo" : "guild"
   return (
     <Tabs.Root defaultValue="submit" className="space-y-6">
       <Tabs.List className="flex gap-1 rounded-xl bg-muted/50 p-1 w-fit">
@@ -70,7 +72,7 @@ export default function ContributeTabs() {
 
         <div className="space-y-2">
           <p className="text-sm text-muted-foreground">First post template:</p>
-          <TemplateBuilder />
+          <TemplateBuilder initialMode={initialMode} />
           <p className="text-xs text-muted-foreground">
             Edit your posts at any time. Changes are picked up on the next sync.
           </p>
