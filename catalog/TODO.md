@@ -4,46 +4,48 @@
 
 - Fill name
   - [ ] Basic Structure
-    - [ ] Doors and Windows
     - [ ] Floor
-    - [ ] Ladder Pillar
-    - [ ] Roof
     - [ ] Wall
+    - [ ] Roof
+    - [ ] Doors and Windows
+    - [ ] Ladder Pillar
   - [ ] Furniture Decoration
-    - [ ] Accessory
-    - [ ] Building
     - [ ] Furniture
+    - [ ] Accessory
     - [ ] Miscellaneous
+    - [ ] Building
   - [ ] Guild Construction
-    - [ ] Diagram
-    - [ ] Interactive Component
+    - [ ] Single Target
     - [ ] Interior Decoration
     - [ ] Outdoor Decoration
     - [ ] Plant
-    - [ ] Single Target
+    - [ ] Diagram
+    - [ ] Large Components
+    - [ ] Interactive Component
 
 
 ## Tags
 
 - Fill tags
   - [ ] Basic Structure
-    - [ ] Doors and Windows
     - [ ] Floor
-    - [ ] Ladder Pillar
-    - [ ] Roof
     - [ ] Wall
+    - [ ] Roof
+    - [ ] Doors and Windows
+    - [ ] Ladder Pillar
   - [ ] Furniture Decoration
-    - [ ] Accessory
-    - [ ] Building
     - [ ] Furniture
+    - [ ] Accessory
     - [ ] Miscellaneous
+    - [ ] Building
   - [ ] Guild Construction
-    - [ ] Diagram
-    - [ ] Interactive Component
+    - [ ] Single Target
     - [ ] Interior Decoration
     - [ ] Outdoor Decoration
     - [ ] Plant
-    - [ ] Single Target
+    - [ ] Diagram
+    - [ ] Large Components
+    - [ ] Interactive Component
 
 
 # Nice to have Guild construction catalog
@@ -52,42 +54,42 @@
 
 - Fill style
   - [ ] Basic Structure
-    - [ ] Doors and Windows
     - [ ] Floor
-    - [ ] Ladder Pillar
-    - [ ] Roof
     - [ ] Wall
+    - [ ] Roof
+    - [ ] Doors and Windows
+    - [ ] Ladder Pillar
   - [ ] Furniture Decoration
-    - [ ] Accessory
-    - [ ] Building
     - [ ] Furniture
+    - [ ] Accessory
     - [ ] Miscellaneous
+    - [ ] Building
   - [ ] Guild Construction
-    - [ ] Diagram
-    - [ ] Interactive Component
+    - [ ] Single Target
     - [ ] Interior Decoration
     - [ ] Outdoor Decoration
     - [ ] Plant
-    - [ ] Single Target
+    - [ ] Diagram
+    - [ ] Interactive Component
 
 ## Translations
 
 - Translations
   - [ ] Basic Structure
-    - [ ] Doors and Windows
     - [ ] Floor
-    - [ ] Ladder Pillar
-    - [ ] Roof
     - [ ] Wall
+    - [ ] Roof
+    - [ ] Doors and Windows
+    - [ ] Ladder Pillar
   - [ ] Furniture Decoration
-    - [ ] Accessory
-    - [ ] Building
     - [ ] Furniture
+    - [ ] Accessory
     - [ ] Miscellaneous
+    - [ ] Building
   - [ ] Guild Construction
-    - [ ] Diagram
-    - [ ] Interactive Component
+    - [ ] Single Target
     - [ ] Interior Decoration
     - [ ] Outdoor Decoration
     - [ ] Plant
-    - [ ] Single Target
+    - [ ] Diagram
+    - [ ] Interactive Component
