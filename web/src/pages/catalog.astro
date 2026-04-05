@@ -145,6 +145,14 @@ const catalogJson = JSON.stringify(
 
             <!-- Subcategory tabs -->
             <div class="flex flex-wrap gap-1">
+              <button
+                class="sub-tab px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                data-cat={cat.name}
+                data-sub="__all__"
+              >
+                All
+                <span class="ml-1 text-xs opacity-60">({cat.subcategories.reduce((n, s) => n + s.items.length, 0)})</span>
+              </button>
               {cat.subcategories.map((sub, si) => (
                 <button
                   class:list={[
@@ -438,7 +446,7 @@ const catalogJson = JSON.stringify(
       })
       subPanels.forEach((p) => {
         if (p.dataset.cat !== cat) return
-        p.style.display = p.dataset.sub === sub ? "" : "none"
+        p.style.display = (sub === "__all__" || p.dataset.sub === sub) ? "" : "none"
       })
     })
   })
@@ -512,15 +520,16 @@ const catalogJson = JSON.stringify(
         .map((t) => ({ label: t, value: `#${t}`, isTag: true }))
       showSuggestions(matches)
     } else {
-      const catData = catalog.find((c) => c.name === activeCat)
       const seen = new Set<string>()
       const matches: { label: string; value: string; isTag: boolean }[] = []
-      catData?.subcategories.forEach((sub) => {
-        sub.items.forEach((item) => {
-          if (item.name && item.name.toLowerCase().includes(q) && !seen.has(item.name)) {
-            seen.add(item.name)
-            matches.push({ label: item.name, value: item.name, isTag: false })
-          }
+      catalog.forEach((cat) => {
+        cat.subcategories.forEach((sub) => {
+          sub.items.forEach((item) => {
+            if (item.name && item.name.toLowerCase().includes(q) && !seen.has(item.name)) {
+              seen.add(item.name)
+              matches.push({ label: item.name, value: item.name, isTag: false })
+            }
+          })
         })
       })
       showSuggestions(matches.slice(0, 8))
@@ -599,16 +608,17 @@ const catalogJson = JSON.stringify(
     catPanels.forEach((p) => (p.style.display = "none"))
     searchResults.style.display = ""
 
-    const catData = catalog.find((c) => c.name === activeCat)
     const matches: CatalogItem[] = []
-    catData?.subcategories.forEach((sub) => {
-      sub.items.forEach((item) => {
-        const hit = isStyle
-          ? item.styles.some((s) => s.toLowerCase().includes(q))
-          : isTag
-          ? item.tags.some((t) => t.toLowerCase().includes(q))
-          : item.name.toLowerCase().includes(q) || item.tags.some((t) => t.toLowerCase().includes(q))
-        if (hit) matches.push(item)
+    catalog.forEach((cat) => {
+      cat.subcategories.forEach((sub) => {
+        sub.items.forEach((item) => {
+          const hit = isStyle
+            ? item.styles.some((s) => s.toLowerCase().includes(q))
+            : isTag
+            ? item.tags.some((t) => t.toLowerCase().includes(q))
+            : item.name.toLowerCase().includes(q) || item.tags.some((t) => t.toLowerCase().includes(q))
+          if (hit) matches.push(item)
+        })
       })
     })
 
@@ -620,7 +630,7 @@ const catalogJson = JSON.stringify(
     } else {
       searchEmpty.style.display = "none"
       searchGrid.style.display = ""
-      searchCount.textContent = `${matches.length} result${matches.length !== 1 ? "s" : ""} in ${activeCat}`
+      searchCount.textContent = `${matches.length} result${matches.length !== 1 ? "s" : ""} across all categories`
       matches.forEach((item) => searchGrid.appendChild(buildCard(item)))
     }
   }
