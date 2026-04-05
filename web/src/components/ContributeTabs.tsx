@@ -1,5 +1,6 @@
 import { Tabs } from "radix-ui"
 import TemplateBuilder from "@/components/TemplateBuilder"
+import { Button } from "@/components/ui/button"
 
 function Step({
   n,
@@ -21,14 +22,11 @@ function Step({
         <p className="font-medium text-sm">{title}</p>
         <p className="text-sm text-muted-foreground">{body}</p>
         {cta && (
-          <a
-            href={cta.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex mt-1 items-center gap-1 text-sm text-primary underline hover:no-underline transition-colors"
-          >
-            {cta.label}
-          </a>
+          <Button variant="link" size="sm" asChild className="mt-1 h-auto p-0">
+            <a href={cta.href} target="_blank" rel="noopener noreferrer">
+              {cta.label}
+            </a>
+          </Button>
         )}
       </div>
     </li>
@@ -61,7 +59,7 @@ export default function ContributeTabs() {
           <Step
             n="1"
             title="Join the Discord"
-            body={<>All submissions go through our Discord server. <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:no-underline transition-colors">Join Discord ↗</a></>}
+            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">Join Discord ↗</a></Button></>}
           />
           <Step
             n="2"
@@ -103,28 +101,22 @@ export default function ContributeTabs() {
         <p className="text-sm text-muted-foreground leading-relaxed">
           Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role on Discord.
         </p>
-        <a
-          href="https://discord.gg/Qygt9u26Bn"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm text-primary underline hover:no-underline transition-colors"
-        >
-          Join Discord ↗
-        </a>
+        <Button variant="link" size="sm" asChild className="h-auto p-0">
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">
+            Join Discord ↗
+          </a>
+        </Button>
       </Tabs.Content>
 
       <Tabs.Content value="oss" className="space-y-6">
         <p className="text-sm text-muted-foreground leading-relaxed">
           The project is open source. Contributions are welcome, open an issue or a pull request.
         </p>
-        <a
-          href="https://github.com/coin-au-carre/awesome-wwm-base-building"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm text-primary underline hover:no-underline transition-colors"
-        >
-          View on GitHub ↗
-        </a>
+        <Button variant="link" size="sm" asChild className="h-auto p-0">
+          <a href="https://github.com/coin-au-carre/awesome-wwm-base-building" target="_blank" rel="noopener noreferrer">
+            View on GitHub ↗
+          </a>
+        </Button>
       </Tabs.Content>
     </Tabs.Root>
   )
