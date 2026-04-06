@@ -28,5 +28,6 @@
 - **Never hardcode internal paths in React components** — always use `url('/path')` from `src/lib/url.ts`
 - Base path configured in `astro.config.mjs` via `ASTRO_BASE` env var (default: `/awesome-wwm-base-building`)
 - Do NOT mix web code with Go code
-- **Prefer shadcn/ui components** — use shadcn primitives (`src/components/ui/`) whenever possible instead of writing custom UI from scratch
+- **Always use shadcn/ui — never write custom CSS or custom UI components from scratch.** Use shadcn primitives (`src/components/ui/`) for all UI needs. If a needed component is not yet installed, propose installing it via `npx shadcn@latest add <component>` rather than implementing it manually.
+- **Proactively suggest shadcn components**: when reviewing or building UI, identify shadcn primitives that could replace hand-rolled markup or inline styles and recommend them.
 - **Button-styled links in Astro pages**: use `buttonVariants` on `<a>` tags (`class={buttonVariants({ variant, size })}`), not `Button asChild` — Radix Slot requires React hydration
