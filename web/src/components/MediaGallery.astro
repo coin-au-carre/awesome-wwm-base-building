@@ -53,13 +53,13 @@ function tiktokVideoID(rawURL: string): string {
             </div>
           )
           if (ttID) return (
-            <div style="width:325px;height:465px;overflow:hidden;border-radius:12px;margin:0 auto">
+            <div class="mx-auto w-81.25 h-116.25 overflow-hidden rounded-xl">
               <iframe
                 src={`https://www.tiktok.com/embed/v2/${ttID}`}
                 title="TikTok video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-                style="width:325px;height:740px;border:none"
+                class="w-81.25 h-185 border-0"
               />
             </div>
           )
