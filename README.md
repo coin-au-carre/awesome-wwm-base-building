@@ -4,6 +4,8 @@ Community showcase of guild bases and solo construction for [Where Winds Meet](h
 
 **Live site:** https://wherebuildersmeet.com
 
+**Discord:** https://discord.gg/Qygt9u26Bn
+
 ---
 
 ## Stack
