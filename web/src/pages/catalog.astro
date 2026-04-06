@@ -247,11 +247,11 @@ const catalogJson = JSON.stringify(
     </div>
 
     <!-- Category tabs -->
-    <div class="flex gap-1 border-b border-border" id="cat-tabs">
+    <div class="flex gap-1 border-b border-border overflow-x-auto scrollbar-none" id="cat-tabs">
       {categories.map((cat, i) => (
         <button
           class:list={[
-            "cat-tab px-4 py-2 text-sm font-medium rounded-t border-b-2 transition-colors",
+            "cat-tab px-4 py-2 text-sm font-medium rounded-t border-b-2 transition-colors shrink-0 whitespace-nowrap",
             i === 0
               ? "border-primary text-primary"
               : "border-transparent text-muted-foreground hover:text-foreground",
@@ -264,7 +264,7 @@ const catalogJson = JSON.stringify(
     </div>
 
     <!-- Two-column layout: grid + detail panel -->
-    <div class="flex gap-5 items-start">
+    <div class="flex flex-col lg:flex-row gap-5 items-start">
 
       <!-- Left: grid area -->
       <div class="flex-1 min-w-0 space-y-4">
@@ -370,10 +370,26 @@ const catalogJson = JSON.stringify(
         ))}
       </div>
 
-      <!-- Right: detail panel -->
-      <div id="detail-panel" class="w-80 shrink-0 sticky top-20 self-start">
+      <!-- Right: detail panel (bottom sheet on mobile, sidebar on desktop) -->
+      <div
+        id="detail-panel"
+        class="fixed bottom-0 inset-x-0 z-50 translate-y-full transition-transform duration-300 rounded-t-2xl border-t border-x border-border bg-background max-h-[85vh] overflow-y-auto lg:sticky lg:inset-auto lg:z-auto lg:w-80 lg:shrink-0 lg:top-20 lg:self-start lg:translate-y-0 lg:transition-none lg:rounded-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible"
+      >
+        <!-- Mobile drag handle + close -->
+        <div class="lg:hidden">
+          <div class="flex justify-center pt-2 pb-1">
+            <div class="w-8 h-1 rounded-full bg-muted-foreground/30"></div>
+          </div>
+          <div class="flex items-center justify-between px-4 pb-2">
+            <span class="text-sm font-medium">Item details</span>
+            <button id="detail-close" class="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+        </div>
+
         <!-- Empty state -->
-        <div id="detail-empty" class="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+        <div id="detail-empty" class="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground hidden lg:block">
           Click an item to see details
         </div>
 
@@ -410,6 +426,9 @@ const catalogJson = JSON.stringify(
 
     </div>
   </div>
+
+  <!-- Mobile detail backdrop -->
+  <div id="detail-backdrop" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden" style="display:none"></div>
 
   <!-- Variants lightbox -->
   <div
@@ -458,6 +477,28 @@ const catalogJson = JSON.stringify(
   }
 
   // ── detail panel ─────────────────────────────────────────────────────────────
+
+  const detailPanel       = document.getElementById("detail-panel") as HTMLDivElement
+  const detailBackdrop    = document.getElementById("detail-backdrop") as HTMLDivElement
+
+  function isMobile() { return window.innerWidth < 1024 }
+
+  function openMobileSheet() {
+    detailPanel.classList.remove("translate-y-full")
+    detailPanel.classList.add("translate-y-0")
+    detailBackdrop.style.display = ""
+    document.body.style.overflow = "hidden"
+  }
+
+  function closeMobileSheet() {
+    detailPanel.classList.add("translate-y-full")
+    detailPanel.classList.remove("translate-y-0")
+    detailBackdrop.style.display = "none"
+    document.body.style.overflow = ""
+  }
+
+  document.getElementById("detail-close")?.addEventListener("click", closeMobileSheet)
+  detailBackdrop.addEventListener("click", closeMobileSheet)
 
   const detailEmpty       = document.getElementById("detail-empty") as HTMLDivElement
   const detailContent     = document.getElementById("detail-content") as HTMLDivElement
@@ -514,6 +555,8 @@ const catalogJson = JSON.stringify(
 
     detailEmpty.style.display = "none"
     detailContent.style.display = ""
+
+    if (isMobile()) openMobileSheet()
   }
 
   // ── card click ───────────────────────────────────────────────────────────────
