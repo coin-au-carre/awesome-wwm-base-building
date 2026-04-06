@@ -1378,7 +1378,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Wooden Bed",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1393,7 +1393,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Dining Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1408,7 +1408,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Stool",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1423,7 +1423,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Cabinet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1438,7 +1438,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Desk",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1453,7 +1453,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Cart",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1468,7 +1468,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Mirror Stand",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1483,7 +1483,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Iron Pot",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1498,7 +1498,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bed",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1513,7 +1513,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bathtub",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1528,7 +1528,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Shelf II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1543,7 +1543,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Tea Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1558,7 +1558,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Small Tea Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1573,7 +1573,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bathtub",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1588,7 +1588,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Sick Bed",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1603,7 +1603,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Carpet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1618,7 +1618,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Dressing Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1633,7 +1633,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bookshelf",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1648,7 +1648,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Wardrobe",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1663,7 +1663,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1678,7 +1678,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Shelf",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1693,7 +1693,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Screen II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1708,7 +1708,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Screen I",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1723,7 +1723,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Long Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1738,7 +1738,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Chair",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1753,7 +1753,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Shelf I",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1768,7 +1768,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bed I",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1783,7 +1783,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Dressing Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1798,7 +1798,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Clothes Rack",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1813,7 +1813,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Wash Stand",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1828,7 +1828,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bed II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1843,7 +1843,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Tea Set",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1858,7 +1858,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bamboo Leaves Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1873,7 +1873,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Hanging Painting",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1888,7 +1888,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Indoor Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1903,7 +1903,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "",
+          "name": "Bamboo Curtain",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1928,7 +1928,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Flag",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1943,7 +1943,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Banner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1958,7 +1958,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Back Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1973,7 +1973,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Vase",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1988,7 +1988,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Huadai Plaque",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2003,7 +2003,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Bamboo Rolled Curtain",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2018,7 +2018,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Silk Rug",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2033,7 +2033,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Area Rug",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2048,7 +2048,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Autumn Sand Painting",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2063,7 +2063,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Lamp",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2078,7 +2078,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Flower Holder",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2093,7 +2093,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Fish Lantern",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2108,7 +2108,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Paper Crane",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2123,7 +2123,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Drum",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2138,7 +2138,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Guqin",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2153,7 +2153,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Bonsai",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2168,7 +2168,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Flowering Tree",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2183,7 +2183,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Bronze Statue Decoration",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2198,7 +2198,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Green Plants",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2213,7 +2213,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Snowy Ground Trees",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2228,7 +2228,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Vase",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2243,7 +2243,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Quiver",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2258,7 +2258,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Bonsai",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2273,7 +2273,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Ornament",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2288,7 +2288,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Floating Stone Plate Form",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2303,7 +2303,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Rockery",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2318,7 +2318,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Dead Tree",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2333,7 +2333,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Candle",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2348,7 +2348,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Pendant",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2363,7 +2363,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Sand Statue",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2378,7 +2378,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Wang'an Banner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2393,7 +2393,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Accessory",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2408,7 +2408,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Small Stone Pier",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2423,7 +2423,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Small Decoration",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2438,7 +2438,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Snow Wind Nest",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2453,7 +2453,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Snow Field Stone Lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2468,7 +2468,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Snow Field Stone Lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2483,7 +2483,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Snow Cover Stone Pier",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2498,7 +2498,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Pattern Fire Pillar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2513,7 +2513,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Flower Lantern",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2528,7 +2528,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Hanging Lantern",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2543,7 +2543,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "",
+          "name": "Snow-Covered Stone Statue",
           "translations": {
             "cn": "",
             "fr": "",
