@@ -466,8 +466,8 @@ const catalogJson = JSON.stringify(
   }
 
   function styleStyle(style: string): string {
-    const hue = (hashStr(style) + 140) % 360
-    return `background-color:hsl(${hue},45%,30%);color:#fff`
+    const hue = hashStr(style) % 360
+    return `background-color:hsl(${hue},50%,35%);color:#fff`
   }
 
   // ── detail panel ─────────────────────────────────────────────────────────────
