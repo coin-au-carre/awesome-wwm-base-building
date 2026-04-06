@@ -2568,7 +2568,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Farming Tools",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2583,7 +2583,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Hearth",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2598,7 +2598,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Wine",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2613,7 +2613,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Meditation Cushion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2628,7 +2628,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Tabletop Decor",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2643,7 +2643,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Barrel",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2658,7 +2658,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Goods",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2673,7 +2673,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Sumeru Seat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2688,7 +2688,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Bellows",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2703,7 +2703,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Grinding Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2718,7 +2718,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Quenching Bucket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2733,7 +2733,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Firewood Stack",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2748,7 +2748,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Anvil",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2763,7 +2763,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Merchant Stall Canopy",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2778,7 +2778,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Iron Work Chest",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2793,7 +2793,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Iron Rare Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2808,7 +2808,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Abatis",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2823,7 +2823,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Box II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2838,7 +2838,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Box I",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2853,7 +2853,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Wash Basin",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2868,7 +2868,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Bamboo Weaving",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2883,7 +2883,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Sandbag",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2898,7 +2898,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Weapon Rack I",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2913,7 +2913,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Weapon II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2928,7 +2928,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "",
+          "name": "Weapon Rack II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2936,6 +2936,36 @@
             "jp": ""
           },
           "filename": "Miscellaneous_5_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Miscellaneous"
+        },
+        {
+          "name": "Wooden Stake",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Miscellaneous_6_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Miscellaneous"
+        },
+        {
+          "name": "Scarecrow",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Miscellaneous_6_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
