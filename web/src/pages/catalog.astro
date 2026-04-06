@@ -223,7 +223,7 @@ const catalogJson = JSON.stringify(
     </div>
 
     <!-- Category tabs -->
-    <div class="flex gap-1 border-b border-border" id="cat-tabs">
+    <div class="flex gap-1 border-b border-border items-center" id="cat-tabs">
       {categories.map((cat, i) => (
         <button
           class:list={[
@@ -237,6 +237,19 @@ const catalogJson = JSON.stringify(
           {cat.name}
         </button>
       ))}
+      <button
+        id="share-btn"
+        title="Copy link to this view"
+        class="ml-auto mb-1 shrink-0 p-1.5 rounded text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+      >
+        <svg id="share-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <svg id="share-check" class="w-3.5 h-3.5 text-green-500" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="display:none">
+          <path d="m5 13 4 4L19 7"/>
+        </svg>
+      </button>
     </div>
 
     <!-- Two-column layout: grid + detail panel -->
@@ -525,6 +538,44 @@ const catalogJson = JSON.stringify(
 
   let activeCat = catTabs[0]?.dataset.cat ?? ""
 
+  const activeSubByCat: Record<string, string> = {}
+  catalog.forEach((cat) => {
+    if (cat.subcategories.length > 0) activeSubByCat[cat.name] = cat.subcategories[0].name
+  })
+
+  function syncUrl() {
+    const p = new URLSearchParams()
+    const q = searchInput.value.trim()
+    if (q) {
+      p.set("q", q)
+    } else {
+      if (activeCat) p.set("cat", activeCat)
+      const sub = activeSubByCat[activeCat]
+      if (sub) p.set("sub", sub)
+    }
+    const qs = p.toString()
+    history.replaceState(null, "", qs ? `?${qs}` : location.pathname)
+  }
+
+  // ── share button ─────────────────────────────────────────────────────────────
+
+  const shareBtn   = document.getElementById("share-btn") as HTMLButtonElement
+  const shareIcon  = document.getElementById("share-icon") as SVGElement
+  const shareCheck = document.getElementById("share-check") as SVGElement
+  let shareResetTimer: ReturnType<typeof setTimeout> | null = null
+
+  shareBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(location.href).then(() => {
+      shareIcon.style.display = "none"
+      shareCheck.style.display = ""
+      if (shareResetTimer) clearTimeout(shareResetTimer)
+      shareResetTimer = setTimeout(() => {
+        shareIcon.style.display = ""
+        shareCheck.style.display = "none"
+      }, 2000)
+    })
+  })
+
   catTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       activeCat = tab.dataset.cat!
@@ -539,6 +590,7 @@ const catalogJson = JSON.stringify(
         p.style.display = p.dataset.cat === activeCat ? "" : "none"
       })
       runSearch((document.getElementById("catalog-search") as HTMLInputElement).value)
+      syncUrl()
     })
   })
 
@@ -561,6 +613,8 @@ const catalogJson = JSON.stringify(
         if (p.dataset.cat !== cat) return
         p.style.display = (sub === "__all__" || p.dataset.sub === sub) ? "" : "none"
       })
+      activeSubByCat[cat] = sub
+      syncUrl()
     })
   })
 
@@ -752,6 +806,7 @@ const catalogJson = JSON.stringify(
     const val = (e.target as HTMLInputElement).value
     updateSuggestions(val)
     runSearch(val)
+    syncUrl()
   })
 
   searchInput.addEventListener("keydown", (e) => {
@@ -806,6 +861,28 @@ const catalogJson = JSON.stringify(
       lightboxImg.src = ""
     }
   })
+
+  // ── URL param initialization ──────────────────────────────────────────────────
+  ;(function initFromParams() {
+    const params = new URLSearchParams(location.search)
+    const initQ   = params.get("q")
+    const initCat = params.get("cat")
+    const initSub = params.get("sub")
+
+    if (initQ) {
+      searchInput.value = initQ
+      runSearch(initQ)
+      return
+    }
+    if (initCat) {
+      const tab = [...catTabs].find((t) => t.dataset.cat === initCat)
+      if (tab) tab.click()
+    }
+    if (initSub) {
+      const tab = [...subTabs].find((t) => t.dataset.cat === activeCat && t.dataset.sub === initSub)
+      if (tab) tab.click()
+    }
+  })()
 
   // ── TODO progress toggle ──────────────────────────────────────────────────────
 
