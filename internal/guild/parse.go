@@ -7,6 +7,7 @@ import (
 )
 
 var (
+	reThreadID    = regexp.MustCompile(`\s*\[(\d+)\]?\s*$`)
 	reBracketID   = regexp.MustCompile(`[\[(](\d+)[\])]`)
 	reEightDigit  = regexp.MustCompile(`\b(\d{8})\b`)
 	reBuilders    = regexp.MustCompile(`(?i)builders?:\s*([^\n]*)`)
@@ -54,11 +55,26 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 	return
 }
 
+// ExtractNameAndID strips decorators/suffixes from a Discord thread name and
+// extracts an optional numeric guild ID embedded as a trailing bracket token.
+// e.g. "WITCHERS [10248427" → ("WITCHERS", "10248427")
+// e.g. "🏯 Iron Keep - Season 2" → ("Iron Keep", "")
+func ExtractNameAndID(threadName string) (name, id string) {
+	parts := strings.SplitN(threadName, " -", 2)
+	raw := strings.TrimSpace(strings.Trim(parts[0], "🏯📍"))
+	if m := reThreadID.FindStringSubmatch(raw); len(m) == 2 {
+		id = m[1]
+		raw = reThreadID.ReplaceAllString(raw, "")
+	}
+	name = strings.TrimSpace(strings.Trim(raw, "[] "))
+	return
+}
+
 // ExtractName strips decorators and suffixes from a Discord thread name.
 // e.g. "🏯 Iron Keep - Season 2" → "Iron Keep"
 func ExtractName(threadName string) string {
-	parts := strings.SplitN(threadName, " -", 2)
-	return strings.TrimSpace(strings.Trim(parts[0], "[]🏯📍"))
+	name, _ := ExtractNameAndID(threadName)
+	return name
 }
 
 // IsImage reports whether filename has a recognised image extension.

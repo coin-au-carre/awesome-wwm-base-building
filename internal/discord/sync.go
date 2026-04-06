@@ -88,11 +88,11 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	newIndices := make(map[int]bool)
 
 	for _, thread := range threads {
-		name := guild.ExtractName(thread.Name)
+		name, threadID := guild.ExtractNameAndID(thread.Name)
 		key := strings.ToLower(name)
 		if _, exists := guildMap[key]; !exists {
 			idx := len(guilds)
-			guilds = append(guilds, guild.Guild{Name: name, Builders: []string{}})
+			guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
 			guildMap[key] = len(guilds) - 1
 			newIndices[idx] = true
 			partialStats.New++
@@ -217,8 +217,20 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		}
 
 		g := guilds[r.idx]
+		// Normalize stored name if it contains an embedded ID (e.g. "WITCHERS [10248427").
+		if cleanName, embeddedID := guild.ExtractNameAndID(g.Name); cleanName != g.Name {
+			g.Name = cleanName
+			if g.ID == "" && embeddedID != "" {
+				g.ID = embeddedID
+			}
+		}
 		if g.ID == "" && data.ID != "" {
 			g.ID = data.ID
+		}
+		if g.ID == "" {
+			if _, threadID := guild.ExtractNameAndID(r.thread.Name); threadID != "" {
+				g.ID = threadID
+			}
 		}
 		if data.GuildName != "" {
 			if strings.EqualFold(data.GuildName, g.Name) {
@@ -397,7 +409,7 @@ func totalReactions(reactions map[string][]string) int {
 func buildGuildMap(guilds []guild.Guild) map[string]int {
 	m := make(map[string]int, len(guilds))
 	for i, g := range guilds {
-		m[strings.ToLower(g.Name)] = i
+		m[strings.ToLower(guild.ExtractName(g.Name))] = i
 	}
 	return m
 }
