@@ -14,14 +14,14 @@
     - [ ] Accessory
     - [ ] Miscellaneous
     - [ ] Building
-  - [ ] Guild Construction
-    - [ ] Single Target
-    - [ ] Interior Decoration
-    - [ ] Outdoor Decoration
-    - [ ] Plant
-    - [ ] Diagram
-    - [ ] Large Components
-    - [ ] Interactive Component
+  - [x] Guild Construction
+    - [x] Single Target
+    - [x] Interior Decoration
+    - [x] Outdoor Decoration
+    - [x] Plant
+    - [x] Diagram
+    - [x] Large Components
+    - [x] Interactive Component
 
 ## Variants
 
@@ -37,14 +37,14 @@
     - [ ] Accessory
     - [ ] Miscellaneous
     - [ ] Building
-  - [ ] Guild Construction
-    - [ ] Single Target
-    - [ ] Interior Decoration
-    - [ ] Outdoor Decoration
-    - [ ] Plant
-    - [ ] Diagram
-    - [ ] Large Components
-    - [ ] Interactive Component
+  - [x] Guild Construction
+    - [x] Single Target
+    - [x] Interior Decoration
+    - [x] Outdoor Decoration
+    - [x] Plant
+    - [x] Diagram
+    - [x] Large Components
+    - [x] Interactive Component
 
 ## Tags
 
