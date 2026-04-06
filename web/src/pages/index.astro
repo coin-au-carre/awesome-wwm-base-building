@@ -1,13 +1,15 @@
 ---
 import Layout from "@/layouts/main.astro"
-import TopShowcase from "@/components/TopShowcase.astro"
+import { GuildCarousel } from "@/components/GuildCarousel"
 import { GuildTable } from "@/components/GuildTable"
-import { getGuildsSortedByScore, getAllTags, getLastSyncDate } from "@/lib/guilds"
+import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots } from "@/lib/guilds"
+import { BASE } from "@/lib/url"
 
 const guilds = getGuildsSortedByScore()
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
-const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 9)
+const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
+const latestGuilds = getLatestGuildsWithScreenshots(3)
 ---
 
 <Layout>
@@ -26,28 +28,58 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
       <p class="text-xs text-muted-foreground mt-1">🔄 Last sync: {lastSync}</p>
     </div>
 
-    <!-- Top showcase -->
+    <!-- Top rated carousel -->
     {
       topGuilds.length > 0 && (
         <section>
-          <div class="flex items-center gap-2 mb-3">
-            <h2 class="font-heading text-base font-medium">✨ Top-rated Guild bases</h2>
-            <button
-              id="shuffle-showcase"
-              title="Shuffle images"
-              class="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-              aria-label="Shuffle showcase images"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/>
-                <path d="m18 2 4 4-4 4"/>
-                <path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/>
-                <path d="M22 18h-5.9c-1.3 0-2.5-.6-3.3-1.7l-.5-.8"/>
-                <path d="m18 14 4 4-4 4"/>
-              </svg>
-            </button>
+          <h2 class="font-heading text-base font-medium mb-4">✨ Top-rated Guild bases</h2>
+          <div class="px-5">
+            <GuildCarousel client:load guilds={topGuilds} />
           </div>
-          <TopShowcase guilds={topGuilds} />
+        </section>
+      )
+    }
+
+    <!-- Latest guilds -->
+    {
+      latestGuilds.length > 0 && (
+        <section>
+          <h2 class="font-heading text-base font-medium mb-4">🆕 Recently added</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {latestGuilds.map((g) => {
+              const shots = g.screenshots ?? []
+              const img = shots[Math.floor(Math.random() * shots.length)]
+              return (
+                <a
+                  href={`${BASE}/guilds/${g.slug}`}
+                  class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                >
+                  {img && (
+                    <img
+                      src={img}
+                      alt={g.name}
+                      loading="lazy"
+                      onerror="this.style.display='none'"
+                      class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  )}
+                  <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                  <div class="absolute bottom-0 left-0 right-0 p-3">
+                    <p class="text-white font-medium text-sm leading-tight mb-1">{g.name}</p>
+                    {g.tags && g.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-1">
+                        {g.tags.slice(0, 3).map((tag) => (
+                          <span class="inline-flex items-center rounded-full bg-black/40 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/90">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </a>
+              )
+            })}
+          </div>
         </section>
       )
     }
@@ -59,25 +91,3 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
     </section>
   </div>
 </Layout>
-
-<script>
-  const btn = document.getElementById("shuffle-showcase")
-  const grid = document.getElementById("top-showcase-grid")
-  if (btn && grid) {
-    btn.addEventListener("click", () => {
-      grid.querySelectorAll<HTMLAnchorElement>("a[data-screenshots]").forEach((card) => {
-        const shots: string[] = JSON.parse(card.dataset.screenshots ?? "[]")
-        if (shots.length === 0) return
-        const img = card.querySelector("img")
-        if (!img) return
-        const pick = shots[Math.floor(Math.random() * shots.length)]
-        img.style.opacity = "0"
-        img.style.transition = "opacity 0.2s"
-        setTimeout(() => {
-          img.src = pick
-          img.style.opacity = "1"
-        }, 200)
-      })
-    })
-  }
-</script>
