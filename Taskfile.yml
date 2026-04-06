@@ -4,14 +4,17 @@ version: '3'
 tasks:
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
-    desc: git pull then crawl Discord threads → update guilds.json
+    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON
     cmds:
       - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
+      - go run ./cmd/genjson
 
   sync:nopull:
-    desc: crawl Discord threads → update guilds.json (no git pull)
-    cmd: go run ./cmd/sync {{.CLI_ARGS}}
+    desc: crawl Discord threads → update guilds.json, generate public JSON (no git pull)
+    cmds:
+      - go run ./cmd/sync {{.CLI_ARGS}}
+      - go run ./cmd/genjson
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
@@ -42,16 +45,6 @@ tasks:
     desc: "post a guild screenshot to the Ruby channel. Use -- -guild <name> for a specific guild"
     cmd: go run ./cmd/spotlight {{.CLI_ARGS}}
 
-  # ── combined ────────────────────────────────────────────────
-  all:
-    desc: sync cycle (used by cron)
-    cmd: task sync
-
-  all:push:
-    desc: sync + git push
-    cmds:
-      - task: sync
-      - task: push
 
   # ── web (Astro) ─────────────────────────────────────────────
   web:
@@ -89,8 +82,8 @@ tasks:
       - echo "  task <command> [-- -flag1 -flag2]"
       - echo ""
       - echo "Commands & flags:"
-      - echo "  task sync                git pull + crawl"
-      - echo "  task sync:nopull         crawl only (no git pull)"
+      - echo "  task sync                git pull + crawl + generate public JSON"
+      - echo "  task sync:nopull         crawl + generate public JSON (no git pull)"
       - echo "        -- -dry-run        crawl only, skip writing guilds.json"
       - echo "        -- -no-notify      skip Discord notification"
       - echo "        -- -force-role     reassign roles to all authors"
@@ -111,8 +104,6 @@ tasks:
       - echo "  task web:build           build Astro for production"
       - echo "  task web:preview         preview production build"
       - echo ""
-      - echo "  task all                 sync (alias)"
-      - echo "  task all:push            sync + git push"
       - echo "  task push                vet + git push"
       - echo ""
       - echo "Examples:"
