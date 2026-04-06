@@ -1,5 +1,14 @@
 [
 	{
+		"name": "Parangon",
+		"builders": [
+			"KaiTingLi"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": ""
+	},
+	{
 		"name": "Ataraxia",
 		"builders": [
 			"NeoMetalSonic"
