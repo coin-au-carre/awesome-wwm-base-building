@@ -1,5 +1,47 @@
 [
 	{
+		"name": "Ataraxia",
+		"builders": ["NeoMetalSonic"],
+		"discordThread": "",
+		"score": 0,
+		"note": "snow style. asked a friend request"
+	},
+	{
+		"name": "GuangDong",
+		"builders": ["AngusKhân"],
+		"discordThread": "",
+		"score": 1,
+		"note": "nature, zen, good classic. contacted wwm."
+	},
+	{
+		"name": "VANTABLACK",
+		"builders": ["LittleGirlyPop", "Broski"],
+		"discordThread": "",
+		"score": 0,
+		"note": "spawn point in sky. contacted wwm"
+	},
+	{
+		"name": "Diva",
+		"builders": ["Lì-Keqiang"],
+		"discordThread": "",
+		"score": 1,
+		"note": "Strip club. contacted on Discord"
+	},
+	{
+		"name": "ShadowCabal",
+		"builders": [],
+		"discordThread": "",
+		"score": 0,
+		"note": "Guild of Penises"
+	},
+	{
+		"name": "PurrfectCats",
+		"builders": [],
+		"discordThread": "",
+		"score": 0,
+		"note": "chinese name builder. contacted wwm. cute cat"
+	},
+	{
 		"name": "SHlTMAN",
 		"builders": [
 			"Ashenza",
