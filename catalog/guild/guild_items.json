@@ -9331,7 +9331,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Windmaster Tower",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9346,7 +9346,7 @@
           "subCategory": "Diagram"
         },
         {
-          "name": "",
+          "name": "Crane Retreat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9361,7 +9361,7 @@
           "subCategory": "Diagram"
         },
         {
-          "name": "",
+          "name": "Residence",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9369,66 +9369,6 @@
             "jp": ""
           },
           "filename": "Diagram_1_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Diagram"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Diagram_1_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Diagram"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Diagram_1_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Diagram"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Diagram_2_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Diagram"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Diagram_2_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -9824,36 +9764,6 @@
             "jp": ""
           },
           "filename": "Interactive Component_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Interactive Component"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Interactive Component_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Interactive Component"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Interactive Component_3_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
