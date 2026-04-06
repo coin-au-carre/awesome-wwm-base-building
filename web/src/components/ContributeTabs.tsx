@@ -9,15 +9,20 @@ function Step({
   title,
   body,
   cta,
+  badgeClass,
 }: {
   n: string
   title: string
   body: React.ReactNode
   cta?: { label: string; href: string }
+  badgeClass?: string
 }) {
   return (
     <li className="flex gap-4">
-      <Badge variant="secondary" className="shrink-0 h-7 w-7 justify-center rounded-full text-xs font-semibold">
+      <Badge
+        variant="secondary"
+        className={`shrink-0 h-7 w-7 justify-center rounded-full text-xs font-semibold ${badgeClass ?? ""}`}
+      >
         {n}
       </Badge>
       <div className="space-y-1">
@@ -56,11 +61,13 @@ export default function ContributeTabs() {
         <ol className="space-y-5">
           <Step
             n="1"
+            badgeClass="bg-blue-500 text-white border-0"
             title="Join the Discord"
             body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">Join Discord ↗</a></Button></>}
           />
           <Step
             n="2"
+            badgeClass="bg-violet-500 text-white border-0"
             title="Post your base"
             body={<>Create a thread in <span className="font-medium text-foreground">#guild-base-showcase</span> or <span className="font-medium text-foreground">#solo-building-showcase</span>. Title it with your guild or build name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts.</>}
           />
@@ -77,6 +84,7 @@ export default function ContributeTabs() {
         <ol className="space-y-5">
           <Step
             n="3"
+            badgeClass="bg-emerald-500 text-white border-0"
             title="Wait for the next sync"
             body="The site syncs ~4 times a day. Your guild will appear automatically after the next sync."
           />
