@@ -1751,6 +1751,21 @@
           "hasVariants": false,
           "category": "Furniture Decoration",
           "subCategory": "Furniture"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_8_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
         }
       ]
     },
@@ -2386,51 +2401,6 @@
             "jp": ""
           },
           "filename": "Accessory_9_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Accessory"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Accessory_9_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Accessory"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Accessory_9_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Accessory"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Accessory_9_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -4649,6 +4619,917 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Single Target"
+        }
+      ]
+    },
+    
+    "Outdoor Decoration": {
+      "translations": {
+        "cn": "",
+        "fr": "",
+        "de": "",
+        "jp": ""
+      },
+      "items": [
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_1_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_1_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_1_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_1_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_1_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_2_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_2_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_2_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_2_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_2_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_3_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_3_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_3_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_3_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_3_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_4_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_4_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_4_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_4_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_4_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_5_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_5_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_5_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_5_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_5_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_6_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_6_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_6_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_6_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_6_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_7_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_7_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_7_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_7_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_7_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_8_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_8_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_8_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_8_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_8_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_9_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_9_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_9_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_9_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_9_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_10_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_10_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_10_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_10_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_10_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_11_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_11_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_11_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_11_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_11_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_12_1.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_12_2.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_12_3.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_12_4.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
+        },
+        {
+          "name": "",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Outdoor Decoration_12_5.png",
+          "tags": [],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Outdoor Decoration"
         }
       ]
     },
@@ -7513,916 +8394,6 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
-        }
-      ]
-    },
-    "Outdoor Decoration": {
-      "translations": {
-        "cn": "",
-        "fr": "",
-        "de": "",
-        "jp": ""
-      },
-      "items": [
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_1_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_1_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_1_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_1_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_1_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_2_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_2_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_2_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_2_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_2_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_3_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_3_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_3_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_3_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_3_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_4_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_4_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_4_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_4_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_4_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_5_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_5_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_5_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_5_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_5_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_6_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_6_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_6_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_6_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_6_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_7_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_7_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_7_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_7_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_7_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_8_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_8_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_8_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_8_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_8_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_9_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_9_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_9_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_9_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_9_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_10_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_10_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_10_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_10_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_10_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_11_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_11_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_11_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_11_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_11_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
         }
       ]
     },
