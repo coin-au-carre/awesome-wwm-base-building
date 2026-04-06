@@ -1,4 +1,5 @@
 import TemplateBuilder from "@/components/TemplateBuilder"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
@@ -16,9 +17,9 @@ function Step({
 }) {
   return (
     <li className="flex gap-4">
-      <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-semibold">
+      <Badge variant="secondary" className="shrink-0 h-7 w-7 justify-center rounded-full text-xs font-semibold">
         {n}
-      </span>
+      </Badge>
       <div className="space-y-1">
         <p className="font-medium text-sm">{title}</p>
         <p className="text-sm text-muted-foreground">{body}</p>
@@ -110,6 +111,9 @@ export default function ContributeTabs() {
       <TabsContent value="oss" className="space-y-6">
         <p className="text-sm text-muted-foreground leading-relaxed">
           The project is open source. Contributions are welcome, chat with us, open an issue or a pull request.
+        </p>
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          Ping us on Discord if you want to integrate any work here, we'll be glad to help. You can use it whenever you want as long as you credit the website/community.
         </p>
       </TabsContent>
     </Tabs>
