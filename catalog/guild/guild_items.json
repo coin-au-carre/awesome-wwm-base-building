@@ -4589,36 +4589,6 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Single Target"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_19_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Single Target"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Single Target_19_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Single Target"
         }
       ]
     },
@@ -5495,36 +5465,6 @@
             "jp": ""
           },
           "filename": "Outdoor Decoration_12_3.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Guild Construction",
-          "subCategory": "Outdoor Decoration"
-        },
-        {
-          "name": "",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Outdoor Decoration_12_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
