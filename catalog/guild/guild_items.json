@@ -23,7 +23,9 @@
             "jp": ""
           },
           "filename": "Floor_1_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -38,7 +40,9 @@
             "jp": ""
           },
           "filename": "Floor_1_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -53,7 +57,9 @@
             "jp": ""
           },
           "filename": "Floor_1_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "stone"
           ],
@@ -70,7 +76,9 @@
             "jp": ""
           },
           "filename": "Floor_1_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "stone"
           ],
@@ -87,7 +95,9 @@
             "jp": ""
           },
           "filename": "Floor_1_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -119,7 +129,9 @@
             "jp": ""
           },
           "filename": "Floor_2_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "stone",
             "snow"
@@ -137,7 +149,9 @@
             "jp": ""
           },
           "filename": "Floor_2_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -152,7 +166,9 @@
             "jp": ""
           },
           "filename": "Floor_2_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -167,7 +183,9 @@
             "jp": ""
           },
           "filename": "Floor_2_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "snow"
           ],
@@ -194,7 +212,9 @@
             "jp": ""
           },
           "filename": "Wall_1_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -209,7 +229,9 @@
             "jp": ""
           },
           "filename": "Wall_1_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood"
           ],
@@ -226,7 +248,9 @@
             "jp": ""
           },
           "filename": "Wall_1_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -241,7 +265,9 @@
             "jp": ""
           },
           "filename": "Wall_1_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -256,7 +282,9 @@
             "jp": ""
           },
           "filename": "Wall_1_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -271,7 +299,9 @@
             "jp": ""
           },
           "filename": "Wall_2_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -286,7 +316,9 @@
             "jp": ""
           },
           "filename": "Wall_2_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -301,7 +333,9 @@
             "jp": ""
           },
           "filename": "Wall_2_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -316,7 +350,9 @@
             "jp": ""
           },
           "filename": "Wall_2_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood"
           ],
@@ -333,7 +369,9 @@
             "jp": ""
           },
           "filename": "Wall_2_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -348,7 +386,9 @@
             "jp": ""
           },
           "filename": "Wall_3_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -363,7 +403,9 @@
             "jp": ""
           },
           "filename": "Wall_3_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -378,7 +420,9 @@
             "jp": ""
           },
           "filename": "Wall_3_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -393,7 +437,9 @@
             "jp": ""
           },
           "filename": "Wall_3_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "stone"
           ],
@@ -410,7 +456,9 @@
             "jp": ""
           },
           "filename": "Wall_3_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -425,7 +473,9 @@
             "jp": ""
           },
           "filename": "Wall_4_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -440,7 +490,9 @@
             "jp": ""
           },
           "filename": "Wall_4_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -455,7 +507,9 @@
             "jp": ""
           },
           "filename": "Wall_4_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood",
             "red"
@@ -473,7 +527,9 @@
             "jp": ""
           },
           "filename": "Wall_4_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood",
             "red"
@@ -508,7 +564,9 @@
             "jp": ""
           },
           "filename": "Wall_5_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -523,7 +581,9 @@
             "jp": ""
           },
           "filename": "Wall_5_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -538,7 +598,9 @@
             "jp": ""
           },
           "filename": "Wall_5_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "stone"
           ],
@@ -565,7 +627,9 @@
             "jp": ""
           },
           "filename": "Roof_1_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -580,7 +644,9 @@
             "jp": ""
           },
           "filename": "Roof_1_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -595,7 +661,9 @@
             "jp": ""
           },
           "filename": "Roof_1_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -610,7 +678,9 @@
             "jp": ""
           },
           "filename": "Roof_1_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -625,7 +695,9 @@
             "jp": ""
           },
           "filename": "Roof_1_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood",
             "red"
@@ -644,7 +716,8 @@
           },
           "filename": "Roof_2_1.png",
           "tags": [
-            ""
+            "",
+            "variants"
           ],
           "styles": [
             "wood",
@@ -663,7 +736,9 @@
             "jp": ""
           },
           "filename": "Roof_2_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood",
             "red"
@@ -681,7 +756,9 @@
             "jp": ""
           },
           "filename": "Roof_2_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "wood",
             "red"
@@ -699,7 +776,9 @@
             "jp": ""
           },
           "filename": "Roof_2_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -714,7 +793,9 @@
             "jp": ""
           },
           "filename": "Roof_2_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -729,7 +810,9 @@
             "jp": ""
           },
           "filename": "Roof_3_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -744,7 +827,9 @@
             "jp": ""
           },
           "filename": "Roof_3_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -759,7 +844,9 @@
             "jp": ""
           },
           "filename": "Roof_3_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -774,7 +861,9 @@
             "jp": ""
           },
           "filename": "Roof_3_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -789,7 +878,9 @@
             "jp": ""
           },
           "filename": "Roof_3_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -804,7 +895,9 @@
             "jp": ""
           },
           "filename": "Roof_4_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -819,7 +912,9 @@
             "jp": ""
           },
           "filename": "Roof_4_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -834,7 +929,9 @@
             "jp": ""
           },
           "filename": "Roof_4_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [
             "stone"
           ],
@@ -863,7 +960,8 @@
           "filename": "Doors and Windows_1_1.png",
           "tags": [
             "window",
-            "guardrail"
+            "guardrail",
+            "variants"
           ],
           "styles": [
             "wood"
@@ -882,7 +980,8 @@
           },
           "filename": "Doors and Windows_1_2.png",
           "tags": [
-            "door"
+            "door",
+            "variants"
           ],
           "styles": [
             "wood"
@@ -902,7 +1001,8 @@
           "filename": "Doors and Windows_1_3.png",
           "tags": [
             "door",
-            "frame"
+            "frame",
+            "variants"
           ],
           "styles": [
             "wood"
@@ -923,7 +1023,8 @@
           "tags": [
             "window",
             "guardrail",
-            "frame"
+            "frame",
+            "variants"
           ],
           "styles": [
             "wood"
@@ -962,7 +1063,8 @@
           "filename": "Doors and Windows_2_1.png",
           "tags": [
             "door",
-            "frame"
+            "frame",
+            "variants"
           ],
           "styles": [
             "wood",
@@ -1011,7 +1113,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_1_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1026,7 +1130,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_1_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1041,7 +1147,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_1_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1056,7 +1164,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_1_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1071,7 +1181,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_1_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1086,7 +1198,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_2_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1101,7 +1215,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_2_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1116,7 +1232,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_2_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1131,7 +1249,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_2_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1146,7 +1266,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_2_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1161,7 +1283,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_3_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1176,7 +1300,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_3_2.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1191,7 +1317,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_3_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1206,7 +1334,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_3_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -1221,7 +1351,9 @@
             "jp": ""
           },
           "filename": "Ladder Pillar_3_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
           "hasVariants": true,
           "category": "Basic Structure",
@@ -4991,9 +5123,11 @@
             "jp": ""
           },
           "filename": "Outdoor Decoration_5_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Outdoor Decoration"
         },
@@ -5036,9 +5170,11 @@
             "jp": ""
           },
           "filename": "Outdoor Decoration_6_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Outdoor Decoration"
         },
@@ -5365,9 +5501,11 @@
             "jp": ""
           },
           "filename": "Interior Decoration_2_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
         },
@@ -5395,9 +5533,11 @@
             "jp": ""
           },
           "filename": "Interior Decoration_2_3.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
         },
@@ -7435,9 +7575,11 @@
             "jp": ""
           },
           "filename": "Interior Decoration_29_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
         },
@@ -7975,9 +8117,11 @@
             "jp": ""
           },
           "filename": "Interior Decoration_36_5.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
         },
@@ -8375,9 +8519,11 @@
             "jp": ""
           },
           "filename": "Plant_3_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Plant"
         },
@@ -9417,7 +9563,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Stool",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9425,14 +9571,16 @@
             "jp": ""
           },
           "filename": "Interactive Component_1_1.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Multi-person bath",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9447,7 +9595,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Multi-person bath",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9462,7 +9610,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Massage bed",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9470,14 +9618,16 @@
             "jp": ""
           },
           "filename": "Interactive Component_1_4.png",
-          "tags": [],
+          "tags": [
+            "variants"
+          ],
           "styles": [],
-          "hasVariants": false,
+          "hasVariants": true,
           "category": "Guild Construction",
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Agarwood narrow bed",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9492,7 +9642,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Carpet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9507,7 +9657,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Gilded incense burner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9522,7 +9672,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Sandalwood armchair with cushioned seat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9537,7 +9687,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Rain listening chair",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9552,7 +9702,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Short chair",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9567,7 +9717,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Double swing",
           "translations": {
             "cn": "",
             "fr": "",
@@ -9582,7 +9732,7 @@
           "subCategory": "Interactive Component"
         },
         {
-          "name": "",
+          "name": "Beauty's rest",
           "translations": {
             "cn": "",
             "fr": "",
