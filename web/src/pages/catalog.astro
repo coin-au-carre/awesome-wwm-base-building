@@ -622,8 +622,8 @@ const catalogJson = JSON.stringify(
   // ── share button ─────────────────────────────────────────────────────────────
 
   const shareBtn   = document.getElementById("share-btn") as HTMLButtonElement
-  const shareIcon  = document.getElementById("share-icon") as SVGElement
-  const shareCheck = document.getElementById("share-check") as SVGElement
+  const shareIcon  = document.getElementById("share-icon") as HTMLElement
+  const shareCheck = document.getElementById("share-check") as HTMLElement
   const shareLabel = document.getElementById("share-label") as HTMLSpanElement
   let shareResetTimer: ReturnType<typeof setTimeout> | null = null
 
