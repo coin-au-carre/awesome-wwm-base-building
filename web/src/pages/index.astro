@@ -31,7 +31,7 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
       topGuilds.length > 0 && (
         <section>
           <div class="flex items-center gap-2 mb-3">
-            <h2 class="font-heading text-base font-medium">✨ Top-rated Guild Bases</h2>
+            <h2 class="font-heading text-base font-medium">✨ Top-rated Guild bases</h2>
             <button
               id="shuffle-showcase"
               title="Shuffle images"
@@ -54,7 +54,7 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
 
     <!-- Ranked table -->
     <section>
-      <h2 class="font-heading text-base font-medium mb-3">📸 All Guild Bases</h2>
+      <h2 class="font-heading text-base font-medium mb-3">📸 All Guild bases</h2>
       <GuildTable client:load guilds={guilds} allTags={allTags} />
     </section>
   </div>
