@@ -3214,7 +3214,7 @@
       },
       "items": [
         {
-          "name": "",
+          "name": "Gate",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3229,7 +3229,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Gate",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3244,7 +3244,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Gate",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3259,7 +3259,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wooden plank",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3274,7 +3274,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3289,7 +3289,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3304,7 +3304,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Base",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3319,7 +3319,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Cabinet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3334,7 +3334,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Stove",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3349,7 +3349,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine rack",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3364,7 +3364,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine rack",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3379,7 +3379,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Mat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3394,7 +3394,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wooden plank",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3409,7 +3409,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Theater stage",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3424,7 +3424,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3439,7 +3439,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Jar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3454,7 +3454,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Basin",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3469,7 +3469,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Dressing table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3484,7 +3484,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3499,7 +3499,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Buddha statue",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3514,7 +3514,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Stone table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3529,7 +3529,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Chest",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3544,7 +3544,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Cooking hearth",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3559,7 +3559,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Ointment teapot",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3574,7 +3574,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3589,7 +3589,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Stove",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3604,7 +3604,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Cabinet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3619,7 +3619,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Box",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3634,7 +3634,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Goods",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3649,7 +3649,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Hearth",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3664,7 +3664,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Broom",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3679,7 +3679,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Stone mill",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3694,7 +3694,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Stone mill",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3709,7 +3709,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Water vat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3724,7 +3724,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Platform",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3739,7 +3739,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Plot",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3754,7 +3754,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Shelf",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3769,7 +3769,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Fence",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3784,7 +3784,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Fence",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3799,7 +3799,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Basket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3814,7 +3814,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Basket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3829,7 +3829,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3844,7 +3844,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Stone lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3852,14 +3852,14 @@
             "jp": ""
           },
           "filename": "Single Target_9_3.png",
-          "tags": [],
-          "styles": [],
+          "tags": ["statue"],
+          "styles": ["stone"],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Screen",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3874,7 +3874,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Dice close",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3889,7 +3889,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Dice close",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3904,7 +3904,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Incense burner",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3919,7 +3919,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Dust pan",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3934,7 +3934,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Dust pan",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3949,7 +3949,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Teapot",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3964,7 +3964,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Teapot",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3979,7 +3979,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Bamboo basket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3994,7 +3994,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Bamboo basket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4009,7 +4009,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Hay pile",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4024,7 +4024,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Hay pile",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4039,7 +4039,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine churn",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4054,7 +4054,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Fruit platter",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4069,7 +4069,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine cup",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4084,7 +4084,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine flask",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4099,7 +4099,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine gourd",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4114,7 +4114,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine jar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4129,7 +4129,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Cabbage",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4144,7 +4144,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Cabbage",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4159,7 +4159,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Jar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4174,7 +4174,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Jar",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4189,7 +4189,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Board",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4204,7 +4204,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Mat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4219,7 +4219,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Chopstick holder",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4234,7 +4234,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Chopstick holder",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4249,7 +4249,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wooden barrel",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4264,7 +4264,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Broom",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4279,7 +4279,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Chessboard",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4294,7 +4294,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wine flask",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4309,7 +4309,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Wooden basin",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4324,7 +4324,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Treasure chest",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4339,7 +4339,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Bamboo basket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4354,7 +4354,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Carpet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4369,7 +4369,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Straw mat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4384,7 +4384,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Chest",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4399,7 +4399,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4414,7 +4414,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Chair",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4429,7 +4429,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Shelf",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4444,7 +4444,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Bamboo basket",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4459,7 +4459,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4474,7 +4474,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Tea stall",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4489,7 +4489,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Guqin table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4504,7 +4504,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Guqin",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4519,7 +4519,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Water vat",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4534,7 +4534,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Small vial",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4549,7 +4549,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4564,7 +4564,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Lamp",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4579,7 +4579,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Hay pile",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4594,7 +4594,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "",
+          "name": "Hay pile",
           "translations": {
             "cn": "",
             "fr": "",
