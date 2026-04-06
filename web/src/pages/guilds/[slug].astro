@@ -21,7 +21,8 @@ export async function getStaticPaths() {
 const { guild: g } = Astro.props
 const base = BASE
 const AHLYAM_ID = "149790526076354561"
-const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID
+const WINDXP_ID = "721510597958828183"
+const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID || g.builderDiscordId === WINDXP_ID
 const randomScreenshot = g.screenshots?.length
   ? g.screenshots[Math.floor(Math.random() * g.screenshots.length)]
   : undefined
@@ -146,7 +147,7 @@ const randomScreenshot = g.screenshots?.length
     )}
 
     <!-- Incentive callout -->
-    {(enteredByAhlyam || !g.discordThread) && (
+    {(enteredByAhlyam || !g.discordThread) && g.name !== "Jenova" && (
       <Card>
         <CardContent className="space-y-2 text-sm">
           <p class="font-medium">Is this your guild?</p>
