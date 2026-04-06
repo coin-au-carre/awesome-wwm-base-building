@@ -152,12 +152,6 @@ func main() {
 			}
 		}
 
-		if !*noNotify && guildStats.New > 0 {
-			notifyNewEntries(bot, updatedGuilds, guildStats, false)
-		}
-		if !*noNotify && soloStats.New > 0 {
-			notifyNewEntries(bot, updatedSolos, soloStats, true)
-		}
 	}
 
 	// ── Role assignment ───────────────────────────────────────────────────────
@@ -188,6 +182,15 @@ func main() {
 	if soloForumID != "" {
 		bot.NotifyIf(!*noNotify, discord.FormatSoloSyncSummary(soloStats))
 		slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
+	}
+
+	if !*dryRun {
+		if !*noNotify && guildStats.New > 0 {
+			notifyNewEntries(bot, updatedGuilds, guildStats, false)
+		}
+		if !*noNotify && soloStats.New > 0 {
+			notifyNewEntries(bot, updatedSolos, soloStats, true)
+		}
 	}
 }
 
