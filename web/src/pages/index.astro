@@ -4,6 +4,7 @@ import { GuildCarousel } from "@/components/GuildCarousel"
 import { GuildTable } from "@/components/GuildTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
+import { Badge } from "@/components/ui/badge"
 
 const guilds = getGuildsSortedByScore()
 const allTags = getAllTags()
@@ -15,17 +16,17 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
 <Layout>
   <div class="space-y-12">
     <!-- Hero -->
-    <div>
-      <h1 class="font-heading text-2xl font-semibold mb-1">
-        🏰 Guild Bases
-      </h1>
-      <p class="text-muted-foreground text-sm">
-        {guilds.length} bases · The most beautiful constructions in Jiang Hu ·{" "}
-        <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">
-          add yours on Discord
-        </a>
+    <div class="flex flex-col gap-3">
+      <div class="flex items-center gap-3 flex-wrap">
+        <h1 class="font-heading text-3xl font-bold tracking-tight">🏰 Guild Bases</h1>
+        <Badge variant="secondary">{guilds.length} bases</Badge>
+        <Badge variant="outline" className="font-normal text-muted-foreground">
+          🔄 Last sync: {lastSync}
+        </Badge>
+      </div>
+      <p class="text-muted-foreground">
+        The most beautiful constructions in Jiang Hu. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Discord ↗</a></span>
       </p>
-      <p class="text-xs text-muted-foreground mt-1">🔄 Last sync: {lastSync}</p>
     </div>
 
     <!-- Top rated carousel -->
