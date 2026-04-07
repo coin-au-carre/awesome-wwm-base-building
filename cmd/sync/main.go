@@ -33,8 +33,8 @@ func main() {
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
-	guildsPath := filepath.Join(*root, "guilds.json")
-	solosPath := filepath.Join(*root, "solos.json")
+	guildsPath := filepath.Join(*root, "data", "guilds.json")
+	solosPath := filepath.Join(*root, "data", "solos.json")
 
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
