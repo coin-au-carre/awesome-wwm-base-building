@@ -41,7 +41,7 @@ const isEmpty = !hasSolos()
 
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-3xl font-bold tracking-tight flex items-center gap-2"><House weight="duotone" className="size-7 text-blue-500" /> Solo Construction</h1>
+        <h1 class="font-heading text-3xl font-bold tracking-tight flex items-center gap-2"><House weight="duotone" className="size-7 text-primary" /> Solo Construction</h1>
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
         {!isEmpty && (
           <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
@@ -76,7 +76,7 @@ const isEmpty = !hasSolos()
     {
       solos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><Buildings weight="duotone" className="size-4 text-orange-500" /> All Solo construction</h2>
+          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><Buildings weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
           <GuildTable client:load guilds={solos} allTags={allTags} basePath="solos" />
         </section>
       )
