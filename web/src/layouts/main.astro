@@ -56,6 +56,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     })} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title}</title>
+    <!-- Cloudflare Web Analytics -->
+    <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "19c88f493b45462b96b98e26ee8cce4b"}'></script>
     <!-- Theme init (before paint to avoid flash) -->
     <script is:inline>
       ;(function () {
