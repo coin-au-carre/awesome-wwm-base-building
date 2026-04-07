@@ -47,7 +47,7 @@ function Tag({ label, active, onClick }: { label: string; active: boolean; onCli
   return (
     <Badge
       variant="outline"
-      onClick={onClick}
+      onClick={(e) => { e.stopPropagation(); onClick() }}
       className="cursor-pointer transition-colors"
       style={style}
     >
