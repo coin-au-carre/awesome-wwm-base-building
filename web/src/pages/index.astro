@@ -46,7 +46,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
       latestGuilds.length > 0 && (
         <section>
           <h2 class="font-heading text-base font-medium mb-4">🆕 Recently added</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {latestGuilds.map((g) => {
               const shots = g.screenshots ?? []
               const img = shots[Math.floor(Math.random() * shots.length)]
@@ -80,7 +80,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
                 </a>
               )
             })}
-          </div>
+          </div></div>
         </section>
       )
     }
