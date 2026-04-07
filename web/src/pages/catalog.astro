@@ -236,8 +236,18 @@ const catalogJson = JSON.stringify(
         type="search"
         placeholder="Search by name, #tag or @style…"
         autocomplete="off"
-        class="w-full rounded-lg border border-border bg-muted/40 pl-9 pr-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50"
+        class="w-full rounded-lg border border-border bg-muted/40 pl-9 pr-9 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/50"
       />
+      <button
+        id="search-clear"
+        aria-label="Clear search"
+        style="display:none"
+        class="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 rounded text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path d="M18 6 6 18M6 6l12 12"/>
+        </svg>
+      </button>
       <!-- Autocomplete dropdown -->
       <ul
         id="search-suggestions"
@@ -682,11 +692,19 @@ const catalogJson = JSON.stringify(
   // ── search ───────────────────────────────────────────────────────────────────
 
   const searchInput       = document.getElementById("catalog-search") as HTMLInputElement
+  const searchClear       = document.getElementById("search-clear") as HTMLButtonElement
   const searchResults     = document.getElementById("search-results") as HTMLDivElement
   const searchGrid        = document.getElementById("search-grid") as HTMLDivElement
   const searchCount       = document.getElementById("search-count") as HTMLParagraphElement
   const searchEmpty       = document.getElementById("search-empty") as HTMLParagraphElement
   const searchSuggestions = document.getElementById("search-suggestions") as HTMLUListElement
+  const catTabsEl         = document.getElementById("cat-tabs") as HTMLDivElement
+
+  function setSearchActive(active: boolean) {
+    searchClear.style.display = active ? "" : "none"
+    catTabsEl.classList.toggle("opacity-40", active)
+    catTabsEl.classList.toggle("pointer-events-none", active)
+  }
 
   // Build flat lists of all unique tags and styles across the whole catalog
   const allTags: string[] = [...new Set(
@@ -827,12 +845,15 @@ const catalogJson = JSON.stringify(
     const q        = raw.slice(isTag || isStyle ? 1 : 0).trim().toLowerCase()
 
     if (!q) {
+      setSearchActive(false)
       searchResults.style.display = "none"
       catPanels.forEach((p) => {
         p.style.display = p.dataset.cat === activeCat ? "" : "none"
       })
       return
     }
+
+    setSearchActive(true)
 
     catPanels.forEach((p) => (p.style.display = "none"))
     searchResults.style.display = ""
@@ -863,6 +884,14 @@ const catalogJson = JSON.stringify(
       matches.forEach((item) => searchGrid.appendChild(buildCard(item)))
     }
   }
+
+  searchClear.addEventListener("click", () => {
+    searchInput.value = ""
+    hideSuggestions()
+    runSearch("")
+    syncUrl()
+    searchInput.focus()
+  })
 
   searchInput.addEventListener("input", (e) => {
     const val = (e.target as HTMLInputElement).value
