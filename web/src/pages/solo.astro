@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate } from "@/lib/guilds"
-import { House, ArrowsClockwise, Trophy, Buildings, Warning, Shuffle } from "@phosphor-icons/react"
+import { HouseIcon, ArrowsClockwiseIcon, TrophyIcon, BuildingsIcon, WarningIcon, ShuffleIcon } from "@phosphor-icons/react"
 
 const solos = getSolosSortedByScore()
 const allTags = getAllSoloTags()
@@ -23,7 +23,7 @@ const isEmpty = !hasSolos()
     {
       isEmpty && (
         <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
-          <Warning weight="duotone" className="size-5 shrink-0 text-amber-500" />
+          <WarningIcon weight="duotone" className="size-5 shrink-0 text-amber-500" />
           <div>
             <p class="font-medium text-sm">Work in progress</p>
             <p class="text-sm text-muted-foreground mt-0.5">
@@ -41,11 +41,11 @@ const isEmpty = !hasSolos()
 
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-3xl font-bold tracking-tight flex items-center gap-2"><House weight="duotone" className="size-7 text-primary" /> Solo Construction</h1>
+        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><HouseIcon weight="duotone" className="size-6 text-primary" /> Solo Construction</h1>
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
         {!isEmpty && (
           <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-            <ArrowsClockwise weight="fill" className="size-3 text-green-500" /> Last sync: {lastSync}
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: {lastSync}
           </Badge>
         )}
       </div>
@@ -58,14 +58,14 @@ const isEmpty = !hasSolos()
       topSolos.length > 0 && (
         <section>
           <div class="flex items-center gap-2 mb-3">
-            <h2 class="font-heading text-base font-medium flex items-center gap-2"><Trophy weight="duotone" className="size-4 text-yellow-400" /> Top-rated Solo Construction</h2>
+            <h2 class="font-heading text-base font-medium flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Solo Construction</h2>
             <button
               id="shuffle-showcase"
               title="Shuffle images"
               class="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               aria-label="Shuffle showcase images"
             >
-              <Shuffle weight="bold" className="size-4" />
+              <ShuffleIcon weight="bold" className="size-4" />
             </button>
           </div>
           <TopShowcase guilds={topSolos} basePath="solos" />
@@ -76,7 +76,7 @@ const isEmpty = !hasSolos()
     {
       solos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><Buildings weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
+          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><BuildingsIcon weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
           <GuildTable client:load guilds={solos} allTags={allTags} basePath="solos" />
         </section>
       )
