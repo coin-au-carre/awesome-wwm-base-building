@@ -5,7 +5,7 @@ import { GuildTable } from "@/components/GuildTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
-import { CastleTurret, ArrowsClockwise, Trophy, Sparkle, Buildings } from "@phosphor-icons/react"
+import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, BuildingsIcon } from "@phosphor-icons/react"
 
 const guilds = getGuildsSortedByScore()
 const allTags = getAllTags()
@@ -19,10 +19,10 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
     <!-- Hero -->
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-3xl font-bold tracking-tight flex items-center gap-2"><CastleTurret weight="duotone" className="size-7 text-primary" /> Guild Bases</h1>
+        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guild Bases</h1>
         <Badge variant="secondary">{guilds.length} bases</Badge>
         <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-          <ArrowsClockwise weight="fill" className="size-3 text-green-500" /> Last sync: {lastSync}
+          <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: {lastSync}
         </Badge>
       </div>
       <p class="text-muted-foreground">
@@ -34,7 +34,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
     {
       topGuilds.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><Trophy weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
+          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
           <div class="px-5">
             <GuildCarousel client:load guilds={topGuilds} />
           </div>
@@ -46,7 +46,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
     {
       latestGuilds.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><Sparkle weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
+          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
           <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {latestGuilds.map((g) => {
               const shots = g.screenshots ?? []
@@ -88,7 +88,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
 
     <!-- Ranked table -->
     <section>
-      <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><Buildings weight="duotone" className="size-4 text-primary" /> All Guild bases</h2>
+      <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><BuildingsIcon weight="duotone" className="size-4 text-primary" /> All Guild bases</h2>
       <GuildTable client:load guilds={guilds} allTags={allTags} />
     </section>
   </div>
