@@ -33,12 +33,23 @@ function formatBuilders(builders: string[] | undefined): string {
   return s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..."
 }
 
+function tagHue(label: string): number {
+  let hash = 0
+  for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) >>> 0
+  return hash % 360
+}
+
 function Tag({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+  const h = tagHue(label)
+  const style = active
+    ? { background: `hsl(${h} 70% 45%)`, color: "hsl(0 0% 100%)", borderColor: "transparent" }
+    : { background: `hsl(${h} 60% 92%)`, color: `hsl(${h} 50% 30%)`, borderColor: "transparent" }
   return (
     <Badge
-      variant={active ? "default" : "secondary"}
+      variant="outline"
       onClick={onClick}
-      className="cursor-pointer"
+      className="cursor-pointer transition-colors"
+      style={style}
     >
       {label}
     </Badge>
@@ -226,7 +237,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
                 <TableCell className="hidden lg:table-cell">
                   <div className="flex flex-wrap gap-1">
                     {g.tags?.map((tag) => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
+                      <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />
                     ))}
                   </div>
                 </TableCell>
