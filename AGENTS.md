@@ -5,7 +5,7 @@ This document provides comprehensive guidelines for AI agents working on the awe
 ## Architecture Overview
 
 ```
-Discord forum ──► task sync ──► guilds.json / solos.json ──► Astro build (web/) ──► GitHub Pages
+Discord forum ──► task sync ──► data/guilds.json / data/solos.json ──► Astro build (web/) ──► GitHub Pages
 ```
 
 **Stack:**
@@ -18,7 +18,7 @@ Discord forum ──► task sync ──► guilds.json / solos.json ──► A
 
 ```
 /cmd/
-  sync/       # Crawl Discord → update guilds.json + solos.json
+  sync/       # Crawl Discord → update data/guilds.json + data/solos.json
   bot/        # Long-running Discord bot with Claude AI
   send/       # One-shot message sender
   spotlight/  # Post random guild screenshot to Discord
@@ -26,19 +26,19 @@ Discord forum ──► task sync ──► guilds.json / solos.json ──► A
   discord/    # Sync logic, scoring, voter weights, roles, bot handlers
   guild/      # Guild struct, JSON store (LoadFile/SaveFile), parser
 /web/         # Astro static site — DO NOT mix with Go code
-guilds.json   # Authoritative guild data — source of truth
-solos.json    # Authoritative solo build data — source of truth
+data/guilds.json   # Authoritative guild data — source of truth
+data/solos.json    # Authoritative solo build data — source of truth
 README.md     # Dev documentation
 ```
 
 ## Key Data Files
 
-- `guilds.json` / `solos.json` — written by `cmd/sync`, read by the Astro site at build time
+- `data/guilds.json` / `data/solos.json` — written by `cmd/sync`, read by the Astro site at build time
 
 ## Task Commands
 
 ```bash
-task sync              # git pull + crawl Discord → update guilds.json + solos.json
+task sync              # git pull + crawl Discord → update data/guilds.json + data/solos.json
 task sync:nopull       # crawl only (no git pull)
 task sync -- -dry-run      # crawl without writing JSON
 task sync -- -no-notify    # skip Discord notification
@@ -94,7 +94,7 @@ ANTHROPIC_API_KEY                     # Claude AI (bot feature)
 
 ### guild.LoadFile / SaveFile
 Use `guild.LoadFile(path)` / `guild.SaveFile(path, guilds)` for arbitrary paths.
-`guild.Load(root)` / `guild.Save(root, guilds)` are convenience wrappers for `guilds.json` only.
+`guild.Load(root)` / `guild.Save(root, guilds)` are convenience wrappers for `data/guilds.json` only.
 
 ## Astro Site (`web/`)
 
@@ -102,12 +102,12 @@ See `web/CLAUDE.md` for full details.
 
 ## GitHub Actions
 
-- `sync.yml` — runs `task sync` on schedule (2×/day), commits `guilds.json solos.json`, push triggers deploy
+- `sync.yml` — runs `task sync` on schedule (2×/day), commits `data/guilds.json data/solos.json`, push triggers deploy
 - `deploy.yml` — triggered by push to `main`, uses `withastro/action@v3` with `path: web`
 - GitHub Pages source must be set to **GitHub Actions** (not "Deploy from branch")
 
 ## Git Workflow
 
 - Run `task vet` before committing (`task push` does this automatically)
-- Generated files (`guilds.json`, `solos.json`) are committed by CI
+- Generated files (`data/guilds.json`, `data/solos.json`) are committed by CI
 - Use `task sync -- -dry-run` to test crawling without side effects

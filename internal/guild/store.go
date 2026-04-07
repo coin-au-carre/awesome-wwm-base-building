@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 )
 
-const filename = "guilds.json"
+const filename = "data/guilds.json"
 
 func Load(root string) ([]Guild, error) {
 	return LoadFile(filepath.Join(root, filename))

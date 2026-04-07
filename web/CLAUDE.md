@@ -2,7 +2,7 @@
 
 ## Key Files
 
-- `src/lib/guilds.ts` — loads `guilds.json` and `solos.json` at build time via `readFileSync`
+- `src/lib/guilds.ts` — loads `data/guilds.json` and `data/solos.json` at build time via `readFileSync`
 - `src/lib/slugify.ts` — port of Go `Slugify()` — **must stay in sync with `internal/discord/spotlight.go`**
 - `src/lib/url.ts` — `url(path)` helper for internal links inside React components (handles `BASE_URL`)
 - `src/types/guild.ts` — TypeScript mirror of `internal/guild/guild.go`
