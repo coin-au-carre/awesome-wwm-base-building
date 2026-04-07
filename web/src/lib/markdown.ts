@@ -1,5 +1,10 @@
 export function renderMarkdown(text: string): string {
-  const bold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  const inline = (s: string) =>
+    s
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/~~(.+?)~~/g, "<del>$1</del>")
+      .replace(/\*(.+?)\*/g, "<em>$1</em>")
+      .replace(/_(.+?)_/g, "<em>$1</em>")
   const paragraphs = text.trim().split(/\n{2,}/)
   return paragraphs
     .map((block) => {
@@ -8,11 +13,11 @@ export function renderMarkdown(text: string): string {
       if (isList) {
         const items = lines
           .filter((l) => /^[-*]\s/.test(l.trim()))
-          .map((l) => `<li>${bold(l.trim().replace(/^[-*]\s/, ""))}</li>`)
+          .map((l) => `<li>${inline(l.trim().replace(/^[-*]\s/, ""))}</li>`)
           .join("")
         return `<ul class="space-y-1.5 list-none">${items}</ul>`
       }
-      return `<p>${bold(lines.join("<br>"))}</p>`
+      return `<p>${inline(lines.join("<br>"))}</p>`
     })
     .join("\n")
 }
