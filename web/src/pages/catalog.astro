@@ -323,6 +323,7 @@ const catalogJson = JSON.stringify(
             <div>
               <h3 id="detail-name" class="font-semibold text-sm leading-snug"></h3>
               <p id="detail-location" class="text-xs text-muted-foreground mt-0.5"></p>
+              <p id="detail-position" class="text-[10px] text-muted-foreground/50 mt-0.5"></p>
             </div>
 
             <div id="detail-tags-section" style="display:none">
@@ -463,6 +464,7 @@ const catalogJson = JSON.stringify(
   const detailImg         = document.getElementById("detail-img") as HTMLImageElement
   const detailName        = document.getElementById("detail-name") as HTMLElement
   const detailLocation    = document.getElementById("detail-location") as HTMLElement
+  const detailPosition    = document.getElementById("detail-position") as HTMLElement
   const detailTagsSection    = document.getElementById("detail-tags-section") as HTMLDivElement
   const detailTags           = document.getElementById("detail-tags") as HTMLDivElement
   const detailStylesSection  = document.getElementById("detail-styles-section") as HTMLDivElement
@@ -478,6 +480,9 @@ const catalogJson = JSON.stringify(
   function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; components: string[]; diagramRef: string; category: string; subCategory: string }) {
     detailName.textContent = item.name || "Unnamed"
     detailLocation.textContent = item.category && item.subCategory ? `${item.category} › ${item.subCategory}` : ""
+    const filenameFromImg = item.img ? decodeURIComponent(item.img.split("/").pop() ?? "") : ""
+    const posMatch = filenameFromImg.match(/_(\d+)_(\d+)\.png$/)
+    detailPosition.textContent = posMatch ? `row ${posMatch[1]}, col ${posMatch[2]}` : ""
 
     detailImg.src = item.img
     detailImg.alt = item.name
