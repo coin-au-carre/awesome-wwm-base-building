@@ -4457,7 +4457,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "Wine churn",
+          "name": "Winter melon",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4625,7 +4625,7 @@
           "subCategory": "Single Target"
         },
         {
-          "name": "Board",
+          "name": "Bowl",
           "translations": {
             "cn": "",
             "fr": "",
@@ -4633,7 +4633,7 @@
             "jp": ""
           },
           "filename": "Single Target_14_1.png",
-          "tags": [],
+          "tags": ["food/drink"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
