@@ -2616,11 +2616,12 @@
             "jp": ""
           },
           "filename": "Accessory_8_1.png",
-          "tags": [],
+          "tags": [
+            "statue"
+          ],
           "styles": [
             "snow",
-            "stone",
-            "statue"
+            "stone"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -2635,11 +2636,12 @@
             "jp": ""
           },
           "filename": "Accessory_8_2.png",
-          "tags": [],
+          "tags": [
+            "statue"
+          ],
           "styles": [
             "snow",
-            "stone",
-            "statue"
+            "stone"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -2724,12 +2726,12 @@
           },
           "filename": "Accessory_9_2.png",
           "tags": [
-            "variants"
+            "variants",
+            "statue"
           ],
           "styles": [
             "snow",
-            "stone",
-            "statue"
+            "stone"
           ],
           "hasVariants": true,
           "category": "Furniture Decoration",
@@ -3484,11 +3486,12 @@
             "jp": ""
           },
           "filename": "Building_4_3.png",
-          "tags": [],
+          "tags": [
+            "huge"
+          ],
           "styles": [
             "snow",
-            "wood",
-            "huge"
+            "wood"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -3518,10 +3521,11 @@
             "jp": ""
           },
           "filename": "Building_4_5.png",
-          "tags": [],
-          "styles": [
-            "snow",
+          "tags": [
             "huge"
+          ],
+          "styles": [
+            "snow"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
