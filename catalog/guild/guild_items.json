@@ -122,10 +122,11 @@
             "jp": ""
           },
           "filename": "Floor_2_1.png",
-          "tags": [],
-          "styles": [
-            "stone",
+          "tags": [
             "floor"
+          ],
+          "styles": [
+            "stone"
           ],
           "hasVariants": false,
           "category": "Basic Structure",
