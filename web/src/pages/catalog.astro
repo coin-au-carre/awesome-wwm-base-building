@@ -27,6 +27,10 @@ function imgPath(category: string, subcategory: string, filename: string) {
   return `/catalog/${encodeURIComponent(category)}/${encodeURIComponent(subcategory)}/${encodeURIComponent(filename)}`
 }
 
+function catIconPath(category: string) {
+  return `/catalog/${encodeURIComponent(category)}/icon.png`
+}
+
 function variantsImgPath(category: string, subcategory: string, filename: string) {
   return imgPath(category, subcategory, filename.replace(".png", "_variants.png"))
 }
@@ -170,13 +174,14 @@ const catalogJson = JSON.stringify(
       {categories.map((cat, i) => (
         <button
           class:list={[
-            "cat-tab px-4 py-2 text-sm font-medium rounded-t border-b-2 transition-colors shrink-0 whitespace-nowrap",
+            "cat-tab flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-t border-b-2 transition-colors shrink-0 whitespace-nowrap",
             i === 0
               ? "border-primary text-primary"
               : "border-transparent text-muted-foreground hover:text-foreground",
           ]}
           data-cat={cat.name}
         >
+          <img src={catIconPath(cat.name)} alt="" class="w-4 h-4 object-contain shrink-0 invert opacity-60" />
           {cat.name}
         </button>
       ))}

@@ -2125,7 +2125,7 @@
             "jp": ""
           },
           "filename": "Accessory_2_2.png",
-          "tags": [],
+          "tags": ["carpet"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -2140,7 +2140,7 @@
             "jp": ""
           },
           "filename": "Accessory_2_3.png",
-          "tags": [],
+          "tags": ["carpet"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -8326,9 +8326,7 @@
             "jp": ""
           },
           "filename": "Interior Decoration_34_4.png",
-          "tags": [
-            "table"
-          ],
+          "tags": [],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8343,9 +8341,7 @@
             "jp": ""
           },
           "filename": "Interior Decoration_34_5.png",
-          "tags": [
-            "table"
-          ],
+          "tags": [],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8554,7 +8550,7 @@
           "subCategory": "Interior Decoration"
         },
         {
-          "name": "Rug",
+          "name": "Wine Rack",
           "translations": {
             "cn": "",
             "fr": "",
