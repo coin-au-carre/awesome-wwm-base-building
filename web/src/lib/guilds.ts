@@ -70,6 +70,8 @@ export function getLastSyncDate(): string {
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
+      timeZone: "UTC",
+      timeZoneName: "short",
     })
   } catch {
     return "Unknown"
