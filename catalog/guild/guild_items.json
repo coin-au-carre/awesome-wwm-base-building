@@ -26,6 +26,7 @@
           "tags": [
             "variants",
             "floor",
+            "stairs",
             "must-try"
           ],
           "styles": [],
@@ -280,7 +281,8 @@
           },
           "filename": "Wall_1_4.png",
           "tags": [
-            "variants"
+            "variants",
+            "stairs"
           ],
           "styles": [],
           "hasVariants": true,
@@ -10014,7 +10016,7 @@
           },
           "filename": "Diagram_1_1_floor.png",
           "tags": [
-            "stairs"
+            "floor"
           ],
           "styles": [
             "wood"

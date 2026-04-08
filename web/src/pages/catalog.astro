@@ -803,9 +803,9 @@ const catalogJson = JSON.stringify(
 
   // Group order: structural → furniture → misc. Tags not listed fall into a final group.
   const tagGroupDefs: { label: string; tags: string[] }[] = [
-    { label: "Structure",  tags: ["wall", "floor", "ceiling", "roof", "stairs", "guardrail", "door/gate", "window/frame"] },
-    { label: "Furniture",  tags: ["bed", "carpet", "chair", "table", "lamp", "bath"] },
-    { label: "Accessories", tags: ["statue", "plant", "interactive", "diagram", "variants", "large component"] },
+    { label: "Structure",   tags: ["wall", "floor", "ceiling", "roof", "stairs", "guardrail", "door/gate", "window/frame", "railing"] },
+    { label: "Accessories", tags: ["interactive", "statue", "plant"] },
+    { label: "Furniture",   tags: ["bed", "carpet", "chair", "table", "lamp", "bath"] },
   ]
   const tagGroupIndex: Record<string, number> = {}
   const tagPositionInGroup: Record<string, number> = {}
