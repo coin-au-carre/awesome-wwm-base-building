@@ -45,9 +45,9 @@ function parseTodo(raw: string): TodoSection[] {
 const todoSections = parseTodo(todoRaw)
 
 const raw = readFileSync(new URL("../../../catalog/guild/guild_items.json", import.meta.url), "utf-8")
-const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[] }[] }>>
+const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string }[] }>>
 
-type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[] }
+type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string }
 type Subcategory = { name: string; items: Item[] }
 type Category = { name: string; subcategories: Subcategory[] }
 
@@ -83,6 +83,7 @@ const catalogJson = JSON.stringify(
         styles: item.styles ?? [],
         hasVariants: item.hasVariants ?? false,
         components: (item.components ?? []).map((c) => imgPath(cat.name, sub.name, c)),
+        diagramRef: item.diagramRef ?? "",
         category: cat.name,
         subCategory: sub.name,
         img: item.filename ? imgPath(cat.name, sub.name, item.filename) : "",
@@ -338,6 +339,7 @@ const catalogJson = JSON.stringify(
                       data-has-variants={item.hasVariants ? "1" : ""}
                       data-styles={JSON.stringify(item.styles ?? [])}
                       data-components={JSON.stringify((item.components ?? []).map((c) => imgPath(cat.name, sub.name, c)))}
+                      data-diagram-ref={item.diagramRef ?? ""}
                       data-category={cat.name}
                       data-subcategory={sub.name}
                     >
@@ -427,6 +429,11 @@ const catalogJson = JSON.stringify(
               <div id="detail-styles" class="flex flex-wrap gap-1.5"></div>
             </div>
 
+            <div id="detail-diagram-ref-section" style="display:none">
+              <p class="text-xs text-muted-foreground mb-2">Part of: <span id="detail-diagram-ref-name" class="text-foreground font-medium"></span></p>
+              <img id="detail-diagram-ref-img" src="" alt="" class="w-full object-cover rounded-lg max-h-40" />
+            </div>
+
             <div id="detail-variants-section" style="display:none">
               <p class="text-xs text-muted-foreground mb-2">Variants</p>
               <div class="bg-neutral-900 rounded-lg overflow-hidden cursor-zoom-in" id="detail-variants-thumb">
@@ -448,13 +455,17 @@ const catalogJson = JSON.stringify(
   <!-- Mobile detail backdrop -->
   <div id="detail-backdrop" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden" style="display:none"></div>
 
-  <!-- Variants lightbox -->
+  <!-- Variants / component lightbox -->
   <div
     id="variants-lightbox"
-    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex flex-col items-center justify-center gap-3 p-4 cursor-zoom-out"
     style="display:none"
   >
-    <img id="lightbox-img" src="" alt="Variants" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+    <img id="lightbox-img" src="" alt="Variants" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl" />
+    <div id="lightbox-caption" class="text-center" style="display:none">
+      <p id="lightbox-component-name" class="text-sm font-medium text-white capitalize"></p>
+      <p id="lightbox-master-name" class="text-xs text-white/60 mt-0.5"></p>
+    </div>
   </div>
 </Layout>
 
@@ -463,7 +474,7 @@ const catalogJson = JSON.stringify(
 <script>
   // ── types & data ─────────────────────────────────────────────────────────────
 
-  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; category: string; subCategory: string; img: string; variantsImg: string }
+  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; diagramRef: string; category: string; subCategory: string; img: string; variantsImg: string }
   type CatalogSub  = { name: string; items: CatalogItem[] }
   type CatalogCat  = { name: string; subcategories: CatalogSub[] }
 
@@ -521,12 +532,15 @@ const catalogJson = JSON.stringify(
   const detailTags           = document.getElementById("detail-tags") as HTMLDivElement
   const detailStylesSection  = document.getElementById("detail-styles-section") as HTMLDivElement
   const detailStyles         = document.getElementById("detail-styles") as HTMLDivElement
+  const detailDiagramRefSection = document.getElementById("detail-diagram-ref-section") as HTMLDivElement
+  const detailDiagramRefImg     = document.getElementById("detail-diagram-ref-img") as HTMLImageElement
+  const detailDiagramRefName    = document.getElementById("detail-diagram-ref-name") as HTMLSpanElement
   const detailVariants          = document.getElementById("detail-variants-section") as HTMLDivElement
   const detailVariantsImg       = document.getElementById("detail-variants-img") as HTMLImageElement
   const detailComponentsSection = document.getElementById("detail-components-section") as HTMLDivElement
   const detailComponents        = document.getElementById("detail-components") as HTMLDivElement
 
-  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; components: string[]; category: string; subCategory: string }) {
+  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; components: string[]; diagramRef: string; category: string; subCategory: string }) {
     detailName.textContent = item.name || "Unnamed"
     detailLocation.textContent = item.category && item.subCategory ? `${item.category} › ${item.subCategory}` : ""
 
@@ -562,6 +576,17 @@ const catalogJson = JSON.stringify(
       detailStylesSection.style.display = "none"
     }
 
+    if (item.diagramRef) {
+      const master = catalog.flatMap((c) => c.subcategories.flatMap((s) => s.items)).find((i) => i.name === item.diagramRef)
+      detailDiagramRefName.textContent = item.diagramRef
+      detailDiagramRefImg.src = master?.img ?? ""
+      detailDiagramRefImg.alt = item.diagramRef
+      detailDiagramRefImg.style.display = master?.img ? "" : "none"
+      detailDiagramRefSection.style.display = ""
+    } else {
+      detailDiagramRefSection.style.display = "none"
+    }
+
     if (item.hasVariants && item.variantsImg) {
       detailVariantsImg.src = item.variantsImg
       detailVariants.style.display = ""
@@ -577,7 +602,8 @@ const catalogJson = JSON.stringify(
         const label = file.replace(/\.[^.]+$/, "").split("_").pop() ?? file
 
         const wrap = document.createElement("div")
-        wrap.className = "relative bg-neutral-900 rounded overflow-hidden"
+        wrap.className = "relative bg-neutral-900 rounded overflow-hidden cursor-zoom-in"
+        wrap.addEventListener("click", () => openLightbox(src, label, item.name || undefined))
 
         const img = document.createElement("img")
         img.src = src
@@ -587,7 +613,7 @@ const catalogJson = JSON.stringify(
         wrap.appendChild(img)
 
         const nameEl = document.createElement("p")
-        nameEl.className = "absolute bottom-0 left-0 right-0 px-1.5 py-1 text-[10px] font-medium text-white text-center bg-black/60 capitalize"
+        nameEl.className = "absolute bottom-0 left-0 right-0 px-1.5 py-1 text-[10px] font-medium text-white text-center bg-black/60 capitalize leading-tight"
         nameEl.textContent = label
         wrap.appendChild(nameEl)
 
@@ -620,6 +646,7 @@ const catalogJson = JSON.stringify(
         hasVariants: card.dataset.hasVariants === "1",
         variantsImg: card.dataset.variantsImg ?? "",
         components:  JSON.parse(card.dataset.components ?? "[]"),
+        diagramRef:  card.dataset.diagramRef ?? "",
         category:    card.dataset.category ?? "",
         subCategory: card.dataset.subcategory ?? "",
       })
@@ -832,6 +859,7 @@ const catalogJson = JSON.stringify(
     card.dataset.hasVariants = item.hasVariants ? "1" : ""
     card.dataset.variantsImg = item.variantsImg
     card.dataset.components  = JSON.stringify(item.components ?? [])
+    card.dataset.diagramRef  = item.diagramRef ?? ""
     card.dataset.category    = item.category
     card.dataset.subcategory = item.subCategory
 
@@ -971,26 +999,41 @@ const catalogJson = JSON.stringify(
     if (searchInput.value) updateSuggestions(searchInput.value)
   })
 
-  // ── variants lightbox ─────────────────────────────────────────────────────────
+  // ── variants / component lightbox ────────────────────────────────────────────
 
-  const lightbox    = document.getElementById("variants-lightbox") as HTMLDivElement
-  const lightboxImg = document.getElementById("lightbox-img") as HTMLImageElement
+  const lightbox             = document.getElementById("variants-lightbox") as HTMLDivElement
+  const lightboxImg          = document.getElementById("lightbox-img") as HTMLImageElement
+  const lightboxCaption      = document.getElementById("lightbox-caption") as HTMLDivElement
+  const lightboxComponentName = document.getElementById("lightbox-component-name") as HTMLParagraphElement
+  const lightboxMasterName   = document.getElementById("lightbox-master-name") as HTMLParagraphElement
 
-  document.getElementById("detail-variants-thumb")!.addEventListener("click", () => {
-    lightboxImg.src = detailVariantsImg.src
+  function openLightbox(src: string, componentName?: string, masterName?: string) {
+    lightboxImg.src = src
+    lightboxImg.alt = componentName ?? ""
+    if (componentName || masterName) {
+      lightboxComponentName.textContent = componentName ?? ""
+      lightboxMasterName.textContent = masterName ? `Part of: ${masterName}` : ""
+      lightboxCaption.style.display = ""
+    } else {
+      lightboxCaption.style.display = "none"
+    }
     lightbox.style.display = "flex"
-  })
+  }
 
-  lightbox.addEventListener("click", () => {
+  function closeLightbox() {
     lightbox.style.display = "none"
     lightboxImg.src = ""
+    lightboxCaption.style.display = "none"
+  }
+
+  document.getElementById("detail-variants-thumb")!.addEventListener("click", () => {
+    openLightbox(detailVariantsImg.src)
   })
 
+  lightbox.addEventListener("click", closeLightbox)
+
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      lightbox.style.display = "none"
-      lightboxImg.src = ""
-    }
+    if (e.key === "Escape") closeLightbox()
   })
 
   // ── URL param initialization ──────────────────────────────────────────────────

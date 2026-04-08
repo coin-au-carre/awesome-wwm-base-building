@@ -9711,7 +9711,7 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Diagram",
-          "diagram": ["Windmaster Tower"]
+          "diagramRef": "Windmaster Tower"
         },
         {
           "name": "Windmaster Ceiling",
@@ -9727,7 +9727,7 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Diagram",
-          "diagram": ["Windmaster Tower"]
+          "diagramRef": "Windmaster Tower"
         },
         {
           "name": "Windmaster Roof",
@@ -9743,7 +9743,7 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Diagram",
-          "diagram": ["Windmaster Tower"]
+          "diagramRef": "Windmaster Tower"
         },
         {
           "name": "Windmaster Floor",
@@ -9759,7 +9759,7 @@
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Diagram",
-          "diagram": ["Windmaster Tower"]
+          "diagramRef": "Windmaster Tower"
         }
       ]
     },
