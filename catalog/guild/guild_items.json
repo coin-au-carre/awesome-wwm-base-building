@@ -1930,7 +1930,8 @@
           },
           "filename": "Furniture_7_2.png",
           "tags": [
-            "variants"
+            "variants",
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": true,
@@ -2771,7 +2772,8 @@
           },
           "filename": "Miscellaneous_1_3.png",
           "tags": [
-            "variants"
+            "variants",
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": true,
@@ -4369,7 +4371,9 @@
             "jp": ""
           },
           "filename": "Single Target_10_5.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4384,7 +4388,9 @@
             "jp": ""
           },
           "filename": "Single Target_11_1.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4459,7 +4465,9 @@
             "jp": ""
           },
           "filename": "Single Target_12_1.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4474,7 +4482,9 @@
             "jp": ""
           },
           "filename": "Single Target_12_2.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4489,7 +4499,9 @@
             "jp": ""
           },
           "filename": "Single Target_12_3.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4504,7 +4516,9 @@
             "jp": ""
           },
           "filename": "Single Target_12_4.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4519,7 +4533,9 @@
             "jp": ""
           },
           "filename": "Single Target_12_5.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4534,7 +4550,9 @@
             "jp": ""
           },
           "filename": "Single Target_13_1.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4550,7 +4568,8 @@
           },
           "filename": "Single Target_13_2.png",
           "tags": [
-            "plant"
+            "plant",
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": false,
@@ -4567,7 +4586,8 @@
           },
           "filename": "Single Target_13_3.png",
           "tags": [
-            "plant"
+            "plant",
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": false,
@@ -4720,7 +4740,9 @@
             "jp": ""
           },
           "filename": "Single Target_15_3.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -6711,7 +6733,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_13_4.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -7167,7 +7191,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_19_4.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8266,7 +8292,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_34_2.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8281,7 +8309,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_34_3.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8362,7 +8392,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_35_3.png",
-          "tags": [],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -9240,9 +9272,7 @@
             "jp": ""
           },
           "filename": "Plant_7_5.png",
-          "tags": [
-            "plant"
-          ],
+          "tags": ["plant"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
