@@ -24,7 +24,7 @@
           },
           "filename": "Floor_1_1.png",
           "tags": [
-            "variants"
+            "variants", "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -58,7 +58,7 @@
           },
           "filename": "Floor_1_3.png",
           "tags": [
-            "variants"
+            "variants", "must-try"
           ],
           "styles": [
             "stone"
@@ -77,7 +77,7 @@
           },
           "filename": "Floor_1_4.png",
           "tags": [
-            "variants"
+            "variants", "must-try"
           ],
           "styles": [
             "stone"
@@ -96,7 +96,7 @@
           },
           "filename": "Floor_1_5.png",
           "tags": [
-            "variants"
+            "variants", "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -557,7 +557,7 @@
           },
           "filename": "Wall_4_5.png",
           "tags": [
-            "large component"
+            "huge"
           ],
           "styles": [],
           "hasVariants": false,
@@ -1606,7 +1606,8 @@
           },
           "filename": "Furniture_3_2.png",
           "tags": [
-            "table"
+            "table", 
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": false,
@@ -2281,7 +2282,8 @@
           },
           "filename": "Accessory_4_2.png",
           "tags": [
-            "plant"
+            "plant",
+            "huge"
           ],
           "styles": [],
           "hasVariants": false,
@@ -2298,7 +2300,8 @@
           },
           "filename": "Accessory_4_3.png",
           "tags": [
-            "variants"
+            "variants",
+            "statue"
           ],
           "styles": [],
           "hasVariants": true,
@@ -2316,7 +2319,7 @@
           "filename": "Accessory_4_4.png",
           "tags": [
             "plant",
-            "variants"
+            "variants","must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -2499,7 +2502,8 @@
           },
           "filename": "Accessory_6_5.png",
           "tags": [
-            "variants"
+            "variants",
+            "statue"
           ],
           "styles": [],
           "hasVariants": true,
@@ -2575,7 +2579,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "Snow Wind Nest",
+          "name": "North Wind Nest",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2594,7 +2598,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "Snow Field Stone Lion",
+          "name": "Snowfield Stone Lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2605,14 +2609,15 @@
           "tags": [],
           "styles": [
             "snow",
-            "stone"
+            "stone",
+            "statue"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
           "subCategory": "Accessory"
         },
         {
-          "name": "Snow Field Stone Lion",
+          "name": "Snowfield Stone Lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2623,7 +2628,8 @@
           "tags": [],
           "styles": [
             "snow",
-            "stone"
+            "stone",
+            "statue"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -2712,7 +2718,8 @@
           ],
           "styles": [
             "snow",
-            "stone"
+            "stone",
+            "statue"
           ],
           "hasVariants": true,
           "category": "Furniture Decoration",
@@ -3261,7 +3268,7 @@
             "jp": ""
           },
           "filename": "Building_2_1.png",
-          "tags": [],
+          "tags": ["must-try"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -3339,7 +3346,8 @@
           },
           "filename": "Building_3_1.png",
           "tags": [
-            "variants"
+            "variants",
+            "huge"
           ],
           "styles": [],
           "hasVariants": true,
@@ -3356,7 +3364,8 @@
           },
           "filename": "Building_3_2.png",
           "tags": [
-            "variants"
+            "variants",
+            "huge"
           ],
           "styles": [],
           "hasVariants": true,
@@ -3373,7 +3382,8 @@
           },
           "filename": "Building_3_3.png",
           "tags": [
-            "variants"
+            "variants",
+            "huge"
           ],
           "styles": [],
           "hasVariants": true,
@@ -3415,7 +3425,7 @@
           "subCategory": "Building"
         },
         {
-          "name": "Wandering Arch",
+          "name": "Wandering Ark",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3423,7 +3433,7 @@
             "jp": ""
           },
           "filename": "Building_4_1.png",
-          "tags": [],
+          "tags": ["huge", "desert"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -3439,7 +3449,7 @@
           },
           "filename": "Building_4_2.png",
           "tags": [
-            "variants"
+            "variants", "huge"
           ],
           "styles": [
             "wood"
@@ -3460,7 +3470,8 @@
           "tags": [],
           "styles": [
             "snow",
-            "wood"
+            "wood",
+            "huge"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -3492,7 +3503,8 @@
           "filename": "Building_4_5.png",
           "tags": [],
           "styles": [
-            "snow"
+            "snow",
+            "huge"
           ],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -3508,10 +3520,10 @@
           },
           "filename": "Building_5_1.png",
           "tags": [
-            "variants"
+            "variants", "huge"
           ],
           "styles": [
-            "stone"
+            "stone", "desert"
           ],
           "hasVariants": true,
           "category": "Furniture Decoration",
@@ -3527,7 +3539,7 @@
           },
           "filename": "Building_5_2.png",
           "tags": [
-            "variants"
+            "variants", "desert"
           ],
           "styles": [],
           "hasVariants": true,
@@ -3544,7 +3556,7 @@
           },
           "filename": "Building_5_3.png",
           "tags": [
-            "variants"
+            "variants", "desert"
           ],
           "styles": [],
           "hasVariants": true,
@@ -3813,7 +3825,7 @@
             "jp": ""
           },
           "filename": "Single Target_3_4.png",
-          "tags": [],
+          "tags": ["must-try"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -3907,7 +3919,7 @@
             "jp": ""
           },
           "filename": "Single Target_4_5.png",
-          "tags": [],
+          "tags": ["statue"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -5027,7 +5039,8 @@
           },
           "filename": "Single Target_19_1.png",
           "tags": [
-            "lamp"
+            "lamp",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": false,
@@ -5489,7 +5502,7 @@
             "jp": ""
           },
           "filename": "Outdoor Decoration_6_2.png",
-          "tags": [],
+          "tags": ["must-try"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -5852,7 +5865,7 @@
           },
           "filename": "Interior Decoration_2_1.png",
           "tags": [
-            "variants"
+            "variants", "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -5900,8 +5913,8 @@
             "jp": ""
           },
           "filename": "Interior Decoration_2_4.png",
-          "tags": [],
-          "styles": [],
+          "tags": ["must-try"],
+          "styles": ["wood"],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
@@ -5915,8 +5928,8 @@
             "jp": ""
           },
           "filename": "Interior Decoration_2_5.png",
-          "tags": [],
-          "styles": [],
+          "tags": ["must-try"],
+          "styles": ["wood"],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
@@ -8920,7 +8933,7 @@
           "filename": "Plant_3_4.png",
           "tags": [
             "variants",
-            "plant"
+            "plant", "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -9804,7 +9817,8 @@
           },
           "filename": "Diagram_1_1.png",
           "tags": [
-            "diagram"
+            "diagram",
+            "huge"
           ],
           "styles": [],
           "hasVariants": false,
@@ -9827,7 +9841,8 @@
           },
           "filename": "Diagram_1_2.png",
           "tags": [
-            "diagram"
+            "diagram",
+            "huge"
           ],
           "styles": [],
           "hasVariants": false,
@@ -9844,7 +9859,8 @@
           },
           "filename": "Diagram_1_3.png",
           "tags": [
-            "diagram"
+            "diagram",
+            "huge"
           ],
           "styles": [],
           "hasVariants": false,
@@ -9965,7 +9981,7 @@
             "jp": ""
           },
           "filename": "Large Components_1_2.png",
-          "tags": [],
+          "tags": ["must-try"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -10329,7 +10345,8 @@
           "filename": "Interactive Component_2_5.png",
           "tags": [
             "chair",
-            "interactive"
+            "interactive",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": false,

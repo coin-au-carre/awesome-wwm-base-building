@@ -181,7 +181,7 @@ const catalogJson = JSON.stringify(
           ]}
           data-cat={cat.name}
         >
-          <img src={catIconPath(cat.name)} alt="" class="w-4 h-4 object-contain shrink-0 invert opacity-60" />
+          <img src={catIconPath(cat.name)} alt="" class="w-6 h-6 object-contain shrink-0" />
           {cat.name}
         </button>
       ))}
@@ -384,6 +384,17 @@ const catalogJson = JSON.stringify(
     </div>
   </div>
 </Layout>
+
+<style>
+  .cat-tab img {
+    filter: brightness(0) opacity(0.6);
+    transition: filter 0.2s ease;
+  }
+  .cat-tab.border-primary img {
+    filter: brightness(0) saturate(100%) invert(60%) sepia(80%) saturate(600%) hue-rotate(340deg) drop-shadow(0 0 2px rgba(255, 120, 20, 0.35));
+    opacity: 1;
+  }
+</style>
 
 <script is:inline type="application/json" id="catalog-data" set:html={catalogJson} />
 
