@@ -153,6 +153,18 @@ const catalogJson = JSON.stringify(
       ></ul>
     </div>
 
+    <!-- Quick filters -->
+    <div id="quick-filters" class="space-y-1.5">
+      <div id="tag-pills-row" style="display:none" class="flex items-start gap-x-2 gap-y-1.5 flex-wrap">
+        <span class="text-xs text-muted-foreground shrink-0 pt-0.5">Tags</span>
+        <div id="tag-pills" class="flex flex-wrap gap-1.5"></div>
+      </div>
+      <div id="style-pills-row" style="display:none" class="flex items-start gap-x-2 gap-y-1.5 flex-wrap">
+        <span class="text-xs text-muted-foreground shrink-0 pt-0.5">Styles</span>
+        <div id="style-pills" class="flex flex-wrap gap-1.5"></div>
+      </div>
+    </div>
+
     <!-- Category tabs -->
     <div class="flex gap-1 border-b border-border overflow-x-auto scrollbar-none" id="cat-tabs">
       {categories.map((cat, i) => (
@@ -446,10 +458,14 @@ const catalogJson = JSON.stringify(
     if (item.tags.length > 0) {
       detailTagsSection.style.display = ""
       item.tags.forEach((tag) => {
-        const badge = document.createElement("span")
-        badge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
+        const badge = document.createElement("button")
+        badge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
         badge.setAttribute("style", tagStyle(tag))
         badge.textContent = tag
+        badge.addEventListener("click", () => {
+          if (isMobile()) closeMobileSheet()
+          pillClickHandler("#", tag)
+        })
         detailTags.appendChild(badge)
       })
     } else {
@@ -460,10 +476,14 @@ const catalogJson = JSON.stringify(
     if (item.styles.length > 0) {
       detailStylesSection.style.display = ""
       item.styles.forEach((style) => {
-        const badge = document.createElement("span")
-        badge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium"
+        const badge = document.createElement("button")
+        badge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
         badge.setAttribute("style", styleStyle(style))
         badge.textContent = `@${style}`
+        badge.addEventListener("click", () => {
+          if (isMobile()) closeMobileSheet()
+          pillClickHandler("@", style)
+        })
         detailStyles.appendChild(badge)
       })
     } else {
@@ -675,6 +695,73 @@ const catalogJson = JSON.stringify(
     catalog.flatMap((cat) => cat.subcategories.flatMap((sub) => sub.items.flatMap((item) => item.styles)))
   )].filter(Boolean).sort()
 
+  // ── quick filter pills ───────────────────────────────────────────────────────
+
+  const tagPillsRow  = document.getElementById("tag-pills-row") as HTMLDivElement
+  const stylePillsRow = document.getElementById("style-pills-row") as HTMLDivElement
+  const tagPillsEl   = document.getElementById("tag-pills") as HTMLDivElement
+  const stylePillsEl = document.getElementById("style-pills") as HTMLDivElement
+
+  function updatePillActiveStates() {
+    const raw     = searchInput.value.trim()
+    const isTag   = raw.startsWith("#")
+    const isStyle = raw.startsWith("@")
+    const q       = raw.slice(isTag || isStyle ? 1 : 0).trim()
+    const activeTag   = isTag   && q ? q : null
+    const activeStyle = isStyle && q ? q : null
+    const dim = raw.length > 0
+
+    tagPillsEl.querySelectorAll<HTMLButtonElement>("button[data-value]").forEach((btn) => {
+      const on = activeTag === btn.dataset.value
+      btn.classList.toggle("ring-2", on)
+      btn.classList.toggle("ring-white/60", on)
+      btn.classList.toggle("opacity-40", dim && !on)
+    })
+    stylePillsEl.querySelectorAll<HTMLButtonElement>("button[data-value]").forEach((btn) => {
+      const on = activeStyle === btn.dataset.value
+      btn.classList.toggle("ring-2", on)
+      btn.classList.toggle("ring-white/60", on)
+      btn.classList.toggle("opacity-40", dim && !on)
+    })
+  }
+
+  function pillClickHandler(prefix: "#" | "@", value: string) {
+    const target = `${prefix}${value}`
+    const isSame = searchInput.value.trim() === target
+    const newVal = isSame ? "" : target
+    searchInput.value = newVal
+    hideSuggestions()
+    runSearch(newVal)
+    syncUrl()
+    updatePillActiveStates()
+  }
+
+  if (allTags.length > 0) {
+    tagPillsRow.style.display = ""
+    allTags.forEach((tag) => {
+      const btn = document.createElement("button")
+      btn.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium transition-opacity cursor-pointer"
+      btn.setAttribute("style", tagStyle(tag))
+      btn.dataset.value = tag
+      btn.textContent = `#${tag}`
+      btn.addEventListener("click", () => pillClickHandler("#", tag))
+      tagPillsEl.appendChild(btn)
+    })
+  }
+
+  if (allStyles.length > 0) {
+    stylePillsRow.style.display = ""
+    allStyles.forEach((style) => {
+      const btn = document.createElement("button")
+      btn.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium transition-opacity cursor-pointer"
+      btn.setAttribute("style", styleStyle(style))
+      btn.dataset.value = style
+      btn.textContent = `@${style}`
+      btn.addEventListener("click", () => pillClickHandler("@", style))
+      stylePillsEl.appendChild(btn)
+    })
+  }
+
   let activeSuggestionIdx = -1
 
   function hideSuggestions() {
@@ -852,6 +939,7 @@ const catalogJson = JSON.stringify(
     hideSuggestions()
     runSearch("")
     syncUrl()
+    updatePillActiveStates()
     searchInput.focus()
   })
 
@@ -860,6 +948,7 @@ const catalogJson = JSON.stringify(
     updateSuggestions(val)
     runSearch(val)
     syncUrl()
+    updatePillActiveStates()
   })
 
   searchInput.addEventListener("keydown", (e) => {
@@ -940,6 +1029,7 @@ const catalogJson = JSON.stringify(
     if (initQ) {
       searchInput.value = initQ
       runSearch(initQ)
+      updatePillActiveStates()
       return
     }
     if (initCat) {
