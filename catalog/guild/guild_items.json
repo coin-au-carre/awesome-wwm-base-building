@@ -24,7 +24,8 @@
           },
           "filename": "Floor_1_1.png",
           "tags": [
-            "variants", "must-try"
+            "variants",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -58,7 +59,8 @@
           },
           "filename": "Floor_1_3.png",
           "tags": [
-            "variants", "must-try"
+            "variants",
+            "must-try"
           ],
           "styles": [
             "stone"
@@ -77,7 +79,8 @@
           },
           "filename": "Floor_1_4.png",
           "tags": [
-            "variants", "must-try"
+            "variants",
+            "must-try"
           ],
           "styles": [
             "stone"
@@ -96,7 +99,8 @@
           },
           "filename": "Floor_1_5.png",
           "tags": [
-            "variants", "must-try"
+            "variants",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -1367,7 +1371,8 @@
           },
           "filename": "Ladder Pillar_3_4.png",
           "tags": [
-            "variants"
+            "variants",
+            "stairs"
           ],
           "styles": [],
           "hasVariants": true,
@@ -1606,7 +1611,7 @@
           },
           "filename": "Furniture_3_2.png",
           "tags": [
-            "table", 
+            "table",
             "food/drink"
           ],
           "styles": [],
@@ -2126,7 +2131,9 @@
             "jp": ""
           },
           "filename": "Accessory_2_2.png",
-          "tags": ["carpet"],
+          "tags": [
+            "carpet"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -2141,7 +2148,9 @@
             "jp": ""
           },
           "filename": "Accessory_2_3.png",
-          "tags": ["carpet"],
+          "tags": [
+            "carpet"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -2319,7 +2328,8 @@
           "filename": "Accessory_4_4.png",
           "tags": [
             "plant",
-            "variants","must-try"
+            "variants",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -3268,7 +3278,9 @@
             "jp": ""
           },
           "filename": "Building_2_1.png",
-          "tags": ["must-try"],
+          "tags": [
+            "must-try"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -3433,8 +3445,12 @@
             "jp": ""
           },
           "filename": "Building_4_1.png",
-          "tags": ["huge", "desert"],
-          "styles": [],
+          "tags": [
+            "huge"
+          ],
+          "styles": [
+            "desert"
+          ],
           "hasVariants": false,
           "category": "Furniture Decoration",
           "subCategory": "Building"
@@ -3449,7 +3465,8 @@
           },
           "filename": "Building_4_2.png",
           "tags": [
-            "variants", "huge"
+            "variants",
+            "huge"
           ],
           "styles": [
             "wood"
@@ -3520,10 +3537,12 @@
           },
           "filename": "Building_5_1.png",
           "tags": [
-            "variants", "huge"
+            "variants",
+            "huge"
           ],
           "styles": [
-            "stone", "desert"
+            "stone",
+            "desert"
           ],
           "hasVariants": true,
           "category": "Furniture Decoration",
@@ -3539,9 +3558,11 @@
           },
           "filename": "Building_5_2.png",
           "tags": [
-            "variants", "desert"
+            "variants"
           ],
-          "styles": [],
+          "styles": [
+            "desert"
+          ],
           "hasVariants": true,
           "category": "Furniture Decoration",
           "subCategory": "Building"
@@ -3556,9 +3577,11 @@
           },
           "filename": "Building_5_3.png",
           "tags": [
-            "variants", "desert"
+            "variants"
           ],
-          "styles": [],
+          "styles": [
+            "desert"
+          ],
           "hasVariants": true,
           "category": "Furniture Decoration",
           "subCategory": "Building"
@@ -3825,7 +3848,9 @@
             "jp": ""
           },
           "filename": "Single Target_3_4.png",
-          "tags": ["must-try"],
+          "tags": [
+            "must-try"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -3919,7 +3944,9 @@
             "jp": ""
           },
           "filename": "Single Target_4_5.png",
-          "tags": ["statue"],
+          "tags": [
+            "statue"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4645,7 +4672,9 @@
             "jp": ""
           },
           "filename": "Single Target_14_1.png",
-          "tags": ["food/drink"],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -5502,7 +5531,9 @@
             "jp": ""
           },
           "filename": "Outdoor Decoration_6_2.png",
-          "tags": ["must-try"],
+          "tags": [
+            "must-try"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -5865,7 +5896,8 @@
           },
           "filename": "Interior Decoration_2_1.png",
           "tags": [
-            "variants", "must-try"
+            "variants",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -5913,8 +5945,12 @@
             "jp": ""
           },
           "filename": "Interior Decoration_2_4.png",
-          "tags": ["must-try"],
-          "styles": ["wood"],
+          "tags": [
+            "must-try"
+          ],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
@@ -5928,8 +5964,12 @@
             "jp": ""
           },
           "filename": "Interior Decoration_2_5.png",
-          "tags": ["must-try"],
-          "styles": ["wood"],
+          "tags": [
+            "must-try"
+          ],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Interior Decoration"
@@ -8339,7 +8379,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_34_4.png",
-          "tags": [],
+          "tags": [
+            "table"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8354,7 +8396,9 @@
             "jp": ""
           },
           "filename": "Interior Decoration_34_5.png",
-          "tags": [],
+          "tags": [
+            "table"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8718,7 +8762,9 @@
             "jp": ""
           },
           "filename": "Plant_1_1.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8801,7 +8847,9 @@
             "jp": ""
           },
           "filename": "Plant_2_1.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8833,7 +8881,9 @@
             "jp": ""
           },
           "filename": "Plant_2_3.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8848,7 +8898,9 @@
             "jp": ""
           },
           "filename": "Plant_2_4.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8933,7 +8985,8 @@
           "filename": "Plant_3_4.png",
           "tags": [
             "variants",
-            "plant", "must-try"
+            "plant",
+            "must-try"
           ],
           "styles": [],
           "hasVariants": true,
@@ -8966,7 +9019,9 @@
             "jp": ""
           },
           "filename": "Plant_4_1.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8981,7 +9036,9 @@
             "jp": ""
           },
           "filename": "Plant_4_2.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -8996,7 +9053,9 @@
             "jp": ""
           },
           "filename": "Plant_4_3.png",
-          "tags": [],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -9281,7 +9340,9 @@
             "jp": ""
           },
           "filename": "Plant_7_5.png",
-          "tags": ["plant"],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -9981,7 +10042,9 @@
             "jp": ""
           },
           "filename": "Large Components_1_2.png",
-          "tags": ["must-try"],
+          "tags": [
+            "must-try"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
