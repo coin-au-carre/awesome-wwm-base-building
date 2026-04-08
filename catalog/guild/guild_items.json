@@ -25,6 +25,7 @@
           "filename": "Floor_1_1.png",
           "tags": [
             "variants",
+            "floor",
             "must-try"
           ],
           "styles": [],
@@ -42,9 +43,12 @@
           },
           "filename": "Floor_1_2.png",
           "tags": [
-            "variants"
+            "variants",
+            "floor"
           ],
-          "styles": [],
+          "styles": [
+            "wood"
+          ],
           "hasVariants": true,
           "category": "Basic Structure",
           "subCategory": "Floor"
@@ -60,7 +64,8 @@
           "filename": "Floor_1_3.png",
           "tags": [
             "variants",
-            "must-try"
+            "must-try",
+            "floor"
           ],
           "styles": [
             "stone"
@@ -100,7 +105,8 @@
           "filename": "Floor_1_5.png",
           "tags": [
             "variants",
-            "must-try"
+            "must-try",
+            "floor"
           ],
           "styles": [],
           "hasVariants": true,
@@ -118,7 +124,8 @@
           "filename": "Floor_2_1.png",
           "tags": [],
           "styles": [
-            "stone"
+            "stone",
+            "floor"
           ],
           "hasVariants": false,
           "category": "Basic Structure",
@@ -817,7 +824,8 @@
           },
           "filename": "Roof_2_5.png",
           "tags": [
-            "variants"
+            "variants",
+            "roof"
           ],
           "styles": [],
           "hasVariants": true,
@@ -834,7 +842,8 @@
           },
           "filename": "Roof_3_1.png",
           "tags": [
-            "variants"
+            "variants",
+            "roof"
           ],
           "styles": [],
           "hasVariants": true,
@@ -851,7 +860,8 @@
           },
           "filename": "Roof_3_2.png",
           "tags": [
-            "variants"
+            "variants",
+            "roof"
           ],
           "styles": [],
           "hasVariants": true,
@@ -868,7 +878,8 @@
           },
           "filename": "Roof_3_3.png",
           "tags": [
-            "variants"
+            "variants",
+            "roof"
           ],
           "styles": [],
           "hasVariants": true,
@@ -903,7 +914,8 @@
           },
           "filename": "Roof_3_5.png",
           "tags": [
-            "variants"
+            "variants",
+            "roof"
           ],
           "styles": [],
           "hasVariants": true,
@@ -920,7 +932,8 @@
           },
           "filename": "Roof_4_1.png",
           "tags": [
-            "variants"
+            "variants",
+            "roof"
           ],
           "styles": [],
           "hasVariants": true,
@@ -985,9 +998,9 @@
           },
           "filename": "Doors and Windows_1_1.png",
           "tags": [
-            "window",
-            "guardrail",
-            "variants"
+            "railing",
+            "variants",
+            "window/frame"
           ],
           "styles": [
             "wood"
@@ -1006,8 +1019,8 @@
           },
           "filename": "Doors and Windows_1_2.png",
           "tags": [
-            "door",
-            "variants"
+            "variants",
+            "door/gate"
           ],
           "styles": [
             "wood"
@@ -1026,9 +1039,9 @@
           },
           "filename": "Doors and Windows_1_3.png",
           "tags": [
-            "door",
-            "frame",
-            "variants"
+            "variants",
+            "door/gate",
+            "window/frame"
           ],
           "styles": [
             "wood"
@@ -1047,10 +1060,9 @@
           },
           "filename": "Doors and Windows_1_4.png",
           "tags": [
-            "window",
-            "guardrail",
-            "frame",
-            "variants"
+            "railing",
+            "variants",
+            "window/frame"
           ],
           "styles": [
             "wood"
@@ -1069,7 +1081,7 @@
           },
           "filename": "Doors and Windows_1_5.png",
           "tags": [
-            "frame"
+            "window/frame"
           ],
           "styles": [
             "wood"
@@ -1088,9 +1100,9 @@
           },
           "filename": "Doors and Windows_2_1.png",
           "tags": [
-            "door",
-            "frame",
-            "variants"
+            "variants",
+            "door/gate",
+            "window/frame"
           ],
           "styles": [
             "wood",
@@ -1109,9 +1121,8 @@
             "jp": ""
           },
           "tags": [
-            "door",
-            "gate",
-            "wall"
+            "wall",
+            "door/gate"
           ],
           "styles": [
             "wood"
