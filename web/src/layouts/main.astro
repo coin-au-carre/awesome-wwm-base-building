@@ -58,6 +58,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <title>{title}</title>
     <!-- Cloudflare Web Analytics -->
     <script is:inline defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "19c88f493b45462b96b98e26ee8cce4b"}'></script>
+    <!-- Umami Analytics -->
+    <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="b935013b-6c75-412f-bae6-c35e5bd65858"></script>
     <!-- Theme init (before paint to avoid flash) -->
     <script is:inline>
       ;(function () {
