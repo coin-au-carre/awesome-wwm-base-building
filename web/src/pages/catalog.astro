@@ -45,9 +45,9 @@ function parseTodo(raw: string): TodoSection[] {
 const todoSections = parseTodo(todoRaw)
 
 const raw = readFileSync(new URL("../../../catalog/guild/guild_items.json", import.meta.url), "utf-8")
-const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean }[] }>>
+const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[] }[] }>>
 
-type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean }
+type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[] }
 type Subcategory = { name: string; items: Item[] }
 type Category = { name: string; subcategories: Subcategory[] }
 
@@ -82,6 +82,7 @@ const catalogJson = JSON.stringify(
         tags: item.tags ?? [],
         styles: item.styles ?? [],
         hasVariants: item.hasVariants ?? false,
+        components: (item.components ?? []).map((c) => imgPath(cat.name, sub.name, c)),
         category: cat.name,
         subCategory: sub.name,
         img: item.filename ? imgPath(cat.name, sub.name, item.filename) : "",
@@ -336,6 +337,7 @@ const catalogJson = JSON.stringify(
                       data-variants-img={item.hasVariants && item.filename ? variantsImgPath(cat.name, sub.name, item.filename) : ""}
                       data-has-variants={item.hasVariants ? "1" : ""}
                       data-styles={JSON.stringify(item.styles ?? [])}
+                      data-components={JSON.stringify((item.components ?? []).map((c) => imgPath(cat.name, sub.name, c)))}
                       data-category={cat.name}
                       data-subcategory={sub.name}
                     >
@@ -431,6 +433,11 @@ const catalogJson = JSON.stringify(
                 <img id="detail-variants-img" src="" alt="Variants" class="w-full object-contain" />
               </div>
             </div>
+
+            <div id="detail-components-section" style="display:none">
+              <p class="text-xs text-muted-foreground mb-2">Components</p>
+              <div id="detail-components" class="grid grid-cols-2 gap-1.5"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -456,7 +463,7 @@ const catalogJson = JSON.stringify(
 <script>
   // ── types & data ─────────────────────────────────────────────────────────────
 
-  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; category: string; subCategory: string; img: string; variantsImg: string }
+  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; category: string; subCategory: string; img: string; variantsImg: string }
   type CatalogSub  = { name: string; items: CatalogItem[] }
   type CatalogCat  = { name: string; subcategories: CatalogSub[] }
 
@@ -514,10 +521,12 @@ const catalogJson = JSON.stringify(
   const detailTags           = document.getElementById("detail-tags") as HTMLDivElement
   const detailStylesSection  = document.getElementById("detail-styles-section") as HTMLDivElement
   const detailStyles         = document.getElementById("detail-styles") as HTMLDivElement
-  const detailVariants       = document.getElementById("detail-variants-section") as HTMLDivElement
-  const detailVariantsImg = document.getElementById("detail-variants-img") as HTMLImageElement
+  const detailVariants          = document.getElementById("detail-variants-section") as HTMLDivElement
+  const detailVariantsImg       = document.getElementById("detail-variants-img") as HTMLImageElement
+  const detailComponentsSection = document.getElementById("detail-components-section") as HTMLDivElement
+  const detailComponents        = document.getElementById("detail-components") as HTMLDivElement
 
-  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; category: string; subCategory: string }) {
+  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; components: string[]; category: string; subCategory: string }) {
     detailName.textContent = item.name || "Unnamed"
     detailLocation.textContent = item.category && item.subCategory ? `${item.category} › ${item.subCategory}` : ""
 
@@ -560,6 +569,34 @@ const catalogJson = JSON.stringify(
       detailVariants.style.display = "none"
     }
 
+    detailComponents.innerHTML = ""
+    if (item.components.length > 0) {
+      detailComponentsSection.style.display = ""
+      item.components.forEach((src) => {
+        const file = src.split("/").pop() ?? ""
+        const label = file.replace(/\.[^.]+$/, "").split("_").pop() ?? file
+
+        const wrap = document.createElement("div")
+        wrap.className = "relative bg-neutral-900 rounded overflow-hidden"
+
+        const img = document.createElement("img")
+        img.src = src
+        img.alt = label
+        img.className = "w-full object-contain"
+        img.loading = "lazy"
+        wrap.appendChild(img)
+
+        const nameEl = document.createElement("p")
+        nameEl.className = "absolute bottom-0 left-0 right-0 px-1.5 py-1 text-[10px] font-medium text-white text-center bg-black/60 capitalize"
+        nameEl.textContent = label
+        wrap.appendChild(nameEl)
+
+        detailComponents.appendChild(wrap)
+      })
+    } else {
+      detailComponentsSection.style.display = "none"
+    }
+
     detailEmpty.style.display = "none"
     detailContent.style.display = ""
 
@@ -582,6 +619,7 @@ const catalogJson = JSON.stringify(
         styles:      JSON.parse(card.dataset.styles ?? "[]"),
         hasVariants: card.dataset.hasVariants === "1",
         variantsImg: card.dataset.variantsImg ?? "",
+        components:  JSON.parse(card.dataset.components ?? "[]"),
         category:    card.dataset.category ?? "",
         subCategory: card.dataset.subcategory ?? "",
       })
@@ -793,6 +831,7 @@ const catalogJson = JSON.stringify(
     card.dataset.styles      = JSON.stringify(item.styles)
     card.dataset.hasVariants = item.hasVariants ? "1" : ""
     card.dataset.variantsImg = item.variantsImg
+    card.dataset.components  = JSON.stringify(item.components ?? [])
     card.dataset.category    = item.category
     card.dataset.subcategory = item.subCategory
 
