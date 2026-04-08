@@ -71,6 +71,10 @@ func guildWebsiteURL(g guild.Guild) string {
 	return fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
 }
 
+func soloWebsiteURL(g guild.Guild) string {
+	return fmt.Sprintf("%s/solos/%s", websiteBase, slugify(g.Name))
+}
+
 // FormatSpotlightMessage builds the Discord message for a guild spotlight.
 // Pass random=true to include the "randomly picked" subtitle.
 func FormatSpotlightMessage(g guild.Guild, random bool) string {
@@ -103,10 +107,14 @@ func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	}
+	websiteURL := guildWebsiteURL(g)
+	if isSolo {
+		websiteURL = soloWebsiteURL(g)
+	}
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, guildWebsiteURL(g))
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", guildWebsiteURL(g))
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
 	}
 	return sb.String()
 }
