@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate } from "@/lib/guilds"
-import { HouseIcon, ArrowsClockwiseIcon, TrophyIcon, BuildingsIcon, WarningIcon, ShuffleIcon } from "@phosphor-icons/react"
+import { HouseIcon, ArrowsClockwiseIcon, TrophyIcon, MountainsIcon, WarningIcon, ShuffleIcon } from "@phosphor-icons/react"
 
 const solos = getSolosSortedByScore()
 const allTags = getAllSoloTags()
@@ -76,7 +76,7 @@ const isEmpty = !hasSolos()
     {
       solos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><BuildingsIcon weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
+          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><MountainsIcon weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
           <GuildTable client:load guilds={solos} allTags={allTags} basePath="solos" />
         </section>
       )

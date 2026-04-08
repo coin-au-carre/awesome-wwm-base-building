@@ -5,7 +5,7 @@ import { GuildTable } from "@/components/GuildTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
-import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, BuildingsIcon } from "@phosphor-icons/react"
+import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon } from "@phosphor-icons/react"
 
 const guilds = getGuildsSortedByScore()
 const allTags = getAllTags()
@@ -88,7 +88,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
 
     <!-- Ranked table -->
     <section>
-      <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><BuildingsIcon weight="duotone" className="size-4 text-primary" /> All Guild bases</h2>
+      <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><MountainsIcon weight="duotone" className="size-4 text-primary" /> All Guild bases</h2>
       <GuildTable client:load guilds={guilds} allTags={allTags} />
     </section>
   </div>
