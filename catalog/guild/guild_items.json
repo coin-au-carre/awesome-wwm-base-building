@@ -9660,11 +9660,12 @@
             "jp": ""
           },
           "filename": "Diagram_1_1.png",
-          "tags": [],
+          "tags": ["diagram"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
-          "subCategory": "Diagram"
+          "subCategory": "Diagram",
+          "components": ["Diagram_1_1_floor.png", "Diagram_1_1_stairs.png", "Diagram_1_1_roof.png", "Diagram_1_1_ceiling.png"]
         },
         {
           "name": "Crane Retreat",
@@ -9675,7 +9676,7 @@
             "jp": ""
           },
           "filename": "Diagram_1_2.png",
-          "tags": [],
+          "tags": ["diagram"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -9690,11 +9691,75 @@
             "jp": ""
           },
           "filename": "Diagram_1_3.png",
-          "tags": [],
+          "tags": ["diagram"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Diagram"
+        },
+        {
+          "name": "Windmaster Stairs",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_stairs.png",
+          "tags": ["stairs"],
+          "styles": ["wood"],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagram": ["Windmaster Tower"]
+        },
+        {
+          "name": "Windmaster Ceiling",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_ceiling.png",
+          "tags": ["ceiling"],
+          "styles": ["wood"],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagram": ["Windmaster Tower"]
+        },
+        {
+          "name": "Windmaster Roof",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_roof.png",
+          "tags": ["roof"],
+          "styles": ["wood"],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagram": ["Windmaster Tower"]
+        },
+        {
+          "name": "Windmaster Floor",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_floor.png",
+          "tags": ["stairs"],
+          "styles": ["wood"],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagram": ["Windmaster Tower"]
         }
       ]
     },
