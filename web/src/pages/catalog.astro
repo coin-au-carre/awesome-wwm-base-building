@@ -124,7 +124,7 @@ const catalogJson = JSON.stringify(
     </div>
 
     <!-- Search -->
-    <div class="relative" id="search-wrapper">
+    <div class="relative max-w-md" id="search-wrapper">
       <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
@@ -488,9 +488,14 @@ const catalogJson = JSON.stringify(
       detailTagsSection.style.display = ""
       item.tags.forEach((tag) => {
         const badge = document.createElement("button")
-        badge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
-        badge.setAttribute("style", tagStyle(tag))
-        badge.textContent = tag
+        badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium cursor-pointer bg-muted/60 border border-border text-foreground hover:bg-muted transition-colors"
+
+        const dot = document.createElement("span")
+        dot.className = "w-2 h-2 rounded-full shrink-0"
+        dot.style.backgroundColor = tagColors[tag] ?? `hsl(${hashStr(tag) % 360},50%,35%)`
+        badge.appendChild(dot)
+
+        badge.appendChild(document.createTextNode(`#${tag}`))
         badge.addEventListener("click", () => {
           if (isMobile()) closeMobileSheet()
           pillClickHandler("#", tag)
@@ -506,14 +511,9 @@ const catalogJson = JSON.stringify(
       detailStylesSection.style.display = ""
       item.styles.forEach((style) => {
         const badge = document.createElement("button")
-        badge.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium cursor-pointer bg-muted/60 border border-border text-foreground hover:bg-muted transition-colors"
-
-        const dot = document.createElement("span")
-        dot.className = "w-2 h-2 rounded-full shrink-0"
-        dot.style.backgroundColor = styleBg(style)
-        badge.appendChild(dot)
-
-        badge.appendChild(document.createTextNode(`@${style}`))
+        badge.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium cursor-pointer hover:opacity-80 transition-opacity"
+        badge.setAttribute("style", `background-color:${styleBg(style)};color:#fff`)
+        badge.textContent = style
         badge.addEventListener("click", () => {
           if (isMobile()) closeMobileSheet()
           pillClickHandler("@", style)
@@ -748,13 +748,13 @@ const catalogJson = JSON.stringify(
     tagPillsEl.querySelectorAll<HTMLButtonElement>("button[data-value]").forEach((btn) => {
       const on = activeTag === btn.dataset.value
       btn.classList.toggle("ring-2", on)
-      btn.classList.toggle("ring-white/60", on)
+      btn.classList.toggle("ring-primary/70", on)
       btn.classList.toggle("opacity-40", dim && !on)
     })
     stylePillsEl.querySelectorAll<HTMLButtonElement>("button[data-value]").forEach((btn) => {
       const on = activeStyle === btn.dataset.value
       btn.classList.toggle("ring-2", on)
-      btn.classList.toggle("ring-primary/70", on)
+      btn.classList.toggle("ring-white/60", on)
       btn.classList.toggle("opacity-40", dim && !on)
     })
   }
@@ -774,10 +774,15 @@ const catalogJson = JSON.stringify(
     tagPillsRow.style.display = ""
     allTags.forEach((tag) => {
       const btn = document.createElement("button")
-      btn.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium transition-opacity cursor-pointer"
-      btn.setAttribute("style", tagStyle(tag))
+      btn.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium transition-opacity cursor-pointer bg-muted/60 border border-border text-foreground hover:bg-muted"
       btn.dataset.value = tag
-      btn.textContent = `#${tag}`
+
+      const dot = document.createElement("span")
+      dot.className = "w-2 h-2 rounded-full shrink-0"
+      dot.style.backgroundColor = tagColors[tag] ?? `hsl(${hashStr(tag) % 360},50%,35%)`
+      btn.appendChild(dot)
+
+      btn.appendChild(document.createTextNode(`#${tag}`))
       btn.addEventListener("click", () => pillClickHandler("#", tag))
       tagPillsEl.appendChild(btn)
     })
@@ -787,15 +792,10 @@ const catalogJson = JSON.stringify(
     stylePillsRow.style.display = ""
     allStyles.forEach((style) => {
       const btn = document.createElement("button")
-      btn.className = "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium transition-opacity cursor-pointer bg-muted/60 border border-border text-foreground hover:bg-muted"
+      btn.className = "inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium transition-opacity cursor-pointer"
+      btn.setAttribute("style", `background-color:${styleBg(style)};color:#fff`)
       btn.dataset.value = style
-
-      const dot = document.createElement("span")
-      dot.className = "w-2 h-2 rounded-full shrink-0"
-      dot.style.backgroundColor = styleBg(style)
-      btn.appendChild(dot)
-
-      btn.appendChild(document.createTextNode(`@${style}`))
+      btn.textContent = `@${style}`
       btn.addEventListener("click", () => pillClickHandler("@", style))
       stylePillsEl.appendChild(btn)
     })
@@ -817,9 +817,9 @@ const catalogJson = JSON.stringify(
       const li = document.createElement("li")
       li.className = "flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-muted/60 transition-colors"
       if (s.isStyle) {
-        li.innerHTML = `<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium bg-muted/60 border border-border text-foreground"><span class="w-2 h-2 rounded-full shrink-0" style="background-color:${styleBg(s.label)}"></span>@${s.label}</span>`
+        li.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" style="background-color:${styleBg(s.label)};color:#fff">@${s.label}</span>`
       } else if (s.isTag) {
-        li.innerHTML = `<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" style="${tagStyle(s.label)}">#${s.label}</span>`
+        li.innerHTML = `<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium bg-muted/60 border border-border text-foreground"><span class="w-2 h-2 rounded-full shrink-0" style="background-color:${tagColors[s.label] ?? `hsl(${hashStr(s.label) % 360},50%,35%)`}"></span>#${s.label}</span>`
       } else {
         li.innerHTML = `<span class="text-sm">${s.label}</span>`
       }
