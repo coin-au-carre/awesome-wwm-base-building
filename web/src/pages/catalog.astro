@@ -182,6 +182,37 @@ const catalogJson = JSON.stringify(
       ))}
     </div>
 
+    <!-- Subcategory tabs (above two-column layout so detail panel aligns with images) -->
+    {categories.map((cat, ci) => (
+      <div class="cat-panel" data-cat={cat.name} style={ci !== 0 ? "display:none" : ""}>
+        <div class="flex flex-wrap gap-1">
+          <button
+            class="sub-tab px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            data-cat={cat.name}
+            data-sub="__all__"
+          >
+            All
+            <span class="ml-1 text-xs opacity-60">({cat.subcategories.reduce((n, s) => n + s.items.length, 0)})</span>
+          </button>
+          {cat.subcategories.map((sub, si) => (
+            <button
+              class:list={[
+                "sub-tab px-3 py-1.5 text-sm rounded-md transition-colors",
+                si === 0
+                  ? "bg-primary/15 text-primary ring-1 ring-primary/30"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
+              ]}
+              data-cat={cat.name}
+              data-sub={sub.name}
+            >
+              {sub.name}
+              <span class="ml-1 text-xs opacity-60">({sub.items.length})</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    ))}
+
     <!-- Two-column layout: grid + detail panel -->
     <div class="flex flex-col lg:flex-row gap-5 items-start">
 
@@ -198,33 +229,6 @@ const catalogJson = JSON.stringify(
         <!-- Category panels -->
         {categories.map((cat, ci) => (
           <div class="cat-panel space-y-4" data-cat={cat.name} style={ci !== 0 ? "display:none" : ""}>
-
-            <!-- Subcategory tabs -->
-            <div class="flex flex-wrap gap-1">
-              <button
-                class="sub-tab px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                data-cat={cat.name}
-                data-sub="__all__"
-              >
-                All
-                <span class="ml-1 text-xs opacity-60">({cat.subcategories.reduce((n, s) => n + s.items.length, 0)})</span>
-              </button>
-              {cat.subcategories.map((sub, si) => (
-                <button
-                  class:list={[
-                    "sub-tab px-3 py-1.5 text-sm rounded-md transition-colors",
-                    si === 0
-                      ? "bg-primary/15 text-primary ring-1 ring-primary/30"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
-                  ]}
-                  data-cat={cat.name}
-                  data-sub={sub.name}
-                >
-                  {sub.name}
-                  <span class="ml-1 text-xs opacity-60">({sub.items.length})</span>
-                </button>
-              ))}
-            </div>
 
             <!-- Subcategory panels -->
             {cat.subcategories.map((sub, si) => (
