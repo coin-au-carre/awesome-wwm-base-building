@@ -1,0 +1,50 @@
+---
+import Layout from "@/layouts/main.astro"
+import { Badge } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
+import { getCollection } from "astro:content"
+import { BASE } from "@/lib/url"
+import { ArrowLeftIcon } from "@phosphor-icons/react"
+
+export async function getStaticPaths() {
+  const entries = await getCollection("tutorials")
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Layout
+  title={`${entry.data.title} — Where Builders Meet`}
+  description={entry.data.description}
+>
+  <div class="max-w-2xl space-y-8">
+    <div class="space-y-4">
+      <a href={`${BASE}/tutorials`} class={buttonVariants({ variant: "ghost", size: "sm" })}>
+        <ArrowLeftIcon className="size-4" /> Back to tutorials
+      </a>
+      <div class="space-y-2">
+        <h1 class="font-heading text-2xl font-semibold">{entry.data.title}</h1>
+        <p class="text-muted-foreground text-sm">{entry.data.description}</p>
+        <div class="flex flex-wrap items-center gap-2 pt-1">
+          {entry.data.tags && entry.data.tags.length > 0 && entry.data.tags.map((tag: string) => (
+            <Badge variant="secondary">{tag}</Badge>
+          ))}
+          {entry.data.authors && entry.data.authors.length > 0 && (
+            <span class="text-xs text-muted-foreground">
+              by {entry.data.authors.join(", ")}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </div>
+</Layout>
