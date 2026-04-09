@@ -129,3 +129,48 @@
     font-size: 17px;
     }
 }
+
+/* Prose styles for rendered markdown (tutorial detail pages) */
+.prose {
+  @apply text-sm leading-relaxed text-foreground max-w-none;
+
+  h2 {
+    @apply font-heading text-base font-semibold mt-8 mb-3 first:mt-0;
+  }
+  h3 {
+    @apply font-heading text-sm font-semibold mt-6 mb-2;
+  }
+  p {
+    @apply text-muted-foreground mb-4 last:mb-0;
+  }
+  strong {
+    @apply font-semibold text-foreground;
+  }
+  a {
+    @apply text-foreground underline underline-offset-2 hover:text-primary transition-colors;
+  }
+  ul {
+    @apply list-disc pl-5 space-y-1.5 mb-4 text-muted-foreground;
+  }
+  ol {
+    @apply list-decimal pl-5 space-y-1.5 mb-4 text-muted-foreground;
+  }
+  li strong {
+    @apply text-foreground;
+  }
+  code {
+    @apply bg-muted rounded px-1 py-0.5 text-xs font-mono;
+  }
+  pre {
+    @apply bg-muted rounded-xl p-4 overflow-x-auto mb-4 text-xs font-mono;
+  }
+  pre code {
+    @apply bg-transparent p-0;
+  }
+  blockquote {
+    @apply border-l-2 border-primary/40 pl-4 italic text-muted-foreground mb-4;
+  }
+  hr {
+    @apply border-border my-6;
+  }
+}

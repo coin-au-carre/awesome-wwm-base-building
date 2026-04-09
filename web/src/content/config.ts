@@ -1,0 +1,14 @@
+import { defineCollection, z } from "astro:content"
+
+const tutorials = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    tags: z.array(z.string()).optional().default([]),
+    order: z.number().optional().default(99),
+    authors: z.array(z.string()).optional().default([]),
+  }),
+})
+
+export const collections = { tutorials }
