@@ -7,6 +7,8 @@ date: 2026-04-09
 order: 1
 ---
 
+Thanks to **OPM** for originally sharing this in the Discord.
+
 Some building items are only available through your solo world. You can unlock them for guild use in two ways. Items that support this are marked with the `#solo` tag in the [catalog#solo](https://www.wherebuildersmeet.com/catalog/?q=%23solo) page.
 
 For both options, start by taking the **Main South Gate** teleport in Kaifeng.
