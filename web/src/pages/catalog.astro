@@ -5,9 +5,9 @@ import { readFileSync } from "fs"
 import { BookIcon } from "@phosphor-icons/react"
 
 const raw = readFileSync(new URL("../../../catalog/guild/guild_items.json", import.meta.url), "utf-8")
-const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string }[] }>>
+const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string; buyPlace?: string }[] }>>
 
-type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string }
+type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string; buyPlace?: string }
 type Subcategory = { name: string; items: Item[] }
 type Category = { name: string; subcategories: Subcategory[] }
 
@@ -48,6 +48,7 @@ const catalogJson = JSON.stringify(
         hasVariants: item.hasVariants ?? false,
         components: (item.components ?? []).map((c) => imgPath(cat.name, sub.name, c)),
         diagramRef: item.diagramRef ?? "",
+        buyPlace: item.buyPlace ?? "",
         category: cat.name,
         subCategory: sub.name,
         img: item.filename ? imgPath(cat.name, sub.name, item.filename) : "",
@@ -259,6 +260,7 @@ const catalogJson = JSON.stringify(
                       data-diagram-ref={item.diagramRef ?? ""}
                       data-category={cat.name}
                       data-subcategory={sub.name}
+                      data-buy-place={item.buyPlace ?? ""}
                     >
                       {item.filename ? (
                         <img
@@ -276,15 +278,25 @@ const catalogJson = JSON.stringify(
                         No image
                       </div>
 
-                      {item.hasVariants && (
-                        <div class="absolute top-1.5 right-1.5 bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1">
-                          <svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-                            <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
-                          </svg>
-                          <span class="text-[10px] text-primary font-medium">variants</span>
-                        </div>
-                      )}
+                      <div class="absolute top-1.5 right-1.5 flex flex-col items-end gap-1">
+                        {item.hasVariants && (
+                          <div class="bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1">
+                            <svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                              <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                              <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+                            </svg>
+                            <span class="text-[10px] text-primary font-medium">variants</span>
+                          </div>
+                        )}
+                        {(item.tags ?? []).includes("solo") && (
+                          <div class="bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1">
+                            <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+                            </svg>
+                            <span class="text-[10px] text-blue-400 font-medium">solo</span>
+                          </div>
+                        )}
+                      </div>
 
                       <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 via-black/50 to-transparent px-2 pt-6 pb-2">
                         {item.name ? (
@@ -347,6 +359,16 @@ const catalogJson = JSON.stringify(
               <div id="detail-styles" class="flex flex-wrap gap-1.5"></div>
             </div>
 
+            <div id="detail-solo-section" style="display:none" class="rounded-lg bg-muted/50 border border-border px-3 py-2.5 flex items-start gap-2">
+              <svg class="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <div class="min-w-0">
+                <p class="text-xs font-medium text-foreground">Solo purchase required</p>
+                <p id="detail-buy-place" class="text-xs text-muted-foreground mt-0.5 leading-snug"></p>
+              </div>
+            </div>
+
             <div id="detail-diagram-ref-section" style="display:none">
               <p class="text-xs text-muted-foreground mb-2">Part of: <span id="detail-diagram-ref-name" class="text-foreground font-medium"></span></p>
               <img id="detail-diagram-ref-img" src="" alt="" class="w-full object-cover rounded-lg max-h-40" />
@@ -403,7 +425,7 @@ const catalogJson = JSON.stringify(
 <script>
   // ── types & data ─────────────────────────────────────────────────────────────
 
-  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; diagramRef: string; category: string; subCategory: string; img: string; variantsImg: string }
+  type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; diagramRef: string; buyPlace: string; category: string; subCategory: string; img: string; variantsImg: string }
   type CatalogSub  = { name: string; items: CatalogItem[] }
   type CatalogCat  = { name: string; subcategories: CatalogSub[] }
 
@@ -500,8 +522,10 @@ const catalogJson = JSON.stringify(
   const detailVariantsImg       = document.getElementById("detail-variants-img") as HTMLImageElement
   const detailComponentsSection = document.getElementById("detail-components-section") as HTMLDivElement
   const detailComponents        = document.getElementById("detail-components") as HTMLDivElement
+  const detailSoloSection       = document.getElementById("detail-solo-section") as HTMLDivElement
+  const detailBuyPlace          = document.getElementById("detail-buy-place") as HTMLElement
 
-  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; components: string[]; diagramRef: string; category: string; subCategory: string }) {
+  function showDetail(item: { name: string; img: string; tags: string[]; styles: string[]; hasVariants: boolean; variantsImg: string; components: string[]; diagramRef: string; buyPlace: string; category: string; subCategory: string }) {
     detailName.textContent = item.name || "Unnamed"
     detailLocation.textContent = item.category && item.subCategory ? `${item.category} › ${item.subCategory}` : ""
     const filenameFromImg = item.img ? decodeURIComponent(item.img.split("/").pop() ?? "") : ""
@@ -551,6 +575,13 @@ const catalogJson = JSON.stringify(
       })
     } else {
       detailStylesSection.style.display = "none"
+    }
+
+    if (item.tags.includes("solo") && item.buyPlace) {
+      detailBuyPlace.textContent = `Purchase at: ${item.buyPlace}`
+      detailSoloSection.style.display = ""
+    } else {
+      detailSoloSection.style.display = "none"
     }
 
     if (item.diagramRef) {
@@ -624,6 +655,7 @@ const catalogJson = JSON.stringify(
         variantsImg: card.dataset.variantsImg ?? "",
         components:  JSON.parse(card.dataset.components ?? "[]"),
         diagramRef:  card.dataset.diagramRef ?? "",
+        buyPlace:    card.dataset.buyPlace ?? "",
         category:    card.dataset.category ?? "",
         subCategory: card.dataset.subcategory ?? "",
       })
@@ -978,6 +1010,7 @@ const catalogJson = JSON.stringify(
     card.dataset.variantsImg = item.variantsImg
     card.dataset.components  = JSON.stringify(item.components ?? [])
     card.dataset.diagramRef  = item.diagramRef ?? ""
+    card.dataset.buyPlace    = item.buyPlace ?? ""
     card.dataset.category    = item.category
     card.dataset.subcategory = item.subCategory
 
@@ -1001,11 +1034,25 @@ const catalogJson = JSON.stringify(
     placeholder.textContent = "No image"
     card.appendChild(placeholder)
 
-    if (item.hasVariants) {
-      const badge = document.createElement("div")
-      badge.className = "absolute top-1.5 right-1.5 bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1"
-      badge.innerHTML = `<svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg><span class="text-[10px] text-primary font-medium">variants</span>`
-      card.appendChild(badge)
+    if (item.hasVariants || item.tags.includes("solo")) {
+      const stack = document.createElement("div")
+      stack.className = "absolute top-1.5 right-1.5 flex flex-col items-end gap-1"
+
+      if (item.hasVariants) {
+        const badge = document.createElement("div")
+        badge.className = "bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1"
+        badge.innerHTML = `<svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg><span class="text-[10px] text-primary font-medium">variants</span>`
+        stack.appendChild(badge)
+      }
+
+      if (item.tags.includes("solo")) {
+        const soloBadge = document.createElement("div")
+        soloBadge.className = "bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1"
+        soloBadge.innerHTML = `<svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="text-[10px] text-blue-400 font-medium">solo</span>`
+        stack.appendChild(soloBadge)
+      }
+
+      card.appendChild(stack)
     }
 
     const overlay = document.createElement("div")

@@ -1574,10 +1574,11 @@
           "translations": {},
           "filename": "Furniture_2_4.png",
           "tags": ["solo"],
-          "styles": ["wood"],
+          "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Wardrobe",
@@ -1587,17 +1588,19 @@
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Table",
           "translations": {},
           "filename": "Furniture_3_1.png",
-          "tags": [],
-          "styles": [""],
+          "tags": ["solo"],
+          "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Bed",
@@ -2346,7 +2349,8 @@
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Accessory"
+          "subCategory": "Accessory",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Flowering Tree",
