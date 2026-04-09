@@ -1,45 +1,44 @@
 ---
 title: "Unlock more construction items for your guild base"
-description: "Get additionnal items from solo world to get more guild building items"
+description: "Get additional items from the solo world to unlock more guild building pieces"
 tags: ["beginner", "guild"]
 authors: ["Ahlyam"]
 date: 2026-04-09
 order: 1
 ---
 
-There are two ways to enrich your guild base items. Those items are visible on the website with the tag #solo.
-https://www.wherebuildersmeet.com/catalog/?q=%23solo
-On the item details panel you can check on the recommended way to unlock it.
+Some building items are only available through your solo world. You can unlock them for guild use in two ways. Items that support this are marked with the `#solo` tag in the [catalog#solo](https://www.wherebuildersmeet.com/catalog/?q=%23solo) page.
 
-Both options need you to go to take the "Main South Gate" teleport in Kaifeng.
+For both options, start by taking the **Main South Gate** teleport in Kaifeng.
 
 <img src="/tutorials/kaifeng-items-teleport.png" alt="Main South Gate teleport in Kaifeng" style="border-radius: 0.75rem; width: 80%;" />
 
-From there go to Feng's Tradehall and talk to Feng Cheng.
+Then head to **Feng's Tradehall** and talk to **Feng Cheng**.
 
 <img src="/tutorials/kaifeng-items-options.png" alt="Feng Cheng dialogue options" style="border-radius: 0.75rem; width: 80%;" />
 
-You have two options from there. If you haven't done it already choose the first option since you will be able to:
-- Get all the furniture items from the rent which will unlock them in your guild base
-- The rent is helpful to increase your goods storage for commerce
+If you haven't done it before, start with Option 1 — it gives you furniture items for free and also increases your goods storage for commerce.
 
-## Option 1. Rent houses and retrieve the items
+## Option 1. Rent a house and retrieve the items
 
-The trick here is to rent any house and retrieve all the items in it.
-Click on the first option "Are there any rooms for rent" and choose a house to rent (you will get different items from the 3 houses). 
-Click on the Details button on top right of screen.
+Select **"Are there any rooms for rent?"** and rent a house. Each of the 3 houses contains different items, so you can rent multiple to get more variety.
+
+Once inside, click the **Details** button in the top-right corner of the screen.
 
 <img src="/tutorials/kaifeng-items-residence-details.png" alt="Details button on residence screen" style="border-radius: 0.75rem; width: 40%;" />
 
-Then click bottom right of screen on Return furniture.
+Then click **Return furniture** in the bottom-right. This retrieves all the items from the house and unlocks them in your guild base.
 
 <img src="/tutorials/kaifeng-items-return-furniture.png" alt="Return furniture button" style="border-radius: 0.75rem; width: 40%;" />
 
-## Option 2. Buy items
+## Option 2. Buy items directly
 
-Simply choose and buy the items you want. Verify the items you need because if you already have the item from Option 1. then it is unnecessary to buy the from Option 2.  
-This will unlock them in your guild base.
+This is the simplest option, but is more expensive. Select the items you want to purchase from Feng Cheng. Skip any you already obtained through Option 1.
 
 <img src="/tutorials/kaifeng-items-buy.png" alt="Buying items from Feng Cheng" style="border-radius: 0.75rem; width: 60%;" />
 
-Note: You do not have to build a diagram from your world and reproduce the diagram in the guild to unlock the items. 
+**Note:** You do not need to build a diagram in your solo world and reproduce it in the guild base to unlock items — the methods above are sufficient.
+
+**Note 2:** AFAIK, building items sold by other merchants (e.g. in Hexi) do not give you additionnal items they are already unlock in the guild construction.
+
+
