@@ -8,6 +8,7 @@ const tutorials = defineCollection({
     tags: z.array(z.string()).optional().default([]),
     order: z.number().optional().default(99),
     authors: z.array(z.string()).optional().default([]),
+    date: z.coerce.date().optional(),
   }),
 })
 
