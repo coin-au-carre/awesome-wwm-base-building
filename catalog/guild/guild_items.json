@@ -2301,7 +2301,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "Flowering Tree",
+          "name": "Carpet",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2309,6 +2309,21 @@
             "jp": ""
           },
           "filename": "Accessory_4_2.png",
+          "tags": ["carpet", "solo"],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Accessory"
+        },
+        {
+          "name": "Flowering Tree",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Accessory_4_3.png",
           "tags": [
             "plant",
             "huge"
@@ -2326,7 +2341,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_4_3.png",
+          "filename": "Accessory_4_4.png",
           "tags": [
             "variants",
             "statue"
@@ -2344,7 +2359,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_4_4.png",
+          "filename": "Accessory_4_5.png",
           "tags": [
             "plant",
             "variants",
@@ -2363,7 +2378,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_4_5.png",
+          "filename": "Accessory_5_1.png",
           "tags": [
             "plant",
             "variants"
@@ -2383,7 +2398,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_5_1.png",
+          "filename": "Accessory_5_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2398,7 +2413,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_5_2.png",
+          "filename": "Accessory_5_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2413,7 +2428,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_5_3.png",
+          "filename": "Accessory_5_4.png",
           "tags": [
             "plant",
             "solo"
@@ -2431,7 +2446,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_5_4.png",
+          "filename": "Accessory_5_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2446,7 +2461,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_5_5.png",
+          "filename": "Accessory_6_1.png",
           "tags": [
             "variants"
           ],
@@ -2465,7 +2480,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_6_1.png",
+          "filename": "Accessory_6_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2480,7 +2495,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_6_2.png",
+          "filename": "Accessory_6_3.png",
           "tags": [
             "plant",
             "variants"
@@ -2498,7 +2513,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_6_3.png",
+          "filename": "Accessory_6_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2513,7 +2528,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_6_4.png",
+          "filename": "Accessory_6_5.png",
           "tags": [
             "variants"
           ],
@@ -2530,7 +2545,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_6_5.png",
+          "filename": "Accessory_7_1.png",
           "tags": [
             "variants",
             "statue"
@@ -2548,7 +2563,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_7_1.png",
+          "filename": "Accessory_7_2.png",
           "tags": [
             "variants"
           ],
@@ -2565,7 +2580,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_7_2.png",
+          "filename": "Accessory_7_3.png",
           "tags": [
             "variants"
           ],
@@ -2582,7 +2597,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_7_3.png",
+          "filename": "Accessory_7_4.png",
           "tags": [],
           "styles": [
             "stone"
@@ -2599,7 +2614,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_7_4.png",
+          "filename": "Accessory_7_5.png",
           "tags": [
             "variants"
           ],
@@ -2616,7 +2631,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_7_5.png",
+          "filename": "Accessory_8_1.png",
           "tags": [
             "variants"
           ],
@@ -2624,26 +2639,6 @@
             "snow"
           ],
           "hasVariants": true,
-          "category": "Furniture Decoration",
-          "subCategory": "Accessory"
-        },
-        {
-          "name": "Snowfield Stone Lion",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Accessory_8_1.png",
-          "tags": [
-            "statue"
-          ],
-          "styles": [
-            "snow",
-            "stone"
-          ],
-          "hasVariants": false,
           "category": "Furniture Decoration",
           "subCategory": "Accessory"
         },
@@ -2668,7 +2663,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "Snow Cover Stone Pier",
+          "name": "Snowfield Stone Lion",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2676,6 +2671,26 @@
             "jp": ""
           },
           "filename": "Accessory_8_3.png",
+          "tags": [
+            "statue"
+          ],
+          "styles": [
+            "snow",
+            "stone"
+          ],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Accessory"
+        },
+        {
+          "name": "Snow Cover Stone Pier",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Accessory_8_4.png",
           "tags": [
             "variants"
           ],
@@ -2695,7 +2710,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Accessory_8_4.png",
+          "filename": "Accessory_8_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2704,23 +2719,6 @@
         },
         {
           "name": "Flower Lantern",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Accessory_8_5.png",
-          "tags": [
-            "variants"
-          ],
-          "styles": [],
-          "hasVariants": true,
-          "category": "Furniture Decoration",
-          "subCategory": "Accessory"
-        },
-        {
-          "name": "Hanging Lantern",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2737,7 +2735,7 @@
           "subCategory": "Accessory"
         },
         {
-          "name": "Snow-Covered Stone Statue",
+          "name": "Hanging Lantern",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2745,6 +2743,23 @@
             "jp": ""
           },
           "filename": "Accessory_9_2.png",
+          "tags": [
+            "variants"
+          ],
+          "styles": [],
+          "hasVariants": true,
+          "category": "Furniture Decoration",
+          "subCategory": "Accessory"
+        },
+        {
+          "name": "Snow-Covered Stone Statue",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Accessory_9_3.png",
           "tags": [
             "variants",
             "statue"
@@ -3766,7 +3781,9 @@
           },
           "filename": "Single Target_2_2.png",
           "tags": [],
-          "styles": ["stone"],
+          "styles": [
+            "stone"
+          ],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Single Target"
@@ -3795,7 +3812,9 @@
             "jp": ""
           },
           "filename": "Single Target_2_4.png",
-          "tags": ["food/drink"],
+          "tags": [
+            "food/drink"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4220,7 +4239,9 @@
             "jp": ""
           },
           "filename": "Single Target_8_1.png",
-          "tags": ["plant"],
+          "tags": [
+            "plant"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
