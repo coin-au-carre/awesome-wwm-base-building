@@ -1570,6 +1570,36 @@
           "subCategory": "Furniture"
         },
         {
+          "name": "Bookshelf",
+          "translations": {},
+          "filename": "Furniture_2_4.png",
+          "tags": ["solo"],
+          "styles": ["wood"],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
+        },
+        {
+          "name": "Wardrobe",
+          "translations": {},
+          "filename": "Furniture_2_5.png",
+          "tags": ["solo"],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
+        },
+        {
+          "name": "Table",
+          "translations": {},
+          "filename": "Furniture_3_1.png",
+          "tags": [],
+          "styles": [""],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
+        },
+        {
           "name": "Bed",
           "translations": {
             "cn": "",
@@ -1577,7 +1607,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_2_4.png",
+          "filename": "Furniture_3_2.png",
           "tags": [
             "bed"
           ],
@@ -1594,7 +1624,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_2_5.png",
+          "filename": "Furniture_3_3.png",
           "tags": [
             "bath"
           ],
@@ -1611,7 +1641,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_3_1.png",
+          "filename": "Furniture_3_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1626,7 +1656,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_3_2.png",
+          "filename": "Furniture_3_5.png",
           "tags": [
             "table",
             "food/drink"
@@ -1644,7 +1674,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_3_3.png",
+          "filename": "Furniture_4_1.png",
           "tags": [
             "table",
             "food/drink"
@@ -1662,7 +1692,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_3_4.png",
+          "filename": "Furniture_4_2.png",
           "tags": [
             "bath"
           ],
@@ -1679,7 +1709,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_3_5.png",
+          "filename": "Furniture_4_3.png",
           "tags": [
             "bed"
           ],
@@ -1696,7 +1726,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_4_1.png",
+          "filename": "Furniture_4_4.png",
           "tags": [
             "carpet"
           ],
@@ -1713,7 +1743,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_4_2.png",
+          "filename": "Furniture_4_5.png",
           "tags": [
             "table"
           ],
@@ -1730,7 +1760,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_4_3.png",
+          "filename": "Furniture_5_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1745,7 +1775,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_4_4.png",
+          "filename": "Furniture_5_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1760,7 +1790,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_4_5.png",
+          "filename": "Furniture_5_3.png",
           "tags": [
             "table"
           ],
@@ -1777,7 +1807,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_5_1.png",
+          "filename": "Furniture_5_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1792,7 +1822,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_5_2.png",
+          "filename": "Furniture_5_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1807,7 +1837,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_5_3.png",
+          "filename": "Furniture_6_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1822,7 +1852,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_5_4.png",
+          "filename": "Furniture_6_2.png",
           "tags": [
             "table"
           ],
@@ -1839,7 +1869,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_5_5.png",
+          "filename": "Furniture_6_3.png",
           "tags": [
             "chair"
           ],
@@ -1856,7 +1886,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_1.png",
+          "filename": "Furniture_6_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1871,7 +1901,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_2.png",
+          "filename": "Furniture_6_5.png",
           "tags": [
             "bed"
           ],
@@ -1888,7 +1918,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_3.png",
+          "filename": "Furniture_7_1.png",
           "tags": [
             "table"
           ],
@@ -1905,7 +1935,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_4.png",
+          "filename": "Furniture_7_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1920,7 +1950,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_5.png",
+          "filename": "Furniture_7_3.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -1935,7 +1965,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_1.png",
+          "filename": "Furniture_7_4.png",
           "tags": [
             "bed"
           ],
@@ -1952,7 +1982,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_2.png",
+          "filename": "Furniture_7_5.png",
           "tags": [
             "variants",
             "food/drink"
@@ -1970,7 +2000,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_3.png",
+          "filename": "Furniture_8_1.png",
           "tags": [
             "variants"
           ],
@@ -1987,7 +2017,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_4.png",
+          "filename": "Furniture_8_2.png",
           "tags": [
             "variants"
           ],
@@ -2004,7 +2034,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_5.png",
+          "filename": "Furniture_8_3.png",
           "tags": [
             "variants"
           ],
@@ -2021,7 +2051,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_8_1.png",
+          "filename": "Furniture_8_4.png",
           "tags": [
             "variants"
           ],
@@ -2309,7 +2339,10 @@
             "jp": ""
           },
           "filename": "Accessory_4_2.png",
-          "tags": ["carpet", "solo"],
+          "tags": [
+            "carpet",
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
