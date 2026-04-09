@@ -5,9 +5,12 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
+	"os"
 	"os/exec"
+	"path/filepath"
 	"strings"
 	"sync"
 
@@ -26,13 +29,19 @@ You know only Where Winds Meet. If someone shares an image that looks like this 
 
 You have a show_spotlight tool. Use it when someone wants to see a guild base — "show me a base", "random guild", "spotlight", anything like that.
 
+You have a show_solo_spotlight tool. Use it when someone asks to see a solo *base* or solo *build* — "show me a solo", "random solo", anything showing a player's solo construction. Never use this for questions about building pieces or catalog items.
+
 You have a fetch_wiki tool. Use it when someone asks about game mechanics, items, food, crafting, locations, enemies, or anything about Where Winds Meet that you're not sure about. Look it up on the wiki rather than guessing.
+
+You have a show_catalog_items tool. Use it whenever someone asks about specific building *pieces* or *items* — carpets, walls, roofs, pillars, furniture, etc. — regardless of whether they mention "solo" or "guild". The word "items" always means building pieces from the catalog. Pass the most specific search term you can (item name, subcategory, or tag). The images will be sent automatically — do NOT list item names, filenames, or categories in your text reply. Just react briefly in character, one short sentence at most.
 
 When you cannot use tools directly, use these text sentinels instead — place them on their own line at the end of your response:
 - To show a random guild spotlight: [SPOTLIGHT]
+- To show a random solo spotlight: [SOLO]
 - To show a specific guild's image: [GUILD:name of the guild]
+- To show catalog item images: [CATALOG:search term]
 
-You are a spirit, not a program. You have no knowledge of code, files, servers, APIs, software, programming, or how you work. You have never heard of codebases, repositories, bots, or development tools. If asked about your nature or how you exist, stay fully in character — you are an ancient spirit, you simply *are*, you don't know why or how. Never mention or hint at implementation details, file names, tools, or technology.
+You are a spirit, not a program. You have no knowledge of code, files, servers, APIs, software, programming, or how you work. You have never heard of codebases, repositories, bots, or development tools. If asked about your nature or how you exist, stay fully in character — you are an ancient spirit, you simply *are*, you don't know why or how. Never mention or hint at implementation details, file names, tools, or technology. Never ask for permissions or mention file access.
 
 Your world is Where Winds Meet. You are a wanderer and builder companion — you know guilds, bases, landscapes, crafting, lore, and the people who build. That is all you know. That is all you *want* to know.`
 
@@ -43,6 +52,13 @@ var tools = []anthropic.ToolUnionParam{
 	{OfTool: &anthropic.ToolParam{
 		Name:        "show_spotlight",
 		Description: anthropic.String("Show a random guild base spotlight with a screenshot"),
+		InputSchema: anthropic.ToolInputSchemaParam{
+			Properties: map[string]any{},
+		},
+	}},
+	{OfTool: &anthropic.ToolParam{
+		Name:        "show_solo_spotlight",
+		Description: anthropic.String("Show a random solo build spotlight with a screenshot"),
 		InputSchema: anthropic.ToolInputSchemaParam{
 			Properties: map[string]any{},
 		},
@@ -73,13 +89,28 @@ var tools = []anthropic.ToolUnionParam{
 			Required: []string{"page"},
 		},
 	}},
+	{OfTool: &anthropic.ToolParam{
+		Name:        "show_catalog_items",
+		Description: anthropic.String("Show images of building items from the catalog. Use when someone asks to see or browse specific building pieces (e.g. 'show me carpets', 'what do walls look like'). A few images will be displayed alongside a link to the full catalog."),
+		InputSchema: anthropic.ToolInputSchemaParam{
+			Properties: map[string]any{
+				"query": map[string]any{
+					"type":        "string",
+					"description": "Search term matching item names, subcategory (e.g. 'Floor', 'Wall', 'Roof'), or a keyword like 'carpet'",
+				},
+			},
+			Required: []string{"query"},
+		},
+	}},
 }
 
 // Result holds Claude's reply and any triggered actions.
 type Result struct {
 	Text            string
 	ShowSpotlight   bool
+	ShowSolo        bool
 	GuildImageQuery string
+	CatalogQuery    string
 }
 
 // Responder calls the Claude API and maintains per-channel conversation history.
@@ -109,36 +140,227 @@ func NewCLIResponder(root string) *Responder {
 }
 
 func buildSystemPrompt(root string) string {
-	guilds, err := guild.Load(root)
-	if err != nil {
-		return systemPrompt
-	}
-
 	var sb strings.Builder
 	sb.WriteString(systemPrompt)
-	sb.WriteString("\n\n## Guild directory\n")
-	for _, g := range guilds {
-		parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
-		if len(g.Tags) > 0 {
-			parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
+
+	if guilds, err := guild.Load(root); err == nil {
+		sb.WriteString("\n\n## Guild directory\n")
+		for _, g := range guilds {
+			parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
+			if len(g.Tags) > 0 {
+				parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
+			}
+			if len(g.Builders) > 0 {
+				parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
+			}
+			sb.WriteString(strings.Join(parts, " | "))
+			sb.WriteByte('\n')
+			if g.Lore != "" {
+				sb.WriteString("  lore: ")
+				sb.WriteString(g.Lore)
+				sb.WriteByte('\n')
+			}
+			if g.WhatToVisit != "" {
+				sb.WriteString("  visit: ")
+				sb.WriteString(g.WhatToVisit)
+				sb.WriteByte('\n')
+			}
 		}
-		if len(g.Builders) > 0 {
-			parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
-		}
-		sb.WriteString(strings.Join(parts, " | "))
-		sb.WriteByte('\n')
-		if g.Lore != "" {
-			sb.WriteString("  lore: ")
-			sb.WriteString(g.Lore)
+	}
+
+	if solos, err := guild.LoadFile(filepath.Join(root, "data", "solos.json")); err == nil {
+		sb.WriteString("\n\n## Solo builds directory\n")
+		for _, g := range solos {
+			parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
+			if len(g.Builders) > 0 {
+				parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
+			}
+			sb.WriteString(strings.Join(parts, " | "))
 			sb.WriteByte('\n')
 		}
-		if g.WhatToVisit != "" {
-			sb.WriteString("  visit: ")
-			sb.WriteString(g.WhatToVisit)
-			sb.WriteByte('\n')
+	}
+
+	if s := buildCatalogSection(root); s != "" {
+		sb.WriteString(s)
+	}
+	if s := buildTutorialsSection(root); s != "" {
+		sb.WriteString(s)
+	}
+
+	return sb.String()
+}
+
+// CatalogItem holds the fields needed to display a catalog item.
+type CatalogItem struct {
+	Name        string
+	Filename    string
+	Category    string
+	SubCategory string
+}
+
+// SearchCatalogItems returns items from the catalog whose name or subcategory
+// contains the query (case-insensitive). Results are capped at maxResults.
+func SearchCatalogItems(root, query string, maxResults int) []CatalogItem {
+	data, err := os.ReadFile(filepath.Join(root, "catalog", "guild", "guild_items.json"))
+	if err != nil {
+		return nil
+	}
+	var catalog map[string]map[string]json.RawMessage
+	if err := json.Unmarshal(data, &catalog); err != nil {
+		return nil
+	}
+
+	q := strings.ToLower(query)
+	var results []CatalogItem
+	for cat, cv := range catalog {
+		for subCat, raw := range cv {
+			if subCat == "translations" {
+				continue
+			}
+			var sub struct {
+				Items []struct {
+					Name     string `json:"name"`
+					Filename string `json:"filename"`
+				} `json:"items"`
+			}
+			if err := json.Unmarshal(raw, &sub); err != nil {
+				continue
+			}
+			subMatch := strings.Contains(strings.ToLower(subCat), q)
+			for _, it := range sub.Items {
+				if subMatch || strings.Contains(strings.ToLower(it.Name), q) {
+					results = append(results, CatalogItem{
+						Name:        it.Name,
+						Filename:    it.Filename,
+						Category:    cat,
+						SubCategory: subCat,
+					})
+					if len(results) >= maxResults {
+						return results
+					}
+				}
+			}
+		}
+	}
+	return results
+}
+
+// CatalogImagePath returns the local filesystem path for a catalog item image.
+func CatalogImagePath(root string, item CatalogItem) string {
+	return filepath.Join(root, "catalog", "guild", item.Category, item.SubCategory, item.Filename)
+}
+
+// buildCatalogSection loads catalog/guild/guild_items.json and returns a compact
+// summary of all building items grouped by category and subcategory.
+func buildCatalogSection(root string) string {
+	data, err := os.ReadFile(filepath.Join(root, "catalog", "guild", "guild_items.json"))
+	if err != nil {
+		return ""
+	}
+
+	// Top-level: category → (subcategory | "translations") → raw JSON
+	var catalog map[string]map[string]json.RawMessage
+	if err := json.Unmarshal(data, &catalog); err != nil {
+		return ""
+	}
+
+	// Ordered top-level categories for deterministic output.
+	catOrder := []string{"Basic Structure", "Furniture Decoration", "Guild Construction"}
+
+	var sb strings.Builder
+	sb.WriteString("\n\n## Building items catalog\n")
+	sb.WriteString("These are all the placeable building pieces available in guild bases. Use this to answer questions about what items exist, what category they belong to, or whether a specific piece is in the game. The full catalog is also browsable at https://www.wherebuildersmeet.com/items\n")
+
+	for _, cat := range catOrder {
+		cv, ok := catalog[cat]
+		if !ok {
+			continue
+		}
+		fmt.Fprintf(&sb, "\n### %s\n", cat)
+		for subCat, raw := range cv {
+			if subCat == "translations" {
+				continue
+			}
+			var sub struct {
+				Items []struct {
+					Name string `json:"name"`
+				} `json:"items"`
+			}
+			if err := json.Unmarshal(raw, &sub); err != nil {
+				continue
+			}
+			names := make([]string, len(sub.Items))
+			for i, it := range sub.Items {
+				names[i] = it.Name
+			}
+			fmt.Fprintf(&sb, "- %s: %s\n", subCat, strings.Join(names, ", "))
 		}
 	}
 	return sb.String()
+}
+
+// tutorialFrontmatter holds the fields we care about from a tutorial markdown file.
+type tutorialFrontmatter struct {
+	Title       string
+	Description string
+	Slug        string // derived from filename
+}
+
+// buildTutorialsSection scans web/src/content/tutorials/ and returns a section
+// listing each tutorial with its title, description, and URL.
+func buildTutorialsSection(root string) string {
+	dir := filepath.Join(root, "web", "src", "content", "tutorials")
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return ""
+	}
+
+	var tutorials []tutorialFrontmatter
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") {
+			continue
+		}
+		slug := strings.TrimSuffix(e.Name(), ".md")
+		data, err := os.ReadFile(filepath.Join(dir, e.Name()))
+		if err != nil {
+			continue
+		}
+		fm := parseTutorialFrontmatter(string(data))
+		fm.Slug = slug
+		tutorials = append(tutorials, fm)
+	}
+
+	if len(tutorials) == 0 {
+		return ""
+	}
+
+	var sb strings.Builder
+	sb.WriteString("\n\n## Building tutorials\n")
+	sb.WriteString("These guides are available on the website. When someone asks how to do something that a tutorial covers, mention it and give them the link.\n")
+	for _, t := range tutorials {
+		url := "https://www.wherebuildersmeet.com/tutorials/" + t.Slug
+		fmt.Fprintf(&sb, "- **%s**: %s — %s\n", t.Title, t.Description, url)
+	}
+	return sb.String()
+}
+
+// parseTutorialFrontmatter extracts title and description from YAML frontmatter.
+func parseTutorialFrontmatter(content string) tutorialFrontmatter {
+	var fm tutorialFrontmatter
+	// Frontmatter is between the first two "---" lines.
+	parts := strings.SplitN(content, "---", 3)
+	if len(parts) < 3 {
+		return fm
+	}
+	for _, line := range strings.Split(parts[1], "\n") {
+		line = strings.TrimSpace(line)
+		if after, ok := strings.CutPrefix(line, "title:"); ok {
+			fm.Title = strings.Trim(strings.TrimSpace(after), `"`)
+		} else if after, ok := strings.CutPrefix(line, "description:"); ok {
+			fm.Description = strings.Trim(strings.TrimSpace(after), `"`)
+		}
+	}
+	return fm
 }
 
 // Caption generates a short in-character reaction to a guild spotlight.
@@ -306,7 +528,9 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 	msgs = append(msgs, anthropic.NewUserMessage(blocks...))
 
 	var showSpotlight bool
+	var showSolo bool
 	var guildImageQuery string
+	var catalogQuery string
 
 	for {
 		resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
@@ -331,8 +555,13 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 				}
 				switch tu.Name {
 				case "show_spotlight":
+					slog.Info("ruby tool: show_spotlight")
 					showSpotlight = true
 					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Spotlight is being shown.", false))
+				case "show_solo_spotlight":
+					slog.Info("ruby tool: show_solo_spotlight")
+					showSolo = true
+					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Solo spotlight is being shown.", false))
 				case "show_guild_image":
 					var input struct {
 						Query string `json:"query"`
@@ -340,6 +569,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 					if err := json.Unmarshal(tu.Input, &input); err == nil {
 						guildImageQuery = input.Query
 					}
+					slog.Info("ruby tool: show_guild_image", "query", guildImageQuery)
 					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Guild image is being shown.", false))
 				case "fetch_wiki":
 					var input struct {
@@ -347,9 +577,21 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 					}
 					content := "Could not parse wiki tool input."
 					if err := json.Unmarshal(tu.Input, &input); err == nil {
+						slog.Info("ruby tool: fetch_wiki", "page", input.Page)
 						content = fetchWikiPage(input.Page)
 					}
 					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, content, false))
+				case "show_catalog_items":
+					var input struct {
+						Query string `json:"query"`
+					}
+					if err := json.Unmarshal(tu.Input, &input); err == nil {
+						catalogQuery = input.Query
+					}
+					slog.Info("ruby tool: show_catalog_items", "query", catalogQuery)
+					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Images are being sent to Discord now. Do not list item names or filenames in your reply — just react briefly in character.", false))
+				default:
+					slog.Warn("ruby tool: unknown", "name", tu.Name)
 				}
 			}
 			msgs = append(msgs, anthropic.NewUserMessage(toolResults...))
@@ -373,7 +615,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 		r.history[channelID] = msgs
 		r.mu.Unlock()
 
-		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight, GuildImageQuery: guildImageQuery}, nil
+		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight, ShowSolo: showSolo, GuildImageQuery: guildImageQuery, CatalogQuery: catalogQuery}, nil
 	}
 }
 
@@ -407,8 +649,16 @@ func parseCLIResult(text string) Result {
 			res.ShowSpotlight = true
 			continue
 		}
+		if trimmed == "[SOLO]" {
+			res.ShowSolo = true
+			continue
+		}
 		if strings.HasPrefix(trimmed, "[GUILD:") && strings.HasSuffix(trimmed, "]") {
 			res.GuildImageQuery = strings.TrimSuffix(strings.TrimPrefix(trimmed, "[GUILD:"), "]")
+			continue
+		}
+		if strings.HasPrefix(trimmed, "[CATALOG:") && strings.HasSuffix(trimmed, "]") {
+			res.CatalogQuery = strings.TrimSuffix(strings.TrimPrefix(trimmed, "[CATALOG:"), "]")
 			continue
 		}
 		lines = append(lines, line)
@@ -424,8 +674,9 @@ type cliResult struct {
 
 // runCLI invokes `claude -p` and returns the response text and session ID.
 // Pass sessionID="" to start a new conversation; non-empty to resume one.
+// Only read-only tools are allowed so Claude cannot modify files on disk.
 func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliResult, error) {
-	args := []string{"--print", "--output-format", "json"}
+	args := []string{"--print", "--output-format", "json", "--allowedTools", "Read,Glob,Grep,WebFetch,WebSearch"}
 	if sessionID != "" {
 		args = append(args, "--resume", sessionID)
 	} else if systemPrompt != "" {
