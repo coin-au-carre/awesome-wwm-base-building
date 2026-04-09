@@ -18,13 +18,14 @@ import (
 const numWorkers = 20
 
 type SyncStats struct {
-	Total            int
-	New              int
-	Updated          int
-	NewNames         []string
-	UpdatedNames     []string
-	NewThreadLinks   map[string]string // guild name → discord thread URL
-	VoterGuildCounts map[string]int    // userID → number of distinct guilds voted on
+	Total              int
+	New                int
+	Updated            int
+	NewNames           []string
+	UpdatedNames       []string
+	NewThreadLinks     map[string]string // guild name → discord thread URL
+	VoterGuildCounts   map[string]int    // userID → number of distinct guilds voted on
+	DuplicateWarnings  []string
 }
 
 type SyncConfig struct {
@@ -91,13 +92,31 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		name, threadID := guild.ExtractNameAndID(thread.Name)
 		key := strings.ToLower(name)
 		if _, exists := guildMap[key]; !exists {
+			newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+
+			// Check for similar existing guild names before adding.
+			for _, existing := range guilds {
+				existingName := guild.ExtractName(existing.Name)
+				if similarGuildName(name, existingName) {
+					warning := fmt.Sprintf(
+						"⚠️ **Possible duplicate guild detected:**\n• New: **%s** → %s\n• Existing: **%s** → %s",
+						name, newThreadLink, existingName, existing.DiscordThread,
+					)
+					slog.Warn("possible duplicate guild", "new", name, "existing", existingName)
+					partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+					if !cfg.DryRun {
+						b.Notify(warning)
+					}
+				}
+			}
+
 			idx := len(guilds)
 			guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
 			guildMap[key] = len(guilds) - 1
 			newIndices[idx] = true
 			partialStats.New++
 			partialStats.NewNames = append(partialStats.NewNames, name)
-			partialStats.NewThreadLinks[name] = fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+			partialStats.NewThreadLinks[name] = newThreadLink
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 	}
@@ -412,6 +431,65 @@ func buildGuildMap(guilds []guild.Guild) map[string]int {
 		m[strings.ToLower(guild.ExtractName(g.Name))] = i
 	}
 	return m
+}
+
+// similarGuildName returns true if two guild names are likely the same guild.
+// It normalizes both names (lowercase, alphanumeric only) then checks for
+// substring containment or a Levenshtein distance ≤ 2.
+func similarGuildName(a, b string) bool {
+	na, nb := normalizeName(a), normalizeName(b)
+	if na == nb {
+		return false // identical keys are already deduplicated by the guildMap
+	}
+	if len(na) == 0 || len(nb) == 0 {
+		return false
+	}
+	// Containment: "thewitchers" contains "witchers"
+	if strings.Contains(na, nb) || strings.Contains(nb, na) {
+		return true
+	}
+	// Edit distance for names that aren't too short (avoid false positives).
+	minLen := len(na)
+	if len(nb) < minLen {
+		minLen = len(nb)
+	}
+	if minLen >= 5 && levenshtein(na, nb) <= 2 {
+		return true
+	}
+	return false
+}
+
+func normalizeName(s string) string {
+	var b strings.Builder
+	for _, r := range strings.ToLower(s) {
+		if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') {
+			b.WriteRune(r)
+		}
+	}
+	return b.String()
+}
+
+func levenshtein(a, b string) int {
+	ra, rb := []rune(a), []rune(b)
+	la, lb := len(ra), len(rb)
+	row := make([]int, lb+1)
+	for j := range row {
+		row[j] = j
+	}
+	for i := 1; i <= la; i++ {
+		prev := i
+		for j := 1; j <= lb; j++ {
+			cost := 1
+			if ra[i-1] == rb[j-1] {
+				cost = 0
+			}
+			next := min(min(row[j]+1, prev+1), row[j-1]+cost)
+			row[j-1] = prev
+			prev = next
+		}
+		row[lb] = prev
+	}
+	return row[lb]
 }
 
 func hasChanged(prev, next guild.Guild) bool {
