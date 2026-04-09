@@ -52,7 +52,7 @@ Two roles are automatically assigned by the bot:
 
 ## How the site stays updated
 
-A Go bot crawls the Discord forum channels approximately 4 times a day. It reads all thread metadata and reactions, computes scores, and writes the results to `guilds.json` and `solos.json`. A GitHub Actions workflow then rebuilds and redeploys the static site automatically. No manual curation is needed.
+A Go bot crawls the Discord forum channels several times a day. It reads all thread metadata and reactions, computes scores, and writes the results to `guilds.json` and `solos.json`. A GitHub Actions workflow then rebuilds and redeploys the static site automatically. No manual curation is needed.
 
 ## What the site shows
 
