@@ -2935,7 +2935,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "Bellows",
+          "name": "Box II",
           "translations": {
             "cn": "",
             "fr": "",
@@ -2943,6 +2943,24 @@
             "jp": ""
           },
           "filename": "Miscellaneous_2_4.png",
+          "tags": [
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "buyPlace": "Kaifeng - Feng's Tradehall",
+          "category": "Furniture Decoration",
+          "subCategory": "Miscellaneous"
+        },
+        {
+          "name": "Bellows",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Miscellaneous_2_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2957,7 +2975,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_2_5.png",
+          "filename": "Miscellaneous_3_1.png",
           "tags": [
             "table"
           ],
@@ -2974,7 +2992,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_3_1.png",
+          "filename": "Miscellaneous_3_2.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -2989,7 +3007,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_3_2.png",
+          "filename": "Miscellaneous_3_3.png",
           "tags": [],
           "styles": [
             "wood"
@@ -3006,7 +3024,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_3_3.png",
+          "filename": "Miscellaneous_3_4.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -3021,7 +3039,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_3_4.png",
+          "filename": "Miscellaneous_3_5.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -3036,7 +3054,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_3_5.png",
+          "filename": "Miscellaneous_4_1.png",
           "tags": [],
           "styles": [],
           "hasVariants": false,
@@ -3051,7 +3069,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Miscellaneous_4_1.png",
+          "filename": "Miscellaneous_4_2.png",
           "tags": [
             "table"
           ],
@@ -3061,22 +3079,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "Abatis",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Miscellaneous_4_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Miscellaneous"
-        },
-        {
-          "name": "Box II",
+          "name": "Box I",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3091,7 +3094,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "Box I",
+          "name": "Wash Basin",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3106,7 +3109,7 @@
           "subCategory": "Miscellaneous"
         },
         {
-          "name": "Wash Basin",
+          "name": "Fabric",
           "translations": {
             "cn": "",
             "fr": "",
@@ -3114,11 +3117,14 @@
             "jp": ""
           },
           "filename": "Miscellaneous_4_5.png",
-          "tags": [],
+          "tags": [
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Miscellaneous"
+          "subCategory": "Miscellaneous",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Bamboo Weaving",
@@ -3226,6 +3232,21 @@
           "tags": [
             "variants"
           ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Miscellaneous"
+        },
+        {
+          "name": "Abatis",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Miscellaneous_6_3.png",
+          "tags": [],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
