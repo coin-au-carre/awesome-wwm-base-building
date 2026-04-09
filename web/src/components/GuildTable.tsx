@@ -33,17 +33,35 @@ function formatBuilders(builders: string[] | undefined): string {
   return s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..."
 }
 
-function tagHue(label: string): number {
+const TAG_COLORS: Record<string, [number, number]> = {
+  "Arena":          [30,  70],
+  "Castle":         [220, 40],
+  "Cave":           [25,  30],
+  "City":           [210, 15],
+  "Desert":         [40,  65],
+  "Floating island":[195, 60],
+  "Fun":            [320, 60],
+  "Maze":           [270, 45],
+  "Military":       [80,  35],
+  "Mountain":       [175, 30],
+  "Nature":         [130, 45],
+  "River":          [205, 60],
+  "Snow":           [200, 50],
+  "Zen":            [100, 25],
+}
+
+function tagColor(label: string): [number, number] {
+  if (TAG_COLORS[label]) return TAG_COLORS[label]
   let hash = 0
   for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) >>> 0
-  return hash % 360
+  return [hash % 360, 50]
 }
 
 function Tag({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
-  const h = tagHue(label)
+  const [h, s] = tagColor(label)
   const style = active
-    ? { background: `hsl(${h} 70% 45%)`, color: "hsl(0 0% 100%)", borderColor: "transparent" }
-    : { background: `hsl(${h} 60% 92%)`, color: `hsl(${h} 50% 30%)`, borderColor: "transparent" }
+    ? { background: `hsl(${h} ${s}% 38%)`, color: "hsl(0 0% 100%)", borderColor: "transparent" }
+    : { background: `hsl(${h} ${s}% 88%)`, color: `hsl(${h} ${s - 10}% 28%)`, borderColor: "transparent" }
   return (
     <Badge
       variant="outline"
