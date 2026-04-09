@@ -588,7 +588,8 @@
           },
           "filename": "Wall_5_1.png",
           "tags": [
-            "variants"
+            "variants",
+            "door"
           ],
           "styles": [],
           "hasVariants": true,
@@ -605,7 +606,8 @@
           },
           "filename": "Wall_5_2.png",
           "tags": [
-            "variants"
+            "variants",
+            "wall"
           ],
           "styles": [],
           "hasVariants": true,
@@ -1478,7 +1480,8 @@
           },
           "filename": "Furniture_1_3.png",
           "tags": [
-            "variants"
+            "variants",
+            "chair"
           ],
           "styles": [],
           "hasVariants": true,
@@ -1643,7 +1646,8 @@
           },
           "filename": "Furniture_3_3.png",
           "tags": [
-            "table"
+            "table",
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": false,
@@ -3760,7 +3764,7 @@
           },
           "filename": "Single Target_2_2.png",
           "tags": [],
-          "styles": [],
+          "styles": ["stone"],
           "hasVariants": false,
           "category": "Guild Construction",
           "subCategory": "Single Target"
@@ -3789,7 +3793,7 @@
             "jp": ""
           },
           "filename": "Single Target_2_4.png",
-          "tags": [],
+          "tags": ["food/drink"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -4214,7 +4218,7 @@
             "jp": ""
           },
           "filename": "Single Target_8_1.png",
-          "tags": [],
+          "tags": ["plant"],
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -6319,7 +6323,8 @@
           },
           "filename": "Interior Decoration_7_2.png",
           "tags": [
-            "table"
+            "table",
+            "food/drink"
           ],
           "styles": [],
           "hasVariants": false,
