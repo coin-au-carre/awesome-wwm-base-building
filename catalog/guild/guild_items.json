@@ -1573,7 +1573,9 @@
           "name": "Bookshelf",
           "translations": {},
           "filename": "Furniture_2_4.png",
-          "tags": ["solo"],
+          "tags": [
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -1584,7 +1586,9 @@
           "name": "Wardrobe",
           "translations": {},
           "filename": "Furniture_2_5.png",
-          "tags": ["solo"],
+          "tags": [
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -1595,12 +1599,14 @@
           "name": "Table",
           "translations": {},
           "filename": "Furniture_3_1.png",
-          "tags": ["solo"],
+          "tags": [
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
           "subCategory": "Furniture",
-          "buyPlace": "Kaifeng - Feng's Tradehall"
+          "buyPlace": "Kaifeng -  Sell items from rent house"
         },
         {
           "name": "Bed",
@@ -1670,6 +1676,42 @@
           "subCategory": "Furniture"
         },
         {
+          "name": "Shelf III",
+          "filename": "Furniture_4_1.png",
+          "tags": [
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
+        },
+        {
+          "name": "Screen II",
+          "filename": "Furniture_4_2.png",
+          "tags": [
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
+        },
+        {
+          "name": "Screen I",
+          "filename": "Furniture_4_3.png",
+          "tags": [
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
+        },
+        {
           "name": "Small Tea Table",
           "translations": {
             "cn": "",
@@ -1677,7 +1719,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_4_1.png",
+          "filename": "Furniture_4_4.png",
           "tags": [
             "table",
             "food/drink"
@@ -1688,58 +1730,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "Bathtub",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_2.png",
-          "tags": [
-            "bath"
-          ],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Sick Bed",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_3.png",
-          "tags": [
-            "bed"
-          ],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Carpet",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_4_4.png",
-          "tags": [
-            "carpet"
-          ],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Dressing Table",
+          "name": "Long Table",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1756,115 +1747,6 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "Bookshelf",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Wardrobe",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_2.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Table",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_3.png",
-          "tags": [
-            "table"
-          ],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Shelf",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_4.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Screen II",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_5_5.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Screen I",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_1.png",
-          "tags": [],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
-          "name": "Long Table",
-          "translations": {
-            "cn": "",
-            "fr": "",
-            "de": "",
-            "jp": ""
-          },
-          "filename": "Furniture_6_2.png",
-          "tags": [
-            "table"
-          ],
-          "styles": [],
-          "hasVariants": false,
-          "category": "Furniture Decoration",
-          "subCategory": "Furniture"
-        },
-        {
           "name": "Chair",
           "translations": {
             "cn": "",
@@ -1872,9 +1754,26 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_3.png",
+          "filename": "Furniture_5_1.png",
           "tags": [
             "chair"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
+        },
+        {
+          "name": "Bathtub",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_2.png",
+          "tags": [
+            "bath"
           ],
           "styles": [],
           "hasVariants": false,
@@ -1889,8 +1788,63 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_4.png",
-          "tags": [],
+          "filename": "Furniture_5_3.png",
+          "tags": [
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Sell items from rent house"
+        },
+        {
+          "name": "Bed",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_4.png",
+          "tags": [
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "buyPlace": "Kaifeng - Feng's Tradehall",
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
+        },
+        {
+          "name": "Sick Bed",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_5_5.png",
+          "tags": [
+            "bed"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture"
+        },
+        {
+          "name": "Carpet",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_6_1.png",
+          "tags": [
+            "carpet"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
@@ -1904,14 +1858,16 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_6_5.png",
+          "filename": "Furniture_6_2.png",
           "tags": [
-            "bed"
+            "bed",
+            "solo"
           ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Sell items from rent house"
         },
         {
           "name": "Dressing Table",
@@ -1921,7 +1877,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_1.png",
+          "filename": "Furniture_6_3.png",
           "tags": [
             "table"
           ],
@@ -1938,12 +1894,15 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_2.png",
-          "tags": [],
+          "filename": "Furniture_6_4.png",
+          "tags": [
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Sell items from rent house"
         },
         {
           "name": "Wash Stand",
@@ -1953,12 +1912,15 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_3.png",
-          "tags": [],
+          "filename": "Furniture_6_5.png",
+          "tags": [
+            "solo"
+          ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Sell items from rent house"
         },
         {
           "name": "Bed II",
@@ -1968,14 +1930,35 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_4.png",
+          "filename": "Furniture_7_1.png",
           "tags": [
-            "bed"
+            "bed",
+            "solo"
           ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Sell items from rent house"
+        },
+        {
+          "name": "Dressing Table",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Furniture_7_2.png",
+          "tags": [
+            "table",
+            "solo"
+          ],
+          "styles": [],
+          "hasVariants": false,
+          "category": "Furniture Decoration",
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Sell items from rent house"
         },
         {
           "name": "Tea Set",
@@ -1985,7 +1968,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_7_5.png",
+          "filename": "Furniture_7_3.png",
           "tags": [
             "variants",
             "food/drink"
@@ -2003,7 +1986,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_8_1.png",
+          "filename": "Furniture_7_4.png",
           "tags": [
             "variants"
           ],
@@ -2020,7 +2003,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_8_2.png",
+          "filename": "Furniture_7_5.png",
           "tags": [
             "variants"
           ],
@@ -2037,7 +2020,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_8_3.png",
+          "filename": "Furniture_8_1.png",
           "tags": [
             "variants"
           ],
@@ -2054,7 +2037,7 @@
             "de": "",
             "jp": ""
           },
-          "filename": "Furniture_8_4.png",
+          "filename": "Furniture_8_2.png",
           "tags": [
             "variants"
           ],

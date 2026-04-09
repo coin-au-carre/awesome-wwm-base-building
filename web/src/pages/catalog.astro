@@ -371,7 +371,7 @@ const catalogJson = JSON.stringify(
                 <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
               </svg>
               <div class="min-w-0">
-                <p class="text-xs font-medium text-foreground">Solo purchase required</p>
+                <p class="text-xs font-medium text-foreground">Solo unlock required</p>
                 <p id="detail-buy-place" class="text-xs text-muted-foreground mt-0.5 leading-snug"></p>
               </div>
             </div>
@@ -585,7 +585,7 @@ const catalogJson = JSON.stringify(
     }
 
     if (item.tags.includes("solo") && item.buyPlace) {
-      detailBuyPlace.textContent = `Purchase at: ${item.buyPlace}`
+      detailBuyPlace.textContent = `Unlock at: ${item.buyPlace}`
       detailSoloSection.style.display = ""
     } else {
       detailSoloSection.style.display = "none"
