@@ -450,7 +450,6 @@ const catalogJson = JSON.stringify(
     bath:              "hsl(190,60%,30%)",
     bed:               "hsl(270,40%,36%)",
     carpet:            "hsl(340,50%,33%)",
-    ceiling:           "hsl(220,18%,36%)",
     chair:             "hsl(28,52%,30%)",
     diagram:           "hsl(215,60%,33%)",
     door:              "hsl(24,52%,28%)",
@@ -845,8 +844,8 @@ const catalogJson = JSON.stringify(
   // Group order: structural → furniture → misc. Tags not listed fall into a final group.
   const tagGroupDefs: { label: string; tags: string[] }[] = [
     { label: "Structure",   tags: ["wall", "floor", "ceiling", "roof", "stairs", "guardrail", "door/gate", "window/frame", "railing"] },
-    { label: "Accessories", tags: ["interactive", "statue", "plant"] },
-    { label: "Furniture",   tags: ["bed", "carpet", "chair", "table", "lamp", "bath"] },
+    { label: "Accessories", tags: ["interactive", "statue", "lamp", "plant"] },
+    { label: "Furniture",   tags: ["bed", "carpet", "chair", "table", "bath"] },
   ]
   const tagGroupIndex: Record<string, number> = {}
   const tagPositionInGroup: Record<string, number> = {}

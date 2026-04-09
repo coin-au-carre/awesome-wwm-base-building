@@ -5004,7 +5004,8 @@
           },
           "filename": "Single Target_17_1.png",
           "tags": [
-            "chair"
+            "chair",
+            "interactive"
           ],
           "styles": [],
           "hasVariants": false,
@@ -10052,9 +10053,7 @@
             "jp": ""
           },
           "filename": "Diagram_1_1_ceiling.png",
-          "tags": [
-            "ceiling"
-          ],
+          "tags": [],
           "styles": [
             "wood"
           ],
