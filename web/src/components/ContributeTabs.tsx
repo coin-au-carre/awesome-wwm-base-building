@@ -86,7 +86,7 @@ export default function ContributeTabs() {
             n="3"
             badgeClass="bg-emerald-500 text-white border-0"
             title="Wait for the next sync"
-            body="The site syncs ~4 times a day. Your guild will appear automatically after the next sync."
+            body="The site syncs several times a day. Your guild will appear automatically after the next sync."
           />
         </ol>
 
