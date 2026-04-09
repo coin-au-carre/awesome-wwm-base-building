@@ -1606,7 +1606,7 @@
           "hasVariants": false,
           "category": "Furniture Decoration",
           "subCategory": "Furniture",
-          "buyPlace": "Kaifeng -  Sell items from rent house"
+          "buyPlace": "Kaifeng - Sell items from rent house"
         },
         {
           "name": "Bed",
@@ -1651,11 +1651,12 @@
             "jp": ""
           },
           "filename": "Furniture_3_4.png",
-          "tags": [],
+          "tags": ["solo"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Tea Table",
@@ -1756,12 +1757,14 @@
           },
           "filename": "Furniture_5_1.png",
           "tags": [
-            "chair"
+            "chair",
+            "solo"
           ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Bathtub",
@@ -1817,7 +1820,7 @@
           "subCategory": "Furniture"
         },
         {
-          "name": "Sick Bed",
+          "name": "Sickbed",
           "translations": {
             "cn": "",
             "fr": "",
@@ -1826,12 +1829,14 @@
           },
           "filename": "Furniture_5_5.png",
           "tags": [
-            "bed"
+            "bed",
+            "solo"
           ],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Furniture"
+          "subCategory": "Furniture",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Carpet",
@@ -2314,7 +2319,8 @@
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Accessory"
+          "subCategory": "Accessory",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Carpet",
@@ -2419,11 +2425,12 @@
             "jp": ""
           },
           "filename": "Accessory_5_2.png",
-          "tags": [],
+          "tags": ["solo"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Accessory"
+          "subCategory": "Accessory",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Quiver",
@@ -2467,11 +2474,12 @@
             "jp": ""
           },
           "filename": "Accessory_5_5.png",
-          "tags": [],
+          "tags": ["solo"],
           "styles": [],
           "hasVariants": false,
           "category": "Furniture Decoration",
-          "subCategory": "Accessory"
+          "subCategory": "Accessory",
+          "buyPlace": "Kaifeng - Feng's Tradehall"
         },
         {
           "name": "Floating Stone Plate Form",
