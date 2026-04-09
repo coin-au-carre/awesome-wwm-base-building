@@ -139,8 +139,18 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 			return
 		}
 
+		if result.ShowSolo {
+			handleSoloSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
+			return
+		}
+
 		if result.GuildImageQuery != "" {
 			handleGuildImageReply(bot, s, responder, m.ChannelID, m.ID, root, result.GuildImageQuery)
+			return
+		}
+
+		if result.CatalogQuery != "" {
+			handleCatalogItemsReply(bot, s, m.ChannelID, m.ID, root, result.CatalogQuery)
 			return
 		}
 
