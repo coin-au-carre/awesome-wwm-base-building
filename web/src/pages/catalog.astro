@@ -130,7 +130,8 @@ const catalogJson = JSON.stringify(
     </div>
 
     <!-- Search -->
-    <div class="relative max-w-md" id="search-wrapper">
+    <div class="flex items-center gap-3">
+    <div class="relative max-w-md flex-1" id="search-wrapper">
       <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
       </svg>
@@ -157,6 +158,12 @@ const catalogJson = JSON.stringify(
         class="absolute z-20 mt-1 w-full rounded-lg border border-border bg-popover shadow-lg overflow-hidden text-sm"
         style="display:none"
       ></ul>
+    </div>
+    <button
+      id="search-clear-btn"
+      style="display:none"
+      class="shrink-0 text-sm text-muted-foreground hover:text-foreground transition-colors"
+    >Clear</button>
     </div>
 
     <!-- Quick filters -->
@@ -768,6 +775,7 @@ const catalogJson = JSON.stringify(
 
   const searchInput       = document.getElementById("catalog-search") as HTMLInputElement
   const searchClear       = document.getElementById("search-clear") as HTMLButtonElement
+  const searchClearBtn    = document.getElementById("search-clear-btn") as HTMLButtonElement
   const searchResults     = document.getElementById("search-results") as HTMLDivElement
   const searchGrid        = document.getElementById("search-grid") as HTMLDivElement
   const searchCount       = document.getElementById("search-count") as HTMLParagraphElement
@@ -777,6 +785,7 @@ const catalogJson = JSON.stringify(
 
   function setSearchActive(active: boolean) {
     searchClear.style.display = active ? "" : "none"
+    searchClearBtn.style.display = active ? "" : "none"
     catTabsEl.classList.toggle("opacity-40", active)
     catTabsEl.classList.toggle("pointer-events-none", active)
   }
@@ -1118,14 +1127,17 @@ const catalogJson = JSON.stringify(
     }
   }
 
-  searchClear.addEventListener("click", () => {
+  function doClearSearch() {
     searchInput.value = ""
     hideSuggestions()
     runSearch("")
     syncUrl()
     updatePillActiveStates()
     searchInput.focus()
-  })
+  }
+
+  searchClear.addEventListener("click", doClearSearch)
+  searchClearBtn.addEventListener("click", doClearSearch)
 
   searchInput.addEventListener("input", (e) => {
     const val = (e.target as HTMLInputElement).value
