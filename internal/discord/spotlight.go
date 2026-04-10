@@ -44,12 +44,16 @@ func PickRandomGuild(guilds []guild.Guild) (guild.Guild, string, bool) {
 }
 
 // PickFromGuilds returns a random guild and screenshot URL from the given slice (all assumed to have screenshots).
+// The cover image is preferred when set; otherwise a random screenshot is used.
 func PickFromGuilds(guilds []guild.Guild) (guild.Guild, string, bool) {
 	if len(guilds) == 0 {
 		return guild.Guild{}, "", false
 	}
 	pick := guilds[rand.IntN(len(guilds))]
-	imgURL := pick.Screenshots[rand.IntN(len(pick.Screenshots))]
+	imgURL := pick.CoverImage
+	if imgURL == "" {
+		imgURL = pick.Screenshots[rand.IntN(len(pick.Screenshots))]
+	}
 	return pick, imgURL, true
 }
 
