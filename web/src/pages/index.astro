@@ -26,7 +26,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
         </Badge>
       </div>
       <p class="text-muted-foreground">
-        The most beautiful constructions in Jiang Hu. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Discord ↗</a></span>
+        The most beautiful constructions in Jiang Hu. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click" data-umami-event-page="home">Discord ↗</a></span>
       </p>
     </div>
 
@@ -55,6 +55,10 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
                 <a
                   href={`${BASE}/guilds/${g.slug}`}
                   class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                  data-umami-event="guild_click"
+                  data-umami-event-name={g.name}
+                  data-umami-event-source="recently_added"
+                  data-umami-event-type="guilds"
                 >
                   {img && (
                     <img

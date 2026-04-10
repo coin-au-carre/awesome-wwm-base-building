@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react"
+import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { rankLabel } from "@/lib/slugify"
 import { url } from "@/lib/url"
@@ -108,6 +109,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
   const [search, setSearch] = useState("")
   const [page, setPage] = useState(1)
+  const searchTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
   function toggleSort(field: SortField) {
     if (sortField === field) {
@@ -126,6 +128,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
         next.delete(tag)
       } else {
         next.add(tag)
+        ;(window as any).umami?.track("tag_filter", { tag, type: basePath })
       }
       return next
     })
@@ -169,7 +172,16 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
           type="search"
           placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
           value={search}
-          onChange={(e) => { setSearch(e.target.value); setPage(1) }}
+          onChange={(e) => {
+            setSearch(e.target.value)
+            setPage(1)
+            if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
+            if (e.target.value.trim()) {
+              searchTimerRef.current = setTimeout(() => {
+                ;(window as any).umami?.track("search_used", { page: basePath })
+              }, 1500)
+            }
+          }}
           className="pl-9 pr-8 focus-visible:border-primary focus-visible:ring-primary/30"
         />
         {search && (
@@ -244,7 +256,10 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
             ) : paginated.map((g, i) => (
               <TableRow
                 key={g.name}
-                onClick={() => window.location.href = url(`/${basePath}/${g.slug}`)}
+                onClick={() => {
+                  ;(window as any).umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
+                  window.location.href = url(`/${basePath}/${g.slug}`)
+                }}
                 className={cn("cursor-pointer", i % 2 !== 0 && "bg-muted/10")}
               >
                 <TableCell className="text-center font-medium">{rankLabel(g.rank)}</TableCell>

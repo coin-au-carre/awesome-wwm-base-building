@@ -50,7 +50,7 @@ const isEmpty = !hasSolos()
         )}
       </div>
       <p class="text-muted-foreground">
-        Awesome individual builds from Where Winds Meet wanderers. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Discord ↗</a></span>
+        Awesome individual builds from Where Winds Meet wanderers. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click" data-umami-event-page="solo">Discord ↗</a></span>
       </p>
     </div>
 
@@ -92,7 +92,7 @@ const isEmpty = !hasSolos()
                 Post your screenshots in the dedicated channel on our Discord server.
               </p>
             </div>
-            <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={`shrink-0 ${buttonVariants({ size: "lg" })}`}>Join Discord ↗</a>
+            <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={`shrink-0 ${buttonVariants({ size: "lg" })}`} data-umami-event="discord_cta_click" data-umami-event-page="solo">Join Discord ↗</a>
           </CardContent>
         </Card>
       )
@@ -105,6 +105,7 @@ const isEmpty = !hasSolos()
   const grid = document.getElementById("top-showcase-grid")
   if (btn && grid) {
     btn.addEventListener("click", () => {
+      ;(window as any).umami?.track("shuffle_click")
       grid.querySelectorAll<HTMLAnchorElement>("a[data-screenshots]").forEach((card) => {
         const shots: string[] = JSON.parse(card.dataset.screenshots ?? "[]")
         if (shots.length === 0) return
