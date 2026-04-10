@@ -4,7 +4,6 @@ import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 import { getGuildsSortedByScore } from "@/lib/guilds"
 import { rankLabel } from "@/lib/slugify"
 import { renderMarkdown } from "@/lib/markdown"
@@ -92,45 +91,46 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
       })
     </script>
 
-    <!-- Metadata table -->
-    <div class="rounded-xl ring-1 ring-border overflow-hidden">
-      <Table>
-        <TableBody>
-          {g.id && (
-            <TableRow>
-              <TableCell className="text-muted-foreground font-medium w-32">🆔 Guild ID</TableCell>
-              <TableCell>{g.id}</TableCell>
-            </TableRow>
-          )}
-          <TableRow>
-            <TableCell className="text-muted-foreground font-medium">🔨 Builders</TableCell>
-            <TableCell>{g.builders?.join(", ") || "—"}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="text-muted-foreground font-medium">⭐ Score</TableCell>
-            <TableCell className="font-semibold font-mono">{g.score}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell className="text-muted-foreground font-medium">🏆 Rank</TableCell>
-            <TableCell>{rankLabel(g.rank)}</TableCell>
-          </TableRow>
-          {g.discordThread && (
-            <TableRow>
-              <TableCell className="text-muted-foreground font-medium">💬 Discord</TableCell>
-              <TableCell>
-                <div class="flex flex-wrap gap-2">
-                  <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })}>
-                    Join server ↗
-                  </a>
-                  <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })}>
-                    Vote ↗
-                  </a>
-                </div>
-              </TableCell>
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+    <!-- Metadata card -->
+    <div class="rounded-xl ring-1 ring-border overflow-hidden flex flex-col sm:flex-row">
+      {ogImage && (
+        <div class="sm:w-2/5 shrink-0 aspect-video sm:aspect-auto">
+          <img src={ogImage} alt={g.name} class="w-full h-full object-cover" />
+        </div>
+      )}
+      <div class="divide-y divide-border flex-1">
+        {g.id && (
+          <div class="flex items-center gap-3 px-4 py-3">
+            <span class="text-muted-foreground text-sm w-24 shrink-0">🆔 Guild ID</span>
+            <span class="text-sm">{g.id}</span>
+          </div>
+        )}
+        <div class="flex items-center gap-3 px-4 py-3">
+          <span class="text-muted-foreground text-sm w-24 shrink-0">🔨 Builders</span>
+          <span class="text-sm font-medium">{g.builders?.join(", ") || "—"}</span>
+        </div>
+        <div class="flex items-center gap-3 px-4 py-3">
+          <span class="text-muted-foreground text-sm w-24 shrink-0">⭐ Score</span>
+          <span class="text-sm font-semibold font-mono">{g.score}</span>
+        </div>
+        <div class="flex items-center gap-3 px-4 py-3">
+          <span class="text-muted-foreground text-sm w-24 shrink-0">🏆 Rank</span>
+          <span class="text-sm">{rankLabel(g.rank)}</span>
+        </div>
+        {g.discordThread && (
+          <div class="flex items-center gap-3 px-4 py-3">
+            <span class="text-muted-foreground text-sm w-24 shrink-0">💬 Discord</span>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })}>
+                Join server ↗
+              </a>
+              <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })}>
+                Vote ↗
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
 
     <!-- Lore -->
