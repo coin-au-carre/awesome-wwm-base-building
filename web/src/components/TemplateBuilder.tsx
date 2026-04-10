@@ -98,6 +98,7 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
   async function copy() {
     await navigator.clipboard.writeText(template)
     setCopied(true)
+    ;(window as any).umami?.track("template_copied", { mode })
     setTimeout(() => setCopied(false), 2000)
   }
 

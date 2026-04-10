@@ -81,6 +81,7 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
             await navigator.share({ title: document.title, url })
           } else {
             await navigator.clipboard.writeText(url)
+            window.umami?.track("share_url_copied", { type: "guild" })
             shareIcon.classList.add("hidden")
             checkIcon.classList.remove("hidden")
             checkIcon.classList.add("text-green-500")
@@ -123,10 +124,10 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
           <div class="flex items-center gap-3 px-4 py-3">
             <span class="text-muted-foreground text-sm w-24 shrink-0">💬 Discord</span>
             <div class="flex flex-wrap gap-2">
-              <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })}>
+              <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })} data-umami-event="discord_cta_click" data-umami-event-page="guild_detail">
                 Join server ↗
               </a>
-              <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })}>
+              <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })} data-umami-event="discord_cta_click" data-umami-event-page="guild_detail">
                 Vote ↗
               </a>
             </div>
@@ -170,8 +171,8 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
     <!-- Discord CTA -->
     {g.discordThread && (
       <div class="flex flex-wrap gap-3">
-        <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "lg" })}>Join server ↗</a>
-        <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })}>Vote on Discord ↗</a>
+        <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "lg" })} data-umami-event="discord_cta_click" data-umami-event-page="guild_detail">Join server ↗</a>
+        <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click" data-umami-event-page="guild_detail">Vote on Discord ↗</a>
       </div>
     )}
 
@@ -184,7 +185,7 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
             This entry was added by the WBM community. If you're a builder of {g.guildName || g.name}, you can post your base showcase yourself. See the
             <a href={base + "/contribute"} class="underline hover:text-foreground transition-colors">contribute guide</a> to get started.
           </p>
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })}>Post your base ↗</a>
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click" data-umami-event-page="guild_detail">Post your base ↗</a>
         </CardContent>
       </Card>
     )}

@@ -652,8 +652,10 @@ const catalogJson = JSON.stringify(
         c.classList.toggle("ring-2", c === card)
         c.classList.toggle("ring-primary", c === card)
       })
+      const itemName = card.querySelector<HTMLElement>("p")?.textContent?.trim() ?? ""
+      ;(window as any).umami?.track("catalog_item_click", { name: itemName, category: card.dataset.category ?? "" })
       showDetail({
-        name:        card.querySelector<HTMLElement>("p")?.textContent?.trim() ?? "",
+        name:        itemName,
         img:         card.dataset.img ?? "",
         tags:        JSON.parse(card.dataset.tags ?? "[]"),
         styles:      JSON.parse(card.dataset.styles ?? "[]"),
@@ -716,6 +718,7 @@ const catalogJson = JSON.stringify(
 
   shareBtn.addEventListener("click", () => {
     navigator.clipboard.writeText(location.href).then(() => {
+      ;(window as any).umami?.track("share_url_copied", { type: "catalog" })
       shareIcon.style.display = "none"
       shareCheck.style.display = ""
       shareLabel.textContent = "Copied!"
@@ -731,6 +734,7 @@ const catalogJson = JSON.stringify(
   catTabs.forEach((tab) => {
     tab.addEventListener("click", () => {
       activeCat = tab.dataset.cat!
+      ;(window as any).umami?.track("catalog_category_click", { category: activeCat })
       catTabs.forEach((t) => {
         const on = t.dataset.cat === activeCat
         t.classList.toggle("border-primary", on)
@@ -1138,12 +1142,19 @@ const catalogJson = JSON.stringify(
   searchClear.addEventListener("click", doClearSearch)
   searchClearBtn.addEventListener("click", doClearSearch)
 
+  let catalogSearchTimer: ReturnType<typeof setTimeout> | null = null
   searchInput.addEventListener("input", (e) => {
     const val = (e.target as HTMLInputElement).value
     updateSuggestions(val)
     runSearch(val)
     syncUrl()
     updatePillActiveStates()
+    if (catalogSearchTimer) clearTimeout(catalogSearchTimer)
+    if (val.trim()) {
+      catalogSearchTimer = setTimeout(() => {
+        ;(window as any).umami?.track("catalog_search", { query: val.trim() })
+      }, 1500)
+    }
   })
 
   searchInput.addEventListener("keydown", (e) => {

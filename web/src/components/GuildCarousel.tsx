@@ -35,6 +35,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
               <a
                 href={url(`/${basePath}/${g.slug}`)}
                 className="group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                onClick={() => (window as any).umami?.track("guild_click", { name: g.name, rank: g.rank, source: "carousel", type: basePath })}
               >
                 {img && (
                   <img

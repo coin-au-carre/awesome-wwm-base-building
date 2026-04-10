@@ -228,7 +228,11 @@ function tiktokVideoID(rawURL: string): string {
   }
 
   triggers.forEach((t) => {
-    t.addEventListener("click", () => show(Number(t.dataset.index ?? 0)))
+    t.addEventListener("click", () => {
+      const index = Number(t.dataset.index ?? 0)
+      ;(window as any).umami?.track("lightbox_open", { index })
+      show(index)
+    })
   })
 
   btnClose.addEventListener("click", close)

@@ -45,7 +45,11 @@ export default function ContributeTabs() {
   const p = new URLSearchParams(window.location.search).get("mode")
   const initialMode: "guild" | "solo" = p === "solo" ? "solo" : "guild"
   return (
-    <Tabs defaultValue="submit" className="space-y-6">
+    <Tabs
+      defaultValue="submit"
+      className="space-y-6"
+      onValueChange={(tab) => (window as any).umami?.track("contribute_tab_switch", { tab })}
+    >
       <TabsList>
         {[
           { value: "submit", label: "Builders" },
@@ -64,7 +68,7 @@ export default function ContributeTabs() {
             n="1"
             badgeClass="bg-blue-500 text-white border-0"
             title="Join the Discord"
-            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">Join Discord ↗</a></Button></>}
+            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => (window as any).umami?.track("discord_cta_click", { page: "contribute" })}>Join Discord ↗</a></Button></>}
           />
           <Step
             n="2"
@@ -145,7 +149,7 @@ export default function ContributeTabs() {
           Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role on Discord.
         </p>
         <Button variant="link" size="sm" asChild className="h-auto p-0">
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer">
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => (window as any).umami?.track("discord_cta_click", { page: "contribute" })}>
             Join Discord ↗
           </a>
         </Button>
