@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
+import { Users, Layers, Image, LayoutList, ShieldCheck } from "lucide-react"
 
 function Step({
   n,
@@ -90,13 +91,45 @@ export default function ContributeTabs() {
           />
         </ol>
 
+        <hr className="border-border" />
+
         <Card>
-          <CardContent className="space-y-2 text-sm text-muted-foreground">
-            <p><span className="font-medium text-foreground">Multiple guilds, one builder?</span>You can submit in different threads. One guild = one thread.</p>
-            <p><span className="font-medium text-foreground">One guild, multiple builds?</span>You can post different styles even if it's the same guild. Same guild = one thread.</p>
-            <p><span className="font-medium text-foreground">Cover image:</span> Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">Cover: N</code> to your first post to pin screenshot #N as the cover shown in the carousel and homepage. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">Cover: 3</code> picks your third image.</p>
-            <p><span className="font-medium text-foreground">Screenshot sections:</span> Organize your screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground"># Section name</code> (using <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">#</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">##</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">###</code>). You can post the label before or after the images it describes.</p>
-            <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
+          <CardContent className="divide-y divide-border p-0">
+            {[
+              {
+                icon: <Users className="size-4 text-blue-500 shrink-0 mt-0.5" />,
+                title: "Multiple guilds, one builder?",
+                body: "You can submit in different threads. One guild = one thread.",
+              },
+              {
+                icon: <Layers className="size-4 text-violet-500 shrink-0 mt-0.5" />,
+                title: "One guild, multiple builds?",
+                body: "You can post different styles even if it's the same guild. Same guild = one thread.",
+              },
+              {
+                icon: <Image className="size-4 text-emerald-500 shrink-0 mt-0.5" />,
+                title: "Cover image",
+                body: <>Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post to pin screenshot #N as the cover. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.</>,
+              },
+              {
+                icon: <LayoutList className="size-4 text-amber-500 shrink-0 mt-0.5" />,
+                title: "Screenshot sections",
+                body: <>Organize screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code> (using <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">#</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">##</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">###</code>). Post the label before or after the images it describes.</>,
+              },
+              {
+                icon: <ShieldCheck className="size-4 text-rose-500 shrink-0 mt-0.5" />,
+                title: "Builder role",
+                body: "Granted automatically when you post a thread.",
+              },
+            ].map(({ icon, title, body }) => (
+              <div key={title} className="flex gap-3 px-4 py-3">
+                {icon}
+                <div className="space-y-0.5">
+                  <p className="text-sm font-medium text-foreground">{title}</p>
+                  <p className="text-sm text-muted-foreground">{body}</p>
+                </div>
+              </div>
+            ))}
           </CardContent>
         </Card>
       </TabsContent>
