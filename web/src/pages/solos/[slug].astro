@@ -34,9 +34,11 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
       "@type": "Article",
       headline: `${g.name} — Solo Build`,
       description: g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`,
-      image: ogImage,
+      ...(ogImage ? { image: [{ "@type": "ImageObject", url: ogImage, width: 1280, height: 720 }] } : {}),
+      datePublished: "2025-01-01",
       url: Astro.url.href,
       author: g.builders?.map((name: string) => ({ "@type": "Person", name })) ?? [],
+      publisher: { "@type": "Organization", name: "Where Builders Meet", url: "https://www.wherebuildersmeet.com" },
     })}
   />
   <div class="max-w-5xl space-y-8">
