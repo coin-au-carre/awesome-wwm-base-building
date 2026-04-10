@@ -50,7 +50,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
           <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {latestGuilds.map((g) => {
               const shots = g.screenshots ?? []
-              const img = shots[Math.floor(Math.random() * shots.length)]
+              const img = g.coverImage ?? shots[0]
               return (
                 <a
                   href={`${BASE}/guilds/${g.slug}`}

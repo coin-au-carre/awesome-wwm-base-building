@@ -1,6 +1,7 @@
 package guild
 
 import (
+	"fmt"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -14,6 +15,7 @@ var (
 	reGuildName   = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
 	reLore        = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
 	reWhatToVisit = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
+	reCover       = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 )
 
 var skipPhrases = []string{
@@ -24,7 +26,8 @@ var skipPhrases = []string{
 }
 
 // ParseFirstPost extracts structured data from the first message of a Discord thread.
-func ParseFirstPost(content string) (id string, guildName string, builders []string, lore string, whatToVisit string) {
+// coverIdx is 1-based; 0 means not specified.
+func ParseFirstPost(content string) (id string, guildName string, builders []string, lore string, whatToVisit string, coverIdx int) {
 	if m := reBracketID.FindStringSubmatch(content); len(m) > 1 {
 		id = m[1]
 	} else if m := reEightDigit.FindStringSubmatch(content); len(m) > 1 {
@@ -50,6 +53,10 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 
 	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
 		whatToVisit = cleanSection(m[1])
+	}
+
+	if m := reCover.FindStringSubmatch(content); len(m) > 1 {
+		fmt.Sscan(m[1], &coverIdx)
 	}
 
 	return

@@ -29,7 +29,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
       <CarouselContent>
         {guilds.map((g) => {
           const shots = g.screenshots ?? []
-          const img = shots[Math.floor(Math.random() * shots.length)]
+          const img = g.coverImage ?? shots[0]
           return (
             <CarouselItem key={g.slug} className="basis-full sm:basis-1/2 lg:basis-1/3">
               <a
