@@ -1,10 +1,26 @@
 ---
+import type { ScreenshotSection } from "@/types/guild"
+
 interface Props {
   screenshots?: string[]
+  screenshotSections?: ScreenshotSection[]
   videos?: string[]
 }
 
-const { screenshots = [], videos = [] } = Astro.props
+const { screenshots = [], screenshotSections, videos = [] } = Astro.props
+
+// Use sections if present and at least one has a label; otherwise fall back to flat list.
+const hasSections = screenshotSections && screenshotSections.length > 0 && screenshotSections.some(s => s.label)
+const sections: ScreenshotSection[] = hasSections
+  ? screenshotSections!
+  : screenshots.length > 0 ? [{ screenshots }] : []
+
+// Assign global lightbox indices across all sections.
+let globalIndex = 0
+const sectionsWithIndex: { label?: string; items: { src: string; index: number }[] }[] = sections.map(s => ({
+  label: s.label,
+  items: s.screenshots.map(src => ({ src, index: globalIndex++ })),
+}))
 
 function youtubeVideoID(rawURL: string): string {
   try {
@@ -75,40 +91,47 @@ function tiktokVideoID(rawURL: string): string {
 }
 
 {
-  screenshots.length > 0 && (
-    <section>
-      <h3 class="text-sm font-medium text-muted-foreground mb-3">
+  sectionsWithIndex.length > 0 && (
+    <section class="space-y-6">
+      <h3 class="text-sm font-medium text-muted-foreground">
         Screenshots <span class="text-xs font-normal text-muted-foreground/60">· click to enlarge</span>
       </h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-        {screenshots.map((src, i) => (
-          <button
-            type="button"
-            class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
-            data-src={src}
-            data-index={i}
-          >
-            <img
-              src={src}
-              alt={`Screenshot ${i + 1}`}
-              loading="lazy"
-              onerror="this.closest('button').style.display='none'"
-              class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-              <svg class="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-              </svg>
-            </div>
-          </button>
-        ))}
-      </div>
+      {sectionsWithIndex.map(sec => (
+        <div>
+          {sec.label && (
+            <p class="text-sm font-medium mb-2">{sec.label}</p>
+          )}
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {sec.items.map(({ src, index }) => (
+              <button
+                type="button"
+                class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
+                data-src={src}
+                data-index={index}
+              >
+                <img
+                  src={src}
+                  alt={`Screenshot ${index + 1}`}
+                  loading="lazy"
+                  onerror="this.closest('button').style.display='none'"
+                  class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                  <svg class="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                  </svg>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   )
 }
 
 {
-  screenshots.length === 0 && videos.length === 0 && (
+  sectionsWithIndex.length === 0 && videos.length === 0 && (
     <p class="text-muted-foreground text-sm">
       No media yet —{" "}
       <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors">

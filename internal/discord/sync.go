@@ -34,16 +34,17 @@ type SyncConfig struct {
 }
 
 type threadData struct {
-	ID          string
-	GuildName   string
-	AuthorID    string
-	Builders    []string
-	Score       int
-	Screenshots []string
-	Videos      []string
-	Lore        string
-	WhatToVisit string
-	CoverIdx    int // 1-based; 0 = not set
+	ID                 string
+	GuildName          string
+	AuthorID           string
+	Builders           []string
+	Score              int
+	Screenshots        []string
+	ScreenshotSections []guild.ScreenshotSection
+	Videos             []string
+	Lore               string
+	WhatToVisit        string
+	CoverIdx           int // 1-based; 0 = not set
 }
 
 type fetchedThread struct {
@@ -265,6 +266,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
 		g.Score = data.Score
 		g.Screenshots = data.Screenshots
+		g.ScreenshotSections = data.ScreenshotSections
 		g.Videos = data.Videos
 		if idx := data.CoverIdx; idx >= 1 && idx <= len(data.Screenshots) {
 			g.CoverImage = data.Screenshots[idx-1]
@@ -333,18 +335,19 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 
 	id, guildName, builders, lore, whatToVisit, coverIdx := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
-	screenshots, videos := collectMedia(s, thread.ID, authorID)
+	sections, screenshots, videos := collectMedia(s, thread.ID, authorID)
 
 	return threadData{
-		ID:          id,
-		GuildName:   guildName,
-		AuthorID:    authorID,
-		Builders:    resolveBuilders(s, builders),
-		Screenshots: screenshots,
-		Videos:      videos,
-		Lore:        lore,
-		WhatToVisit: whatToVisit,
-		CoverIdx:    coverIdx,
+		ID:                 id,
+		GuildName:          guildName,
+		AuthorID:           authorID,
+		Builders:           resolveBuilders(s, builders),
+		Screenshots:        screenshots,
+		ScreenshotSections: sections,
+		Videos:             videos,
+		Lore:               lore,
+		WhatToVisit:        whatToVisit,
+		CoverIdx:           coverIdx,
 	}
 }
 
@@ -374,9 +377,21 @@ func isSupportedVideoURL(rawURL string) bool {
 	return u.Hostname() == "www.tiktok.com" || u.Hostname() == "tiktok.com"
 }
 
-func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots, videos []string) {
+var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
+
+func collectMedia(s *discordgo.Session, threadID, authorID string) (sections []guild.ScreenshotSection, screenshots, videos []string) {
 	seen := make(map[string]bool)
 	var lastID string
+	var currentSection *guild.ScreenshotSection
+
+	addImage := func(url string) {
+		if currentSection == nil {
+			sections = append(sections, guild.ScreenshotSection{})
+			currentSection = &sections[len(sections)-1]
+		}
+		currentSection.Screenshots = append(currentSection.Screenshots, url)
+		screenshots = append(screenshots, url)
+	}
 
 	for {
 		if len(screenshots) >= maxScreenshots {
@@ -390,13 +405,23 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots,
 			if msg.Author == nil || msg.Author.ID != authorID {
 				continue
 			}
+			if m := reSectionHeader.FindStringSubmatch(strings.TrimSpace(msg.Content)); len(m) == 3 {
+				label := strings.TrimSpace(m[2])
+				if currentSection != nil && currentSection.Label == "" && len(currentSection.Screenshots) > 0 {
+					// Builder posted images first then captioned them — label the preceding batch.
+					currentSection.Label = label
+				} else {
+					sections = append(sections, guild.ScreenshotSection{Label: label})
+					currentSection = &sections[len(sections)-1]
+				}
+			}
 			for _, att := range msg.Attachments {
 				if seen[att.URL] {
 					continue
 				}
 				seen[att.URL] = true
 				if guild.IsImage(att.Filename) {
-					screenshots = append(screenshots, att.URL)
+					addImage(att.URL)
 					slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
 				} else if guild.IsVideo(att.Filename) {
 					videos = append(videos, att.URL)
@@ -411,7 +436,7 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots,
 					slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
 				} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
 					seen[embed.Image.URL] = true
-					screenshots = append(screenshots, embed.Image.URL)
+					addImage(embed.Image.URL)
 					slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
 				}
 			}
@@ -421,6 +446,10 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots,
 			break
 		}
 	}
+	for i := range sections {
+		slices.Reverse(sections[i].Screenshots)
+	}
+	slices.Reverse(sections)
 	slices.Reverse(screenshots)
 	slices.Reverse(videos)
 	return
