@@ -23,15 +23,13 @@ const base = BASE
 const AHLYAM_ID = "149790526076354561"
 const WINDXP_ID = "721510597958828183"
 const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID || g.builderDiscordId === WINDXP_ID
-const randomScreenshot = g.screenshots?.length
-  ? g.screenshots[Math.floor(Math.random() * g.screenshots.length)]
-  : undefined
+const ogImage = g.coverImage ?? g.screenshots?.[0]
 ---
 
 <Layout
   title={`${g.name} — A Where Winds Meet guild base`}
   description={g.lore?.slice(0, 160) ?? `Guild base showcase for ${g.name} in Where Winds Meet.`}
-  image={randomScreenshot}
+  image={ogImage}
 >
   <script
     is:inline
@@ -41,7 +39,7 @@ const randomScreenshot = g.screenshots?.length
       "@type": "Article",
       headline: `${g.name} — Guild Base`,
       description: g.lore?.slice(0, 160) ?? `Guild base showcase for ${g.name} in Where Winds Meet.`,
-      image: g.screenshots?.[0] ?? undefined,
+      image: ogImage,
       url: Astro.url.href,
       author: g.builders?.map((name) => ({ "@type": "Person", name })) ?? [],
     })}
