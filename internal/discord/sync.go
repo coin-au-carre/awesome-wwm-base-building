@@ -43,6 +43,7 @@ type threadData struct {
 	Videos      []string
 	Lore        string
 	WhatToVisit string
+	CoverIdx    int // 1-based; 0 = not set
 }
 
 type fetchedThread struct {
@@ -265,6 +266,11 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		g.Score = data.Score
 		g.Screenshots = data.Screenshots
 		g.Videos = data.Videos
+		if idx := data.CoverIdx; idx >= 1 && idx <= len(data.Screenshots) {
+			g.CoverImage = data.Screenshots[idx-1]
+		} else {
+			g.CoverImage = ""
+		}
 		g.Lore = data.Lore
 		g.WhatToVisit = data.WhatToVisit
 		g.BuilderDiscordID = data.AuthorID
@@ -325,7 +331,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 		return threadData{}
 	}
 
-	id, guildName, builders, lore, whatToVisit := guild.ParseFirstPost(msgs[0].Content)
+	id, guildName, builders, lore, whatToVisit, coverIdx := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
 	screenshots, videos := collectMedia(s, thread.ID, authorID)
 
@@ -338,6 +344,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 		Videos:      videos,
 		Lore:        lore,
 		WhatToVisit: whatToVisit,
+		CoverIdx:    coverIdx,
 	}
 }
 
@@ -414,6 +421,8 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (screenshots,
 			break
 		}
 	}
+	slices.Reverse(screenshots)
+	slices.Reverse(videos)
 	return
 }
 

@@ -9,6 +9,7 @@ export interface Guild {
   lore?: string
   whatToVisit?: string
   score: number
+  coverImage?: string
   screenshots?: string[]
   videos?: string[]
 }

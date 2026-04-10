@@ -92,8 +92,9 @@ export default function ContributeTabs() {
 
         <Card>
           <CardContent className="space-y-2 text-sm text-muted-foreground">
-            <p><span className="font-medium text-foreground">Multiple guilds?</span> Submit each one in a separate thread, all your work is welcome.</p>
-            <p><span className="font-medium text-foreground">Image limit:</span> Up to 40 images total, spread across posts. 10 per post is recommended to avoid performance issues.</p>
+            <p><span className="font-medium text-foreground">Multiple guilds, one builder?</span>You can submit in different threads. One guild = one thread.</p>
+            <p><span className="font-medium text-foreground">One guild, multiple builds?</span>You can post different styles even if it's the same guild. Same guild = one thread.</p>
+            <p><span className="font-medium text-foreground">Cover image:</span> Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">Cover: N</code> to your first post to pin screenshot #N as the cover shown in the carousel and homepage. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs text-foreground">Cover: 3</code> picks your third image.</p>
             <p><span className="font-medium text-foreground">Builder role:</span> Granted automatically when you post a thread.</p>
           </CardContent>
         </Card>

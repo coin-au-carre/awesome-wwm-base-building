@@ -12,6 +12,7 @@ type Guild struct {
 	WhatToVisit      string   `json:"whatToVisit,omitempty"`
 	Score            int      `json:"score"`
 	Note             string   `json:"note,omitempty"`
+	CoverImage       string   `json:"coverImage,omitempty"`
 	Screenshots      []string `json:"screenshots,omitempty"`
 	Videos           []string `json:"videos,omitempty"`
 }
