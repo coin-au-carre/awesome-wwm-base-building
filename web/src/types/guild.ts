@@ -1,3 +1,8 @@
+export interface ScreenshotSection {
+  label?: string
+  screenshots: string[]
+}
+
 export interface Guild {
   id?: string
   name: string
@@ -11,6 +16,7 @@ export interface Guild {
   score: number
   coverImage?: string
   screenshots?: string[]
+  screenshotSections?: ScreenshotSection[]
   videos?: string[]
 }
 
