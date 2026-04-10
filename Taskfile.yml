@@ -35,6 +35,11 @@ tasks:
       VPS_USER: '{{.VPS_USER | default "deploy"}}'
       VPS_HOST: '{{.VPS_HOST | default "your.vps.host"}}'
 
+  # ── events sync (one-shot) ──────────────────────────────────
+  events-sync:
+    desc: fetch Discord Scheduled Events → data/events.json
+    cmd: go run ./cmd/events-sync {{.CLI_ARGS}}
+
   # ── send (one-shot message as Ruby) ────────────────────────
   send:
     desc: "send a message (or image) as Ruby. Usage: task send -- [-channel <id>] [-image path] \"text\""
