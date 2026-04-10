@@ -15,7 +15,7 @@ const base = BASE
   {
     guilds.map((g) => {
       const shots = g.screenshots ?? []
-      const img = shots[Math.floor(Math.random() * shots.length)]
+      const img = g.coverImage ?? shots[Math.floor(Math.random() * shots.length)]
       return (
         <a
           href={`${base}/${basePath}/${g.slug}`}

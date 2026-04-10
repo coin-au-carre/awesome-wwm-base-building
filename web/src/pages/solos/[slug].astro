@@ -19,15 +19,13 @@ export async function getStaticPaths() {
 
 const { solo: g } = Astro.props
 const base = BASE
-const randomScreenshot = g.screenshots?.length
-  ? g.screenshots[Math.floor(Math.random() * g.screenshots.length)]
-  : undefined
+const ogImage = g.coverImage ?? g.screenshots?.[0]
 ---
 
 <Layout
   title={`${g.name} — A Where Winds Meet construction`}
   description={g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`}
-  image={randomScreenshot}
+  image={ogImage}
 >
   <script
     is:inline
@@ -37,7 +35,7 @@ const randomScreenshot = g.screenshots?.length
       "@type": "Article",
       headline: `${g.name} — Solo Build`,
       description: g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`,
-      image: g.screenshots?.[0] ?? undefined,
+      image: ogImage,
       url: Astro.url.href,
       author: g.builders?.map((name: string) => ({ "@type": "Person", name })) ?? [],
     })}
@@ -148,7 +146,7 @@ const randomScreenshot = g.screenshots?.length
 
     <section class="space-y-6">
       <h2 class="font-heading text-base font-medium">🎬 Media</h2>
-      <MediaGallery screenshots={g.screenshots} videos={g.videos} />
+      <MediaGallery screenshots={g.screenshots} screenshotSections={g.screenshotSections} videos={g.videos} />
     </section>
 
     {g.discordThread && (
