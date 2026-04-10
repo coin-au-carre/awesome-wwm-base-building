@@ -1,4 +1,4 @@
-import { readFileSync, statSync } from "fs"
+import { readFileSync } from "fs"
 import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify } from "@/lib/slugify"
 
@@ -63,8 +63,9 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
 
 export function getLastSyncDate(): string {
   try {
-    const stat = statSync(new URL("../../../data/guilds.json", import.meta.url))
-    return stat.mtime.toLocaleString("en-US", {
+    const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")
+    const { syncedAt } = JSON.parse(raw)
+    return new Date(syncedAt).toLocaleString("en-US", {
       year: "numeric",
       month: "long",
       day: "numeric",

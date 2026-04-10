@@ -34,14 +34,11 @@ jobs:
           BOT_CHANNEL_ID: ${{ secrets.BOT_CHANNEL_ID }}
         run: task sync
 
-      - name: Commit changes if any
+      - name: Commit and push
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/guilds.json data/solos.json web/public/guilds.json
-          if git diff --cached --quiet; then
-            echo "Nothing changed, skipping commit."
-          else
-            git commit -m "chore: auto-sync $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push
-          fi
+          echo "{\"syncedAt\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" > data/last_sync.json
+          git add data/guilds.json data/solos.json web/public/guilds.json data/last_sync.json
+          git commit -m "chore: auto-sync $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push

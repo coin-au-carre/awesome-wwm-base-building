@@ -1,0 +1,37 @@
+name: Sync Events
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sync-events:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Fetch Discord scheduled events
+        env:
+          RUBY_BOT_TOKEN: ${{ secrets.RUBY_BOT_TOKEN }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+        run: go run ./cmd/events-sync
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/events.json
+          if git diff --cached --quiet; then
+            echo "No event changes, skipping commit."
+          else
+            git commit -m "chore: sync events $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
