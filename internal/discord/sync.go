@@ -497,11 +497,13 @@ func similarGuildName(a, b string) bool {
 		return true
 	}
 	// Edit distance for names that aren't too short (avoid false positives).
+	// Allow at most 1 edit per 5 characters (floor), so short names require
+	// near-exact matches while longer names tolerate more variation.
 	minLen := len(na)
 	if len(nb) < minLen {
 		minLen = len(nb)
 	}
-	if minLen >= 5 && levenshtein(na, nb) <= 2 {
+	if minLen >= 5 && levenshtein(na, nb) <= minLen/5 {
 		return true
 	}
 	return false
