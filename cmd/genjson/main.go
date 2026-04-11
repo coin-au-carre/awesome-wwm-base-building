@@ -28,6 +28,7 @@ type publicGuild struct {
 	Screenshots        []string                  `json:"screenshots,omitempty"`
 	ScreenshotSections []guild.ScreenshotSection `json:"screenshotSections,omitempty"`
 	Videos             []string                  `json:"videos,omitempty"`
+	LastModified       string                    `json:"lastModified,omitempty"`
 }
 
 func main() {
@@ -62,6 +63,7 @@ func main() {
 			Screenshots:        g.Screenshots,
 			ScreenshotSections: g.ScreenshotSections,
 			Videos:             g.Videos,
+			LastModified:       g.LastModified,
 		}
 	}
 

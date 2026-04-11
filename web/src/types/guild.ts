@@ -18,6 +18,7 @@ export interface Guild {
   screenshots?: string[]
   screenshotSections?: ScreenshotSection[]
   videos?: string[]
+  lastModified?: string
 }
 
 export interface RankedGuild extends Guild {

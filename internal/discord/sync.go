@@ -225,6 +225,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 
 	guilds := result.Guilds
 	stats := result.Stats
+	now := time.Now().UTC().Format("January 2, 2006 at 03:04 PM UTC")
 
 	for _, r := range result.threads {
 		data := r.data
@@ -277,9 +278,13 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		g.WhatToVisit = data.WhatToVisit
 		g.BuilderDiscordID = data.AuthorID
 
-		if !result.newIndices[r.idx] && hasChanged(prev, g) {
+		isNew := result.newIndices[r.idx]
+		if !isNew && hasChanged(prev, g) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
+			g.LastModified = now
+		} else if isNew {
+			g.LastModified = now
 		}
 
 		guilds[r.idx] = g
@@ -544,7 +549,12 @@ func levenshtein(a, b string) int {
 
 func hasChanged(prev, next guild.Guild) bool {
 	return prev.Score != next.Score ||
+		prev.Lore != next.Lore ||
+		prev.WhatToVisit != next.WhatToVisit ||
+		prev.GuildName != next.GuildName ||
+		prev.CoverImage != next.CoverImage ||
 		len(prev.Screenshots) != len(next.Screenshots) ||
 		len(prev.Videos) != len(next.Videos) ||
-		!slices.Equal(prev.Builders, next.Builders)
+		!slices.Equal(prev.Builders, next.Builders) ||
+		!slices.Equal(prev.Tags, next.Tags)
 }
