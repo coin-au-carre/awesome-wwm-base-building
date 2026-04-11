@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "1492593125435375877",
+    "name": "Wedding",
+    "guildName": "Jenova",
+    "guildId": "10244476 (optional)",
+    "type": "marriage",
+    "scheduledStart": "2026-04-11T20:00:00.494Z",
+    "scheduledEnd": "2026-04-11T20:45:00.494Z",
+    "location": "Jenova",
+    "status": "scheduled",
+    "subscriberCount": 1,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1492593125435375877"
+  }
+]

@@ -30,6 +30,7 @@ func main() {
 	guildForumID := cmdutil.RequireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
+	devChannelID := os.Getenv("DEV_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
@@ -190,6 +191,13 @@ func main() {
 		}
 		if !*noNotify && soloStats.New > 0 {
 			notifyNewEntries(bot, updatedSolos, soloStats, true)
+		}
+	}
+
+	if devChannelID != "" && !*noNotify {
+		allWarnings := append(guildStats.DuplicateWarnings, soloStats.DuplicateWarnings...)
+		for _, w := range allWarnings {
+			bot.Send(devChannelID, w)
 		}
 	}
 }
