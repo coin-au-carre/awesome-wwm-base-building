@@ -11,7 +11,7 @@ import (
 	"ruby/internal/guild"
 )
 
-const websiteBase = "https://coin-au-carre.github.io/awesome-wwm-base-building"
+const websiteBase = "https://www.wherebuildersmeet.com"
 
 var reSlugify = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 

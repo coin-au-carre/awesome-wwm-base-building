@@ -452,6 +452,16 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (sections []g
 	slices.Reverse(sections)
 	slices.Reverse(screenshots)
 	slices.Reverse(videos)
+	// Drop sections that ended up with no screenshots (e.g. a section header
+	// in the first post that was processed after all images were already
+	// assigned to a labelled section).
+	filtered := sections[:0]
+	for _, sec := range sections {
+		if len(sec.Screenshots) > 0 {
+			filtered = append(filtered, sec)
+		}
+	}
+	sections = filtered
 	return
 }
 

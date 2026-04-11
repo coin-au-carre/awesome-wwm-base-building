@@ -19,7 +19,7 @@ const sections: ScreenshotSection[] = hasSections
 let globalIndex = 0
 const sectionsWithIndex: { label?: string; items: { src: string; index: number }[] }[] = sections.map(s => ({
   label: s.label,
-  items: s.screenshots.map(src => ({ src, index: globalIndex++ })),
+  items: (s.screenshots ?? []).map(src => ({ src, index: globalIndex++ })),
 }))
 
 function youtubeVideoID(rawURL: string): string {
