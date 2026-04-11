@@ -1,5 +1,333 @@
 [
 	{
+		"name": "UndyingEmbers",
+		"builders": [
+			"ELsiva"
+		],
+		"discordThread": "",
+		"score": 2,
+		"note": "top5 according to WindXP. contacted wwm"
+	},
+	{
+		"name": "Bai-",
+		"builders": [
+			"Sumi",
+			"xland",
+			"Asseylum-"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "hard to reach base. contacted wwm"
+	},
+	{
+		"name": "YawningMahogan",
+		"builders": [
+			"Gavoxtus",
+			"Xiazea"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "some heixi build. contacted wwm"
+	},
+	{
+		"name": "Ataraxia",
+		"builders": [
+			"NeoMetalSonic"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "snow style. asked a friend request"
+	},
+	{
+		"name": "GuangDong",
+		"builders": [
+			"AngusKhân"
+		],
+		"discordThread": "",
+		"score": 1,
+		"note": "nature, zen, good classic. contacted wwm."
+	},
+	{
+		"name": "VANTABLACK",
+		"builders": [
+			"LittleGirlyPop",
+			"Broski"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "spawn point in sky. contacted wwm"
+	},
+	{
+		"name": "Diva",
+		"builders": [
+			"Lì-Keqiang"
+		],
+		"discordThread": "",
+		"score": 1,
+		"note": "Strip club. contacted on Discord"
+	},
+	{
+		"name": "ShadowCabal",
+		"builders": [],
+		"discordThread": "",
+		"score": 0,
+		"note": "Guild of Penises"
+	},
+	{
+		"name": "SHlTMAN",
+		"builders": [
+			"Ashenza",
+			"JEFFRO"
+		],
+		"discordThread": "",
+		"score": 1,
+		"note": "contacted JEFFRO disc"
+	},
+	{
+		"name": "FBI",
+		"builders": [
+			"Kim  Kardashian"
+		],
+		"discordThread": "",
+		"score": 1,
+		"note": "funny people. contacted wwm"
+	},
+	{
+		"name": "MoonRiver",
+		"builders": [
+			"Losto"
+		],
+		"discordThread": "",
+		"score": 1,
+		"note": "Hexi style. contacted wwm"
+	},
+	{
+		"name": "MiaoMeow",
+		"builders": [
+			"EasilyAbused"
+		],
+		"discordThread": "",
+		"score": 2,
+		"note": "ship flying. contacted wwm."
+	},
+	{
+		"name": "Hishaku",
+		"builders": [
+			"ZenőStar"
+		],
+		"discordThread": "",
+		"score": 2,
+		"note": "very nice. contacted wwm."
+	},
+	{
+		"name": "GooseParkBoys",
+		"builders": [
+			""
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "very nice. contacted wwm."
+	},
+	{
+		"name": "APX",
+		"builders": [],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "Blacklisted",
+		"builders": [],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "Aurore",
+		"builders": [
+			"Syphala"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "BrigadePhantom",
+		"builders": [
+			"Ssyrena",
+			"Dovahline"
+		],
+		"discordThread": "",
+		"score": 1
+	},
+	{
+		"name": "EMH-Shogunate",
+		"builders": [
+			"ToxotesToons"
+		],
+		"discordThread": "",
+		"score": 1
+	},
+	{
+		"name": "Fourberie",
+		"builders": [
+			"Chocah"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "FeralSutra",
+		"builders": [
+			"Zerxsai"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "IronRiders",
+		"builders": [
+			"The-Builder"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "Jardin-Lunaire",
+		"builders": [
+			"Hüman",
+			"Orhann",
+			"Simiaomao"
+		],
+		"discordThread": "",
+		"score": 1
+	},
+	{
+		"name": "KillByKill",
+		"builders": [],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "La Guilde",
+		"builders": [
+			"Keanu-Kai"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "LaTaverne",
+		"builders": [
+			"JinSupremo",
+			"soussous"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "NhatNguyet",
+		"builders": [
+			"LôiThiênHàa"
+		],
+		"discordThread": "",
+		"score": 1
+	},
+	{
+		"name": "Noblesse",
+		"builders": [
+			"HyyuK"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "Saints",
+		"builders": [
+			"SupremeLoner"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "Sanctuarys",
+		"builders": [
+			"Nurami",
+			"Ichigor"
+		],
+		"discordThread": "",
+		"score": 1
+	},
+	{
+		"name": "Seireitei",
+		"builders": [],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "SixtyOne",
+		"builders": [
+			"may"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "TSUKIBANA",
+		"builders": [
+			"Min-Woh"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "Wolfions",
+		"builders": [
+			"Sabi",
+			"Kojak"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "WushuChaos",
+		"builders": [
+			"Sakiz",
+			"Kenshii-"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "ZOOTOPIA",
+		"builders": [],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"name": "湮琴閣",
+		"builders": [
+			"雲酹"
+		],
+		"discordThread": "",
+		"score": 0
+	},
+	{
+		"id": "10076053",
+		"name": "Star·Bound",
+		"builders": [],
+		"discordThread": "",
+		"score": 1
+	},
+	{
+		"name": "Toronto",
+		"builders": [
+			"FoxiKate"
+		],
+		"tags": [
+			"Fun"
+		],
+		"discordThread": "",
+		"score": 1
+	},
+	{
 		"name": "PurrfectCats",
 		"builders": [
 			"MydeiMos"
