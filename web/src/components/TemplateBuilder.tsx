@@ -38,13 +38,16 @@ function buildTemplate(
   return [
     `${c.emoji} ${fields.primaryName || c.primaryPlaceholder}${idPart}`,
     ``,
-    `👷 Builders: ${fields.builders || c.buildersPlaceholder}`,
+    `👷 Builders: ${fields.builders}`,
     ``,
     `📝 Lore`,
     fields.lore,
     ``,
     `🧙 What to visit`,
     fields.whatToVisit,
+    ``,
+    `🗳️ Vote with reactions:`,
+    `⭐ Best overall | 👍 Good base | 🔥 Amazing creativity`,
   ].join("\n")
 }
 
