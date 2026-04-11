@@ -14,18 +14,20 @@ import (
 
 // publicGuild mirrors Guild but omits the Note field.
 type publicGuild struct {
-	ID               string   `json:"id,omitempty"`
-	Name             string   `json:"name"`
-	GuildName        string   `json:"guildName,omitempty"`
-	Builders         []string `json:"builders"`
-	Tags             []string `json:"tags,omitempty"`
-	DiscordThread    string   `json:"discordThread"`
-	BuilderDiscordID string   `json:"builderDiscordId,omitempty"`
-	Lore             string   `json:"lore,omitempty"`
-	WhatToVisit      string   `json:"whatToVisit,omitempty"`
-	Score            int      `json:"score"`
-	Screenshots      []string `json:"screenshots,omitempty"`
-	Videos           []string `json:"videos,omitempty"`
+	ID                 string                    `json:"id,omitempty"`
+	Name               string                    `json:"name"`
+	GuildName          string                    `json:"guildName,omitempty"`
+	Builders           []string                  `json:"builders"`
+	Tags               []string                  `json:"tags,omitempty"`
+	DiscordThread      string                    `json:"discordThread"`
+	BuilderDiscordID   string                    `json:"builderDiscordId,omitempty"`
+	Lore               string                    `json:"lore,omitempty"`
+	WhatToVisit        string                    `json:"whatToVisit,omitempty"`
+	Score              int                       `json:"score"`
+	CoverImage         string                    `json:"coverImage,omitempty"`
+	Screenshots        []string                  `json:"screenshots,omitempty"`
+	ScreenshotSections []guild.ScreenshotSection `json:"screenshotSections,omitempty"`
+	Videos             []string                  `json:"videos,omitempty"`
 }
 
 func main() {
@@ -46,18 +48,20 @@ func main() {
 	public := make([]publicGuild, len(guilds))
 	for i, g := range guilds {
 		public[i] = publicGuild{
-			ID:               g.ID,
-			Name:             g.Name,
-			GuildName:        g.GuildName,
-			Builders:         g.Builders,
-			Tags:             g.Tags,
-			DiscordThread:    g.DiscordThread,
-			BuilderDiscordID: g.BuilderDiscordID,
-			Lore:             g.Lore,
-			WhatToVisit:      g.WhatToVisit,
-			Score:            g.Score,
-			Screenshots:      g.Screenshots,
-			Videos:           g.Videos,
+			ID:                 g.ID,
+			Name:               g.Name,
+			GuildName:          g.GuildName,
+			Builders:           g.Builders,
+			Tags:               g.Tags,
+			DiscordThread:      g.DiscordThread,
+			BuilderDiscordID:   g.BuilderDiscordID,
+			Lore:               g.Lore,
+			WhatToVisit:        g.WhatToVisit,
+			Score:              g.Score,
+			CoverImage:         g.CoverImage,
+			Screenshots:        g.Screenshots,
+			ScreenshotSections: g.ScreenshotSections,
+			Videos:             g.Videos,
 		}
 	}
 
