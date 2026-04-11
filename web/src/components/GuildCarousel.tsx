@@ -48,7 +48,12 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                 )}
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <p className="text-white font-medium text-sm leading-tight mb-1">{g.name}</p>
+                  <div className="flex items-baseline gap-1.5 mb-1">
+                    <p className="text-white font-medium text-sm leading-tight">{g.name}</p>
+                    {g.builders && g.builders.length > 0 && (
+                      <p className="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map((b) => b.replace(/\s*\(.*\)/, "").trim()).join(", ")}</p>
+                    )}
+                  </div>
                   {g.tags && g.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1">
                       {g.tags.slice(0, 3).map((tag) => (
