@@ -263,7 +263,11 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
                 className={cn("cursor-pointer", i % 2 !== 0 && "bg-muted/10")}
               >
                 <TableCell className="text-center font-medium">{rankLabel(g.rank)}</TableCell>
-                <TableCell className="font-medium">{g.guildName || g.name}</TableCell>
+                <TableCell className="font-medium">
+                  <a href={url(`/${basePath}/${g.slug}`)} className="hover:underline" onClick={(e) => e.stopPropagation()}>
+                    {g.guildName || g.name}
+                  </a>
+                </TableCell>
                 <TableCell className="text-muted-foreground hidden md:table-cell">
                   {formatBuilders(g.builders)}
                 </TableCell>
