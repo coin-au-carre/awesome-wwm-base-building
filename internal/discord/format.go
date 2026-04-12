@@ -17,13 +17,11 @@ func formatSyncSummary(s SyncStats, isSolo bool) string {
 	var lines []string
 	if isSolo {
 		lines = []string{
-			"✨ **All solo construction have been synchronized!**",
-			fmt.Sprintf("🏗️ **%d** solo construction tracked", s.Total),
+			fmt.Sprintf("✨ **All solo construction have been synchronized!** 🏗️ **%d** solo construction tracked", s.Total),
 		}
 	} else {
 		lines = []string{
-			"✨ **All guilds have been synchronized!**",
-			fmt.Sprintf("🏰 **%d** guilds tracked", s.Total),
+			fmt.Sprintf("✨ **All guilds have been synchronized!** 🏰 **%d** guilds tracked", s.Total),
 		}
 	}
 	kind := "guild"
