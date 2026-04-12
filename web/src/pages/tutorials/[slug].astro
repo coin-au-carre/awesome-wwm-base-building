@@ -22,6 +22,18 @@ const { Content } = await entry.render()
   title={`${entry.data.title} — Where Builders Meet`}
   description={entry.data.description}
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": entry.data.title,
+    "description": entry.data.description,
+    "url": Astro.url.href,
+    "datePublished": entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01",
+    "author": (entry.data.authors ?? []).map((name: string) => ({ "@type": "Person", "name": name })),
+    "keywords": (entry.data.tags ?? []).join(", ") || undefined,
+    "publisher": { "@type": "Organization", "name": "Where Builders Meet", "url": "https://www.wherebuildersmeet.com" },
+    "about": { "@type": "VideoGame", "name": "Where Winds Meet" },
+  })} />
   <div class="max-w-2xl space-y-8">
     <div class="space-y-4">
       <a href={`${BASE}/tutorials`} class={buttonVariants({ variant: "ghost", size: "sm" })}>

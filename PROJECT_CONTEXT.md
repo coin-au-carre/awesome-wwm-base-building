@@ -59,7 +59,9 @@ A Go bot crawls the Discord forum channels several times a day. It reads all thr
 - **Homepage**: top-rated guild bases with a photo showcase (one random screenshot from each of the top 9 ranked guilds), plus a full ranked table of all submitted bases with tag filtering and search.
 - **Guild detail page**: screenshots gallery, lore, what-to-visit, builder name(s), score breakdown.
 - **Solo builds**: same structure as guilds, for individual player builds.
-- **Item catalog**: a browsable catalog of in-game building items (floors, walls, roofs, furniture, etc.) with variants and tags. Work in progress.
+- **Item catalog**: a browsable catalog of in-game building items (floors, walls, roofs, furniture, etc.) with variants, tags, styles, components, and buy locations. Fully launched.
+- **Tutorials**: written guides and video tutorials (YouTube and TikTok) to help players build better. Items are tagged by difficulty (Beginner / Advanced) and grouped into columns. Guides are Markdown content collection entries; videos are listed in a `lib/videos.ts` file.
+- **Events** (alpha): upcoming in-game player events organised from guild bases. Synced from Discord Scheduled Events. Only Builder and Critic role holders can create events. Displays type, guild, date/time, location, attendee count, and a link to RSVP on Discord.
 - **How it works**: explanation of the scoring and voting system (what you are reading is derived from that page).
 - **Contribute**: instructions for builders (how to submit), voters (how to vote), and developers (how to contribute to the project).
 

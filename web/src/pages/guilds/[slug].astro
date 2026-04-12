@@ -38,11 +38,17 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
       "@type": "Article",
       headline: `${g.name} — Guild Base`,
       description: g.lore?.slice(0, 160) ?? `Guild base showcase for ${g.name} in Where Winds Meet.`,
-      ...(ogImage ? { image: [{ "@type": "ImageObject", url: ogImage, width: 1280, height: 720 }] } : {}),
-      datePublished: "2025-01-01",
+      image: [
+        ...(g.coverImage ? [g.coverImage] : []),
+        ...((g.screenshots ?? []).filter((s) => s !== g.coverImage)),
+      ].filter(Boolean),
+      datePublished: g.lastModified ?? "2025-01-01",
+      dateModified: g.lastModified ?? "2025-01-01",
       url: Astro.url.href,
+      keywords: g.tags?.join(", "),
       author: g.builders?.map((name) => ({ "@type": "Person", name })) ?? [],
       publisher: { "@type": "Organization", name: "Where Builders Meet", url: "https://www.wherebuildersmeet.com" },
+      about: { "@type": "VideoGame", name: "Where Winds Meet" },
     })}
   />
   <div class="max-w-5xl space-y-8">
