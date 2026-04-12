@@ -2,6 +2,7 @@ import { useState, useMemo } from "react"
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { rankLabel } from "@/lib/slugify"
+import { formatBuilderName } from "@/lib/guilds"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import {
@@ -27,7 +28,8 @@ interface Props {
 }
 
 function formatBuilders(builders: string[] | undefined): string {
-  const s = (builders ?? []).join(", ") || "—"
+  const names = (builders ?? []).map(formatBuilderName).filter(Boolean)
+  const s = names.join(", ") || "—"
   if (s.length <= 50) {
     return s
   }
@@ -144,7 +146,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
     if (q) {
       result = result.filter((g) =>
         (g.guildName || g.name).toLowerCase().includes(q) ||
-        (g.builders ?? []).some((b) => b.toLowerCase().includes(q))
+        (g.builders ?? []).some((b) => formatBuilderName(b).toLowerCase().includes(q))
       )
     }
 

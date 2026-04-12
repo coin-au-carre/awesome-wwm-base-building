@@ -8,6 +8,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel"
 import type { RankedGuild } from "@/types/guild"
+import { formatBuilderName } from "@/lib/guilds"
 import { url } from "@/lib/url"
 
 interface Props {
@@ -51,7 +52,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                   <div className="flex items-baseline gap-1.5 mb-1">
                     <p className="text-white font-medium text-sm leading-tight">{g.name}</p>
                     {g.builders && g.builders.length > 0 && (
-                      <p className="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map((b) => b.replace(/\s*\(.*\)/, "").trim()).join(", ")}</p>
+                      <p className="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
                     )}
                   </div>
                   {g.tags && g.tags.length > 0 && (

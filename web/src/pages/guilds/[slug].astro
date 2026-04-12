@@ -4,7 +4,7 @@ import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { getGuildsSortedByScore } from "@/lib/guilds"
+import { getGuildsSortedByScore, formatBuilderName } from "@/lib/guilds"
 import { rankLabel } from "@/lib/slugify"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
@@ -116,7 +116,7 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
         )}
         <div class="flex items-center gap-3 px-4 py-3">
           <span class="text-muted-foreground text-sm w-24 shrink-0">🔨 Builders</span>
-          <span class="text-sm font-medium">{g.builders?.join(", ") || "—"}</span>
+          <span class="text-sm font-medium">{g.builders?.map(formatBuilderName).filter(Boolean).join(", ") || "—"}</span>
         </div>
         <div class="flex items-center gap-3 px-4 py-3">
           <span class="text-muted-foreground text-sm w-24 shrink-0">⭐ Score</span>

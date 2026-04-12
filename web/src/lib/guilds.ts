@@ -61,6 +61,14 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   return withShots
 }
 
+/** Strip Discord mention format: `<@773253240498159636> (GaoQingYang)` → `GaoQingYang`. */
+export function formatBuilderName(raw: string): string {
+  const match = raw.match(/<@\d+>\s*\((.+?)\)/)
+  if (match) return match[1].trim()
+  if (/^<@\d+>$/.test(raw.trim())) return ""
+  return raw.trim()
+}
+
 export function getLastSyncDate(): string {
   try {
     const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")
