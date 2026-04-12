@@ -1,6 +1,8 @@
 import { readFileSync } from "fs"
 import type { Guild, RankedGuild } from "@/types/guild"
-import { slugify } from "@/lib/slugify"
+import { slugify, formatBuilderName } from "@/lib/slugify"
+
+export { formatBuilderName }
 
 function loadJSON(filename: string): Guild[] {
   try {
@@ -59,14 +61,6 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
     .map((g) => ranked.find((r) => r.name === g.name))
     .filter((g): g is RankedGuild => g !== undefined)
   return withShots
-}
-
-/** Strip Discord mention format: `<@773253240498159636> (GaoQingYang)` → `GaoQingYang`. */
-export function formatBuilderName(raw: string): string {
-  const match = raw.match(/<@\d+>\s*\((.+?)\)/)
-  if (match) return match[1].trim()
-  if (/^<@\d+>$/.test(raw.trim())) return ""
-  return raw.trim()
 }
 
 export function getLastSyncDate(): string {

@@ -1,8 +1,7 @@
 import { useState, useMemo } from "react"
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
-import { rankLabel } from "@/lib/slugify"
-import { formatBuilderName } from "@/lib/guilds"
+import { rankLabel, formatBuilderName } from "@/lib/slugify"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import {
@@ -212,7 +211,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
             <Button
               variant="ghost"
               size="icon-xs"
-              onClick={() => setActiveTags(new Set())}
+              onClick={() => { setActiveTags(new Set()); setPage(1) }}
               title="Clear filters"
               aria-label="Clear filters"
             >
