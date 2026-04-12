@@ -2,7 +2,7 @@
 title: "Unlock more construction items for your guild base"
 description: "Get additional items from the solo world to unlock more guild building pieces"
 tags: ["beginner", "guild"]
-authors: ["Ahlyam"]
+authors: ["OPM", "Ahlyam"]
 date: 2026-04-09
 order: 1
 ---
