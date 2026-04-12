@@ -19,7 +19,6 @@ func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing JSON files")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
 	root := flag.String("root", cmdutil.RootDir(), "root directory containing guilds.json and solos.json")
-	forceRole := flag.Bool("force-role", false, "reassign roles to all thread authors, including already-known ones")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -66,12 +65,6 @@ func main() {
 		}
 	}
 
-	// Build skip-sets of already-known authors before sync adds new ones.
-	var knownGuildAuthors, knownSoloAuthors map[string]bool
-	if !*forceRole {
-		knownGuildAuthors = knownAuthorSet(guilds)
-		knownSoloAuthors = knownAuthorSet(solos)
-	}
 
 	// ── Fetch both channels in parallel ──────────────────────────────────────
 
@@ -164,9 +157,9 @@ func main() {
 		} else {
 			discordGuildID := forumCh.GuildID
 			if baseBuilderRoleID != "" {
-				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, knownGuildAuthors)
+				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, nil)
 				if soloForumID != "" {
-					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, knownSoloAuthors)
+					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, nil)
 				}
 			}
 			if baseCriticRoleID != "" {
@@ -223,15 +216,5 @@ func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.Syn
 		}
 		bot.Notify(msg)
 	}
-}
-
-func knownAuthorSet(guilds []guild.Guild) map[string]bool {
-	m := make(map[string]bool, len(guilds))
-	for _, g := range guilds {
-		if g.BuilderDiscordID != "" {
-			m[g.BuilderDiscordID] = true
-		}
-	}
-	return m
 }
 

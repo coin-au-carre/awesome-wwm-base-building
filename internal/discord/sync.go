@@ -276,7 +276,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		}
 		g.Lore = data.Lore
 		g.WhatToVisit = data.WhatToVisit
-		g.BuilderDiscordID = data.AuthorID
+		if data.AuthorID != "" {
+			g.BuilderDiscordID = data.AuthorID
+		}
 
 		isNew := result.newIndices[r.idx]
 		if !isNew && hasChanged(prev, g) {
