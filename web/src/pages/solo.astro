@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate } from "@/lib/guilds"
+import { BASE } from "@/lib/url"
 import { HouseIcon, ArrowsClockwiseIcon, TrophyIcon, MountainsIcon, WarningIcon, ShuffleIcon } from "@phosphor-icons/react"
 
 const solos = getSolosSortedByScore()
@@ -16,8 +17,8 @@ const isEmpty = !hasSolos()
 ---
 
 <Layout
-  title="Solo construction — Where Builders Meet"
-  description="Discover solo base builds in Where Winds Meet."
+  title="Solo Construction in Where Winds Meet — Where Builders Meet"
+  description="Showcase of solo constructions and base builds in Where Winds Meet, ranked by community votes."
 >
   <div class="space-y-12">
     {
@@ -78,6 +79,17 @@ const isEmpty = !hasSolos()
         <section>
           <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><MountainsIcon weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
           <GuildTable client:load guilds={solos} allTags={allTags} basePath="solos" />
+          <noscript>
+            <ul class="mt-4 space-y-1 text-sm">
+              {solos.map((g) => (
+                <li>
+                  <a href={`${BASE}/solos/${g.slug}`}>
+                    #{g.rank} {g.guildName || g.name} — by {g.builders?.join(", ") || "—"} — Score: {g.score}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </noscript>
         </section>
       )
     }
