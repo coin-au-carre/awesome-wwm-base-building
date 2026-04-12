@@ -31,6 +31,7 @@ jobs:
         env:
           RUBY_BOT_TOKEN: ${{ secrets.RUBY_BOT_TOKEN }}
           GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID: ${{ secrets.GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID }}
+          SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID: ${{ secrets.SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID }}
           BOT_CHANNEL_ID: ${{ secrets.BOT_CHANNEL_ID }}
         run: task sync
 
