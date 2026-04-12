@@ -56,7 +56,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Where Builders Meet",
+      "description": "Community showcase of guild bases and solo builds for Where Winds Meet, ranked by community votes.",
       "url": "https://www.wherebuildersmeet.com",
+      "sameAs": ["https://discord.gg/Qygt9u26Bn"],
+      "about": { "@type": "VideoGame", "name": "Where Winds Meet" },
     })} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <title>{title}</title>
