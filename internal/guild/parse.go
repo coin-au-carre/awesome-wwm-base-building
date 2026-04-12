@@ -8,9 +8,10 @@ import (
 )
 
 var (
-	reThreadID    = regexp.MustCompile(`\s*\[(\d+)\]?\s*$`)
-	reBracketID   = regexp.MustCompile(`[\[(](\d+)[\])]`)
-	reEightDigit  = regexp.MustCompile(`\b(\d{8})\b`)
+	reThreadID       = regexp.MustCompile(`\s*[\[(](\d+)[\])]?\s*$`)
+	reBracketID      = regexp.MustCompile(`[\[(](\d+)[\])]`)
+	reEightDigit     = regexp.MustCompile(`\b(\d{8})\b`)
+	reEightDigitName = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
 	reBuilders    = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
 	reGuildName   = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
 	reLore        = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
@@ -74,6 +75,7 @@ func ExtractNameAndID(threadName string) (name, id string) {
 		raw = reThreadID.ReplaceAllString(raw, "")
 	}
 	name = strings.TrimSpace(strings.Trim(raw, "[] "))
+	name = strings.TrimSpace(reEightDigitName.ReplaceAllString(name, ""))
 	return
 }
 
