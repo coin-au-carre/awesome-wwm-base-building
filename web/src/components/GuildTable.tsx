@@ -128,7 +128,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
         next.delete(tag)
       } else {
         next.add(tag)
-        ;(window as any).umami?.track("tag_filter", { tag, type: basePath })
+        ;window.umami?.track("tag_filter", { tag, type: basePath })
       }
       return next
     })
@@ -178,7 +178,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
             if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
             if (e.target.value.trim()) {
               searchTimerRef.current = setTimeout(() => {
-                ;(window as any).umami?.track("search_used", { page: basePath })
+                ;window.umami?.track("search_used", { page: basePath })
               }, 1500)
             }
           }}
@@ -257,7 +257,7 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
               <TableRow
                 key={g.name}
                 onClick={() => {
-                  ;(window as any).umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
+                  ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
                   window.location.href = url(`/${basePath}/${g.slug}`)
                 }}
                 className={cn("cursor-pointer", i % 2 !== 0 && "bg-muted/10")}

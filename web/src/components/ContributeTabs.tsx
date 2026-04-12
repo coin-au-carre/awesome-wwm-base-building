@@ -1,9 +1,62 @@
+import { useState } from "react"
 import TemplateBuilder from "@/components/TemplateBuilder"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Users, Layers, Image, LayoutList, ShieldCheck } from "lucide-react"
+import { url } from "@/lib/url"
+
+function ApiPreview({ src }: { src: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="group relative w-64 overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
+      >
+        <img
+          src={src}
+          alt="wwmchill — example integration of WBM guild data"
+          className="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+          <svg className="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+          </svg>
+        </div>
+      </button>
+      <p className="text-xs text-muted-foreground">
+        a guild website using our WBM guild data — by <span className="text-foreground font-medium">hugnw</span>
+      </p>
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={() => setOpen(false)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+            onClick={() => setOpen(false)}
+            aria-label="Close"
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="flex items-center justify-center w-full h-full px-8 py-12">
+            <img
+              src={src}
+              alt="wwmchill — example integration of WBM guild data"
+              className="max-h-full max-w-full rounded-xl object-contain shadow-2xl select-none"
+              onClick={() => setOpen(false)}
+            />
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
 
 function Step({
   n,
@@ -48,7 +101,7 @@ export default function ContributeTabs() {
     <Tabs
       defaultValue="submit"
       className="space-y-6"
-      onValueChange={(tab) => (window as any).umami?.track("contribute_tab_switch", { tab })}
+      onValueChange={(tab) => window.umami?.track("contribute_tab_switch", { tab })}
     >
       <TabsList>
         {[
@@ -68,7 +121,7 @@ export default function ContributeTabs() {
             n="1"
             badgeClass="bg-blue-500 text-white border-0"
             title="Join the Discord"
-            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => (window as any).umami?.track("discord_cta_click", { page: "contribute" })}>Join Discord ↗</a></Button></>}
+            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click", { page: "contribute" })}>Join Discord ↗</a></Button></>}
           />
           <Step
             n="2"
@@ -149,7 +202,7 @@ export default function ContributeTabs() {
           Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role on Discord.
         </p>
         <Button variant="link" size="sm" asChild className="h-auto p-0">
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => (window as any).umami?.track("discord_cta_click", { page: "contribute" })}>
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click", { page: "contribute" })}>
             Join Discord ↗
           </a>
         </Button>
@@ -162,6 +215,7 @@ export default function ContributeTabs() {
         <p className="text-sm text-muted-foreground leading-relaxed">
           Ping us on Discord if you want to integrate any work here, we'll be glad to help. You can use it whenever you want as long as you credit the website/community.
         </p>
+        <ApiPreview src={url("/images/wwmchill_api.png")} />
       </TabsContent>
     </Tabs>
   )
