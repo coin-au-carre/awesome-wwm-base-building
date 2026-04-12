@@ -2,7 +2,7 @@
 import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
 import { GuildTable } from "@/components/GuildTable"
-import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots } from "@/lib/guilds"
+import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, formatBuilderName } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
 import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon } from "@phosphor-icons/react"
@@ -83,7 +83,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
                       {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map((b) => b.replace(/\s*\(.*\)/, "").trim()).join(", ")}</p>
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
                       )}
                     </div>
                     {g.tags && g.tags.length > 0 && (
