@@ -8,7 +8,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel"
 import type { RankedGuild } from "@/types/guild"
-import { formatBuilderName } from "@/lib/guilds"
+import { formatBuilderName } from "@/lib/slugify"
 import { url } from "@/lib/url"
 
 interface Props {
