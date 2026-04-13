@@ -60,7 +60,7 @@ func PickFromGuilds(guilds []guild.Guild) (guild.Guild, string, bool) {
 func buildGuildMeta(g guild.Guild, includeScore bool) []string {
 	var meta []string
 	if len(g.Builders) > 0 {
-		meta = append(meta, "👷 "+strings.Join(g.Builders, ", "))
+		meta = append(meta, "🎨 "+strings.Join(g.Builders, ", "))
 	}
 	if len(g.Tags) > 0 {
 		meta = append(meta, "🏷️ "+strings.Join(g.Tags, ", "))
@@ -102,11 +102,35 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 	var sb strings.Builder
 	if isSolo {
-		fmt.Fprintf(&sb, "## 🆕 New Solo Build Discovered: **%s**\n", g.Name)
+		fmt.Fprintf(&sb, "🏡 New guild base! Say hello to **%s**!\n", g.Name)
 	} else {
-		fmt.Fprintf(&sb, "## 🆕 New Guild Discovered: **%s**\n", g.Name)
+		fmt.Fprintf(&sb, "🏰 New solo build! Say hello to **%s**!\n", g.Name)
 	}
-	fmt.Fprintf(&sb, "-# Just joined the list!\n")
+	meta := buildGuildMeta(g, false)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	websiteURL := guildWebsiteURL(g)
+	if isSolo {
+		websiteURL = soloWebsiteURL(g)
+	}
+	if g.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
+	}
+	return sb.String()
+}
+
+// FormatMoreScreenshotsMessage builds the Discord message announcing that an existing
+// guild or solo build has gained new screenshots.
+func FormatMoreScreenshotsMessage(g guild.Guild, isSolo bool) string {
+	var sb strings.Builder
+	if isSolo {
+		fmt.Fprintf(&sb, "📸 **%s** just got new screenshots!\n", g.Name)
+	} else {
+		fmt.Fprintf(&sb, "📸 **%s** just got new screenshots!\n", g.Name)
+	}
 	meta := buildGuildMeta(g, false)
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))

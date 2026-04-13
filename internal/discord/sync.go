@@ -18,14 +18,15 @@ import (
 const numWorkers = 20
 
 type SyncStats struct {
-	Total              int
-	New                int
-	Updated            int
-	NewNames           []string
-	UpdatedNames       []string
-	NewThreadLinks     map[string]string // guild name → discord thread URL
-	VoterGuildCounts   map[string]int    // userID → number of distinct guilds voted on
-	DuplicateWarnings  []string
+	Total                int
+	New                  int
+	Updated              int
+	NewNames             []string
+	UpdatedNames         []string
+	MoreScreenshotNames  []string          // existing entries that gained screenshots
+	NewThreadLinks       map[string]string // guild name → discord thread URL
+	VoterGuildCounts     map[string]int    // userID → number of distinct guilds voted on
+	DuplicateWarnings    []string
 }
 
 type SyncConfig struct {
@@ -285,6 +286,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
 			g.LastModified = now
+			if len(g.Screenshots) > len(prev.Screenshots) {
+				stats.MoreScreenshotNames = append(stats.MoreScreenshotNames, g.Name)
+			}
 		} else if isNew {
 			g.LastModified = now
 		}
