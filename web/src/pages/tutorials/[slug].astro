@@ -16,6 +16,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 const { Content } = await entry.render()
+
 ---
 
 <Layout
@@ -34,33 +35,41 @@ const { Content } = await entry.render()
     "publisher": { "@type": "Organization", "name": "Where Builders Meet", "url": "https://www.wherebuildersmeet.com" },
     "about": { "@type": "VideoGame", "name": "Where Winds Meet" },
   })} />
-  <div class="max-w-2xl space-y-8">
-    <div class="space-y-4">
-      <a href={`${BASE}/tutorials`} class={buttonVariants({ variant: "ghost", size: "sm" })}>
-        <ArrowLeftIcon className="size-4" /> Back to tutorials
-      </a>
-      <div class="space-y-2">
-        <h1 class="font-heading text-2xl font-semibold">{entry.data.title}</h1>
-        <p class="text-muted-foreground text-sm">{entry.data.description}</p>
-        <div class="flex flex-wrap items-center gap-2 pt-1">
-          {entry.data.tags && entry.data.tags.length > 0 && entry.data.tags.map((tag: string) => (
-            <Badge variant="secondary">{tag}</Badge>
-          ))}
-          {entry.data.authors && entry.data.authors.length > 0 && (
-            <span class="text-xs text-muted-foreground">
-              by {entry.data.authors.join(", ")}
-            </span>
-          )}
-          {entry.data.date && (
-            <span class="text-xs text-muted-foreground">
-              {entry.data.date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
-            </span>
-          )}
-        </div>
+  <div class="max-w-2xl">
+    <a href={`${BASE}/tutorials`} class={buttonVariants({ variant: "ghost", size: "sm" })}>
+      <ArrowLeftIcon className="size-4" /> Back to tutorials
+    </a>
+
+    <div class="mt-6 pb-6 border-b border-border space-y-3">
+      <div class="flex flex-wrap gap-1.5">
+        {entry.data.tags && entry.data.tags.map((tag: string) => (
+          <Badge variant="secondary" className="text-xs">{tag}</Badge>
+        ))}
+      </div>
+      <h1 class="font-heading text-3xl font-semibold leading-tight">{entry.data.title}</h1>
+      <p class="text-muted-foreground">{entry.data.description}</p>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground pt-1">
+        {entry.data.authors && entry.data.authors.length > 0 && (
+          <span class="flex flex-wrap items-center gap-x-1">
+            <span>by</span>
+            {entry.data.authors.map((name: string, i: number) => (
+              <>
+                <span class="font-medium text-primary">{name}</span>
+                {i < entry.data.authors.length - 1 && <span>,</span>}
+              </>
+            ))}
+          </span>
+        )}
+        {entry.data.date && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>{entry.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
+          </>
+        )}
       </div>
     </div>
 
-    <div class="prose">
+    <div class="prose mt-8">
       <Content />
     </div>
   </div>
