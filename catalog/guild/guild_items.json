@@ -9983,10 +9983,14 @@
           "category": "Guild Construction",
           "subCategory": "Diagram",
           "components": [
+            "Diagram_1_1_beam.png",
             "Diagram_1_1_floor.png",
-            "Diagram_1_1_stairs.png",
             "Diagram_1_1_roof.png",
-            "Diagram_1_1_ceiling.png"
+            "Diagram_1_1_stairs.png",
+            "Diagram_1_1_stone_platform.png",
+            "Diagram_1_1_stone_wall.png",
+            "Diagram_1_1_wood_wall.png",
+            "Diagram_1_1_wood_wall_large.png"
           ]
         },
         {
@@ -10005,7 +10009,12 @@
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
-          "subCategory": "Diagram"
+          "subCategory": "Diagram",
+          "components": [
+            "Diagram_1_2_roof.png",
+            "Diagram_1_2_roof_2.png",
+            "Diagram_1_2_roof_3.png"
+          ]
         },
         {
           "name": "Residence",
@@ -10023,7 +10032,11 @@
           "styles": [],
           "hasVariants": false,
           "category": "Guild Construction",
-          "subCategory": "Diagram"
+          "subCategory": "Diagram",
+          "components": [
+            "Diagram_1_3_small_roof.png",
+            "Diagram_1_3_stone_platform.png"
+          ]
         },
         {
           "name": "Windmaster Stairs",
@@ -10046,17 +10059,17 @@
           "diagramRef": "Windmaster Tower"
         },
         {
-          "name": "Windmaster Ceiling",
+          "name": "Windmaster Stone Platform",
           "translations": {
             "cn": "",
             "fr": "",
             "de": "",
             "jp": ""
           },
-          "filename": "Diagram_1_1_ceiling.png",
+          "filename": "Diagram_1_1_stone_platform.png",
           "tags": [],
           "styles": [
-            "wood"
+            "stone"
           ],
           "hasVariants": false,
           "category": "Guild Construction",
@@ -10102,6 +10115,168 @@
           "category": "Guild Construction",
           "subCategory": "Diagram",
           "diagramRef": "Windmaster Tower"
+        },
+        {
+          "name": "Windmaster Stone Wall",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_stone_wall.png",
+          "tags": ["wall"],
+          "styles": [
+            "stone"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Windmaster Tower"
+        },
+        {
+          "name": "Windmaster Beam",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_beam.png",
+          "tags": [],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Windmaster Tower"
+        },
+        {
+          "name": "Windmaster Wood Wall",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_wood_wall.png",
+          "tags": ["wall"],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Windmaster Tower"
+        },
+        {
+          "name": "Windmaster Wood Wall Large",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_1_wood_wall_large.png",
+          "tags": ["wall"],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Windmaster Tower"
+        },
+        {
+          "name": "Crane Retreat Roof I",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_2_roof.png",
+          "tags": ["roof"],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Crane Retreat"
+        },
+        {
+          "name": "Crane Retreat Roof II",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_2_roof_2.png",
+          "tags": ["roof"],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Crane Retreat"
+        },
+        {
+          "name": "Crane Retreat Roof III",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_2_roof_3.png",
+          "tags": ["roof"],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Crane Retreat"
+        },
+        {
+          "name": "Residence Small Roof",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_3_small_roof.png",
+          "tags": ["roof"],
+          "styles": [
+            "wood"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Residence"
+        },
+        {
+          "name": "Residence Stone Platform",
+          "translations": {
+            "cn": "",
+            "fr": "",
+            "de": "",
+            "jp": ""
+          },
+          "filename": "Diagram_1_3_stone_platform.png",
+          "tags": [],
+          "styles": [
+            "stone"
+          ],
+          "hasVariants": false,
+          "category": "Guild Construction",
+          "subCategory": "Diagram",
+          "diagramRef": "Residence"
         }
       ]
     },
