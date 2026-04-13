@@ -303,26 +303,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 }
 
 func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*discordgo.Channel, error) {
-	var (
-		active    *discordgo.ThreadsList
-		archived  *discordgo.ThreadsList
-		activeErr error
-		wg        sync.WaitGroup
-	)
-	wg.Add(2)
-	go func() { defer wg.Done(); active, activeErr = s.GuildThreadsActive(guildID) }()
-	go func() {
-		defer wg.Done()
-		var err error
-		archived, err = s.ThreadsArchived(forumChannelID, nil, 0)
-		if err != nil {
-			slog.Warn("fetching archived threads", "err", err)
-		}
-	}()
-	wg.Wait()
-
-	if activeErr != nil {
-		return nil, fmt.Errorf("fetching active threads: %w", activeErr)
+	active, err := s.GuildThreadsActive(guildID)
+	if err != nil {
+		return nil, fmt.Errorf("fetching active threads: %w", err)
 	}
 
 	var threads []*discordgo.Channel
@@ -330,9 +313,6 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 		if t.ParentID == forumChannelID {
 			threads = append(threads, t)
 		}
-	}
-	if archived != nil {
-		threads = append(threads, archived.Threads...)
 	}
 	return threads, nil
 }
