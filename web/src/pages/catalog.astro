@@ -43,7 +43,7 @@ const catalogJson = JSON.stringify(
       items: sub.items.map((item) => ({
         name: item.name,
         filename: item.filename,
-        tags: item.tags ?? [],
+        tags: item.diagramRef ? [...new Set([...(item.tags ?? []), "diagram"])] : (item.tags ?? []),
         styles: item.styles ?? [],
         hasVariants: item.hasVariants ?? false,
         components: (item.components ?? []).map((c) => imgPath(cat.name, sub.name, c)),
@@ -378,6 +378,7 @@ const catalogJson = JSON.stringify(
             <div id="detail-diagram-ref-section" style="display:none">
               <p class="text-xs text-muted-foreground mb-2">Part of: <span id="detail-diagram-ref-name" class="text-foreground font-medium"></span></p>
               <img id="detail-diagram-ref-img" src="" alt="" class="w-full object-cover rounded-lg max-h-40" />
+              <p class="text-xs text-muted-foreground mt-1">Thanks to <span class="text-foreground">izanagi</span> for the screenshot</p>
             </div>
 
             <div id="detail-variants-section" style="display:none">
@@ -411,6 +412,7 @@ const catalogJson = JSON.stringify(
     <div id="lightbox-caption" class="text-center" style="display:none">
       <p id="lightbox-component-name" class="text-sm font-medium text-white capitalize"></p>
       <p id="lightbox-master-name" class="text-xs text-white/60 mt-0.5"></p>
+      <p id="lightbox-diagram-credit" class="text-xs text-white/40 mt-0.5" style="display:none">Thanks to <span class="text-white/60">izanagi</span> for the diagram</p>
     </div>
   </div>
 </Layout>
@@ -1194,6 +1196,7 @@ const catalogJson = JSON.stringify(
   const lightboxCaption      = document.getElementById("lightbox-caption") as HTMLDivElement
   const lightboxComponentName = document.getElementById("lightbox-component-name") as HTMLParagraphElement
   const lightboxMasterName   = document.getElementById("lightbox-master-name") as HTMLParagraphElement
+  const lightboxDiagramCredit = document.getElementById("lightbox-diagram-credit") as HTMLParagraphElement
 
   function openLightbox(src: string, componentName?: string, masterName?: string) {
     lightboxImg.src = src
@@ -1201,6 +1204,7 @@ const catalogJson = JSON.stringify(
     if (componentName || masterName) {
       lightboxComponentName.textContent = componentName ?? ""
       lightboxMasterName.textContent = masterName ? `Part of: ${masterName}` : ""
+      lightboxDiagramCredit.style.display = masterName ? "" : "none"
       lightboxCaption.style.display = ""
     } else {
       lightboxCaption.style.display = "none"
