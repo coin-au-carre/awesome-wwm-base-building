@@ -30,6 +30,7 @@ func main() {
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	devChannelID := os.Getenv("DEV_CHANNEL_ID")
+	generalChannelID := os.Getenv("GENERAL_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
@@ -185,6 +186,10 @@ func main() {
 		if !*noNotify && soloStats.New > 0 {
 			notifyNewEntries(bot, updatedSolos, soloStats, true)
 		}
+		if !*noNotify && generalChannelID != "" {
+			announceToGeneral(bot, generalChannelID, updatedGuilds, guildStats, false)
+			announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
+		}
 	}
 
 	if devChannelID != "" && !*noNotify {
@@ -192,6 +197,26 @@ func main() {
 		for _, w := range allWarnings {
 			bot.Send(devChannelID, w)
 		}
+	}
+}
+
+func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild, stats discord.SyncStats, isSolo bool) {
+	byName := make(map[string]guild.Guild, len(entries))
+	for _, g := range entries {
+		byName[g.Name] = g
+	}
+	announce := func(name string, isSoloEntry bool, msgFn func(guild.Guild, bool) string) {
+		g, ok := byName[name]
+		if !ok {
+			return
+		}
+		bot.Send(channelID, msgFn(g, isSoloEntry))
+	}
+	for _, name := range stats.NewNames {
+		announce(name, isSolo, discord.FormatNewGuildMessage)
+	}
+	for _, name := range stats.MoreScreenshotNames {
+		announce(name, isSolo, discord.FormatMoreScreenshotsMessage)
 	}
 }
 

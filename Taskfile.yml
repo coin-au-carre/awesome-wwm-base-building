@@ -50,6 +50,11 @@ tasks:
     desc: "post a guild screenshot to the Ruby channel. Use -- -guild <name> for a specific guild"
     cmd: go run ./cmd/spotlight {{.CLI_ARGS}}
 
+  # ── announce (test general-channel announcement card) ────────
+  announce:
+    desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
+    cmd: go run ./cmd/announce {{.CLI_ARGS}}
+
 
   # ── web (Astro) ─────────────────────────────────────────────
   web:
@@ -104,6 +109,12 @@ tasks:
       - echo ""
       - echo "  task spotlight           post a random guild screenshot to the Ruby channel"
       - echo "        -- -guild name     spotlight a specific guild (substring match)"
+      - echo ""
+      - echo "  task announce            test-post a general-channel announcement card"
+      - echo "        -- -guild name     guild/solo name to announce (substring match)"
+      - 'echo "        -- -channel ID     target channel (default: GENERAL_CHANNEL_ID)"'
+      - echo "        -- -solo           search solos instead of guilds"
+      - echo "        -- -screenshots    use 'new screenshots' format instead of 'new entry'"
       - echo ""
       - echo "  task web                 start Astro dev server"
       - echo "  task web:build           build Astro for production"
