@@ -978,20 +978,22 @@ const catalogJson = JSON.stringify(
     searchSuggestions.style.display = ""
   }
 
+  const deaccent = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
   function updateSuggestions(raw: string) {
     const isTag   = raw.startsWith("#")
     const isStyle = raw.startsWith("@")
-    const q = raw.slice(isTag || isStyle ? 1 : 0).trim().toLowerCase()
+    const q = deaccent(raw.slice(isTag || isStyle ? 1 : 0).trim())
 
     if (!q && !isTag && !isStyle) { hideSuggestions(); return }
 
     if (isStyle) {
-      const matches = (q ? allStyles.filter((s) => s.toLowerCase().includes(q)) : allStyles)
+      const matches = (q ? allStyles.filter((s) => deaccent(s).includes(q)) : allStyles)
         .slice(0, 12)
         .map((s) => ({ label: s, value: `@${s}`, isTag: false, isStyle: true }))
       showSuggestions(matches)
     } else if (isTag) {
-      const matches = (q ? allTags.filter((t) => t.toLowerCase().includes(q)) : allTags)
+      const matches = (q ? allTags.filter((t) => deaccent(t).includes(q)) : allTags)
         .slice(0, 12)
         .map((t) => ({ label: t, value: `#${t}`, isTag: true }))
       showSuggestions(matches)
@@ -1001,7 +1003,7 @@ const catalogJson = JSON.stringify(
       catalog.forEach((cat) => {
         cat.subcategories.forEach((sub) => {
           sub.items.forEach((item) => {
-            if (item.name && item.name.toLowerCase().includes(q) && !seen.has(item.name)) {
+            if (item.name && deaccent(item.name).includes(q) && !seen.has(item.name)) {
               seen.add(item.name)
               matches.push({ label: item.name, value: item.name, isTag: false })
             }
@@ -1088,7 +1090,7 @@ const catalogJson = JSON.stringify(
     const raw      = query.trim()
     const isTag    = raw.startsWith("#")
     const isStyle  = raw.startsWith("@")
-    const q        = raw.slice(isTag || isStyle ? 1 : 0).trim().toLowerCase()
+    const q        = deaccent(raw.slice(isTag || isStyle ? 1 : 0).trim())
 
     if (!q) {
       setSearchActive(false)
@@ -1109,10 +1111,10 @@ const catalogJson = JSON.stringify(
       cat.subcategories.forEach((sub) => {
         sub.items.forEach((item) => {
           const hit = isStyle
-            ? item.styles.some((s) => s.toLowerCase().includes(q))
+            ? item.styles.some((s) => deaccent(s).includes(q))
             : isTag
-            ? item.tags.some((t) => t.toLowerCase().includes(q))
-            : item.name.toLowerCase().includes(q) || item.tags.some((t) => t.toLowerCase().includes(q))
+            ? item.tags.some((t) => deaccent(t).includes(q))
+            : deaccent(item.name).includes(q) || item.tags.some((t) => deaccent(t).includes(q))
           if (hit) matches.push(item)
         })
       })

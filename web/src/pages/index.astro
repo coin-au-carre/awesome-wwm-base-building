@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
-import { GuildTable } from "@/components/GuildTable"
+import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, formatBuilderName } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
@@ -107,7 +107,7 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
     <!-- Ranked table -->
     <section>
       <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><MountainsIcon weight="duotone" className="size-4 text-primary" /> All Guild bases</h2>
-      <GuildTable client:load guilds={guilds} allTags={allTags} />
+      <LeaderboardTable client:load guilds={guilds} allTags={allTags} />
       <noscript>
         <ul class="mt-4 space-y-1 text-sm">
           {guilds.map((g) => (

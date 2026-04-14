@@ -103,7 +103,7 @@ function SortButton({
 
 const PAGE_SIZE = 40
 
-export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
+export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const isSolos = basePath === "solos"
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
@@ -136,16 +136,18 @@ export function GuildTable({ guilds, allTags, basePath = "guilds" }: Props) {
     setPage(1)
   }
 
+  const deaccent = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+
   const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase()
+    const q = deaccent(search.trim())
     let result = guilds
     if (activeTags.size > 0) {
       result = result.filter((g) => g.tags?.some((t) => activeTags.has(t)))
     }
     if (q) {
       result = result.filter((g) =>
-        (g.guildName || g.name).toLowerCase().includes(q) ||
-        (g.builders ?? []).some((b) => formatBuilderName(b).toLowerCase().includes(q))
+        deaccent(g.guildName || g.name).includes(q) ||
+        (g.builders ?? []).some((b) => deaccent(formatBuilderName(b)).includes(q))
       )
     }
 

@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import TopShowcase from "@/components/TopShowcase.astro"
-import { GuildTable } from "@/components/GuildTable"
+import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -78,7 +78,7 @@ const isEmpty = !hasSolos()
       solos.length > 0 && (
         <section>
           <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><MountainsIcon weight="duotone" className="size-4 text-primary" /> All Solo construction</h2>
-          <GuildTable client:load guilds={solos} allTags={allTags} basePath="solos" />
+          <LeaderboardTable client:load guilds={solos} allTags={allTags} basePath="solos" />
           <noscript>
             <ul class="mt-4 space-y-1 text-sm">
               {solos.map((g) => (
