@@ -21,5 +21,6 @@ type Guild struct {
 	Screenshots        []string            `json:"screenshots,omitempty"`
 	ScreenshotSections []ScreenshotSection `json:"screenshotSections,omitempty"`
 	Videos             []string            `json:"videos,omitempty"`
-	LastModified       string              `json:"lastModified,omitempty"`
+	LastModified        string              `json:"lastModified,omitempty"`
+	AllowedContributors []string            `json:"allowedContributors,omitempty"`
 }

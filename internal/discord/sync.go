@@ -125,8 +125,9 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	}
 
 	type contentWork struct {
-		thread *discordgo.Channel
-		idx    int
+		thread              *discordgo.Channel
+		idx                 int
+		allowedContributors []string
 	}
 	type contentResult struct {
 		idx       int
@@ -151,7 +152,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 					wg2       sync.WaitGroup
 				)
 				wg2.Add(2)
-				go func() { defer wg2.Done(); data = fetchThreadContent(b.Session, j.thread) }()
+				go func() { defer wg2.Done(); data = fetchThreadContent(b.Session, j.thread, j.allowedContributors) }()
 				go func() { defer wg2.Done(); reactions = fetchThreadReactions(b.Session, j.thread.ID) }()
 				wg2.Wait()
 				slog.Info("thread fetched",
@@ -174,7 +175,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 
 	for _, thread := range threads {
 		idx := guildMap[strings.ToLower(guild.ExtractName(thread.Name))]
-		contentJobs <- contentWork{thread: thread, idx: idx}
+		contentJobs <- contentWork{thread: thread, idx: idx, allowedContributors: guilds[idx].AllowedContributors}
 	}
 	close(contentJobs)
 
@@ -317,7 +318,7 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 	return threads, nil
 }
 
-func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadData {
+func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowedContributors []string) threadData {
 	msgs, err := s.ChannelMessages(thread.ID, 1, "", "0", "")
 	if err != nil || len(msgs) == 0 {
 		slog.Warn("fetching messages", "thread", thread.ID, "err", err)
@@ -326,7 +327,12 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel) threadD
 
 	id, guildName, builders, lore, whatToVisit, coverIdx := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
-	sections, screenshots, videos := collectMedia(s, thread.ID, authorID)
+
+	allowedIDs := map[string]bool{authorID: true}
+	for _, id := range allowedContributors {
+		allowedIDs[id] = true
+	}
+	sections, screenshots, videos := collectMedia(s, thread.ID, allowedIDs)
 
 	return threadData{
 		ID:                 id,
@@ -370,7 +376,7 @@ func isSupportedVideoURL(rawURL string) bool {
 
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
 
-func collectMedia(s *discordgo.Session, threadID, authorID string) (sections []guild.ScreenshotSection, screenshots, videos []string) {
+func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string) {
 	seen := make(map[string]bool)
 	var lastID string
 	var currentSection *guild.ScreenshotSection
@@ -393,7 +399,7 @@ func collectMedia(s *discordgo.Session, threadID, authorID string) (sections []g
 			break
 		}
 		for _, msg := range msgs {
-			if msg.Author == nil || msg.Author.ID != authorID {
+			if msg.Author == nil || !allowedIDs[msg.Author.ID] {
 				continue
 			}
 			if m := reSectionHeader.FindStringSubmatch(strings.TrimSpace(msg.Content)); len(m) == 3 {
