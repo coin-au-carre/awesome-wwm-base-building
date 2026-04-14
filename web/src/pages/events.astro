@@ -8,6 +8,18 @@ import { BASE } from "@/lib/url"
 
 const events = getUpcomingEvents()
 
+function formatDescription(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+  const linked = escaped.replace(
+    /(https?:\/\/[^\s]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">$1</a>',
+  )
+  return linked.replace(/\n/g, "<br>")
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-US", {
     weekday: "short",
@@ -129,7 +141,7 @@ Free text description here...</pre>
               )}
 
               {event.description && (
-                <p class="text-sm text-muted-foreground leading-relaxed">{event.description}</p>
+                <p class="text-sm text-muted-foreground leading-relaxed" set:html={formatDescription(event.description)} />
               )}
 
               <!-- Meta row: date, location, attendees -->
