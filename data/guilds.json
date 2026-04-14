@@ -1,5 +1,34 @@
 [
 	{
+		"name": "Heavenly Sage",
+		"builders": [
+			"Wonpil",
+			"Maiber",
+			"Pare"
+		],
+		"discordThread": "",
+		"score": 2,
+		"note": "Contacted WWM. tanks. Personal computer. Lol"
+	},
+	{
+		"name": "Yomi",
+		"builders": [
+			"DudahBr"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "Contacted WWM"
+	},
+	{
+		"name": "MoonlitTavern",
+		"builders": [
+			"Crueliet"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "Said ok on WWM"
+	},
+	{
 		"name": "Marvelitess",
 		"builders": [
 			"YueShengLi",
