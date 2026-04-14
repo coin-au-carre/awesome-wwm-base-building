@@ -1,4 +1,12 @@
-[
+[ {
+		"name": "DRIP",
+		"builders": [
+			"BigBenj"
+		],
+		"discordThread": "",
+		"score": 0,
+		"note": "contacted wwm"
+	},
 	{
 		"name": "AzureQilin",
 		"builders": [
