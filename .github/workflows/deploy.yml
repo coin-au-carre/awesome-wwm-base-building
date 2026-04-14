@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: ["Sync Guild Data"]
+    workflows: ["Sync Guild Data", "Sync Events"]
     types: [completed]
   workflow_dispatch:
 

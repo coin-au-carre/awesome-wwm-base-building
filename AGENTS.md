@@ -18,22 +18,27 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
 
 ```
 /cmd/
-  sync/       # Crawl Discord → update data/guilds.json + data/solos.json
-  bot/        # Long-running Discord bot with Claude AI
-  send/       # One-shot message sender
-  spotlight/  # Post random guild screenshot to Discord
+  sync/         # Crawl Discord → update data/guilds.json + data/solos.json
+  bot/          # Long-running Discord bot with Claude AI
+  send/         # One-shot message sender
+  spotlight/    # Post random guild screenshot to Discord
+  events-sync/  # Fetch Discord Scheduled Events → data/events.json
+  announce/     # Test-post a new-guild announcement card
+  genjson/      # Generate public JSON for the Astro site
 /internal/
   discord/    # Sync logic, scoring, voter weights, roles, bot handlers
   guild/      # Guild struct, JSON store (LoadFile/SaveFile), parser
 /web/         # Astro static site — DO NOT mix with Go code
 data/guilds.json   # Authoritative guild data — source of truth
 data/solos.json    # Authoritative solo build data — source of truth
+data/events.json   # Discord Scheduled Events — written by cmd/events-sync
 README.md     # Dev documentation
 ```
 
 ## Key Data Files
 
 - `data/guilds.json` / `data/solos.json` — written by `cmd/sync`, read by the Astro site at build time
+- `data/events.json` — written by `cmd/events-sync`, synced every 30 min via CI
 
 ## Task Commands
 
@@ -44,8 +49,7 @@ task sync -- -dry-run      # crawl without writing JSON
 task sync -- -no-notify    # skip Discord notification
 task sync -- -force-role   # reassign roles to all authors
 
-task all               # sync (alias, used by CI)
-task all:push          # sync + git push
+task events-sync       # fetch Discord Scheduled Events → data/events.json
 
 task web               # start Astro dev server (localhost:4321)
 task web:build         # production Astro build → web/dist/
@@ -55,8 +59,13 @@ task bot               # run Discord bot (dev)
 task bot:build         # build Linux binary → dist/bot
 task bot:deploy        # build + scp + restart systemd on VPS
 
+task send              # post a message as Ruby (one-shot)
+task spotlight         # post a random guild screenshot to the Ruby channel
+task announce          # test-post a new-guild announcement card
+
+task test              # go test ./...
 task vet               # go vet ./...
-task push              # vet + git push
+task push              # vet + test + git push
 ```
 
 ## Environment Variables
@@ -102,12 +111,14 @@ See `web/CLAUDE.md` for full details.
 
 ## GitHub Actions
 
-- `sync.yml` — runs `task sync` on schedule (2×/day), commits `data/guilds.json data/solos.json`, push triggers deploy
-- `deploy.yml` — triggered by push to `main`, uses `withastro/action@v3` with `path: web`
+- `sync.yml` — runs `task sync` on schedule (8×/day), commits `data/guilds.json data/solos.json`, triggers deploy on completion
+- `sync-events.yml` — runs `cmd/events-sync` every 30 min, commits `data/events.json` if changed, push to main triggers deploy
+- `deploy.yml` — triggered by push to `main` or on completion of "Sync Guild Data" or "Sync Events", uses `withastro/action@v3` with `path: web`
+- `test.yml` — runs `go test ./...` on every push/PR to `main`
 - GitHub Pages source must be set to **GitHub Actions** (not "Deploy from branch")
 
 ## Git Workflow
 
-- Run `task vet` before committing (`task push` does this automatically)
-- Generated files (`data/guilds.json`, `data/solos.json`) are committed by CI
+- Run `task vet` and `task test` before pushing (`task push` does both automatically)
+- Generated files (`data/guilds.json`, `data/solos.json`, `data/events.json`) are committed by CI
 - Use `task sync -- -dry-run` to test crawling without side effects

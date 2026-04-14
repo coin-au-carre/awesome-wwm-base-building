@@ -73,13 +73,17 @@ tasks:
     cmd: npm run preview
 
   # ── dev / ci ────────────────────────────────────────────────
+  test:
+    desc: run unit tests
+    cmd: go test ./... {{.CLI_ARGS}}
+
   vet:
     desc: run go vet on all packages
     cmd: go vet ./...
 
   push:
-    desc: vet then push
-    deps: [vet]
+    desc: vet, test, then push
+    deps: [vet, test]
     cmd: git push {{.CLI_ARGS}}
 
   # ── help ────────────────────────────────────────────────────
