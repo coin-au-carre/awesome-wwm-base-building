@@ -269,7 +269,13 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
 		g.Score = data.Score
 		g.Screenshots = data.Screenshots
-		g.ScreenshotSections = data.ScreenshotSections
+		var labeledSections []guild.ScreenshotSection
+		for _, s := range data.ScreenshotSections {
+			if s.Label != "" {
+				labeledSections = append(labeledSections, s)
+			}
+		}
+		g.ScreenshotSections = labeledSections
 		g.Videos = data.Videos
 		if idx := data.CoverIdx; idx >= 1 && idx <= len(data.Screenshots) {
 			g.CoverImage = data.Screenshots[idx-1]
