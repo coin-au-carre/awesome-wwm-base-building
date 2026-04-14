@@ -72,11 +72,19 @@ func buildGuildMeta(g guild.Guild, includeScore bool) []string {
 }
 
 func guildWebsiteURL(g guild.Guild) string {
-	return fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(g.Name))
+	name := g.GuildName
+	if name == "" {
+		name = g.Name
+	}
+	return fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(name))
 }
 
 func soloWebsiteURL(g guild.Guild) string {
-	return fmt.Sprintf("%s/solos/%s", websiteBase, slugify(g.Name))
+	name := g.GuildName
+	if name == "" {
+		name = g.Name
+	}
+	return fmt.Sprintf("%s/solos/%s", websiteBase, slugify(name))
 }
 
 // FormatSpotlightMessage builds the Discord message for a guild spotlight.
