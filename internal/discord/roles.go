@@ -1,8 +1,10 @@
 package discord
 
 import (
+	"encoding/json"
 	"fmt"
 	"log/slog"
+	"os"
 
 	"ruby/internal/guild"
 
@@ -16,24 +18,98 @@ func resolveUsername(s *discordgo.Session, userID string) string {
 	return userID
 }
 
+// RoleCache tracks which users have already been assigned each role so that
+// syncs skip redundant Discord API calls.
+type RoleCache struct {
+	path    string
+	entries map[string]map[string]bool // roleID → set of userIDs
+	dirty   bool
+}
+
+// LoadRoleCache reads the cache from path. Missing file is treated as empty.
+func LoadRoleCache(path string) (*RoleCache, error) {
+	c := &RoleCache{path: path, entries: make(map[string]map[string]bool)}
+	data, err := os.ReadFile(path)
+	if os.IsNotExist(err) {
+		return c, nil
+	}
+	if err != nil {
+		return nil, fmt.Errorf("reading role cache: %w", err)
+	}
+	var raw map[string][]string
+	if err := json.Unmarshal(data, &raw); err != nil {
+		return nil, fmt.Errorf("parsing role cache: %w", err)
+	}
+	for roleID, users := range raw {
+		c.entries[roleID] = make(map[string]bool, len(users))
+		for _, uid := range users {
+			c.entries[roleID][uid] = true
+		}
+	}
+	return c, nil
+}
+
+// Has reports whether userID already has roleID recorded in the cache.
+func (c *RoleCache) Has(roleID, userID string) bool {
+	return c.entries[roleID][userID]
+}
+
+// mark records a successful assignment in the cache.
+func (c *RoleCache) mark(roleID, userID string) {
+	if c.entries[roleID] == nil {
+		c.entries[roleID] = make(map[string]bool)
+	}
+	c.entries[roleID][userID] = true
+	c.dirty = true
+}
+
+// Save writes the cache to disk if anything changed.
+func (c *RoleCache) Save() error {
+	if !c.dirty {
+		return nil
+	}
+	raw := make(map[string][]string, len(c.entries))
+	for roleID, users := range c.entries {
+		list := make([]string, 0, len(users))
+		for uid := range users {
+			list = append(list, uid)
+		}
+		raw[roleID] = list
+	}
+	data, err := json.MarshalIndent(raw, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(c.path, data, 0o644)
+}
+
 // AssignAwesomeBuilderRole grants the awesome Builder role to a thread author.
-// Safe to call repeatedly — Discord treats it as a no-op if already assigned.
-func AssignAwesomeBuilderRole(s *discordgo.Session, guildID, userID, roleID string) {
+// Skips the API call if cache already records the assignment.
+func AssignAwesomeBuilderRole(s *discordgo.Session, guildID, userID, roleID, baseName string, cache *RoleCache) {
 	if roleID == "" || userID == "" || guildID == "" {
 		return
 	}
-	if err := s.GuildMemberRoleAdd(guildID, userID, roleID); err != nil {
-		slog.Warn("assigning awesome builder role failed", "user", userID, "err", err)
+	if cache != nil && cache.Has(roleID, userID) {
 		return
 	}
-	slog.Info("awesome builder role assigned", "user", resolveUsername(s, userID), "id", userID)
+	if err := s.GuildMemberRoleAdd(guildID, userID, roleID); err != nil {
+		slog.Warn("assigning awesome builder role failed", "guild", baseName, "userID", userID, "user", resolveUsername(s, userID), "err", err)
+		return
+	}
+	slog.Info("awesome builder role assigned", "guild", baseName, "user", resolveUsername(s, userID), "id", userID)
+	if cache != nil {
+		cache.mark(roleID, userID)
+	}
 }
 
 // AssignRoleToVoters assigns roleID to users who voted on at least minVotes distinct guilds.
-func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, voterGuildCounts map[string]int, minVotes int) {
+func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, voterGuildCounts map[string]int, minVotes int, cache *RoleCache) {
 	assigned := 0
 	for uid, count := range voterGuildCounts {
 		if count < minVotes {
+			continue
+		}
+		if cache != nil && cache.Has(roleID, uid) {
 			continue
 		}
 		if err := s.GuildMemberRoleAdd(discordGuildID, uid, roleID); err != nil {
@@ -41,14 +117,16 @@ func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, vot
 			continue
 		}
 		slog.Info("critic role assigned", "user", resolveUsername(s, uid), "id", uid, "guilds_voted", count)
+		if cache != nil {
+			cache.mark(roleID, uid)
+		}
 		assigned++
 	}
 	slog.Info("critic role assignment done", "assigned", assigned, "min_votes", minVotes)
 }
 
 // AssignRoleByScore assigns roleID to any guild author whose Score >= minScore.
-// skipUsers works the same as AssignRoleToForumAuthors — pass nil to assign everyone.
-func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guilds []guild.Guild, minScore int, skipUsers map[string]bool) {
+func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guilds []guild.Guild, minScore int, skipUsers map[string]bool, cache *RoleCache) {
 	assigned := make(map[string]bool)
 	for _, g := range guilds {
 		userID := g.BuilderDiscordID
@@ -56,7 +134,7 @@ func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guil
 			continue
 		}
 		if g.Score >= minScore {
-			AssignAwesomeBuilderRole(s, discordGuildID, userID, roleID)
+			AssignAwesomeBuilderRole(s, discordGuildID, userID, roleID, g.Name, cache)
 			assigned[userID] = true
 		}
 	}
@@ -65,7 +143,7 @@ func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guil
 // AssignRoleToForumAuthors fetches all threads in forumChannelID and assigns
 // roleID to each thread's original poster, skipping any user ID in skipUsers.
 // Pass nil skipUsers to assign everyone (e.g. with --force-role).
-func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID string, skipUsers map[string]bool) error {
+func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID string, skipUsers map[string]bool, cache *RoleCache) error {
 	if forumChannelID == "" || roleID == "" {
 		return nil
 	}
@@ -91,7 +169,7 @@ func AssignRoleToForumAuthors(s *discordgo.Session, forumChannelID, roleID strin
 		if assigned[authorID] || skipUsers[authorID] {
 			continue
 		}
-		AssignAwesomeBuilderRole(s, guildID, authorID, roleID)
+		AssignAwesomeBuilderRole(s, guildID, authorID, roleID, thread.Name, cache)
 		assigned[authorID] = true
 	}
 	return nil

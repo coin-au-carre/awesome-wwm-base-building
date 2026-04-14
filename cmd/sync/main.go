@@ -34,8 +34,9 @@ func main() {
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
-	guildsPath := filepath.Join(*root, "data", "guilds.json")
-	solosPath := filepath.Join(*root, "data", "solos.json")
+	guildsPath    := filepath.Join(*root, "data", "guilds.json")
+	solosPath     := filepath.Join(*root, "data", "solos.json")
+	roleCachePath := filepath.Join(*root, "data", "role_assignments.json")
 
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
@@ -156,16 +157,24 @@ func main() {
 		if err != nil {
 			slog.Warn("fetching forum channel for role assignment", "err", err)
 		} else {
+			roleCache, err := discord.LoadRoleCache(roleCachePath)
+			if err != nil {
+				slog.Warn("loading role cache, skipping cache", "err", err)
+				roleCache = nil
+			}
 			discordGuildID := forumCh.GuildID
 			if baseBuilderRoleID != "" {
-				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, nil)
+				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, nil, roleCache)
 				if soloForumID != "" {
-					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, nil)
+					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, nil, roleCache)
 				}
 			}
 			if baseCriticRoleID != "" {
 				slog.Info("assigning critic role", "total_voters", len(mergedCounts))
-				discord.AssignRoleToVoters(bot.Session, discordGuildID, baseCriticRoleID, mergedCounts, 6)
+				discord.AssignRoleToVoters(bot.Session, discordGuildID, baseCriticRoleID, mergedCounts, 6, roleCache)
+			}
+			if err := roleCache.Save(); err != nil {
+				slog.Warn("saving role cache", "err", err)
 			}
 		}
 	}
