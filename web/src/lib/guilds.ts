@@ -20,7 +20,7 @@ function sortByScore(items: Guild[]): RankedGuild[] {
     if (i > 0 && g.score < sorted[i - 1].score) {
       rank = i + 1
     }
-    return { ...g, slug: slugify(g.name), rank }
+    return { ...g, slug: slugify(g.guildName ?? g.name), rank }
   })
 }
 

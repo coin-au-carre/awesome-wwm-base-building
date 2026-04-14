@@ -12,11 +12,14 @@ var (
 	reBracketID      = regexp.MustCompile(`[\[(](\d+)[\])]`)
 	reEightDigit     = regexp.MustCompile(`\b(\d{8})\b`)
 	reEightDigitName = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
-	reBuilders    = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
-	reGuildName   = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
-	reLore        = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
-	reWhatToVisit = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
-	reCover       = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
+	reBuilders       = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
+	reGuildName      = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
+	reGuildNameEq    = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
+	reLore           = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
+	reLoreEq         = regexp.MustCompile(`(?im)\blore\b\s*=\s*([^\n]+)`)
+	reWhatToVisit    = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
+	reWhatToVisitEq  = regexp.MustCompile(`(?im)what\s+to\s+visit\s*=\s*([^\n]+)`)
+	reCover          = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 )
 
 var skipPhrases = []string{
@@ -37,6 +40,8 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 
 	if m := reGuildName.FindStringSubmatch(content); len(m) > 1 {
 		guildName = strings.TrimSpace(m[1])
+	} else if m := reGuildNameEq.FindStringSubmatch(content); len(m) > 1 {
+		guildName = strings.TrimSpace(m[1])
 	}
 
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
@@ -51,9 +56,19 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 	if m := reLore.FindStringSubmatch(content); len(m) > 1 {
 		lore = cleanSection(m[1])
 	}
+	if lore == "" {
+		if m := reLoreEq.FindStringSubmatch(content); len(m) > 1 {
+			lore = cleanSection(m[1])
+		}
+	}
 
 	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
 		whatToVisit = cleanSection(m[1])
+	}
+	if whatToVisit == "" {
+		if m := reWhatToVisitEq.FindStringSubmatch(content); len(m) > 1 {
+			whatToVisit = cleanSection(m[1])
+		}
 	}
 
 	if m := reCover.FindStringSubmatch(content); len(m) > 1 {
