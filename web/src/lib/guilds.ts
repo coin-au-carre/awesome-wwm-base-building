@@ -63,6 +63,22 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   return withShots
 }
 
+export function getHiddenGems(): RankedGuild[] {
+  try {
+    const raw = readFileSync(new URL("../../../data/hidden_gems.json", import.meta.url), "utf-8")
+    const entries: string[] = JSON.parse(raw)
+    return entries
+      .map((entry) =>
+        RANKED_GUILDS.find(
+          (g) => g.slug === entry || g.name === entry || g.guildName === entry
+        )
+      )
+      .filter((g): g is RankedGuild => g !== undefined)
+  } catch {
+    return []
+  }
+}
+
 export function getLastSyncDate(): string {
   try {
     const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")

@@ -2,23 +2,24 @@
 import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
-import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, formatBuilderName } from "@/lib/guilds"
+import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
-import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon } from "@phosphor-icons/react"
+import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon } from "@phosphor-icons/react"
 
 const guilds = getGuildsSortedByScore()
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
 const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
 const latestGuilds = getLatestGuildsWithScreenshots(3)
+const hiddenGems = getHiddenGems()
 ---
 
 <Layout
   title="Guild Bases in Where Winds Meet — Where Builders Meet"
   description="Community showcase of the best guild bases in Where Winds Meet, ranked by community votes."
 >
-  <div class="space-y-12">
+  <div class="space-y-6">
     <!-- Hero -->
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
@@ -67,6 +68,59 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
                   data-umami-event="guild_click"
                   data-umami-event-name={g.name}
                   data-umami-event-source="recently_added"
+                  data-umami-event-type="guilds"
+                >
+                  {img && (
+                    <img
+                      src={img}
+                      alt={g.name}
+                      loading="lazy"
+                      onerror="this.style.display='none'"
+                      class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  )}
+                  <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                  <div class="absolute bottom-0 left-0 right-0 p-3">
+                    <div class="flex items-baseline gap-1.5 mb-1">
+                      <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
+                      {g.builders && g.builders.length > 0 && (
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
+                      )}
+                    </div>
+                    {g.tags && g.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-1">
+                        {g.tags.slice(0, 3).map((tag) => (
+                          <span class="inline-flex items-center rounded-full bg-black/40 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/90">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </a>
+              )
+            })}
+          </div></div>
+        </section>
+      )
+    }
+
+    <!-- Hidden gems -->
+    {
+      hiddenGems.length > 0 && (
+        <section>
+          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><DiamondIcon weight="duotone" className="size-4 text-cyan-400" /> Hidden Gems</h2>
+          <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {hiddenGems.map((g) => {
+              const shots = g.screenshots ?? []
+              const img = g.coverImage ?? shots[0]
+              return (
+                <a
+                  href={`${BASE}/guilds/${g.slug}`}
+                  class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                  data-umami-event="guild_click"
+                  data-umami-event-name={g.name}
+                  data-umami-event-source="hidden_gems"
                   data-umami-event-type="guilds"
                 >
                   {img && (
