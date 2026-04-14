@@ -9,11 +9,9 @@ import { getGuildsSortedByScore } from "@/lib/guilds"
 
 const events = getUpcomingEvents()
 
-const guildSlugById = new Map(
-  getGuildsSortedByScore()
-    .filter((g) => g.id)
-    .map((g) => [g.id!, g.slug])
-)
+const _allGuilds = getGuildsSortedByScore()
+const guildSlugById = new Map(_allGuilds.filter((g) => g.id).map((g) => [g.id!, g.slug]))
+const guildSlugByName = new Map(_allGuilds.map((g) => [(g.guildName ?? g.name).toLowerCase(), g.slug]))
 
 function formatDescription(text: string): string {
   const escaped = text
@@ -79,7 +77,7 @@ const TYPE_COLORS: Record<EventType, string> = {
         <div class="relative mt-2 group">
           <pre id="event-template" class="rounded-md bg-muted px-3 py-2 text-xs font-mono text-foreground leading-relaxed">Guild: Jenova
 Guild ID: 10244476 (optional)
-Type: pvp  (tour · pvp · marriage · dancing · fashion · contest · other)
+Type: pvp  (tour ·  race · marriage · dancing · fashion · contest · other)
 
 Free text description here...</pre>
           <button
@@ -105,7 +103,11 @@ Free text description here...</pre>
       ) : (
         <ul class="space-y-4">
           {events.map((event) => (
-            <li class="rounded-xl border border-border bg-card p-5 flex flex-col gap-3 hover:border-primary/40 transition-colors">
+            <li class="rounded-xl border border-border bg-card overflow-hidden flex flex-col gap-3 hover:border-primary/40 transition-colors">
+              {event.image && (
+                <img src={event.image} alt={event.name} class="w-full aspect-3/1 object-cover" />
+              )}
+              <div class:list={["flex flex-col gap-3 px-5 pb-5", event.image ? "pt-4" : "pt-5"]}>
               <!-- Top row: title + join link -->
               <div class="flex items-start justify-between gap-3 flex-wrap">
                 <div class="flex items-center gap-2 flex-wrap">
@@ -120,7 +122,7 @@ Free text description here...</pre>
                   rel="noopener noreferrer"
                   class="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline"
                 >
-                  Join on Discord <ArrowSquareOutIcon weight="bold" className="size-3.5" />
+                  Event on Discord <ArrowSquareOutIcon weight="bold" className="size-3.5" />
                 </a>
               </div>
 
@@ -133,7 +135,8 @@ Free text description here...</pre>
                     </span>
                   )}
                   {event.guildName && (() => {
-                    const slug = event.guildId ? guildSlugById.get(event.guildId) : undefined
+                    const slug = (event.guildId ? guildSlugById.get(event.guildId) : undefined)
+                      ?? guildSlugByName.get(event.guildName.toLowerCase())
                     return (
                       <span class="inline-flex items-center gap-1 rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-xs text-foreground font-medium">
                         <CastleTurretIcon weight="duotone" className="size-3 text-muted-foreground" />
@@ -176,6 +179,7 @@ Free text description here...</pre>
                   <UsersIcon weight="duotone" className="size-4 shrink-0" />
                   {event.subscriberCount} interested
                 </span>
+              </div>
               </div>
             </li>
           ))}

@@ -55,6 +55,7 @@ type Event struct {
 	Status          EventStatus `json:"status"`
 	SubscriberCount int         `json:"subscriberCount"`
 	DiscordURL      string      `json:"discordUrl"`
+	Image           string      `json:"image,omitempty"`
 }
 
 // parsedDesc holds the result of parsing a structured event description.
@@ -160,6 +161,11 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 
 		parsed := parseDescription(e.Description)
 
+		var imageURL string
+		if e.Image != "" {
+			imageURL = fmt.Sprintf("https://cdn.discordapp.com/guild-events/%s/%s.png?size=512", e.ID, e.Image)
+		}
+
 		events = append(events, Event{
 			ID:              e.ID,
 			Name:            e.Name,
@@ -173,6 +179,7 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 			Status:          discordStatus(e.Status),
 			SubscriberCount: e.UserCount,
 			DiscordURL:      fmt.Sprintf("https://discord.com/events/%s/%s", guildID, e.ID),
+			Image:           imageURL,
 		})
 	}
 

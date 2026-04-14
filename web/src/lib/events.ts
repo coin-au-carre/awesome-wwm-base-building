@@ -16,6 +16,7 @@ export interface Event {
   status: EventStatus
   subscriberCount: number
   discordUrl: string
+  image?: string
 }
 
 export const EVENT_TYPE_LABELS: Record<EventType, string> = {
