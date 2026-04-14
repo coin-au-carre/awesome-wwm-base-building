@@ -1,5 +1,15 @@
 [
 	{
+		"name": "AzureQilin",
+		"builders": [
+			"KoreanABG",
+			"khai"
+		],
+		"discordThread": "",
+		"score": 2,
+		"note": "WindXP spoiled hard. Contacted WWM."
+	},
+	{
 		"name": "Heavenly Sage",
 		"builders": [
 			"Wonpil",
