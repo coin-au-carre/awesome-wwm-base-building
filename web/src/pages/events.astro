@@ -5,8 +5,15 @@ import { CalendarIcon, MapPinIcon, UsersIcon, ArrowSquareOutIcon, FlaskIcon, Cas
 import { getUpcomingEvents, EVENT_TYPE_LABELS, EVENT_TYPE_EMOJI } from "@/lib/events"
 import type { EventType } from "@/lib/events"
 import { BASE } from "@/lib/url"
+import { getGuildsSortedByScore } from "@/lib/guilds"
 
 const events = getUpcomingEvents()
+
+const guildSlugById = new Map(
+  getGuildsSortedByScore()
+    .filter((g) => g.id)
+    .map((g) => [g.id!, g.slug])
+)
 
 function formatDescription(text: string): string {
   const escaped = text
@@ -125,16 +132,24 @@ Free text description here...</pre>
                       {EVENT_TYPE_EMOJI[event.type]} {EVENT_TYPE_LABELS[event.type]}
                     </span>
                   )}
-                  {event.guildName && (
-                    <span class="inline-flex items-center gap-1 rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-xs text-muted-foreground">
-                      <CastleTurretIcon weight="duotone" className="size-3" />
-                      {event.guildId ? (
-                        <a href={`${BASE}/guilds/${event.guildId}`} class="hover:text-foreground transition-colors">
-                          {event.guildName}
-                        </a>
-                      ) : (
-                        event.guildName
-                      )}
+                  {event.guildName && (() => {
+                    const slug = event.guildId ? guildSlugById.get(event.guildId) : undefined
+                    return (
+                      <span class="inline-flex items-center gap-1 rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-xs text-foreground font-medium">
+                        <CastleTurretIcon weight="duotone" className="size-3 text-muted-foreground" />
+                        {slug ? (
+                          <a href={`${BASE}/guilds/${slug}`} class="hover:text-primary transition-colors">
+                            {event.guildName}
+                          </a>
+                        ) : (
+                          event.guildName
+                        )}
+                      </span>
+                    )
+                  })()}
+                  {event.guildId && (
+                    <span class="inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-xs text-muted-foreground font-mono">
+                      #{event.guildId}
                     </span>
                   )}
                 </div>
@@ -188,4 +203,5 @@ Free text description here...</pre>
       })
     })
   }
+
 </script>
