@@ -19,6 +19,17 @@ const hiddenGems = getHiddenGems()
   title="Guild Bases in Where Winds Meet — Where Builders Meet"
   description="Community showcase of the best guild bases in Where Winds Meet, ranked by community votes."
 >
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      opacity: 0;
+      animation: fadeUp 0.4s ease forwards;
+    }
+  </style>
+
   <div class="space-y-6">
     <!-- Hero -->
     <div class="flex flex-col gap-3">
@@ -41,30 +52,29 @@ const hiddenGems = getHiddenGems()
     </div>
 
     <!-- Top rated carousel -->
-    {
-      topGuilds.length > 0 && (
-        <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
-          <div class="px-5">
-            <GuildCarousel client:load guilds={topGuilds} />
-          </div>
-        </section>
-      )
-    }
+    {topGuilds.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
+        <div class="px-5">
+          <GuildCarousel client:load guilds={topGuilds} />
+        </div>
+      </section>
+    )}
 
-    <!-- Latest guilds -->
-    {
-      latestGuilds.length > 0 && (
-        <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
-          <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {latestGuilds.map((g) => {
+    <!-- Recently added -->
+    {latestGuilds.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
+        <div class="px-5">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {latestGuilds.map((g, idx) => {
               const shots = g.screenshots ?? []
               const img = g.coverImage ?? shots[0]
               return (
                 <a
                   href={`${BASE}/guilds/${g.slug}`}
-                  class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                  class="fade-up group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                  style={`animation-delay: ${idx * 80}ms`}
                   data-umami-event="guild_click"
                   data-umami-event-name={g.name}
                   data-umami-event-source="recently_added"
@@ -80,59 +90,11 @@ const hiddenGems = getHiddenGems()
                     />
                   )}
                   <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  <div class="absolute bottom-0 left-0 right-0 p-3">
-                    <div class="flex items-baseline gap-1.5 mb-1">
-                      <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
-                      {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
-                      )}
+                  {g.rank <= 10 && (
+                    <div class="absolute top-2 right-2 text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
+                      #{g.rank}
                     </div>
-                    {g.tags && g.tags.length > 0 && (
-                      <div class="flex flex-wrap gap-1">
-                        {g.tags.slice(0, 3).map((tag) => (
-                          <span class="inline-flex items-center rounded-full bg-black/40 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/90">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </a>
-              )
-            })}
-          </div></div>
-        </section>
-      )
-    }
-
-    <!-- Hidden gems -->
-    {
-      hiddenGems.length > 0 && (
-        <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><DiamondIcon weight="duotone" className="size-4 text-cyan-400" /> Hidden Gems</h2>
-          <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {hiddenGems.map((g) => {
-              const shots = g.screenshots ?? []
-              const img = g.coverImage ?? shots[0]
-              return (
-                <a
-                  href={`${BASE}/guilds/${g.slug}`}
-                  class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
-                  data-umami-event="guild_click"
-                  data-umami-event-name={g.name}
-                  data-umami-event-source="hidden_gems"
-                  data-umami-event-type="guilds"
-                >
-                  {img && (
-                    <img
-                      src={img}
-                      alt={g.name}
-                      loading="lazy"
-                      onerror="this.style.display='none'"
-                      class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
                   )}
-                  <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                   <div class="absolute bottom-0 left-0 right-0 p-3">
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
@@ -153,10 +115,10 @@ const hiddenGems = getHiddenGems()
                 </a>
               )
             })}
-          </div></div>
-        </section>
-      )
-    }
+          </div>
+        </div>
+      </section>
+    )}
 
     <!-- Ranked table -->
     <section>
@@ -174,5 +136,64 @@ const hiddenGems = getHiddenGems()
         </ul>
       </noscript>
     </section>
+
+    <!-- Hidden gems -->
+    {hiddenGems.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><DiamondIcon weight="duotone" className="size-4 text-cyan-400" /> Hidden Gems</h2>
+        <div class="px-5">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {hiddenGems.map((g, idx) => {
+              const shots = g.screenshots ?? []
+              const img = g.coverImage ?? shots[0]
+              return (
+                <a
+                  href={`${BASE}/guilds/${g.slug}`}
+                  class="fade-up group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                  style={`animation-delay: ${idx * 80}ms`}
+                  data-umami-event="guild_click"
+                  data-umami-event-name={g.name}
+                  data-umami-event-source="hidden_gems"
+                  data-umami-event-type="guilds"
+                >
+                  {img && (
+                    <img
+                      src={img}
+                      alt={g.name}
+                      loading="lazy"
+                      onerror="this.style.display='none'"
+                      class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  )}
+                  <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                  {g.rank <= 10 && (
+                    <div class="absolute top-2 right-2 text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
+                      #{g.rank}
+                    </div>
+                  )}
+                  <div class="absolute bottom-0 left-0 right-0 p-3">
+                    <div class="flex items-baseline gap-1.5 mb-1">
+                      <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
+                      {g.builders && g.builders.length > 0 && (
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
+                      )}
+                    </div>
+                    {g.tags && g.tags.length > 0 && (
+                      <div class="flex flex-wrap gap-1">
+                        {g.tags.slice(0, 3).map((tag) => (
+                          <span class="inline-flex items-center rounded-full bg-black/40 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/90">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+    )}
   </div>
 </Layout>

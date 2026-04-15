@@ -101,6 +101,12 @@ function SortButton({
   )
 }
 
+const PODIUM_ROW: Record<number, string> = {
+  1: "bg-yellow-400/8 hover:bg-yellow-400/14",
+  2: "bg-slate-400/6 hover:bg-slate-400/12",
+  3: "bg-orange-400/6 hover:bg-orange-400/12",
+}
+
 const PAGE_SIZE = 40
 
 export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props) {
@@ -242,7 +248,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               </TableHead>
               <TableHead>
                 <SortButton field="name" current={sortField} dir={sortDir} onClick={toggleSort}>
-                  Guild
+                  {isSolos ? "Build" : "Guild"}
                 </SortButton>
               </TableHead>
               <TableHead className="hidden md:table-cell">Builders</TableHead>
@@ -261,34 +267,56 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                   {isSolos ? "No bases match your search." : "No guilds match your search."}
                 </TableCell>
               </TableRow>
-            ) : paginated.map((g, i) => (
-              <TableRow
-                key={g.name}
-                onClick={() => {
-                  ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
-                  window.location.href = url(`/${basePath}/${g.slug}`)
-                }}
-                className={cn("cursor-pointer", i % 2 !== 0 && "bg-muted/10")}
-              >
-                <TableCell className="text-center font-medium">{rankLabel(g.rank)}</TableCell>
-                <TableCell className="font-medium">
-                  <a href={url(`/${basePath}/${g.slug}`)} className="hover:underline" onClick={(e) => e.stopPropagation()}>
-                    {g.guildName || g.name}
-                  </a>
-                </TableCell>
-                <TableCell className="text-muted-foreground hidden md:table-cell">
-                  {formatBuilders(g.builders)}
-                </TableCell>
-                <TableCell className="hidden lg:table-cell">
-                  <div className="flex flex-wrap gap-1">
-                    {g.tags?.map((tag) => (
-                      <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />
-                    ))}
-                  </div>
-                </TableCell>
-                <TableCell className="text-right font-mono font-semibold">{g.score}</TableCell>
-              </TableRow>
-            ))}
+            ) : paginated.map((g, i) => {
+              const img = g.coverImage ?? g.screenshots?.[0]
+              const podium = PODIUM_ROW[g.rank]
+              return (
+                <TableRow
+                  key={g.name}
+                  onClick={() => {
+                    ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
+                    window.location.href = url(`/${basePath}/${g.slug}`)
+                  }}
+                  className={cn(
+                    "cursor-pointer transition-colors",
+                    podium ?? (i % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"),
+                  )}
+                >
+                  <TableCell className="text-center font-medium">{rankLabel(g.rank)}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2.5">
+                      {img && (
+                        <img
+                          src={img}
+                          alt={g.guildName || g.name}
+                          className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block"
+                          loading="lazy"
+                          onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
+                        />
+                      )}
+                      <a
+                        href={url(`/${basePath}/${g.slug}`)}
+                        className="font-medium hover:underline"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {g.guildName || g.name}
+                      </a>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-muted-foreground hidden md:table-cell">
+                    {formatBuilders(g.builders)}
+                  </TableCell>
+                  <TableCell className="hidden lg:table-cell">
+                    <div className="flex flex-wrap gap-1">
+                      {g.tags?.map((tag) => (
+                        <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />
+                      ))}
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-right font-mono font-semibold">{g.score}</TableCell>
+                </TableRow>
+              )
+            })}
           </TableBody>
         </Table>
       </div>
