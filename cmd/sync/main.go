@@ -209,6 +209,11 @@ func main() {
 	}
 }
 
+const (
+	ahlyamID = "149790526076354561"
+	windxpID = "721510597958828183"
+)
+
 func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild, stats discord.SyncStats, isSolo bool) {
 	byName := make(map[string]guild.Guild, len(entries))
 	for _, g := range entries {
@@ -222,9 +227,17 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		bot.Send(channelID, msgFn(g, isSoloEntry))
 	}
 	for _, name := range stats.NewNames {
+		g, ok := byName[name]
+		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID {
+			continue
+		}
 		announce(name, isSolo, discord.FormatNewGuildMessage)
 	}
 	for _, name := range stats.MoreScreenshotNames {
+		g, ok := byName[name]
+		if !ok || g.BuilderDiscordID == ahlyamID {
+			continue
+		}
 		announce(name, isSolo, discord.FormatMoreScreenshotsMessage)
 	}
 }
@@ -236,7 +249,7 @@ func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.Syn
 	}
 	for _, name := range stats.NewNames {
 		g, ok := byName[name]
-		if !ok {
+		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID {
 			continue
 		}
 		msg := discord.FormatNewGuildMessage(g, isSolo)
