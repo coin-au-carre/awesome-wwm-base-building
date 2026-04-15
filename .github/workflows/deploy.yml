@@ -3,9 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  workflow_run:
-    workflows: ["Sync Guild Data", "Sync Events"]
-    types: [completed]
+    paths:
+      - 'data/guilds.json'
+      - 'data/solos.json'
+      - 'data/events.json'
+      - 'web/public/guilds.json'
+      - 'web/**'
   workflow_dispatch:
 
 permissions:
@@ -20,7 +23,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v4
       - uses: withastro/action@v3
