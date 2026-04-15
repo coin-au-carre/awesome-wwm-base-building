@@ -251,7 +251,16 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID {
 			continue
 		}
-		announce(name, isSolo, discord.FormatNewGuildMessage)
+		msg := discord.FormatNewGuildMessage(g, isSolo)
+		if len(g.Screenshots) > 0 {
+			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
+			if err == nil {
+				bot.SendWithFile(channelID, msg, filename, imgData)
+				imgData.Close()
+				continue
+			}
+		}
+		bot.Send(channelID, msg)
 	}
 	for _, name := range stats.MoreScreenshotNames {
 		g, ok := byName[name]
@@ -272,16 +281,7 @@ func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.Syn
 		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID {
 			continue
 		}
-		msg := discord.FormatNewGuildMessage(g, isSolo)
-		if len(g.Screenshots) > 0 {
-			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
-			if err == nil {
-				bot.NotifyWithFile(msg, filename, imgData)
-				imgData.Close()
-				continue
-			}
-		}
-		bot.Notify(msg)
+		bot.Notify(discord.FormatNewGuildMessage(g, isSolo))
 	}
 }
 
