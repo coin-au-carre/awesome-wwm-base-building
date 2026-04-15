@@ -121,7 +121,7 @@ export default function ContributeTabs() {
             n="1"
             badgeClass="bg-blue-500 text-white border-0"
             title="Join the Discord"
-            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click", { page: "contribute" })}>Join Discord ↗</a></Button></>}
+            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click")}>Join Discord ↗</a></Button></>}
           />
           <Step
             n="2"

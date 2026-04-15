@@ -130,29 +130,13 @@ See `web/CLAUDE.md` for full details.
 - HTML elements: `data-umami-event="event_name"` + `data-umami-event-<prop>="value"` attributes.
 - JS: `window.umami?.track("event_name", { key: value })` — always optional-chain (`?.`), never assume `umami` is defined.
 - Event names: `snake_case`. Property keys: `snake_case`. Keep names consistent with the table above when extending existing events.
-- Always include a `page` or `source` property when the same event fires from multiple locations — this is essential for funnel analysis.
-
-### UTM parameters
-
-Outbound Discord links (`discord.gg/...`) should include UTM params when the traffic source is meaningful to track:
-
-```
-https://discord.gg/Qygt9u26Bn?utm_source=wherebuildersmeet&utm_medium=web&utm_campaign=<page>_cta
-```
-
-Examples by page:
-- Home CTA: `utm_campaign=home_cta`
-- Guild detail: `utm_campaign=guild_detail_cta`
-- Solo detail: `utm_campaign=solo_detail_cta`
-- Contribute page: `utm_campaign=contribute_cta`
-
-UTM params on Discord invite links are tracked by Discord's invite analytics, giving visibility into which pages drive the most server joins.
+- Do not add a `page` property — Umami records the current URL automatically with every event.
 
 ### When to suggest analytics improvements
 
 Proactively suggest adding tracking when:
 - A new interactive element is added (button, filter, tab, modal) — add a `umami?.track` call.
-- A new CTA links to Discord — add `data-umami-event="discord_cta_click"` and UTM params.
+- A new CTA links to Discord — add `data-umami-event="discord_cta_click"`.
 - A new page is added — ensure any navigation CTAs on it fire events with a `page` property.
 - A new outbound link is added — consider whether the destination is worth tracking.
 
