@@ -88,7 +88,7 @@ func handleCatalogItemsReply(bot *idiscord.Bot, s *discordgo.Session, channelID,
 		return
 	}
 
-	websiteURL := fmt.Sprintf("https://www.wherebuildersmeet.com/catalog/?q=%%23%s", url.QueryEscape(query))
+	websiteURL := fmt.Sprintf("https://www.wherebuildersmeet.com/catalog/?q=%%23%s&utm_source=discord&utm_medium=bot&utm_campaign=catalog_cmd", url.QueryEscape(query))
 
 	var files []*discordgo.File
 	for _, item := range items {

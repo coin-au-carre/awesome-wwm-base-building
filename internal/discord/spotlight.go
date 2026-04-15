@@ -13,6 +13,10 @@ import (
 
 const websiteBase = "https://www.wherebuildersmeet.com"
 
+func websiteURL(path, campaign string) string {
+	return fmt.Sprintf("%s%s?utm_source=discord&utm_medium=bot&utm_campaign=%s", websiteBase, path, campaign)
+}
+
 var reSlugify = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 
 func slugify(name string) string {
@@ -71,20 +75,20 @@ func buildGuildMeta(g guild.Guild, includeScore bool) []string {
 	return meta
 }
 
-func guildWebsiteURL(g guild.Guild) string {
+func guildWebsiteURL(g guild.Guild, campaign string) string {
 	name := g.GuildName
 	if name == "" {
 		name = g.Name
 	}
-	return fmt.Sprintf("%s/guilds/%s", websiteBase, slugify(name))
+	return websiteURL("/guilds/"+slugify(name), campaign)
 }
 
-func soloWebsiteURL(g guild.Guild) string {
+func soloWebsiteURL(g guild.Guild, campaign string) string {
 	name := g.GuildName
 	if name == "" {
 		name = g.Name
 	}
-	return fmt.Sprintf("%s/solos/%s", websiteBase, slugify(name))
+	return websiteURL("/solos/"+slugify(name), campaign)
 }
 
 // FormatSpotlightMessage builds the Discord message for a guild spotlight.
@@ -98,9 +102,9 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	meta := buildGuildMeta(g, true)
 	fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, guildWebsiteURL(g))
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, guildWebsiteURL(g, "spotlight"))
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", guildWebsiteURL(g))
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", guildWebsiteURL(g, "spotlight"))
 	}
 	return sb.String()
 }
@@ -118,14 +122,14 @@ func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	}
-	websiteURL := guildWebsiteURL(g)
+	url := guildWebsiteURL(g, "new_guild")
 	if isSolo {
-		websiteURL = soloWebsiteURL(g)
+		url = soloWebsiteURL(g, "new_guild")
 	}
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, url)
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", url)
 	}
 	return sb.String()
 }
@@ -143,14 +147,14 @@ func FormatMoreScreenshotsMessage(g guild.Guild, isSolo bool) string {
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	}
-	websiteURL := guildWebsiteURL(g)
+	url := guildWebsiteURL(g, "new_screenshots")
 	if isSolo {
-		websiteURL = soloWebsiteURL(g)
+		url = soloWebsiteURL(g, "new_screenshots")
 	}
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, websiteURL)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, url)
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", websiteURL)
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", url)
 	}
 	return sb.String()
 }

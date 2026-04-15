@@ -338,7 +338,7 @@ func buildTutorialsSection(root string) string {
 	sb.WriteString("\n\n## Building tutorials\n")
 	sb.WriteString("These guides are available on the website. When someone asks how to do something that a tutorial covers, mention it and give them the link.\n")
 	for _, t := range tutorials {
-		url := "https://www.wherebuildersmeet.com/tutorials/" + t.Slug
+		url := "https://www.wherebuildersmeet.com/tutorials/" + t.Slug + "?utm_source=discord&utm_medium=bot&utm_campaign=ai_reply"
 		fmt.Fprintf(&sb, "- **%s**: %s — %s\n", t.Title, t.Description, url)
 	}
 	return sb.String()

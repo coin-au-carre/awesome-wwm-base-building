@@ -118,10 +118,10 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
           <div class="flex items-center gap-3 px-4 py-3">
             <span class="text-muted-foreground text-sm w-24 shrink-0">💬 Discord</span>
             <div class="flex flex-wrap gap-2">
-              <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })} data-umami-event="discord_cta_click" data-umami-event-page="solo_detail">
+              <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })} data-umami-event="discord_cta_click">
                 Join server ↗
               </a>
-              <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })} data-umami-event="discord_cta_click" data-umami-event-page="solo_detail">
+              <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })} data-umami-event="discord_cta_click">
                 Vote ↗
               </a>
             </div>
@@ -167,8 +167,8 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
 
     {g.discordThread && (
       <div class="flex flex-wrap gap-3">
-        <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "lg" })} data-umami-event="discord_cta_click" data-umami-event-page="solo_detail">Join server ↗</a>
-        <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click" data-umami-event-page="solo_detail">Vote on Discord ↗</a>
+        <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "lg" })} data-umami-event="discord_cta_click">Join server ↗</a>
+        <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click">Vote on Discord ↗</a>
       </div>
     )}
   </div>
