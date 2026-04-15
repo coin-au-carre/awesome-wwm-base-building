@@ -20,6 +20,7 @@ var (
 	reWhatToVisit     = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
 	reWhatToVisitEq   = regexp.MustCompile(`(?im)what\s+to\s+visit\s*=\s*([^\n]+)`)
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
+	reCoverStrip      = regexp.MustCompile(`(?im)[\n\r]*[ \t]*cover:[ \t]*\d+[ \t]*$`)
 	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
 )
 
@@ -122,6 +123,7 @@ func IsVideo(filename string) bool {
 
 func cleanSection(s string) string {
 	s = strings.TrimSpace(s)
+	s = reCoverStrip.ReplaceAllString(s, "")
 	s = reTrailingStars.ReplaceAllString(s, "")
 	s = strings.TrimSpace(s)
 	if len(s) < 15 {
