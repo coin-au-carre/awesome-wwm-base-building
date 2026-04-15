@@ -1,12 +1,23 @@
 [
 	{
+		"name": "Bonsai",
+		"id": "10015127",
+		"builders": [
+			"babychi"
+		],
+		"discordThread": "",
+		"whatToVisit": "Cats. Kitty. Magic tree. Heart lantern.",
+		"score": 1,
+		"note": "asked marvelites channel with ashborn."
+	},
+	{
 		"name": "TheBigEgg",
 		"builders": [
 			"Tribulum"
 		],
 		"discordThread": "",
-		"lore": "The big rocky Hand. Awesome guild war map. The Party area. Check at night.",
-		"score": 0,
+		"whatToVisit": "The big rocky Hand. Awesome guild war map. The Party area. Check at night.",
+		"score": 1,
 		"note": "joined disc. very nice builder."
 	},
 	{
@@ -16,7 +27,7 @@
 			"Getto"
 		],
 		"discordThread": "",
-		"lore": "Iron throne, Greek mythology inspiration",
+		"whatToVisit": "Iron throne, Greek mythology inspiration",
 		"score": 1,
 		"note": "contacted disc"
 	},
@@ -26,7 +37,7 @@
 			"PHOENIXOOX"
 		],
 		"discordThread": "",
-		"lore": "Pikachu, dragon",
+		"whatToVisit": "Pikachu, dragon",
 		"score": 1,
 		"note": "contacted wwm"
 	},
@@ -36,7 +47,7 @@
 			"HuLasi"
 		],
 		"discordThread": "",
-		"lore": "Creative imposing structure with lanterns",
+		"whatToVisit": "Creative imposing structure with lanterns",
 		"score": 0,
 		"note": "contacted wwm"
 	},
@@ -46,7 +57,7 @@
 			"Coirr"
 		],
 		"discordThread": "",
-		"lore": "F1 car, toilets, horse racing...",
+		"whatToVisit": "F1 car, toilets, horse racing...",
 		"score": 1,
 		"note": "contacted wwm, F1, toilets"
 	},
@@ -55,6 +66,7 @@
 		"builders": [
 			"Beans, Vana"
 		],
+		"whatToVisit": "hang people",
 		"discordThread": "",
 		"score": 0,
 		"note": "not dm yet. Keisha's friends"
