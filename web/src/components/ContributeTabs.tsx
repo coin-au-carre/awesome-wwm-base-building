@@ -191,21 +191,28 @@ export default function ContributeTabs() {
         </Card>
       </TabsContent>
 
-      <TabsContent value="vote" className="space-y-4">
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          React to threads in the Discord forum to vote for the builds you love. Votes shape the rankings on the showcase and help the best bases rise to the top.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Use ⭐ for 2 points, or 👍 🔥 for 1 point each. The more threads you vote on, the more weight your votes carry.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role on Discord.
-        </p>
-        <Button variant="link" size="sm" asChild className="h-auto p-0">
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click", { page: "contribute" })}>
-            Join Discord ↗
-          </a>
-        </Button>
+      <TabsContent value="vote" className="space-y-6">
+        <div className="space-y-1.5">
+          <p className="text-sm font-medium text-foreground">React to builds</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            React to threads in the forum to vote for the builds you love. Use ⭐ for 2 points, or 👍 🔥 for 1 point each. Votes shape the rankings on the showcase and help the best bases rise to the top. Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role.
+          </p>
+        </div>
+        <div className="space-y-1.5">
+          <p className="text-sm font-medium text-foreground">Write a tutorial</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Know a building trick worth sharing? Write a guide and we'll publish it on the{" "}
+            <a href={url("/tutorials")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">
+              tutorials page
+            </a>.
+          </p>
+        </div>
+        <div className="space-y-1.5">
+          <p className="text-sm font-medium text-foreground">Just hang out</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Discuss, share screenshots, and talk about awesome buildings with the community.
+          </p>
+        </div>
       </TabsContent>
 
       <TabsContent value="oss" className="space-y-6">
