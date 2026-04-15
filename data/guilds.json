@@ -1,13 +1,23 @@
 [
 	{
+		"name": "x-Void-x",
+		"builders": [
+			"PHOENIXOOX"
+		],
+		"lore": "Pikachu, dragon",
+		"discordThread": "",
+		"score": 1,
+		"note": "contacted wwm"
+	},
+	{
 		"name": "Sushi",
 		"builders": [
 			"HuLasi"
 		],
 		"lore": "Creative imposing structure with lanterns",
 		"discordThread": "",
-		"score": 1,
-		"note": "contacted"
+		"score": 0,
+		"note": "contacted wwm"
 	},
 	{
 		"name": "CastAway",
