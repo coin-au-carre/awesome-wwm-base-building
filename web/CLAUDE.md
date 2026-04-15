@@ -23,6 +23,10 @@
 | `/contribute` | How to submit a guild/solo |
 | `/how-it-works` | How it works |
 
+## Nav dot versioning
+
+`web/src/layouts/main.astro` has a `navLinks` array where each entry has a `version` field (e.g. `"2026-04-15-1430"`). This drives a "new page" dot indicator stored in `localStorage`. **When you make a meaningful content change to a page, bump its `version` string in `navLinks`** so returning users see the dot again. Use the format `YYYY-MM-DD-HHmm` (e.g. `"2026-04-15-1430"`) — minutes precision since there can be several deploys per day.
+
 ## Rules
 
 - **Never hardcode internal paths in React components** — always use `url('/path')` from `src/lib/url.ts`

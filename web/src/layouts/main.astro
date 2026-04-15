@@ -18,13 +18,13 @@ const {
 const base = BASE
 
 const navLinks = [
-  { href: `${base}/`, label: "Guilds" },
-  { href: `${base}/solo`, label: "Solo" },
-  { href: `${base}/catalog`, label: "Catalog" },
-  { href: `${base}/tutorials`, label: "Tutorials" },
-  { href: `${base}/events`, label: "Events" },
-  { href: `${base}/contribute`, label: "Contribute" },
-  { href: `${base}/how-it-works`, label: "How it works" },
+  { href: `${base}/`, label: "Guilds", version: "2026-04-15-0000" },
+  { href: `${base}/solo`, label: "Solo", version: "2026-04-15-0000" },
+  { href: `${base}/catalog`, label: "Catalog", version: "2026-04-15-0000" },
+  { href: `${base}/tutorials`, label: "Tutorials", version: "2026-04-15-0000" },
+  { href: `${base}/events`, label: "Events", version: "2026-04-15-0000" },
+  { href: `${base}/contribute`, label: "Contribute", version: "2026-04-15-0000" },
+  { href: `${base}/how-it-works`, label: "How it works", version: "2026-04-15-0000" },
 ]
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
@@ -102,6 +102,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
                 return (
                   <a
                     href={link.href}
+                    data-nav-href={link.href}
+                    data-nav-version={link.version}
                     class={[
                       "px-3 py-1.5 text-sm transition-colors border-b-2",
                       isActive
@@ -109,7 +111,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
                         : "border-transparent text-muted-foreground hover:text-foreground",
                     ].join(" ")}
                   >
-                    {link.label}
+                    <span class="relative">
+                      {link.label}
+                      <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-red-500 shadow-[0_0_4px_2px_rgba(239,68,68,0.5)]"></span>
+                    </span>
                   </a>
                 )
               })
@@ -165,6 +170,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
               return (
                 <a
                   href={link.href}
+                  data-nav-href={link.href}
+                  data-nav-version={link.version}
                   class={[
                     "block rounded-md px-3 py-2 text-sm transition-colors",
                     isActive
@@ -172,7 +179,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
                   ].join(" ")}
                 >
-                  {link.label}
+                  <span class="relative">
+                    {link.label}
+                    <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-red-500 shadow-[0_0_4px_2px_rgba(239,68,68,0.5)]"></span>
+                  </span>
                 </a>
               )
             })
@@ -242,6 +252,27 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
         bar2.style.opacity = open ? "0" : "1"
         bar3.style.transform = open ? "translateY(-8px) rotate(-45deg)" : ""
       })
+    </script>
+    <script is:inline>
+      ;(function () {
+        var PREFIX = 'wbm_nav:'
+        var pathClean = window.location.pathname.replace(/\/$/, '') || '/'
+        document.querySelectorAll('a[data-nav-href]').forEach(function (link) {
+          var href = link.dataset.navHref
+          var version = link.dataset.navVersion
+          var hrefClean = href.replace(/\/$/, '') || '/'
+          var isHome = href === '/' || (href.length > 1 && href.endsWith('/'))
+          var isActive = isHome ? pathClean === hrefClean : pathClean.startsWith(href)
+          if (isActive) {
+            localStorage.setItem(PREFIX + href, version)
+          }
+          var stored = localStorage.getItem(PREFIX + href)
+          if (stored !== version) {
+            var dot = link.querySelector('.nav-dot')
+            if (dot) dot.classList.remove('hidden')
+          }
+        })
+      })()
     </script>
   </body>
 </html>
