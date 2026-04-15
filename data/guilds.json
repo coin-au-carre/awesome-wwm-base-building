@@ -1,12 +1,23 @@
 [
 	{
+		"name": "Sushi",
+		"builders": [
+			"HuLasi"
+		],
+		"lore": "Creative imposing structure with lanterns",
+		"discordThread": "",
+		"score": 1,
+		"note": "contacted"
+	},
+	{
 		"name": "CastAway",
 		"builders": [
 			"Coirr"
 		],
+		"lore": "F1 car, toilets, horse racing...",
 		"discordThread": "",
 		"score": 1,
-		"note": "contacted wwm, Derby, F1, toilets"
+		"note": "contacted wwm, F1, toilets"
 	},
 	{
 		"name": "WonderBread",
