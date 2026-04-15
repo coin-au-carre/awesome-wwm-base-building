@@ -193,6 +193,14 @@ export default function ContributeTabs() {
 
       <TabsContent value="vote" className="space-y-6">
         <div className="space-y-1.5">
+          <p className="text-sm font-medium text-foreground">Submit a guild you discovered</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Found an impressive guild that isn't on the showcase yet? Post it in{" "}
+            <span className="font-medium text-foreground">#guild-discoveries</span> or{" "} even 
+            <span className="font-medium text-foreground">#guild-base-showcase</span>! 
+          </p>
+        </div>
+        <div className="space-y-1.5">
           <p className="text-sm font-medium text-foreground">React to builds</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
             React to threads in the forum to vote for the builds you love. Use ⭐ for 2 points, or 👍 🔥 for 1 point each. Votes shape the rankings on the showcase and help the best bases rise to the top. Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role.
