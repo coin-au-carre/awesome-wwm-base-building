@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 	"sync"
 
+	"fmt"
+
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
 	"ruby/internal/guild"
@@ -189,15 +191,33 @@ func main() {
 	}
 
 	if !*dryRun {
-		if !*noNotify && guildStats.New > 0 {
-			notifyNewEntries(bot, updatedGuilds, guildStats, false)
-		}
-		if !*noNotify && soloStats.New > 0 {
-			notifyNewEntries(bot, updatedSolos, soloStats, true)
-		}
-		if !*noNotify && generalChannelID != "" {
-			announceToGeneral(bot, generalChannelID, updatedGuilds, guildStats, false)
-			announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
+		const maxNewAnnouncements = 5
+		guildSpam := guildStats.New > maxNewAnnouncements
+		soloSpam := soloStats.New > maxNewAnnouncements
+
+		if guildSpam || soloSpam {
+			warn := fmt.Sprintf(
+				"⚠️ **Announcement suppressed** — unusually high new-entry count (guilds: %d, solos: %d). Check that guilds.json loaded correctly before announcing.",
+				guildStats.New, soloStats.New,
+			)
+			slog.Warn("announcement suppressed: too many new entries", "guilds_new", guildStats.New, "solos_new", soloStats.New)
+			if !*noNotify {
+				bot.NotifyIf(true, warn)
+				if devChannelID != "" {
+					bot.Send(devChannelID, warn)
+				}
+			}
+		} else {
+			if !*noNotify && guildStats.New > 0 {
+				notifyNewEntries(bot, updatedGuilds, guildStats, false)
+			}
+			if !*noNotify && soloStats.New > 0 {
+				notifyNewEntries(bot, updatedSolos, soloStats, true)
+			}
+			if !*noNotify && generalChannelID != "" {
+				announceToGeneral(bot, generalChannelID, updatedGuilds, guildStats, false)
+				announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
+			}
 		}
 	}
 
