@@ -1,5 +1,15 @@
 [
 	{
+		"name": "TheBigEgg",
+		"builders": [
+			"Tribulum"
+		],
+		"discordThread": "",
+		"lore": "The big rocky Hand. Awesome guild war map. The Party area. Check at night.",
+		"score": 0,
+		"note": "joined disc. very nice builder."
+	},
+	{
 		"id": "10124158",
 		"name": "GoldenOrcas",
 		"builders": [
