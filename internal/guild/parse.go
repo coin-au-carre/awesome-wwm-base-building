@@ -8,18 +8,19 @@ import (
 )
 
 var (
-	reThreadID       = regexp.MustCompile(`\s*[\[(](\d+)[\])]?\s*$`)
-	reBracketID      = regexp.MustCompile(`[\[(](\d+)[\])]`)
-	reEightDigit     = regexp.MustCompile(`\b(\d{8})\b`)
-	reEightDigitName = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
-	reBuilders       = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
-	reGuildName      = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
-	reGuildNameEq    = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
-	reLore           = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
-	reLoreEq         = regexp.MustCompile(`(?im)\blore\b\s*=\s*([^\n]+)`)
-	reWhatToVisit    = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
-	reWhatToVisitEq  = regexp.MustCompile(`(?im)what\s+to\s+visit\s*=\s*([^\n]+)`)
-	reCover          = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
+	reThreadID        = regexp.MustCompile(`\s*[\[(](\d+)[\])]?\s*$`)
+	reBracketID       = regexp.MustCompile(`[\[(](\d+)[\])]`)
+	reEightDigit      = regexp.MustCompile(`\b(\d{8})\b`)
+	reEightDigitName  = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
+	reBuilders        = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
+	reGuildName       = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
+	reGuildNameEq     = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
+	reLore            = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|^###|\z)`)
+	reLoreEq          = regexp.MustCompile(`(?im)\blore\b\s*=\s*([^\n]+)`)
+	reWhatToVisit     = regexp.MustCompile(`(?im)(?:^###[^\n]*what\s+to\s+visit|\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|^###|\z)`)
+	reWhatToVisitEq   = regexp.MustCompile(`(?im)what\s+to\s+visit\s*=\s*([^\n]+)`)
+	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
+	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
 )
 
 var skipPhrases = []string{
@@ -120,6 +121,8 @@ func IsVideo(filename string) bool {
 }
 
 func cleanSection(s string) string {
+	s = strings.TrimSpace(s)
+	s = reTrailingStars.ReplaceAllString(s, "")
 	s = strings.TrimSpace(s)
 	if len(s) < 15 {
 		return ""
