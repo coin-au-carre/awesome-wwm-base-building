@@ -1,4 +1,14 @@
-[
+[	{
+		"name": "GoldenOrcas",
+		"id": 10124158,
+		"builders": [
+			"Getto"
+		],
+		"lore": "Iron throne, Greek mythology inspiration",
+		"discordThread": "",
+		"score": 1,
+		"note": "contacted disc"
+	},
 	{
 		"name": "x-Void-x",
 		"builders": [
