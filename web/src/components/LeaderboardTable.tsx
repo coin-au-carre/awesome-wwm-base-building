@@ -53,9 +53,9 @@ const TAG_COLORS: Record<string, [number, number]> = {
 }
 
 function tagColor(label: string): [number, number] {
-  if (TAG_COLORS[label]) return TAG_COLORS[label]
+  if (TAG_COLORS[label]) { return TAG_COLORS[label] }
   let hash = 0
-  for (let i = 0; i < label.length; i++) hash = (hash * 31 + label.charCodeAt(i)) >>> 0
+  for (let i = 0; i < label.length; i++) { hash = (hash * 31 + label.charCodeAt(i)) >>> 0 }
   return [hash % 360, 50]
 }
 
@@ -169,33 +169,38 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
 
   return (
     <div className="space-y-4">
-      <div className="relative w-full sm:w-96">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
-        <Input
-          type="search"
-          placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-            setPage(1)
-            if (searchTimerRef.current) clearTimeout(searchTimerRef.current)
-            if (e.target.value.trim()) {
-              searchTimerRef.current = setTimeout(() => {
-                ;window.umami?.track("search_used", { page: basePath })
-              }, 1500)
-            }
-          }}
-          className="pl-9 pr-8 focus-visible:border-primary focus-visible:ring-primary/30"
-        />
-        {search && (
-          <button
-            onClick={() => { setSearch(""); setPage(1) }}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Clear search"
-          >
-            <X className="size-3.5" />
-          </button>
-        )}
+      <div className="flex flex-col gap-1.5">
+        <div className="relative w-full sm:w-96">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
+          <Input
+            type="search"
+            placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value)
+              setPage(1)
+              if (searchTimerRef.current) { clearTimeout(searchTimerRef.current) }
+              if (e.target.value.trim()) {
+                searchTimerRef.current = setTimeout(() => {
+                  ;window.umami?.track("search_used", { page: basePath })
+                }, 1500)
+              }
+            }}
+            className="pl-9 pr-8 focus-visible:border-primary focus-visible:ring-primary/30"
+          />
+          {search && (
+            <button
+              onClick={() => { setSearch(""); setPage(1) }}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Clear search"
+            >
+              <X className="size-3.5" />
+            </button>
+          )}
+        </div>
+        <p className="text-xs text-muted-foreground">
+          Can't find what you're looking for? Ask <span className="font-medium text-foreground">Ruby</span> on our Discord, she can search by theme!
+        </p>
       </div>
 
       {allTags.length > 0 && (
