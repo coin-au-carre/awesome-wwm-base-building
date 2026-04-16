@@ -36,14 +36,14 @@ function buildTemplate(
   const c = CONFIG[mode]
   const idPart = fields.primaryId ? ` [${fields.primaryId}]` : ""
   return [
-    `${c.emoji} ${fields.primaryName || c.primaryPlaceholder}${idPart}`,
+    `## ${c.emoji} ${fields.primaryName || c.primaryPlaceholder}${idPart}`,
     ``,
-    `👷 Builders: ${fields.builders}`,
+    `👷 **Builders:** ${fields.builders}`,
     ``,
-    `📝 Lore`,
+    `### 📝 Lore`,
     fields.lore,
     ``,
-    `🧙 What to visit`,
+    `### 🧙 What to visit`,
     fields.whatToVisit,
     ``,
     `🗳️ Vote with reactions:`,
