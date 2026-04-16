@@ -448,12 +448,15 @@
 			"Kenshii-"
 		],
 		"discordThread": "",
+		"whatToVisit": "Elevated pathways and platforms",
 		"score": 0
 	},
 	{
 		"name": "ZOOTOPIA",
-		"builders": [],
+		"builders": ["xXJarguarXx"],
 		"discordThread": "",
+		"tags": ["Fun", "Floating island", "Creative"],
+		"whatToVisit": "Some Ninja Warriors games on the water. Lots of floating stuff.",
 		"score": 0
 	},
 	{
@@ -467,9 +470,12 @@
 	{
 		"id": "10076053",
 		"name": "Star·Bound",
-		"builders": [],
+		"builders": ["Luna-Tuna"],
 		"discordThread": "",
-		"score": 1
+		"score": 1,
+		"lore": "Swimming in the pond can be fatal if you are stuck between some rocks...",
+		"whatToVisit": "fashion show, imposant forest",
+		"note": "contacted wwm"
 	},
 	{
 		"name": "Toronto",
@@ -479,6 +485,7 @@
 		"tags": [
 			"Fun"
 		],
+		"whatToVisit": "Giant tower",
 		"discordThread": "",
 		"score": 1
 	},
