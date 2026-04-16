@@ -126,7 +126,7 @@ func cleanSection(s string) string {
 	s = reCoverStrip.ReplaceAllString(s, "")
 	s = reTrailingStars.ReplaceAllString(s, "")
 	s = strings.TrimSpace(s)
-	if len(s) < 15 {
+	if len(s) < 3 {
 		return ""
 	}
 	lower := strings.ToLower(s)
