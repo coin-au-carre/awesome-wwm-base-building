@@ -87,6 +87,60 @@ function tiktokID(url: string): string {
       </p>
     </div>
 
+    <!-- Video of the Moment -->
+    {videos.some((v) => v.featured) && (() => {
+      const featured = videos.find((v) => v.featured)!
+      const ytID = youtubeID(featured.url)
+      const embedUrl = ytID ? `https://www.youtube.com/embed/${ytID}?autoplay=1` : null
+      const thumbUrl = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : null
+      return (
+        <section class="space-y-4">
+          <div class="flex items-center gap-2">
+            <svg class="size-4 text-amber-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            <h2 class="font-heading text-xs font-semibold uppercase tracking-widest text-muted-foreground">Video of the Moment</h2>
+          </div>
+          <div class="overflow-hidden rounded-2xl ring-2 ring-amber-500/40 bg-card shadow-md">
+            <div class="flex flex-col sm:flex-row">
+              <button
+                type="button"
+                class="video-trigger group relative w-full sm:w-80 shrink-0 aspect-video sm:aspect-auto sm:h-48 overflow-hidden cursor-pointer"
+                data-embed={embedUrl}
+                data-title={featured.title}
+                data-type="youtube"
+              >
+                {thumbUrl && (
+                  <img
+                    src={thumbUrl}
+                    alt={featured.title}
+                    class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                  <div class="flex size-14 items-center justify-center rounded-full bg-white/90 shadow-lg scale-90 group-hover:scale-100 transition-transform">
+                    <PlayCircleIcon weight="fill" className="size-8 text-foreground ml-0.5" />
+                  </div>
+                </div>
+                <div class="absolute top-2 left-2 flex items-center gap-1 bg-amber-500 rounded-md px-2 py-0.5 text-xs text-white font-semibold shadow">
+                  <svg class="size-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+                  Featured
+                </div>
+              </button>
+              <div class="flex flex-col justify-center px-5 py-4 space-y-2">
+                <p class="text-base font-semibold leading-snug">{featured.title}</p>
+                {featured.description && <p class="text-sm text-muted-foreground">{featured.description}</p>}
+                <div class="flex flex-wrap items-center gap-1.5 pt-1">
+                  <span class="inline-flex items-center gap-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2 py-0.5 text-xs font-medium">
+                    <span class="size-1.5 rounded-full bg-amber-500 inline-block"></span>Advanced
+                  </span>
+                  {featured.author && <span class="text-xs text-muted-foreground/70">by {featured.author}</span>}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )
+    })()}
+
     <!-- Articles -->
     {(guideColumns.length > 0 || otherGuides.length > 0) && (
       <section class="space-y-6">

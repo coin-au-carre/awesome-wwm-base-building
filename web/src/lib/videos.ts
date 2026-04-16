@@ -4,6 +4,7 @@ export interface TutorialVideo {
   description?: string
   tags?: string[]
   author?: string
+  featured?: boolean
 }
 
 export const tutorialVideos: TutorialVideo[] = [
@@ -24,5 +25,12 @@ export const tutorialVideos: TutorialVideo[] = [
     url: "https://www.tiktok.com/@kaitingliwwm/video/7624968288275156244",
     author: "KaiTingLi",
     tags: ["advanced"],
+  },
+  {
+    title: "WWM CN vs Global Building: You Won't Want to Build on Global Until These Tools Arrive",
+    url: "https://youtu.be/HqqSh6cTbdU",
+    author: "carnii",
+    tags: ["advanced"],
+    featured: true,
   },
 ]
