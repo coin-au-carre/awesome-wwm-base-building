@@ -52,11 +52,14 @@ export function getAllSoloTags(): string[] { return SOLO_TAGS }
 
 export function hasSolos(): boolean { return ALL_SOLOS.length > 0 }
 
+const AHLYAM_ID = "149790526076354561"
+const WINDXP_ID = "721510597958828183"
+
 export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   const ranked = RANKED_GUILDS
   const withShots = [...ALL_GUILDS]
     .reverse()
-    .filter((g) => g.screenshots && g.screenshots.length > 0)
+    .filter((g) => g.screenshots && g.screenshots.length > 0 && g.builderDiscordId !== AHLYAM_ID && g.builderDiscordId !== WINDXP_ID)
     .slice(0, n)
     .map((g) => ranked.find((r) => r.name === g.name))
     .filter((g): g is RankedGuild => g !== undefined)
