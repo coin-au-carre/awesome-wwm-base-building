@@ -188,7 +188,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               if (searchTimerRef.current) { clearTimeout(searchTimerRef.current) }
               if (e.target.value.trim()) {
                 searchTimerRef.current = setTimeout(() => {
-                  ;window.umami?.track("search_used", { page: basePath })
+                  ;window.umami?.track("search_used", { query: e.target.value.trim(), page: basePath })
                 }, 1500)
               }
             }}

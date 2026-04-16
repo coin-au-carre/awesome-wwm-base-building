@@ -842,6 +842,9 @@ const catalogJson = JSON.stringify(
     runSearch(newVal)
     syncUrl()
     updatePillActiveStates()
+    if (newVal) {
+      ;(window as any).umami?.track("catalog_search", { query: newVal })
+    }
   }
 
   const recommendedTags = new Set(["chair", "table", "must-try", "stairs", "diagram", "food/drink", "interactive"])

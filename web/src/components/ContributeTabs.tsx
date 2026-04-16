@@ -196,7 +196,7 @@ export default function ContributeTabs() {
           <p className="text-sm font-medium text-foreground">Submit a guild you discovered</p>
           <p className="text-sm text-muted-foreground leading-relaxed">
             Found an impressive guild that isn't on the showcase yet? Post it in{" "}
-            <span className="font-medium text-foreground">#guild-discoveries</span> or{" "} even 
+            <span className="font-medium text-foreground">#guild-discoveries</span> or even {" "}
             <span className="font-medium text-foreground">#guild-base-showcase</span>! 
           </p>
         </div>
