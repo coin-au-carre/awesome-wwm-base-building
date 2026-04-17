@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react"
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
-import { rankLabel, formatBuilderName } from "@/lib/slugify"
+import { getTier, formatBuilderName } from "@/lib/slugify"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import {
@@ -77,6 +77,26 @@ function SortButton({
   children: React.ReactNode
 }) {
   const active = current === field
+  if (field === "rank") {
+    return (
+      <button
+        onClick={() => onClick(field)}
+        className={cn(
+          "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium transition-all border-0",
+          active
+            ? "text-foreground ring-2 ring-inset ring-border/80"
+            : "text-muted-foreground ring-1 ring-inset ring-border/50 hover:ring-border hover:text-foreground",
+        )}
+        style={active ? { background: "linear-gradient(135deg, rgba(168,85,247,0.10) 0%, rgba(34,211,238,0.10) 100%)" } : undefined}
+      >
+        <span
+          className={cn("size-1.5 rounded-full shrink-0 transition-colors", active ? "bg-fuchsia-400" : "bg-muted-foreground/40")}
+        />
+        {children}
+        <span className="text-[9px] opacity-60">{active ? (dir === "asc" ? "▲" : "▼") : "⇅"}</span>
+      </button>
+    )
+  }
   return (
     <button
       onClick={() => onClick(field)}
@@ -251,7 +271,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
       )}
 
       <p className="text-xs text-muted-foreground/70 italic">
-        Scores reflect Discord votes and are still a work in progress. Every guild here deserves more attention than a number can show.{" "}
+        Scores reflect Discord votes and are still a work in progress. Every guild here deserves more attention than a number can show. {" "}
         <a href={url("/how-it-works")} className="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
       </p>
 
@@ -259,9 +279,9 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
         <Table>
           <TableHeader>
             <TableRow className="bg-muted/40 text-muted-foreground">
-              <TableHead className="w-16">
+              <TableHead className="w-24">
                 <SortButton field="rank" current={sortField} dir={sortDir} onClick={toggleSort}>
-                  Rank
+                  Tier
                 </SortButton>
               </TableHead>
               <TableHead>
@@ -300,7 +320,17 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     podium ?? (i % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"),
                   )}
                 >
-                  <TableCell className="text-center font-medium">{rankLabel(g.rank)}</TableCell>
+                  <TableCell className="text-center">
+                {(() => {
+                  const tier = getTier(g.rank, guilds.length, g.score)
+                  return (
+                    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs", tier.badge)} style={tier.badgeStyle}>
+                      <span className={cn("size-1.5 rounded-full shrink-0", tier.dot)} />
+                      {tier.label}
+                    </span>
+                  )
+                })()}
+              </TableCell>
                   <TableCell>
                     <div className="flex items-center gap-2.5">
                       {img && (
@@ -331,7 +361,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       ))}
                     </div>
                   </TableCell>
-                  <TableCell className="text-right font-mono font-semibold">{g.score}</TableCell>
+                  <TableCell className="text-right font-mono text-[11px] text-muted-foreground/40">{g.score}</TableCell>
                 </TableRow>
               )
             })}

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { getGuildsSortedByScore, formatBuilderName } from "@/lib/guilds"
-import { rankLabel } from "@/lib/slugify"
+import { getTier } from "@/lib/slugify"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
 import { BookOpen, MapPin, Images } from "lucide-react"
@@ -20,6 +20,8 @@ export async function getStaticPaths() {
 
 const { guild: g } = Astro.props
 const base = BASE
+const totalGuilds = getGuildsSortedByScore().length
+const tier = getTier(g.rank, totalGuilds, g.score)
 const AHLYAM_ID = "149790526076354561"
 const WINDXP_ID = "721510597958828183"
 const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID || g.builderDiscordId === WINDXP_ID
@@ -160,8 +162,11 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
             <div class="text-sm font-bold font-mono tabular-nums">{g.score}</div>
           </div>
           <div class="border-l border-border pl-5">
-            <div class="text-xs text-muted-foreground mb-1">Rank</div>
-            <div class="text-sm font-semibold">{rankLabel(g.rank)}</div>
+            <div class="text-xs text-muted-foreground mb-1">Tier</div>
+            <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ${tier.badge}`}>
+              <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
+              {tier.label}
+            </span>
           </div>
         </div>
       </div>
