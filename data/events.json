@@ -12,5 +12,29 @@
     "subscriberCount": 2,
     "discordUrl": "https://discord.com/events/1483447710617960508/1493552498454302740",
     "image": "https://cdn.discordapp.com/guild-events/1493552498454302740/853b8e2711b0532cb4f33f39d03da9cd.png?size=512"
+  },
+  {
+    "id": "1494698690072285285",
+    "name": "The Inner Ways Nightclub Rave",
+    "description": "Hello wanderers, visit our HQ pool area and dance to IRL live music played by our guild DJ's every Friday night 30 mins after in-game reset! Come chat, dance and bring your friends! :) \n\nGuild ID: 10183152",
+    "scheduledStart": "2026-04-17T21:30:00.98Z",
+    "scheduledEnd": "2026-04-18T00:00:00Z",
+    "location": "The Inner Ways Guild HQ",
+    "status": "scheduled",
+    "subscriberCount": 6,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1494698690072285285",
+    "image": "https://cdn.discordapp.com/guild-events/1494698690072285285/1374bc03d71161233bb3e71a6a848cb1.png?size=512"
+  },
+  {
+    "id": "1494699778762866898",
+    "name": "The Inner Ways Nightclub Rave (Sat)",
+    "description": "Hello wanderers, visit our HQ pool area and dance to IRL live music played by our guild DJ's every Saturday night 30 mins after in-game reset! Come chat, dance and bring your friends! :) \n\nGuild ID: 10183152",
+    "scheduledStart": "2026-04-18T21:30:00Z",
+    "scheduledEnd": "2026-04-19T00:00:00Z",
+    "location": "The Inner Ways Guild HQ",
+    "status": "scheduled",
+    "subscriberCount": 3,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
+    "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
   }
 ]
