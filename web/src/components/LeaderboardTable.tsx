@@ -13,7 +13,6 @@ import {
   TableCell,
 } from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Search, X } from "lucide-react"
 
@@ -102,13 +101,13 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
   const [activeTags, setActiveTags] = useState<Set<string>>(() => {
-    if (typeof window === "undefined") return new Set()
+    if (typeof window === "undefined") { return new Set() }
     const p = new URLSearchParams(window.location.search)
     const tags = p.get("tags")
     return tags ? new Set(tags.split(",").filter(Boolean)) : new Set()
   })
   const [search, setSearch] = useState(() => {
-    if (typeof window === "undefined") return ""
+    if (typeof window === "undefined") { return "" }
     return new URLSearchParams(window.location.search).get("q") ?? ""
   })
   const [page, setPage] = useState(1)
@@ -250,6 +249,11 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
           )}
         </div>
       )}
+
+      <p className="text-xs text-muted-foreground/70 italic">
+        Scores reflect Discord votes and are still a work in progress. Every guild here deserves more attention than a number can show.{" "}
+        <a href={url("/how-it-works")} className="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
+      </p>
 
       <div className="rounded-xl ring-1 ring-border overflow-hidden">
         <Table>
