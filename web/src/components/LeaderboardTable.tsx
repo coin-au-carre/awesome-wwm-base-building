@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, useRef } from "react"
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { rankLabel, formatBuilderName } from "@/lib/slugify"
@@ -101,10 +101,27 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   const isSolos = basePath === "solos"
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
-  const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
-  const [search, setSearch] = useState("")
+  const [activeTags, setActiveTags] = useState<Set<string>>(() => {
+    if (typeof window === "undefined") return new Set()
+    const p = new URLSearchParams(window.location.search)
+    const tags = p.get("tags")
+    return tags ? new Set(tags.split(",").filter(Boolean)) : new Set()
+  })
+  const [search, setSearch] = useState(() => {
+    if (typeof window === "undefined") return ""
+    return new URLSearchParams(window.location.search).get("q") ?? ""
+  })
   const [page, setPage] = useState(1)
-  const searchTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null)
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const isFirstRender = useRef(true)
+
+  useEffect(() => {
+    if (isFirstRender.current) { isFirstRender.current = false; return }
+    const p = new URLSearchParams(window.location.search)
+    if (search) p.set("q", search); else p.delete("q")
+    if (activeTags.size > 0) p.set("tags", [...activeTags].join(",")); else p.delete("tags")
+    history.replaceState(null, "", p.toString() ? `?${p}` : location.pathname)
+  }, [search, activeTags])
 
   function toggleSort(field: SortField) {
     if (sortField === field) {
@@ -167,7 +184,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
         <div className="relative w-full sm:w-96">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
           <Input
-            type="search"
+            type="text"
             placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
             value={search}
             onChange={(e) => {
@@ -193,7 +210,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
           )}
         </div>
         <p className="text-xs text-muted-foreground">
-          Can't find what you're looking for? Ask <span className="font-medium text-foreground">Ruby</span> on our Discord, she can search by theme!
+          Can't find what you're looking for? Ask <span className="font-medium text-foreground">Ruby</span> on our Discord, she can search more precisely (Pikachu, cats, horse racing...)!
         </p>
       </div>
 
