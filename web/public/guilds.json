@@ -2555,7 +2555,7 @@
 		"builderDiscordId": "376083682076917762",
 		"lore": "No specific lore, was just trying to make the base as scenery as possible.",
 		"whatToVisit": "🎄  Bamboo Forest \n⚔️  Pit Arena\n👗  Runway/ Church\n🍵  Teahouse on the Lake\n🧼   Private snow bath via secret entrance\n🛖  TreeHouse \n🍷  Open bar with zen garden\n🍲  Cat area \n🏟️  Arena Viewing area\n🪭  Theatre Stage",
-		"score": 8,
+		"score": 17,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1492727074564210728/1492727083108143204/Screenshot_2026-04-12_104458.png?ex=69e3a22e\u0026is=69e250ae\u0026hm=165c870320f3ed00bd20243eea43d063ecb81e1c28cdbcc4bdc652cc0b6c67a1\u0026",
 			"https://cdn.discordapp.com/attachments/1492727074564210728/1492727081992192164/Screenshot_2026-04-12_104348.png?ex=69e3a22d\u0026is=69e250ad\u0026hm=4c4af28bf113fe5eee4f7aaa80b1bff85d1f0e76b87b9e697a9b65854a4eb6b2\u0026",
@@ -2572,7 +2572,7 @@
 			"https://cdn.discordapp.com/attachments/1492727074564210728/1492727674039304252/Screenshot_2026-04-12_103922.png?ex=69e3a2bb\u0026is=69e2513b\u0026hm=a43f966fa60ab8613c652b1ccf95a2f3c3977cff143823966ccb6836e40371fb\u0026",
 			"https://cdn.discordapp.com/attachments/1492727074564210728/1492727673267552381/Screenshot_2026-04-04_002741.png?ex=69e3a2ba\u0026is=69e2513a\u0026hm=1a37d508bc4f1fbd00681c2d87575f8ac23aacf43e2a96e505ca86303efb6966\u0026"
 		],
-		"lastModified": "April 17, 2026 at 10:49 PM UTC"
+		"lastModified": "April 17, 2026 at 11:09 PM UTC"
 	},
 	{
 		"id": "10189115",
@@ -2977,5 +2977,49 @@
 			}
 		],
 		"lastModified": "April 17, 2026 at 10:49 PM UTC"
+	},
+	{
+		"id": "10094508",
+		"name": "HAO",
+		"guildName": "Ħao",
+		"builders": [
+			"Rastawar",
+			"Amaharu",
+			"SnakeZ"
+		],
+		"tags": [
+			"Zen",
+			"Nature",
+			"Fun",
+			"City",
+			"Creative"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1494833532818821191",
+		"builderDiscordId": "813776087279599626",
+		"lore": "Hao est issue de voyageurs ayant exploré le monde et apporté leurs richesses avec eux",
+		"whatToVisit": "- Water bar\n- Trap room\n- Custom arena\n- Guild stands \n- And more...",
+		"score": 2,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1494833532818821191/1494833538636320999/Capture_decran_2026-04-18_005432.png?ex=69e40bb8\u0026is=69e2ba38\u0026hm=6909725dafc65c66a009ba423cdfcd4a5e68eda8a51177e39168577322ff6b33\u0026",
+			"https://cdn.discordapp.com/attachments/1494833532818821191/1494833538011365618/Capture_decran_2026-04-18_005333.png?ex=69e40bb8\u0026is=69e2ba38\u0026hm=57846ff7798549ca62569cc3c0c6270db7107ce9b0e24128bedc9129b983dfaa\u0026",
+			"https://cdn.discordapp.com/attachments/1494833532818821191/1494833537491144725/202641732714.png?ex=69e40bb8\u0026is=69e2ba38\u0026hm=d2b94290f812348417a39abee640c0802fe9dfb09a12a20b7c5d54f8d093d809\u0026",
+			"https://cdn.discordapp.com/attachments/1494833532818821191/1494833536862130237/202641705015.png?ex=69e40bb7\u0026is=69e2ba37\u0026hm=4ea88519cee50fbddf7476ddd6923d4a55f8326e941ea00cf597971630b47d56\u0026",
+			"https://cdn.discordapp.com/attachments/1494833532818821191/1494833536400752702/202641704234.png?ex=69e40bb7\u0026is=69e2ba37\u0026hm=896795ccb0336b97142c3e8254692a3857d5fe07c45d5178ec364e2a42bf370f\u0026",
+			"https://cdn.discordapp.com/attachments/1494833532818821191/1494833534848995488/20264173302.png?ex=69e40bb7\u0026is=69e2ba37\u0026hm=dfb5c95371a719df8d19c00c376abfa29559b99a7f2ef3026cace4e1234c0907\u0026"
+		],
+		"screenshotSections": [
+			{
+				"label": "🏯 Ħao [10094508]",
+				"screenshots": [
+					"https://cdn.discordapp.com/attachments/1494833532818821191/1494833538636320999/Capture_decran_2026-04-18_005432.png?ex=69e40bb8\u0026is=69e2ba38\u0026hm=6909725dafc65c66a009ba423cdfcd4a5e68eda8a51177e39168577322ff6b33\u0026",
+					"https://cdn.discordapp.com/attachments/1494833532818821191/1494833538011365618/Capture_decran_2026-04-18_005333.png?ex=69e40bb8\u0026is=69e2ba38\u0026hm=57846ff7798549ca62569cc3c0c6270db7107ce9b0e24128bedc9129b983dfaa\u0026",
+					"https://cdn.discordapp.com/attachments/1494833532818821191/1494833537491144725/202641732714.png?ex=69e40bb8\u0026is=69e2ba38\u0026hm=d2b94290f812348417a39abee640c0802fe9dfb09a12a20b7c5d54f8d093d809\u0026",
+					"https://cdn.discordapp.com/attachments/1494833532818821191/1494833536862130237/202641705015.png?ex=69e40bb7\u0026is=69e2ba37\u0026hm=4ea88519cee50fbddf7476ddd6923d4a55f8326e941ea00cf597971630b47d56\u0026",
+					"https://cdn.discordapp.com/attachments/1494833532818821191/1494833536400752702/202641704234.png?ex=69e40bb7\u0026is=69e2ba37\u0026hm=896795ccb0336b97142c3e8254692a3857d5fe07c45d5178ec364e2a42bf370f\u0026",
+					"https://cdn.discordapp.com/attachments/1494833532818821191/1494833534848995488/20264173302.png?ex=69e40bb7\u0026is=69e2ba37\u0026hm=dfb5c95371a719df8d19c00c376abfa29559b99a7f2ef3026cace4e1234c0907\u0026"
+				]
+			}
+		],
+		"lastModified": "April 17, 2026 at 11:09 PM UTC"
 	}
 ]
