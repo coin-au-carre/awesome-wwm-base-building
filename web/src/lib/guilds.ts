@@ -93,6 +93,17 @@ export function getHiddenGems(): RankedGuild[] {
   }
 }
 
+/** Returns the search URL for a builder name, or null if not found in either dataset. Guilds takes priority over solos. */
+export function getBuilderSearchPath(name: string): string | null {
+  const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  const n = norm(name)
+  const inGuilds = ALL_GUILDS.some((g) => (g.builders ?? []).some((b) => norm(formatBuilderName(b)).includes(n)))
+  if (inGuilds) return `/?q=${encodeURIComponent(name)}`
+  const inSolos = ALL_SOLOS.some((g) => (g.builders ?? []).some((b) => norm(formatBuilderName(b)).includes(n)))
+  if (inSolos) return `/solo?q=${encodeURIComponent(name)}`
+  return null
+}
+
 export function getLastSyncDate(): string {
   try {
     const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")

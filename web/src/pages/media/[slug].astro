@@ -4,6 +4,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
 import { ArrowLeftIcon } from "@phosphor-icons/react"
+import { getBuilderSearchPath } from "@/lib/guilds"
 
 type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn"
 
@@ -94,12 +95,19 @@ const mediaUrl = `${Astro.url.origin}/media`
         {entry.data.authors && entry.data.authors.length > 0 && (
           <span class="flex flex-wrap items-center gap-x-1">
             <span>by</span>
-            {entry.data.authors.map((name: string, i: number) => (
-              <>
-                <span class="font-medium text-primary">{name}</span>
-                {i < entry.data.authors.length - 1 && <span>,</span>}
-              </>
-            ))}
+            {entry.data.authors.map((name: string, i: number) => {
+              const searchPath = getBuilderSearchPath(name)
+              return (
+                <>
+                  {searchPath ? (
+                    <a href={`${BASE}${searchPath}`} class="font-medium text-primary hover:underline underline-offset-2">{name}</a>
+                  ) : (
+                    <span class="font-medium text-primary">{name}</span>
+                  )}
+                  {i < entry.data.authors.length - 1 && <span>,</span>}
+                </>
+              )
+            })}
           </span>
         )}
         {entry.data.date && (

@@ -114,12 +114,20 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   const [page, setPage] = useState(1)
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isFirstRender = useRef(true)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (search) {
+      inputRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+    // intentionally mount-only: scroll once if ?q= was in URL
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (isFirstRender.current) { isFirstRender.current = false; return }
     const p = new URLSearchParams(window.location.search)
-    if (search) p.set("q", search); else p.delete("q")
-    if (activeTags.size > 0) p.set("tags", [...activeTags].join(",")); else p.delete("tags")
+    if (search) { p.set("q", search) } else { p.delete("q") }
+    if (activeTags.size > 0) { p.set("tags", [...activeTags].join(",")) } else { p.delete("tags") }
     history.replaceState(null, "", p.toString() ? `?${p}` : location.pathname)
   }, [search, activeTags])
 
@@ -184,6 +192,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
         <div className="relative w-full sm:w-96">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
           <Input
+            ref={inputRef}
             type="text"
             placeholder={isSolos ? "Search bases or builders…" : "Search guilds or builders…"}
             value={search}
