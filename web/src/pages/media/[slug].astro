@@ -32,24 +32,45 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content } = await entry.render()
 
+const firstImageSrc = entry.body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? null
+const ogImage = firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
+
+const datePublished = entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01"
+const keywords = (entry.data.tags ?? []).join(", ") || undefined
+const mediaUrl = `${Astro.url.origin}/media`
 ---
 
 <Layout
   title={`${entry.data.title} — Where Winds Meet Building Guide`}
   description={entry.data.description}
+  image={ogImage}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": entry.data.title,
-    "description": entry.data.description,
-    "url": Astro.url.href,
-    "datePublished": entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01",
-    "author": (entry.data.authors ?? []).map((name: string) => ({ "@type": "Person", "name": name })),
-    "keywords": (entry.data.tags ?? []).join(", ") || undefined,
-    "publisher": { "@type": "Organization", "name": "Where Builders Meet", "url": "https://www.wherebuildersmeet.com" },
-    "about": { "@type": "VideoGame", "name": "Where Winds Meet" },
-    "isPartOf": { "@type": "WebPage", "url": `https://www.wherebuildersmeet.com/media` },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": Astro.url.origin },
+          { "@type": "ListItem", "position": 2, "name": "Media", "item": mediaUrl },
+          { "@type": "ListItem", "position": 3, "name": entry.data.title, "item": Astro.url.href },
+        ],
+      },
+      {
+        "@type": "Article",
+        "headline": entry.data.title,
+        "description": entry.data.description,
+        "url": Astro.url.href,
+        "datePublished": datePublished,
+        "dateModified": datePublished,
+        ...(ogImage ? { "image": ogImage } : {}),
+        "author": (entry.data.authors ?? []).map((name: string) => ({ "@type": "Person", "name": name })),
+        ...(keywords ? { "keywords": keywords } : {}),
+        "publisher": { "@type": "Organization", "name": "Where Builders Meet", "url": Astro.url.origin },
+        "about": { "@type": "VideoGame", "name": "Where Winds Meet" },
+        "isPartOf": { "@type": "WebPage", "url": mediaUrl },
+      },
+    ],
   })} />
   <div class="max-w-2xl">
     <a href={`${BASE}/media`} class={buttonVariants({ variant: "ghost", size: "sm" })}>
