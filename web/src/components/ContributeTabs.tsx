@@ -127,7 +127,7 @@ export default function ContributeTabs() {
             n="2"
             badgeClass="bg-violet-500 text-white border-0"
             title="Post your base"
-            body={<>Create a thread in <span className="font-medium text-foreground">#guild-base-showcase</span> or <span className="font-medium text-foreground">#solo-building-showcase</span>. Title it with your guild or build name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts.</>}
+            body={<>Create a thread in <span className="font-medium text-foreground">#guild-base-showcase</span> or <span className="font-medium text-foreground">#solo-building-showcase</span>. Title it with your guild or build name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts. If a thread for your guild already exists, go ahead and create a new one, then ask a moderator to close the old one.</>}
           />
         </ol>
 
