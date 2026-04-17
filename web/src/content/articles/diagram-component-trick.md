@@ -2,7 +2,7 @@
 title: "Extract exclusive components from diagrams"
 description: "How to retrieve unique building pieces locked inside guild diagrams"
 tags: ["advanced", "diagram", "guild"]
-authors: ["Izanagi", "Sugar", "Ahlyam"]
+authors: ["Izanagi-cz", "SugaredKoi", "Ahlyam"]
 date: 2026-04-09
 order: 1
 ---
