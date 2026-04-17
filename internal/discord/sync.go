@@ -107,9 +107,6 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 					)
 					slog.Warn("possible duplicate guild", "new", name, "existing", existingName)
 					partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
-					if !cfg.DryRun {
-						b.Notify(warning)
-					}
 				}
 			}
 
