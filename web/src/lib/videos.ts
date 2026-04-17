@@ -62,4 +62,10 @@ export const channels: Channel[] = [
     url: "https://www.youtube.com/@heyu5152",
     handle: "@heyu5152",
   },
+  {
+    name: "FoxiKate",
+    url: "https://www.youtube.com/@FoxiKate",
+    handle: "@FoxiKate",
+  },
+  
 ]
