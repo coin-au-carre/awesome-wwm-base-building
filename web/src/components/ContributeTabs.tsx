@@ -127,7 +127,7 @@ export default function ContributeTabs() {
             n="2"
             badgeClass="bg-violet-500 text-white border-0"
             title="Post your base"
-            body={<>Create a thread in <span className="font-medium text-foreground">#guild-base-showcase</span> or <span className="font-medium text-foreground">#solo-building-showcase</span>. Title it with your guild or build name, then fill in your first post using the template below and attach your screenshots in the post and follow-up posts. If a thread for your guild already exists, go ahead and create a new one, then ask a moderator to close the old one.</>}
+            body={<>Go to <span className="font-medium text-foreground">#guild-base-showcase</span> (for guild bases) or <span className="font-medium text-foreground">#solo-building-showcase</span> (for solo builds) and click <span className="font-medium text-foreground">New Post</span> at the top. Give it a title (your guild or build name), fill in the first message using the template below, and attach your screenshots. You can also add more screenshots in follow-up messages inside the same thread.</>}
           />
         </ol>
 
@@ -154,6 +154,16 @@ export default function ContributeTabs() {
           <CardContent className="divide-y divide-border p-0">
             {[
               {
+                icon: <Users className="size-4 text-slate-500 shrink-0 mt-0.5" />,
+                title: "Thread already exists for your guild?",
+                body: "Create a new one and ask a moderator to close the old one.",
+              },
+              {
+                icon: <ShieldCheck className="size-4 text-slate-500 shrink-0 mt-0.5" />,
+                title: "Not comfortable posting?",
+                body: "A moderator can post it for you.",
+              },
+              {
                 icon: <Users className="size-4 text-blue-500 shrink-0 mt-0.5" />,
                 title: "Multiple guilds, one builder?",
                 body: "You can submit in different threads. One guild = one thread.",
@@ -172,12 +182,7 @@ export default function ContributeTabs() {
                 icon: <LayoutList className="size-4 text-amber-500 shrink-0 mt-0.5" />,
                 title: "Screenshot sections",
                 body: <>Organize screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code> (using <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">#</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">##</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">###</code>). Post the label before or after the images it describes.</>,
-              },
-              {
-                icon: <ShieldCheck className="size-4 text-rose-500 shrink-0 mt-0.5" />,
-                title: "Builder role",
-                body: "Granted automatically when you post a thread.",
-              },
+              }
             ].map(({ icon, title, body }) => (
               <div key={title} className="flex gap-3 px-4 py-3">
                 {icon}
