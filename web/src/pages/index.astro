@@ -53,9 +53,12 @@ const upcomingEvents = getUpcomingEvents(12)
       0%, 100% { box-shadow: 0 0 0 1px rgb(34 211 238 / 0.5), 0 0 10px 0px rgb(34 211 238 / 0); }
       50%       { box-shadow: 0 0 0 1px rgb(34 211 238 / 0.9), 0 0 18px 4px rgb(34 211 238 / 0.2); }
     }
-    .event-urgent {
-      animation: eventGlow 2s ease-in-out infinite;
+    .event-urgent { animation: eventGlow 2s ease-in-out infinite; }
+    @keyframes eventLive {
+      0%, 100% { box-shadow: 0 0 0 1px rgb(74 222 128 / 0.5), 0 0 10px 0px rgb(74 222 128 / 0); }
+      50%       { box-shadow: 0 0 0 1px rgb(74 222 128 / 0.9), 0 0 18px 4px rgb(74 222 128 / 0.25); }
     }
+    .event-live { animation: eventLive 2s ease-in-out infinite; }
   </style>
 
   <div class="space-y-6">
@@ -83,19 +86,19 @@ const upcomingEvents = getUpcomingEvents(12)
     {(featuredArticles.length > 0 || upcomingEvents.length > 0) && (
       <div class="flex flex-col sm:flex-row gap-2 max-w-xl">
         {upcomingEvents.map((event) => {
+          const live = event.status === "active"
           const start = new Date(event.scheduledStart)
           const minsUntil = Math.round((start.getTime() - Date.now()) / 60000)
-          const urgent = minsUntil < 61
-          const starting = minsUntil < 1
-          const timeLabel = urgent
-            ? (starting ? "Starting now" : `in ${minsUntil} min`)
-            : `in ${Math.round(minsUntil / 60)}h`
+          const urgent = !live && minsUntil < 61
+          const timeLabel = live
+            ? "Live now"
+            : (urgent ? `in ${minsUntil} min` : `in ${Math.round(minsUntil / 60)}h`)
           return (
             <a
               href={event.discordUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class={`group flex flex-1 items-center gap-3 rounded-xl bg-card hover:shadow-sm transition-all px-3 py-2.5 ${urgent ? "event-urgent bg-cyan-500/5" : "ring-1 ring-cyan-500/25 hover:ring-cyan-500/50"}`}
+              class={`group flex flex-1 items-center gap-3 rounded-xl bg-card hover:shadow-sm transition-all px-3 py-2.5 ${live ? "event-live bg-green-500/5" : urgent ? "event-urgent bg-cyan-500/5" : "ring-1 ring-cyan-500/25 hover:ring-cyan-500/50"}`}
               data-umami-event="upcoming_event_click"
             >
               {event.image ? (
@@ -107,23 +110,23 @@ const upcomingEvents = getUpcomingEvents(12)
                   />
                 </div>
               ) : (
-                <div class={`shrink-0 w-20 aspect-video rounded-md flex items-center justify-center ${urgent ? "bg-cyan-500/20" : "bg-cyan-500/10"}`}>
-                  <CalendarDotIcon weight="duotone" className={`size-5 ${urgent ? "text-cyan-300" : "text-cyan-400"}`} />
+                <div class={`shrink-0 w-20 aspect-video rounded-md flex items-center justify-center ${live ? "bg-green-500/20" : urgent ? "bg-cyan-500/20" : "bg-cyan-500/10"}`}>
+                  <CalendarDotIcon weight="duotone" className={`size-5 ${live ? "text-green-300" : urgent ? "text-cyan-300" : "text-cyan-400"}`} />
                 </div>
               )}
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-1.5 mb-0.5">
-                  <span class={`inline-block size-1.5 rounded-full shrink-0 ${urgent ? "bg-cyan-300 animate-ping" : "bg-cyan-400 animate-pulse"}`} />
-                  <span class={`text-[10px] font-semibold uppercase tracking-widest ${urgent ? "text-cyan-300" : "text-cyan-400"}`}>
-                    {urgent ? "🔔 " : ""}Event {timeLabel}
+                  <span class={`inline-block size-1.5 rounded-full shrink-0 ${live ? "bg-green-400 animate-ping" : urgent ? "bg-cyan-300 animate-ping" : "bg-cyan-400 animate-pulse"}`} />
+                  <span class={`text-[10px] font-semibold uppercase tracking-widest ${live ? "text-green-400" : urgent ? "text-cyan-300" : "text-cyan-400"}`}>
+                    {live ? "🟢 " : urgent ? "🔔 " : ""}Event {timeLabel}
                   </span>
                 </div>
-                <p class={`text-xs font-medium leading-snug truncate ${urgent ? "text-foreground" : ""}`}>{event.name}</p>
+                <p class={`text-xs font-medium leading-snug truncate ${live || urgent ? "text-foreground" : ""}`}>{event.name}</p>
                 {event.guildName && (
                   <p class="text-[11px] text-muted-foreground/70">{event.guildName}{event.location ? ` · ${event.location}` : ""}</p>
                 )}
               </div>
-              <svg class={`size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 ${urgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              <svg class={`size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 ${live ? "text-green-400" : urgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
           )
         })}
