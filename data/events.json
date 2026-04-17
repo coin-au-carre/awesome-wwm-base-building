@@ -17,7 +17,10 @@
   {
     "id": "1494698690072285285",
     "name": "The Inner Ways Nightclub Rave",
-    "description": "Hello wanderers, visit our HQ pool area and dance to IRL live music played by our guild DJ's every Friday night 30 mins after in-game reset! Come chat, dance and bring your friends! :) \n\nGuild ID: 10183152",
+    "description": "Hello wanderers, visit our HQ pool area and dance to IRL live music played by our guild DJ's every Friday night 30 mins after in-game reset! Come chat, dance and bring your friends! :)",
+    "guildName": "The Inner Ways",
+    "guildId": "10183152",
+    "type": "dancing",
     "scheduledStart": "2026-04-17T21:30:00.98Z",
     "scheduledEnd": "2026-04-18T00:00:00Z",
     "location": "The Inner Ways Guild HQ",

@@ -133,14 +133,9 @@ Free text description here...</pre>
                 </a>
               </div>
 
-              <!-- Tags row: type + guild -->
+              <!-- Tags row: guild + type -->
               {(event.type || event.guildName || event.guildId) && (
                 <div class="flex items-center gap-2 flex-wrap">
-                  {event.type && (
-                    <span class={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium ${TYPE_COLORS[event.type]}`}>
-                      {EVENT_TYPE_EMOJI[event.type]} {EVENT_TYPE_LABELS[event.type]}
-                    </span>
-                  )}
                   {event.guildName && (() => {
                     const slug = (event.guildId ? guildSlugById.get(event.guildId) : undefined)
                       ?? guildSlugByName.get(event.guildName.toLowerCase())
@@ -166,6 +161,11 @@ Free text description here...</pre>
                     >
                       {event.guildId}
                       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg>
+                    </span>
+                  )}
+                  {event.type && (
+                    <span class={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium ${TYPE_COLORS[event.type]}`}>
+                      {EVENT_TYPE_EMOJI[event.type]} {EVENT_TYPE_LABELS[event.type]}
                     </span>
                   )}
                 </div>
