@@ -5,6 +5,7 @@ export function renderMarkdown(text: string): string {
       .replace(/~~(.+?)~~/g, "<del>$1</del>")
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
       .replace(/_(.+?)_/g, "<em>$1</em>")
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">$1</a>')
   const paragraphs = text.trim().split(/\n{2,}/)
   return paragraphs
     .map((block) => {
