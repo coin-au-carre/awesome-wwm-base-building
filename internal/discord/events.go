@@ -28,6 +28,7 @@ const (
 	EventTypeDancing  EventType = "dancing"
 	EventTypeFashion  EventType = "fashion"
 	EventTypeContest  EventType = "contest"
+	EventTypeRace     EventType = "race"
 	EventTypeOther    EventType = "other"
 )
 
@@ -38,6 +39,7 @@ var validEventTypes = map[string]EventType{
 	"dancing":  EventTypeDancing,
 	"fashion":  EventTypeFashion,
 	"contest":  EventTypeContest,
+	"race":     EventTypeRace,
 	"other":    EventTypeOther,
 }
 

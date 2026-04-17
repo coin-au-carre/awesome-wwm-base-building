@@ -1,7 +1,7 @@
 import { readFileSync } from "fs"
 
 export type EventStatus = "scheduled" | "active" | "completed" | "canceled"
-export type EventType = "tour" | "pvp" | "marriage" | "dancing" | "fashion" | "contest" | "other"
+export type EventType = "tour" | "pvp" | "marriage" | "dancing" | "fashion" | "contest" | "race" | "other"
 
 export interface Event {
   id: string
@@ -26,6 +26,7 @@ export const EVENT_TYPE_LABELS: Record<EventType, string> = {
   dancing:  "Dancing",
   fashion:  "Fashion",
   contest:  "Contest",
+  race:     "Race",
   other:    "Other",
 }
 
@@ -36,6 +37,7 @@ export const EVENT_TYPE_EMOJI: Record<EventType, string> = {
   dancing:  "💃",
   fashion:  "👗",
   contest:  "🏆",
+  race:     "🏁",
   other:    "📅",
 }
 
