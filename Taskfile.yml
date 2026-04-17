@@ -50,6 +50,11 @@ tasks:
     desc: "post a guild screenshot to the Ruby channel. Use -- -guild <name> for a specific guild"
     cmd: go run ./cmd/spotlight {{.CLI_ARGS}}
 
+  # ── event-show (post upcoming events) ──────────────────────
+  event-show:
+    desc: "post events starting in the next 4 hours to Discord. Use -- -dev for DEV_CHANNEL_ID"
+    cmd: go run ./cmd/event-show {{.CLI_ARGS}}
+
   # ── announce (test general-channel announcement card) ────────
   announce:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
@@ -113,6 +118,9 @@ tasks:
       - echo ""
       - echo "  task spotlight           post a random guild screenshot to the Ruby channel"
       - echo "        -- -guild name     spotlight a specific guild (substring match)"
+      - echo ""
+      - echo "  task event-show          post events starting in the next 4 hours"
+      - 'echo "        -- -dev            post to DEV_CHANNEL_ID instead of GENERAL_CHANNEL_ID"'
       - echo ""
       - echo "  task announce            test-post a general-channel announcement card"
       - echo "        -- -guild name     guild/solo name to announce (substring match)"
