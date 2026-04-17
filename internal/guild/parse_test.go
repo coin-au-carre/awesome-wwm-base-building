@@ -71,11 +71,11 @@ The great hall and the frozen courtyard.
 			wantVisit:    "",
 		},
 		{
-			name:         "lore too short is ignored",
+			name:         "short lore is kept",
 			content:      "👷 Builders: X\n\nLore\n\nToo short.\n\nWhat to visit\n\nAlso short.",
 			wantBuilders: []string{"X"},
-			wantLore:     "",
-			wantVisit:    "",
+			wantLore:     "Too short.",
+			wantVisit:    "Also short.",
 		},
 		{
 			name: "cover index",
