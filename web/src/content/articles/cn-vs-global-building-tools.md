@@ -5,6 +5,7 @@ tags: ["cn"]
 authors: ["carnii"]
 date: 2026-04-17
 order: 4
+featured: true
 ---
 
 Video by **carnii** comparing the building experience between the Chinese (CN) and Global versions of Where Winds Meet. Eight features that CN builders already have.
