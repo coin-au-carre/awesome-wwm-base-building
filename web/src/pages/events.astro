@@ -78,13 +78,13 @@ const TYPE_COLORS: Record<EventType, string> = {
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
         <div class="px-4 pb-3 space-y-2">
-          <p class="text-muted-foreground">Requires the <span class="font-medium text-foreground">Builder</span> or <span class="font-medium text-foreground">Critic</span> role in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_events_cta_click">our Discord ↗</a>. Click <span class="font-medium text-foreground">Events → Create Event</span> and paste this in the description:</p>
+          <p class="text-muted-foreground">Requires the <span class="font-medium text-foreground">Builder</span> or <span class="font-medium text-foreground">Critic</span> role in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_events_cta_click">our Discord ↗</a>. Click <span class="font-medium text-foreground">Events → Create Event</span> and paste this at the end of the description</p>
           <div class="relative group/copy">
-            <pre id="event-template" class="overflow-x-auto rounded-md bg-muted px-3 py-2 text-xs font-mono text-foreground leading-relaxed">Guild: Jenova
+            <pre id="event-template" class="overflow-x-auto rounded-md bg-muted px-3 py-2 text-xs font-mono text-foreground leading-relaxed">[Describe your event (free form)]
+              
+Guild: Jenova
 Guild ID: 10244476 (optional)
-Type: pvp  (tour ·  race · marriage · dancing · fashion · contest · other)
-
-Free text description here...</pre>
+Type: pvp  (tour ·  race · marriage · dancing · fashion · contest · other)</pre>
             <button
               id="copy-template"
               aria-label="Copy template"
