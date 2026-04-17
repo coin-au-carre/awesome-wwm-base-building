@@ -93,6 +93,18 @@ await Promise.all(
   title="Media — Building in Where Winds Meet"
   description="Articles, videos, and creator channels to help you build and decorate better in Where Winds Meet."
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Where Winds Meet Building Articles",
+    "url": Astro.url.href,
+    "itemListElement": guides.map((item, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": item.title,
+      "url": `${Astro.url.origin}/media/${item.slug}`,
+    })),
+  })} />
   <div class="max-w-5xl space-y-10">
 
     <!-- Header -->
