@@ -293,8 +293,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
 			g.LastModified = now
-			if len(g.Screenshots) > len(prev.Screenshots) {
+			if len(g.Screenshots) > len(prev.Screenshots) && !screenshotOnCooldown(prev.LastScreenshotNotifiedAt) {
 				stats.MoreScreenshotNames = append(stats.MoreScreenshotNames, g.Name)
+				g.LastScreenshotNotifiedAt = now
 			}
 		} else if isNew {
 			g.LastModified = now
@@ -543,6 +544,19 @@ func levenshtein(a, b string) int {
 		row[lb] = prev
 	}
 	return row[lb]
+}
+
+const screenshotNotifyCooldown = 4 * time.Hour
+
+func screenshotOnCooldown(ts string) bool {
+	if ts == "" {
+		return false
+	}
+	t, err := time.Parse("January 2, 2006 at 03:04 PM UTC", ts)
+	if err != nil {
+		return false
+	}
+	return time.Since(t) < screenshotNotifyCooldown
 }
 
 func hasChanged(prev, next guild.Guild) bool {

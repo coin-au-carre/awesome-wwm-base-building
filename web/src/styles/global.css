@@ -174,3 +174,9 @@
     @apply border-border my-6;
   }
 }
+
+@keyframes masterGlow {
+  0%, 100% { box-shadow: 0 0 0px 0px rgba(251,191,36,0); }
+  50%       { box-shadow: 0 0 7px 1px rgba(251,191,36,0.28); }
+}
+.tier-master { animation: masterGlow 3s ease-in-out infinite; }
