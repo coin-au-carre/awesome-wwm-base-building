@@ -13,6 +13,7 @@ const solos = getSolosSortedByScore()
 const allTags = getAllSoloTags()
 const lastSync = getLastSyncDate()
 const topSolos = solos.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
+const ogImage = solos.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestSolos = getLatestSolosWithScreenshots(3)
 const isEmpty = !hasSolos()
 ---
@@ -20,6 +21,7 @@ const isEmpty = !hasSolos()
 <Layout
   title="Solo Construction in Where Winds Meet — Where Builders Meet"
   description="Showcase of solo constructions and base builds in Where Winds Meet, ranked by community votes."
+  image={ogImage}
 >
   <div class="space-y-6">
     {
