@@ -5,6 +5,7 @@
     "description": "\"Run like there's a pizza waiting for you!\"\n\nHow to register :\nput your in game name and id game at Register Tournament Channel Funcorp, and you are in 🎉\n\n“Life is like a marathon. It's full of ups and downs that take your breath away.\"\n“Quitting was never an option.”\n“I started strong but I crossed the finish line even stronger.”\nhttps://discord.gg/bWs4n22bvF",
     "guildName": "Funcorp",
     "guildId": "10105701",
+    "type": "race",
     "scheduledStart": "2026-05-01T13:00:00Z",
     "scheduledEnd": "2026-05-01T14:00:00Z",
     "location": "Funcorp",
@@ -33,7 +34,7 @@
     "scheduledEnd": "2026-04-19T00:00:00Z",
     "location": "The Inner Ways Guild HQ",
     "status": "scheduled",
-    "subscriberCount": 3,
+    "subscriberCount": 4,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
   }
