@@ -35,44 +35,32 @@ function formatBuilders(builders: string[] | undefined): string {
   return s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..."
 }
 
-const TAG_COLORS: Record<string, [number, number]> = {
-  "Arena":          [30,  70],
-  "Castle":         [220, 40],
-  "Cave":           [25,  30],
-  "City":           [210, 15],
-  "Desert":         [40,  65],
-  "Floating island":[195, 60],
-  "Fun":            [320, 60],
-  "Maze":           [270, 45],
-  "Military":       [80,  35],
-  "Mountain":       [175, 30],
-  "Nature":         [130, 45],
-  "River":          [205, 60],
-  "Snow":           [200, 50],
-  "Zen":            [100, 25],
-}
+const TAG_PALETTE = [
+  { base: "bg-violet-500/10 text-violet-700 dark:text-violet-300 ring-1 ring-inset ring-violet-500/30", active: "bg-violet-600 text-white ring-1 ring-inset ring-violet-700/50 dark:bg-violet-500" },
+  { base: "bg-sky-500/10 text-sky-700 dark:text-sky-300 ring-1 ring-inset ring-sky-500/30", active: "bg-sky-600 text-white ring-1 ring-inset ring-sky-700/50 dark:bg-sky-500" },
+  { base: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/30", active: "bg-emerald-600 text-white ring-1 ring-inset ring-emerald-700/50 dark:bg-emerald-500" },
+  { base: "bg-amber-500/10 text-amber-700 dark:text-amber-300 ring-1 ring-inset ring-amber-500/30", active: "bg-amber-600 text-white ring-1 ring-inset ring-amber-700/50 dark:bg-amber-500" },
+  { base: "bg-rose-500/10 text-rose-700 dark:text-rose-300 ring-1 ring-inset ring-rose-500/30", active: "bg-rose-600 text-white ring-1 ring-inset ring-rose-700/50 dark:bg-rose-500" },
+  { base: "bg-teal-500/10 text-teal-700 dark:text-teal-300 ring-1 ring-inset ring-teal-500/30", active: "bg-teal-600 text-white ring-1 ring-inset ring-teal-700/50 dark:bg-teal-500" },
+  { base: "bg-orange-500/10 text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-500/30", active: "bg-orange-600 text-white ring-1 ring-inset ring-orange-700/50 dark:bg-orange-500" },
+  { base: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-500/30", active: "bg-indigo-600 text-white ring-1 ring-inset ring-indigo-700/50 dark:bg-indigo-500" },
+]
 
-function tagColor(label: string): [number, number] {
-  if (TAG_COLORS[label]) { return TAG_COLORS[label] }
-  let hash = 0
-  for (let i = 0; i < label.length; i++) { hash = (hash * 31 + label.charCodeAt(i)) >>> 0 }
-  return [hash % 360, 50]
+function tagPalette(label: string) {
+  const hash = [...label].reduce((a, c) => a + c.charCodeAt(0), 0)
+  return TAG_PALETTE[hash % TAG_PALETTE.length]
 }
 
 function Tag({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
-  const [h, s] = tagColor(label)
-  const style = active
-    ? { background: `hsl(${h} ${s}% 38%)`, color: "hsl(0 0% 100%)", borderColor: "transparent" }
-    : { background: `hsl(${h} ${s}% 88%)`, color: `hsl(${h} ${s - 10}% 28%)`, borderColor: "transparent" }
+  const cfg = tagPalette(label)
   return (
-    <Badge
-      variant="outline"
+    <button
+      type="button"
       onClick={(e) => { e.stopPropagation(); onClick() }}
-      className="cursor-pointer transition-colors"
-      style={style}
+      className={cn("inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium cursor-pointer transition-colors border-0", active ? cfg.active : cfg.base)}
     >
       {label}
-    </Badge>
+    </button>
   )
 }
 
