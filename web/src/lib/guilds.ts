@@ -2,6 +2,21 @@ import { readFileSync } from "fs"
 import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify, formatBuilderName } from "@/lib/slugify"
 
+export interface GameEvent {
+  id: string
+  name: string
+  description?: string
+  guildName?: string
+  guildId?: string
+  scheduledStart: string
+  scheduledEnd?: string
+  location?: string
+  status: string
+  subscriberCount?: number
+  discordUrl: string
+  image?: string
+}
+
 export { formatBuilderName }
 
 function loadJSON(filename: string): Guild[] {
@@ -102,6 +117,21 @@ export function getBuilderSearchPath(name: string): string | null {
   const inSolos = ALL_SOLOS.some((g) => (g.builders ?? []).some((b) => norm(formatBuilderName(b)).includes(n)))
   if (inSolos) return `/solo?q=${encodeURIComponent(name)}`
   return null
+}
+
+export function getUpcomingEvents(hoursAhead: number = 12): GameEvent[] {
+  try {
+    const raw = readFileSync(new URL("../../../data/events.json", import.meta.url), "utf-8")
+    const events: GameEvent[] = JSON.parse(raw)
+    const now = Date.now()
+    const cutoff = now + hoursAhead * 60 * 60 * 1000
+    return events.filter((e) => {
+      const start = new Date(e.scheduledStart).getTime()
+      return e.status === "scheduled" && start >= now && start <= cutoff
+    })
+  } catch {
+    return []
+  }
 }
 
 export function getLastSyncDate(): string {
