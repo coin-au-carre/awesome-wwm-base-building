@@ -5,7 +5,7 @@ import { getCollection } from "astro:content"
 import { tutorialVideos, channels, type TutorialVideo } from "@/lib/videos"
 import { BASE } from "@/lib/url"
 
-const entries = await getCollection("tutorials")
+const entries = await getCollection("articles")
 
 type GuideItem = {
   kind: "guide"
@@ -178,7 +178,7 @@ await Promise.all(
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {guides.map((item) => (
             <a
-              href={`${BASE}/tutorials/${item.slug}`}
+              href={`${BASE}/media/${item.slug}`}
               class="group relative flex items-start gap-4 rounded-2xl bg-card ring-1 ring-foreground/10 p-4 hover:ring-primary/30 hover:shadow-md transition-all"
             >
               {item.slug === newestSlug && (
