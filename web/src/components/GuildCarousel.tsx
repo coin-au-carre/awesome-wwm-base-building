@@ -11,6 +11,21 @@ import type { RankedGuild } from "@/types/guild"
 import { formatBuilderName } from "@/lib/slugify"
 import { url } from "@/lib/url"
 
+const TAG_PALETTE = [
+  { bg: "bg-violet-500/20", text: "text-violet-200", ring: "ring-1 ring-inset ring-violet-400/40" },
+  { bg: "bg-sky-500/20", text: "text-sky-200", ring: "ring-1 ring-inset ring-sky-400/40" },
+  { bg: "bg-emerald-500/20", text: "text-emerald-200", ring: "ring-1 ring-inset ring-emerald-400/40" },
+  { bg: "bg-amber-500/20", text: "text-amber-200", ring: "ring-1 ring-inset ring-amber-400/40" },
+  { bg: "bg-rose-500/20", text: "text-rose-200", ring: "ring-1 ring-inset ring-rose-400/40" },
+  { bg: "bg-teal-500/20", text: "text-teal-200", ring: "ring-1 ring-inset ring-teal-400/40" },
+  { bg: "bg-orange-500/20", text: "text-orange-200", ring: "ring-1 ring-inset ring-orange-400/40" },
+  { bg: "bg-indigo-500/20", text: "text-indigo-200", ring: "ring-1 ring-inset ring-indigo-400/40" },
+]
+function tagColor(tag: string) {
+  const hash = [...tag].reduce((a, c) => a + c.charCodeAt(0), 0)
+  return TAG_PALETTE[hash % TAG_PALETTE.length]
+}
+
 interface Props {
   guilds: RankedGuild[]
   basePath?: string
@@ -57,14 +72,17 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                   </div>
                   {g.tags && g.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1">
-                      {g.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center rounded-full bg-black/40 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/90"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      {g.tags.slice(0, 3).map((tag) => {
+                        const cfg = tagColor(tag)
+                        return (
+                          <span
+                            key={tag}
+                            className={`inline-flex items-center rounded-full ${cfg.bg} ${cfg.text} ${cfg.ring} backdrop-blur-sm px-2 py-0.5 text-[10px] font-medium`}
+                          >
+                            {tag}
+                          </span>
+                        )
+                      })}
                     </div>
                   )}
                 </div>

@@ -10,6 +10,7 @@ const articles = defineCollection({
     authors: z.array(z.string()).optional().default([]),
     date: z.coerce.date().optional(),
     featured: z.boolean().optional().default(false),
+    featuredLabel: z.string().optional(),
   }),
 })
 
