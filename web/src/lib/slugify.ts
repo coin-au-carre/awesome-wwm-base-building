@@ -23,7 +23,7 @@ export function getTier(rank: number, total: number, score: number): Tier {
     badge: "bg-zinc-400/10 text-zinc-500 dark:text-zinc-400 ring-1 ring-inset ring-zinc-400/25",
   }
   const pct = rank / total
-  if (pct <= 0.10) return {
+if (pct <= 0.10) return {
     label: "Master",
     dot: "bg-fuchsia-500",
     badge: "text-fuchsia-700 dark:text-fuchsia-200 ring-2 ring-inset ring-fuchsia-400/60 font-bold",
