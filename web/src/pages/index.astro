@@ -49,6 +49,13 @@ const upcomingEvents = getUpcomingEvents(12)
       opacity: 0;
       animation: fadeUp 0.4s ease forwards;
     }
+    @keyframes eventGlow {
+      0%, 100% { box-shadow: 0 0 0 1px rgb(34 211 238 / 0.5), 0 0 10px 0px rgb(34 211 238 / 0); }
+      50%       { box-shadow: 0 0 0 1px rgb(34 211 238 / 0.9), 0 0 18px 4px rgb(34 211 238 / 0.2); }
+    }
+    .event-urgent {
+      animation: eventGlow 2s ease-in-out infinite;
+    }
   </style>
 
   <div class="space-y-6">
@@ -78,15 +85,17 @@ const upcomingEvents = getUpcomingEvents(12)
         {upcomingEvents.map((event) => {
           const start = new Date(event.scheduledStart)
           const minsUntil = Math.round((start.getTime() - Date.now()) / 60000)
-          const timeLabel = minsUntil > 60
-            ? `in ${Math.round(minsUntil / 60)}h`
-            : `in ${minsUntil} min`
+          const urgent = minsUntil < 61
+          const starting = minsUntil < 1
+          const timeLabel = urgent
+            ? (starting ? "Starting now" : `in ${minsUntil} min`)
+            : `in ${Math.round(minsUntil / 60)}h`
           return (
             <a
               href={event.discordUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex flex-1 items-center gap-3 rounded-xl ring-1 ring-cyan-500/25 bg-card hover:ring-cyan-500/50 hover:shadow-sm transition-all px-3 py-2.5"
+              class={`group flex flex-1 items-center gap-3 rounded-xl bg-card hover:shadow-sm transition-all px-3 py-2.5 ${urgent ? "event-urgent bg-cyan-500/5" : "ring-1 ring-cyan-500/25 hover:ring-cyan-500/50"}`}
               data-umami-event="upcoming_event_click"
             >
               {event.image ? (
@@ -98,21 +107,23 @@ const upcomingEvents = getUpcomingEvents(12)
                   />
                 </div>
               ) : (
-                <div class="shrink-0 w-20 aspect-video rounded-md bg-cyan-500/10 flex items-center justify-center">
-                  <CalendarDotIcon weight="duotone" className="size-5 text-cyan-400" />
+                <div class={`shrink-0 w-20 aspect-video rounded-md flex items-center justify-center ${urgent ? "bg-cyan-500/20" : "bg-cyan-500/10"}`}>
+                  <CalendarDotIcon weight="duotone" className={`size-5 ${urgent ? "text-cyan-300" : "text-cyan-400"}`} />
                 </div>
               )}
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-1.5 mb-0.5">
-                  <span class="inline-block size-1.5 rounded-full bg-cyan-400 animate-pulse shrink-0" />
-                  <span class="text-[10px] font-semibold uppercase tracking-widest text-cyan-400">Event {timeLabel}</span>
+                  <span class={`inline-block size-1.5 rounded-full shrink-0 ${urgent ? "bg-cyan-300 animate-ping" : "bg-cyan-400 animate-pulse"}`} />
+                  <span class={`text-[10px] font-semibold uppercase tracking-widest ${urgent ? "text-cyan-300" : "text-cyan-400"}`}>
+                    {urgent ? "🔔 " : ""}Event {timeLabel}
+                  </span>
                 </div>
-                <p class="text-xs font-medium leading-snug truncate">{event.name}</p>
+                <p class={`text-xs font-medium leading-snug truncate ${urgent ? "text-foreground" : ""}`}>{event.name}</p>
                 {event.guildName && (
                   <p class="text-[11px] text-muted-foreground/70">{event.guildName}{event.location ? ` · ${event.location}` : ""}</p>
                 )}
               </div>
-              <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-cyan-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              <svg class={`size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 ${urgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
           )
         })}
