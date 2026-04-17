@@ -14,6 +14,7 @@ const featuredYtID = featuredVideo ? (() => { try { const u = new URL(featuredVi
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
 const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
+const ogImage = guilds.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestGuilds = getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
 ---
@@ -21,6 +22,7 @@ const hiddenGems = getHiddenGems()
 <Layout
   title="Guild Bases in Where Winds Meet — Where Builders Meet"
   description="Community showcase of the best guild bases in Where Winds Meet, ranked by community votes."
+  image={ogImage}
 >
   <style>
     @keyframes fadeUp {
