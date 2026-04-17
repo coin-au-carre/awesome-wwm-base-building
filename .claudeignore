@@ -1,6 +1,9 @@
 web/node_modules/
+web/dist
 web/dist/
 web/dist/**
+web/dist/**/*
+**/*.html
 web/.astro/
 data/guilds.json
 data/solos.json
