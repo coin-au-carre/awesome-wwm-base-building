@@ -82,53 +82,99 @@ type parsedDesc struct {
 // (after stripping leading blank lines) become the display description.
 func parseDescription(raw string) parsedDesc {
 	lines := strings.Split(raw, "\n")
-	var result parsedDesc
-	var bodyLines []string
-	headerDone := false
 
-	for _, line := range lines {
-		if headerDone {
-			bodyLines = append(bodyLines, line)
-			continue
-		}
+	// Try top header first.
+	if pd, body, ok := extractMetaBlock(lines, true); ok {
+		pd.description = strings.TrimSpace(strings.Join(body, "\n"))
+		return pd
+	}
+	// Fall back to bottom footer.
+	if pd, body, ok := extractMetaBlock(lines, false); ok {
+		pd.description = strings.TrimSpace(strings.Join(body, "\n"))
+		return pd
+	}
+	return parsedDesc{description: strings.TrimSpace(raw)}
+}
 
-		trimmed := strings.TrimSpace(line)
+// extractMetaBlock scans for a contiguous block of "Key: value" metadata lines
+// at the top (fromTop=true) or bottom (fromTop=false) of lines. A blank line
+// terminates the block. Returns the parsed fields, the remaining body lines,
+// and true when at least one recognised field was found.
+func extractMetaBlock(lines []string, fromTop bool) (parsedDesc, []string, bool) {
+	type indexedLine struct {
+		idx  int
+		text string
+	}
 
-		if trimmed == "" {
-			// Blank line ends the header block.
-			headerDone = true
-			continue
-		}
-
-		key, val, found := strings.Cut(trimmed, ":")
-		if !found {
-			// Not a key: value line — treat as body.
-			headerDone = true
-			bodyLines = append(bodyLines, line)
-			continue
-		}
-
-		key = strings.TrimSpace(strings.ToLower(key))
-		val = strings.TrimSpace(val)
-
-		switch key {
-		case "guild":
-			result.guildName = val
-		case "guild id":
-			result.guildID = val
-		case "type":
-			if et, ok := validEventTypes[strings.ToLower(val)]; ok {
-				result.eventType = et
+	// Build an ordered slice of (index, trimmed) for the candidate block.
+	var candidate []indexedLine
+	if fromTop {
+		for i, l := range lines {
+			t := strings.TrimSpace(l)
+			if t == "" {
+				break
 			}
-		default:
-			// Unknown key — stop parsing header.
-			headerDone = true
-			bodyLines = append(bodyLines, line)
+			candidate = append(candidate, indexedLine{i, t})
+		}
+	} else {
+		// Walk from the bottom, skip trailing blank lines first.
+		end := len(lines)
+		for end > 0 && strings.TrimSpace(lines[end-1]) == "" {
+			end--
+		}
+		for i := end - 1; i >= 0; i-- {
+			t := strings.TrimSpace(lines[i])
+			if t == "" {
+				break
+			}
+			candidate = append([]indexedLine{{i, t}}, candidate...)
 		}
 	}
 
-	result.description = strings.TrimSpace(strings.Join(bodyLines, "\n"))
-	return result
+	var pd parsedDesc
+	blockIndices := map[int]bool{}
+	for _, cl := range candidate {
+		key, val, found := strings.Cut(cl.text, ":")
+		if !found {
+			break
+		}
+		key = strings.TrimSpace(strings.ToLower(key))
+		val = strings.TrimSpace(val)
+		switch key {
+		case "guild":
+			pd.guildName = val
+			blockIndices[cl.idx] = true
+		case "guild id":
+			pd.guildID = val
+			blockIndices[cl.idx] = true
+		case "type":
+			if et, ok := validEventTypes[strings.ToLower(val)]; ok {
+				pd.eventType = et
+			}
+			blockIndices[cl.idx] = true
+		default:
+			// Unknown key — stop consuming.
+		}
+	}
+
+	if len(blockIndices) == 0 {
+		return pd, lines, false
+	}
+
+	var body []string
+	for i, l := range lines {
+		if !blockIndices[i] {
+			body = append(body, l)
+		}
+	}
+	// Trim the blank line that separated block from body.
+	for len(body) > 0 && strings.TrimSpace(body[len(body)-1]) == "" {
+		body = body[:len(body)-1]
+	}
+	for len(body) > 0 && strings.TrimSpace(body[0]) == "" {
+		body = body[1:]
+	}
+	return pd, body, true
 }
 
 func discordStatus(s discordgo.GuildScheduledEventStatus) EventStatus {
