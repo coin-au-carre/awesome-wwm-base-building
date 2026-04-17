@@ -9,6 +9,7 @@ const articles = defineCollection({
     order: z.number().optional().default(99),
     authors: z.array(z.string()).optional().default([]),
     date: z.coerce.date().optional(),
+    featured: z.boolean().optional().default(false),
   }),
 })
 

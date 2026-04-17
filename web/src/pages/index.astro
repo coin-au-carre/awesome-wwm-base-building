@@ -5,12 +5,13 @@ import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
-import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, PlayCircleIcon } from "@phosphor-icons/react"
-import { tutorialVideos } from "@/lib/videos"
+import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon } from "@phosphor-icons/react"
+import { getCollection } from "astro:content"
 
 const guilds = getGuildsSortedByScore()
-const featuredVideo = tutorialVideos.find((v) => v.featured)
-const featuredYtID = featuredVideo ? (() => { try { const u = new URL(featuredVideo.url); return u.hostname === "youtu.be" ? u.pathname.slice(1) : u.searchParams.get("v") ?? "" } catch { return "" } })() : null
+const allArticles = await getCollection("articles")
+const featuredArticle = allArticles.find((e) => e.data.featured) ?? null
+const featuredArticleYtID = featuredArticle?.body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
 const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
@@ -56,32 +57,35 @@ const hiddenGems = getHiddenGems()
       </p>
     </div>
 
-    <!-- Video of the Moment -->
-    {featuredVideo && featuredYtID && (
+    <!-- Featured Article -->
+    {featuredArticle && (
       <a
-        href={featuredVideo.url}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={`${BASE}/media/${featuredArticle.slug}`}
         class="group flex items-center gap-3 rounded-xl ring-1 ring-amber-500/25 bg-card hover:ring-amber-500/50 hover:shadow-sm transition-all px-3 py-2.5"
-        data-umami-event="featured_video_click"
+        data-umami-event="featured_article_click"
       >
-        <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-black">
-          <img
-            src={`https://img.youtube.com/vi/${featuredYtID}/hqdefault.jpg`}
-            alt={featuredVideo.title}
-            class="absolute inset-0 h-full w-full object-cover"
-          />
-          <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
-            <PlayCircleIcon weight="fill" className="size-5 text-white drop-shadow" />
+        {featuredArticleYtID ? (
+          <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-black">
+            <img
+              src={`https://img.youtube.com/vi/${featuredArticleYtID}/hqdefault.jpg`}
+              alt={featuredArticle.data.title}
+              class="absolute inset-0 h-full w-full object-cover"
+            />
           </div>
-        </div>
+        ) : (
+          <div class="shrink-0 w-20 aspect-video rounded-md bg-primary/10 flex items-center justify-center">
+            <BookOpenIcon weight="duotone" className="size-5 text-primary" />
+          </div>
+        )}
         <div class="flex-1 min-w-0">
           <div class="flex items-center gap-1.5 mb-0.5">
             <svg class="size-3 text-amber-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-            <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-500">Video of the Moment</span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-500">Featured Article</span>
           </div>
-          <p class="text-xs font-medium leading-snug truncate">{featuredVideo.title}</p>
-          {featuredVideo.author && <p class="text-[11px] text-muted-foreground/70">by {featuredVideo.author}</p>}
+          <p class="text-xs font-medium leading-snug truncate">{featuredArticle.data.title}</p>
+          {featuredArticle.data.authors && featuredArticle.data.authors.length > 0 && (
+            <p class="text-[11px] text-muted-foreground/70">by {featuredArticle.data.authors.join(", ")}</p>
+          )}
         </div>
         <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-amber-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
       </a>
