@@ -119,16 +119,21 @@ export function getBuilderSearchPath(name: string): string | null {
   return null
 }
 
-export function getUpcomingEvents(hoursAhead: number = 12): GameEvent[] {
+export function getUpcomingEvents(): GameEvent[] {
   try {
     const raw = readFileSync(new URL("../../../data/events.json", import.meta.url), "utf-8")
     const events: GameEvent[] = JSON.parse(raw)
     const now = Date.now()
-    const cutoff = now + hoursAhead * 60 * 60 * 1000
-    return events.filter((e) => {
-      const start = new Date(e.scheduledStart).getTime()
-      return e.status === "active" || (e.status === "scheduled" && start >= now && start <= cutoff)
-    })
+    const cutoff = now + 12 * 60 * 60 * 1000
+    return events
+      .filter((e) => {
+        const start = new Date(e.scheduledStart).getTime()
+        const end = e.scheduledEnd ? new Date(e.scheduledEnd).getTime() : start
+        const isLive = start <= now && end >= now
+        const isUpcoming = start > now && start <= cutoff
+        return e.status === "active" || isLive || isUpcoming
+      })
+      .sort((a, b) => new Date(a.scheduledStart).getTime() - new Date(b.scheduledStart).getTime())
   } catch {
     return []
   }
