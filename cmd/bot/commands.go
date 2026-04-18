@@ -16,6 +16,22 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+var showcaseReactEmojis = []string{"👍", "🔥", "❤️", "⭐"}
+
+func onThreadCreate(bot *idiscord.Bot, guildForumID, soloForumID string) func(*discordgo.Session, *discordgo.ThreadCreate) {
+	return func(s *discordgo.Session, t *discordgo.ThreadCreate) {
+		if t.ParentID != guildForumID && t.ParentID != soloForumID {
+			return
+		}
+		slog.Info("new showcase thread, adding reactions", "thread", t.Name, "id", t.ID)
+		for _, emoji := range showcaseReactEmojis {
+			if err := s.MessageReactionAdd(t.ID, t.ID, emoji); err != nil {
+				slog.Warn("reaction failed", "thread", t.Name, "emoji", emoji, "err", err)
+			}
+		}
+	}
+}
+
 const maxImageAttempts = 5
 
 // sendGuildImage downloads the image for pick and sends it with a caption.
