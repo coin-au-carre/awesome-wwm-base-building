@@ -1,12 +1,34 @@
 [
 	{
+		"name": "DimsumDaily",
+		"builders": [
+			"Nymera",
+			"AsheValentine",
+			"Rubadooske"
+		],
+		"discordThread": "",
+		"whatToVisit": "Giant stairs. Snake",
+		"score": 2,
+		"note": "contacted wwm."
+	},
+	{
+		"name": "Only-Fans",
+		"builders": [
+			"Fėmboy"
+		],
+		"discordThread": "",
+		"whatToVisit": "Impressive castle",
+		"score": 1,
+		"note": "contacted wwm."
+	},
+	{
 		"name": "Infinite",
 		"builders": [
 			"XiuHu"
 		],
 		"discordThread": "",
 		"whatToVisit": "The canal in the city",
-		"score": 1,
+		"score": 2,
 		"note": "recommended by carnii. asked on wwm."
 	},
 	{
