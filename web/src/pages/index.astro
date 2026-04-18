@@ -32,7 +32,23 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
 const ogImage = guilds.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestGuilds = getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
-const upcomingEvents = getUpcomingEvents(12)
+const upcomingEvents = getUpcomingEvents()
+const now = Date.now()
+const upcomingEventsDisplay = upcomingEvents.map((event) => {
+  const startMs = new Date(event.scheduledStart).getTime()
+  const endMs = event.scheduledEnd ? new Date(event.scheduledEnd).getTime() : startMs
+  const live = event.status === "active" || (startMs <= now && endMs >= now)
+  const minsUntil = Math.round((startMs - now) / 60000)
+  const urgent = !live && minsUntil >= 0 && minsUntil <= 60
+  const timeLabel = live
+    ? "Live now"
+    : urgent
+    ? `in ${minsUntil} min`
+    : minsUntil <= 1440
+    ? `in ${Math.round(minsUntil / 60)}h`
+    : `in ${Math.round(minsUntil / 1440)}d`
+  return { ...event, live, urgent, timeLabel }
+})
 ---
 
 <Layout
@@ -83,16 +99,10 @@ const upcomingEvents = getUpcomingEvents(12)
     </div>
 
     <!-- Featured Articles + Events -->
-    {(featuredArticles.length > 0 || upcomingEvents.length > 0) && (
+    {(featuredArticles.length > 0 || upcomingEventsDisplay.length > 0) && (
       <div class="flex flex-col sm:flex-row gap-2 max-w-xl">
-        {upcomingEvents.map((event) => {
-          const live = event.status === "active"
-          const start = new Date(event.scheduledStart)
-          const minsUntil = Math.round((start.getTime() - Date.now()) / 60000)
-          const urgent = !live && minsUntil < 61
-          const timeLabel = live
-            ? "Live now"
-            : (urgent ? `in ${minsUntil} min` : `in ${Math.round(minsUntil / 60)}h`)
+        {upcomingEventsDisplay.map((event) => {
+          const { live, urgent, timeLabel } = event
           return (
             <a
               href={event.discordUrl}
