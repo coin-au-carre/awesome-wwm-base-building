@@ -18,6 +18,7 @@ var scoredEmojis = []string{
 	"⭐",
 	"👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿",
 	"🔥",
+	"❤️",
 }
 
 func computeScore(reactions map[string][]string, weights map[string]int, lore, whatToVisit string) int {
@@ -27,7 +28,7 @@ func computeScore(reactions map[string][]string, weights map[string]int, lore, w
 		switch emoji {
 		case "⭐":
 			pts = scorePerStar
-		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥":
+		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥", "❤️":
 			pts = scorePerLike
 		}
 		for _, uid := range users {

@@ -132,7 +132,7 @@ export default function ContributeTabs() {
         </ol>
 
         <div className="space-y-2">
-          <p className="text-sm text-muted-foreground">First post template:</p>
+          <p className="text-sm text-muted-foreground"><strong>First post</strong> template:</p>
           <TemplateBuilder initialMode={initialMode} />
           <p className="text-xs text-muted-foreground">
             Edit your posts at any time. Changes are picked up on the next sync.
