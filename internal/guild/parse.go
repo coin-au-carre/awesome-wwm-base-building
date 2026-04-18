@@ -48,7 +48,7 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
 		for _, b := range strings.Split(m[1], ",") {
-			b = strings.TrimSpace(b)
+			b = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(b), "*"))
 			if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
 				builders = append(builders, b)
 			}
