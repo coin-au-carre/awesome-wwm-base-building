@@ -4,7 +4,6 @@ import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { getSolosSortedByScore, formatBuilderName } from "@/lib/guilds"
-import { rankLabel } from "@/lib/slugify"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
 import { BookOpen, MapPin, Images } from "lucide-react"
@@ -148,18 +147,6 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
       <div class="rounded-xl border border-border bg-card px-4 py-2 min-w-35 flex-1">
         <div class="text-xs text-muted-foreground mb-1">Builder</div>
         <div class="text-sm font-medium">{g.builders?.map(formatBuilderName).filter(Boolean).join(", ") || "—"}</div>
-      </div>
-      <div class="rounded-xl border border-border bg-card px-4 py-2">
-        <div class="flex gap-5">
-          <div>
-            <div class="text-xs text-muted-foreground mb-1">Score</div>
-            <div class="text-sm font-bold font-mono tabular-nums">{g.score}</div>
-          </div>
-          <div class="border-l border-border pl-5">
-            <div class="text-xs text-muted-foreground mb-1">Rank</div>
-            <div class="text-sm font-semibold">{rankLabel(g.rank)}</div>
-          </div>
-        </div>
       </div>
       {g.lastModified && (
         <div class="rounded-xl border border-border bg-card px-4 py-2">
