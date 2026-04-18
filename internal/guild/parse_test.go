@@ -98,6 +98,11 @@ Cover: 3`,
 			wantGuild:    "Solo Base",
 			wantBuilders: []string{"Lone Wolf"},
 		},
+		{
+			name:         "builder with bold label markdown",
+			content:      "👷 **Builders:** Lanyueliang",
+			wantBuilders: []string{"Lanyueliang"},
+		},
 	}
 
 	for _, tt := range tests {
