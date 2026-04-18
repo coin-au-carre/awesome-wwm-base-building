@@ -127,7 +127,7 @@ export function getUpcomingEvents(hoursAhead: number = 12): GameEvent[] {
     const cutoff = now + hoursAhead * 60 * 60 * 1000
     return events.filter((e) => {
       const start = new Date(e.scheduledStart).getTime()
-      return e.status === "scheduled" && start >= now && start <= cutoff
+      return e.status === "active" || (e.status === "scheduled" && start >= now && start <= cutoff)
     })
   } catch {
     return []
