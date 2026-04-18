@@ -270,20 +270,24 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
         </div>
       )}
 
-      <p className="text-xs text-muted-foreground/70 italic">
-        Scores reflect Discord votes and are still a work in progress. Every guild here deserves more attention than a number can show. {" "}
-        <a href={url("/how-it-works")} className="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
-      </p>
+      {!isSolos && (
+        <p className="text-xs text-muted-foreground/70 italic">
+          Scores reflect Discord votes and are still a work in progress. Every guild here deserves more attention than a number can show. {" "}
+          <a href={url("/how-it-works")} className="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
+        </p>
+      )}
 
       <div className="rounded-xl ring-1 ring-border overflow-hidden">
         <Table>
           <TableHeader>
             <TableRow className="bg-muted/40 text-muted-foreground">
-              <TableHead className="w-24">
-                <SortButton field="rank" current={sortField} dir={sortDir} onClick={toggleSort}>
-                  Tier
-                </SortButton>
-              </TableHead>
+              {!isSolos && (
+                <TableHead className="w-24">
+                  <SortButton field="rank" current={sortField} dir={sortDir} onClick={toggleSort}>
+                    Tier
+                  </SortButton>
+                </TableHead>
+              )}
               <TableHead>
                 <SortButton field="name" current={sortField} dir={sortDir} onClick={toggleSort}>
                   {isSolos ? "Build" : "Guild"}
@@ -291,17 +295,19 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               </TableHead>
               <TableHead className="hidden md:table-cell">Builders</TableHead>
               <TableHead className="hidden lg:table-cell">Tags</TableHead>
-              <TableHead className="w-20 text-right">
-                <SortButton field="score" current={sortField} dir={sortDir} onClick={toggleSort}>
-                  Score
-                </SortButton>
-              </TableHead>
+              {!isSolos && (
+                <TableHead className="w-20 text-right">
+                  <SortButton field="score" current={sortField} dir={sortDir} onClick={toggleSort}>
+                    Score
+                  </SortButton>
+                </TableHead>
+              )}
             </TableRow>
           </TableHeader>
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={5} className="py-8 text-center text-muted-foreground">
+                <TableCell colSpan={isSolos ? 3 : 5} className="py-8 text-center text-muted-foreground">
                   {isSolos ? "No bases match your search." : "No guilds match your search."}
                 </TableCell>
               </TableRow>
@@ -320,17 +326,19 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     podium ?? (i % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"),
                   )}
                 >
-                  <TableCell className="text-center">
-                {(() => {
-                  const tier = getTier(g.rank, guilds.length, g.score)
-                  return (
-                    <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs", tier.badge)} style={tier.badgeStyle}>
-                      <span className={cn("size-1.5 rounded-full shrink-0", tier.dot)} />
-                      {tier.label}
-                    </span>
-                  )
-                })()}
-              </TableCell>
+                  {!isSolos && (
+                    <TableCell className="text-center">
+                      {(() => {
+                        const tier = getTier(g.rank, guilds.length, g.score)
+                        return (
+                          <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs", tier.badge)} style={tier.badgeStyle}>
+                            <span className={cn("size-1.5 rounded-full shrink-0", tier.dot)} />
+                            {tier.label}
+                          </span>
+                        )
+                      })()}
+                    </TableCell>
+                  )}
                   <TableCell>
                     <div className="flex items-center gap-2.5">
                       {img && (
@@ -361,7 +369,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       ))}
                     </div>
                   </TableCell>
-                  <TableCell className="text-right font-mono text-[11px] text-muted-foreground/40">{g.score}</TableCell>
+                  {!isSolos && <TableCell className="text-right font-mono text-[11px] text-muted-foreground/40">{g.score}</TableCell>}
                 </TableRow>
               )
             })}
