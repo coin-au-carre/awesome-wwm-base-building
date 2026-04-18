@@ -13,3 +13,4 @@ web/package-lock.json
 web/*.log*
 .claude/
 screenshots/
+private/
