@@ -1,5 +1,15 @@
 [
 	{
+		"name": "MacDandChill",
+		"builders": [
+			"boop"
+		],
+		"discordThread": "",
+		"whatToVisit": "Macdonald Fast food, I'm lovin' it.",
+		"score": 1,
+		"note": "contacted wwm."
+	},
+	{
 		"name": "DimsumDaily",
 		"builders": [
 			"Nymera",
