@@ -60,6 +60,11 @@ tasks:
     desc: "post events starting in the next 4 hours to Discord. Use -- -dev for DEV_CHANNEL_ID"
     cmd: go run ./cmd/event-show {{.CLI_ARGS}}
 
+  # ── react (seed emoji reactions on forum posts) ────────────
+  react:
+    desc: "add 👍 🔥 ❤️ ⭐ to the first post of every thread in the guild or solo forum. Use -- -solo for solo channel"
+    cmd: go run ./cmd/react {{.CLI_ARGS}}
+
   # ── announce (test general-channel announcement card) ────────
   announce:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
