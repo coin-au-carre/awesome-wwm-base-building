@@ -35,6 +35,11 @@ tasks:
       VPS_USER: '{{.VPS_USER | default "deploy"}}'
       VPS_HOST: '{{.VPS_HOST | default "your.vps.host"}}'
 
+  # ── voter analysis (one-shot) ───────────────────────────────
+  analyze:
+    desc: "fetch guild reactions → data/voter_analysis.csv + data/voter_analysis.html"
+    cmd: go run ./cmd/analyze {{.CLI_ARGS}}
+
   # ── events sync (one-shot) ──────────────────────────────────
   events-sync:
     desc: fetch Discord Scheduled Events → data/events.json
