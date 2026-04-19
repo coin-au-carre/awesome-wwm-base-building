@@ -153,8 +153,6 @@ export default function ContributeTabs() {
     : "builder"
   const [selected, setSelected] = useState<Role>(initialRole)
 
-  const current = roles.find((r) => r.id === selected)!
-
   function select(id: Role) {
     setSelected(id)
     const next = new URLSearchParams(window.location.search)
@@ -348,7 +346,7 @@ export default function ContributeTabs() {
                 <p className="text-sm font-semibold text-foreground">Trusted Eye</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to community members recognized for their expertise and quality feedback. It is not automatic. Trusted Eyes carry more weight in voting — the following rules apply to them specifically to keep rankings fair and unbiased.
+                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to community members recognized for their expertise and quality feedback. It is not automatic. Trusted Eyes carry more weight in voting. They aim to follow those specific points specifically to keep rankings fair and unbiased.
               </p>
 
               <Card>
