@@ -118,6 +118,11 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			partialStats.NewNames = append(partialStats.NewNames, name)
 			partialStats.NewThreadLinks[name] = newThreadLink
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
+			for _, emoji := range []string{"👍", "🔥", "❤️", "⭐"} {
+				if err := b.Session.MessageReactionAdd(thread.ID, thread.ID, emoji); err != nil {
+					slog.Warn("adding reaction to new thread", "thread", name, "emoji", emoji, "err", err)
+				}
+			}
 		}
 	}
 

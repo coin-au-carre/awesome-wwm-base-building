@@ -371,7 +371,7 @@ export default function ContributeTabs() {
                 <p className="text-sm font-semibold text-foreground">Trusted Eye</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. Not automatic — it carries more voting weight and comes with a few guidelines to keep rankings fair.
+                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. Not automatic: it carries more voting weight and comes with a few guidelines to keep rankings fair.
               </p>
 
               <div className="rounded-xl ring-1 ring-border overflow-hidden divide-y divide-border">
@@ -417,7 +417,7 @@ export default function ContributeTabs() {
         {selected === "dev" && (
           <>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The project is open source. Contributions are welcome — chat with us, open an issue, or submit a pull request.
+              The project is open source. Contributions are welcome: chat with us, open an issue, or submit a pull request.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Ping us on Discord if you want to integrate any work here, we'll be glad to help. You can use the data freely as long as you credit the website and community.
