@@ -27,7 +27,8 @@
 		"lastModified": "April 19, 2026 at 06:58 PM UTC"
 	},
 	{
-		"name": "Eden (ID 10000281)",
+		"id": "10000281",
+		"name": "Eden",
 		"builders": [],
 		"tags": [
 			"Creative",
@@ -48,7 +49,8 @@
 			"Creative",
 			"Military",
 			"Fun",
-			"Cute"
+			"Cute",
+			"Maze"
 		],
 		"discordThread": "",
 		"whatToVisit": "Tiny person maze",

@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	reLocBracket = regexp.MustCompile(`^(.*?)\s*[\[(](\d+)[\])]?\s*$`)
+	reLocBracket = regexp.MustCompile(`^(.*?)\s*[\[(](?:ID\s+)?(\d+)[\])]?\s*$`)
 	reLocSpaceID = regexp.MustCompile(`^(.*?)\s+(\d+)\s*$`)
 )
 
@@ -187,6 +187,7 @@ func extractMetaBlock(lines []string, fromTop bool) (parsedDesc, []string, bool)
 // event location string. Supported formats:
 //
 //	"Guild Name [12345678]" or "Guild Name (12345678)" — bracket/paren
+//	"Guild Name (ID 12345678)"                         — paren with ID prefix
 //	"Guild Name 12345678"                              — space-separated
 func parseLocation(loc string) (guildName, guildID string) {
 	loc = strings.TrimSpace(loc)

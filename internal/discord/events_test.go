@@ -11,6 +11,7 @@ func TestParseLocation(t *testing.T) {
 		// Bracket / paren with numeric ID
 		{"Iron Fortress [12345678]", "Iron Fortress", "12345678"},
 		{"Iron Fortress (12345678)", "Iron Fortress", "12345678"},
+		{"Eden (ID 10000281)", "Eden", "10000281"},
 
 		// Unclosed bracket
 		{"Iron Fortress [12345678", "Iron Fortress", "12345678"},
