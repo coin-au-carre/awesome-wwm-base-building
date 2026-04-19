@@ -15,6 +15,9 @@ import (
 const (
 	submitCommandName = "scout-guild"
 	submitModalID     = "scout_guild_modal"
+
+	postCommandName = "submit-guild"
+	postModalID     = "submit_guild_modal"
 )
 
 var submitMu sync.Mutex
@@ -38,20 +41,35 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 		Description: "Scout a guild base and add it to the directory",
 	})
 	if err != nil {
-		slog.Error("registering propose-guild command", "err", err)
+		slog.Error("registering scout-guild command", "err", err)
 	}
+
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:        postCommandName,
+		Description: "Submit your guild base to the showcase",
+	})
+	if err != nil {
+		slog.Error("registering submit-guild command", "err", err)
+	}
+
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommand:
-			if i.ApplicationCommandData().Name == submitCommandName {
+			switch i.ApplicationCommandData().Name {
+			case submitCommandName:
 				handleSubmitCommand(s, i)
+			case postCommandName:
+				handlePostCommand(s, i)
 			}
 		case discordgo.InteractionModalSubmit:
-			if i.ModalSubmitData().CustomID == submitModalID {
+			switch i.ModalSubmitData().CustomID {
+			case submitModalID:
 				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID)
+			case postModalID:
+				handlePostModal(s, i, guildForumChannelID)
 			}
 		}
 	}
@@ -230,6 +248,138 @@ func buildDiscoveryMessage(explorer string, g guild.Guild) string {
 	}
 
 	return fmt.Sprintf("🧭 **%s** — *scouted by %s*\n%s", title, explorer, line2)
+}
+
+func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	slog.Info("submit-guild command received", "user", i.Member.User.Username)
+	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseModal,
+		Data: &discordgo.InteractionResponseData{
+			CustomID: postModalID,
+			Title:    "Submit Your Guild Base",
+			Components: []discordgo.MessageComponent{
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "name",
+						Label:       "Guild Name",
+						Style:       discordgo.TextInputShort,
+						Required:    true,
+						Placeholder: "Iron Vanguard",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "guild_id",
+						Label:       "Guild ID — optional (8-digit number in-game)",
+						Style:       discordgo.TextInputShort,
+						Required:    false,
+						Placeholder: "12345678  (Menu → Guild → Info)",
+						MaxLength:   20,
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "builders",
+						Label:       "Builders — in-game names, comma-separated",
+						Style:       discordgo.TextInputShort,
+						Required:    false,
+						Placeholder: "BuilderOne, BuilderTwo",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "lore",
+						Label:       "Lore — optional",
+						Style:       discordgo.TextInputParagraph,
+						Required:    false,
+						Placeholder: "The story or theme behind your base...",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "what_to_visit",
+						Label:       "What to Visit — optional",
+						Style:       discordgo.TextInputParagraph,
+						Required:    false,
+						Placeholder: "- Point of interest 1\n- Point of interest 2",
+					},
+				}},
+			},
+		},
+	})
+	if err != nil {
+		slog.Error("responding with submit-base modal", "err", err)
+	}
+}
+
+func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, guildForumChannelID string) {
+	fields := modalFields(i.ModalSubmitData().Components)
+	name := fields["name"]
+	guildID := strings.TrimSpace(fields["guild_id"])
+	builders := fields["builders"]
+	lore := fields["lore"]
+	whatToVisit := fields["what_to_visit"]
+
+	if guildForumChannelID == "" {
+		slog.Error("submit-base: GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID not set")
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "Forum channel not configured. Please contact a moderator.",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	// Build thread title: "GuildName [ID]" or just "GuildName"
+	threadTitle := name
+	if guildID != "" {
+		threadTitle = fmt.Sprintf("%s [%s]", name, guildID)
+	}
+
+	// Build first post matching the website template format
+	var content strings.Builder
+	content.WriteString(fmt.Sprintf("## 🏯 %s\n\n", threadTitle))
+	if builders != "" {
+		content.WriteString(fmt.Sprintf("👷 Builders: %s\n\n", builders))
+	}
+	if lore != "" {
+		content.WriteString(fmt.Sprintf("### 📝 Lore\n%s\n\n", lore))
+	}
+	if whatToVisit != "" {
+		content.WriteString(fmt.Sprintf("### 🧙 What to visit\n%s", whatToVisit))
+	}
+
+	thread, err := s.ForumThreadStartComplex(guildForumChannelID, &discordgo.ThreadStart{
+		Name:                threadTitle,
+		AutoArchiveDuration: 10080, // 7 days
+	}, &discordgo.MessageSend{
+		Content: strings.TrimSpace(content.String()),
+	})
+	if err != nil {
+		slog.Error("creating forum thread", "name", name, "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "Something went wrong creating your thread. Please try again or post manually.",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	_, _ = s.ChannelMessageSend(thread.ID, "📸 Drop your screenshots here! The more the better 👇")
+
+	slog.Info("submit-base thread created", "user", i.Member.User.Username, "name", name, "thread", thread.ID)
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: fmt.Sprintf("Your thread for **%s** has been created! Go drop your screenshots in <#%s> 📸", name, thread.ID),
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
 }
 
 func filterTags(tags []string) []string {
