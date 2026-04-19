@@ -1,5 +1,74 @@
 [
 	{
+		"name": "CloudPath",
+		"builders": [],
+		"tags": [
+			"Nature",
+			"Cute",
+			"Zen"
+		],
+		"discordThread": "",
+		"whatToVisit": "Everything",
+		"score": 1,
+		"lastModified": "April 19, 2026 at 06:55 PM UTC"
+	},
+	{
+		"name": "ALLSTARS",
+		"builders": [],
+		"tags": [
+			"Creative",
+			"Military",
+			"Fun",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Dragon, Carousel, Tank and helicopter",
+		"score": 2,
+		"lastModified": "April 19, 2026 at 06:58 PM UTC"
+	},
+	{
+		"name": "Eden (ID 10000281)",
+		"builders": [],
+		"tags": [
+			"Creative",
+			"Cute",
+			"Snow",
+			"Nature",
+			"River"
+		],
+		"discordThread": "",
+		"whatToVisit": "Scenic river\nCourt of law\nAuditorium/Mic Stage\nCat-sized cat tower\nHuman-size cat tower",
+		"score": 0,
+		"lastModified": "April 19, 2026 at 06:59 PM UTC"
+	},
+	{
+		"name": "LeafSide",
+		"builders": [],
+		"tags": [
+			"Creative",
+			"Military",
+			"Fun",
+			"Cute"
+		],
+		"discordThread": "",
+		"whatToVisit": "Tiny person maze",
+		"score": 1,
+		"lastModified": "April 19, 2026 at 07:02 PM UTC"
+	},
+	{
+		"name": "YAKUZA",
+		"builders": [],
+		"tags": [
+			"Nature",
+			"Creative",
+			"Zen"
+		],
+		"discordThread": "",
+		"whatToVisit": "Dragon, Garden, Fountain",
+		"score": 1,
+		"lastModified": "April 19, 2026 at 07:37 PM UTC"
+	},
+	{
 		"id": "10000129",
 		"name": "Singapore",
 		"builders": [
@@ -3322,66 +3391,5 @@
 			}
 		],
 		"lastModified": "April 19, 2026 at 10:47 AM UTC"
-	},
-	{
-		"name": "Test",
-		"builders": [
-			"Toto"
-		],
-		"tags": [
-			"Arenb"
-		],
-		"discordThread": "",
-		"whatToVisit": "123456",
-		"score": 0,
-		"lastModified": "2026-04-19"
-	},
-	{
-		"name": "Test 123456789",
-		"builders": [],
-		"discordThread": "",
-		"whatToVisit": "azeaze",
-		"score": 0,
-		"lastModified": "2026-04-19"
-	},
-	{
-		"id": "1234568",
-		"name": "Test",
-		"builders": [],
-		"discordThread": "",
-		"whatToVisit": "azezae",
-		"score": 0,
-		"lastModified": "2026-04-19"
-	},
-	{
-		"name": "YAKUZA",
-		"builders": [],
-		"tags": [
-			"Mountain"
-		],
-		"discordThread": "",
-		"whatToVisit": "Mountains, snowy river",
-		"score": 2,
-		"lastModified": "2026-04-19"
-	},
-	{
-		"id": "1234568",
-		"name": "ImaginaryGuild",
-		"builders": [],
-		"discordThread": "",
-		"whatToVisit": "The Mountains!",
-		"score": 0,
-		"lastModified": "2026-04-19"
-	},
-	{
-		"name": "GuildDummyName",
-		"builders": [],
-		"tags": [
-			"Arena"
-		],
-		"discordThread": "",
-		"whatToVisit": "mountain",
-		"score": 1,
-		"lastModified": "April 19, 2026 at 12:04 PM UTC"
 	}
 ]
