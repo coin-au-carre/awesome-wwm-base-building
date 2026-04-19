@@ -3351,5 +3351,25 @@
 		"whatToVisit": "Mountains, snowy river",
 		"score": 2,
 		"lastModified": "2026-04-19"
+	},
+	{
+		"id": "1234568",
+		"name": "ImaginaryGuild",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "The Mountains!",
+		"score": 0,
+		"lastModified": "2026-04-19"
+	},
+	{
+		"name": "GuildDummyName",
+		"builders": [],
+		"tags": [
+			"Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "mountain",
+		"score": 1,
+		"lastModified": "April 19, 2026 at 12:04 PM UTC"
 	}
 ]

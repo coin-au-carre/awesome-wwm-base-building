@@ -58,7 +58,8 @@ func main() {
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
 	bot.Session.AddHandler(onThreadCreate(bot, guildForumID, soloForumID))
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
-	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID))
+	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)

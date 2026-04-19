@@ -6,7 +6,6 @@ import (
 	"log/slog"
 	"strings"
 	"sync"
-	"time"
 
 	"ruby/internal/guild"
 
@@ -43,7 +42,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommand:
@@ -52,7 +51,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID string) func(*disco
 			}
 		case discordgo.InteractionModalSubmit:
 			if i.ModalSubmitData().CustomID == submitModalID {
-				handleSubmitModal(s, i, bot, root, submissionChannelID)
+				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID)
 			}
 		}
 	}
@@ -120,7 +119,7 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	}
 }
 
-func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, root, submissionChannelID string) {
+func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, root, submissionChannelID, discoveriesChannelID string) {
 	fields := modalFields(i.ModalSubmitData().Components)
 
 	name, guildID := parseLocation(fields["name"])
@@ -151,7 +150,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		Builders:     []string{},
 		Tags:         tags,
 		Score:        score,
-		LastModified: time.Now().UTC().Format("2006-01-02"),
+		LastModified: guild.ModifiedNow(),
 	}
 	if buildersProposed {
 		n := guild.Note{Text: "Builders proposed to WBM."}
@@ -189,8 +188,12 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	})
 
 	submitter := "unknown"
-	if i.Member != nil && i.Member.User != nil {
-		submitter = i.Member.User.Username
+	if i.Member != nil {
+		if i.Member.Nick != "" {
+			submitter = i.Member.Nick
+		} else if i.Member.User != nil {
+			submitter = i.Member.User.Username
+		}
 	}
 
 	jsonBytes, _ := json.MarshalIndent(g, "", "\t")
@@ -200,6 +203,32 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	} else {
 		bot.Notify(notice)
 	}
+
+	if discoveriesChannelID != "" {
+		discovery := buildDiscoveryMessage(submitter, g)
+		bot.Send(discoveriesChannelID, discovery)
+	}
+}
+
+const maxWhatToVisit = 80
+
+func buildDiscoveryMessage(explorer string, g guild.Guild) string {
+	title := g.Name
+	if g.ID != "" {
+		title = fmt.Sprintf("%s [%s]", g.Name, g.ID)
+	}
+
+	wtv := g.WhatToVisit
+	if len(wtv) > maxWhatToVisit {
+		wtv = wtv[:maxWhatToVisit] + " [...]"
+	}
+
+	line2 := "📍 " + wtv
+	if len(g.Tags) > 0 {
+		line2 += "  ·  " + strings.Join(g.Tags, " · ")
+	}
+
+	return fmt.Sprintf("🧭 **%s** — *scouted by %s*\n%s", title, explorer, line2)
 }
 
 func filterTags(tags []string) []string {

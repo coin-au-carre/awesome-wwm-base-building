@@ -5,7 +5,14 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"time"
 )
+
+const ModifiedLayout = "January 2, 2006 at 03:04 PM UTC"
+
+func ModifiedNow() string {
+	return time.Now().UTC().Format(ModifiedLayout)
+}
 
 const filename = "data/guilds.json"
 
