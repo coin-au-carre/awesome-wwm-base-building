@@ -50,6 +50,11 @@ Two roles are automatically assigned by the bot:
 - **Builder** (🏗️): awarded to users who have posted a guild base in `#guild-base-showcase`
 - **Critic** (🗳️): awarded to active community voters who engage broadly across many guilds
 
+Two roles are manually assigned by moderators:
+
+- **Trusted Eye**: granted to community members recognized for their expertise and quality feedback on guild bases
+- **Guild Cartographer**: granted to members who contribute significantly to mapping and documenting guild bases
+
 ## How the site stays updated
 
 A Go bot crawls the Discord forum channels several times a day. It reads all thread metadata and reactions, computes scores, and writes the results to `guilds.json` and `solos.json`. A GitHub Actions workflow then rebuilds and redeploys the static site automatically. No manual curation is needed.
