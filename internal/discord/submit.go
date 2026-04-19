@@ -104,11 +104,12 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 				}},
 				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
 					discordgo.TextInput{
-						CustomID:    "note",
-						Label:       "Note — optional (private, not public)",
-						Style:       discordgo.TextInputParagraph,
+						CustomID:    "builders_proposed",
+						Label:       "Have you proposed builders to join WBM?",
+						Style:       discordgo.TextInputShort,
 						Required:    false,
-						Placeholder: "Any additional context...",
+						Placeholder: "yes / no (default: no)",
+						MaxLength:   3,
 					},
 				}},
 			},
@@ -125,7 +126,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	name, guildID := parseLocation(fields["name"])
 	whatToVisit := fields["what_to_visit"]
 	tags := filterTags(splitCSV(fields["tags"]))
-	noteText := fields["note"]
+	buildersProposed := strings.ToLower(strings.TrimSpace(fields["builders_proposed"])) == "yes"
 
 	appreciation := strings.ToUpper(strings.TrimSpace(fields["appreciation"]))
 	if appreciation == "" {
@@ -152,8 +153,8 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		Score:        score,
 		LastModified: time.Now().UTC().Format("2006-01-02"),
 	}
-	if noteText != "" {
-		n := guild.Note{Text: noteText}
+	if buildersProposed {
+		n := guild.Note{Text: "Builders proposed to WBM."}
 		g.Note = &n
 	}
 
@@ -204,6 +205,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 func filterTags(tags []string) []string {
 	var out []string
 	for _, t := range tags {
+		t = titleCase(t)
 		if knownTags[t] {
 			out = append(out, t)
 		}
@@ -230,6 +232,16 @@ func modalFields(components []discordgo.MessageComponent) map[string]string {
 		}
 	}
 	return out
+}
+
+func titleCase(s string) string {
+	words := strings.Fields(s)
+	for i, w := range words {
+		if len(w) > 0 {
+			words[i] = strings.ToUpper(w[:1]) + strings.ToLower(w[1:])
+		}
+	}
+	return strings.Join(words, " ")
 }
 
 func splitCSV(s string) []string {

@@ -3340,5 +3340,16 @@
 		"whatToVisit": "azezae",
 		"score": 0,
 		"lastModified": "2026-04-19"
+	},
+	{
+		"name": "YAKUZA",
+		"builders": [],
+		"tags": [
+			"Mountain"
+		],
+		"discordThread": "",
+		"whatToVisit": "Mountains, snowy river",
+		"score": 2,
+		"lastModified": "2026-04-19"
 	}
 ]
