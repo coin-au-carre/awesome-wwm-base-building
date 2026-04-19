@@ -58,6 +58,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 }
 
 func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	slog.Info("scout-guild command received", "user", i.Member.User.Username)
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -177,7 +178,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		return
 	}
 
-	slog.Info("guild proposed", "name", name, "appreciation", appreciation, "score", score)
+	slog.Info("guild proposed", "user", i.Member.User.Username, "name", name, "appreciation", appreciation, "score", score)
 
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
