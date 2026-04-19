@@ -179,7 +179,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	submitMu.Lock()
 	guilds, err := guild.Load(root)
 	if err == nil {
-		guilds = append(guilds, g)
+		guilds = append([]guild.Guild{g}, guilds...)
 		err = guild.Save(root, guilds)
 	}
 	submitMu.Unlock()
