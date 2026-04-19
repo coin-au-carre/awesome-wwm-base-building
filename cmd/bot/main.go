@@ -52,9 +52,13 @@ func main() {
 
 	responder := buildResponder(*root)
 
-	bot.Session.AddHandler(onReady())
+	discordGuildID := os.Getenv("DISCORD_GUILD_ID")
+
+	bot.Session.AddHandler(onReady(bot, discordGuildID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
 	bot.Session.AddHandler(onThreadCreate(bot, guildForumID, soloForumID))
+	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -69,9 +73,10 @@ func main() {
 	slog.Info("shutting down")
 }
 
-func onReady() func(*discordgo.Session, *discordgo.Ready) {
+func onReady(bot *discord.Bot, discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
 	return func(s *discordgo.Session, r *discordgo.Ready) {
 		slog.Info("bot connected", "user", r.User.Username)
+		discord.RegisterSubmitCommand(s, discordGuildID)
 	}
 }
 

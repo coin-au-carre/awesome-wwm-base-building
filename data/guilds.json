@@ -5,14 +5,13 @@
 		"builders": [
 			"Pikachu"
 		],
-		"discordThread": "",
-		"whatToVisit": "It's Wonderland... lot's of fun stuff",
 		"tags": [
 			"Creative",
 			"Fun"
 		],
-		"score": 1,
-		"notes": "contacted wwm"
+		"discordThread": "",
+		"whatToVisit": "It's Wonderland... lot's of fun stuff",
+		"score": 1
 	},
 	{
 		"name": "Clouds",
@@ -21,16 +20,14 @@
 		],
 		"discordThread": "",
 		"whatToVisit": "Forbidden City feeling",
-		"score": 1,
-		"notes": "Contacted Kanoot"
+		"score": 1
 	},
 	{
 		"name": "AMERTA",
 		"builders": [],
 		"discordThread": "",
 		"whatToVisit": "horse Racing",
-		"score": 0,
-		"notes": "contacted wwm"
+		"score": 0
 	},
 	{
 		"name": "MacDandChill",
@@ -3313,5 +3310,35 @@
 			}
 		],
 		"lastModified": "April 19, 2026 at 10:47 AM UTC"
+	},
+	{
+		"name": "Test",
+		"builders": [
+			"Toto"
+		],
+		"tags": [
+			"Arenb"
+		],
+		"discordThread": "",
+		"whatToVisit": "123456",
+		"score": 0,
+		"lastModified": "2026-04-19"
+	},
+	{
+		"name": "Test 123456789",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "azeaze",
+		"score": 0,
+		"lastModified": "2026-04-19"
+	},
+	{
+		"id": "1234568",
+		"name": "Test",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "azezae",
+		"score": 0,
+		"lastModified": "2026-04-19"
 	}
 ]
