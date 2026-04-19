@@ -224,7 +224,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 
 	guilds := result.Guilds
 	stats := result.Stats
-	now := time.Now().UTC().Format("January 2, 2006 at 03:04 PM UTC")
+	now := guild.ModifiedNow()
 
 	for _, r := range result.threads {
 		data := r.data
@@ -549,7 +549,7 @@ func screenshotOnCooldown(ts string) bool {
 	if ts == "" {
 		return false
 	}
-	t, err := time.Parse("January 2, 2006 at 03:04 PM UTC", ts)
+	t, err := time.Parse(guild.ModifiedLayout, ts)
 	if err != nil {
 		return false
 	}
