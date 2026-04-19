@@ -3,7 +3,7 @@ import TemplateBuilder from "@/components/TemplateBuilder"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Users, Layers, Image, LayoutList, ShieldCheck, Code2, Map, Star, Hammer, Eye, Sparkles } from "lucide-react"
+import { Users, Layers, Image, LayoutList, ShieldCheck, Code2, Map, Star, Hammer, Eye, Sparkles, Terminal } from "lucide-react"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 
@@ -217,7 +217,23 @@ export default function ContributeTabs() {
                 n="2"
                 badgeClass="bg-violet-500 text-white border-0"
                 title="Post your base"
-                body={<>Go to <span className="font-medium text-foreground">#guild-base-showcase</span> (for guild bases) or <span className="font-medium text-foreground">#solo-building-showcase</span> (for solo builds) and click <span className="font-medium text-foreground">New Post</span> at the top. Give it a title (your guild or build name), fill in the first message using the template below, and attach your screenshots. You can also add more screenshots in follow-up messages inside the same thread.</>}
+                body={
+                  <div className="space-y-3 mt-1">
+                    <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
+                      <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                        <Terminal className="size-3.5 text-blue-500 shrink-0" />
+                        Use the <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> command <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
+                      </p>
+                      <p className="text-sm text-muted-foreground">Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot will send you a ready-to-paste formatted post via DM, with the thread title and all your content included. Just go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and add your screenshots.</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-px flex-1 bg-border" />
+                      <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
+                      <div className="h-px flex-1 bg-border" />
+                    </div>
+                    <p className="text-sm text-muted-foreground">Go to <span className="font-medium text-foreground">#guild-base-showcase</span> (guild bases) or <span className="font-medium text-foreground">#solo-building-showcase</span> (solo builds), click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.</p>
+                  </div>
+                }
               />
             </ol>
 
@@ -300,24 +316,23 @@ export default function ContributeTabs() {
         {selected === "scout" && (
           <>
             <div className="space-y-1.5">
-              <p className="text-sm font-medium text-foreground">Spot an impressive guild base?</p>
+              <p className="text-sm font-medium text-foreground">Found a base worth sharing?</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Found a base that isn't on the showcase yet? Post it in{" "}
-                <span className="font-medium text-foreground">#guild-discoveries</span> to flag it for the community. If you can reach the builder, encourage them to submit it themselves in{" "}
-                <span className="font-medium text-foreground">#guild-base-showcase</span>.
+                Use <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/scout-guild</code> to report it. The command opens a short form: guild name, what to visit. The bot then logs it to{" "}
+                <span className="font-medium text-foreground">#guild-discoveries</span> for the community. You can still share screenshots manually to <span className="font-medium text-foreground">#guild-discoveries</span> for passionate discussions! 
               </p>
             </div>
             <div className="space-y-1.5">
-              <p className="text-sm font-medium text-foreground">Use the /scout-guild command</p>
+              <p className="text-sm font-medium text-foreground">Know the builder? Or make a new friend.</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                In <span className="font-medium text-foreground">#guild-discoveries</span>, type{" "}
-                <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/scout-guild</code> to open a structured form. Fill in the guild name, a screenshot, and any notes. The bot will post a formatted discovery card for the community to see.
+                Reach out and encourage them to submit it themselves with{" "}
+                <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code>. They'll own their thread and can update it anytime: lore, screenshots, cover image, what to visit.
               </p>
             </div>
             <div className="space-y-1.5">
               <p className="text-sm font-medium text-foreground">Earn the Guild Cartographer role</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Moderators grant the <span className="font-medium text-foreground">Guild Cartographer</span> role to members who consistently contribute to mapping and documenting guild bases across the community.
+                Moderators grant the <span className="font-medium text-foreground">Guild Cartographer</span> role to members who consistently scout and document guild bases across the community.
               </p>
             </div>
           </>
