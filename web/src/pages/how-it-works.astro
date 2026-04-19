@@ -20,33 +20,15 @@ import { CompassIcon } from "@phosphor-icons/react"
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">The origin</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        It all started after touring tons of incredible guild bases in <strong class="text-foreground"><a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-foreground transition-colors">Where Winds Meet</a></strong>. They were simply too good to keep secret.
-        So this place was born: somewhere to share builds, help builders, and get inspired together.
-      </p>
-      <p class="text-sm text-muted-foreground leading-relaxed">
-        There's no in-game gallery, and great screenshots tend to vanish in Discord threads. This site collects all
-        builds submissions from the community Discord, ranks them by community votes, and presents them in a
-        browsable and researchable showcase.
-      </p>
-    </section>
-
-    <section class="space-y-4">
-      <h2 class="font-heading text-base font-medium">But how it works?</h2>
-      <p class="text-sm text-muted-foreground leading-relaxed">
-        A bot watches the Discord forum, picks up new submissions, and counts community reactions.
-        Everything syncs automatically <strong class="text-foreground">several times a day</strong> so the showcase stays fresh without any manual work.
+        Guild bases in <strong class="text-foreground"><a href="https://www.wherewindsmeetgame.com" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:text-foreground transition-colors">Where Winds Meet</a></strong> were too good to keep secret — so this place was born.
+        A bot watches the Discord forum, picks up submissions, counts reactions, and syncs the showcase automatically <strong class="text-foreground">several times a day</strong>.
       </p>
     </section>
 
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">Community votes</h2>
-      <p class="text-sm text-muted-foreground leading-relaxed">
-        Each guild base has a thread in our Discord forum. Community members can vote by
-        reacting to the thread's first post. Reactions are tallied automatically and converted into a score.
-        Votes can be biased unfortunately, and we work continuously to reduce that as much as possible.
-      </p>
       <p class="text-sm text-amber-600 dark:text-amber-400 leading-relaxed">
-        Note: only reactions on the <strong>first post</strong> of a thread are counted. Reactions on replies or later messages are ignored.
+        Only reactions on the <strong>first post</strong> of a thread are counted. Reactions on replies are ignored.
       </p>
 
       <div class="rounded-xl ring-1 ring-border overflow-hidden">
@@ -77,10 +59,7 @@ import { CompassIcon } from "@phosphor-icons/react"
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">Tiers</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        Instead of raw rankings, builds are grouped into tiers based on community votes.
-        Tiers are meant to celebrate engagement, not to stress you out.
-        Guilds not yet submitted by their builders tend to sit lower since they may not have an active voting thread yet.
-        <a href={`${BASE}/contribute`} class="underline underline-offset-2 hover:text-foreground transition-colors">Post your own base</a> to give it the best chance.
+        Builds are grouped into tiers based on votes — for recognition, not competition. <a href={`${BASE}/contribute`} class="underline underline-offset-2 hover:text-foreground transition-colors">Post your own base</a> to give it the best chance.
       </p>
 
       <div class="rounded-xl ring-1 ring-border overflow-hidden">
@@ -142,13 +121,10 @@ import { CompassIcon } from "@phosphor-icons/react"
         </Table>
       </div>
 
-      <div class="rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 px-4 py-3 space-y-1.5">
+      <div class="rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 px-4 py-3 space-y-1">
         <p class="text-sm font-medium text-sky-700 dark:text-sky-300">Why does my guild have a low score?</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          Guilds added by scouts before the builder posts their own thread start with zero votes and no visibility.
-          The best way to climb: <strong class="text-foreground">post your own thread</strong> in
-          <strong class="text-foreground">#guild-base-showcase</strong> and include <strong class="text-foreground">screenshots</strong>.
-          A post with good screenshots attracts far more reactions, which directly raises your score and tier.
+          Scouted guilds start with zero votes. Post your own thread in <strong class="text-foreground">#guild-base-showcase</strong> with screenshots for visibility. It will attract reactions, which directly raise your tier.
         </p>
       </div>
     </section>
@@ -156,13 +132,7 @@ import { CompassIcon } from "@phosphor-icons/react"
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">Voter weight</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
-        To keep rankings fair, votes from community members who engage with many guilds count
-        more. A voter who has reacted to at least 5 different guild threads carries a higher
-        weight than someone who only reacted to one.
-      </p>
-      <p class="text-sm text-muted-foreground leading-relaxed">
-        This prevents anyone from inflating their own score by asking friends to vote
-        only for them.
+        Voters who engage across many guilds carry more weight than someone who only reacted to one — this discourages vote brigading.
       </p>
     </section>
 
