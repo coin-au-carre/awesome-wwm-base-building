@@ -1,5 +1,38 @@
 [
 	{
+		"id": "10000129",
+		"name": "Singapore",
+		"builders": [
+			"Pikachu"
+		],
+		"discordThread": "",
+		"whatToVisit": "It's Wonderland... lot's of fun stuff",
+		"tags": [
+			"Creative",
+			"Fun"
+		],
+		"score": 1,
+		"notes": "contacted wwm"
+	},
+	{
+		"name": "Clouds",
+		"builders": [
+			"Si Ming司命"
+		],
+		"discordThread": "",
+		"whatToVisit": "Forbidden City feeling",
+		"score": 1,
+		"notes": "Contacted Kanoot"
+	},
+	{
+		"name": "AMERTA",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "horse Racing",
+		"score": 0,
+		"notes": "contacted wwm"
+	},
+	{
 		"name": "MacDandChill",
 		"builders": [
 			"boop"
