@@ -3,9 +3,9 @@ import TemplateBuilder from "@/components/TemplateBuilder"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { Users, Layers, Image, LayoutList, ShieldCheck } from "lucide-react"
+import { Users, Layers, Image, LayoutList, ShieldCheck, Code2, Map, Star, Hammer, Eye, Sparkles } from "lucide-react"
 import { url } from "@/lib/url"
+import { cn } from "@/lib/utils"
 
 function ApiPreview({ src }: { src: string }) {
   const [open, setOpen] = useState(false)
@@ -94,149 +94,329 @@ function Step({
   )
 }
 
+type Role = "builder" | "scout" | "voter" | "dev"
+
+const roles: {
+  id: Role
+  icon: React.ReactNode
+  label: string
+  sublabel: string
+  discordRole?: string
+  roleColor: string
+  cardAccent: string
+}[] = [
+  {
+    id: "builder",
+    icon: <Hammer className="size-5" />,
+    label: "I am a builder",
+    sublabel: "Submit your guild or solo base. Write tutorials.",
+    discordRole: "Builder",
+    roleColor: "text-blue-500",
+    cardAccent: "border-blue-500/40 bg-blue-500/5 hover:bg-blue-500/10",
+  },
+  {
+    id: "scout",
+    icon: <Map className="size-5" />,
+    label: "I love scouting guild bases",
+    sublabel: "Discover and share impressive bases",
+    discordRole: "Guild Cartographer",
+    roleColor: "text-amber-500",
+    cardAccent: "border-amber-500/40 bg-amber-500/5 hover:bg-amber-500/10",
+  },
+  {
+    id: "voter",
+    icon: <Star className="size-5" />,
+    label: "I rate and review builds",
+    sublabel: "Vote, leave feedback, and shape the rankings",
+    discordRole: "Trusted Eye",
+    roleColor: "text-violet-500",
+    cardAccent: "border-violet-500/40 bg-violet-500/5 hover:bg-violet-500/10",
+  },
+  {
+    id: "dev",
+    icon: <Code2 className="size-5" />,
+    label: "I am a developer",
+    sublabel: "Contribute to the open source project",
+    discordRole: "Developer",
+    roleColor: "text-slate-500",
+    cardAccent: "border-slate-500/40 bg-slate-500/5 hover:bg-slate-500/10",
+  },
+]
+
+const VALID_ROLES: Role[] = ["builder", "scout", "voter", "dev"]
+
 export default function ContributeTabs() {
-  const p = new URLSearchParams(window.location.search).get("mode")
-  const initialMode: "guild" | "solo" = p === "solo" ? "solo" : "guild"
+  const params = new URLSearchParams(window.location.search)
+  const initialMode: "guild" | "solo" = params.get("mode") === "solo" ? "solo" : "guild"
+  const initialRole: Role = VALID_ROLES.includes(params.get("role") as Role)
+    ? (params.get("role") as Role)
+    : "builder"
+  const [selected, setSelected] = useState<Role>(initialRole)
+
+  const current = roles.find((r) => r.id === selected)!
+
+  function select(id: Role) {
+    setSelected(id)
+    const next = new URLSearchParams(window.location.search)
+    next.set("role", id)
+    history.replaceState(null, "", `?${next.toString()}`)
+    window.umami?.track("contribute_role_select", { role: id })
+  }
+
   return (
-    <Tabs
-      defaultValue="submit"
-      className="space-y-6"
-      onValueChange={(tab) => window.umami?.track("contribute_tab_switch", { tab })}
-    >
-      <TabsList>
-        {[
-          { value: "submit", label: "Builders" },
-          { value: "vote", label: "Construction lovers" },
-          { value: "oss", label: "Developers" },
-        ].map((tab) => (
-          <TabsTrigger key={tab.value} value={tab.value}>
-            {tab.label}
-          </TabsTrigger>
-        ))}
-      </TabsList>
+    <div className="space-y-6">
+      <div className="grid grid-cols-2 gap-3">
+        {roles.map((role) => {
+          const isSelected = selected === role.id
+          return (
+            <button
+              key={role.id}
+              type="button"
+              onClick={() => select(role.id)}
+              className={cn(
+                "group flex flex-col gap-2 rounded-xl border p-4 text-left transition-all focus:outline-none focus:ring-2 focus:ring-primary",
+                isSelected
+                  ? role.cardAccent + " ring-1"
+                  : "border-border bg-card hover:bg-muted/50",
+              )}
+            >
+              <div className={cn("transition-colors", isSelected ? role.roleColor : "text-muted-foreground group-hover:text-foreground")}>
+                {role.icon}
+              </div>
+              <div className="space-y-0.5">
+                <p className={cn("text-sm font-semibold leading-tight", isSelected ? "text-foreground" : "text-foreground/80")}>
+                  {role.label}
+                </p>
+                <p className="text-xs text-muted-foreground leading-snug">{role.sublabel}</p>
+              </div>
+              {role.discordRole && (
+                <Badge
+                  variant="secondary"
+                  className={cn(
+                    "w-fit text-xs transition-colors",
+                    isSelected ? role.roleColor : "text-muted-foreground",
+                  )}
+                >
+                  {role.discordRole}
+                </Badge>
+              )}
+            </button>
+          )
+        })}
+      </div>
 
-      <TabsContent value="submit" className="space-y-6">
-        <ol className="space-y-5">
-          <Step
-            n="1"
-            badgeClass="bg-blue-500 text-white border-0"
-            title="Join the Discord"
-            body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click")}>Join Discord ↗</a></Button></>}
-          />
-          <Step
-            n="2"
-            badgeClass="bg-violet-500 text-white border-0"
-            title="Post your base"
-            body={<>Go to <span className="font-medium text-foreground">#guild-base-showcase</span> (for guild bases) or <span className="font-medium text-foreground">#solo-building-showcase</span> (for solo builds) and click <span className="font-medium text-foreground">New Post</span> at the top. Give it a title (your guild or build name), fill in the first message using the template below, and attach your screenshots. You can also add more screenshots in follow-up messages inside the same thread.</>}
-          />
-        </ol>
+      <div className="space-y-6">
+        {selected === "builder" && (
+          <>
+            <ol className="space-y-5">
+              <Step
+                n="1"
+                badgeClass="bg-blue-500 text-white border-0"
+                title="Join the Discord"
+                body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click")}>Join Discord ↗</a></Button></>}
+              />
+              <Step
+                n="2"
+                badgeClass="bg-violet-500 text-white border-0"
+                title="Post your base"
+                body={<>Go to <span className="font-medium text-foreground">#guild-base-showcase</span> (for guild bases) or <span className="font-medium text-foreground">#solo-building-showcase</span> (for solo builds) and click <span className="font-medium text-foreground">New Post</span> at the top. Give it a title (your guild or build name), fill in the first message using the template below, and attach your screenshots. You can also add more screenshots in follow-up messages inside the same thread.</>}
+              />
+            </ol>
 
-        <div className="space-y-2">
-          <p className="text-sm text-muted-foreground"><strong>First post</strong> template:</p>
-          <TemplateBuilder initialMode={initialMode} />
-          <p className="text-xs text-muted-foreground">
-            Edit your posts at any time. Changes are picked up on the next sync.
-          </p>
-        </div>
+            <div className="space-y-2">
+              <p className="text-sm text-muted-foreground"><strong>First post</strong> template:</p>
+              <TemplateBuilder initialMode={initialMode} />
+              <p className="text-xs text-muted-foreground">
+                Edit your posts at any time. Changes are picked up on the next sync.
+              </p>
+            </div>
 
-        <ol className="space-y-5">
-          <Step
-            n="3"
-            badgeClass="bg-emerald-500 text-white border-0"
-            title="Wait for the next sync"
-            body="The site syncs several times a day. Your guild will appear automatically after the next sync."
-          />
-        </ol>
+            <ol className="space-y-5">
+              <Step
+                n="3"
+                badgeClass="bg-emerald-500 text-white border-0"
+                title="Wait for the next sync"
+                body="The site syncs several times a day. Your guild will appear automatically after the next sync."
+              />
+            </ol>
 
-        <hr className="border-border" />
+            <hr className="border-border" />
 
-        <Card>
-          <CardContent className="divide-y divide-border p-0">
-            {[
-              {
-                icon: <Users className="size-4 text-slate-500 shrink-0 mt-0.5" />,
-                title: "Thread already exists for your guild?",
-                body: "Create a new one and ask a moderator to close the old one.",
-              },
-              {
-                icon: <ShieldCheck className="size-4 text-slate-500 shrink-0 mt-0.5" />,
-                title: "Not comfortable posting?",
-                body: "A moderator can post it for you.",
-              },
-              {
-                icon: <Users className="size-4 text-blue-500 shrink-0 mt-0.5" />,
-                title: "Multiple guilds, one builder?",
-                body: "You can submit in different threads. One guild = one thread.",
-              },
-              {
-                icon: <Layers className="size-4 text-violet-500 shrink-0 mt-0.5" />,
-                title: "One guild, multiple builds?",
-                body: "You can post different styles even if it's the same guild. Same guild = one thread.",
-              },
-              {
-                icon: <Image className="size-4 text-emerald-500 shrink-0 mt-0.5" />,
-                title: "Cover image",
-                body: <>Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post to pin screenshot #N as the cover. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.</>,
-              },
-              {
-                icon: <LayoutList className="size-4 text-amber-500 shrink-0 mt-0.5" />,
-                title: "Screenshot sections",
-                body: <>Organize screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code> (using <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">#</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">##</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">###</code>). Post the label before or after the images it describes.</>,
-              }
-            ].map(({ icon, title, body }) => (
-              <div key={title} className="flex gap-3 px-4 py-3">
-                {icon}
-                <div className="space-y-0.5">
-                  <p className="text-sm font-medium text-foreground">{title}</p>
-                  <p className="text-sm text-muted-foreground">{body}</p>
+            <Card>
+              <CardContent className="divide-y divide-border p-0">
+                {[
+                  {
+                    icon: <Users className="size-4 text-slate-500 shrink-0 mt-0.5" />,
+                    title: "Thread already exists for your guild?",
+                    body: "Create a new one and ask a moderator to close the old one.",
+                  },
+                  {
+                    icon: <ShieldCheck className="size-4 text-slate-500 shrink-0 mt-0.5" />,
+                    title: "Not comfortable posting?",
+                    body: "A moderator can post it for you.",
+                  },
+                  {
+                    icon: <Users className="size-4 text-blue-500 shrink-0 mt-0.5" />,
+                    title: "Multiple guilds, one builder?",
+                    body: "You can submit in different threads. One guild = one thread.",
+                  },
+                  {
+                    icon: <Layers className="size-4 text-violet-500 shrink-0 mt-0.5" />,
+                    title: "One guild, multiple builds?",
+                    body: "You can post different styles even if it's the same guild. Same guild = one thread.",
+                  },
+                  {
+                    icon: <Image className="size-4 text-emerald-500 shrink-0 mt-0.5" />,
+                    title: "Cover image",
+                    body: <>Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post to pin screenshot #N as the cover. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.</>,
+                  },
+                  {
+                    icon: <LayoutList className="size-4 text-amber-500 shrink-0 mt-0.5" />,
+                    title: "Screenshot sections",
+                    body: <>Organize screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code> (using <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">#</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">##</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">###</code>). Post the label before or after the images it describes.</>,
+                  }
+                ].map(({ icon, title, body }) => (
+                  <div key={title} className="flex gap-3 px-4 py-3">
+                    {icon}
+                    <div className="space-y-0.5">
+                      <p className="text-sm font-medium text-foreground">{title}</p>
+                      <p className="text-sm text-muted-foreground">{body}</p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">Write a tutorial</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Know a building trick worth sharing? Write a guide and we'll publish it on the{" "}
+                <a href={url("/tutorials")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">
+                  tutorials page
+                </a>.
+              </p>
+            </div>
+          </>
+        )}
+
+        {selected === "scout" && (
+          <>
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">Spot an impressive guild base?</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Found a base that isn't on the showcase yet? Post it in{" "}
+                <span className="font-medium text-foreground">#guild-discoveries</span> to flag it for the community. If you can reach the builder, encourage them to submit it themselves in{" "}
+                <span className="font-medium text-foreground">#guild-base-showcase</span>.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">Use the /scout-guild command</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                In <span className="font-medium text-foreground">#guild-discoveries</span>, type{" "}
+                <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/scout-guild</code> to open a structured form. Fill in the guild name, a screenshot, and any notes. The bot will post a formatted discovery card for the community to see.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">Earn the Guild Cartographer role</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Moderators grant the <span className="font-medium text-foreground">Guild Cartographer</span> role to members who consistently contribute to mapping and documenting guild bases across the community.
+              </p>
+            </div>
+          </>
+        )}
+
+        {selected === "voter" && (
+          <>
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">React to builds</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                React to threads in the forum to vote for the builds you love. Use ⭐ for 2 points, or 👍 🔥 for 1 point each. Votes shape the rankings on the showcase and help the best bases rise to the top.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">Leave feedback</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Reply inside a thread with genuine feedback on what works well, what could be improved, or what inspired you. Builders appreciate detailed feedback far more than just a reaction.
+              </p>
+            </div>
+
+            <hr className="border-border" />
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <Eye className="size-4 text-violet-500 shrink-0" />
+                <p className="text-sm font-semibold text-foreground">Trusted Eye</p>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to community members recognized for their expertise and quality feedback. It is not automatic. Trusted Eyes carry more weight in voting — the following rules apply to them specifically to keep rankings fair and unbiased.
+              </p>
+
+              <Card>
+                <CardContent className="divide-y divide-border p-0">
+                  <div className="px-4 py-3 space-y-2">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Reactions</p>
+                    {[
+                      { emoji: "⭐", body: "Reserve for builds you consider truly the best. Use sparingly." },
+                      { emoji: "👍 🔥 ❤️", body: "Any positive reaction. Use whichever fits your impression." },
+                    ].map(({ emoji, body }) => (
+                      <div key={emoji} className="flex gap-2 items-start">
+                        <span className="text-sm shrink-0">{emoji}</span>
+                        <p className="text-xs text-muted-foreground leading-snug">{body}</p>
+                      </div>
+                    ))}
+                  </div>
+                  {[
+                    { body: "Voting on your own guild counts as a normal reaction and does not apply your Trusted Eye bonus." },
+                    { body: "Only react if you've actually looked at the screenshots and visited the guild base. No support votes." },
+                    { body: "Avoid coordinating votes with other Trusted Eyes on specific builds." },
+                    { body: "Prioritize guilds with no recognition yet. The goal is to surface hidden gems, not just reward popular builders." },
+                  ].map(({ body }) => (
+                    <div key={body} className="flex gap-3 px-4 py-3">
+                      <ShieldCheck className="size-4 text-violet-400 shrink-0 mt-0.5" />
+                      <p className="text-sm text-muted-foreground">{body}</p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-1.5">
+                  <Sparkles className="size-3.5 text-violet-500 shrink-0" />
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide">What to look for</p>
+                </div>
+                <div className="grid grid-cols-1 gap-1">
+                  {[
+                    ["First impression", "Does it immediately feel impressive or cohesive?"],
+                    ["Creativity", "Unexpected themes, layouts, or storytelling through builds."],
+                    ["Technique", "Clever use of layering, furniture tricks, or item combinations."],
+                    ["Consistency", "Does the style hold up throughout the base, not just in one spot?"],
+                    ["Atmosphere", "Lighting, color palette, and spatial flow."],
+                    ["Attention to detail", "Small touches that reward a closer look."],
+                    ["Theme execution", "How well does the build commit to and deliver on its concept?"],
+                  ].map(([label, desc]) => (
+                    <div key={label} className="flex gap-2 py-1">
+                      <p className="text-xs font-medium text-foreground w-36 shrink-0">{label}</p>
+                      <p className="text-xs text-muted-foreground leading-snug">{desc}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </CardContent>
-        </Card>
-      </TabsContent>
+            </div>
+          </>
+        )}
 
-      <TabsContent value="vote" className="space-y-6">
-        <div className="space-y-1.5">
-          <p className="text-sm font-medium text-foreground">Submit a guild you discovered</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Found an impressive guild that isn't on the showcase yet? Post it in{" "}
-            <span className="font-medium text-foreground">#guild-discoveries</span> or even {" "}
-            <span className="font-medium text-foreground">#guild-base-showcase</span>! 
-          </p>
-        </div>
-        <div className="space-y-1.5">
-          <p className="text-sm font-medium text-foreground">React to builds</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            React to threads in the forum to vote for the builds you love. Use ⭐ for 2 points, or 👍 🔥 for 1 point each. Votes shape the rankings on the showcase and help the best bases rise to the top. Vote on enough threads and you'll earn the <span className="font-medium text-foreground">Critic</span> role.
-          </p>
-        </div>
-        <div className="space-y-1.5">
-          <p className="text-sm font-medium text-foreground">Write a tutorial</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Know a building trick worth sharing? Write a guide and we'll publish it on the{" "}
-            <a href={url("/tutorials")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">
-              tutorials page
-            </a>.
-          </p>
-        </div>
-        <div className="space-y-1.5">
-          <p className="text-sm font-medium text-foreground">Just hang out</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            Discuss, share screenshots, and talk about awesome buildings with the community.
-          </p>
-        </div>
-      </TabsContent>
-
-      <TabsContent value="oss" className="space-y-6">
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          The project is open source. Contributions are welcome, chat with us, open an issue or a pull request.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Ping us on Discord if you want to integrate any work here, we'll be glad to help. You can use it whenever you want as long as you credit the website/community.
-        </p>
-        <ApiPreview src={url("/images/wwmchill_api.png")} />
-      </TabsContent>
-    </Tabs>
+        {selected === "dev" && (
+          <>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The project is open source. Contributions are welcome — chat with us, open an issue, or submit a pull request.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Ping us on Discord if you want to integrate any work here, we'll be glad to help. You can use the data freely as long as you credit the website and community.
+            </p>
+            <ApiPreview src={url("/images/wwmchill_api.png")} />
+          </>
+        )}
+      </div>
+    </div>
   )
 }
