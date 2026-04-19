@@ -43,5 +43,17 @@
     "subscriberCount": 5,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
+  },
+  {
+    "id": "1495302902074310656",
+    "name": "Dress to Impress",
+    "description": "Dress to Impress\nOutfits speak louder than words.. what's your vibe?\nAnyone is welcome to join, limited spaces - Guild members get priority\nBattlepass prizes up for grabs for 3 winners\n\nWe'll be talking in voice chat, dm me if you'd an invite link",
+    "scheduledStart": "2026-04-25T10:30:00Z",
+    "scheduledEnd": "2026-04-25T12:00:00Z",
+    "location": "PleasureSeekers (10057013)",
+    "status": "scheduled",
+    "subscriberCount": 1,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
+    "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
   }
 ]
