@@ -342,40 +342,36 @@ export default function ContributeTabs() {
 
             <div className="space-y-3">
               <div className="flex items-center gap-2">
+                <Star className="size-4 text-amber-500 shrink-0" />
+                <p className="text-sm font-semibold text-foreground">Critic</p>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                The <span className="font-medium text-foreground">Critic</span> role is awarded automatically by the bot to active voters who engage broadly across many guilds. Keep voting consistently and it will come.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
                 <Eye className="size-4 text-violet-500 shrink-0" />
                 <p className="text-sm font-semibold text-foreground">Trusted Eye</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to community members recognized for their expertise and quality feedback. It is not automatic. Trusted Eyes carry more weight in voting. They aim to follow those specific points specifically to keep rankings fair and unbiased.
+                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. Not automatic — it carries more voting weight and comes with a few guidelines to keep rankings fair.
               </p>
 
-              <Card>
-                <CardContent className="divide-y divide-border p-0">
-                  <div className="px-4 py-3 space-y-2">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">Reactions</p>
-                    {[
-                      { emoji: "⭐", body: "Reserve for builds you consider truly the best. Use sparingly." },
-                      { emoji: "👍 🔥 ❤️", body: "Any positive reaction. Use whichever fits your impression." },
-                    ].map(({ emoji, body }) => (
-                      <div key={emoji} className="flex gap-2 items-start">
-                        <span className="text-sm shrink-0">{emoji}</span>
-                        <p className="text-xs text-muted-foreground leading-snug">{body}</p>
-                      </div>
-                    ))}
+              <div className="rounded-xl ring-1 ring-border overflow-hidden divide-y divide-border">
+                {[
+                  { body: "Voting on your own guild counts as a normal reaction and does not apply your Trusted Eye bonus." },
+                  { body: "Only react if you've actually looked at the screenshots and visited the guild base. No support votes." },
+                  { body: "Avoid coordinating votes with other Trusted Eyes on specific builds." },
+                  { body: "Prioritize guilds with no recognition yet. The goal is to surface hidden gems, not just reward popular builders." },
+                ].map(({ body }) => (
+                  <div key={body} className="flex gap-3 px-4 py-2">
+                    <ShieldCheck className="size-4 text-violet-400 shrink-0 mt-0.5" />
+                    <p className="text-sm text-muted-foreground">{body}</p>
                   </div>
-                  {[
-                    { body: "Voting on your own guild counts as a normal reaction and does not apply your Trusted Eye bonus." },
-                    { body: "Only react if you've actually looked at the screenshots and visited the guild base. No support votes." },
-                    { body: "Avoid coordinating votes with other Trusted Eyes on specific builds." },
-                    { body: "Prioritize guilds with no recognition yet. The goal is to surface hidden gems, not just reward popular builders." },
-                  ].map(({ body }) => (
-                    <div key={body} className="flex gap-3 px-4 py-3">
-                      <ShieldCheck className="size-4 text-violet-400 shrink-0 mt-0.5" />
-                      <p className="text-sm text-muted-foreground">{body}</p>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
+                ))}
+              </div>
 
               <div className="space-y-1.5">
                 <div className="flex items-center gap-1.5">
