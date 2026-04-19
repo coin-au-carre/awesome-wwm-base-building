@@ -54,12 +54,12 @@ func main() {
 
 	discordGuildID := os.Getenv("DISCORD_GUILD_ID")
 
-	bot.Session.AddHandler(onReady(bot, discordGuildID))
-	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
-	bot.Session.AddHandler(onThreadCreate(bot, guildForumID, soloForumID))
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
-	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID))
+	bot.Session.AddHandler(onReady(bot, discordGuildID, discoveriesChannelID))
+	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
+	bot.Session.AddHandler(onThreadCreate(bot, guildForumID, soloForumID))
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -74,11 +74,41 @@ func main() {
 	slog.Info("shutting down")
 }
 
-func onReady(bot *discord.Bot, discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
+func onReady(bot *discord.Bot, discordGuildID, discoveriesChannelID string) func(*discordgo.Session, *discordgo.Ready) {
 	return func(s *discordgo.Session, r *discordgo.Ready) {
 		slog.Info("bot connected", "user", r.User.Username)
 		discord.RegisterSubmitCommand(s, discordGuildID)
+		logRegisteredCommands(s, discordGuildID)
+		logChannelPermissions(s, r.User.ID, discoveriesChannelID)
 	}
+}
+
+func logRegisteredCommands(s *discordgo.Session, discordGuildID string) {
+	cmds, err := s.ApplicationCommands(s.State.User.ID, discordGuildID)
+	if err != nil {
+		slog.Warn("could not list registered commands", "err", err)
+		return
+	}
+	names := make([]string, 0, len(cmds))
+	for _, c := range cmds {
+		names = append(names, "/"+c.Name)
+	}
+	slog.Info("registered commands", "commands", names)
+}
+
+func logChannelPermissions(s *discordgo.Session, botUserID, channelID string) {
+	if channelID == "" {
+		slog.Warn("channel permission check skipped: channel ID not set")
+		return
+	}
+	perms, err := s.UserChannelPermissions(botUserID, channelID)
+	if err != nil {
+		slog.Warn("could not check channel permissions", "channel", channelID, "err", err)
+		return
+	}
+	canView := perms&discordgo.PermissionViewChannel != 0
+	canSend := perms&discordgo.PermissionSendMessages != 0
+	slog.Info("channel permissions", "channel", channelID, "view", canView, "send", canSend)
 }
 
 var reMention = regexp.MustCompile(`<@!?\d+>`)
