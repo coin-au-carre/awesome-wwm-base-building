@@ -86,7 +86,7 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
 					discordgo.TextInput{
 						CustomID:    "name",
-						Label:       "Guild Name  —  ID optional",
+						Label:       "Guild Name [GuildID(optional)]",
 						Style:       discordgo.TextInputShort,
 						Required:    true,
 						Placeholder: "Iron Vanguard [12345678]",
@@ -261,20 +261,10 @@ func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
 					discordgo.TextInput{
 						CustomID:    "name",
-						Label:       "Guild Name",
+						Label:       "Guild Name [GuildID(optional)]",
 						Style:       discordgo.TextInputShort,
 						Required:    true,
-						Placeholder: "Iron Vanguard",
-					},
-				}},
-				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
-					discordgo.TextInput{
-						CustomID:    "guild_id",
-						Label:       "Guild ID — optional (8-digit number in-game)",
-						Style:       discordgo.TextInputShort,
-						Required:    false,
-						Placeholder: "12345678  (Menu → Guild → Info)",
-						MaxLength:   20,
+						Placeholder: "Iron Vanguard [12345678]",
 					},
 				}},
 				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
@@ -314,23 +304,10 @@ func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 
 func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, submissionChannelID, guildForumChannelID string) {
 	fields := modalFields(i.ModalSubmitData().Components)
-	name := fields["name"]
-	guildID := strings.TrimSpace(fields["guild_id"])
+	name, guildID := parseLocation(fields["name"])
 	builders := fields["builders"]
 	lore := fields["lore"]
 	whatToVisit := fields["what_to_visit"]
-
-	if guildForumChannelID == "" {
-		slog.Error("submit-base: GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID not set")
-		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-			Type: discordgo.InteractionResponseChannelMessageWithSource,
-			Data: &discordgo.InteractionResponseData{
-				Content: "Forum channel not configured. Please contact a moderator.",
-				Flags:   discordgo.MessageFlagsEphemeral,
-			},
-		})
-		return
-	}
 
 	// Build thread title: "GuildName [ID]" or just "GuildName"
 	threadTitle := name
@@ -338,7 +315,7 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 		threadTitle = fmt.Sprintf("%s [%s]", name, guildID)
 	}
 
-	// Build first post matching the website template format
+	// Build the content template for the user to copy-paste as their own post
 	var content strings.Builder
 	content.WriteString(fmt.Sprintf("## 🏯 %s\n\n", threadTitle))
 	if builders != "" {
@@ -351,43 +328,45 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 		content.WriteString(fmt.Sprintf("### 🧙 What to visit\n%s", whatToVisit))
 	}
 
-	thread, err := s.ForumThreadStartComplex(guildForumChannelID, &discordgo.ThreadStart{
-		Name:                threadTitle,
-		AutoArchiveDuration: 10080, // 7 days
-	}, &discordgo.MessageSend{
-		Content: strings.TrimSpace(content.String()),
-	})
-	if err != nil {
-		slog.Error("creating forum thread", "name", name, "err", err)
-		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-			Type: discordgo.InteractionResponseChannelMessageWithSource,
-			Data: &discordgo.InteractionResponseData{
-				Content: "Something went wrong creating your thread. Please try again or post manually.",
-				Flags:   discordgo.MessageFlagsEphemeral,
-			},
-		})
-		return
+	slog.Info("submit-guild form received", "user", i.Member.User.Username, "name", name)
+
+	guildURL := websiteBase + "/guilds/" + slugify(name)
+	channelMention := "<#" + guildForumChannelID + ">"
+	if guildForumChannelID == "" {
+		channelMention = "**#guild-base-showcase**"
 	}
 
-	_, _ = s.ChannelMessageSend(thread.ID, "📸 Drop your screenshots here! The more the better 👇")
-
-	slog.Info("submit-base thread created", "user", i.Member.User.Username, "name", name, "thread", thread.ID)
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: fmt.Sprintf("Check your DMs — I sent you your formatted post to copy into %s! 📬", channelMention),
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
 
 	if submissionChannelID != "" {
 		submitter := i.Member.User.Username
 		if i.Member.Nick != "" {
 			submitter = i.Member.Nick
 		}
-		bot.Send(submissionChannelID, fmt.Sprintf("**New guild submission** by %s: <#%s>", submitter, thread.ID))
+		bot.Send(submissionChannelID, fmt.Sprintf("**/submit-guild filled ** by %s: **%s**", submitter, threadTitle))
 	}
 
-	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-		Type: discordgo.InteractionResponseChannelMessageWithSource,
-		Data: &discordgo.InteractionResponseData{
-			Content: fmt.Sprintf("Your thread for **%s** has been created! Go drop your screenshots in <#%s> 📸", name, thread.ID),
-			Flags:   discordgo.MessageFlagsEphemeral,
-		},
-	})
+	if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
+		dm := fmt.Sprintf(
+			"## 🏯 %s\n\n"+
+				"Here's your formatted post, ready to copy!\n\n"+
+				"**1.** Go to %s\n"+
+				"**2.** Create a new post titled: `%s`\n"+
+				"**3.** Paste the text below as your message\n"+
+				"**4.** Add your screenshots 📸\n\n"+
+				"```\n%s\n```\n\n"+
+				"🌐 **Future page on the website:** <%s>\n"+
+				"*(may take a little while to appear once everything syncs)*",
+			name, channelMention, threadTitle, strings.TrimSpace(content.String()), guildURL,
+		)
+		_, _ = s.ChannelMessageSend(ch.ID, dm)
+	}
 }
 
 func filterTags(tags []string) []string {

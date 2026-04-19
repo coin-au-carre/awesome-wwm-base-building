@@ -141,6 +141,16 @@ import { CompassIcon } from "@phosphor-icons/react"
           </TableBody>
         </Table>
       </div>
+
+      <div class="rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 px-4 py-3 space-y-1.5">
+        <p class="text-sm font-medium text-sky-700 dark:text-sky-300">Why does my guild have a low score?</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Guilds added by scouts before the builder posts their own thread start with zero votes and no visibility.
+          The best way to climb: <strong class="text-foreground">post your own thread</strong> in
+          <strong class="text-foreground">#guild-base-showcase</strong> and include <strong class="text-foreground">screenshots</strong>.
+          A post with good screenshots attracts far more reactions, which directly raises your score and tier.
+        </p>
+      </div>
     </section>
 
     <section class="space-y-4">
@@ -159,13 +169,21 @@ import { CompassIcon } from "@phosphor-icons/react"
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">Discord roles</h2>
       <ul class="space-y-2 text-sm">
-        <li class="flex items-center gap-2">
-          <span class="text-base">🏗️</span>
-          <span><strong>Builder</strong>: awarded to users who post their guild base in the channel #guild-base-showcase</span>
+        <li class="flex items-start gap-2">
+          <span class="text-base mt-0.5">🏗️</span>
+          <span><a href={`${BASE}/contribute?role=builder`} class="font-bold underline underline-offset-2 hover:text-foreground transition-colors">Builder</a>: awarded to users who post their own guild or solo base in the showcase channels</span>
         </li>
-        <li class="flex items-center gap-2">
-          <span class="text-base">🗳️</span>
-          <span><strong>Critic</strong>: awarded to active community voters who engage across many guilds</span>
+        <li class="flex items-start gap-2">
+          <span class="text-base mt-0.5">🗺️</span>
+          <span><a href={`${BASE}/contribute?role=scout`} class="font-bold underline underline-offset-2 hover:text-foreground transition-colors">Guild Cartographer</a>: granted to members who consistently scout and document guild bases across the community</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-base mt-0.5">🗳️</span>
+          <span><a href={`${BASE}/contribute?role=voter`} class="font-bold underline underline-offset-2 hover:text-foreground transition-colors">Critic</a>: awarded to active community voters who engage across many guilds</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-base mt-0.5">👁️</span>
+          <span><a href={`${BASE}/contribute?role=voter`} class="font-bold underline underline-offset-2 hover:text-foreground transition-colors">Trusted Eye</a>: granted by moderators to members recognized for their expertise and quality feedback — Trusted Eyes carry more voting weight</span>
         </li>
       </ul>
     </section>
