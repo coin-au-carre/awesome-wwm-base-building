@@ -69,7 +69,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case submitModalID:
 				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID)
 			case postModalID:
-				handlePostModal(s, i, guildForumChannelID)
+				handlePostModal(s, i, bot, submissionChannelID, guildForumChannelID)
 			}
 		}
 	}
@@ -312,7 +312,7 @@ func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	}
 }
 
-func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, guildForumChannelID string) {
+func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, submissionChannelID, guildForumChannelID string) {
 	fields := modalFields(i.ModalSubmitData().Components)
 	name := fields["name"]
 	guildID := strings.TrimSpace(fields["guild_id"])
@@ -372,6 +372,14 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, guild
 	_, _ = s.ChannelMessageSend(thread.ID, "📸 Drop your screenshots here! The more the better 👇")
 
 	slog.Info("submit-base thread created", "user", i.Member.User.Username, "name", name, "thread", thread.ID)
+
+	if submissionChannelID != "" {
+		submitter := i.Member.User.Username
+		if i.Member.Nick != "" {
+			submitter = i.Member.Nick
+		}
+		bot.Send(submissionChannelID, fmt.Sprintf("**New guild submission** by %s: <#%s>", submitter, thread.ID))
+	}
 
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
