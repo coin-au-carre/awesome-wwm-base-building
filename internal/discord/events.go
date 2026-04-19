@@ -2,10 +2,16 @@ package discord
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 	"time"
 
 	"github.com/bwmarrin/discordgo"
+)
+
+var (
+	reLocBracket = regexp.MustCompile(`^(.*?)\s*[\[(](\d+)[\])]?\s*$`)
+	reLocSpaceID = regexp.MustCompile(`^(.*?)\s+(\d+)\s*$`)
 )
 
 // EventStatus mirrors Discord scheduled event status values.
@@ -177,6 +183,25 @@ func extractMetaBlock(lines []string, fromTop bool) (parsedDesc, []string, bool)
 	return pd, body, true
 }
 
+// parseLocation tries to extract a guild name and optional numeric ID from the
+// event location string. Supported formats:
+//
+//	"Guild Name [12345678]" or "Guild Name (12345678)" — bracket/paren
+//	"Guild Name 12345678"                              — space-separated
+func parseLocation(loc string) (guildName, guildID string) {
+	loc = strings.TrimSpace(loc)
+	if loc == "" {
+		return
+	}
+	if m := reLocBracket.FindStringSubmatch(loc); len(m) == 3 {
+		return strings.TrimSpace(m[1]), m[2]
+	}
+	if m := reLocSpaceID.FindStringSubmatch(loc); len(m) == 3 {
+		return strings.TrimSpace(m[1]), m[2]
+	}
+	return loc, ""
+}
+
 func discordStatus(s discordgo.GuildScheduledEventStatus) EventStatus {
 	switch s {
 	case discordgo.GuildScheduledEventStatusActive:
@@ -208,6 +233,14 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 		}
 
 		parsed := parseDescription(e.Description)
+
+		if parsed.guildName == "" && location != "" {
+			locName, locID := parseLocation(location)
+			parsed.guildName = locName
+			if parsed.guildID == "" {
+				parsed.guildID = locID
+			}
+		}
 
 		var imageURL string
 		if e.Image != "" {

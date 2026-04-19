@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { Badge } from "@/components/ui/badge"
-import { CalendarIcon, MapPinIcon, UsersIcon, ArrowSquareOutIcon, FlaskIcon, CastleTurretIcon } from "@phosphor-icons/react"
+import { CalendarIcon, MapPinIcon, UsersIcon, ArrowSquareOutIcon, CastleTurretIcon } from "@phosphor-icons/react"
 import { getUpcomingEvents, EVENT_TYPE_LABELS, EVENT_TYPE_EMOJI } from "@/lib/events"
 import type { EventType } from "@/lib/events"
 import { BASE } from "@/lib/url"
@@ -60,9 +60,6 @@ const TYPE_COLORS: Record<EventType, string> = {
           <CalendarIcon weight="duotone" className="size-6 text-primary" /> Events
         </h1>
         <Badge variant="secondary">{events.length} upcoming</Badge>
-        <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5 text-xs">
-          <FlaskIcon weight="fill" className="size-3 text-yellow-500" /> Alpha
-        </Badge>
       </div>
       <p class="text-muted-foreground text-sm">
         Public events organized by WWM players. RSVP on{" "}
@@ -77,22 +74,14 @@ const TYPE_COLORS: Record<EventType, string> = {
           <span class="font-medium text-foreground">Want to post an event?</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-muted-foreground transition-transform group-open:rotate-180"><polyline points="6 9 12 15 18 9"/></svg>
         </summary>
-        <div class="px-4 pb-3 space-y-2">
-          <p class="text-muted-foreground">Requires the <span class="font-medium text-foreground">Builder</span> or <span class="font-medium text-foreground">Critic</span> role in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_events_cta_click">our Discord ↗</a>. Click <span class="font-medium text-foreground">Events → Create Event</span> and paste this at the end of the description</p>
-          <div class="relative group/copy">
-            <pre id="event-template" class="overflow-x-auto rounded-md bg-muted px-3 py-2 text-xs font-mono text-foreground leading-relaxed">[Describe your event (free form)]
-              
-Guild: Jenova
-Guild ID: 10244476 (optional)
-Type: tour/race/marriage/dancing/fashion/contest/other)</pre>
-            <button
-              id="copy-template"
-              aria-label="Copy template"
-              class="absolute top-2 right-2 rounded-md p-1.5 text-muted-foreground hover:text-foreground hover:bg-background/60 transition-colors opacity-0 group-hover/copy:opacity-100 focus:opacity-100"
-            >
-              <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-              <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-green-500"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
+        <div class="px-4 pb-3 space-y-3">
+          <p class="text-muted-foreground">Requires the <span class="font-medium text-foreground">Builder</span> or <span class="font-medium text-foreground">Critic</span> role in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_events_cta_click">our Discord ↗</a>. Create a Scheduled Event — the description is yours to write. To tag it, end with <code class="font-mono text-xs bg-muted rounded px-1 py-0.5">Type: tour</code> (or any below):</p>
+          <div class="flex flex-wrap gap-2">
+            {(Object.keys(TYPE_COLORS) as EventType[]).map((type) => (
+              <span class={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${TYPE_COLORS[type]}`}>
+                {EVENT_TYPE_EMOJI[type]} {EVENT_TYPE_LABELS[type]}
+              </span>
+            ))}
           </div>
           <p class="text-muted-foreground text-xs">It will appear on this page automatically.</p>
         </div>
@@ -201,24 +190,3 @@ Type: tour/race/marriage/dancing/fashion/contest/other)</pre>
     }
   </div>
 </Layout>
-
-<script is:inline>
-  const btn = document.getElementById("copy-template")
-  const pre = document.getElementById("event-template")
-  const copyIcon = document.getElementById("copy-icon")
-  const checkIcon = document.getElementById("check-icon")
-  if (btn && pre) {
-    btn.addEventListener("click", () => {
-      navigator.clipboard.writeText(pre.textContent ?? "").then(() => {
-        copyIcon.classList.add("hidden")
-        checkIcon.classList.remove("hidden")
-        checkIcon.classList.add("text-green-500")
-        setTimeout(() => {
-          copyIcon.classList.remove("hidden")
-          checkIcon.classList.add("hidden")
-        }, 2000)
-      })
-    })
-  }
-
-</script>
