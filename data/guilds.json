@@ -1,5 +1,17 @@
 [
 	{
+		"name": "Centerra",
+		"builders": ["EvieWTF"],
+		"tags": [
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "- Snowy landscape\n- Nice floating construction",
+		"score": 0,
+		"note": "Builders proposed to WBM.",
+		"lastModified": "April 20, 2026 at 09:39 AM UTC"
+	},
+	{
 		"name": "RONIN-EMPIRE",
 		"builders": [
 			"Z-RONIN"
