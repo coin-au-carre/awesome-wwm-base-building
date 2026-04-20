@@ -7,14 +7,15 @@ import (
 
 func TestParseFirstPost(t *testing.T) {
 	tests := []struct {
-		name         string
-		content      string
-		wantID       string
-		wantGuild    string
-		wantBuilders []string
-		wantLore     string
-		wantVisit    string
-		wantCover    int
+		name            string
+		content         string
+		wantID          string
+		wantGuild       string
+		wantBuilders    []string
+		wantLore        string
+		wantVisit       string
+		wantCover       int
+		wantOnBehalf    string
 	}{
 		{
 			name: "standard colon format",
@@ -103,11 +104,37 @@ Cover: 3`,
 			content:      "👷 **Builders:** Lanyueliang",
 			wantBuilders: []string{"Lanyueliang"},
 		},
+		{
+			name: "on behalf with @mention",
+			content: `🏯 墨雨樓 [10029273]
+👷 Builders: AcElDiaMon
+
+Posted on behalf of @AcElDiaMon who kindly asked us`,
+			wantID:       "10029273",
+			wantGuild:    "墨雨樓",
+			wantBuilders: []string{"AcElDiaMon"},
+			wantOnBehalf: "AcElDiaMon",
+		},
+		{
+			name: "on behalf no bracket ID",
+			content: `🏯 AfterFlame
+Posting on behalf of @FoxiKate who kindly allowed us.
+
+👷 Builders: FoxiKate`,
+			wantBuilders: []string{"FoxiKate"},
+			wantOnBehalf: "FoxiKate",
+		},
+		{
+			name:         "on behalf present but no @username",
+			content:      "👷 Builders: X\n\nPosted on behalf of the community.",
+			wantBuilders: []string{"X"},
+			wantOnBehalf: "unknown",
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			id, guild, builders, lore, visit, cover := ParseFirstPost(tt.content)
+			id, guild, builders, lore, visit, cover, onBehalf := ParseFirstPost(tt.content)
 			if id != tt.wantID {
 				t.Errorf("id: got %q, want %q", id, tt.wantID)
 			}
@@ -125,6 +152,9 @@ Cover: 3`,
 			}
 			if cover != tt.wantCover {
 				t.Errorf("coverIdx: got %d, want %d", cover, tt.wantCover)
+			}
+			if onBehalf != tt.wantOnBehalf {
+				t.Errorf("postedOnBehalfOf: got %q, want %q", onBehalf, tt.wantOnBehalf)
 			}
 		})
 	}

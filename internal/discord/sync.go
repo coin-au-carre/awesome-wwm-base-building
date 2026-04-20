@@ -47,6 +47,7 @@ type threadData struct {
 	Lore               string
 	WhatToVisit        string
 	CoverIdx           int // 1-based; 0 = not set
+	PostedOnBehalfOf   string
 }
 
 type fetchedThread struct {
@@ -287,6 +288,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		}
 		g.Lore = data.Lore
 		g.WhatToVisit = data.WhatToVisit
+		g.PostedOnBehalfOf = data.PostedOnBehalfOf
 		if data.AuthorID != "" {
 			g.BuilderDiscordID = data.AuthorID
 		}
@@ -339,7 +341,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 		return threadData{}
 	}
 
-	id, guildName, builders, lore, whatToVisit, coverIdx := guild.ParseFirstPost(msgs[0].Content)
+	id, guildName, builders, lore, whatToVisit, coverIdx, postedOnBehalfOf := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
 
 	allowedIDs := map[string]bool{authorID: true}
@@ -359,6 +361,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 		Lore:               lore,
 		WhatToVisit:        whatToVisit,
 		CoverIdx:           coverIdx,
+		PostedOnBehalfOf:   postedOnBehalfOf,
 	}
 }
 

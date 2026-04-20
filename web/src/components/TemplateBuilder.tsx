@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
@@ -71,8 +70,7 @@ function Field({
 const textareaClass =
   "w-full rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-ring/50 focus:border-ring transition-colors resize-none"
 
-export default function TemplateBuilder({ initialMode = "guild" }: { initialMode?: Mode }) {
-  const [mode, setMode] = useState<Mode>(initialMode)
+export default function TemplateBuilder({ mode, onModeChange }: { mode: Mode; onModeChange: (m: Mode) => void }) {
   const [fields, setFields] = useState({
     primaryName: "",
     primaryId: "",
@@ -91,7 +89,7 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
   }
 
   function switchMode(next: Mode) {
-    setMode(next)
+    onModeChange(next)
     setFields({ primaryName: "", primaryId: "", builders: "", lore: "", whatToVisit: "" })
   }
 
@@ -103,12 +101,7 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
   }
 
   return (
-    <Tabs value={mode} onValueChange={(v) => switchMode(v as Mode)} className="space-y-6">
-      <TabsList>
-        <TabsTrigger value="guild">Guild builder</TabsTrigger>
-        <TabsTrigger value="solo">Solo builder</TabsTrigger>
-      </TabsList>
-
+    <div className="space-y-6">
       <Card>
         <CardContent className="space-y-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Fill in your details</p>
@@ -169,6 +162,6 @@ export default function TemplateBuilder({ initialMode = "guild" }: { initialMode
         </p>
       </div>
 
-    </Tabs>
+    </div>
   )
 }
