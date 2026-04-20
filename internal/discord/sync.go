@@ -53,10 +53,11 @@ type threadData struct {
 }
 
 type fetchedThread struct {
-	idx       int
-	thread    *discordgo.Channel
-	data      threadData
-	reactions map[string][]string
+	idx               int
+	thread            *discordgo.Channel
+	data              threadData
+	reactions         map[string][]string // emoji → []userID (for scoring)
+	resolvedReactions map[string][]string // emoji → []nickname (for storage)
 }
 
 // SyncFetchResult holds all raw data from SyncFetch, ready for SyncFinalize.
@@ -216,6 +217,24 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		voterCounts[uid] = len(threadSet)
 	}
 
+	// Resolve all unique voter IDs to server nicknames in parallel.
+	nicknameCache := resolveNicknames(b.Session, guildID(fetched), userThreads)
+	for i, ft := range fetched {
+		resolved := make(map[string][]string, len(ft.reactions))
+		for emoji, users := range ft.reactions {
+			names := make([]string, 0, len(users))
+			for _, uid := range users {
+				if name, ok := nicknameCache[uid]; ok {
+					names = append(names, name)
+				} else {
+					names = append(names, uid)
+				}
+			}
+			resolved[emoji] = names
+		}
+		fetched[i].resolvedReactions = resolved
+	}
+
 	return SyncFetchResult{
 		Guilds:      guilds,
 		VoterCounts: voterCounts,
@@ -274,6 +293,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		g.Tags = tags
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
 		g.Score = data.Score
+		g.Reactions = r.resolvedReactions
 		g.Screenshots = data.Screenshots
 		var labeledSections []guild.ScreenshotSection
 		for _, s := range data.ScreenshotSections {
@@ -519,6 +539,50 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 	}
 	sections = filtered
 	return
+}
+
+func guildID(fetched []fetchedThread) string {
+	for _, ft := range fetched {
+		if ft.thread != nil {
+			return ft.thread.GuildID
+		}
+	}
+	return ""
+}
+
+// resolveNicknames builds a userID→nickname map for all voters using bulk
+// GuildMembers pages (1 API call per 1000 members) instead of per-user lookups.
+func resolveNicknames(s *discordgo.Session, discordGuildID string, userThreads map[string]map[string]bool) map[string]string {
+	cache := make(map[string]string, len(userThreads))
+	need := make(map[string]bool, len(userThreads))
+	for uid := range userThreads {
+		need[uid] = true
+	}
+	var after string
+	for len(need) > 0 {
+		page, err := s.GuildMembers(discordGuildID, after, 1000)
+		if err != nil || len(page) == 0 {
+			break
+		}
+		for _, m := range page {
+			if need[m.User.ID] {
+				name := m.User.Username
+				if m.Nick != "" {
+					name = m.Nick
+				}
+				cache[m.User.ID] = name
+				delete(need, m.User.ID)
+			}
+		}
+		after = page[len(page)-1].User.ID
+		if len(page) < 1000 {
+			break
+		}
+	}
+	for uid := range need {
+		cache[uid] = uid // fallback: ID not found in member list
+	}
+	return cache
 }
 
 func totalReactions(reactions map[string][]string) int {
