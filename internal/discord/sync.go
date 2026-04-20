@@ -347,7 +347,11 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 
 	if isSolo {
 		if len(builders) == 0 {
-			builders = []string{msgs[0].Author.Username}
+			name := msgs[0].Author.Username
+			if m, err := s.GuildMember(thread.GuildID, authorID); err == nil && m.Nick != "" {
+				name = m.Nick
+			}
+			builders = []string{name}
 		}
 		if lore == "" {
 			lore = guild.CleanSection(msgs[0].Content)
