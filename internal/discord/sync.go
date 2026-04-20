@@ -368,6 +368,10 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	}
 	sections, screenshots, videos := collectMedia(s, thread.ID, allowedIDs)
 
+	if postedOnBehalfOf != "" && postedOnBehalfOf != "unknown" {
+		postedOnBehalfOf = resolveOnBehalf(s, thread.GuildID, postedOnBehalfOf)
+	}
+
 	return threadData{
 		ID:                 id,
 		GuildName:          guildName,
@@ -385,6 +389,20 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 }
 
 var reMention = regexp.MustCompile(`^<@!?(\d+)>$`)
+
+func resolveOnBehalf(s *discordgo.Session, guildID, value string) string {
+	if reMention.MatchString(value) {
+		m := reMention.FindStringSubmatch(value)
+		value = m[1]
+	}
+	if mem, err := s.GuildMember(guildID, value); err == nil {
+		if mem.Nick != "" {
+			return mem.Nick
+		}
+		return mem.User.Username
+	}
+	return value
+}
 
 func resolveBuilders(s *discordgo.Session, guildID string, builders []string) []string {
 	resolved := make([]string, 0, len(builders))
