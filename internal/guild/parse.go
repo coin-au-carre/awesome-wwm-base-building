@@ -22,8 +22,9 @@ var (
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 	reCoverStrip      = regexp.MustCompile(`(?im)[\n\r]*[ \t]*cover:[ \t]*\d+[ \t]*$`)
 	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
-	reOnBehalf        = regexp.MustCompile(`(?i)on behalf of\s+@([\w.]+)`)
-	reOnBehalfPresent = regexp.MustCompile(`(?i)on behalf`)
+	reOnBehalf          = regexp.MustCompile(`(?i)on behalf of\s+@([\w.]+)`)
+	reOnBehalfSnowflake = regexp.MustCompile(`(?i)on behalf of\s+<@(\d+)>`)
+	reOnBehalfPresent   = regexp.MustCompile(`(?i)on behalf`)
 )
 
 var skipPhrases = []string{
@@ -81,6 +82,8 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 	}
 
 	if m := reOnBehalf.FindStringSubmatch(content); len(m) > 1 {
+		postedOnBehalfOf = m[1]
+	} else if m := reOnBehalfSnowflake.FindStringSubmatch(content); len(m) > 1 {
 		postedOnBehalfOf = m[1]
 	} else if reOnBehalfPresent.MatchString(content) {
 		postedOnBehalfOf = "unknown"

@@ -125,6 +125,37 @@ Posting on behalf of @FoxiKate who kindly allowed us.
 			wantOnBehalf: "FoxiKate",
 		},
 		{
+			name: "on behalf with Discord snowflake mention",
+			content: `## 🏯 AfterFlame
+
+Posting on behalf of <@1179100397466570884>  who kindly allowed us.
+
+👷 Builders: FoxiKate`,
+			wantBuilders: []string{"FoxiKate"},
+			wantOnBehalf: "1179100397466570884",
+		},
+		{
+			name: "on behalf snowflake with bracket ID and bold builders",
+			content: `## 🏯 墨雨樓 [10029273]
+
+👷 **Builders:** AcElDiaMon
+
+Posted on behalf of <@423190009445613568> who kindly asked us
+
+### 📝 Lore
+
+
+### 🧙 What to visit
+
+- Pixel art
+- Floating restaurant`,
+			wantID:       "10029273",
+			wantGuild:    "墨雨樓",
+			wantBuilders: []string{"AcElDiaMon"},
+			wantVisit:    "- Pixel art\n- Floating restaurant",
+			wantOnBehalf: "423190009445613568",
+		},
+		{
 			name:         "on behalf present but no @username",
 			content:      "👷 Builders: X\n\nPosted on behalf of the community.",
 			wantBuilders: []string{"X"},
