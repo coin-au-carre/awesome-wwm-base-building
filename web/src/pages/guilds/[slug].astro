@@ -78,7 +78,7 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
                 {g.guildName || g.name}
               </h1>
               {g.guildName && g.guildName !== g.name && (
-                <p class="text-white/60 text-sm mt-0.5">{g.name}</p>
+                <p class="text-white/80 text-sm mt-0.5">{g.name}</p>
               )}
               {g.tags && g.tags.length > 0 && (
                 <div class="flex flex-wrap gap-1.5 mt-3">
@@ -108,7 +108,7 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
             {g.guildName || g.name}
           </h1>
           {g.guildName && g.guildName !== g.name && (
-            <p class="text-muted-foreground text-sm mt-0.5">{g.name}</p>
+            <p class="text-foreground/60 text-sm mt-0.5">{g.name}</p>
           )}
           {g.tags && g.tags.length > 0 && (
             <div class="flex flex-wrap gap-1.5 mt-3">

@@ -129,10 +129,10 @@ const TYPE_COLORS: Record<EventType, string> = {
                     const slug = (event.guildId ? guildSlugById.get(event.guildId) : undefined)
                       ?? guildSlugByName.get(event.guildName.toLowerCase())
                     return (
-                      <span class="inline-flex items-center gap-1.5 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-sm text-violet-300 font-medium ring-1 ring-inset ring-violet-400/20">
+                      <span class="inline-flex items-center gap-1.5 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-sm text-violet-700 dark:text-violet-300 font-medium ring-1 ring-inset ring-violet-400/20">
                         <CastleTurretIcon weight="duotone" className="size-3.5 shrink-0" />
                         {slug ? (
-                          <a href={`${BASE}/guilds/${slug}`} class="hover:text-violet-100 transition-colors">
+                          <a href={`${BASE}/guilds/${slug}`} class="hover:text-violet-900 dark:hover:text-violet-100 transition-colors">
                             {event.guildName}
                           </a>
                         ) : (
