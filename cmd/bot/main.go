@@ -56,9 +56,13 @@ func main() {
 
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
+	welcomeChannelID := os.Getenv("WELCOME_CHANNEL_ID")
 	bot.Session.AddHandler(onReady(bot, discordGuildID, discoveriesChannelID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID))
+	if welcomeChannelID != "" {
+		bot.Session.AddHandler(onGuildMemberAdd(bot, welcomeChannelID))
+	}
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -200,6 +204,17 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 		}
 
 		bot.Reply(m.ChannelID, m.ID, result.Text)
+	}
+}
+
+func onGuildMemberAdd(bot *discord.Bot, channelID string) func(*discordgo.Session, *discordgo.GuildMemberAdd) {
+	return func(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
+		name := m.User.GlobalName
+		if name == "" {
+			name = m.User.Username
+		}
+		slog.Info("sending welcome message", "user", m.User.Username, "display_name", name)
+		bot.Send(channelID, discord.BuildWelcomeMessage(name))
 	}
 }
 
