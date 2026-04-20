@@ -1,13 +1,28 @@
 [
 	{
+		"name": "10206350",
+		"builders": [],
+		"tags": [
+			"Nature",
+			"Mountain",
+			"River"
+		],
+		"discordThread": "",
+		"whatToVisit": "Party zone, massive palace buildings, nature",
+		"score": 1,
+		"lastModified": "April 20, 2026 at 12:40 PM UTC"
+	},
+	{
 		"name": "Kindreds",
-		"builders": ["Raiden-Zongli"],
+		"builders": [
+			"Raiden-Zongli"
+		],
 		"tags": [
 			"Fun",
 			"Creative"
 		],
 		"discordThread": "",
-		"whatToVisit": "Dinosaur\nSculpture",
+		"whatToVisit": "Mecha dinosaur\nSculpture\nThrone\nBatman logo in night time and bridge view in night time",
 		"score": 1,
 		"note": "Builders proposed to WBM.",
 		"lastModified": "April 20, 2026 at 12:00 PM UTC"

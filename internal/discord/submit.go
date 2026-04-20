@@ -222,11 +222,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 
 	submitter := "unknown"
 	if i.Member != nil {
-		if i.Member.Nick != "" {
-			submitter = i.Member.Nick
-		} else if i.Member.User != nil {
-			submitter = i.Member.User.Username
-		}
+		submitter = i.Member.DisplayName()
 	}
 
 	jsonBytes, _ := json.MarshalIndent(g, "", "\t")
@@ -359,11 +355,7 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 	})
 
 	if submissionChannelID != "" {
-		submitter := i.Member.User.Username
-		if i.Member.Nick != "" {
-			submitter = i.Member.Nick
-		}
-		bot.Send(submissionChannelID, fmt.Sprintf("**/submit-guild filled ** by %s: **%s**", submitter, threadTitle))
+		bot.Send(submissionChannelID, fmt.Sprintf("**/submit-guild filled ** by %s: **%s**", i.Member.DisplayName(), threadTitle))
 	}
 
 	if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
@@ -475,11 +467,7 @@ func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 	})
 
 	if submissionChannelID != "" {
-		submitter := i.Member.User.Username
-		if i.Member.Nick != "" {
-			submitter = i.Member.Nick
-		}
-		bot.Send(submissionChannelID, fmt.Sprintf("**New solo submission** by %s: **%s**", submitter, threadTitle))
+		bot.Send(submissionChannelID, fmt.Sprintf("**New solo submission** by %s: **%s**", i.Member.DisplayName(), threadTitle))
 	}
 
 	soloURL := websiteBase + "/solos/" + slugify(name)
