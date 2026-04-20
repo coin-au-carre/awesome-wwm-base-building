@@ -11,6 +11,8 @@ export interface Guild {
   tags?: string[]
   discordThread: string
   builderDiscordId?: string
+  posterUsername?: string
+  postedOnBehalfOf?: string
   lore?: string
   whatToVisit?: string
   score: number
