@@ -41,6 +41,7 @@ func main() {
 	allowedChannels := map[string]bool{activeChannelID: true}
 
 	guildForumID := os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 
 	bot, err := discord.NewBot(token, activeChannelID)
 	if err != nil {
@@ -57,7 +58,7 @@ func main() {
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
 	bot.Session.AddHandler(onReady(bot, discordGuildID, discoveriesChannelID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
-bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID))
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)

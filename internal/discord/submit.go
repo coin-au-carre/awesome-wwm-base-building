@@ -18,6 +18,9 @@ const (
 
 	postCommandName = "submit-guild"
 	postModalID     = "submit_guild_modal"
+
+	soloCommandName = "submit-solo"
+	soloModalID     = "submit_solo_modal"
 )
 
 var submitMu sync.Mutex
@@ -52,9 +55,16 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 		slog.Error("registering submit-guild command", "err", err)
 	}
 
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:        soloCommandName,
+		Description: "Submit your solo construction to the showcase",
+	})
+	if err != nil {
+		slog.Error("registering submit-solo command", "err", err)
+	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommand:
@@ -63,6 +73,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSubmitCommand(s, i)
 			case postCommandName:
 				handlePostCommand(s, i)
+			case soloCommandName:
+				handleSoloCommand(s, i)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -70,6 +82,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID)
 			case postModalID:
 				handlePostModal(s, i, bot, submissionChannelID, guildForumChannelID)
+			case soloModalID:
+				handleSoloModal(s, i, bot, submissionChannelID, soloForumChannelID)
 			}
 		}
 	}
@@ -364,6 +378,123 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 				"🌐 **Future page on the website:** <%s>\n"+
 				"*(may take a little while to appear once everything syncs)*",
 			name, channelMention, threadTitle, strings.TrimSpace(content.String()), guildURL,
+		)
+		_, _ = s.ChannelMessageSend(ch.ID, dm)
+	}
+}
+
+func handleSoloCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	slog.Info("submit-solo command received", "user", i.Member.User.Username)
+	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseModal,
+		Data: &discordgo.InteractionResponseData{
+			CustomID: soloModalID,
+			Title:    "Submit Your Solo Construction",
+			Components: []discordgo.MessageComponent{
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "name",
+						Label:       "Work label  —  Builder ID optional",
+						Style:       discordgo.TextInputShort,
+						Required:    true,
+						Placeholder: "My Build Name [12345678]",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "builders",
+						Label:       "Builders — in-game names, comma-separated",
+						Style:       discordgo.TextInputShort,
+						Required:    false,
+						Placeholder: "BuilderOne, BuilderTwo",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "lore",
+						Label:       "Lore — optional",
+						Style:       discordgo.TextInputParagraph,
+						Required:    false,
+						Placeholder: "The story or theme behind your build...",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "what_to_visit",
+						Label:       "What to Visit — optional",
+						Style:       discordgo.TextInputParagraph,
+						Required:    false,
+						Placeholder: "- Point of interest 1\n- Point of interest 2",
+					},
+				}},
+			},
+		},
+	})
+	if err != nil {
+		slog.Error("responding with submit-solo modal", "err", err)
+	}
+}
+
+func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, submissionChannelID, soloForumChannelID string) {
+	fields := modalFields(i.ModalSubmitData().Components)
+	name, buildID := parseLocation(fields["name"])
+	builders := fields["builders"]
+	lore := fields["lore"]
+	whatToVisit := fields["what_to_visit"]
+
+	threadTitle := name
+	if buildID != "" {
+		threadTitle = fmt.Sprintf("%s [%s]", name, buildID)
+	}
+
+	var content strings.Builder
+	content.WriteString(fmt.Sprintf("## 🏠 %s\n\n", threadTitle))
+	if builders != "" {
+		content.WriteString(fmt.Sprintf("👷 Builders: %s\n\n", builders))
+	}
+	if lore != "" {
+		content.WriteString(fmt.Sprintf("### 📝 Lore\n%s\n\n", lore))
+	}
+	if whatToVisit != "" {
+		content.WriteString(fmt.Sprintf("### 🧙 What to visit\n%s", whatToVisit))
+	}
+
+	slog.Info("submit-solo form received", "user", i.Member.User.Username, "name", name)
+
+	channelMention := "<#" + soloForumChannelID + ">"
+	if soloForumChannelID == "" {
+		channelMention = "**#solo-building-showcase**"
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: fmt.Sprintf("Check your DMs — I sent you your formatted post to copy into %s! 📬", channelMention),
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
+
+	if submissionChannelID != "" {
+		submitter := i.Member.User.Username
+		if i.Member.Nick != "" {
+			submitter = i.Member.Nick
+		}
+		bot.Send(submissionChannelID, fmt.Sprintf("**New solo submission** by %s: **%s**", submitter, threadTitle))
+	}
+
+	soloURL := websiteBase + "/solos/" + slugify(name)
+	if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
+		dm := fmt.Sprintf(
+			"## 🏠 %s\n\n"+
+				"Here's your formatted post, ready to copy!\n\n"+
+				"**1.** Go to %s\n"+
+				"**2.** Create a new post titled: `%s`\n"+
+				"**3.** Paste the text below as your message\n"+
+				"**4.** Add your screenshots 📸\n\n"+
+				"```\n%s\n```\n\n"+
+				"🌐 **Future page on the website:** <%s>\n"+
+				"*(may take a little while to appear once everything syncs)*",
+			name, channelMention, threadTitle, strings.TrimSpace(content.String()), soloURL,
 		)
 		_, _ = s.ChannelMessageSend(ch.ID, dm)
 	}
