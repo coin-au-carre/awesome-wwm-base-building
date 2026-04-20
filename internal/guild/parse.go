@@ -22,6 +22,8 @@ var (
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 	reCoverStrip      = regexp.MustCompile(`(?im)[\n\r]*[ \t]*cover:[ \t]*\d+[ \t]*$`)
 	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
+	reOnBehalf        = regexp.MustCompile(`(?i)on behalf of\s+@([\w.]+)`)
+	reOnBehalfPresent = regexp.MustCompile(`(?i)on behalf`)
 )
 
 var skipPhrases = []string{
@@ -33,7 +35,8 @@ var skipPhrases = []string{
 
 // ParseFirstPost extracts structured data from the first message of a Discord thread.
 // coverIdx is 1-based; 0 means not specified.
-func ParseFirstPost(content string) (id string, guildName string, builders []string, lore string, whatToVisit string, coverIdx int) {
+// postedOnBehalfOf is empty when not a behalf post; "unknown" when "on behalf" is present but username cannot be parsed.
+func ParseFirstPost(content string) (id string, guildName string, builders []string, lore string, whatToVisit string, coverIdx int, postedOnBehalfOf string) {
 	if m := reBracketID.FindStringSubmatch(content); len(m) > 1 {
 		id = m[1]
 	} else if m := reEightDigit.FindStringSubmatch(content); len(m) > 1 {
@@ -75,6 +78,12 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 
 	if m := reCover.FindStringSubmatch(content); len(m) > 1 {
 		fmt.Sscan(m[1], &coverIdx)
+	}
+
+	if m := reOnBehalf.FindStringSubmatch(content); len(m) > 1 {
+		postedOnBehalfOf = m[1]
+	} else if reOnBehalfPresent.MatchString(content) {
+		postedOnBehalfOf = "unknown"
 	}
 
 	return

@@ -58,4 +58,5 @@ type Guild struct {
 	LastScreenshotNotifiedAt    string              `json:"lastScreenshotNotifiedAt,omitempty"`
 	LastVideoNotifiedAt         string              `json:"lastVideoNotifiedAt,omitempty"`
 	AllowedContributors         []string            `json:"allowedContributors,omitempty"`
+	PostedOnBehalfOf            string              `json:"postedOnBehalfOf,omitempty"`
 }

@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Users, Layers, Image, LayoutList, ShieldCheck, Code2, Map, Star, Hammer, Eye, Sparkles, Terminal } from "lucide-react"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 
@@ -145,14 +146,16 @@ const roles: {
 
 const VALID_ROLES: Role[] = ["builder", "scout", "voter", "dev"]
 
+type BuildMode = "guild" | "solo"
+
 export default function ContributeTabs() {
   const params = new URLSearchParams(window.location.search)
-  const initialMode: "guild" | "solo" = params.get("mode") === "solo" ? "solo" : "guild"
+  const initialMode: BuildMode = params.get("mode") === "solo" ? "solo" : "guild"
   const initialRole: Role = VALID_ROLES.includes(params.get("role") as Role)
     ? (params.get("role") as Role)
     : "builder"
   const [selected, setSelected] = useState<Role>(initialRole)
-
+  const [mode, setMode] = useState<BuildMode>(initialMode)
   function select(id: Role) {
     setSelected(id)
     const next = new URLSearchParams(window.location.search)
@@ -161,7 +164,14 @@ export default function ContributeTabs() {
     window.umami?.track("contribute_role_select", { role: id })
   }
 
-  return (
+  function switchMode(next: BuildMode) {
+    setMode(next)
+    const next2 = new URLSearchParams(window.location.search)
+    next2.set("mode", next)
+    history.replaceState(null, "", `?${next2.toString()}`)
+  }
+
+return (
     <div className="space-y-6">
       <div className="grid grid-cols-2 gap-3">
         {roles.map((role) => {
@@ -219,19 +229,25 @@ export default function ContributeTabs() {
                 title="Post your base"
                 body={
                   <div className="space-y-3 mt-1">
+                    <Tabs value={mode} onValueChange={(v) => switchMode(v as BuildMode)}>
+                      <TabsList className="w-full">
+                        <TabsTrigger value="guild" className="flex-1">I am a Guild builder</TabsTrigger>
+                        <TabsTrigger value="solo" className="flex-1">I am a Solo builder</TabsTrigger>
+                      </TabsList>
+                    </Tabs>
                     <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
                       <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
                         <Terminal className="size-3.5 text-blue-500 shrink-0" />
-                        Use the <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> command <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
+                        Use the <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/{mode === "guild" ? "submit-guild" : "submit-solo"}</code> command <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
                       </p>
-                      <p className="text-sm text-muted-foreground">Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot will send you a ready-to-paste formatted post via DM, with the thread title and all your content included. Just go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and add your screenshots.</p>
+                      <p className="text-sm text-muted-foreground">Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/{mode === "guild" ? "submit-guild" : "submit-solo"}</code> anywhere on the server. Fill in the form and the bot will send you a ready-to-paste formatted post via DM, with the thread title and all your content included. Just go to <span className="font-medium text-foreground">#{mode === "guild" ? "guild-base-showcase" : "solo-building-showcase"}</span>, create a new post, paste it, and add your screenshots.</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="h-px flex-1 bg-border" />
                       <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
                       <div className="h-px flex-1 bg-border" />
                     </div>
-                    <p className="text-sm text-muted-foreground">Go to <span className="font-medium text-foreground">#guild-base-showcase</span> (guild bases) or <span className="font-medium text-foreground">#solo-building-showcase</span> (solo builds), click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.</p>
+                    <p className="text-sm text-muted-foreground">Go to <span className="font-medium text-foreground">#{mode === "guild" ? "guild-base-showcase" : "solo-building-showcase"}</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.</p>
                   </div>
                 }
               />
@@ -239,7 +255,7 @@ export default function ContributeTabs() {
 
             <div className="space-y-2">
               <p className="text-sm text-muted-foreground"><strong>First post</strong> template:</p>
-              <TemplateBuilder initialMode={initialMode} />
+              <TemplateBuilder mode={mode} onModeChange={switchMode} />
               <p className="text-xs text-muted-foreground">
                 Edit your posts at any time. Changes are picked up on the next sync.
               </p>
