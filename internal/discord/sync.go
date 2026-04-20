@@ -24,6 +24,7 @@ type SyncStats struct {
 	NewNames             []string
 	UpdatedNames         []string
 	MoreScreenshotNames  []string          // existing entries that gained screenshots
+	MoreVideoNames       []string          // existing entries that gained videos
 	NewThreadLinks       map[string]string // guild name → discord thread URL
 	VoterGuildCounts     map[string]int    // userID → number of distinct guilds voted on
 	DuplicateWarnings    []string
@@ -298,6 +299,10 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 			if len(g.Screenshots) > len(prev.Screenshots) && !screenshotOnCooldown(prev.LastScreenshotNotifiedAt) {
 				stats.MoreScreenshotNames = append(stats.MoreScreenshotNames, g.Name)
 				g.LastScreenshotNotifiedAt = now
+			}
+			if len(g.Videos) > len(prev.Videos) && !screenshotOnCooldown(prev.LastVideoNotifiedAt) {
+				stats.MoreVideoNames = append(stats.MoreVideoNames, g.Name)
+				g.LastVideoNotifiedAt = now
 			}
 		} else if isNew {
 			g.LastModified = now

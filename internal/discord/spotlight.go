@@ -159,6 +159,27 @@ func FormatMoreScreenshotsMessage(g guild.Guild, isSolo bool) string {
 	return sb.String()
 }
 
+// FormatMoreVideosMessage builds the Discord message announcing that an existing
+// guild or solo build has gained new videos.
+func FormatMoreVideosMessage(g guild.Guild, isSolo bool) string {
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "🎬 **%s** just got new videos!\n", g.Name)
+	meta := buildGuildMeta(g, false)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	url := guildWebsiteURL(g, "new_videos")
+	if isSolo {
+		url = soloWebsiteURL(g, "new_videos")
+	}
+	if g.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, url)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", url)
+	}
+	return sb.String()
+}
+
 // DownloadImage fetches an image URL and returns its body and a derived filename.
 func DownloadImage(url string) (io.ReadCloser, string, error) {
 	resp, err := http.Get(url) //nolint:gosec

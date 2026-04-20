@@ -269,6 +269,13 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		}
 		announce(name, isSolo, discord.FormatMoreScreenshotsMessage)
 	}
+	for _, name := range stats.MoreVideoNames {
+		g, ok := byName[name]
+		if !ok || g.BuilderDiscordID == ahlyamID {
+			continue
+		}
+		announce(name, isSolo, discord.FormatMoreVideosMessage)
+	}
 }
 
 func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.SyncStats, isSolo bool) {

@@ -56,5 +56,6 @@ type Guild struct {
 	Videos             []string            `json:"videos,omitempty"`
 	LastModified                string              `json:"lastModified,omitempty"`
 	LastScreenshotNotifiedAt    string              `json:"lastScreenshotNotifiedAt,omitempty"`
+	LastVideoNotifiedAt         string              `json:"lastVideoNotifiedAt,omitempty"`
 	AllowedContributors         []string            `json:"allowedContributors,omitempty"`
 }
