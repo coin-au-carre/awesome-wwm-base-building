@@ -158,28 +158,43 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
       <div class="rounded-xl border border-border bg-card px-4 py-2">
         <div class="flex gap-5">
           <div>
-            <div class="text-xs text-muted-foreground mb-1">Score</div>
-            <div class="text-sm font-bold font-mono tabular-nums">{g.score}</div>
-          </div>
-          <div class="border-l border-border pl-5">
             <div class="text-xs text-muted-foreground mb-1">Tier</div>
-            <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs ${tier.badge}`}>
+            <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs ${tier.badge}`} style={tier.badgeStyle}>
               <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
               {tier.label}
             </span>
+          </div>
+          <div class="border-l border-border pl-5">
+            <div class="text-xs text-muted-foreground mb-1">Score</div>
+            <div class="text-sm font-mono tabular-nums text-muted-foreground">{g.score}</div>
           </div>
         </div>
       </div>
       {g.id && (
         <div class="rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Guild ID</div>
-          <div class="text-sm font-mono">{g.id}</div>
+          <div
+            class="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1 text-sm text-muted-foreground font-mono ring-1 ring-inset ring-border/60 cursor-pointer select-none"
+            style="transition: color 0.4s ease, border-color 0.4s ease, background-color 0.4s ease"
+            onclick={`navigator.clipboard.writeText('${g.id}'); this.style.color='#4ade80'; this.style.borderColor='#4ade8066'; this.style.backgroundColor='#4ade8011'; setTimeout(() => { this.style.color=''; this.style.borderColor=''; this.style.backgroundColor=''; }, 800)`}
+            title="Copy guild ID"
+          >
+            {g.id}
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg>
+          </div>
         </div>
       )}
       {g.lastModified && (
         <div class="rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Updated</div>
-          <div class="text-sm text-muted-foreground">{g.lastModified}</div>
+          <div class="text-sm text-muted-foreground" id="guild-last-modified">{g.lastModified}</div>
+          <script is:inline define:vars={{ lastModified: g.lastModified }}>
+            const d = new Date(lastModified.replace(" at ", " "))
+            if (!isNaN(d.getTime())) {
+              const pad = n => String(n).padStart(2, "0")
+              document.getElementById("guild-last-modified").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+            }
+          </script>
         </div>
       )}
       {g.discordThread && (

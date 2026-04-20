@@ -562,8 +562,7 @@ func screenshotOnCooldown(ts string) bool {
 }
 
 func hasChanged(prev, next guild.Guild) bool {
-	return prev.Score != next.Score ||
-		prev.Lore != next.Lore ||
+	return prev.Lore != next.Lore ||
 		prev.WhatToVisit != next.WhatToVisit ||
 		prev.GuildName != next.GuildName ||
 		prev.CoverImage != next.CoverImage ||

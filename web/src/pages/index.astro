@@ -84,8 +84,16 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
         <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guild Bases</h1>
         <Badge variant="secondary">{guilds.length} bases</Badge>
         <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-          <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: {lastSync}
+          <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: <span id="last-sync-date">{lastSync}</span>
         </Badge>
+        {lastSync && (
+          <script is:inline define:vars={{ lastSync }}>
+            const d = new Date(lastSync)
+            const pad = n => String(n).padStart(2, "0")
+            const formatted = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+            document.getElementById("last-sync-date").textContent = formatted
+          </script>
+        )}
         <a href="/rss.xml" class="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors" title="Subscribe to new submissions">
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-orange-400 shrink-0">
             <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
