@@ -21,6 +21,8 @@ const (
 
 	soloCommandName = "submit-solo"
 	soloModalID     = "submit_solo_modal"
+
+	welcomeTestCommandName = "welcome-test"
 )
 
 var submitMu sync.Mutex
@@ -62,6 +64,16 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	if err != nil {
 		slog.Error("registering submit-solo command", "err", err)
 	}
+
+	adminPerm := int64(discordgo.PermissionAdministrator)
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:                     welcomeTestCommandName,
+		Description:              "Preview the welcome message (admins only)",
+		DefaultMemberPermissions: &adminPerm,
+	})
+	if err != nil {
+		slog.Error("registering welcome-test command", "err", err)
+	}
 }
 
 func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
@@ -75,6 +87,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handlePostCommand(s, i)
 			case soloCommandName:
 				handleSoloCommand(s, i)
+			case welcomeTestCommandName:
+				handleWelcomeTestCommand(s, i)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -528,6 +542,33 @@ func titleCase(s string) string {
 		}
 	}
 	return strings.Join(words, " ")
+}
+
+// BuildWelcomeMessage returns the welcome message for a new member.
+func BuildWelcomeMessage(name string) string {
+	return "**Welcome to [Where Builders Meet](<https://www.wherebuildersmeet.com>), " + name + "!** :wave:\n\n" +
+		"**[Builder?](<https://www.wherebuildersmeet.com/contribute/?role=builder>)** Post your base in <#1483455027250200639> or <#1483489266947461321>.\n" +
+		"Use `/submit-guild` or `/submit-solo` — the bot sends you a ready-to-paste template via DM. Your build appears on next sync.\n" +
+		"**[Explorer?](<https://www.wherebuildersmeet.com/contribute/?role=scout>)** Use `/scout-guild` to report impressive bases you've found in <#1490051558237405254>.\n" +
+		"**[Voter?](<https://www.wherebuildersmeet.com/contribute/?role=voter>)** React to showcase threads: ⭐ = 2 pts, 👍 🔥 = 1 pt each. Votes shape the public rankings.\n" +
+		"Questions? Ask in the chats or ping a moderator. Happy Building!"
+}
+
+func handleWelcomeTestCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	name := i.Member.User.GlobalName
+	if name == "" {
+		name = i.Member.User.Username
+	}
+	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: BuildWelcomeMessage(name),
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
+	if err != nil {
+		slog.Error("responding to welcome-test", "err", err)
+	}
 }
 
 func splitCSV(s string) []string {
