@@ -33,6 +33,7 @@ type SyncStats struct {
 type SyncConfig struct {
 	ForumChannelID string
 	DryRun         bool
+	IsSolo         bool
 }
 
 type threadData struct {
@@ -156,7 +157,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 					wg2       sync.WaitGroup
 				)
 				wg2.Add(2)
-				go func() { defer wg2.Done(); data = fetchThreadContent(b.Session, j.thread, j.allowedContributors) }()
+				go func() { defer wg2.Done(); data = fetchThreadContent(b.Session, j.thread, j.allowedContributors, cfg.IsSolo) }()
 				go func() { defer wg2.Done(); reactions = fetchThreadReactions(b.Session, j.thread.ID) }()
 				wg2.Wait()
 				slog.Info("thread fetched",
@@ -334,7 +335,7 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 	return threads, nil
 }
 
-func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowedContributors []string) threadData {
+func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowedContributors []string, isSolo bool) threadData {
 	msgs, err := s.ChannelMessages(thread.ID, 1, "", "0", "")
 	if err != nil || len(msgs) == 0 {
 		slog.Warn("fetching messages", "thread", thread.ID, "err", err)
@@ -343,6 +344,15 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 
 	id, guildName, builders, lore, whatToVisit, coverIdx, postedOnBehalfOf := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
+
+	if isSolo {
+		if len(builders) == 0 {
+			builders = []string{msgs[0].Author.Username}
+		}
+		if lore == "" {
+			lore = guild.CleanSection(msgs[0].Content)
+		}
+	}
 
 	allowedIDs := map[string]bool{authorID: true}
 	for _, id := range allowedContributors {
