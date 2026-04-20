@@ -27,7 +27,7 @@ const MOD_EXCEPTIONS = new Set(["Jenova", "PleasureSeeker"])
 function isCommunityPosted(g: RankedGuild): boolean {
   if (g.postedOnBehalfOf) return true
   if (!g.builderDiscordId) return false
-  if (MOD_EXCEPTIONS.has(g.name)) return true
+  if (MOD_EXCEPTIONS.has(g.name) || MOD_EXCEPTIONS.has(g.guildName ?? "")) return true
   return !MOD_IDS.has(g.builderDiscordId)
 }
 

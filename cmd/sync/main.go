@@ -268,7 +268,7 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		if !ok || g.BuilderDiscordID == ahlyamID {
 			continue
 		}
-		if g.BuilderDiscordID == babeID && g.Name != "PleasureSeeker" {
+		if g.BuilderDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
 			continue
 		}
 		announce(name, isSolo, discord.FormatMoreScreenshotsMessage)
@@ -278,7 +278,7 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		if !ok || g.BuilderDiscordID == ahlyamID {
 			continue
 		}
-		if g.BuilderDiscordID == babeID && g.Name != "PleasureSeeker" {
+		if g.BuilderDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
 			continue
 		}
 		announce(name, isSolo, discord.FormatMoreVideosMessage)
