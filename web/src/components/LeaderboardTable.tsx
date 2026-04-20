@@ -16,6 +16,21 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Search, X } from "lucide-react"
 
+const AHLYAM_ID = "149790526076354561"
+const WINDXP_ID = "721510597958828183"
+const BABE_ID = "376950312721711118"
+
+const MOD_IDS = new Set([AHLYAM_ID, WINDXP_ID, BABE_ID])
+
+const MOD_EXCEPTIONS = new Set(["Jenova", "PleasureSeeker"])
+
+function isCommunityPosted(g: RankedGuild): boolean {
+  if (g.postedOnBehalfOf) return true
+  if (!g.builderDiscordId) return false
+  if (MOD_EXCEPTIONS.has(g.name)) return true
+  return !MOD_IDS.has(g.builderDiscordId)
+}
+
 type SortField = "rank" | "name" | "lastUpdated"
 type SortDir = "asc" | "desc"
 
@@ -387,7 +402,15 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     </div>
                   </TableCell>
                   <TableCell className="text-muted-foreground hidden md:table-cell">
-                    {formatBuilders(g.builders)}
+                    <div className="flex items-center gap-1.5">
+                      {formatBuilders(g.builders)}
+                      {isCommunityPosted(g) && (
+                        <span
+                          title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"}
+                          className="size-1.5 rounded-full bg-sky-400/60 shrink-0"
+                        />
+                      )}
+                    </div>
                   </TableCell>
                   <TableCell className="hidden lg:table-cell">
                     <div className="flex flex-wrap gap-1">
