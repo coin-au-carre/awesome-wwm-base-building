@@ -46,6 +46,7 @@ type Guild struct {
 	Tags               []string            `json:"tags,omitempty"`
 	DiscordThread      string              `json:"discordThread"`
 	BuilderDiscordID   string              `json:"builderDiscordId,omitempty"`
+	PosterUsername     string              `json:"posterUsername,omitempty"`
 	Lore               string              `json:"lore,omitempty"`
 	WhatToVisit        string              `json:"whatToVisit,omitempty"`
 	Score              int                 `json:"score"`

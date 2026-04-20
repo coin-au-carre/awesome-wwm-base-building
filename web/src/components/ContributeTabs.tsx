@@ -235,19 +235,46 @@ return (
                         <TabsTrigger value="solo" className="flex-1">I am a Solo builder</TabsTrigger>
                       </TabsList>
                     </Tabs>
-                    <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
-                      <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
-                        <Terminal className="size-3.5 text-blue-500 shrink-0" />
-                        Use the <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/{mode === "guild" ? "submit-guild" : "submit-solo"}</code> command <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
-                      </p>
-                      <p className="text-sm text-muted-foreground">Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/{mode === "guild" ? "submit-guild" : "submit-solo"}</code> anywhere on the server. Fill in the form and the bot will send you a ready-to-paste formatted post via DM, with the thread title and all your content included. Just go to <span className="font-medium text-foreground">#{mode === "guild" ? "guild-base-showcase" : "solo-building-showcase"}</span>, create a new post, paste it, and add your screenshots.</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="h-px flex-1 bg-border" />
-                      <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
-                      <div className="h-px flex-1 bg-border" />
-                    </div>
-                    <p className="text-sm text-muted-foreground">Go to <span className="font-medium text-foreground">#{mode === "guild" ? "guild-base-showcase" : "solo-building-showcase"}</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.</p>
+                    {mode === "solo" ? (
+                      <>
+                        <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
+                          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                            <Image className="size-3.5 text-blue-500 shrink-0" />
+                            Just write a story and post your screenshots <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
+                          </p>
+                          <p className="text-sm text-muted-foreground">Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, write a short story about your build, and attach your screenshots. That's all.</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="h-px flex-1 bg-border" />
+                          <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
+                          <div className="h-px flex-1 bg-border" />
+                        </div>
+                        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+                          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                            <Terminal className="size-3.5 text-muted-foreground shrink-0" />
+                            Use the <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code> command <span className="text-xs font-normal text-muted-foreground ml-1">more structured</span>
+                          </p>
+                          <p className="text-sm text-muted-foreground">Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code> anywhere on the server. Fill in the form and the bot will send you a ready-to-paste formatted post via DM. Then paste it in <span className="font-medium text-foreground">#solo-building-showcase</span> and add your screenshots.</p>
+                        </div>
+                        <p className="text-sm text-muted-foreground">Either way, the template below is optional if you want to add more structure.</p>
+                      </>
+                    ) : (
+                      <>
+                        <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
+                          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                            <Terminal className="size-3.5 text-blue-500 shrink-0" />
+                            Use the <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> command <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
+                          </p>
+                          <p className="text-sm text-muted-foreground">Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot will send you a ready-to-paste formatted post via DM, with the thread title and all your content included. Just go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and add your screenshots.</p>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="h-px flex-1 bg-border" />
+                          <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
+                          <div className="h-px flex-1 bg-border" />
+                        </div>
+                        <p className="text-sm text-muted-foreground">Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.</p>
+                      </>
+                    )}
                   </div>
                 }
               />
