@@ -49,8 +49,15 @@ const isEmpty = !hasSolos()
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
         {!isEmpty && (
           <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: {lastSync}
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: <span id="last-sync-date">{lastSync}</span>
           </Badge>
+        )}
+        {!isEmpty && lastSync && (
+          <script is:inline define:vars={{ lastSync }}>
+            const d = new Date(lastSync)
+            const pad = n => String(n).padStart(2, "0")
+            document.getElementById("last-sync-date").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+          </script>
         )}
       </div>
       <p class="text-muted-foreground text-sm">

@@ -16,13 +16,42 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Search, X } from "lucide-react"
 
-type SortField = "rank" | "name" | "score"
+type SortField = "rank" | "name" | "lastUpdated"
 type SortDir = "asc" | "desc"
 
 interface Props {
   guilds: RankedGuild[]
   allTags: string[]
   basePath?: string
+}
+
+function parseLastModified(s: string | undefined): number {
+  if (!s) return 0
+  const d = new Date(s.replace(" at ", " "))
+  return isNaN(d.getTime()) ? 0 : d.getTime()
+}
+
+function relativeTime(ms: number): string {
+  const diff = Date.now() - ms
+  const mins = Math.floor(diff / 60000)
+  if (mins < 60) return mins <= 1 ? "just now" : `${mins}m ago`
+  const hours = Math.floor(mins / 60)
+  if (hours < 24) return `${hours}h ago`
+  const days = Math.floor(hours / 24)
+  if (days < 30) return `${days}d ago`
+  const months = Math.floor(days / 30)
+  if (months < 12) return `${months}mo ago`
+  return `${Math.floor(months / 12)}y ago`
+}
+
+function formatLastModified(s: string | undefined): { relative: string; full: string } | null {
+  if (!s) return null
+  const d = new Date(s.replace(" at ", " "))
+  if (isNaN(d.getTime())) return null
+  return {
+    relative: relativeTime(d.getTime()),
+    full: d.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }),
+  }
 }
 
 function formatBuilders(builders: string[] | undefined): string {
@@ -195,8 +224,8 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
         cmp = a.rank - b.rank
       } else if (sortField === "name") {
         cmp = a.name.localeCompare(b.name)
-      } else if (sortField === "score") {
-        cmp = b.score - a.score
+      } else if (sortField === "lastUpdated") {
+        cmp = parseLastModified(a.lastModified) - parseLastModified(b.lastModified)
       }
       return sortDir === "asc" ? cmp : -cmp
     })
@@ -295,19 +324,17 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               </TableHead>
               <TableHead className="hidden md:table-cell">Builders</TableHead>
               <TableHead className="hidden lg:table-cell">Tags</TableHead>
-              {!isSolos && (
-                <TableHead className="w-20 text-right">
-                  <SortButton field="score" current={sortField} dir={sortDir} onClick={toggleSort}>
-                    Score
-                  </SortButton>
-                </TableHead>
-              )}
+              <TableHead className="hidden lg:table-cell w-28">
+                <SortButton field="lastUpdated" current={sortField} dir={sortDir} onClick={toggleSort}>
+                  Last updated
+                </SortButton>
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {paginated.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={isSolos ? 3 : 5} className="py-8 text-center text-muted-foreground">
+                <TableCell colSpan={isSolos ? 4 : 5} className="py-8 text-center text-muted-foreground">
                   {isSolos ? "No bases match your search." : "No guilds match your search."}
                 </TableCell>
               </TableRow>
@@ -369,7 +396,12 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       ))}
                     </div>
                   </TableCell>
-                  {!isSolos && <TableCell className="text-right font-mono text-[11px] text-muted-foreground/40">{g.score}</TableCell>}
+                  <TableCell className="hidden lg:table-cell text-[11px] text-muted-foreground/50">
+                    {(() => {
+                      const fmt = formatLastModified(g.lastModified)
+                      return fmt ? <span title={fmt.full} className="cursor-default">{fmt.relative}</span> : "—"
+                    })()}
+                  </TableCell>
                 </TableRow>
               )
             })}

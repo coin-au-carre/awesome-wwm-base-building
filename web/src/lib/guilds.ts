@@ -143,16 +143,8 @@ export function getLastSyncDate(): string {
   try {
     const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")
     const { syncedAt } = JSON.parse(raw)
-    return new Date(syncedAt).toLocaleString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: "UTC",
-      timeZoneName: "short",
-    })
+    return new Date(syncedAt).toISOString()
   } catch {
-    return "Unknown"
+    return ""
   }
 }

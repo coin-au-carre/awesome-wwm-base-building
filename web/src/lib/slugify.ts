@@ -27,8 +27,8 @@ export function getTier(rank: number, total: number, score: number): Tier {
   if (pct <= 0.10) return {
     label: "Master",
     dot: "bg-amber-300",
-    badge: "tier-master text-amber-600 dark:text-amber-200 font-bold",
-    badgeStyle: { background: "linear-gradient(135deg, rgba(251,191,36,0.18) 0%, rgba(245,158,11,0.12) 100%)" },
+    badge: "tier-master text-amber-700 dark:text-amber-200 font-bold ring-1 ring-inset ring-amber-400/50",
+    badgeStyle: { background: "linear-gradient(135deg, rgba(251,191,36,0.32) 0%, rgba(245,158,11,0.22) 100%)" },
   }
   if (pct <= 0.25) return {
     label: "Diamond",
