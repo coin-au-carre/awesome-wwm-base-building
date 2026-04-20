@@ -436,7 +436,9 @@ return (
               The project is open source. Contributions are welcome: chat with us, open an issue, or submit a pull request.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Ping us on Discord if you want to integrate any work here, we'll be glad to help. You can use the data freely as long as you credit the website and community.
+              Ping us on Discord if you want to reuse our datas, we'll be glad to help. 
+              We can offer an API. 
+              You can use the data freely as long as you credit the website and community.
             </p>
             <ApiPreview src={url("/images/wwmchill_api.png")} />
           </>

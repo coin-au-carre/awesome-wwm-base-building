@@ -92,7 +92,7 @@ func main() {
 		fetchWg.Add(1)
 		go func() {
 			defer fetchWg.Done()
-			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{ForumChannelID: soloForumID})
+			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{ForumChannelID: soloForumID, IsSolo: true})
 			soloCh <- fetchOutcome{r, err}
 		}()
 	}

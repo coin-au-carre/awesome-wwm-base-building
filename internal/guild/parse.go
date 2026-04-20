@@ -59,20 +59,20 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 	}
 
 	if m := reLore.FindStringSubmatch(content); len(m) > 1 {
-		lore = cleanSection(m[1])
+		lore = CleanSection(m[1])
 	}
 	if lore == "" {
 		if m := reLoreEq.FindStringSubmatch(content); len(m) > 1 {
-			lore = cleanSection(m[1])
+			lore = CleanSection(m[1])
 		}
 	}
 
 	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
-		whatToVisit = cleanSection(m[1])
+		whatToVisit = CleanSection(m[1])
 	}
 	if whatToVisit == "" {
 		if m := reWhatToVisitEq.FindStringSubmatch(content); len(m) > 1 {
-			whatToVisit = cleanSection(m[1])
+			whatToVisit = CleanSection(m[1])
 		}
 	}
 
@@ -130,7 +130,7 @@ func IsVideo(filename string) bool {
 	return false
 }
 
-func cleanSection(s string) string {
+func CleanSection(s string) string {
 	s = strings.TrimSpace(s)
 	s = reCoverStrip.ReplaceAllString(s, "")
 	s = reTrailingStars.ReplaceAllString(s, "")
