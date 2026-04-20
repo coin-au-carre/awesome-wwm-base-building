@@ -1,5 +1,18 @@
 [
 	{
+		"name": "Kindreds",
+		"builders": ["Raiden-Zongli"],
+		"tags": [
+			"Fun",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Dinosaur\nSculpture",
+		"score": 1,
+		"note": "Builders proposed to WBM.",
+		"lastModified": "April 20, 2026 at 12:00 PM UTC"
+	},
+	{
 		"id": "10002017",
 		"name": "Centerra",
 		"builders": [
