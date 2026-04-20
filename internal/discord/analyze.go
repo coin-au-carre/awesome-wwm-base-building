@@ -74,10 +74,14 @@ func AnalyzeVoters(b *Bot, forumChannelID string) ([]VoteRecord, error) {
 	userThreads := make(map[string]map[string]bool)
 	allUsers := make(map[string]*discordgo.User)
 
+	botID := b.Session.State.User.ID
 	for r := range results {
 		threadData = append(threadData, r)
 		for _, users := range r.reactions {
 			for _, u := range users {
+				if u.ID == botID {
+					continue
+				}
 				if userThreads[u.ID] == nil {
 					userThreads[u.ID] = make(map[string]bool)
 				}
@@ -101,6 +105,9 @@ func AnalyzeVoters(b *Bot, forumChannelID string) ([]VoteRecord, error) {
 		userEmojis := make(map[string][]string)
 		for emoji, users := range tr.reactions {
 			for _, u := range users {
+				if u.ID == botID {
+					continue
+				}
 				userEmojis[u.ID] = append(userEmojis[u.ID], emoji)
 			}
 		}
