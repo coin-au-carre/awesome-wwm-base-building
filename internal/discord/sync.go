@@ -49,6 +49,7 @@ type threadData struct {
 	WhatToVisit        string
 	CoverIdx           int // 1-based; 0 = not set
 	PostedOnBehalfOf   string
+	PosterUsername     string
 }
 
 type fetchedThread struct {
@@ -293,6 +294,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		if data.AuthorID != "" {
 			g.BuilderDiscordID = data.AuthorID
 		}
+		if data.PosterUsername != "" {
+			g.PosterUsername = data.PosterUsername
+		}
 
 		isNew := result.newIndices[r.idx]
 		if !isNew && hasChanged(prev, g) {
@@ -344,14 +348,14 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 
 	id, guildName, builders, lore, whatToVisit, coverIdx, postedOnBehalfOf := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
+	authorUsername := msgs[0].Author.Username
+	if m, err := s.GuildMember(thread.GuildID, authorID); err == nil && m.Nick != "" {
+		authorUsername = m.Nick
+	}
 
 	if isSolo {
 		if len(builders) == 0 {
-			name := msgs[0].Author.Username
-			if m, err := s.GuildMember(thread.GuildID, authorID); err == nil && m.Nick != "" {
-				name = m.Nick
-			}
-			builders = []string{name}
+			builders = []string{authorUsername}
 		}
 		if lore == "" {
 			lore = guild.CleanSection(msgs[0].Content)
@@ -368,7 +372,8 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 		ID:                 id,
 		GuildName:          guildName,
 		AuthorID:           authorID,
-		Builders:           resolveBuilders(s, builders),
+		PosterUsername:     authorUsername,
+		Builders:           resolveBuilders(s, thread.GuildID, builders),
 		Screenshots:        screenshots,
 		ScreenshotSections: sections,
 		Videos:             videos,
@@ -381,12 +386,17 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 
 var reMention = regexp.MustCompile(`^<@!?(\d+)>$`)
 
-func resolveBuilders(s *discordgo.Session, builders []string) []string {
+func resolveBuilders(s *discordgo.Session, guildID string, builders []string) []string {
 	resolved := make([]string, 0, len(builders))
 	for _, b := range builders {
 		if m := reMention.FindStringSubmatch(b); len(m) == 2 {
-			if u, err := s.User(m[1]); err == nil {
-				resolved = append(resolved, u.Username)
+			uid := m[1]
+			if mem, err := s.GuildMember(guildID, uid); err == nil {
+				name := mem.User.Username
+				if mem.Nick != "" {
+					name = mem.Nick
+				}
+				resolved = append(resolved, name)
 				continue
 			}
 		}

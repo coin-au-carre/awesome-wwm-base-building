@@ -125,6 +125,12 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 			return
 		}
 
+		// Log DMs so we know someone tried to reach Ruby privately.
+		if m.GuildID == "" {
+			slog.Info("dm received", "username", m.Author.Username, "display_name", m.Author.GlobalName, "user_id", m.Author.ID, "content", m.Content)
+			return
+		}
+
 		// Ignore messages outside allowed channels.
 		if !allowedChannels[m.ChannelID] {
 			return

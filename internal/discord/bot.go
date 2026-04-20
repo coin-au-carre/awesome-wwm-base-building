@@ -21,7 +21,8 @@ func NewBot(token, channelID string) (*Bot, error) {
 	}
 	s.Identify.Intents = discordgo.IntentsGuilds |
 		discordgo.IntentsGuildMessages |
-		discordgo.IntentsMessageContent
+		discordgo.IntentsMessageContent |
+		discordgo.IntentsDirectMessages
 
 	return &Bot{Session: s, channelID: channelID}, nil
 }
