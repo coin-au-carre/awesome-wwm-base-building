@@ -56,13 +56,10 @@ func main() {
 
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
-	welcomeChannelID := os.Getenv("WELCOME_CHANNEL_ID")
 	bot.Session.AddHandler(onReady(bot, discordGuildID, discoveriesChannelID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID))
-	if welcomeChannelID != "" {
-		bot.Session.AddHandler(onGuildMemberAdd(bot, welcomeChannelID))
-	}
+	bot.Session.AddHandler(onGuildMemberAdd(bot))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -207,14 +204,21 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 	}
 }
 
-func onGuildMemberAdd(bot *discord.Bot, channelID string) func(*discordgo.Session, *discordgo.GuildMemberAdd) {
+func onGuildMemberAdd(bot *discord.Bot) func(*discordgo.Session, *discordgo.GuildMemberAdd) {
 	return func(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 		name := m.User.GlobalName
 		if name == "" {
 			name = m.User.Username
 		}
 		slog.Info("sending welcome message", "user", m.User.Username, "display_name", name)
-		bot.Send(channelID, discord.BuildWelcomeMessage(name))
+		ch, err := s.UserChannelCreate(m.User.ID)
+		if err != nil {
+			slog.Warn("failed to open DM channel for welcome", "user", m.User.Username, "err", err)
+			return
+		}
+		if _, err := s.ChannelMessageSend(ch.ID, discord.BuildWelcomeMessage(name)); err != nil {
+			slog.Warn("failed to send welcome DM", "user", m.User.Username, "err", err)
+		}
 	}
 }
 
