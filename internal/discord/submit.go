@@ -546,11 +546,12 @@ func titleCase(s string) string {
 
 // BuildWelcomeMessage returns the welcome message for a new member.
 func BuildWelcomeMessage(name string) string {
-	return "**Welcome to [Where Builders Meet](<https://www.wherebuildersmeet.com>), " + name + "!** :wave:\n\n" +
-		"**[Builder?](<https://www.wherebuildersmeet.com/contribute/?role=builder>)** Post your base in <#1483455027250200639> or <#1483489266947461321>.\n" +
+	return "**Welcome to [Where Builders Meet](<https://www.wherebuildersmeet.com?utm_source=discord&utm_medium=welcome>), " + name + "!** :wave:\n\n" +
+		"**New to building?** Browse [build inspiration & media](<https://www.wherebuildersmeet.com/media/?utm_source=discord&utm_medium=welcome>) to get ideas, and check out <#1483483683456286911> for construction help and <#1483447711499030634> for tips and tricks.\n" +
+		"**[Builder?](<https://www.wherebuildersmeet.com/contribute/?role=builder&utm_source=discord&utm_medium=welcome>)** Post your base in <#1483455027250200639> or <#1483489266947461321>.\n" +
 		"Use `/submit-guild` or `/submit-solo` — the bot sends you a ready-to-paste template via DM. Your build appears on next sync.\n" +
-		"**[Explorer?](<https://www.wherebuildersmeet.com/contribute/?role=scout>)** Use `/scout-guild` to report impressive bases you've found in <#1490051558237405254>.\n" +
-		"**[Voter?](<https://www.wherebuildersmeet.com/contribute/?role=voter>)** React to showcase threads: ⭐ = 2 pts, 👍 🔥 = 1 pt each. Votes shape the public rankings.\n" +
+		"**[Explorer?](<https://www.wherebuildersmeet.com/contribute/?role=scout&utm_source=discord&utm_medium=welcome>)** Use `/scout-guild` to report impressive bases you've found in <#1490051558237405254>.\n" +
+		"**[Voter?](<https://www.wherebuildersmeet.com/contribute/?role=voter&utm_source=discord&utm_medium=welcome>)** React to showcase threads: ⭐ = 2 pts, 👍 🔥 = 1 pt each. Votes shape the public rankings.\n" +
 		"Questions? Ask in the chats or ping a moderator. Happy Building!"
 }
 
