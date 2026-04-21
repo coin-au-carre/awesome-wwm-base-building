@@ -23,6 +23,7 @@ import (
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	dev := flag.Bool("dev", false, "use DEV_CHANNEL_ID instead of RUBY_CHANNEL_ID")
+	noClaude := flag.Bool("no-claude", false, "disable Claude responses (slash commands still work)")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -50,7 +51,10 @@ func main() {
 	}
 	defer bot.Close()
 
-	responder := buildResponder(*root)
+	var responder *discord.Responder
+	if !*noClaude {
+		responder = buildResponder(*root)
+	}
 
 	discordGuildID := os.Getenv("DISCORD_GUILD_ID")
 
@@ -160,6 +164,10 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 		// Fast path: single keyword commands skip Claude entirely.
 		if spotlightKeywords[strings.ToLower(text)] {
 			handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
+			return
+		}
+
+		if responder == nil {
 			return
 		}
 
