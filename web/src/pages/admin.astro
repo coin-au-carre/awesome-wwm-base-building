@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/main.astro"
+import { AdminLeaderboard } from "@/components/AdminLeaderboard"
+import { getGuildsSortedByScore } from "@/lib/guilds"
+
+const isDev = import.meta.env.DEV
+const guilds = isDev ? getGuildsSortedByScore() : []
+---
+
+<Layout
+  title="Admin — Guild Leaderboard"
+  description="Admin view of the guild leaderboard with dynamic scoring config."
+>
+  {!isDev ? (
+    <div class="py-16 text-center">
+      <p class="text-muted-foreground">Admin panel is only available in local development.</p>
+    </div>
+  ) : (
+    <div class="space-y-6">
+      <div class="flex items-center gap-3 flex-wrap">
+        <h1 class="font-heading text-2xl font-semibold">Admin: Guild Leaderboard</h1>
+        <span class="inline-flex items-center rounded-full bg-rose-500/20 text-rose-300 ring-1 ring-inset ring-rose-500/40 px-2 py-0.5 text-xs font-medium">
+          Local only
+        </span>
+      </div>
+      <AdminLeaderboard client:load guilds={guilds} />
+    </div>
+  )}
+</Layout>

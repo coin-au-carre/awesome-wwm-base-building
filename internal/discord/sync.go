@@ -579,8 +579,10 @@ func resolveNicknames(s *discordgo.Session, discordGuildID string, userThreads m
 			break
 		}
 	}
+	counter := 1
 	for uid := range need {
-		cache[uid] = uid // fallback: ID not found in member list
+		cache[uid] = fmt.Sprintf("Unknown#%d", counter)
+		counter++
 	}
 	return cache
 }
