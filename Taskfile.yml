@@ -29,16 +29,6 @@ tasks:
     desc: build bot binary for VPS deployment
     cmd: GOOS=linux GOARCH=amd64 go build -o dist/bot ./cmd/bot
 
-  bot:deploy:
-    desc: build and scp binary to VPS, restart service
-    deps: [bot:build]
-    cmds:
-      - scp dist/bot {{.VPS_USER}}@{{.VPS_HOST}}:/opt/ruby/bot
-      - ssh {{.VPS_USER}}@{{.VPS_HOST}} "systemctl restart ruby-bot"
-    vars:
-      VPS_USER: '{{.VPS_USER | default "deploy"}}'
-      VPS_HOST: '{{.VPS_HOST | default "your.vps.host"}}'
-
   # ── voter analysis (one-shot) ───────────────────────────────
   analyze:
     desc: "fetch guild reactions → data/voter_analysis.csv + data/voter_analysis.html"
@@ -129,7 +119,6 @@ tasks:
       - echo "  task bot                 run bot (RUBY_CHANNEL_ID + DEV_CHANNEL_ID)"
       - echo "  task bot:no-claude       run bot without Claude (slash commands only)"
       - echo "  task bot:build           build Linux binary → dist/bot"
-      - echo "  task bot:deploy          build + scp + restart systemd service"
       - echo "  task bot:purge-commands  delete all slash commands from Discord (run once to clean up stale commands)"
       - echo ""
       - echo "  task send                post a message as Ruby (one-shot)"
