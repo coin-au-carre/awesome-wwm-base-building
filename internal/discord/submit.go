@@ -254,14 +254,20 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		return
 	}
 
+	scoutedByID := ""
+	if i.Member != nil && i.Member.User != nil {
+		scoutedByID = i.Member.User.ID
+	}
+
 	g := guild.Guild{
-		ID:           guildID,
-		Name:         name,
-		WhatToVisit:  whatToVisit,
-		Builders:     builders,
-		Tags:         tags,
-		Score:        score,
-		LastModified: guild.ModifiedNow(),
+		ID:                 guildID,
+		Name:               name,
+		WhatToVisit:        whatToVisit,
+		Builders:           builders,
+		Tags:               tags,
+		Score:              score,
+		LastModified:       guild.ModifiedNow(),
+		ScoutedByDiscordID: scoutedByID,
 	}
 
 	submitMu.Lock()

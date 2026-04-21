@@ -61,7 +61,7 @@ func main() {
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
 	logsChannelID := os.Getenv("LOGS_CHANNEL_ID")
-	bot.Session.AddHandler(onReady(discordGuildID, discoveriesChannelID))
+	bot.Session.AddHandler(onReady(discordGuildID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, responder))
 	bot.Session.AddHandler(onGuildMemberAdd())
@@ -80,12 +80,11 @@ func main() {
 	slog.Info("shutting down")
 }
 
-func onReady(discordGuildID, discoveriesChannelID string) func(*discordgo.Session, *discordgo.Ready) {
+func onReady(discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
 	return func(s *discordgo.Session, r *discordgo.Ready) {
 		slog.Info("bot connected", "user", r.User.Username)
 		discord.RegisterSubmitCommand(s, discordGuildID)
 		logRegisteredCommands(s, discordGuildID)
-		logChannelPermissions(s, r.User.ID, discoveriesChannelID)
 	}
 }
 
@@ -100,21 +99,6 @@ func logRegisteredCommands(s *discordgo.Session, discordGuildID string) {
 		names = append(names, "/"+c.Name)
 	}
 	slog.Info("registered commands", "commands", names)
-}
-
-func logChannelPermissions(s *discordgo.Session, botUserID, channelID string) {
-	if channelID == "" {
-		slog.Warn("channel permission check skipped: channel ID not set")
-		return
-	}
-	perms, err := s.UserChannelPermissions(botUserID, channelID)
-	if err != nil {
-		slog.Warn("could not check channel permissions", "channel", channelID, "err", err)
-		return
-	}
-	canView := perms&discordgo.PermissionViewChannel != 0
-	canSend := perms&discordgo.PermissionSendMessages != 0
-	slog.Info("channel permissions", "channel", channelID, "view", canView, "send", canSend)
 }
 
 var reMention = regexp.MustCompile(`<@[!&]?\d+>`)
