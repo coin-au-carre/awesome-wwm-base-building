@@ -69,6 +69,11 @@ tasks:
     desc: "add 👍 🔥 ❤️ ⭐ to the first post of every thread in the guild or solo forum. Use -- -solo for solo channel"
     cmd: go run ./cmd/react {{.CLI_ARGS}}
 
+  # ── purge-commands (one-shot Discord command cleanup) ───────
+  bot:purge-commands:
+    desc: delete all registered Discord slash commands (global + guild), then restart bot to re-register
+    cmd: go run ./cmd/purge-commands {{.CLI_ARGS}}
+
   # ── announce (test general-channel announcement card) ────────
   announce:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
@@ -125,6 +130,7 @@ tasks:
       - echo "  task bot:no-claude       run bot without Claude (slash commands only)"
       - echo "  task bot:build           build Linux binary → dist/bot"
       - echo "  task bot:deploy          build + scp + restart systemd service"
+      - echo "  task bot:purge-commands  delete all slash commands from Discord (run once to clean up stale commands)"
       - echo ""
       - echo "  task send                post a message as Ruby (one-shot)"
       - echo "        -- \"text\"          message to send"
