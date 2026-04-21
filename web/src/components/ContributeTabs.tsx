@@ -221,7 +221,7 @@ return (
                 n="1"
                 badgeClass="bg-blue-500 text-white border-0"
                 title="Join the Discord"
-                body={<>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click")}>Join Discord ↗</a></Button></>}
+                body={<div className="space-y-1.5"><p>All submissions go through our Discord server. <Button variant="link" size="sm" asChild className="h-auto p-0"><a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" onClick={() => window.umami?.track("discord_cta_click")}>Join Discord ↗</a></Button></p><p className="text-muted-foreground">Even if your guild is already registered, posting yourself is recommended: you will get more visibility and engagement from the community.</p></div>}
               />
               <Step
                 n="2"
