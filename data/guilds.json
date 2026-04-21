@@ -1,5 +1,20 @@
 [
 	{
+		"name": "hotties",
+		"builders": [
+			"vellenciaga"
+		],
+		"tags": [
+			"Snow",
+			"Zen",
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Heart at entrance\nGreat immersion with guild base\nFashion area at lake",
+		"score": 1,
+		"lastModified": "April 21, 2026 at 09:51 AM UTC"
+	},
+	{
 		"name": "Ghostmarket",
 		"builders": [
 			"Avyendha"
