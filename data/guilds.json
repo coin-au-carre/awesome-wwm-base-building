@@ -1,5 +1,32 @@
 [
 	{
+		"name": "AxiomOfWar",
+		"builders": [
+			"Dushk"
+		],
+		"tags": [
+			"City",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "grand city pathway",
+		"score": 1,
+		"lastModified": "April 21, 2026 at 02:21 PM UTC"
+	},
+	{
+		"id": "10258676",
+		"name": "Veil",
+		"builders": [],
+		"tags": [
+			"Arena",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Market square, cozy theatre, Torri lake walk, arena",
+		"score": 0,
+		"lastModified": "April 21, 2026 at 02:10 PM UTC"
+	},
+	{
 		"name": "bunny",
 		"builders": [],
 		"tags": [
