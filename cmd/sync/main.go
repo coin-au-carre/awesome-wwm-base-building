@@ -275,22 +275,6 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		}
 		bot.Send(channelID, msgFn(g, isSoloEntry))
 	}
-	for _, name := range stats.NewNames {
-		g, ok := byName[name]
-		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID || g.BuilderDiscordID == babeID {
-			continue
-		}
-		msg := discord.FormatNewGuildMessage(g, isSolo)
-		if len(g.Screenshots) > 0 {
-			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
-			if err == nil {
-				bot.SendWithFile(channelID, msg, filename, imgData)
-				imgData.Close()
-				continue
-			}
-		}
-		bot.Send(channelID, msg)
-	}
 	for _, name := range stats.MoreScreenshotNames {
 		g, ok := byName[name]
 		if !ok || g.BuilderDiscordID == ahlyamID {
@@ -310,6 +294,22 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 			continue
 		}
 		announce(name, isSolo, discord.FormatMoreVideosMessage)
+	}
+	for _, name := range stats.NewNames {
+		g, ok := byName[name]
+		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID || g.BuilderDiscordID == babeID {
+			continue
+		}
+		msg := discord.FormatNewGuildMessage(g, isSolo)
+		if len(g.Screenshots) > 0 {
+			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
+			if err == nil {
+				bot.SendWithFile(channelID, msg, filename, imgData)
+				imgData.Close()
+				continue
+			}
+		}
+		bot.Send(channelID, msg)
 	}
 }
 
