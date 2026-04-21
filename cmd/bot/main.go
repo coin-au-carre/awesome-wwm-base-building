@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log/slog"
 	"os"
 	"os/signal"
@@ -10,6 +11,7 @@ import (
 	"regexp"
 	"strings"
 	"syscall"
+	"time"
 
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
@@ -58,10 +60,12 @@ func main() {
 	rubyRoleID := os.Getenv("RUBY_ROLE_ID")
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
+	logsChannelID := os.Getenv("LOGS_CHANNEL_ID")
 	bot.Session.AddHandler(onReady(discordGuildID, discoveriesChannelID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, responder))
 	bot.Session.AddHandler(onGuildMemberAdd())
+	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -209,6 +213,33 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 		}
 
 		bot.Reply(m.ChannelID, m.ID, result.Text)
+	}
+}
+
+func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo.Session, *discordgo.GuildMemberRemove) {
+	return func(s *discordgo.Session, m *discordgo.GuildMemberRemove) {
+		if logsChannelID == "" {
+			return
+		}
+		name := m.User.GlobalName
+		if name == "" {
+			name = m.User.Username
+		}
+		msg := fmt.Sprintf("👋 **%s** (`%s`) left the server.", name, m.User.Username)
+		if m.Member != nil && !m.Member.JoinedAt.IsZero() {
+			dur := time.Since(m.Member.JoinedAt)
+			days := int(dur.Hours() / 24)
+			switch {
+			case days < 1:
+				msg += " Joined today."
+			case days == 1:
+				msg += " Joined 1 day ago."
+			default:
+				msg += fmt.Sprintf(" Joined %d days ago.", days)
+			}
+		}
+		bot.Send(logsChannelID, msg)
+		slog.Info("member left", "user", m.User.Username, "display_name", name)
 	}
 }
 

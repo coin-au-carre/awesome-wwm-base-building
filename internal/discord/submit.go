@@ -29,6 +29,7 @@ const (
 	soloLinkCommandName  = "solo"
 	randomCommandName    = "random"
 	myVotesCommandName   = "my-votes"
+	helpCommandName      = "commands"
 )
 
 var submitMu sync.Mutex
@@ -60,88 +61,66 @@ func memberDisplayName(i *discordgo.InteractionCreate) string {
 }
 
 func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
-	_, err := s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        submitCommandName,
-		Description: "Scout a guild base and add it to the directory",
-	})
-	if err != nil {
-		slog.Error("registering scout-guild command", "err", err)
-	}
-
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        postCommandName,
-		Description: "Submit your guild base to the showcase",
-	})
-	if err != nil {
-		slog.Error("registering submit-guild command", "err", err)
-	}
-
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        soloCommandName,
-		Description: "Submit your solo construction to the showcase",
-	})
-	if err != nil {
-		slog.Error("registering submit-solo command", "err", err)
-	}
-
 	adminPerm := int64(discordgo.PermissionAdministrator)
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:                     welcomeTestCommandName,
-		Description:              "Preview the welcome message (admins only)",
-		DefaultMemberPermissions: &adminPerm,
-	})
-	if err != nil {
-		slog.Error("registering welcome-test command", "err", err)
-	}
-
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        guildLinkCommandName,
-		Description: "Share a guild base with its thread and page",
-		Options: []*discordgo.ApplicationCommandOption{
-			{
-				Type:         discordgo.ApplicationCommandOptionString,
-				Name:         "name",
-				Description:  "Guild name",
-				Required:     true,
-				Autocomplete: true,
+	_, err := s.ApplicationCommandBulkOverwrite(s.State.User.ID, discordGuildID, []*discordgo.ApplicationCommand{
+		{
+			Name:        submitCommandName,
+			Description: "Scout a guild base and reference it for later",
+		},
+		{
+			Name:        postCommandName,
+			Description: "Submit your guild base to showcase",
+		},
+		{
+			Name:        soloCommandName,
+			Description: "Submit your solo construction to showcase",
+		},
+		{
+			Name:                     welcomeTestCommandName,
+			Description:              "Preview the welcome message (admins only)",
+			DefaultMemberPermissions: &adminPerm,
+		},
+		{
+			Name:        guildLinkCommandName,
+			Description: "Share a guild base with its thread and page",
+			Options: []*discordgo.ApplicationCommandOption{
+				{
+					Type:         discordgo.ApplicationCommandOptionString,
+					Name:         "name",
+					Description:  "Guild name",
+					Required:     true,
+					Autocomplete: true,
+				},
 			},
+		},
+		{
+			Name:        soloLinkCommandName,
+			Description: "Share a solo base with its thread and page",
+			Options: []*discordgo.ApplicationCommandOption{
+				{
+					Type:         discordgo.ApplicationCommandOptionString,
+					Name:         "name",
+					Description:  "Solo build name",
+					Required:     true,
+					Autocomplete: true,
+				},
+			},
+		},
+		{
+			Name:        randomCommandName,
+			Description: "Ruby picks a random guild base to showcase",
+		},
+		{
+			Name:        myVotesCommandName,
+			Description: "Show the guild bases you have voted for (only you see the result)",
+		},
+		{
+			Name:        helpCommandName,
+			Description: "List all Ruby commands (only you see the result)",
 		},
 	})
 	if err != nil {
-		slog.Error("registering guild command", "err", err)
-	}
-
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        soloLinkCommandName,
-		Description: "Share a solo base with its thread and page",
-		Options: []*discordgo.ApplicationCommandOption{
-			{
-				Type:         discordgo.ApplicationCommandOptionString,
-				Name:         "name",
-				Description:  "Solo build name",
-				Required:     true,
-				Autocomplete: true,
-			},
-		},
-	})
-	if err != nil {
-		slog.Error("registering solo command", "err", err)
-	}
-
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        randomCommandName,
-		Description: "Show a random guild base spotlight",
-	})
-	if err != nil {
-		slog.Error("registering random command", "err", err)
-	}
-
-	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
-		Name:        myVotesCommandName,
-		Description: "Show the guild bases you have voted for (only you see the result)",
-	})
-	if err != nil {
-		slog.Error("registering my-votes command", "err", err)
+		slog.Error("registering commands", "err", err)
 	}
 }
 
@@ -173,6 +152,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleRandomCommand(s, i, root, responder)
 			case myVotesCommandName:
 				handleMyVotesCommand(s, i, root)
+			case helpCommandName:
+				handleHelpCommand(s, i)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -1013,6 +994,32 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
 			Content: strings.TrimRight(sb.String(), "\n"),
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
+}
+
+const helpMessage = `**Ruby's commands**
+
+**Discover**
+/random — Ruby picks a random guild base to showcase
+/guild \<name\> — share a guild base with its thread and page
+/solo \<name\> — share a solo base with its thread and page
+
+**Contribute**
+/scout-guild — scout a guild base and reference it for later
+/submit-guild — submit your guild base to showcase
+/submit-solo — submit your solo construction the showcase
+
+**Personal**
+/my-votes — show the guild bases you have voted for (only you see the result)
+/commands — show this list (only you see the result)`
+
+func handleHelpCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: helpMessage,
 			Flags:   discordgo.MessageFlagsEphemeral,
 		},
 	})
