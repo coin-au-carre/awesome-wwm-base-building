@@ -3,12 +3,12 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log/slog"
 	"os"
 	"path/filepath"
 	"sync"
-
-	"fmt"
+	"time"
 
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
@@ -150,6 +150,11 @@ func main() {
 			}
 		}
 
+		lastSyncPath := filepath.Join(*root, "data", "last_sync.json")
+		syncedAt := time.Now().UTC().Format(time.RFC3339)
+		if err := os.WriteFile(lastSyncPath, []byte(fmt.Sprintf(`{"syncedAt":%q}`, syncedAt)+"\n"), 0644); err != nil {
+			slog.Warn("writing last_sync.json", "err", err)
+		}
 	}
 
 	// ── Role assignment ───────────────────────────────────────────────────────
