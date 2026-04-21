@@ -1,5 +1,33 @@
 [
 	{
+		"id": "10058978",
+		"name": "Unicornis",
+		"builders": [],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Ludo Board in the sky(currently under construction), fancy guild name over the main compound",
+		"score": 0,
+		"lastModified": "April 21, 2026 at 07:55 PM UTC",
+		"scoutedByDiscordId": "315863715302080512"
+	},
+	{
+		"name": "DrunkenFist",
+		"builders": [
+			"dilema"
+		],
+		"tags": [
+			"Nature",
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "winter, good pond, interesting landscape",
+		"score": 1,
+		"lastModified": "April 21, 2026 at 07:38 PM UTC",
+		"scoutedByDiscordId": "997247599880978603"
+	},
+	{
 		"id": "10109259",
 		"name": "SleepingHall",
 		"builders": [],
