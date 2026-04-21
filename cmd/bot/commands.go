@@ -40,14 +40,15 @@ func sendGuildImage(bot *idiscord.Bot, responder *idiscord.Responder, channelID,
 		return false, true
 	}
 
-	if caption := responder.Caption(context.Background(), pick.Name, pick.Tags); caption != "" {
-		bot.Send(channelID, caption)
+	if responder != nil {
+		if caption := responder.Caption(context.Background(), pick.Name, pick.Tags); caption != "" {
+			bot.Send(channelID, caption)
+		}
 	}
 	return true, false
 }
 
-// handleSpotlightReply picks a random guild, posts the image, then sends a small Ruby caption.
-// Retries up to maxImageAttempts times if Discord rejects the image as too large (40005).
+// handleSpotlightReply picks a random guild and replies with its formatted card.
 func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder *idiscord.Responder, channelID, messageID, root string) {
 	_ = s.ChannelTyping(channelID)
 
@@ -58,22 +59,20 @@ func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder *id
 		return
 	}
 
-	for range maxImageAttempts {
-		pick, imgURL, ok := idiscord.PickRandomGuild(guilds)
-		if !ok {
-			bot.Reply(channelID, messageID, "*(no guild bases with screenshots yet... come back soon!)*")
-			return
-		}
-		if sent, fatal := sendGuildImage(bot, responder, channelID, messageID, pick, imgURL, true); sent || fatal {
-			if sent {
-				slog.Info("spotlight reply sent", "guild", pick.Name)
-			}
-			return
-		}
-		slog.Warn("image too large, retrying with another", "guild", pick.Name)
+	pick, _, ok := idiscord.PickRandomGuild(guilds)
+	if !ok {
+		bot.Reply(channelID, messageID, "*(no guild bases with screenshots yet... come back soon!)*")
+		return
 	}
 
-	bot.Reply(channelID, messageID, "*(all the screenshots were too big for the winds... try again later!)*")
+	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(pick, true))
+	slog.Info("spotlight reply sent", "guild", pick.Name)
+
+	if responder != nil {
+		if caption := responder.Caption(context.Background(), pick.Name, pick.Tags); caption != "" {
+			bot.Send(channelID, caption)
+		}
+	}
 }
 
 const maxCatalogImages = 4
@@ -125,7 +124,7 @@ func handleCatalogItemsReply(bot *idiscord.Bot, s *discordgo.Session, channelID,
 	}
 }
 
-// handleSoloSpotlightReply picks a random solo build and posts its image.
+// handleSoloSpotlightReply picks a random solo build and replies with its formatted card.
 func handleSoloSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder *idiscord.Responder, channelID, messageID, root string) {
 	_ = s.ChannelTyping(channelID)
 
@@ -136,22 +135,20 @@ func handleSoloSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder
 		return
 	}
 
-	for range maxImageAttempts {
-		pick, imgURL, ok := idiscord.PickRandomGuild(solos)
-		if !ok {
-			bot.Reply(channelID, messageID, "*(no solo builds with screenshots yet... come back soon!)*")
-			return
-		}
-		if sent, fatal := sendGuildImage(bot, responder, channelID, messageID, pick, imgURL, true); sent || fatal {
-			if sent {
-				slog.Info("solo spotlight reply sent", "build", pick.Name)
-			}
-			return
-		}
-		slog.Warn("solo image too large, retrying", "build", pick.Name)
+	pick, _, ok := idiscord.PickRandomGuild(solos)
+	if !ok {
+		bot.Reply(channelID, messageID, "*(no solo builds with screenshots yet... come back soon!)*")
+		return
 	}
 
-	bot.Reply(channelID, messageID, "*(all the screenshots were too big for the winds... try again later!)*")
+	bot.Reply(channelID, messageID, idiscord.FormatSoloSpotlightMessage(pick, true))
+	slog.Info("solo spotlight reply sent", "build", pick.Name)
+
+	if responder != nil {
+		if caption := responder.Caption(context.Background(), pick.Name, pick.Tags); caption != "" {
+			bot.Send(channelID, caption)
+		}
+	}
 }
 
 // handleGuildImageReply searches for a guild matching query and posts one of its screenshots.
