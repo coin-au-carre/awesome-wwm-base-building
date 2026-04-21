@@ -22,7 +22,6 @@ import (
 
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
-	dev := flag.Bool("dev", false, "use DEV_CHANNEL_ID instead of RUBY_CHANNEL_ID")
 	noClaude := flag.Bool("no-claude", false, "disable Claude responses (slash commands still work)")
 	flag.Parse()
 
@@ -32,14 +31,12 @@ func main() {
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
-	channelEnvKey := "RUBY_CHANNEL_ID"
-	if *dev {
-		channelEnvKey = "DEV_CHANNEL_ID"
-	}
-	activeChannelID := cmdutil.RequireEnv(channelEnvKey)
-	slog.Info("bot mode", "channel_env", channelEnvKey, "channel", activeChannelID)
-
+	activeChannelID := cmdutil.RequireEnv("RUBY_CHANNEL_ID")
 	allowedChannels := map[string]bool{activeChannelID: true}
+	if devChannelID := os.Getenv("DEV_CHANNEL_ID"); devChannelID != "" {
+		allowedChannels[devChannelID] = true
+	}
+	slog.Info("bot mode", "channels", len(allowedChannels))
 
 	guildForumID := os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
@@ -60,10 +57,10 @@ func main() {
 
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
-	bot.Session.AddHandler(onReady(bot, discordGuildID, discoveriesChannelID))
+	bot.Session.AddHandler(onReady(discordGuildID, discoveriesChannelID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID))
-	bot.Session.AddHandler(onGuildMemberAdd(bot))
+	bot.Session.AddHandler(onGuildMemberAdd())
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -78,7 +75,7 @@ func main() {
 	slog.Info("shutting down")
 }
 
-func onReady(bot *discord.Bot, discordGuildID, discoveriesChannelID string) func(*discordgo.Session, *discordgo.Ready) {
+func onReady(discordGuildID, discoveriesChannelID string) func(*discordgo.Session, *discordgo.Ready) {
 	return func(s *discordgo.Session, r *discordgo.Ready) {
 		slog.Info("bot connected", "user", r.User.Username)
 		discord.RegisterSubmitCommand(s, discordGuildID)
@@ -212,7 +209,7 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 	}
 }
 
-func onGuildMemberAdd(bot *discord.Bot) func(*discordgo.Session, *discordgo.GuildMemberAdd) {
+func onGuildMemberAdd() func(*discordgo.Session, *discordgo.GuildMemberAdd) {
 	return func(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 		name := m.User.GlobalName
 		if name == "" {
