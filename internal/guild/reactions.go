@@ -10,16 +10,20 @@ import (
 // ReactionMap maps Discord thread ID → emoji → list of voter user IDs.
 type ReactionMap map[string]map[string][]string
 
-// UserInfo holds a Discord user's global username and server nickname.
+// UserInfo holds a Discord user's identity fields.
 type UserInfo struct {
-	Username string `json:"username"`
-	Nickname string `json:"nickname,omitempty"`
+	Username   string `json:"username"`
+	GlobalName string `json:"globalName,omitempty"`
+	Nickname   string `json:"nickname,omitempty"`
 }
 
-// DisplayName returns the server nickname if set, otherwise the global username.
+// DisplayName returns the most specific available name: server nickname > global display name > username.
 func (u UserInfo) DisplayName() string {
 	if u.Nickname != "" {
 		return u.Nickname
+	}
+	if u.GlobalName != "" {
+		return u.GlobalName
 	}
 	return u.Username
 }

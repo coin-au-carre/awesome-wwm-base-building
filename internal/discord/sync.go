@@ -553,8 +553,9 @@ func resolveUsers(s *discordgo.Session, discordGuildID string, userThreads map[s
 		for _, m := range page {
 			if need[m.User.ID] {
 				cache[m.User.ID] = guild.UserInfo{
-					Username: m.User.Username,
-					Nickname: m.Nick,
+					Username:   m.User.Username,
+					GlobalName: m.User.GlobalName,
+					Nickname:   m.Nick,
 				}
 				delete(need, m.User.ID)
 			}
