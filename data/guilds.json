@@ -1,5 +1,19 @@
 [
 	{
+		"id": "10109259",
+		"name": "SleepingHall",
+		"builders": [],
+		"tags": [
+			"Maze",
+			"Snow",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "You can see either a crazy maze or a snowy landscape.\nIf you take the hard maze path, prepare to suffer.",
+		"score": 1,
+		"lastModified": "April 21, 2026 at 03:53 PM UTC"
+	},
+	{
 		"name": "AxiomOfWar",
 		"builders": [
 			"Dushk"
