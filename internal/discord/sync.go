@@ -442,8 +442,23 @@ func isSupportedVideoURL(rawURL string) bool {
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
 
 func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string) {
-	seen := make(map[string]bool)
+	// Fetch all messages (Discord returns newest-first), then reverse to process chronologically.
+	var allMsgs []*discordgo.Message
 	var lastID string
+	for {
+		msgs, err := s.ChannelMessages(threadID, 100, lastID, "", "")
+		if err != nil || len(msgs) == 0 {
+			break
+		}
+		allMsgs = append(allMsgs, msgs...)
+		lastID = msgs[len(msgs)-1].ID
+		if len(msgs) < 100 {
+			break
+		}
+	}
+	slices.Reverse(allMsgs)
+
+	seen := make(map[string]bool)
 	var currentSection *guild.ScreenshotSection
 
 	addImage := func(url string) {
@@ -455,68 +470,51 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 		screenshots = append(screenshots, url)
 	}
 
-	for {
+	for _, msg := range allMsgs {
 		if len(screenshots) >= maxScreenshots {
 			break
 		}
-		msgs, err := s.ChannelMessages(threadID, 100, lastID, "", "")
-		if err != nil || len(msgs) == 0 {
-			break
+		if msg.Author == nil || !allowedIDs[msg.Author.ID] {
+			continue
 		}
-		for _, msg := range msgs {
-			if msg.Author == nil || !allowedIDs[msg.Author.ID] {
+		if m := reSectionHeader.FindStringSubmatch(strings.TrimSpace(msg.Content)); len(m) == 3 {
+			label := strings.TrimSpace(m[2])
+			if currentSection != nil && currentSection.Label == "" && len(currentSection.Screenshots) > 0 {
+				// Builder posted images first then captioned them — label the preceding batch.
+				currentSection.Label = label
+			} else {
+				sections = append(sections, guild.ScreenshotSection{Label: label})
+				currentSection = &sections[len(sections)-1]
+			}
+		}
+		for _, att := range msg.Attachments {
+			if seen[att.URL] {
 				continue
 			}
-			if m := reSectionHeader.FindStringSubmatch(strings.TrimSpace(msg.Content)); len(m) == 3 {
-				label := strings.TrimSpace(m[2])
-				if currentSection != nil && currentSection.Label == "" && len(currentSection.Screenshots) > 0 {
-					// Builder posted images first then captioned them — label the preceding batch.
-					currentSection.Label = label
-				} else {
-					sections = append(sections, guild.ScreenshotSection{Label: label})
-					currentSection = &sections[len(sections)-1]
-				}
-			}
-			for _, att := range msg.Attachments {
-				if seen[att.URL] {
-					continue
-				}
-				seen[att.URL] = true
-				if guild.IsImage(att.Filename) {
-					addImage(att.URL)
-					slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
-				} else if guild.IsVideo(att.Filename) {
-					videos = append(videos, att.URL)
-					slog.Debug("video found", "thread", threadID, "url", att.URL)
-				}
-			}
-			for _, embed := range msg.Embeds {
-				isVideo := embed.Type == discordgo.EmbedTypeVideo || isSupportedVideoURL(embed.URL)
-				if isVideo && embed.URL != "" && !seen[embed.URL] {
-					seen[embed.URL] = true
-					videos = append(videos, embed.URL)
-					slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
-				} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
-					seen[embed.Image.URL] = true
-					addImage(embed.Image.URL)
-					slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
-				}
+			seen[att.URL] = true
+			if guild.IsImage(att.Filename) {
+				addImage(att.URL)
+				slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
+			} else if guild.IsVideo(att.Filename) {
+				videos = append(videos, att.URL)
+				slog.Debug("video found", "thread", threadID, "url", att.URL)
 			}
 		}
-		lastID = msgs[len(msgs)-1].ID
-		if len(msgs) < 100 {
-			break
+		for _, embed := range msg.Embeds {
+			isVideo := embed.Type == discordgo.EmbedTypeVideo || isSupportedVideoURL(embed.URL)
+			if isVideo && embed.URL != "" && !seen[embed.URL] {
+				seen[embed.URL] = true
+				videos = append(videos, embed.URL)
+				slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
+			} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
+				seen[embed.Image.URL] = true
+				addImage(embed.Image.URL)
+				slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
+			}
 		}
 	}
-	for i := range sections {
-		slices.Reverse(sections[i].Screenshots)
-	}
-	slices.Reverse(sections)
-	slices.Reverse(screenshots)
-	slices.Reverse(videos)
-	// Drop sections that ended up with no screenshots (e.g. a section header
-	// in the first post that was processed after all images were already
-	// assigned to a labelled section).
+
+	// Drop sections with no screenshots (e.g. a section header with no images following it).
 	filtered := sections[:0]
 	for _, sec := range sections {
 		if len(sec.Screenshots) > 0 {
