@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log/slog"
+	"sort"
 	"strings"
 	"sync"
 
@@ -27,6 +28,7 @@ const (
 	guildLinkCommandName = "guild"
 	soloLinkCommandName  = "solo"
 	randomCommandName    = "random"
+	myVotesCommandName   = "my-votes"
 )
 
 var submitMu sync.Mutex
@@ -42,6 +44,19 @@ var appreciationScore = map[string]int{
 	"s": 2, "S": 2,
 	"a": 1, "A": 1,
 	"b": 0, "B": 0,
+}
+
+func memberDisplayName(i *discordgo.InteractionCreate) string {
+	if i.Member == nil || i.Member.User == nil {
+		return "unknown"
+	}
+	if i.Member.Nick != "" {
+		return i.Member.Nick
+	}
+	if i.Member.User.GlobalName != "" {
+		return i.Member.User.GlobalName
+	}
+	return i.Member.User.Username
 }
 
 func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
@@ -81,7 +96,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 
 	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
 		Name:        guildLinkCommandName,
-		Description: "Get the link to a guild base showcase thread",
+		Description: "Share a guild base with its thread and page",
 		Options: []*discordgo.ApplicationCommandOption{
 			{
 				Type:         discordgo.ApplicationCommandOptionString,
@@ -98,7 +113,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 
 	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
 		Name:        soloLinkCommandName,
-		Description: "Get the link to a solo build showcase thread",
+		Description: "Share a solo base with its thread and page",
 		Options: []*discordgo.ApplicationCommandOption{
 			{
 				Type:         discordgo.ApplicationCommandOptionString,
@@ -119,6 +134,14 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	})
 	if err != nil {
 		slog.Error("registering random command", "err", err)
+	}
+
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:        myVotesCommandName,
+		Description: "Show the guild bases you have voted for (only you see the result)",
+	})
+	if err != nil {
+		slog.Error("registering my-votes command", "err", err)
 	}
 }
 
@@ -148,6 +171,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSoloLinkCommand(s, i, root)
 			case randomCommandName:
 				handleRandomCommand(s, i, root, responder)
+			case myVotesCommandName:
+				handleMyVotesCommand(s, i, root)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -163,7 +188,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 }
 
 func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	slog.Info("scout-guild command received", "user", i.Member.User.Username)
+	slog.Info("scout-guild command received", "user", memberDisplayName(i))
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -190,6 +215,15 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 				}},
 				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
 					discordgo.TextInput{
+						CustomID:    "builders_proposed",
+						Label:       "Builders (optional)",
+						Style:       discordgo.TextInputShort,
+						Required:    false,
+						Placeholder: "Builder1, Builder2",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
 						CustomID:    "appreciation",
 						Label:       "Appreciation (default: B)",
 						Style:       discordgo.TextInputShort,
@@ -207,16 +241,6 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 						Placeholder: "Arena, Cave, City, Creative, Cute, Desert, Fun, Maze, Military, Mountain, Nature, River, Snow, Zen",
 					},
 				}},
-				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
-					discordgo.TextInput{
-						CustomID:    "builders_proposed",
-						Label:       "Have you proposed builders to join WBM?",
-						Style:       discordgo.TextInputShort,
-						Required:    false,
-						Placeholder: "yes / no (default: no)",
-						MaxLength:   3,
-					},
-				}},
 			},
 		},
 	})
@@ -231,7 +255,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	name, guildID := parseLocation(fields["name"])
 	whatToVisit := fields["what_to_visit"]
 	tags := filterTags(splitCSV(fields["tags"]))
-	buildersProposed := strings.ToLower(strings.TrimSpace(fields["builders_proposed"])) == "yes"
+	builders := splitCSV(fields["builders_proposed"])
 
 	appreciation := strings.ToUpper(strings.TrimSpace(fields["appreciation"]))
 	if appreciation == "" {
@@ -253,14 +277,10 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		ID:           guildID,
 		Name:         name,
 		WhatToVisit:  whatToVisit,
-		Builders:     []string{},
+		Builders:     builders,
 		Tags:         tags,
 		Score:        score,
 		LastModified: guild.ModifiedNow(),
-	}
-	if buildersProposed {
-		n := guild.Note{Text: "Builders proposed to WBM."}
-		g.Note = &n
 	}
 
 	submitMu.Lock()
@@ -283,7 +303,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		return
 	}
 
-	slog.Info("guild proposed", "user", i.Member.User.Username, "name", name, "appreciation", appreciation, "score", score)
+	slog.Info("guild proposed", "user", memberDisplayName(i), "name", name, "appreciation", appreciation, "score", score)
 
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
@@ -334,7 +354,7 @@ func buildDiscoveryMessage(explorer string, g guild.Guild) string {
 }
 
 func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	slog.Info("submit-guild command received", "user", i.Member.User.Username)
+	slog.Info("submit-guild command received", "user", memberDisplayName(i))
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -411,7 +431,7 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 		content.WriteString(fmt.Sprintf("### 🧙 What to visit\n%s", whatToVisit))
 	}
 
-	slog.Info("submit-guild form received", "user", i.Member.User.Username, "name", name)
+	slog.Info("submit-guild form received", "user", memberDisplayName(i), "name", name)
 
 	guildURL := websiteBase + "/guilds/" + slugify(name)
 	channelMention := "<#" + guildForumChannelID + ">"
@@ -449,7 +469,7 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 }
 
 func handleSoloCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	slog.Info("submit-solo command received", "user", i.Member.User.Username)
+	slog.Info("submit-solo command received", "user", memberDisplayName(i))
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -524,7 +544,7 @@ func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 		content.WriteString(fmt.Sprintf("### 🧙 What to visit\n%s", whatToVisit))
 	}
 
-	slog.Info("submit-solo form received", "user", i.Member.User.Username, "name", name)
+	slog.Info("submit-solo form received", "user", memberDisplayName(i), "name", name)
 
 	channelMention := "<#" + soloForumChannelID + ">"
 	if soloForumChannelID == "" {
@@ -615,10 +635,7 @@ func BuildWelcomeMessage(name string) string {
 }
 
 func handleWelcomeTestCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	name := i.Member.User.GlobalName
-	if name == "" {
-		name = i.Member.User.Username
-	}
+	name := memberDisplayName(i)
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
@@ -878,6 +895,127 @@ func guildLinkContent(g *guild.Guild) string {
 		return fmt.Sprintf("**%s** · %s · [WBM page](%s)", g.Name, g.DiscordThread, siteURL)
 	}
 	return fmt.Sprintf("**%s** · [WBM page](%s)", g.Name, siteURL)
+}
+
+var emojiDisplayOrder = []string{"⭐", "👍", "🔥", "❤️"}
+
+func normalizeEmoji(emoji string) string {
+	switch emoji {
+	case "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿":
+		return "👍"
+	}
+	return emoji
+}
+
+func reactionPoints(emoji string) int {
+	switch emoji {
+	case "⭐":
+		return scorePerStar
+	case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥", "❤️":
+		return scorePerLike
+	}
+	return 0
+}
+
+// userReactions returns the display string and total raw pts for a nick in a reaction map.
+func userReactions(reactions map[string][]string, nick string) (string, int) {
+	found := map[string]bool{}
+	for emoji, names := range reactions {
+		for _, n := range names {
+			if n == nick {
+				found[normalizeEmoji(emoji)] = true
+				break
+			}
+		}
+	}
+	if len(found) == 0 {
+		return "", 0
+	}
+	pts := 0
+	var display []string
+	for _, e := range emojiDisplayOrder {
+		if found[e] {
+			display = append(display, e)
+			pts += reactionPoints(e)
+		}
+	}
+	return strings.Join(display, " "), pts
+}
+
+func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	if i.Member == nil {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(this command only works in a server)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	nick := memberDisplayName(i)
+
+	guilds, _ := guild.Load(root)
+
+	type entry struct {
+		name   string
+		emojis string
+		pts    int
+	}
+
+	var entries []entry
+	for _, g := range guilds {
+		if emojis, pts := userReactions(g.Reactions, nick); emojis != "" {
+			entries = append(entries, entry{g.Name, emojis, pts})
+		}
+	}
+
+	if len(entries) == 0 {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: fmt.Sprintf("*(no votes found for **%s** — votes are matched by server nickname)*", nick),
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	sort.Slice(entries, func(a, b int) bool {
+		if entries[a].pts != entries[b].pts {
+			return entries[a].pts > entries[b].pts
+		}
+		return entries[a].name < entries[b].name
+	})
+
+	totalPts := 0
+	for _, e := range entries {
+		totalPts += e.pts
+	}
+
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "**Your votes** · %d guilds · %d pts\n\n", len(entries), totalPts)
+
+	rank := 0
+	for idx, e := range entries {
+		if idx == 0 || entries[idx-1].pts != e.pts {
+			rank = idx + 1
+		}
+		fmt.Fprintf(&sb, "**#%d** %s · +%d %s\n", rank, e.name, e.pts, e.emojis)
+		if sb.Len() > 1800 {
+			sb.WriteString("*... and more*")
+			break
+		}
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: strings.TrimRight(sb.String(), "\n"),
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
 }
 
 func splitCSV(s string) []string {

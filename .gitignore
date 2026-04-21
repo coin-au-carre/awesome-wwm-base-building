@@ -6,6 +6,17 @@
 # go.sum
 NOTES.md
 
+/bot
+/analyze
+/announce
+/event-show
+/events-sync
+/genjson
+/react
+/send
+/spotlight
+/sync
+
 web/.astro/
 web/dist/
 web/node_modules/

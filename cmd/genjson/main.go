@@ -20,7 +20,6 @@ type publicGuild struct {
 	Builders           []string                  `json:"builders"`
 	Tags               []string                  `json:"tags,omitempty"`
 	DiscordThread      string                    `json:"discordThread"`
-	BuilderDiscordID   string                    `json:"builderDiscordId,omitempty"`
 	Lore               string                    `json:"lore,omitempty"`
 	WhatToVisit        string                    `json:"whatToVisit,omitempty"`
 	Score              int                       `json:"score"`
@@ -55,7 +54,6 @@ func main() {
 			Builders:           g.Builders,
 			Tags:               g.Tags,
 			DiscordThread:      g.DiscordThread,
-			BuilderDiscordID:   g.BuilderDiscordID,
 			Lore:               g.Lore,
 			WhatToVisit:        g.WhatToVisit,
 			Score:              g.Score,
