@@ -23,6 +23,10 @@ const (
 	soloModalID     = "submit_solo_modal"
 
 	welcomeTestCommandName = "welcome-test"
+
+	guildLinkCommandName = "guild"
+	soloLinkCommandName  = "solo"
+	randomCommandName    = "random"
 )
 
 var submitMu sync.Mutex
@@ -74,11 +78,67 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	if err != nil {
 		slog.Error("registering welcome-test command", "err", err)
 	}
+
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:        guildLinkCommandName,
+		Description: "Get the link to a guild base showcase thread",
+		Options: []*discordgo.ApplicationCommandOption{
+			{
+				Type:         discordgo.ApplicationCommandOptionString,
+				Name:         "name",
+				Description:  "Guild name",
+				Required:     true,
+				Autocomplete: true,
+			},
+		},
+	})
+	if err != nil {
+		slog.Error("registering guild command", "err", err)
+	}
+
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:        soloLinkCommandName,
+		Description: "Get the link to a solo build showcase thread",
+		Options: []*discordgo.ApplicationCommandOption{
+			{
+				Type:         discordgo.ApplicationCommandOptionString,
+				Name:         "name",
+				Description:  "Solo build name",
+				Required:     true,
+				Autocomplete: true,
+			},
+		},
+	})
+	if err != nil {
+		slog.Error("registering solo command", "err", err)
+	}
+
+	_, err = s.ApplicationCommandCreate(s.State.User.ID, discordGuildID, &discordgo.ApplicationCommand{
+		Name:        randomCommandName,
+		Description: "Show a random guild base spotlight",
+	})
+	if err != nil {
+		slog.Error("registering random command", "err", err)
+	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string, responder *Responder) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
+		case discordgo.InteractionApplicationCommandAutocomplete:
+			switch i.ApplicationCommandData().Name {
+			case guildLinkCommandName:
+				handleGuildLinkAutocomplete(s, i, root)
+			case soloLinkCommandName:
+				handleSoloLinkAutocomplete(s, i, root)
+			}
+		case discordgo.InteractionMessageComponent:
+			switch {
+			case strings.HasPrefix(i.MessageComponentData().CustomID, "guild_share:"):
+				handleGuildShareButton(s, i, root)
+			case strings.HasPrefix(i.MessageComponentData().CustomID, "solo_share:"):
+				handleSoloShareButton(s, i, root)
+			}
 		case discordgo.InteractionApplicationCommand:
 			switch i.ApplicationCommandData().Name {
 			case submitCommandName:
@@ -89,6 +149,12 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSoloCommand(s, i)
 			case welcomeTestCommandName:
 				handleWelcomeTestCommand(s, i)
+			case guildLinkCommandName:
+				handleGuildLinkCommand(s, i, root)
+			case soloLinkCommandName:
+				handleSoloLinkCommand(s, i, root)
+			case randomCommandName:
+				handleRandomCommand(s, i, root, responder)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -570,6 +636,361 @@ func handleWelcomeTestCommand(s *discordgo.Session, i *discordgo.InteractionCrea
 	if err != nil {
 		slog.Error("responding to welcome-test", "err", err)
 	}
+}
+
+const maxAutocompleteChoices = 25
+
+func handleGuildLinkAutocomplete(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	query := ""
+	for _, opt := range i.ApplicationCommandData().Options {
+		if opt.Name == "name" {
+			query = strings.ToLower(strings.TrimSpace(opt.StringValue()))
+			break
+		}
+	}
+
+	guilds, err := guild.Load(root)
+	if err != nil {
+		slog.Warn("loading guilds for autocomplete", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionApplicationCommandAutocompleteResult,
+			Data: &discordgo.InteractionResponseData{},
+		})
+		return
+	}
+
+	var choices []*discordgo.ApplicationCommandOptionChoice
+	for _, g := range guilds {
+		if query == "" || strings.Contains(strings.ToLower(g.Name), query) {
+			choices = append(choices, &discordgo.ApplicationCommandOptionChoice{
+				Name:  g.Name,
+				Value: g.Name,
+			})
+			if len(choices) >= maxAutocompleteChoices {
+				break
+			}
+		}
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionApplicationCommandAutocompleteResult,
+		Data: &discordgo.InteractionResponseData{Choices: choices},
+	})
+}
+
+func handleGuildLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	query := ""
+	for _, opt := range i.ApplicationCommandData().Options {
+		if opt.Name == "name" {
+			query = opt.StringValue()
+			break
+		}
+	}
+
+	guilds, err := guild.Load(root)
+	if err != nil {
+		slog.Error("loading guilds for guild link", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't load guild data, try again later)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	lower := strings.ToLower(query)
+	var match *guild.Guild
+	for idx := range guilds {
+		if strings.ToLower(guilds[idx].Name) == lower {
+			match = &guilds[idx]
+			break
+		}
+	}
+	if match == nil {
+		for idx := range guilds {
+			if strings.Contains(strings.ToLower(guilds[idx].Name), lower) {
+				match = &guilds[idx]
+				break
+			}
+		}
+	}
+
+	if match == nil {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: fmt.Sprintf("*(no guild found matching \"%s\")*", query),
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	content := guildLinkContent(match)
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: content,
+			Flags:   discordgo.MessageFlagsEphemeral,
+			Components: []discordgo.MessageComponent{
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.Button{
+						Label:    "Share",
+						Style:    discordgo.SecondaryButton,
+						CustomID: "guild_share:" + match.Name,
+					},
+				}},
+			},
+		},
+	})
+}
+
+func handleRandomCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string, _ *Responder) {
+	guilds, err := guild.Load(root)
+	if err != nil {
+		slog.Error("loading guilds for random", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't find the guilds scroll... something went wrong!)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	pick, _, ok := PickRandomGuild(guilds)
+	if !ok {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(no guild bases with screenshots yet... come back soon!)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	slog.Info("random slash command sent", "guild", pick.Name)
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: FormatSpotlightMessage(pick, true),
+		},
+	})
+}
+
+func soloLinkContent(g *guild.Guild) string {
+	siteURL := websiteURL("/solos/"+slugify(g.Name), "solo_cmd")
+	if g.DiscordThread != "" {
+		return fmt.Sprintf("**%s** · %s · [WBM page](%s)", g.Name, g.DiscordThread, siteURL)
+	}
+	return fmt.Sprintf("**%s** · [WBM page](%s)", g.Name, siteURL)
+}
+
+func loadSolos(root string) ([]guild.Guild, error) {
+	return guild.LoadFile(root + "/data/solos.json")
+}
+
+func handleSoloLinkAutocomplete(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	query := ""
+	for _, opt := range i.ApplicationCommandData().Options {
+		if opt.Name == "name" {
+			query = strings.ToLower(strings.TrimSpace(opt.StringValue()))
+			break
+		}
+	}
+
+	solos, err := loadSolos(root)
+	if err != nil {
+		slog.Warn("loading solos for autocomplete", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionApplicationCommandAutocompleteResult,
+			Data: &discordgo.InteractionResponseData{},
+		})
+		return
+	}
+
+	var choices []*discordgo.ApplicationCommandOptionChoice
+	for _, g := range solos {
+		if query == "" || strings.Contains(strings.ToLower(g.Name), query) {
+			choices = append(choices, &discordgo.ApplicationCommandOptionChoice{
+				Name:  g.Name,
+				Value: g.Name,
+			})
+			if len(choices) >= maxAutocompleteChoices {
+				break
+			}
+		}
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionApplicationCommandAutocompleteResult,
+		Data: &discordgo.InteractionResponseData{Choices: choices},
+	})
+}
+
+func handleSoloLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	query := ""
+	for _, opt := range i.ApplicationCommandData().Options {
+		if opt.Name == "name" {
+			query = opt.StringValue()
+			break
+		}
+	}
+
+	solos, err := loadSolos(root)
+	if err != nil {
+		slog.Error("loading solos for solo link", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't load solo data, try again later)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	lower := strings.ToLower(query)
+	var match *guild.Guild
+	for idx := range solos {
+		if strings.ToLower(solos[idx].Name) == lower {
+			match = &solos[idx]
+			break
+		}
+	}
+	if match == nil {
+		for idx := range solos {
+			if strings.Contains(strings.ToLower(solos[idx].Name), lower) {
+				match = &solos[idx]
+				break
+			}
+		}
+	}
+
+	if match == nil {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: fmt.Sprintf("*(no solo build found matching \"%s\")*", query),
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: soloLinkContent(match),
+			Flags:   discordgo.MessageFlagsEphemeral,
+			Components: []discordgo.MessageComponent{
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.Button{
+						Label:    "Share",
+						Style:    discordgo.SecondaryButton,
+						CustomID: "solo_share:" + match.Name,
+					},
+				}},
+			},
+		},
+	})
+}
+
+func guildLinkContent(g *guild.Guild) string {
+	siteURL := websiteURL("/guilds/"+slugify(g.Name), "guild_cmd")
+	if g.DiscordThread != "" {
+		return fmt.Sprintf("**%s** · %s · [WBM page](%s)", g.Name, g.DiscordThread, siteURL)
+	}
+	return fmt.Sprintf("**%s** · [WBM page](%s)", g.Name, siteURL)
+}
+
+func handleGuildShareButton(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	name := strings.TrimPrefix(i.MessageComponentData().CustomID, "guild_share:")
+
+	guilds, err := guild.Load(root)
+	if err != nil {
+		slog.Error("loading guilds for guild share", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't load guild data, try again later)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	var match *guild.Guild
+	for idx := range guilds {
+		if guilds[idx].Name == name {
+			match = &guilds[idx]
+			break
+		}
+	}
+	if match == nil {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: fmt.Sprintf("*(guild \"%s\" not found)*", name),
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: guildLinkContent(match),
+		},
+	})
+}
+
+func handleSoloShareButton(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	name := strings.TrimPrefix(i.MessageComponentData().CustomID, "solo_share:")
+
+	solos, err := loadSolos(root)
+	if err != nil {
+		slog.Error("loading solos for solo share", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't load solo data, try again later)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	var match *guild.Guild
+	for idx := range solos {
+		if solos[idx].Name == name {
+			match = &solos[idx]
+			break
+		}
+	}
+	if match == nil {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: fmt.Sprintf("*(solo build \"%s\" not found)*", name),
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: soloLinkContent(match),
+		},
+	})
 }
 
 func splitCSV(s string) []string {

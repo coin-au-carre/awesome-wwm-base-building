@@ -95,16 +95,35 @@ func soloWebsiteURL(g guild.Guild, campaign string) string {
 // Pass random=true to include the "randomly picked" subtitle.
 func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	var sb strings.Builder
-	fmt.Fprintf(&sb, "## 🏰 Guild Spotlight: **%s**\n", g.Name)
+	fmt.Fprintf(&sb, "**%s**\n", g.Name)
 	if random {
-		fmt.Fprintf(&sb, "-# 🎲 Randomly picked from the list\n")
+		fmt.Fprintf(&sb, "-# 🎲 randomly picked\n")
 	}
 	meta := buildGuildMeta(g, true)
 	fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, guildWebsiteURL(g, "spotlight"))
+		fmt.Fprintf(&sb, "🔗 %s · [WBM page](%s)", g.DiscordThread, guildWebsiteURL(g, "spotlight"))
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", guildWebsiteURL(g, "spotlight"))
+		fmt.Fprintf(&sb, "🔗 [WBM page](%s)", guildWebsiteURL(g, "spotlight"))
+	}
+	return sb.String()
+}
+
+// FormatSoloSpotlightMessage builds the Discord message for a solo build spotlight.
+func FormatSoloSpotlightMessage(g guild.Guild, random bool) string {
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "**%s**\n", g.Name)
+	if random {
+		fmt.Fprintf(&sb, "-# 🎲 randomly picked\n")
+	}
+	meta := buildGuildMeta(g, false)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	if g.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [WBM page](%s)", g.DiscordThread, soloWebsiteURL(g, "spotlight"))
+	} else {
+		fmt.Fprintf(&sb, "🔗 [WBM page](%s)", soloWebsiteURL(g, "spotlight"))
 	}
 	return sb.String()
 }

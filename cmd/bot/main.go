@@ -55,11 +55,12 @@ func main() {
 
 	discordGuildID := os.Getenv("DISCORD_GUILD_ID")
 
+	rubyRoleID := os.Getenv("RUBY_ROLE_ID")
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
 	bot.Session.AddHandler(onReady(discordGuildID, discoveriesChannelID))
-	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels))
-	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID))
+	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, responder))
 	bot.Session.AddHandler(onGuildMemberAdd())
 
 	if err := bot.Open(); err != nil {
@@ -112,16 +113,15 @@ func logChannelPermissions(s *discordgo.Session, botUserID, channelID string) {
 	slog.Info("channel permissions", "channel", channelID, "view", canView, "send", canSend)
 }
 
-var reMention = regexp.MustCompile(`<@!?\d+>`)
+var reMention = regexp.MustCompile(`<@[!&]?\d+>`)
 
 // spotlightKeywords are exact single-word triggers that bypass Claude entirely.
 var spotlightKeywords = map[string]bool{
-	"spotlight": true,
-	"random":    true,
+	"random": true,
 }
 
 // onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
-func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string, allowedChannels map[string]bool) func(*discordgo.Session, *discordgo.MessageCreate) {
+func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string, allowedChannels map[string]bool, rubyRoleID string) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Author.ID == s.State.User.ID {
 			return
@@ -146,7 +146,8 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 			}
 		}
 
-		if !mentioned && !strings.Contains(strings.ToLower(m.Content), "ruby") {
+		roleMentioned := rubyRoleID != "" && strings.Contains(m.Content, "<@&"+rubyRoleID+">")
+		if !mentioned && !roleMentioned && !strings.Contains(strings.ToLower(m.Content), "ruby") {
 			return
 		}
 
@@ -159,9 +160,11 @@ func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string
 		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", text)
 
 		// Fast path: single keyword commands skip Claude entirely.
-		if spotlightKeywords[strings.ToLower(text)] {
-			handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
-			return
+		for _, word := range strings.Fields(strings.ToLower(text)) {
+			if spotlightKeywords[word] {
+				handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
+				return
+			}
 		}
 
 		if responder == nil {
