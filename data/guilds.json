@@ -1,5 +1,16 @@
 [
 	{
+		"name": "JadeLotus",
+		"builders": [
+			"OracleOfXata"
+		],
+		"discordThread": "",
+		"whatToVisit": "Immersive guild area",
+		"score": 0,
+		"lastModified": "April 21, 2026 at 11:22 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10058978",
 		"name": "Unicornis",
 		"builders": [
@@ -689,7 +700,7 @@
 		"score": 0
 	},
 	{
-		"name": "BrigadePhantom",
+		"name": "EncoreEnTaule",
 		"builders": [
 			"Ssyrena",
 			"Dovahline"
