@@ -2,6 +2,14 @@ import { readFileSync } from "fs"
 import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify, formatBuilderName } from "@/lib/slugify"
 
+export interface UserInfo {
+  username: string
+  globalName?: string
+  nickname?: string
+}
+export type ReactionMap = Record<string, Record<string, string[]>> // threadID → emoji → userID[]
+export type UserMap = Record<string, UserInfo>
+
 export interface GameEvent {
   id: string
   name: string
@@ -137,6 +145,24 @@ export function getUpcomingEvents(): GameEvent[] {
       .sort((a, b) => new Date(a.scheduledStart).getTime() - new Date(b.scheduledStart).getTime())
   } catch {
     return []
+  }
+}
+
+export function getReactions(): ReactionMap {
+  try {
+    const raw = readFileSync(new URL("../../../data/reactions.json", import.meta.url), "utf-8")
+    return JSON.parse(raw)
+  } catch {
+    return {}
+  }
+}
+
+export function getUsers(): UserMap {
+  try {
+    const raw = readFileSync(new URL("../../../data/users.json", import.meta.url), "utf-8")
+    return JSON.parse(raw)
+  } catch {
+    return {}
   }
 }
 

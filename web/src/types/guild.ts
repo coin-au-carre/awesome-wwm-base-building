@@ -16,7 +16,6 @@ export interface Guild {
   lore?: string
   whatToVisit?: string
   score: number
-  reactions?: Record<string, string[]>
   coverImage?: string
   screenshots?: string[]
   screenshotSections?: ScreenshotSection[]
