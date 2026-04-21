@@ -122,6 +122,7 @@ tasks:
       - echo "        -- -force-role     reassign roles to all authors"
       - echo ""
       - echo "  task bot                 run long-running bot (dev)"
+      - echo "  task bot:no-claude       run bot without Claude (slash commands only)"
       - echo "  task bot:build           build Linux binary → dist/bot"
       - echo "  task bot:deploy          build + scp + restart systemd service"
       - echo ""
