@@ -51,9 +51,9 @@ function displayName(userID: string, users: UserMap): string {
 }
 
 function getVoterWeight(threads: number, cfg: ScoringConfig): number {
-  if (threads >= cfg.criticThreshold) return 3
-  if (threads >= cfg.weight2Threshold) return 2
-  if (threads >= cfg.weight1Threshold) return 1
+  if (threads >= cfg.criticThreshold) { return 3 }
+  if (threads >= cfg.weight2Threshold) { return 2 }
+  if (threads >= cfg.weight1Threshold) { return 1 }
   return 0
 }
 
@@ -66,24 +66,24 @@ function computeDynScore(
   let score = 0
   for (const [emoji, voters] of Object.entries(emojiMap ?? {})) {
     const pts = emoji === STAR ? cfg.starScore : LIKE_EMOJIS.has(emoji) ? cfg.likeScore : 0
-    for (const v of voters) score += pts * (weights.get(v) ?? 0)
+    for (const v of voters) { score += pts * (weights.get(v) ?? 0) }
   }
-  if (g.lore) score += cfg.loreBonus
-  if (g.whatToVisit) score += cfg.visitBonus
+  if (g.lore) { score += cfg.loreBonus }
+  if (g.whatToVisit) { score += cfg.visitBonus }
   return score
 }
 
 function weightColor(w: number): string {
-  if (w >= 3) return "bg-amber-500/20 text-amber-300 ring-1 ring-inset ring-amber-500/40"
-  if (w >= 2) return "bg-sky-500/20 text-sky-300 ring-1 ring-inset ring-sky-500/40"
-  if (w >= 1) return "bg-emerald-500/20 text-emerald-300 ring-1 ring-inset ring-emerald-500/40"
+  if (w >= 3) { return "bg-amber-500/20 text-amber-300 ring-1 ring-inset ring-amber-500/40" }
+  if (w >= 2) { return "bg-sky-500/20 text-sky-300 ring-1 ring-inset ring-sky-500/40" }
+  if (w >= 1) { return "bg-emerald-500/20 text-emerald-300 ring-1 ring-inset ring-emerald-500/40" }
   return "bg-muted/30 text-muted-foreground/40 ring-1 ring-inset ring-border/30"
 }
 
 function weightLabel(w: number): string {
-  if (w >= 3) return "Critic ×3"
-  if (w >= 2) return "×2"
-  if (w >= 1) return "×1"
+  if (w >= 3) { return "Critic ×3" }
+  if (w >= 2) { return "×2" }
+  if (w >= 1) { return "×1" }
   return "×0"
 }
 
@@ -132,9 +132,9 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
       const emojiMap = reactions[threadID(g)] ?? {}
       const seen = new Set<string>()
       for (const voters of Object.values(emojiMap)) {
-        for (const v of voters) seen.add(v)
+        for (const v of voters) { seen.add(v) }
       }
-      for (const v of seen) counts.set(v, (counts.get(v) ?? 0) + 1)
+      for (const v of seen) { counts.set(v, (counts.get(v) ?? 0) + 1) }
     }
     return counts
   }, [guilds, reactions])
@@ -303,8 +303,13 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
                         )}
                       </div>
                     </TableCell>
-                    <TableCell className="hidden md:table-cell text-sm text-muted-foreground pt-3">
-                      {(g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", ") || "—"}
+                    <TableCell className="hidden md:table-cell text-sm text-muted-foreground pt-3 max-w-35">
+                      <span
+                        className="block truncate"
+                        title={(g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", ") || "—"}
+                      >
+                        {(g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", ") || "—"}
+                      </span>
                     </TableCell>
                     <TableCell className="text-right pt-3">
                       <div className="flex flex-col items-end">
@@ -312,7 +317,7 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
                         {g.dynScore !== g.score && (
                           <span
                             className="text-[10px] text-muted-foreground/40 cursor-default"
-                            title="Original stored score"
+                            title="Stored score (computed at snapshot time, without voter weights)"
                           >
                             was {g.score}
                           </span>
