@@ -132,13 +132,6 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case soloLinkCommandName:
 				handleSoloLinkAutocomplete(s, i, root)
 			}
-		case discordgo.InteractionMessageComponent:
-			switch {
-			case strings.HasPrefix(i.MessageComponentData().CustomID, "guild_share:"):
-				handleGuildShareButton(s, i, root)
-			case strings.HasPrefix(i.MessageComponentData().CustomID, "solo_share:"):
-				handleSoloShareButton(s, i, root)
-			}
 		case discordgo.InteractionApplicationCommand:
 			switch i.ApplicationCommandData().Name {
 			case submitCommandName:
@@ -728,22 +721,10 @@ func handleGuildLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate
 		return
 	}
 
-	content := guildLinkContent(match)
-
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
-			Content: content,
-			Flags:   discordgo.MessageFlagsEphemeral,
-			Components: []discordgo.MessageComponent{
-				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
-					discordgo.Button{
-						Label:    "Share",
-						Style:    discordgo.SecondaryButton,
-						CustomID: "guild_share:" + match.Name,
-					},
-				}},
-			},
+			Content: guildLinkContent(match),
 		},
 	})
 }
@@ -887,16 +868,6 @@ func handleSoloLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
 			Content: soloLinkContent(match),
-			Flags:   discordgo.MessageFlagsEphemeral,
-			Components: []discordgo.MessageComponent{
-				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
-					discordgo.Button{
-						Label:    "Share",
-						Style:    discordgo.SecondaryButton,
-						CustomID: "solo_share:" + match.Name,
-					},
-				}},
-			},
 		},
 	})
 }
@@ -907,90 +878,6 @@ func guildLinkContent(g *guild.Guild) string {
 		return fmt.Sprintf("**%s** · %s · [WBM page](%s)", g.Name, g.DiscordThread, siteURL)
 	}
 	return fmt.Sprintf("**%s** · [WBM page](%s)", g.Name, siteURL)
-}
-
-func handleGuildShareButton(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
-	name := strings.TrimPrefix(i.MessageComponentData().CustomID, "guild_share:")
-
-	guilds, err := guild.Load(root)
-	if err != nil {
-		slog.Error("loading guilds for guild share", "err", err)
-		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-			Type: discordgo.InteractionResponseChannelMessageWithSource,
-			Data: &discordgo.InteractionResponseData{
-				Content: "*(couldn't load guild data, try again later)*",
-				Flags:   discordgo.MessageFlagsEphemeral,
-			},
-		})
-		return
-	}
-
-	var match *guild.Guild
-	for idx := range guilds {
-		if guilds[idx].Name == name {
-			match = &guilds[idx]
-			break
-		}
-	}
-	if match == nil {
-		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-			Type: discordgo.InteractionResponseChannelMessageWithSource,
-			Data: &discordgo.InteractionResponseData{
-				Content: fmt.Sprintf("*(guild \"%s\" not found)*", name),
-				Flags:   discordgo.MessageFlagsEphemeral,
-			},
-		})
-		return
-	}
-
-	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-		Type: discordgo.InteractionResponseChannelMessageWithSource,
-		Data: &discordgo.InteractionResponseData{
-			Content: guildLinkContent(match),
-		},
-	})
-}
-
-func handleSoloShareButton(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
-	name := strings.TrimPrefix(i.MessageComponentData().CustomID, "solo_share:")
-
-	solos, err := loadSolos(root)
-	if err != nil {
-		slog.Error("loading solos for solo share", "err", err)
-		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-			Type: discordgo.InteractionResponseChannelMessageWithSource,
-			Data: &discordgo.InteractionResponseData{
-				Content: "*(couldn't load solo data, try again later)*",
-				Flags:   discordgo.MessageFlagsEphemeral,
-			},
-		})
-		return
-	}
-
-	var match *guild.Guild
-	for idx := range solos {
-		if solos[idx].Name == name {
-			match = &solos[idx]
-			break
-		}
-	}
-	if match == nil {
-		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-			Type: discordgo.InteractionResponseChannelMessageWithSource,
-			Data: &discordgo.InteractionResponseData{
-				Content: fmt.Sprintf("*(solo build \"%s\" not found)*", name),
-				Flags:   discordgo.MessageFlagsEphemeral,
-			},
-		})
-		return
-	}
-
-	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
-		Type: discordgo.InteractionResponseChannelMessageWithSource,
-		Data: &discordgo.InteractionResponseData{
-			Content: soloLinkContent(match),
-		},
-	})
 }
 
 func splitCSV(s string) []string {

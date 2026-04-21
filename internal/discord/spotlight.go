@@ -99,8 +99,10 @@ func FormatSpotlightMessage(g guild.Guild, random bool) string {
 	if random {
 		fmt.Fprintf(&sb, "-# 🎲 randomly picked\n")
 	}
-	meta := buildGuildMeta(g, true)
-	fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	meta := buildGuildMeta(g, false)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
 	if g.DiscordThread != "" {
 		fmt.Fprintf(&sb, "🔗 %s · [WBM page](%s)", g.DiscordThread, guildWebsiteURL(g, "spotlight"))
 	} else {
