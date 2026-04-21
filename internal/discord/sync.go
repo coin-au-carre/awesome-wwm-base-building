@@ -53,17 +53,17 @@ type threadData struct {
 }
 
 type fetchedThread struct {
-	idx               int
-	thread            *discordgo.Channel
-	data              threadData
-	reactions         map[string][]string // emoji → []userID (for scoring)
-	resolvedReactions map[string][]string // emoji → []nickname (for storage)
+	idx       int
+	thread    *discordgo.Channel
+	data      threadData
+	reactions map[string][]string // emoji → []userID
 }
 
 // SyncFetchResult holds all raw data from SyncFetch, ready for SyncFinalize.
 type SyncFetchResult struct {
 	Guilds      []guild.Guild
-	VoterCounts map[string]int // userID → distinct thread count (this channel only)
+	VoterCounts map[string]int   // userID → distinct thread count (this channel only)
+	Users       guild.UserMap    // userID → UserInfo (username + nickname)
 	threads     []fetchedThread
 	newIndices  map[int]bool
 	tagMap      map[string]string
@@ -217,27 +217,12 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		voterCounts[uid] = len(threadSet)
 	}
 
-	// Resolve all unique voter IDs to server nicknames in parallel.
-	nicknameCache := resolveNicknames(b.Session, guildID(fetched), userThreads)
-	for i, ft := range fetched {
-		resolved := make(map[string][]string, len(ft.reactions))
-		for emoji, users := range ft.reactions {
-			names := make([]string, 0, len(users))
-			for _, uid := range users {
-				if name, ok := nicknameCache[uid]; ok {
-					names = append(names, name)
-				} else {
-					names = append(names, uid)
-				}
-			}
-			resolved[emoji] = names
-		}
-		fetched[i].resolvedReactions = resolved
-	}
+	userCache := resolveUsers(b.Session, guildID(fetched), userThreads)
 
 	return SyncFetchResult{
 		Guilds:      guilds,
 		VoterCounts: voterCounts,
+		Users:       userCache,
 		threads:     fetched,
 		newIndices:  newIndices,
 		tagMap:      tagMap,
@@ -246,13 +231,14 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 }
 
 // SyncFinalize scores all fetched threads using the provided merged voter weights
-// and returns the final guild list and complete stats.
-func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.Guild, SyncStats) {
+// and returns the final guild list, per-thread reactions (threadID → emoji → []userID), and stats.
+func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.Guild, guild.ReactionMap, SyncStats) {
 	slog.Info("voter weights applied", "voters", len(voterWeights))
 
 	guilds := result.Guilds
 	stats := result.Stats
 	now := guild.ModifiedNow()
+	reactions := make(guild.ReactionMap, len(result.threads))
 
 	for _, r := range result.threads {
 		data := r.data
@@ -293,7 +279,6 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 		g.Tags = tags
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
 		g.Score = data.Score
-		g.Reactions = r.resolvedReactions
 		g.Screenshots = data.Screenshots
 		var labeledSections []guild.ScreenshotSection
 		for _, s := range data.ScreenshotSections {
@@ -335,13 +320,14 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 			g.LastModified = now
 		}
 
+		reactions[r.thread.ID] = r.reactions
 		guilds[r.idx] = g
 		slog.Info("guild scored", "name", g.Name, "score", g.Score, "tags", strings.Join(g.Tags, ", "))
 	}
 
 	stats.Total = len(guilds)
 	stats.VoterGuildCounts = result.VoterCounts
-	return guilds, stats
+	return guilds, reactions, stats
 }
 
 func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*discordgo.Channel, error) {
@@ -550,10 +536,10 @@ func guildID(fetched []fetchedThread) string {
 	return ""
 }
 
-// resolveNicknames builds a userID→nickname map for all voters using bulk
+// resolveUsers builds a userID→UserInfo map for all voters using bulk
 // GuildMembers pages (1 API call per 1000 members) instead of per-user lookups.
-func resolveNicknames(s *discordgo.Session, discordGuildID string, userThreads map[string]map[string]bool) map[string]string {
-	cache := make(map[string]string, len(userThreads))
+func resolveUsers(s *discordgo.Session, discordGuildID string, userThreads map[string]map[string]bool) guild.UserMap {
+	cache := make(guild.UserMap, len(userThreads))
 	need := make(map[string]bool, len(userThreads))
 	for uid := range userThreads {
 		need[uid] = true
@@ -566,11 +552,10 @@ func resolveNicknames(s *discordgo.Session, discordGuildID string, userThreads m
 		}
 		for _, m := range page {
 			if need[m.User.ID] {
-				name := m.User.Username
-				if m.Nick != "" {
-					name = m.Nick
+				cache[m.User.ID] = guild.UserInfo{
+					Username: m.User.Username,
+					Nickname: m.Nick,
 				}
-				cache[m.User.ID] = name
 				delete(need, m.User.ID)
 			}
 		}
@@ -581,7 +566,7 @@ func resolveNicknames(s *discordgo.Session, discordGuildID string, userThreads m
 	}
 	counter := 1
 	for uid := range need {
-		cache[uid] = fmt.Sprintf("Unknown#%d", counter)
+		cache[uid] = guild.UserInfo{Username: fmt.Sprintf("unknown#%d", counter)}
 		counter++
 	}
 	return cache

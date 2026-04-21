@@ -126,12 +126,13 @@ func main() {
 
 	// ── Finalize (score) both channels ────────────────────────────────────────
 
-	updatedGuilds, guildStats := discord.SyncFinalize(guildFetch.result, mergedWeights)
+	updatedGuilds, guildReactions, guildStats := discord.SyncFinalize(guildFetch.result, mergedWeights)
 
 	var updatedSolos []guild.Guild
 	var soloStats discord.SyncStats
+	var soloReactions guild.ReactionMap
 	if soloForumID != "" {
-		updatedSolos, soloStats = discord.SyncFinalize(soloFetch.result, mergedWeights)
+		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, mergedWeights)
 	}
 
 	// ── Save ──────────────────────────────────────────────────────────────────
@@ -148,6 +149,28 @@ func main() {
 				slog.Error("saving solos", "err", err)
 				os.Exit(1)
 			}
+		}
+
+		allReactions := make(guild.ReactionMap)
+		for k, v := range guildReactions {
+			allReactions[k] = v
+		}
+		for k, v := range soloReactions {
+			allReactions[k] = v
+		}
+		if err := guild.SaveReactions(*root, allReactions); err != nil {
+			slog.Warn("saving reactions", "err", err)
+		}
+
+		allUsers := make(guild.UserMap)
+		for k, v := range guildFetch.result.Users {
+			allUsers[k] = v
+		}
+		for k, v := range soloFetch.result.Users {
+			allUsers[k] = v
+		}
+		if err := guild.SaveUsers(*root, allUsers); err != nil {
+			slog.Warn("saving users", "err", err)
 		}
 
 		lastSyncPath := filepath.Join(*root, "data", "last_sync.json")

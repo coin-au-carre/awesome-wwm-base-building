@@ -50,7 +50,6 @@ type Guild struct {
 	Lore               string              `json:"lore,omitempty"`
 	WhatToVisit        string              `json:"whatToVisit,omitempty"`
 	Score              int                 `json:"score"`
-	Reactions          map[string][]string `json:"reactions,omitempty"`
 	Note               *Note               `json:"note,omitempty"`
 	CoverImage         string              `json:"coverImage,omitempty"`
 	Screenshots        []string            `json:"screenshots,omitempty"`

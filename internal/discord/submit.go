@@ -898,12 +898,12 @@ func reactionPoints(emoji string) int {
 	return 0
 }
 
-// userReactions returns the display string and total raw pts for a nick in a reaction map.
-func userReactions(reactions map[string][]string, nick string) (string, int) {
+// userReactionsForID returns the display string and total raw pts for a user ID in a per-thread emoji map.
+func userReactionsForID(emojiMap map[string][]string, userID string) (string, int) {
 	found := map[string]bool{}
-	for emoji, names := range reactions {
-		for _, n := range names {
-			if n == nick {
+	for emoji, ids := range emojiMap {
+		for _, uid := range ids {
+			if uid == userID {
 				found[normalizeEmoji(emoji)] = true
 				break
 			}
@@ -923,6 +923,14 @@ func userReactions(reactions map[string][]string, nick string) (string, int) {
 	return strings.Join(display, " "), pts
 }
 
+func threadIDFromURL(u string) string {
+	i := strings.LastIndex(u, "/")
+	if i < 0 {
+		return u
+	}
+	return u[i+1:]
+}
+
 func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
 	if i.Member == nil {
 		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
@@ -935,9 +943,26 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 		return
 	}
 
-	nick := memberDisplayName(i)
+	userID := i.Member.User.ID
 
-	guilds, _ := guild.Load(root)
+	reactions, _ := guild.LoadReactions(root)
+
+	// Build threadID → entry name from both guilds and solos.
+	threadToName := make(map[string]string)
+	if guilds, err := guild.Load(root); err == nil {
+		for _, g := range guilds {
+			if tid := threadIDFromURL(g.DiscordThread); tid != "" {
+				threadToName[tid] = g.Name
+			}
+		}
+	}
+	if solos, err := loadSolos(root); err == nil {
+		for _, g := range solos {
+			if tid := threadIDFromURL(g.DiscordThread); tid != "" {
+				threadToName[tid] = g.Name
+			}
+		}
+	}
 
 	type entry struct {
 		name   string
@@ -946,9 +971,13 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	}
 
 	var entries []entry
-	for _, g := range guilds {
-		if emojis, pts := userReactions(g.Reactions, nick); emojis != "" {
-			entries = append(entries, entry{g.Name, emojis, pts})
+	for threadID, emojiMap := range reactions {
+		name, ok := threadToName[threadID]
+		if !ok {
+			continue
+		}
+		if emojis, pts := userReactionsForID(emojiMap, userID); emojis != "" {
+			entries = append(entries, entry{name, emojis, pts})
 		}
 	}
 
@@ -956,7 +985,7 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 			Type: discordgo.InteractionResponseChannelMessageWithSource,
 			Data: &discordgo.InteractionResponseData{
-				Content: fmt.Sprintf("*(no votes found for **%s** — votes are matched by server nickname)*", nick),
+				Content: "*(no votes found for your account)*",
 				Flags:   discordgo.MessageFlagsEphemeral,
 			},
 		})
