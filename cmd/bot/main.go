@@ -25,6 +25,9 @@ import (
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	noClaude := flag.Bool("no-claude", false, "disable Claude responses (slash commands still work)")
+	useOllama := flag.Bool("ollama", false, "use local Ollama instead of Claude")
+	ollamaURL := flag.String("ollama-url", "http://localhost:11434", "Ollama API endpoint")
+	ollamaModel := flag.String("ollama-model", "llama3.1", "Ollama model name")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -50,9 +53,9 @@ func main() {
 	}
 	defer bot.Close()
 
-	var responder *discord.Responder
+	var responder discord.LLMResponder
 	if !*noClaude {
-		responder = buildResponder(*root)
+		responder = buildResponder(*root, *useOllama, *ollamaURL, *ollamaModel)
 	}
 
 	discordGuildID := os.Getenv("DISCORD_GUILD_ID")
@@ -109,7 +112,7 @@ var spotlightKeywords = map[string]bool{
 }
 
 // onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
-func onMessageCreate(bot *discord.Bot, responder *discord.Responder, root string, allowedChannels map[string]bool, rubyRoleID string) func(*discordgo.Session, *discordgo.MessageCreate) {
+func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root string, allowedChannels map[string]bool, rubyRoleID string) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Author.ID == s.State.User.ID {
 			return
@@ -245,9 +248,12 @@ func onGuildMemberAdd() func(*discordgo.Session, *discordgo.GuildMemberAdd) {
 	}
 }
 
-// buildResponder returns a Responder using ANTHROPIC_API_KEY if set,
-// otherwise falls back to the `claude` CLI (Pro subscription via Claude Code).
-func buildResponder(root string) *discord.Responder {
+// buildResponder returns a Responder using Ollama, Claude API, or Claude Code CLI.
+func buildResponder(root string, useOllama bool, ollamaURL, ollamaModel string) discord.LLMResponder {
+	if useOllama {
+		slog.Info("using ollama", "url", ollamaURL, "model", ollamaModel)
+		return discord.NewOllamaResponder(ollamaURL, ollamaModel, root)
+	}
 	if key := os.Getenv("ANTHROPIC_API_KEY"); key != "" {
 		slog.Info("claude: using ANTHROPIC_API_KEY")
 		c := anthropic.NewClient(option.WithAPIKey(key))

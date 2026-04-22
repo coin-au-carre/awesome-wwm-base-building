@@ -24,6 +24,10 @@ tasks:
   bot:no-claude:
     desc: run the bot without Claude responses (slash commands only)
     cmd: go run ./cmd/bot -no-claude {{.CLI_ARGS}}
+
+  bot:ollama:
+    desc: run the bot with local Ollama (Qwen 2.5 7B Instruct)
+    cmd: go run ./cmd/bot -ollama -ollama-model qwen2.5:7b-instruct-q5_K_M {{.CLI_ARGS}}
     
   # ── voter analysis (one-shot) ───────────────────────────────
   analyze:
@@ -114,6 +118,9 @@ tasks:
       - echo ""
       - echo "  task bot                 run bot (RUBY_CHANNEL_ID + DEV_CHANNEL_ID)"
       - echo "  task bot:no-claude       run bot without Claude (slash commands only)"
+      - echo "  task bot:ollama          run bot with local Ollama (requires ollama running)"
+      - 'echo "        -- -ollama-model   set model name (default: llama3.1)"'
+      - 'echo "        -- -ollama-url     set Ollama API URL (default: http://localhost:11434)"'
       - echo "  task bot:purge-commands  delete all slash commands from Discord (run once to clean up stale commands)"
       - echo ""
       - echo "  task send                post a message as Ruby (one-shot)"
