@@ -36,9 +36,10 @@ func main() {
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
-	guildsPath    := filepath.Join(*root, "data", "guilds.json")
-	solosPath     := filepath.Join(*root, "data", "solos.json")
-	roleCachePath := filepath.Join(*root, "data", "role_assignments.json")
+	guildsPath        := filepath.Join(*root, "data", "guilds.json")
+	solosPath         := filepath.Join(*root, "data", "solos.json")
+	roleCachePath     := filepath.Join(*root, "data", "role_assignments.json")
+	blacklistPath     := filepath.Join(*root, "data", "voter_blacklist.json")
 
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
@@ -68,6 +69,13 @@ func main() {
 			solos = []guild.Guild{}
 		}
 	}
+
+	blacklist, err := guild.LoadVoterBlacklist(blacklistPath)
+	if err != nil {
+		slog.Error("loading voter blacklist", "err", err)
+		os.Exit(1)
+	}
+	slog.Info("voter blacklist loaded", "count", len(blacklist))
 
 
 	// ── Fetch both channels in parallel ──────────────────────────────────────
@@ -125,7 +133,7 @@ func main() {
 
 	// ── Finalize (score) both channels ────────────────────────────────────────
 
-	updatedGuilds, guildReactions, guildStats := discord.SyncFinalize(guildFetch.result, guildWeights)
+	updatedGuilds, guildReactions, guildStats := discord.SyncFinalize(guildFetch.result, guildWeights, blacklist)
 
 	var updatedSolos []guild.Guild
 	var soloStats discord.SyncStats
@@ -133,7 +141,7 @@ func main() {
 	if soloForumID != "" {
 		soloWeights := discord.ComputeVoterWeights(soloFetch.result.VoterCounts)
 		slog.Info("solo voter weights", "voters", len(soloWeights))
-		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, soloWeights)
+		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, soloWeights, blacklist)
 	}
 
 	// ── Save ──────────────────────────────────────────────────────────────────

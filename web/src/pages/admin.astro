@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { AdminLeaderboard } from "@/components/AdminLeaderboard"
-import { getGuildsSortedByScore, getReactions, getUsers } from "@/lib/guilds"
+import { getGuildsSortedByScore, getReactions, getUsers, getVoterBlacklist } from "@/lib/guilds"
 
 const isDev = import.meta.env.DEV
 
@@ -12,6 +12,7 @@ if (!isDev) {
 const guilds = getGuildsSortedByScore()
 const reactions = getReactions()
 const users = getUsers()
+const voterBlacklist = getVoterBlacklist()
 ---
 
 <Layout
@@ -25,6 +26,6 @@ const users = getUsers()
         Local only
       </span>
     </div>
-    <AdminLeaderboard client:load guilds={guilds} reactions={reactions} users={users} />
+    <AdminLeaderboard client:load guilds={guilds} reactions={reactions} users={users} voterBlacklist={voterBlacklist} />
   </div>
 </Layout>

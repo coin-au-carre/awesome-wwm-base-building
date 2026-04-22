@@ -31,8 +31,8 @@ const DEFAULTS: ScoringConfig = {
   loreBonus: 1,
   visitBonus: 1,
   criticThreshold: 12,
-  weight2Threshold: 6,
-  weight1Threshold: 2,
+  weight2Threshold: 8,
+  weight1Threshold: 4,
 }
 
 const STAR = "⭐"
@@ -62,11 +62,14 @@ function computeDynScore(
   emojiMap: Record<string, string[]> | undefined,
   weights: Map<string, number>,
   cfg: ScoringConfig,
+  blacklisted: Set<string>,
 ): number {
   let score = 0
   for (const [emoji, voters] of Object.entries(emojiMap ?? {})) {
     const pts = emoji === STAR ? cfg.starScore : LIKE_EMOJIS.has(emoji) ? cfg.likeScore : 0
-    for (const v of voters) { score += pts * (weights.get(v) ?? 0) }
+    for (const v of voters) {
+      if (!blacklisted.has(v)) score += pts * (weights.get(v) ?? 0)
+    }
   }
   if (g.lore) { score += cfg.loreBonus }
   if (g.whatToVisit) { score += cfg.visitBonus }
@@ -114,12 +117,14 @@ interface Props {
   guilds: RankedGuild[]
   reactions: ReactionMap
   users: UserMap
+  voterBlacklist: string[]
 }
 
-export function AdminLeaderboard({ guilds, reactions, users }: Props) {
+export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: Props) {
   const [cfg, setCfg] = useState<ScoringConfig>(DEFAULTS)
   const [filterVoter, setFilterVoter] = useState("")
   const [page, setPage] = useState(1)
+  const [disabledBlacklist, setDisabledBlacklist] = useState<Set<string>>(new Set(voterBlacklist))
 
   function set(key: keyof ScoringConfig, value: number) {
     setCfg((prev) => ({ ...prev, [key]: value }))
@@ -132,12 +137,14 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
       const emojiMap = reactions[threadID(g)] ?? {}
       const seen = new Set<string>()
       for (const voters of Object.values(emojiMap)) {
-        for (const v of voters) { seen.add(v) }
+        for (const v of voters) {
+          if (!disabledBlacklist.has(v)) seen.add(v)
+        }
       }
       for (const v of seen) { counts.set(v, (counts.get(v) ?? 0) + 1) }
     }
     return counts
-  }, [guilds, reactions])
+  }, [guilds, reactions, disabledBlacklist])
 
   const weights = useMemo(() => {
     const map = new Map<string, number>()
@@ -150,7 +157,7 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
   const ranked = useMemo(() => {
     const withScore = guilds.map((g) => ({
       ...g,
-      dynScore: computeDynScore(g, reactions[threadID(g)], weights, cfg),
+      dynScore: computeDynScore(g, reactions[threadID(g)], weights, cfg, disabledBlacklist),
     }))
     withScore.sort((a, b) => b.dynScore - a.dynScore)
     let rank = 1
@@ -158,7 +165,7 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
       if (i > 0 && g.dynScore < withScore[i - 1].dynScore) rank = i + 1
       return { ...g, dynRank: rank }
     })
-  }, [guilds, reactions, weights, cfg])
+  }, [guilds, reactions, weights, cfg, disabledBlacklist])
 
   const filtered = useMemo(() => {
     if (!filterVoter.trim()) return ranked
@@ -231,6 +238,45 @@ export function AdminLeaderboard({ guilds, reactions, users }: Props) {
           </span>
         </div>
       </div>
+
+      {voterBlacklist.length > 0 && (
+        <div className="rounded-xl ring-1 ring-border bg-muted/20 p-4 space-y-3">
+          <p className="text-sm font-semibold">Blacklisted voters</p>
+          <div className="flex flex-wrap gap-2">
+            {voterBlacklist.map((uid) => {
+              const excluded = disabledBlacklist.has(uid)
+              const name = displayName(uid, users)
+              return (
+                <button
+                  key={uid}
+                  onClick={() => {
+                    setDisabledBlacklist((prev) => {
+                      const next = new Set(prev)
+                      if (next.has(uid)) next.delete(uid)
+                      else next.add(uid)
+                      return next
+                    })
+                    setPage(1)
+                  }}
+                  title={uid}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ring-1 ring-inset transition-colors cursor-pointer",
+                    excluded
+                      ? "bg-rose-500/20 text-rose-300 ring-rose-500/40"
+                      : "bg-emerald-500/20 text-emerald-300 ring-emerald-500/40"
+                  )}
+                >
+                  <span>{excluded ? "✗" : "✓"}</span>
+                  {name}
+                </button>
+              )
+            })}
+          </div>
+          <p className="text-[10px] text-muted-foreground">
+            Red = excluded from scoring (default). Click to include their votes and see the score difference.
+          </p>
+        </div>
+      )}
 
       <div className="flex items-center gap-3 flex-wrap">
         <Input

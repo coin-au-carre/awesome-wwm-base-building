@@ -21,6 +21,25 @@ var scoredEmojis = []string{
 	"❤️",
 }
 
+func filterReactions(reactions map[string][]string, blacklist map[string]bool) map[string][]string {
+	if len(blacklist) == 0 {
+		return reactions
+	}
+	out := make(map[string][]string, len(reactions))
+	for emoji, users := range reactions {
+		var filtered []string
+		for _, uid := range users {
+			if !blacklist[uid] {
+				filtered = append(filtered, uid)
+			}
+		}
+		if len(filtered) > 0 {
+			out[emoji] = filtered
+		}
+	}
+	return out
+}
+
 func computeScore(reactions map[string][]string, weights map[string]int, lore, whatToVisit string) int {
 	score := 0
 	for emoji, users := range reactions {
@@ -50,9 +69,9 @@ func voterWeight(distinctThreads int) int {
 	switch {
 	case distinctThreads >= 12:
 		return 3
-	case distinctThreads >= 6:
+	case distinctThreads >= 8:
 		return 2
-	case distinctThreads >= 2:
+	case distinctThreads >= 4:
 		return 1
 	default:
 		return 0

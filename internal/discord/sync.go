@@ -71,7 +71,7 @@ type SyncFetchResult struct {
 }
 
 // SyncFetch collects threads, fetches content and reactions, and returns raw results.
-// Call SyncFinalize with merged cross-channel voter weights to complete scoring.
+// Call SyncFinalize with per-channel voter weights and a voter blacklist to complete scoring.
 func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, error) {
 	forumChannel, err := b.Session.Channel(cfg.ForumChannelID)
 	if err != nil {
@@ -230,10 +230,11 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	}, nil
 }
 
-// SyncFinalize scores all fetched threads using the provided merged voter weights
+// SyncFinalize scores all fetched threads using the provided voter weights
 // and returns the final guild list, per-thread reactions (threadID → emoji → []userID), and stats.
-func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.Guild, guild.ReactionMap, SyncStats) {
-	slog.Info("voter weights applied", "voters", len(voterWeights))
+// Voters in blacklist are excluded from scoring and reaction output.
+func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist map[string]bool) ([]guild.Guild, guild.ReactionMap, SyncStats) {
+	slog.Info("voter weights applied", "voters", len(voterWeights), "blacklisted", len(blacklist))
 
 	guilds := result.Guilds
 	stats := result.Stats
@@ -242,7 +243,8 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int) ([]guild.
 
 	for _, r := range result.threads {
 		data := r.data
-		data.Score = computeScore(r.reactions, voterWeights, data.Lore, data.WhatToVisit)
+		rxn := filterReactions(r.reactions, blacklist)
+		data.Score = computeScore(rxn, voterWeights, data.Lore, data.WhatToVisit)
 
 		var tags []string
 		for _, tagID := range r.thread.AppliedTags {

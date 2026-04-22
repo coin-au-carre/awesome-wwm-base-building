@@ -166,6 +166,15 @@ export function getUsers(): UserMap {
   }
 }
 
+export function getVoterBlacklist(): string[] {
+  try {
+    const raw = readFileSync(new URL("../../../data/voter_blacklist.json", import.meta.url), "utf-8")
+    return JSON.parse(raw)
+  } catch {
+    return []
+  }
+}
+
 export function getLastSyncDate(): string {
   try {
     const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")
