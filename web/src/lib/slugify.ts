@@ -51,6 +51,10 @@ export function getTier(rank: number, total: number, score: number): Tier {
 }
 
 /** Strip Discord mention format: `<@773253240498159636> (GaoQingYang)` → `GaoQingYang`. */
+export function stripGuildShowcase(name: string): string {
+  return name.replace(/\bGuild Showcase\b/gi, "").trim()
+}
+
 export function formatBuilderName(raw: string): string {
   const match = raw.match(/<@\d+>\s*\((.+?)\)/)
   if (match) return match[1].trim()

@@ -386,7 +386,7 @@ return (
             <div className="space-y-1.5">
               <p className="text-sm font-medium text-foreground">React to builds</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                React to threads in the forum to vote for the builds you love. Use ⭐ for 2 points, or 👍 🔥 for 1 point each. Votes shape the rankings on the showcase and help the best bases rise to the top.
+                React to threads in the channel <span className="font-medium text-foreground">#guild-base-showcase</span> to vote for the builds you love. See the <a href={url("/how-it-works")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">how it works</a> page for details on how votes are counted. Votes shape the rankings on the showcase and help the best bases rise to the top.
               </p>
             </div>
             <div className="space-y-1.5">
@@ -404,7 +404,8 @@ return (
                 <p className="text-sm font-semibold text-foreground">Critic</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <span className="font-medium text-foreground">Critic</span> role is awarded automatically by the bot to active voters who engage broadly across many guilds. Keep voting consistently and it will come.
+                The <span className="font-medium text-foreground">Critic</span> role is awarded automatically by the bot to active voters who engage broadly across many guilds. Keep voting consistently and it will come. 
+                Beware! Critic reactions carry more voting weight.
               </p>
             </div>
 
@@ -414,12 +415,12 @@ return (
                 <p className="text-sm font-semibold text-foreground">Trusted Eye</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. Not automatic: it carries more voting weight and comes with a few guidelines to keep rankings fair.
+                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. Not automatic: it carries even more voting weight and comes with a few guidelines to keep rankings fair.
               </p>
 
               <div className="rounded-xl ring-1 ring-border overflow-hidden divide-y divide-border">
                 {[
-                  { body: "Voting on your own guild counts as a normal reaction and does not apply your Trusted Eye bonus." },
+                  { body: "Voting on your own guild counts as a normal reaction and does not apply the Trusted Eye bonus." },
                   { body: "Only react if you've actually looked at the screenshots and visited the guild base. No support votes." },
                   { body: "Avoid coordinating votes with other Trusted Eyes on specific builds." },
                   { body: "Prioritize guilds with no recognition yet. The goal is to surface hidden gems, not just reward popular builders." },

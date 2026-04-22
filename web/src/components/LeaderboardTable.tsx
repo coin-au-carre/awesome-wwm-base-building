@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from "react"
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
-import { getTier, formatBuilderName } from "@/lib/slugify"
+import { getTier, formatBuilderName, stripGuildShowcase } from "@/lib/slugify"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import {
@@ -386,7 +386,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       {img && (
                         <img
                           src={img}
-                          alt={g.guildName || g.name}
+                          alt={stripGuildShowcase(g.guildName || g.name)}
                           className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block"
                           loading="lazy"
                           onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
@@ -397,7 +397,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                         className="font-medium hover:underline"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        {g.guildName || g.name}
+                        {stripGuildShowcase(g.guildName || g.name)}
                       </a>
                     </div>
                   </TableCell>

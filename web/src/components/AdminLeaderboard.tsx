@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react"
 import type { RankedGuild } from "@/types/guild"
 import type { ReactionMap, UserMap } from "@/lib/guilds"
-import { formatBuilderName } from "@/lib/slugify"
+import { formatBuilderName, stripGuildShowcase } from "@/lib/slugify"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import {
@@ -68,7 +68,7 @@ function computeDynScore(
   for (const [emoji, voters] of Object.entries(emojiMap ?? {})) {
     const pts = emoji === STAR ? cfg.starScore : LIKE_EMOJIS.has(emoji) ? cfg.likeScore : 0
     for (const v of voters) {
-      if (!blacklisted.has(v)) score += pts * (weights.get(v) ?? 0)
+      if (!blacklisted.has(v)) { score += pts * (weights.get(v) ?? 0) }
     }
   }
   if (g.lore) { score += cfg.loreBonus }
@@ -138,7 +138,7 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
       const seen = new Set<string>()
       for (const voters of Object.values(emojiMap)) {
         for (const v of voters) {
-          if (!disabledBlacklist.has(v)) seen.add(v)
+          if (!disabledBlacklist.has(v)) { seen.add(v) }
         }
       }
       for (const v of seen) { counts.set(v, (counts.get(v) ?? 0) + 1) }
@@ -162,13 +162,13 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
     withScore.sort((a, b) => b.dynScore - a.dynScore)
     let rank = 1
     return withScore.map((g, i) => {
-      if (i > 0 && g.dynScore < withScore[i - 1].dynScore) rank = i + 1
+      if (i > 0 && g.dynScore < withScore[i - 1].dynScore) { rank = i + 1 }
       return { ...g, dynRank: rank }
     })
   }, [guilds, reactions, weights, cfg, disabledBlacklist])
 
   const filtered = useMemo(() => {
-    if (!filterVoter.trim()) return ranked
+    if (!filterVoter.trim()) { return ranked }
     const q = filterVoter.toLowerCase()
     return ranked.filter((g) => {
       const emojiMap = reactions[threadID(g)] ?? {}
@@ -329,7 +329,7 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          {g.guildName || g.name}
+                          {stripGuildShowcase(g.guildName || g.name)}
                         </a>
                         {g.lore && (
                           <span
