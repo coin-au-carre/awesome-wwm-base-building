@@ -118,21 +118,22 @@ func main() {
 		}
 	}
 
-	// ── Merge voter counts → cross-channel weights ────────────────────────────
+	// ── Per-channel voter weights ─────────────────────────────────────────────
 
-	mergedCounts := discord.MergeVoterCounts(guildFetch.result.VoterCounts, soloFetch.result.VoterCounts)
-	mergedWeights := discord.ComputeVoterWeights(mergedCounts)
-	slog.Info("merged voter weights", "voters", len(mergedWeights))
+	guildWeights := discord.ComputeVoterWeights(guildFetch.result.VoterCounts)
+	slog.Info("guild voter weights", "voters", len(guildWeights))
 
 	// ── Finalize (score) both channels ────────────────────────────────────────
 
-	updatedGuilds, guildReactions, guildStats := discord.SyncFinalize(guildFetch.result, mergedWeights)
+	updatedGuilds, guildReactions, guildStats := discord.SyncFinalize(guildFetch.result, guildWeights)
 
 	var updatedSolos []guild.Guild
 	var soloStats discord.SyncStats
 	var soloReactions guild.ReactionMap
 	if soloForumID != "" {
-		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, mergedWeights)
+		soloWeights := discord.ComputeVoterWeights(soloFetch.result.VoterCounts)
+		slog.Info("solo voter weights", "voters", len(soloWeights))
+		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, soloWeights)
 	}
 
 	// ── Save ──────────────────────────────────────────────────────────────────
@@ -200,6 +201,7 @@ func main() {
 				}
 			}
 			if baseCriticRoleID != "" {
+				mergedCounts := discord.MergeVoterCounts(guildFetch.result.VoterCounts, soloFetch.result.VoterCounts)
 				slog.Info("assigning critic role", "total_voters", len(mergedCounts))
 				discord.AssignRoleToVoters(bot.Session, discordGuildID, baseCriticRoleID, mergedCounts, 6, roleCache)
 			}
