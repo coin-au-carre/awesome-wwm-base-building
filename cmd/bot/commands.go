@@ -21,7 +21,7 @@ const maxImageAttempts = 5
 
 // sendGuildImage downloads the image for pick and sends it with a caption.
 // Returns true on success, false if the image was too large (caller should retry with a different pick).
-func sendGuildImage(bot *idiscord.Bot, responder *idiscord.Responder, channelID, messageID string, pick guild.Guild, imgURL string, random bool) (ok bool, fatal bool) {
+func sendGuildImage(bot *idiscord.Bot, responder idiscord.LLMResponder, channelID, messageID string, pick guild.Guild, imgURL string, random bool) (ok bool, fatal bool) {
 	imgData, filename, err := idiscord.DownloadImage(imgURL)
 	if err != nil {
 		slog.Error("downloading screenshot", "err", err)
@@ -49,7 +49,7 @@ func sendGuildImage(bot *idiscord.Bot, responder *idiscord.Responder, channelID,
 }
 
 // handleSpotlightReply picks a random guild and replies with its formatted card.
-func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder *idiscord.Responder, channelID, messageID, root string) {
+func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder idiscord.LLMResponder, channelID, messageID, root string) {
 	_ = s.ChannelTyping(channelID)
 
 	guilds, err := guild.Load(root)
@@ -125,7 +125,7 @@ func handleCatalogItemsReply(bot *idiscord.Bot, s *discordgo.Session, channelID,
 }
 
 // handleSoloSpotlightReply picks a random solo build and replies with its formatted card.
-func handleSoloSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder *idiscord.Responder, channelID, messageID, root string) {
+func handleSoloSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder idiscord.LLMResponder, channelID, messageID, root string) {
 	_ = s.ChannelTyping(channelID)
 
 	solos, err := guild.LoadFile(filepath.Join(root, "data", "solos.json"))
@@ -152,7 +152,7 @@ func handleSoloSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder
 }
 
 // handleGuildImageReply searches for a guild matching query and posts one of its screenshots.
-func handleGuildImageReply(bot *idiscord.Bot, s *discordgo.Session, responder *idiscord.Responder, channelID, messageID, root, query string) {
+func handleGuildImageReply(bot *idiscord.Bot, s *discordgo.Session, responder idiscord.LLMResponder, channelID, messageID, root, query string) {
 	_ = s.ChannelTyping(channelID)
 
 	guilds, err := guild.Load(root)

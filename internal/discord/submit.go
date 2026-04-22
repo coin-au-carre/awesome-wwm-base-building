@@ -145,7 +145,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string, responder *Responder) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommandAutocomplete:
@@ -787,7 +787,7 @@ func handleGuildLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate
 	})
 }
 
-func handleRandomCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string, _ *Responder) {
+func handleRandomCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string, _ LLMResponder) {
 	var guildName string
 	if guild, err := s.Guild(i.GuildID); err == nil {
 		guildName = guild.Name
