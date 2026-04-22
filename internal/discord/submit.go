@@ -197,7 +197,13 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 }
 
 func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	slog.Info("scout-guild command received", "user", memberDisplayName(i))
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/scout-guild command used", "user", memberDisplayName(i), "server", guildName)
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -369,7 +375,13 @@ func buildDiscoveryMessage(explorer string, g guild.Guild) string {
 }
 
 func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	slog.Info("submit-guild command received", "user", memberDisplayName(i))
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/submit-guild command used", "user", memberDisplayName(i), "server", guildName)
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -484,7 +496,13 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 }
 
 func handleSoloCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
-	slog.Info("submit-solo command received", "user", memberDisplayName(i))
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/submit-solo command used", "user", memberDisplayName(i), "server", guildName)
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -712,6 +730,14 @@ func handleGuildLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate
 		}
 	}
 
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/guild command used", "user", memberDisplayName(i), "server", guildName, "query", query)
+
 	guilds, err := guild.Load(root)
 	if err != nil {
 		slog.Error("loading guilds for guild link", "err", err)
@@ -762,6 +788,14 @@ func handleGuildLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate
 }
 
 func handleRandomCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string, _ *Responder) {
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/random command used", "user", memberDisplayName(i), "server", guildName)
+
 	guilds, err := guild.Load(root)
 	if err != nil {
 		slog.Error("loading guilds for random", "err", err)
@@ -786,8 +820,6 @@ func handleRandomCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 		})
 		return
 	}
-
-	slog.Info("random slash command sent", "guild", pick.Name)
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
@@ -854,6 +886,14 @@ func handleSoloLinkCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 			break
 		}
 	}
+
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/solo command used", "user", memberDisplayName(i), "server", guildName, "query", query)
 
 	solos, err := loadSolos(root)
 	if err != nil {
@@ -977,6 +1017,14 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 		return
 	}
 
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/my-votes command used", "user", memberDisplayName(i), "server", guildName)
+
 	userID := i.Member.User.ID
 
 	reactions, _ := guild.LoadReactions(root)
@@ -1070,6 +1118,17 @@ func handleBuilderCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 			break
 		}
 	}
+
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	if targetUser != nil {
+		slog.Info("/builder command used", "user", memberDisplayName(i), "server", guildName, "target", targetUser.Username)
+	}
+
 	if targetUser == nil {
 		slog.Error("couldn't resolve the selected member")
 		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
@@ -1279,6 +1338,14 @@ const helpMessage = `**Ruby's commands**
 /commands — show this list (only you see the result)`
 
 func handleHelpCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	var guildName string
+	if guild, err := s.Guild(i.GuildID); err == nil {
+		guildName = guild.Name
+	} else {
+		guildName = i.GuildID
+	}
+	slog.Info("/commands command used", "user", memberDisplayName(i), "server", guildName)
+
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
