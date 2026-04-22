@@ -1,5 +1,20 @@
 [
 	{
+		"id": "10129452",
+		"name": "Asura",
+		"builders": [],
+		"tags": [
+			"Snow",
+			"Nature",
+			"Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "Floating Island Biomes (Snow,Lush,Desert)",
+		"score": 0,
+		"lastModified": "April 22, 2026 at 09:13 PM UTC",
+		"scoutedByDiscordId": "315863715302080512"
+	},
+	{
 		"id": "10229346",
 		"name": "Deified",
 		"builders": [],
