@@ -24,8 +24,9 @@ Community members vote by reacting to the first post of a submission thread:
 | Reaction | Points | Meaning |
 |----------|--------|---------|
 | ⭐ | +2 | Best overall |
-| 👍 | +1 | Good base |
+| 👍 / 👍🏻–👍🏿 | +1 | Good base |
 | 🔥 | +1 | Amazing creativity |
+| ❤️ | +1 | Love it |
 
 Bonus points:
 - +1 if the builder wrote a **lore** section
@@ -35,13 +36,19 @@ Bonus points:
 
 To keep rankings fair and prevent coordinated boosting, votes are weighted by how broadly a voter engages with the community:
 
-| Threads reacted to | Weight multiplier |
-|--------------------|-------------------|
-| 2+ | ×1 (baseline) |
-| 6+ | ×2 |
-| 12+ | ×3 |
+| Distinct threads reacted to | Weight multiplier |
+|-----------------------------|-------------------|
+| 4+ | ×1 (baseline) |
+| 8+ | ×2 |
+| 12+ | ×3 (Critic) |
 
-A voter who reacts to many different guilds counts more than someone who only voted once. This discourages guild leaders from asking members to vote only for their own base.
+A voter who reacts to fewer than 4 threads has weight ×0 — their votes don't count until they engage broadly. Weights are computed **per channel**: guild reactions only determine guild voter weights, solo reactions only determine solo voter weights.
+
+A voter who reacts to many different submissions counts more than someone who voted on only one or two. This discourages guild leaders from asking members to vote only for their own base.
+
+### Blacklist
+
+Voters identified as abusing the system (e.g. voting strategically only to inflate one guild's score) can be added to a blacklist (`data/voter_blacklist.json`). Blacklisted voters are excluded from scoring entirely. Their reactions are still stored in `reactions.json` so the effect of the blacklist can be toggled on the admin page.
 
 ## Discord roles
 

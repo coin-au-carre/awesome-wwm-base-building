@@ -46,7 +46,7 @@ function threadID(g: RankedGuild): string {
 
 function displayName(userID: string, users: UserMap): string {
   const u = users[userID]
-  if (!u) return userID
+  if (!u) { return userID }
   return u.nickname || u.globalName || u.username
 }
 
@@ -252,8 +252,8 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                   onClick={() => {
                     setDisabledBlacklist((prev) => {
                       const next = new Set(prev)
-                      if (next.has(uid)) next.delete(uid)
-                      else next.add(uid)
+                      if (next.has(uid)) { next.delete(uid) }
+                      else { next.add(uid) }
                       return next
                     })
                     setPage(1)
@@ -376,7 +376,7 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                     <TableCell className="pt-2">
                       <div className="flex flex-wrap gap-2">
                         {Object.entries(emojiMap).map(([emoji, voters]) => {
-                          if (!voters.length) return null
+                          if (!voters.length) { return null }
                           return (
                             <div key={emoji} className="flex items-start gap-1 flex-wrap">
                               <span className="text-sm leading-5 shrink-0">{emoji}</span>
