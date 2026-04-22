@@ -218,7 +218,16 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
     setPage(1)
   }
 
-  const deaccent = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+  const deaccent = (s: string) => {
+    const charMap: Record<string, string> = {
+      'ð': 'd', 'þ': 'th', 'ø': 'o', 'ß': 'ss', 'æ': 'ae',
+    }
+    let result = s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
+    for (const [char, replacement] of Object.entries(charMap)) {
+      result = result.replaceAll(char, replacement)
+    }
+    return result
+  }
 
   const filtered = useMemo(() => {
     const q = deaccent(search.trim())
