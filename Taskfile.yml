@@ -24,11 +24,7 @@ tasks:
   bot:no-claude:
     desc: run the bot without Claude responses (slash commands only)
     cmd: go run ./cmd/bot -no-claude {{.CLI_ARGS}}
-
-  bot:build:
-    desc: build bot binary for VPS deployment
-    cmd: GOOS=linux GOARCH=amd64 go build -o dist/bot ./cmd/bot
-
+    
   # ── voter analysis (one-shot) ───────────────────────────────
   analyze:
     desc: "fetch guild reactions → data/voter_analysis.csv + data/voter_analysis.html"
@@ -118,7 +114,6 @@ tasks:
       - echo ""
       - echo "  task bot                 run bot (RUBY_CHANNEL_ID + DEV_CHANNEL_ID)"
       - echo "  task bot:no-claude       run bot without Claude (slash commands only)"
-      - echo "  task bot:build           build Linux binary → dist/bot"
       - echo "  task bot:purge-commands  delete all slash commands from Discord (run once to clean up stale commands)"
       - echo ""
       - echo "  task send                post a message as Ruby (one-shot)"
@@ -159,5 +154,4 @@ tasks:
       - echo "  task sync -- -dry-run"
       - echo "  task sync -- -no-notify -force-role"
       - echo "  task sync -- -dry-run -no-notify -force-role"
-      - echo "  task bot:deploy VPS_USER=ubuntu VPS_HOST=1.2.3.4"
       - echo ""

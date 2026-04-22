@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log/slog"
+	"slices"
 	"sort"
 	"strings"
 	"sync"
@@ -14,6 +15,10 @@ import (
 )
 
 const (
+	AHLYAM_ID = "149790526076354561"
+	WINDXP_ID = "721510597958828183"
+	BABE_ID   = "376950312721711118"
+
 	submitCommandName = "scout-guild"
 	submitModalID     = "scout_guild_modal"
 
@@ -30,6 +35,10 @@ const (
 	randomCommandName    = "random"
 	myVotesCommandName   = "my-votes"
 	helpCommandName      = "commands"
+	builderCommandName   = "builder"
+
+	shareGuildPrefix = "sbg:"
+	shareSoloPrefix  = "sbs:"
 )
 
 var submitMu sync.Mutex
@@ -118,6 +127,18 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Name:        helpCommandName,
 			Description: "List all Ruby commands (only you see the result)",
 		},
+		{
+			Name:        builderCommandName,
+			Description: "Look up a member's guild or solo base (only you see the result)",
+			Options: []*discordgo.ApplicationCommandOption{
+				{
+					Type:        discordgo.ApplicationCommandOptionUser,
+					Name:        "member",
+					Description: "Server member",
+					Required:    true,
+				},
+			},
+		},
 	})
 	if err != nil {
 		slog.Error("registering commands", "err", err)
@@ -154,6 +175,13 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleMyVotesCommand(s, i, root)
 			case helpCommandName:
 				handleHelpCommand(s, i)
+			case builderCommandName:
+				handleBuilderCommand(s, i, root)
+			}
+		case discordgo.InteractionMessageComponent:
+			customID := i.MessageComponentData().CustomID
+			if strings.HasPrefix(customID, shareGuildPrefix) || strings.HasPrefix(customID, shareSoloPrefix) {
+				handleShareBuilderButton(s, i, root)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -1034,12 +1062,212 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	})
 }
 
+func handleBuilderCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	var targetUser *discordgo.User
+	for _, opt := range i.ApplicationCommandData().Options {
+		if opt.Name == "member" {
+			targetUser = opt.UserValue(s)
+			break
+		}
+	}
+	if targetUser == nil {
+		slog.Error("couldn't resolve the selected member")
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't resolve the selected member)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	userID := targetUser.ID
+
+	guilds, err := guild.Load(root)
+	if err != nil {
+		slog.Error("loading guilds for builder command", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't load guild data, try again later)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+	solos, err := loadSolos(root)
+	if err != nil {
+		slog.Error("loading solos for builder command", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't load solo data, try again later)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	type baseEntry struct {
+		g      guild.Guild
+		isSolo bool
+	}
+	var matches []baseEntry
+	for _, g := range guilds {
+		if g.BuilderDiscordID == userID {
+			// Exceptional list: Ahlyam, WindXP, Babe
+			if !slices.Contains([]string{AHLYAM_ID, BABE_ID, WINDXP_ID}, g.BuilderDiscordID) ||
+				g.Name == "Jenova" || g.GuildName == "PleasureSeeker" {
+				matches = append(matches, baseEntry{g, false})
+			}
+		}
+	}
+	for _, g := range solos {
+		if g.BuilderDiscordID == userID {
+			matches = append(matches, baseEntry{g, true})
+		}
+	}
+
+	if len(matches) == 0 {
+		displayName := targetUser.GlobalName
+		if displayName == "" {
+			displayName = targetUser.Username
+		}
+		resolved := i.ApplicationCommandData().Resolved
+		if resolved != nil {
+			if m, ok := resolved.Members[userID]; ok && m.Nick != "" {
+				displayName = m.Nick
+			}
+		}
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: fmt.Sprintf("*(no guild or solo base found for **%s**)*", displayName),
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	var sb strings.Builder
+	var buttons []discordgo.MessageComponent
+	for idx, m := range matches {
+		if len(buttons) >= 5 {
+			if idx == 5 {
+				s := "s"
+				if len(matches)-5 == 1 {
+					s = ""
+				}
+				fmt.Fprintf(&sb, "*(and %d more base%s)*", len(matches)-5, s)
+			}
+			break
+		}
+		if m.isSolo {
+			sb.WriteString(soloLinkContent(&m.g) + "\n")
+		} else {
+			sb.WriteString(guildLinkContent(&m.g) + "\n")
+		}
+		prefix := shareGuildPrefix
+		if m.isSolo {
+			prefix = shareSoloPrefix
+		}
+		customID := prefix + m.g.Name
+		if len(customID) > 100 {
+			customID = customID[:100]
+		}
+		label := "Share " + m.g.Name
+		if len(label) > 80 {
+			label = label[:80]
+		}
+		buttons = append(buttons, discordgo.Button{
+			Style:    discordgo.PrimaryButton,
+			Label:    label,
+			CustomID: customID,
+		})
+	}
+
+	var components []discordgo.MessageComponent
+	if len(buttons) > 0 {
+		components = []discordgo.MessageComponent{
+			discordgo.ActionsRow{Components: buttons},
+		}
+	}
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content:    strings.TrimRight(sb.String(), "\n"),
+			Flags:      discordgo.MessageFlagsEphemeral,
+			Components: components,
+		},
+	})
+}
+
+func handleShareBuilderButton(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
+	customID := i.MessageComponentData().CustomID
+
+	var isSolo bool
+	var name string
+	switch {
+	case strings.HasPrefix(customID, shareGuildPrefix):
+		name = customID[len(shareGuildPrefix):]
+	case strings.HasPrefix(customID, shareSoloPrefix):
+		name = customID[len(shareSoloPrefix):]
+		isSolo = true
+	default:
+		return
+	}
+
+	var content string
+	lower := strings.ToLower(name)
+	if isSolo {
+		solos, err := loadSolos(root)
+		if err == nil {
+			for idx := range solos {
+				if strings.ToLower(solos[idx].Name) == lower {
+					content = soloLinkContent(&solos[idx])
+					break
+				}
+			}
+		}
+	} else {
+		guilds, err := guild.Load(root)
+		if err == nil {
+			for idx := range guilds {
+				if strings.ToLower(guilds[idx].Name) == lower {
+					content = guildLinkContent(&guilds[idx])
+					break
+				}
+			}
+		}
+	}
+
+	if content == "" {
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't find the base, try again)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: content,
+		},
+	})
+}
+
 const helpMessage = `**Ruby's commands**
 
 **Discover**
 /random — Ruby picks a random guild base to showcase
 /guild \<name\> — share a guild base with its thread and page
 /solo \<name\> — share a solo base with its thread and page
+/builder \<member\> — look up a member's bases (only you see the result)
 
 **Contribute**
 /scout-guild — scout a guild base and reference it for later
