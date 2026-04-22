@@ -37,6 +37,27 @@ func LoadFile(path string) ([]Guild, error) {
 	return guilds, nil
 }
 
+// LoadVoterBlacklist reads a JSON array of user IDs to exclude from scoring.
+// Returns an empty set (not an error) if the file doesn't exist.
+func LoadVoterBlacklist(path string) (map[string]bool, error) {
+	data, err := os.ReadFile(path)
+	if os.IsNotExist(err) {
+		return map[string]bool{}, nil
+	}
+	if err != nil {
+		return nil, fmt.Errorf("reading %s: %w", path, err)
+	}
+	var ids []string
+	if err := json.Unmarshal(data, &ids); err != nil {
+		return nil, fmt.Errorf("parsing %s: %w", path, err)
+	}
+	set := make(map[string]bool, len(ids))
+	for _, id := range ids {
+		set[id] = true
+	}
+	return set, nil
+}
+
 // SaveFile writes guild data to an arbitrary JSON file path.
 func SaveFile(path string, guilds []Guild) error {
 	data, err := json.MarshalIndent(guilds, "", "\t")
