@@ -1,5 +1,18 @@
 [
 	{
+		"id": "10229346",
+		"name": "Deified",
+		"builders": [],
+		"tags": [
+			"Military"
+		],
+		"discordThread": "",
+		"whatToVisit": "Giant Blooming Tree, Arena Spaceship, Snowy Forrest",
+		"score": 1,
+		"lastModified": "April 22, 2026 at 08:14 PM UTC",
+		"scoutedByDiscordId": "315863715302080512"
+	},
+	{
 		"name": "JadeLotus",
 		"builders": [
 			"OracleOfXata"
