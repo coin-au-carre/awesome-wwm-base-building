@@ -8,7 +8,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel"
 import type { RankedGuild } from "@/types/guild"
-import { formatBuilderName } from "@/lib/slugify"
+import { formatBuilderName, stripGuildShowcase } from "@/lib/slugify"
 import { url } from "@/lib/url"
 
 const TAG_PALETTE = [
@@ -56,7 +56,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                 {img && (
                   <img
                     src={img}
-                    alt={g.name}
+                    alt={stripGuildShowcase(g.name)}
                     loading="lazy"
                     onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -65,7 +65,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="flex items-baseline gap-1.5 mb-1">
-                    <p className="text-white font-medium text-sm leading-tight">{g.name}</p>
+                    <p className="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.name)}</p>
                     {g.builders && g.builders.length > 0 && (
                       <p className="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
                     )}
