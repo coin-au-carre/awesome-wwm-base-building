@@ -98,12 +98,13 @@ func ParseFirstPost(content string) (id string, guildName string, builders []str
 // e.g. "🏯 Iron Keep - Season 2" → ("Iron Keep", "")
 func ExtractNameAndID(threadName string) (name, id string) {
 	parts := strings.SplitN(threadName, " -", 2)
-	raw := strings.TrimSpace(strings.Trim(parts[0], "🏯📍"))
+	raw := strings.TrimSpace(parts[0])
+	raw = strings.TrimSpace(strings.TrimLeft(raw, "#🏯📍"))
 	if m := reThreadID.FindStringSubmatch(raw); len(m) == 2 {
 		id = m[1]
 		raw = reThreadID.ReplaceAllString(raw, "")
 	}
-	name = strings.TrimSpace(strings.Trim(raw, "[] "))
+	name = strings.TrimSpace(strings.Trim(raw, "[] 🏯📍"))
 	name = strings.TrimSpace(reEightDigitName.ReplaceAllString(name, ""))
 	return
 }
