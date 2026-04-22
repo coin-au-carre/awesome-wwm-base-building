@@ -319,6 +319,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 				g.LastVideoNotifiedAt = now
 			}
 		} else if isNew {
+			g.CreatedAt = now
 			g.LastModified = now
 		}
 
