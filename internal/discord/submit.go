@@ -45,7 +45,7 @@ var submitMu sync.Mutex
 
 var knownTags = map[string]bool{
 	"Arena": true, "Cave": true, "City": true, "Creative": true,
-	"Cute": true, "Dance Floor": true, "Desert": true, "Floating island": true,
+	"Cute": true, "Dance Floor": true, "Desert": true, "Floating Island": true,
 	"Fun": true, "Maze": true, "Military": true, "Mountain": true,
 	"Nature": true, "River": true, "Snow": true, "Zen": true,
 }
