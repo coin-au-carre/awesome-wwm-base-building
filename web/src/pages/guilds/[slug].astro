@@ -184,15 +184,32 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
           </div>
         </div>
       )}
+      {g.createdAt && (
+        <div class="rounded-xl border border-border bg-card px-4 py-2">
+          <div class="text-xs text-muted-foreground mb-1">Created</div>
+          <div class="text-sm text-muted-foreground" id="guild-created-at">{g.createdAt}</div>
+          <script is:inline define:vars={{ createdAt: g.createdAt }}>
+            {
+              const d = new Date(createdAt.replace(" at ", " "))
+              if (!isNaN(d.getTime())) {
+                const pad = n => String(n).padStart(2, "0")
+                document.getElementById("guild-created-at").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`
+              }
+            }
+          </script>
+        </div>
+      )}
       {g.lastModified && (
         <div class="rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Updated</div>
           <div class="text-sm text-muted-foreground" id="guild-last-modified">{g.lastModified}</div>
           <script is:inline define:vars={{ lastModified: g.lastModified }}>
-            const d = new Date(lastModified.replace(" at ", " "))
-            if (!isNaN(d.getTime())) {
-              const pad = n => String(n).padStart(2, "0")
-              document.getElementById("guild-last-modified").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+            {
+              const d = new Date(lastModified.replace(" at ", " "))
+              if (!isNaN(d.getTime())) {
+                const pad = n => String(n).padStart(2, "0")
+                document.getElementById("guild-last-modified").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+              }
             }
           </script>
         </div>
