@@ -1,5 +1,55 @@
 [
 	{
+		"id": "10069844",
+		"name": "RYUJIN",
+		"builders": [
+			"Atalante-sama"
+		],
+		"tags": [
+			"Arena",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Gigantic stone statue\nWater Arena\nRiver",
+		"score": 0,
+		"lastModified": "April 23, 2026 at 10:50 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"id": "10022552",
+		"name": "Lunacy",
+		"builders": [
+			"Leylia-Sujia"
+		],
+		"tags": [
+			"Mountain",
+			"Snow",
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Guild hall on the water\nFish tracking a cart\nHills with pathways\nBridge",
+		"score": 0,
+		"lastModified": "April 23, 2026 at 10:44 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "LeafSide",
+		"builders": [],
+		"tags": [
+			"City",
+			"Creative",
+			"Cute",
+			"Zen",
+			"Nature",
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "Gathering area",
+		"score": 2,
+		"lastModified": "April 23, 2026 at 07:31 AM UTC",
+		"scoutedByDiscordId": "306349275305082880"
+	},
+	{
 		"name": "Inquisitors",
 		"builders": [
 			"Kíty"
