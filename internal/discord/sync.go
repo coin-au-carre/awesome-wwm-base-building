@@ -18,16 +18,16 @@ import (
 const numWorkers = 20
 
 type SyncStats struct {
-	Total                int
-	New                  int
-	Updated              int
-	NewNames             []string
-	UpdatedNames         []string
-	MoreScreenshotNames  []string          // existing entries that gained screenshots
-	MoreVideoNames       []string          // existing entries that gained videos
-	NewThreadLinks       map[string]string // guild name → discord thread URL
-	VoterGuildCounts     map[string]int    // userID → number of distinct guilds voted on
-	DuplicateWarnings    []string
+	Total               int
+	New                 int
+	Updated             int
+	NewNames            []string
+	UpdatedNames        []string
+	MoreScreenshotNames []string          // existing entries that gained screenshots
+	MoreVideoNames      []string          // existing entries that gained videos
+	NewThreadLinks      map[string]string // guild name → discord thread URL
+	VoterGuildCounts    map[string]int    // userID → number of distinct guilds voted on
+	DuplicateWarnings   []string
 }
 
 type SyncConfig struct {
@@ -62,8 +62,8 @@ type fetchedThread struct {
 // SyncFetchResult holds all raw data from SyncFetch, ready for SyncFinalize.
 type SyncFetchResult struct {
 	Guilds      []guild.Guild
-	VoterCounts map[string]int   // userID → distinct thread count (this channel only)
-	Users       guild.UserMap    // userID → UserInfo (username + nickname)
+	VoterCounts map[string]int // userID → distinct thread count (this channel only)
+	Users       guild.UserMap  // userID → UserInfo (username + nickname)
 	threads     []fetchedThread
 	newIndices  map[int]bool
 	tagMap      map[string]string
@@ -159,7 +159,10 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 					wg2       sync.WaitGroup
 				)
 				wg2.Add(2)
-				go func() { defer wg2.Done(); data = fetchThreadContent(b.Session, j.thread, j.allowedContributors, cfg.IsSolo) }()
+				go func() {
+					defer wg2.Done()
+					data = fetchThreadContent(b.Session, j.thread, j.allowedContributors, cfg.IsSolo)
+				}()
 				go func() { defer wg2.Done(); reactions = fetchThreadReactions(b.Session, j.thread.ID) }()
 				wg2.Wait()
 				slog.Info("thread fetched",
@@ -309,14 +312,15 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 		if !isNew && hasChanged(prev, g) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
-			g.LastModified = now
 			if len(g.Screenshots) > len(prev.Screenshots) && !screenshotOnCooldown(prev.LastScreenshotNotifiedAt) {
 				stats.MoreScreenshotNames = append(stats.MoreScreenshotNames, g.Name)
 				g.LastScreenshotNotifiedAt = now
+				g.LastModified = now
 			}
 			if len(g.Videos) > len(prev.Videos) && !screenshotOnCooldown(prev.LastVideoNotifiedAt) {
 				stats.MoreVideoNames = append(stats.MoreVideoNames, g.Name)
 				g.LastVideoNotifiedAt = now
+				g.LastModified = now
 			}
 		} else if isNew {
 			g.CreatedAt = now
