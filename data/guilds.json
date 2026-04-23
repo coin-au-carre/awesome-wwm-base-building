@@ -1,5 +1,21 @@
 [
 	{
+		"name": "AlienNuggets",
+		"builders": [
+			"Weiba (4035912421)",
+			"BRENTDX"
+		],
+		"tags": [
+			"Snow",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "UFO\nSnowy lake\nBig board game",
+		"score": 0,
+		"lastModified": "April 23, 2026 at 11:22 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10069844",
 		"name": "RYUJIN",
 		"builders": [
