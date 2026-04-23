@@ -42,17 +42,27 @@ func filterReactions(reactions map[string][]string, blacklist map[string]bool) m
 
 func computeScore(reactions map[string][]string, weights map[string]int, lore, whatToVisit string) int {
 	score := 0
+	// Deduplicate thumbs-up voters across all skin-tone variants so a voter
+	// who reacted with multiple variants only scores once.
+	thumbsVoters := make(map[string]bool)
 	for emoji, users := range reactions {
-		pts := 0
 		switch emoji {
 		case "⭐":
-			pts = scorePerStar
-		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥", "❤️":
-			pts = scorePerLike
+			for _, uid := range users {
+				score += scorePerStar * weights[uid]
+			}
+		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿":
+			for _, uid := range users {
+				thumbsVoters[uid] = true
+			}
+		case "🔥", "❤️":
+			for _, uid := range users {
+				score += scorePerLike * weights[uid]
+			}
 		}
-		for _, uid := range users {
-			score += pts * weights[uid]
-		}
+	}
+	for uid := range thumbsVoters {
+		score += scorePerLike * weights[uid]
 	}
 	if lore != "" {
 		score += scoreLoreBonus

@@ -127,7 +127,7 @@ const roles: {
   {
     id: "voter",
     icon: <Star className="size-5" />,
-    label: "I rate and review builds",
+    label: "I explore and review builds",
     sublabel: "Vote, leave feedback, and shape the rankings",
     discordRole: "Trusted Eye",
     roleColor: "text-violet-500",
@@ -137,7 +137,7 @@ const roles: {
     id: "dev",
     icon: <Code2 className="size-5" />,
     label: "I am a developer",
-    sublabel: "Contribute to the open source project",
+    sublabel: "Contribute or use the open source project",
     discordRole: "Developer",
     roleColor: "text-slate-500",
     cardAccent: "border-slate-500/40 bg-slate-500/5 hover:bg-slate-500/10",
