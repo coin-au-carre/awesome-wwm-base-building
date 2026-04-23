@@ -133,7 +133,7 @@ export function getUpcomingEvents(): GameEvent[] {
     const raw = readFileSync(new URL("../../../data/events.json", import.meta.url), "utf-8")
     const events: GameEvent[] = JSON.parse(raw)
     const now = Date.now()
-    const cutoff = now + 12 * 60 * 60 * 1000
+    const cutoff = now + 24 * 60 * 60 * 1000
     return events
       .filter((e) => {
         const start = new Date(e.scheduledStart).getTime()
