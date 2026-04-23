@@ -20,6 +20,7 @@ export interface Guild {
   screenshots?: string[]
   screenshotSections?: ScreenshotSection[]
   videos?: string[]
+  createdAt?: string
   lastModified?: string
 }
 
