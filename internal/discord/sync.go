@@ -105,7 +105,11 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 
 		existingIdx, exists := guildMap[key]
 		if exists && guilds[existingIdx].DiscordThread != "" {
-			// Existing entry already has a thread — flag as a conflict.
+			if guilds[existingIdx].DiscordThread == newThreadLink {
+				// Same thread re-encountered (e.g. re-browsing for updates) — skip silently.
+				continue
+			}
+			// Different thread URL for the same name — flag as a conflict.
 			warning := fmt.Sprintf(
 				"⚠️ **Thread conflict for guild %s:**\n• Existing: %s\n• New thread: %s\nThis may indicate a duplicate or re-created thread.",
 				name, guilds[existingIdx].DiscordThread, newThreadLink,

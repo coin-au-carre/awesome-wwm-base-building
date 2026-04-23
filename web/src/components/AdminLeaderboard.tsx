@@ -36,7 +36,8 @@ const DEFAULTS: ScoringConfig = {
 }
 
 const STAR = "⭐"
-const LIKE_EMOJIS = new Set(["👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥", "❤️"])
+const THUMBS_EMOJIS = new Set(["👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿"])
+const LIKE_EMOJIS = new Set(["🔥", "❤️"])
 
 const PAGE_SIZE = 50
 
@@ -65,11 +66,25 @@ function computeDynScore(
   blacklisted: Set<string>,
 ): number {
   let score = 0
+  // Deduplicate thumbs-up voters across all skin-tone variants.
+  const thumbsVoters = new Set<string>()
   for (const [emoji, voters] of Object.entries(emojiMap ?? {})) {
-    const pts = emoji === STAR ? cfg.starScore : LIKE_EMOJIS.has(emoji) ? cfg.likeScore : 0
-    for (const v of voters) {
-      if (!blacklisted.has(v)) { score += pts * (weights.get(v) ?? 0) }
+    if (emoji === STAR) {
+      for (const v of voters) {
+        if (!blacklisted.has(v)) { score += cfg.starScore * (weights.get(v) ?? 0) }
+      }
+    } else if (THUMBS_EMOJIS.has(emoji)) {
+      for (const v of voters) {
+        if (!blacklisted.has(v)) { thumbsVoters.add(v) }
+      }
+    } else if (LIKE_EMOJIS.has(emoji)) {
+      for (const v of voters) {
+        if (!blacklisted.has(v)) { score += cfg.likeScore * (weights.get(v) ?? 0) }
+      }
     }
+  }
+  for (const v of thumbsVoters) {
+    score += cfg.likeScore * (weights.get(v) ?? 0)
   }
   if (g.lore) { score += cfg.loreBonus }
   if (g.whatToVisit) { score += cfg.visitBonus }
