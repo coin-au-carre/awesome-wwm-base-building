@@ -82,7 +82,7 @@
 	{
 		"id": "10003061",
 		"name": "Dessert",
-		"builders": [],
+		"builders": ["Kukubirdz", "Pie"],
 		"discordThread": "",
 		"whatToVisit": "Large Scale Guild Wars Map near the back",
 		"score": 0,
@@ -92,11 +92,12 @@
 	{
 		"id": "10129452",
 		"name": "Asura",
-		"builders": [],
+		"builders": ["Veniii", "mju"],
 		"tags": [
 			"Snow",
 			"Nature",
-			"Arena"
+			"Arena",
+			"Floating Island"
 		],
 		"discordThread": "",
 		"whatToVisit": "Floating Island Biomes (Snow,Lush,Desert)",
@@ -475,7 +476,7 @@
 		],
 		"tags": [
 			"City",
-			"Floating island",
+			"Floating Island",
 			"Nature",
 			"Snow"
 		],
@@ -558,7 +559,7 @@
 	},
 	{
 		"name": "LeafSide",
-		"builders": [],
+		"builders": ["Danim"],
 		"tags": [
 			"City",
 			"Nature",
@@ -825,7 +826,7 @@
 			""
 		],
 		"tags": [
-			"Floating island"
+			"Floating Island"
 		],
 		"discordThread": "",
 		"whatToVisit": "elevators",
@@ -1137,7 +1138,7 @@
 		],
 		"tags": [
 			"Fun",
-			"Floating island",
+			"Floating Island",
 			"Creative"
 		],
 		"discordThread": "",
@@ -1610,14 +1611,14 @@
 			"Arena",
 			"Mountain",
 			"Fun",
-			"Floating island",
+			"Floating Island",
 			"Military"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1488676600232022036",
 		"builderDiscordId": "815652471438835723",
 		"posterUsername": "Raekiro",
 		"lore": "Our goal is to have something for everyone and enough bases to switch monthly. We are currently up to 4 complete base diagrams all built by myself (GvG Base, Hexi Desert Base, Nature Base, and Snow Base). I want to create an amazing home for all my members and keep the game alive and active. Feel free to drop in and talk about building!",
-		"whatToVisit": "Colosseum (GvG base), Three floor Hexi spectator area (Hexi Base) , guild beach (Nature Base), beautiful nature themed party area (Nature Base), parkour floating islands and airships (GvG Base), Dance party area (Hexi Base), wild horse racing track feat. obstacles (GvG base), lakehouse (GvG base), theatre (GvG base and Hexi Base), mini gvg model (GvG base), big GvG model (GvG base and Hexi base), swim-up bar (GvG base), log cabins (snow base), frozen creek bridge (snow base), hot spring lake area (snow base), frozen party area (snow base)",
+		"whatToVisit": "Colosseum (GvG base), Three floor Hexi spectator area (Hexi Base) , guild beach (Nature Base), beautiful nature themed party area (Nature Base), parkour Floating Islands and airships (GvG Base), Dance party area (Hexi Base), wild horse racing track feat. obstacles (GvG base), lakehouse (GvG base), theatre (GvG base and Hexi Base), mini gvg model (GvG base), big GvG model (GvG base and Hexi base), swim-up bar (GvG base), log cabins (snow base), frozen creek bridge (snow base), hot spring lake area (snow base), frozen party area (snow base)",
 		"score": 40,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1488676600232022036/1488676602236895343/20264165548.png?ex=69eaa6a0\u0026is=69e95520\u0026hm=9b131767b9e9c6ddd9c996f89d4f1e506ff39384deea730d4d89480cb27b5037\u0026",
@@ -2045,7 +2046,7 @@
 		],
 		"tags": [
 			"Arena",
-			"Floating island",
+			"Floating Island",
 			"Nature",
 			"Zen"
 		],
@@ -2238,7 +2239,7 @@
 		],
 		"tags": [
 			"Arena",
-			"Floating island",
+			"Floating Island",
 			"Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1486736303264497817",
@@ -2290,7 +2291,7 @@
 			"Zen",
 			"Mountain",
 			"Nature",
-			"Floating island",
+			"Floating Island",
 			"Cave"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1486718947335082155",
@@ -3701,7 +3702,7 @@
 		],
 		"tags": [
 			"City",
-			"Floating island"
+			"Floating Island"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1494323748830969957",
 		"builderDiscordId": "149790526076354561",
@@ -4395,7 +4396,7 @@
 		],
 		"tags": [
 			"Arena",
-			"Floating island",
+			"Floating Island",
 			"Cave",
 			"Nature"
 		],
