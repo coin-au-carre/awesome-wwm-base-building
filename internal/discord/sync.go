@@ -101,34 +101,47 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	for _, thread := range threads {
 		name, threadID := guild.ExtractNameAndID(thread.Name)
 		key := strings.ToLower(name)
-		if _, exists := guildMap[key]; !exists {
-			newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+		newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 
-			// Check for similar existing guild names before adding.
-			for _, existing := range guilds {
-				existingName := guild.ExtractName(existing.Name)
-				if similarGuildName(name, existingName) {
-					warning := fmt.Sprintf(
-						"⚠️ **Possible duplicate guild detected:**\n• New: **%s** → %s\n• Existing: **%s** → %s",
-						name, newThreadLink, existingName, existing.DiscordThread,
-					)
-					slog.Warn("possible duplicate guild", "new", name, "existing", existingName)
-					partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
-				}
+		existingIdx, exists := guildMap[key]
+		if exists && guilds[existingIdx].DiscordThread != "" {
+			// Existing entry already has a thread — flag as a conflict.
+			warning := fmt.Sprintf(
+				"⚠️ **Thread conflict for guild %s:**\n• Existing: %s\n• New thread: %s\nThis may indicate a duplicate or re-created thread.",
+				name, guilds[existingIdx].DiscordThread, newThreadLink,
+			)
+			slog.Warn("thread conflict: existing discordThread is non-empty", "name", name, "existing", guilds[existingIdx].DiscordThread, "new", newThreadLink)
+			partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+			continue
+		}
+
+		// Treat as new when: no existing entry, OR existing entry has an empty discordThread
+		// (manually added placeholder — a fresh Discord thread is a distinct new guild).
+
+		// Check for similar existing guild names before adding.
+		for _, existing := range guilds {
+			existingName := guild.ExtractName(existing.Name)
+			if similarGuildName(name, existingName) {
+				warning := fmt.Sprintf(
+					"⚠️ **Possible duplicate guild detected:**\n• New: **%s** → %s\n• Existing: **%s** → %s",
+					name, newThreadLink, existingName, existing.DiscordThread,
+				)
+				slog.Warn("possible duplicate guild", "new", name, "existing", existingName)
+				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
 			}
+		}
 
-			idx := len(guilds)
-			guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
-			guildMap[key] = len(guilds) - 1
-			newIndices[idx] = true
-			partialStats.New++
-			partialStats.NewNames = append(partialStats.NewNames, name)
-			partialStats.NewThreadLinks[name] = newThreadLink
-			slog.Info("new guild detected", "name", name, "thread", thread.Name)
-			for _, emoji := range []string{"👍", "🔥", "❤️", "⭐"} {
-				if err := b.Session.MessageReactionAdd(thread.ID, thread.ID, emoji); err != nil {
-					slog.Warn("adding reaction to new thread", "thread", name, "emoji", emoji, "err", err)
-				}
+		idx := len(guilds)
+		guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
+		guildMap[key] = len(guilds) - 1
+		newIndices[idx] = true
+		partialStats.New++
+		partialStats.NewNames = append(partialStats.NewNames, name)
+		partialStats.NewThreadLinks[name] = newThreadLink
+		slog.Info("new guild detected", "name", name, "thread", thread.Name)
+		for _, emoji := range []string{"👍", "🔥", "❤️", "⭐"} {
+			if err := b.Session.MessageReactionAdd(thread.ID, thread.ID, emoji); err != nil {
+				slog.Warn("adding reaction to new thread", "thread", name, "emoji", emoji, "err", err)
 			}
 		}
 	}
@@ -492,7 +505,7 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 
 	for _, msg := range allMsgs {
 		if len(screenshots) >= maxScreenshots {
-			slog.Warn("guild has reached max screenshots", "numScreenshots", len(screenshots), "guild", "latestAuthorMsg", msg.Author)
+			slog.Warn("guild has reached max screenshots", "numScreenshots", len(screenshots), "threadID", threadID, "latestAuthorMsg", msg.Author.Username)
 			break
 		}
 		if msg.Author == nil || !allowedIDs[msg.Author.ID] {
