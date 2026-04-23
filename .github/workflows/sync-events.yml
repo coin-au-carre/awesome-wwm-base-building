@@ -2,7 +2,7 @@ name: Sync Events
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '44 */4 * * *'
   workflow_dispatch:
 
 jobs:
