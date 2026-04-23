@@ -37,19 +37,21 @@ type SyncConfig struct {
 }
 
 type threadData struct {
-	ID                 string
-	GuildName          string
-	AuthorID           string
-	Builders           []string
-	Score              int
-	Screenshots        []string
-	ScreenshotSections []guild.ScreenshotSection
-	Videos             []string
-	Lore               string
-	WhatToVisit        string
-	CoverIdx           int // 1-based; 0 = not set
-	PostedOnBehalfOf   string
-	PosterUsername     string
+	ID                  string
+	GuildName           string
+	AuthorID            string
+	Builders            []string
+	Score               int
+	Screenshots         []string
+	ScreenshotSections  []guild.ScreenshotSection
+	Videos              []string
+	Lore                string
+	WhatToVisit         string
+	CoverIdx            int // 1-based; 0 = not set
+	PostedOnBehalfOf    string
+	PosterUsername      string
+	FirstPostTime       time.Time // First post (should be similar to createdAt)
+	LastContributorTime time.Time // Latest post by allowed contributors (should be similar to modifiedAt)
 }
 
 type fetchedThread struct {
@@ -307,6 +309,11 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 		if data.PosterUsername != "" {
 			g.PosterUsername = data.PosterUsername
 		}
+		// Now using thread timestamps instead of custom one
+		// if g.CreatedAt == "" {
+		// g.CreatedAt = data.FirstPostTime.UTC().Format(guild.ModifiedLayout)
+		// }
+		// g.LastModified = data.LastContributorTime.UTC().Format(guild.ModifiedLayout)
 
 		isNew := result.newIndices[r.idx]
 		if !isNew && hasChanged(prev, g) {
@@ -379,25 +386,31 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	for _, id := range allowedContributors {
 		allowedIDs[id] = true
 	}
-	sections, screenshots, videos := collectMedia(s, thread.ID, allowedIDs)
+	sections, screenshots, videos, lastContributorTime := collectMedia(s, thread.ID, allowedIDs)
 
 	if postedOnBehalfOf != "" && postedOnBehalfOf != "unknown" {
 		postedOnBehalfOf = resolveOnBehalf(s, thread.GuildID, postedOnBehalfOf)
 	}
+	firstPostMsg := msgs[0].Timestamp
+	if len(msgs) > 0 {
+		firstPostMsg = msgs[len(msgs)-1].Timestamp
+	}
 
 	return threadData{
-		ID:                 id,
-		GuildName:          guildName,
-		AuthorID:           authorID,
-		PosterUsername:     authorUsername,
-		Builders:           resolveBuilders(s, thread.GuildID, builders),
-		Screenshots:        screenshots,
-		ScreenshotSections: sections,
-		Videos:             videos,
-		Lore:               lore,
-		WhatToVisit:        whatToVisit,
-		CoverIdx:           coverIdx,
-		PostedOnBehalfOf:   postedOnBehalfOf,
+		ID:                  id,
+		GuildName:           guildName,
+		AuthorID:            authorID,
+		PosterUsername:      authorUsername,
+		Builders:            resolveBuilders(s, thread.GuildID, builders),
+		Screenshots:         screenshots,
+		ScreenshotSections:  sections,
+		Videos:              videos,
+		Lore:                lore,
+		WhatToVisit:         whatToVisit,
+		CoverIdx:            coverIdx,
+		PostedOnBehalfOf:    postedOnBehalfOf,
+		FirstPostTime:       firstPostMsg,
+		LastContributorTime: lastContributorTime,
 	}
 }
 
@@ -436,7 +449,7 @@ func resolveBuilders(s *discordgo.Session, guildID string, builders []string) []
 	return resolved
 }
 
-const maxScreenshots = 40
+const maxScreenshots = 100
 
 func isSupportedVideoURL(rawURL string) bool {
 	u, err := url.Parse(rawURL)
@@ -448,7 +461,7 @@ func isSupportedVideoURL(rawURL string) bool {
 
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
 
-func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string) {
+func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string, lastContributorTime time.Time) {
 	// Fetch all messages (Discord returns newest-first), then reverse to process chronologically.
 	var allMsgs []*discordgo.Message
 	var lastID string
@@ -479,10 +492,14 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 
 	for _, msg := range allMsgs {
 		if len(screenshots) >= maxScreenshots {
+			slog.Warn("guild has reached max screenshots", "numScreenshots", len(screenshots), "guild", "latestAuthorMsg", msg.Author)
 			break
 		}
 		if msg.Author == nil || !allowedIDs[msg.Author.ID] {
 			continue
+		}
+		if msg.Timestamp.After(lastContributorTime) {
+			lastContributorTime = msg.Timestamp
 		}
 		if m := reSectionHeader.FindStringSubmatch(strings.TrimSpace(msg.Content)); len(m) == 3 {
 			label := strings.TrimSpace(m[2])
