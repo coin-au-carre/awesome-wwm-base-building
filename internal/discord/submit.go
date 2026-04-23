@@ -1031,20 +1031,22 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 
 	// Build threadID → entry name from both guilds and solos.
 	threadToName := make(map[string]string)
-	if guilds, err := guild.Load(root); err == nil {
+	var guilds []guild.Guild
+	if loadedGuilds, err := guild.Load(root); err == nil {
+		guilds = loadedGuilds
 		for _, g := range guilds {
 			if tid := threadIDFromURL(g.DiscordThread); tid != "" {
 				threadToName[tid] = g.Name
 			}
 		}
 	}
-	if solos, err := loadSolos(root); err == nil {
-		for _, g := range solos {
-			if tid := threadIDFromURL(g.DiscordThread); tid != "" {
-				threadToName[tid] = g.Name
-			}
-		}
-	}
+	// if solos, err := loadSolos(root); err == nil {
+	// 	for _, g := range solos {
+	// 		if tid := threadIDFromURL(g.DiscordThread); tid != "" {
+	// 			threadToName[tid] = g.Name
+	// 		}
+	// 	}
+	// }
 
 	type entry struct {
 		name   string
@@ -1090,14 +1092,70 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	fmt.Fprintf(&sb, "**Your votes** · %d guilds · %d pts\n\n", len(entries), totalPts)
 
 	rank := 0
+	currentPts := -1
+	var currentNames []string
+	var currentEmojis string
+
 	for idx, e := range entries {
-		if idx == 0 || entries[idx-1].pts != e.pts {
+		if e.pts != currentPts {
+			// Output previous group
+			if currentPts != -1 {
+				fmt.Fprintf(&sb, "**#%d:** (+%d pts) %s: %s\n", rank, currentPts, currentEmojis, strings.Join(currentNames, ", "))
+				if sb.Len() > 1800 {
+					sb.WriteString("*... and more*")
+					break
+				}
+			}
+			// Start new group
 			rank = idx + 1
+			currentPts = e.pts
+			currentNames = []string{e.name}
+			currentEmojis = e.emojis
+		} else {
+			// Add to current group
+			currentNames = append(currentNames, e.name)
 		}
-		fmt.Fprintf(&sb, "**#%d** %s · +%d %s\n", rank, e.name, e.pts, e.emojis)
-		if sb.Len() > 1800 {
-			sb.WriteString("*... and more*")
-			break
+	}
+
+	// Output last group
+	if currentPts != -1 {
+		fmt.Fprintf(&sb, "**#%d:** (+%d pts) %s: %s\n", rank, currentPts, currentEmojis, strings.Join(currentNames, ", "))
+	}
+
+	// Suggestions: unvoted guilds with screenshots (excluding AHLYAM_ID and WINDXP_ID posts)
+	votedNames := make(map[string]bool)
+	for _, e := range entries {
+		votedNames[e.name] = true
+	}
+
+	var suggestions []string
+	for _, g := range guilds {
+		if !votedNames[g.Name] && len(g.Screenshots) > 0 && g.BuilderDiscordID != AHLYAM_ID && g.BuilderDiscordID != WINDXP_ID {
+			suggestions = append(suggestions, g.Name)
+		}
+	}
+
+	if len(suggestions) > 0 {
+		fmt.Fprintf(&sb, "\n**Guild base suggestions to explore:**")
+		i := 0
+		for i < len(suggestions) && sb.Len() < 1800 {
+			// Fit as many as possible on this line
+			var line []string
+			for i < len(suggestions) {
+				testLine := append(line, suggestions[i])
+				testText := "\n" + strings.Join(testLine, ", ")
+				if len(sb.String())+len(testText) > 1800 && len(line) > 0 {
+					break
+				}
+				line = append(line, suggestions[i])
+				i++
+			}
+			if len(line) > 0 {
+				fmt.Fprintf(&sb, "\n%s", strings.Join(line, ", "))
+			}
+		}
+		if i < len(suggestions) {
+			sb.WriteString("\n*... and more*")
 		}
 	}
 
