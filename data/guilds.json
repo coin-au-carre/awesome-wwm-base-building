@@ -1,5 +1,21 @@
 [
 	{
+		"id": "10026437",
+		"name": "KrapaoKai",
+		"builders": [],
+		"tags": [
+			"Arena",
+			"Creative",
+			"Fun",
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Restaurant, Spaceship, Arena viewing area, Guild Party Relaxation zone, Parkour and a couple hidden areas to sit in the sky!",
+		"score": 0,
+		"lastModified": "April 23, 2026 at 02:08 PM UTC",
+		"scoutedByDiscordId": "376950312721711118"
+	},
+	{
 		"name": "AlienNuggets",
 		"builders": [
 			"Weiba (4035912421)",
