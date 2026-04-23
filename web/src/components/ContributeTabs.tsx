@@ -325,7 +325,7 @@ return (
                   {
                     icon: <Image className="size-4 text-emerald-500 shrink-0 mt-0.5" />,
                     title: "Cover image",
-                    body: <>Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post to pin screenshot #N as the cover. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.</>,
+                    body: <>Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post (edit it) to pin screenshot #N as the cover. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.</>,
                   },
                   {
                     icon: <LayoutList className="size-4 text-amber-500 shrink-0 mt-0.5" />,
