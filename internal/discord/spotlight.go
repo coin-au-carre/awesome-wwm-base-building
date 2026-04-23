@@ -137,7 +137,7 @@ func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 	if isSolo {
 		fmt.Fprintf(&sb, "🏡 New solo build! Say hello to **%s**!\n", g.Name)
 	} else {
-		fmt.Fprintf(&sb, "🏰 New guild base! Say hello to **%s**!\n", g.Name)
+		fmt.Fprintf(&sb, "🏯 New guild base! Say hello to **%s**!\n", g.Name)
 	}
 	meta := buildGuildMeta(g, false)
 	if len(meta) > 0 {
