@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots, formatBuilderName } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
-import { HouseIcon, ArrowsClockwiseIcon, TrophyIcon, MountainsIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
+import { HouseLineIcon, ArrowsClockwiseIcon, TrophyIcon, MountainsIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
 
 const solos = getSolosSortedByScore()
 const allTags = getAllSoloTags()
@@ -45,7 +45,7 @@ const isEmpty = !hasSolos()
 
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><HouseIcon weight="duotone" className="size-6 text-primary" /> Solo Construction</h1>
+        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><HouseLineIcon weight="duotone" className="size-6 text-primary" /> Solo Construction</h1>
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
         {!isEmpty && (
           <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
