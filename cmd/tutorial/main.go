@@ -111,7 +111,23 @@ func main() {
 	}
 
 	outPath := filepath.Join(*root, "web", "src", "content", "articles", slug+".md")
-	if err := os.WriteFile(outPath, []byte(buildMarkdown(thread.Name, authorName, parts)), 0644); err != nil {
+
+	// Try to preserve existing frontmatter if file exists
+	var existingFrontmatter string
+	if data, err := os.ReadFile(outPath); err == nil {
+		if fm := extractFrontmatter(string(data)); fm != "" {
+			existingFrontmatter = fm
+		}
+	}
+
+	var content string
+	if existingFrontmatter != "" {
+		content = fmt.Sprintf("---\n%s---\n\n%s\n", existingFrontmatter, strings.Join(parts, "\n\n"))
+	} else {
+		content = buildMarkdown(thread.Name, authorName, parts)
+	}
+
+	if err := os.WriteFile(outPath, []byte(content), 0644); err != nil {
 		slog.Error("writing article", "err", err)
 		os.Exit(1)
 	}
@@ -141,6 +157,17 @@ func fetchAllMessages(s *discordgo.Session, threadID string) []*discordgo.Messag
 		all[i], all[j] = all[j], all[i]
 	}
 	return all
+}
+
+func extractFrontmatter(content string) string {
+	if !strings.HasPrefix(content, "---") {
+		return ""
+	}
+	parts := strings.SplitN(content, "---", 3)
+	if len(parts) < 3 {
+		return ""
+	}
+	return strings.TrimSpace(parts[1]) + "\n"
 }
 
 func buildMarkdown(title, author string, parts []string) string {
