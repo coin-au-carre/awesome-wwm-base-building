@@ -162,9 +162,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
           const { live, urgent, timeLabel } = event
           return (
             <a
-              href={event.discordUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`${BASE}/events`}
               class={`group flex flex-1 items-center gap-3 rounded-xl bg-card hover:shadow-sm transition-all px-3 py-2.5 ${live ? "event-live bg-green-500/5" : urgent ? "event-urgent bg-cyan-500/5" : "ring-1 ring-cyan-500/25 hover:ring-cyan-500/50"}`}
               data-umami-event="upcoming_event_click"
             >
