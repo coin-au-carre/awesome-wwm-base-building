@@ -24,7 +24,7 @@ const totalGuilds = getGuildsSortedByScore().length
 const tier = getTier(g.rank, totalGuilds, g.score)
 const AHLYAM_ID = "149790526076354561"
 const WINDXP_ID = "721510597958828183"
-const enteredByAhlyam = g.builderDiscordId === AHLYAM_ID || g.builderDiscordId === WINDXP_ID
+const enteredByAhlyam = g.posterDiscordId === AHLYAM_ID || g.posterDiscordId === WINDXP_ID
 const ogImage = g.coverImage ?? g.screenshots?.[0]
 ---
 

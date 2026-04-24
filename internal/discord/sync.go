@@ -321,7 +321,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 		g.WhatToVisit = data.WhatToVisit
 		g.PostedOnBehalfOf = data.PostedOnBehalfOf
 		if data.AuthorID != "" {
-			g.BuilderDiscordID = data.AuthorID
+			g.PosterDiscordID = data.AuthorID
 		}
 		if data.PosterUsername != "" {
 			g.PosterUsername = data.PosterUsername

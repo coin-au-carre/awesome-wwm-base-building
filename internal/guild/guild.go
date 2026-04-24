@@ -9,23 +9,23 @@ type ScreenshotSection struct {
 
 // Note holds either a plain string or a structured deletion record.
 type Note struct {
-	Text             string
-	Status           string `json:"status,omitempty"`
-	DiscordThread    string `json:"discordThread,omitempty"`
-	BuilderDiscordID string `json:"builderDiscordId,omitempty"`
+	Text            string
+	Status          string `json:"status,omitempty"`
+	DiscordThread   string `json:"discordThread,omitempty"`
+	PosterDiscordID string `json:"posterDiscordId,omitempty"`
 }
 
 func (n Note) IsZero() bool {
-	return n.Text == "" && n.Status == "" && n.DiscordThread == "" && n.BuilderDiscordID == ""
+	return n.Text == "" && n.Status == "" && n.DiscordThread == "" && n.PosterDiscordID == ""
 }
 
 func (n Note) MarshalJSON() ([]byte, error) {
-	if n.Status != "" || n.DiscordThread != "" || n.BuilderDiscordID != "" {
+	if n.Status != "" || n.DiscordThread != "" || n.PosterDiscordID != "" {
 		return json.Marshal(struct {
-			Status           string `json:"status,omitempty"`
-			DiscordThread    string `json:"discordThread,omitempty"`
-			BuilderDiscordID string `json:"builderDiscordId,omitempty"`
-		}{n.Status, n.DiscordThread, n.BuilderDiscordID})
+			Status          string `json:"status,omitempty"`
+			DiscordThread   string `json:"discordThread,omitempty"`
+			PosterDiscordID string `json:"posterDiscordId,omitempty"`
+		}{n.Status, n.DiscordThread, n.PosterDiscordID})
 	}
 	return json.Marshal(n.Text)
 }
@@ -45,7 +45,7 @@ type Guild struct {
 	Builders                 []string            `json:"builders"`
 	Tags                     []string            `json:"tags,omitempty"`
 	DiscordThread            string              `json:"discordThread"`
-	BuilderDiscordID         string              `json:"builderDiscordId,omitempty"`
+	PosterDiscordID          string              `json:"posterDiscordId,omitempty"`
 	PosterUsername           string              `json:"posterUsername,omitempty"`
 	Lore                     string              `json:"lore,omitempty"`
 	WhatToVisit              string              `json:"whatToVisit,omitempty"`

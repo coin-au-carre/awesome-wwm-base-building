@@ -1092,23 +1092,21 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "**Your votes** · %d guilds · %d pts\n\n", len(entries), totalPts)
 
-	rank := 0
 	currentPts := -1
 	var currentNames []string
 	var currentEmojis string
 
-	for idx, e := range entries {
+	for _, e := range entries {
 		if e.pts != currentPts {
 			// Output previous group
 			if currentPts != -1 {
-				fmt.Fprintf(&sb, "**#%d:** (+%d pts) %s: %s\n", rank, currentPts, currentEmojis, strings.Join(currentNames, ", "))
+				fmt.Fprintf(&sb, "+%d pts [%s] %s\n", currentPts, currentEmojis, strings.Join(currentNames, ", "))
 				if sb.Len() > 1800 {
 					sb.WriteString("*... and more*")
 					break
 				}
 			}
 			// Start new group
-			rank = idx + 1
 			currentPts = e.pts
 			currentNames = []string{e.name}
 			currentEmojis = e.emojis
@@ -1120,7 +1118,7 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 
 	// Output last group
 	if currentPts != -1 {
-		fmt.Fprintf(&sb, "**#%d:** (+%d pts) %s: %s\n", rank, currentPts, currentEmojis, strings.Join(currentNames, ", "))
+		fmt.Fprintf(&sb, "+%d pts [%s] %s\n", currentPts, currentEmojis, strings.Join(currentNames, ", "))
 	}
 
 	// Suggestions: unvoted guilds with screenshots (excluding AHLYAM_ID and WINDXP_ID posts)
@@ -1131,7 +1129,7 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 
 	var suggestions []string
 	for _, g := range guilds {
-		if !votedNames[g.Name] && len(g.Screenshots) > 0 && g.BuilderDiscordID != AHLYAM_ID && g.BuilderDiscordID != WINDXP_ID {
+		if !votedNames[g.Name] && len(g.Screenshots) > 0 && g.PosterDiscordID != AHLYAM_ID && g.PosterDiscordID != WINDXP_ID {
 			suggestions = append(suggestions, g.Name)
 		}
 	}
@@ -1233,16 +1231,16 @@ func handleBuilderCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	}
 	var matches []baseEntry
 	for _, g := range guilds {
-		if g.BuilderDiscordID == userID {
+		if g.PosterDiscordID == userID {
 			// Exceptional list: Ahlyam, WindXP, Babe
-			if !slices.Contains([]string{AHLYAM_ID, BABE_ID, WINDXP_ID}, g.BuilderDiscordID) ||
+			if !slices.Contains([]string{AHLYAM_ID, BABE_ID, WINDXP_ID}, g.PosterDiscordID) ||
 				g.Name == "Jenova" || g.GuildName == "PleasureSeeker" {
 				matches = append(matches, baseEntry{g, false})
 			}
 		}
 	}
 	for _, g := range solos {
-		if g.BuilderDiscordID == userID {
+		if g.PosterDiscordID == userID {
 			matches = append(matches, baseEntry{g, true})
 		}
 	}

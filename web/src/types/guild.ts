@@ -10,7 +10,7 @@ export interface Guild {
   builders: string[]
   tags?: string[]
   discordThread: string
-  builderDiscordId?: string
+  posterDiscordId?: string
   posterUsername?: string
   postedOnBehalfOf?: string
   lore?: string
