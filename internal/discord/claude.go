@@ -4,10 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io"
 	"log/slog"
-	"net/http"
-	"net/url"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -36,8 +33,6 @@ You know only Where Winds Meet. If someone shares an image that looks like this 
 You have a show_spotlight tool. Use it when someone wants to see a guild base — "show me a base", "random guild", "spotlight", anything like that.
 
 You have a show_solo_spotlight tool. Use it when someone asks to see a solo *base* or solo *build* — "show me a solo", "random solo", anything showing a player's solo construction. Never use this for questions about building pieces or catalog items.
-
-You have a fetch_wiki tool. Use it when someone asks about game mechanics, items, food, crafting, locations, enemies, or anything about Where Winds Meet that you're not sure about. Look it up on the wiki rather than guessing.
 
 You have a show_catalog_items tool. Use it whenever someone asks about specific building *pieces* or *items* — carpets, walls, roofs, pillars, furniture, etc. — regardless of whether they mention "solo" or "guild". The word "items" always means building pieces from the catalog. Pass the most specific search term you can (item name, subcategory, or tag). The images will be sent automatically — do NOT list item names, filenames, or categories in your text reply. Just react briefly in character, one short sentence at most.
 
@@ -80,19 +75,6 @@ var tools = []anthropic.ToolUnionParam{
 				},
 			},
 			Required: []string{"query"},
-		},
-	}},
-	{OfTool: &anthropic.ToolParam{
-		Name:        "fetch_wiki",
-		Description: anthropic.String("Fetch a page from the Where Winds Meet Fandom wiki to answer questions about game mechanics, items, food, crafting, locations, enemies, etc."),
-		InputSchema: anthropic.ToolInputSchemaParam{
-			Properties: map[string]any{
-				"page": map[string]any{
-					"type":        "string",
-					"description": "The wiki page title as it appears in the URL, e.g. 'Food', 'Egg', 'Cooking', 'Base_Building'",
-				},
-			},
-			Required: []string{"page"},
 		},
 	}},
 	{OfTool: &anthropic.ToolParam{
@@ -145,31 +127,44 @@ func NewCLIResponder(root string) *Responder {
 	}
 }
 
+// promptGuild is the minimal shape needed from web/public/guilds.json.
+type promptGuild struct {
+	Name        string   `json:"name"`
+	Score       int      `json:"score"`
+	Tags        []string `json:"tags"`
+	Builders    []string `json:"builders"`
+	Lore        string   `json:"lore"`
+	WhatToVisit string   `json:"whatToVisit"`
+}
+
 func buildSystemPrompt(root string) string {
 	var sb strings.Builder
 	sb.WriteString(systemPrompt)
 
-	if guilds, err := guild.Load(root); err == nil {
-		sb.WriteString("\n\n## Guild directory\n")
-		for _, g := range guilds {
-			parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
-			if len(g.Tags) > 0 {
-				parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
-			}
-			if len(g.Builders) > 0 {
-				parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
-			}
-			sb.WriteString(strings.Join(parts, " | "))
-			sb.WriteByte('\n')
-			if g.Lore != "" {
-				sb.WriteString("  lore: ")
-				sb.WriteString(g.Lore)
+	if data, err := os.ReadFile(filepath.Join(root, "web", "public", "guilds.json")); err == nil {
+		var guilds []promptGuild
+		if json.Unmarshal(data, &guilds) == nil {
+			sb.WriteString("\n\n## Guild directory\n")
+			for _, g := range guilds {
+				parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
+				if len(g.Tags) > 0 {
+					parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
+				}
+				if len(g.Builders) > 0 {
+					parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
+				}
+				sb.WriteString(strings.Join(parts, " | "))
 				sb.WriteByte('\n')
-			}
-			if g.WhatToVisit != "" {
-				sb.WriteString("  visit: ")
-				sb.WriteString(g.WhatToVisit)
-				sb.WriteByte('\n')
+				if g.Lore != "" {
+					sb.WriteString("  lore: ")
+					sb.WriteString(g.Lore)
+					sb.WriteByte('\n')
+				}
+				if g.WhatToVisit != "" {
+					sb.WriteString("  visit: ")
+					sb.WriteString(g.WhatToVisit)
+					sb.WriteByte('\n')
+				}
 			}
 		}
 	}
@@ -397,112 +392,6 @@ func (r *Responder) Caption(ctx context.Context, guildName string, tags []string
 	return ""
 }
 
-// fetchWikiPage fetches a page from the Where Winds Meet Fandom wiki using the
-// MediaWiki API, returning plain text extracted from the wikitext.
-func fetchWikiPage(page string) string {
-	apiURL := "https://where-winds-meet.fandom.com/api.php?action=parse&format=json&prop=wikitext&page=" + url.QueryEscape(page)
-	resp, err := http.Get(apiURL) //nolint:gosec
-	if err != nil {
-		return "Could not reach the wiki: " + err.Error()
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		return fmt.Sprintf("Wiki API error (HTTP %d).", resp.StatusCode)
-	}
-	body, err := io.ReadAll(io.LimitReader(resp.Body, 512*1024))
-	if err != nil {
-		return "Could not read wiki response."
-	}
-
-	var result struct {
-		Parse struct {
-			Wikitext struct {
-				Text string `json:"*"`
-			} `json:"wikitext"`
-		} `json:"parse"`
-		Error struct {
-			Info string `json:"info"`
-		} `json:"error"`
-	}
-	if err := json.Unmarshal(body, &result); err != nil {
-		return "Could not parse wiki response."
-	}
-	if result.Error.Info != "" {
-		return "Wiki page not found: " + result.Error.Info
-	}
-	text := flattenWikitext(result.Parse.Wikitext.Text)
-	if len(text) > 2000 {
-		text = text[:2000]
-	}
-	return text
-}
-
-// flattenWikitext strips wikitext markup and returns readable plain text.
-func flattenWikitext(s string) string {
-	var b strings.Builder
-	runes := []rune(s)
-	i := 0
-	depth := 0
-	for i < len(runes) {
-		// Skip {{...}} template blocks (handles nesting).
-		if i+1 < len(runes) && runes[i] == '{' && runes[i+1] == '{' {
-			depth++
-			i += 2
-			continue
-		}
-		if i+1 < len(runes) && runes[i] == '}' && runes[i+1] == '}' {
-			if depth > 0 {
-				depth--
-			}
-			i += 2
-			continue
-		}
-		if depth > 0 {
-			i++
-			continue
-		}
-		// Strip HTML tags.
-		if runes[i] == '<' {
-			for i < len(runes) && runes[i] != '>' {
-				i++
-			}
-			i++
-			b.WriteByte(' ')
-			continue
-		}
-		// Handle [[...]] links: keep display text, drop File/Image embeds.
-		if i+1 < len(runes) && runes[i] == '[' && runes[i+1] == '[' {
-			i += 2
-			start := i
-			for i < len(runes) {
-				if i+1 < len(runes) && runes[i] == ']' && runes[i+1] == ']' {
-					break
-				}
-				i++
-			}
-			inner := string(runes[start:i])
-			i += 2
-			if strings.HasPrefix(inner, "File:") || strings.HasPrefix(inner, "Image:") {
-				continue
-			}
-			if idx := strings.LastIndex(inner, "|"); idx >= 0 {
-				b.WriteString(inner[idx+1:])
-			} else {
-				b.WriteString(inner)
-			}
-			continue
-		}
-		// Strip wikitext formatting characters (bold/italic apostrophes, headings).
-		if runes[i] == '\'' {
-			i++
-			continue
-		}
-		b.WriteRune(runes[i])
-		i++
-	}
-	return strings.Join(strings.Fields(b.String()), " ")
-}
-
 func removeBlankLines(s string) string {
 	lines := strings.Split(s, "\n")
 	out := lines[:0]
@@ -577,16 +466,6 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 					}
 					slog.Info("ruby tool: show_guild_image", "query", guildImageQuery)
 					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Guild image is being shown.", false))
-				case "fetch_wiki":
-					var input struct {
-						Page string `json:"page"`
-					}
-					content := "Could not parse wiki tool input."
-					if err := json.Unmarshal(tu.Input, &input); err == nil {
-						slog.Info("ruby tool: fetch_wiki", "page", input.Page)
-						content = fetchWikiPage(input.Page)
-					}
-					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, content, false))
 				case "show_catalog_items":
 					var input struct {
 						Query string `json:"query"`
