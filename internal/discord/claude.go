@@ -157,8 +157,9 @@ func buildSystemPrompt(root string) string {
 	if data, err := os.ReadFile(filepath.Join(root, "web", "public", "guilds.json")); err == nil {
 		var guilds []promptGuild
 		if json.Unmarshal(data, &guilds) == nil {
-			sb.WriteString("\n\n## Guild directory\n")
+			sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url)\n")
 			for _, g := range guilds {
+				guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
 				parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
 				if len(g.Tags) > 0 {
 					parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
@@ -167,6 +168,7 @@ func buildSystemPrompt(root string) string {
 					parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
 				}
 				sb.WriteString(strings.Join(parts, " | "))
+				sb.WriteString(" | url: " + guildURL)
 				sb.WriteByte('\n')
 				if g.Lore != "" {
 					sb.WriteString("  lore: ")
