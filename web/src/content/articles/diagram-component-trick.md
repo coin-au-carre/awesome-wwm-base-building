@@ -5,6 +5,7 @@ tags: ["advanced", "diagram", "guild"]
 authors: ["Izanagi-cz", "SugaredKoi", "Ahlyam"]
 date: 2026-04-09
 order: 1
+image: "/tutorials/diagram-step1.jpg"
 ---
 
 Some building pieces are only accessible through diagrams. This trick lets you extract them individually without completing the full structure.

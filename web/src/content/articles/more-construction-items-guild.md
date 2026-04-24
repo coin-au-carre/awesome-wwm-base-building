@@ -5,6 +5,7 @@ tags: ["beginner", "guild"]
 authors: ["OPM", "Ahlyam"]
 date: 2026-04-09
 order: 1
+image: "/tutorials/kaifeng-items-teleport.jpg"
 ---
 
 Thanks to **OPM** for originally sharing this in the Discord.
