@@ -1,5 +1,22 @@
 [
 	{
+		"name": "DemonBane",
+		"builders": [
+			"Narikiasa"
+		],
+		"tags": [
+			"Floating Island",
+			"Nature",
+			"Creative",
+			"Fun"
+		],
+		"discordThread": "",
+		"whatToVisit": "Marvellous floating islands platform\nWedding alley\nStylish Elevator\nGo to the top!",
+		"score": 1,
+		"lastModified": "April 24, 2026 at 04:51 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "AlienNuggets",
 		"builders": [
 			"Weiba (4035912421)",
