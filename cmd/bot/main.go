@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"log/slog"
+	"math/rand"
 	"os"
 	"os/signal"
 	"path/filepath"
@@ -111,6 +112,18 @@ var spotlightKeywords = map[string]bool{
 	"random": true,
 }
 
+// restingResponses are random messages Ruby gives when Claude is disabled.
+var restingResponses = []string{
+	"*(rests quietly)* i'm taking a moment away~",
+	"shhh... the winds are quiet right now...",
+	"*(curls up)* resting... come back later?",
+	"hmmm... can't quite think right now... 💤",
+	"*(drifts off)* ...do not disturb...",
+	"the world feels sleepy to me... try later?",
+	"*(loses focus)* sorry, i'm not quite here...",
+	"resting between moments... 💭",
+}
+
 // onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
 func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root string, allowedChannels map[string]bool, rubyRoleID string) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
@@ -159,6 +172,9 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 		}
 
 		if responder == nil {
+			// Pick a random resting response
+			idx := rand.Intn(len(restingResponses))
+			bot.Reply(m.ChannelID, m.ID, restingResponses[idx])
 			return
 		}
 
