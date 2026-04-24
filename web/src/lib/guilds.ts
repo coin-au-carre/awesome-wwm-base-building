@@ -83,7 +83,7 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   const ranked = RANKED_GUILDS
   const withShots = [...ALL_GUILDS]
     .reverse()
-    .filter((g) => g.screenshots && g.screenshots.length > 0 && g.posterDiscordId !== AHLYAM_ID && g.posterDiscordId !== WINDXP_ID && g.posterDiscordId !== BABE_ID)
+    .filter((g) => g.screenshots && g.screenshots.length > 0 && (g.postedOnBehalfOf || (g.posterDiscordId !== AHLYAM_ID && g.posterDiscordId !== WINDXP_ID && g.posterDiscordId !== BABE_ID)))
     .slice(0, n)
     .map((g) => ranked.find((r) => r.name === g.name))
     .filter((g): g is RankedGuild => g !== undefined)
