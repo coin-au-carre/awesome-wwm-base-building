@@ -12,22 +12,21 @@ import (
 	"ruby/internal/guild"
 )
 
-// publicGuild mirrors Guild but omits the Note field.
+// publicGuild mirrors Guild but omits internal-only fields.
 type publicGuild struct {
-	ID                 string                    `json:"id,omitempty"`
-	Name               string                    `json:"name"`
-	GuildName          string                    `json:"guildName,omitempty"`
-	Builders           []string                  `json:"builders"`
-	Tags               []string                  `json:"tags,omitempty"`
-	DiscordThread      string                    `json:"discordThread"`
-	Lore               string                    `json:"lore,omitempty"`
-	WhatToVisit        string                    `json:"whatToVisit,omitempty"`
-	Score              int                       `json:"score"`
-	CoverImage         string                    `json:"coverImage,omitempty"`
-	Screenshots        []string                  `json:"screenshots,omitempty"`
-	ScreenshotSections []guild.ScreenshotSection `json:"screenshotSections,omitempty"`
-	Videos             []string                  `json:"videos,omitempty"`
-	LastModified       string                    `json:"lastModified,omitempty"`
+	ID           string   `json:"id,omitempty"`
+	Name         string   `json:"name"`
+	GuildName    string   `json:"guildName,omitempty"`
+	Builders     []string `json:"builders"`
+	Tags         []string `json:"tags,omitempty"`
+	DiscordThread string  `json:"discordThread"`
+	Lore         string   `json:"lore,omitempty"`
+	WhatToVisit  string   `json:"whatToVisit,omitempty"`
+	Score        int      `json:"score"`
+	CoverImage   string   `json:"coverImage,omitempty"`
+	Screenshots  []string `json:"screenshots,omitempty"`
+	Videos       []string `json:"videos,omitempty"`
+	LastModified string   `json:"lastModified,omitempty"`
 }
 
 func main() {
@@ -57,10 +56,9 @@ func main() {
 			Lore:               g.Lore,
 			WhatToVisit:        g.WhatToVisit,
 			Score:              g.Score,
-			CoverImage:         g.CoverImage,
-			Screenshots:        g.Screenshots,
-			ScreenshotSections: g.ScreenshotSections,
-			Videos:             g.Videos,
+			CoverImage:   g.CoverImage,
+			Screenshots:  g.Screenshots,
+			Videos:       g.Videos,
 			LastModified:       g.LastModified,
 		}
 	}

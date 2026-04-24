@@ -12,6 +12,11 @@ import (
 	"sync"
 )
 
+// ollamaNumCtx is the context window size passed to Ollama.
+// The system prompt alone is ~12K tokens (guild directory + catalog), so we
+// need at least 16K. 32K fits comfortably on 8 GB RAM with a 7B model.
+const ollamaNumCtx = 32768
+
 // OllamaResponder calls a local Ollama instance and maintains per-channel conversation history.
 type OllamaResponder struct {
 	baseURL      string // e.g. http://localhost:11434
@@ -27,10 +32,11 @@ type ollamaMessage struct {
 }
 
 type ollamaChatRequest struct {
-	Model    string          `json:"model"`
-	Messages []ollamaMessage `json:"messages"`
-	Stream   bool            `json:"stream"`
-	System   string          `json:"system"`
+	Model    string            `json:"model"`
+	Messages []ollamaMessage   `json:"messages"`
+	Stream   bool              `json:"stream"`
+	System   string            `json:"system"`
+	Options  map[string]any    `json:"options,omitempty"`
 }
 
 type ollamaChatResponse struct {
@@ -68,6 +74,7 @@ func (r *OllamaResponder) Reply(ctx context.Context, channelID, userMessage stri
 		Messages: msgs,
 		Stream:   false,
 		System:   r.systemPrompt,
+		Options:  map[string]any{"num_ctx": ollamaNumCtx},
 	}
 
 	body, err := json.Marshal(reqBody)
@@ -123,10 +130,11 @@ func (r *OllamaResponder) Caption(ctx context.Context, guildName string, tags []
 	}
 
 	reqBody := ollamaChatRequest{
-		Model:   r.model,
+		Model:    r.model,
 		Messages: []ollamaMessage{{Role: "user", Content: prompt}},
-		Stream:  false,
-		System:  r.systemPrompt,
+		Stream:   false,
+		System:   r.systemPrompt,
+		Options:  map[string]any{"num_ctx": ollamaNumCtx},
 	}
 
 	body, err := json.Marshal(reqBody)

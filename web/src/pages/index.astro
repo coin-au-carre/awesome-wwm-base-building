@@ -124,7 +124,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
         {featuredArticles.map((article) => {
           const ytID = article.body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
           const firstImg = article.body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
-          const thumb = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : firstImg
+          const thumb = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : (article.data.image ?? firstImg)
           return (
             <a
               href={`${BASE}/tutorials/${article.slug}`}

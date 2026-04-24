@@ -4,7 +4,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io"
 	"log/slog"
 	"os"
 	"path/filepath"
@@ -76,9 +75,8 @@ func main() {
 		authorName = mem.Nick
 	}
 
-	tutorialsDir := filepath.Join(*root, "web", "public", "tutorials")
 	slug := slugify(thread.Name)
-	mediaCounter := 0
+	var firstImageURL string
 	var parts []string
 
 	for _, msg := range allMsgs {
@@ -87,7 +85,6 @@ func main() {
 			parts = append(parts, text)
 		}
 		for _, att := range msg.Attachments {
-			mediaCounter++
 			ext := mediaExt(att.URL)
 			if isVideo(ext) {
 				parts = append(parts, fmt.Sprintf(
@@ -97,16 +94,14 @@ func main() {
 				slog.Info("linked video (Discord CDN)", "url", att.URL)
 				continue
 			}
-			filename := fmt.Sprintf("%s_%d%s", slug, mediaCounter, ext)
-			if err := saveFile(att.URL, filepath.Join(tutorialsDir, filename)); err != nil {
-				slog.Warn("downloading image", "url", att.URL, "err", err)
-				continue
+			if firstImageURL == "" {
+				firstImageURL = att.URL
 			}
 			parts = append(parts, fmt.Sprintf(
-				`<img src="/tutorials/%s" alt="" style="border-radius: 0.75rem; width: 100%%;" />`,
-				filename,
+				`<img src="%s" alt="" style="border-radius: 0.75rem; width: 100%%;" />`,
+				att.URL,
 			))
-			slog.Info("saved image", "file", filename)
+			slog.Info("linked image (Discord CDN)", "url", att.URL)
 		}
 	}
 
@@ -124,7 +119,7 @@ func main() {
 	if existingFrontmatter != "" {
 		content = fmt.Sprintf("---\n%s---\n\n%s\n", existingFrontmatter, strings.Join(parts, "\n\n"))
 	} else {
-		content = buildMarkdown(thread.Name, authorName, parts)
+		content = buildMarkdown(thread.Name, authorName, firstImageURL, parts)
 	}
 
 	if err := os.WriteFile(outPath, []byte(content), 0644); err != nil {
@@ -134,8 +129,7 @@ func main() {
 
 	fmt.Printf("wrote  %s\n", outPath)
 	fmt.Printf("author %s\n", authorName)
-	fmt.Printf("images %d (saved locally)\n", mediaCounter)
-	fmt.Println("note   videos embedded via Discord CDN URL — no local files")
+	fmt.Println("note   images and videos embedded via Discord CDN URL — no local files")
 }
 
 // fetchAllMessages pages through all thread messages and returns them in chronological order.
@@ -170,10 +164,14 @@ func extractFrontmatter(content string) string {
 	return strings.TrimSpace(parts[1]) + "\n"
 }
 
-func buildMarkdown(title, author string, parts []string) string {
+func buildMarkdown(title, author, imageURL string, parts []string) string {
 	date := time.Now().Format("2006-01-02")
-	return fmt.Sprintf("---\ntitle: %q\ndescription: \"\"\ntags: []\nauthors: [%q]\ndate: %s\norder: 99\n---\n\n%s\n",
-		title, author, date, strings.Join(parts, "\n\n"))
+	imageField := ""
+	if imageURL != "" {
+		imageField = fmt.Sprintf("\nimage: %q", imageURL)
+	}
+	return fmt.Sprintf("---\ntitle: %q\ndescription: \"\"\ntags: []\nauthors: [%q]\ndate: %s\norder: 99%s\n---\n\n%s\n",
+		title, author, date, imageField, strings.Join(parts, "\n\n"))
 }
 
 func mediaExt(rawURL string) string {
@@ -194,17 +192,3 @@ func isVideo(ext string) bool {
 	return false
 }
 
-func saveFile(url, dst string) error {
-	body, _, err := discord.DownloadImage(url)
-	if err != nil {
-		return err
-	}
-	defer body.Close()
-	f, err := os.Create(dst)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	_, err = io.Copy(f, body)
-	return err
-}

@@ -93,24 +93,29 @@ export default function TutorialsFilter({ guides, newestSlug, TAG_CONFIG }: Prop
       ) : (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {filteredGuides.map((item) => (
-            <div key={item.slug} class="group relative flex items-start gap-4 rounded-2xl bg-card ring-1 ring-foreground/10 p-4 hover:ring-primary/30 hover:shadow-md transition-all">
-              <a href={`${BASE}/tutorials/${item.slug}`} class="absolute inset-0 rounded-2xl" aria-label={item.title} />
+            <div key={item.slug} class="group relative flex flex-col rounded-2xl bg-card ring-1 ring-foreground/10 overflow-hidden hover:ring-primary/30 hover:shadow-md transition-all">
+              <a href={`${BASE}/tutorials/${item.slug}`} class="absolute inset-0" aria-label={item.title} />
               {item.slug === newestSlug && (
-                <span class="absolute top-3 right-3 inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                <span class="absolute top-3 right-3 z-10 inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
                   New
                 </span>
               )}
               {item.image ? (
-                <a href={`${BASE}/tutorials/${item.slug}`} class="relative z-10 shrink-0 size-16 rounded-xl overflow-hidden mt-0.5">
-                  <img src={`${BASE}${item.image}`} alt={item.title} class="w-full h-full object-cover" loading="lazy" />
-                </a>
+                <div class="aspect-video w-full overflow-hidden bg-muted shrink-0">
+                  <img
+                    src={item.image.startsWith("http") ? item.image : `${BASE}${item.image}`}
+                    alt={item.title}
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
               ) : (
-                <a href={`${BASE}/tutorials/${item.slug}`} class="relative z-10 shrink-0 size-9 rounded-xl bg-primary/10 flex items-center justify-center mt-0.5">
-                  <BookOpenIcon weight="duotone" className="size-4 text-primary" />
-                </a>
+                <div class="aspect-video w-full bg-primary/5 flex items-center justify-center shrink-0">
+                  <BookOpenIcon weight="duotone" className="size-8 text-primary/20" />
+                </div>
               )}
-              <div class="relative z-10 flex-1 min-w-0 space-y-1.5 pr-8">
-                <a href={`${BASE}/tutorials/${item.slug}`} class="text-sm font-medium leading-snug group-hover:text-primary transition-colors block">
+              <div class="relative z-10 flex-1 min-w-0 p-4 space-y-1.5">
+                <a href={`${BASE}/tutorials/${item.slug}`} class="text-sm font-medium leading-snug group-hover:text-primary transition-colors block pr-8">
                   {item.title}
                 </a>
                 <p class="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
