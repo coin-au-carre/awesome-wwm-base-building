@@ -19,10 +19,10 @@ const ollamaNumCtx = 32768
 
 // OllamaResponder calls a local Ollama instance and maintains per-channel conversation history.
 type OllamaResponder struct {
-	baseURL      string // e.g. http://localhost:11434
-	model        string // e.g. llama3.2-uncensored
+	baseURL      string
+	model        string
 	mu           sync.Mutex
-	history      map[string][]ollamaMessage // API mode
+	history      map[string][]ollamaMessage // user/assistant pairs only; system is prepended per-call
 	systemPrompt string
 }
 
@@ -32,11 +32,10 @@ type ollamaMessage struct {
 }
 
 type ollamaChatRequest struct {
-	Model    string            `json:"model"`
-	Messages []ollamaMessage   `json:"messages"`
-	Stream   bool              `json:"stream"`
-	System   string            `json:"system"`
-	Options  map[string]any    `json:"options,omitempty"`
+	Model    string         `json:"model"`
+	Messages []ollamaMessage `json:"messages"`
+	Stream   bool           `json:"stream"`
+	Options  map[string]any `json:"options,omitempty"`
 }
 
 type ollamaChatResponse struct {
@@ -44,37 +43,39 @@ type ollamaChatResponse struct {
 }
 
 // NewOllamaResponder creates a responder that uses a local Ollama instance.
-// baseURL should be like http://localhost:11434
-// model should be like llama3.2-uncensored or llama3.1
 func NewOllamaResponder(baseURL, model, root string) *OllamaResponder {
+	prompt := buildSystemPrompt(root)
+	slog.Info("ollama: system prompt loaded", "chars", len(prompt), "approx_tokens", len(prompt)/4)
 	return &OllamaResponder{
 		baseURL:      strings.TrimSuffix(baseURL, "/"),
 		model:        model,
 		history:      make(map[string][]ollamaMessage),
-		systemPrompt: buildSystemPrompt(root),
+		systemPrompt: prompt,
 	}
 }
 
 // Reply calls Ollama and maintains conversation history per channel.
 func (r *OllamaResponder) Reply(ctx context.Context, channelID, userMessage string, imageURLs []string) (Result, error) {
-	// Note: Ollama doesn't support image URLs in the standard chat API, so we log and ignore them.
 	if len(imageURLs) > 0 {
 		slog.Info("ollama: image URLs ignored (not supported)", "count", len(imageURLs))
 	}
 
 	r.mu.Lock()
-	msgs := make([]ollamaMessage, len(r.history[channelID]))
-	copy(msgs, r.history[channelID])
+	history := make([]ollamaMessage, len(r.history[channelID]))
+	copy(history, r.history[channelID])
 	r.mu.Unlock()
 
+	// System message is prepended fresh every call — more reliable than the top-level system field.
+	msgs := make([]ollamaMessage, 0, 1+len(history)+1)
+	msgs = append(msgs, ollamaMessage{Role: "system", Content: r.systemPrompt})
+	msgs = append(msgs, history...)
 	msgs = append(msgs, ollamaMessage{Role: "user", Content: userMessage})
 
 	reqBody := ollamaChatRequest{
-		Model:    r.model,
+		Model:   r.model,
 		Messages: msgs,
-		Stream:   false,
-		System:   r.systemPrompt,
-		Options:  map[string]any{"num_ctx": ollamaNumCtx},
+		Stream:  false,
+		Options: map[string]any{"num_ctx": ollamaNumCtx},
 	}
 
 	body, err := json.Marshal(reqBody)
@@ -106,19 +107,16 @@ func (r *OllamaResponder) Reply(ctx context.Context, channelID, userMessage stri
 
 	text := respData.Message.Content
 
-	// Update history with assistant response.
-	msgs = append(msgs, ollamaMessage{Role: "assistant", Content: text})
-
-	// Trim history to maxHistory messages.
-	if len(msgs) > maxHistory {
-		msgs = msgs[len(msgs)-maxHistory:]
+	// Persist only user/assistant history (system is always prepended fresh).
+	newHistory := append(history, ollamaMessage{Role: "user", Content: userMessage}, ollamaMessage{Role: "assistant", Content: text})
+	if len(newHistory) > maxHistory {
+		newHistory = newHistory[len(newHistory)-maxHistory:]
 	}
 
 	r.mu.Lock()
-	r.history[channelID] = msgs
+	r.history[channelID] = newHistory
 	r.mu.Unlock()
 
-	// Parse text sentinels (since Ollama doesn't support tool use).
 	return parseCLIResult(text), nil
 }
 
@@ -130,11 +128,13 @@ func (r *OllamaResponder) Caption(ctx context.Context, guildName string, tags []
 	}
 
 	reqBody := ollamaChatRequest{
-		Model:    r.model,
-		Messages: []ollamaMessage{{Role: "user", Content: prompt}},
-		Stream:   false,
-		System:   r.systemPrompt,
-		Options:  map[string]any{"num_ctx": ollamaNumCtx},
+		Model: r.model,
+		Messages: []ollamaMessage{
+			{Role: "system", Content: r.systemPrompt},
+			{Role: "user", Content: prompt},
+		},
+		Stream:  false,
+		Options: map[string]any{"num_ctx": ollamaNumCtx},
 	}
 
 	body, err := json.Marshal(reqBody)

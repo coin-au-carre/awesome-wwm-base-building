@@ -91,7 +91,7 @@ export default function TutorialsFilter({ guides, newestSlug, TAG_CONFIG }: Prop
           <p class="text-muted-foreground">No tutorials match the selected tags.</p>
         </div>
       ) : (
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredGuides.map((item) => (
             <div key={item.slug} class="group relative flex flex-col rounded-2xl bg-card ring-1 ring-foreground/10 overflow-hidden hover:ring-primary/30 hover:shadow-md transition-all">
               <a href={`${BASE}/tutorials/${item.slug}`} class="absolute inset-0" aria-label={item.title} />
