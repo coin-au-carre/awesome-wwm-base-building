@@ -23,6 +23,17 @@ function tagColor(tag: string) {
   const hash = [...tag].reduce((a, c) => a + c.charCodeAt(0), 0)
   return TAG_PALETTE[hash % TAG_PALETTE.length]
 }
+function relativeDate(createdAt: string): string {
+  const ms = Date.now() - new Date(createdAt.replace(" at ", " ")).getTime()
+  if (isNaN(ms) || ms < 0) return ""
+  const hours = Math.floor(ms / 3600000)
+  const days = Math.floor(ms / 86400000)
+  if (hours < 24) return hours <= 1 ? "1h ago" : `${hours}h ago`
+  if (days === 1) return "yesterday"
+  if (days < 7) return `${days}d ago`
+  if (days < 30) return `${Math.floor(days / 7)}w ago`
+  return `${Math.floor(days / 30)}mo ago`
+}
 
 const guilds = getGuildsSortedByScore()
 const allArticles = await getCollection("articles")
@@ -226,6 +237,11 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                     />
                   )}
                   <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                  {g.createdAt && (
+                    <div class="absolute top-2 left-2 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/60">
+                      {relativeDate(g.createdAt)}
+                    </div>
+                  )}
                   {g.rank <= 10 && (
                     <div class="absolute top-2 right-2 text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
                       #{g.rank}
