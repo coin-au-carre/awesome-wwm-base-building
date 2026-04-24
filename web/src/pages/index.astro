@@ -114,7 +114,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
         </a>
       </div>
       <p class="text-muted-foreground text-sm">
-        The most beautiful constructions in Where Winds Meet. <span class="whitespace-nowrap">Want to reference yours? <a href={`${BASE}/contribute`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="contribute_cta_click">Contribute ↗</a></span> · <span class="whitespace-nowrap">Looking for a builder? <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="building_request_cta_click">#building-requests ↗</a></span>
+        The most beautiful constructions in Where Winds Meet.
       </p>
     </div>
 
@@ -198,16 +198,6 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
       </div>
     )}
 
-    <!-- Top rated carousel -->
-    {topGuilds.length > 0 && (
-      <section>
-        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
-        <div class="px-5">
-          <GuildCarousel client:load guilds={topGuilds} />
-        </div>
-      </section>
-    )}
-
     <!-- Recently added -->
     {latestGuilds.length > 0 && (
       <section>
@@ -271,6 +261,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
               )
             })}
           </div>
+          <p class="text-xs text-muted-foreground mt-3">Want to add your guild? <a href={`${BASE}/contribute`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="contribute_cta_click">Contribute ↗</a></p>
         </div>
       </section>
     )}
@@ -290,7 +281,18 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
           ))}
         </ul>
       </noscript>
+      <p class="text-xs text-muted-foreground mt-3">Looking for a builder? <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="building_request_cta_click">#building-requests ↗</a></p>
     </section>
+
+    <!-- Top rated carousel -->
+    {topGuilds.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
+        <div class="px-5">
+          <GuildCarousel client:load guilds={topGuilds} />
+        </div>
+      </section>
+    )}
 
     <!-- Hidden gems -->
     {hiddenGems.length > 0 && (
