@@ -287,27 +287,27 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 	}
 	for _, name := range stats.MoreScreenshotNames {
 		g, ok := byName[name]
-		if !ok || g.BuilderDiscordID == ahlyamID {
+		if !ok || g.PosterDiscordID == ahlyamID {
 			continue
 		}
-		if g.BuilderDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
+		if g.PosterDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
 			continue
 		}
 		announce(name, isSolo, discord.FormatMoreScreenshotsMessage)
 	}
 	for _, name := range stats.MoreVideoNames {
 		g, ok := byName[name]
-		if !ok || g.BuilderDiscordID == ahlyamID {
+		if !ok || g.PosterDiscordID == ahlyamID {
 			continue
 		}
-		if g.BuilderDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
+		if g.PosterDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
 			continue
 		}
 		announce(name, isSolo, discord.FormatMoreVideosMessage)
 	}
 	for _, name := range stats.NewNames {
 		g, ok := byName[name]
-		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID || g.BuilderDiscordID == babeID {
+		if !ok || g.PosterDiscordID == ahlyamID || g.PosterDiscordID == windxpID || g.PosterDiscordID == babeID {
 			continue
 		}
 		msg := discord.FormatNewGuildMessage(g, isSolo)
@@ -330,7 +330,7 @@ func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.Syn
 	}
 	for _, name := range stats.NewNames {
 		g, ok := byName[name]
-		if !ok || g.BuilderDiscordID == ahlyamID || g.BuilderDiscordID == windxpID || g.BuilderDiscordID == babeID {
+		if !ok || g.PosterDiscordID == ahlyamID || g.PosterDiscordID == windxpID || g.PosterDiscordID == babeID {
 			continue
 		}
 		bot.Notify(discord.FormatNewGuildMessage(g, isSolo))

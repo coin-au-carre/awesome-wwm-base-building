@@ -129,7 +129,7 @@ func AssignRoleToVoters(s *discordgo.Session, discordGuildID, roleID string, vot
 func AssignRoleByScore(s *discordgo.Session, discordGuildID, roleID string, guilds []guild.Guild, minScore int, skipUsers map[string]bool, cache *RoleCache) {
 	assigned := make(map[string]bool)
 	for _, g := range guilds {
-		userID := g.BuilderDiscordID
+		userID := g.PosterDiscordID
 		if userID == "" || assigned[userID] || skipUsers[userID] {
 			continue
 		}
