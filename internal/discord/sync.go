@@ -336,9 +336,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 			g.PosterUsername = data.PosterUsername
 		}
 		// Now using thread timestamps instead of custom one
-		// if g.CreatedAt == "" {
-		// g.CreatedAt = data.FirstPostTime.UTC().Format(guild.ModifiedLayout)
-		// }
+		if g.CreatedAt == "" {
+			g.CreatedAt = data.FirstPostTime.UTC().Format(guild.ModifiedLayout)
+		}
 		// g.LastModified = data.LastContributorTime.UTC().Format(guild.ModifiedLayout)
 
 		isNew := result.newIndices[r.idx]
@@ -356,7 +356,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 				g.LastModified = now
 			}
 		} else if isNew {
-			g.CreatedAt = now
+			// g.CreatedAt = now
 			g.LastModified = now
 		}
 
