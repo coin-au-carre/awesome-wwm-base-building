@@ -63,6 +63,6 @@ If done correctly, you can create a circular roof that won't be quite as compone
 
 (See arena in distance.)
 
-<img src="/tutorials/how-to-create-a-curved-roof-using-1-piece-roofing-in-guild-base_5.png" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69ec93c6&is=69eb4246&hm=c03b234c8b164453087ba7dcf4cb8905a399a79a542e29468f71b430b669fafc&" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 How to create a curved roof using 1-piece roofing in guild base
