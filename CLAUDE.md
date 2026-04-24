@@ -29,7 +29,7 @@ interface Guild {
   score: number
   screenshots?: string[]  // Discord CDN URLs
   videos?: string[]
-  postedOnBehalfOf?: string  // Discord username of the person whose guild was posted by the team
+  postedOnBehalfOf?: string  // Discord user ID of the person whose guild was posted by the team
 }
 ```
 

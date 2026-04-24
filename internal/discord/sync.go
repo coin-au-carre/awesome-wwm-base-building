@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"regexp"
 	"slices"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -442,15 +443,14 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 var reMention = regexp.MustCompile(`^<@!?(\d+)>$`)
 
 func resolveOnBehalf(s *discordgo.Session, guildID, value string) string {
-	if reMention.MatchString(value) {
-		m := reMention.FindStringSubmatch(value)
-		value = m[1]
+	if m := reMention.FindStringSubmatch(value); len(m) == 2 {
+		return m[1]
 	}
-	if mem, err := s.GuildMember(guildID, value); err == nil {
-		if mem.Nick != "" {
-			return mem.Nick
-		}
-		return mem.User.Username
+	if _, err := strconv.ParseInt(value, 10, 64); err == nil {
+		return value
+	}
+	if members, err := s.GuildMembersSearch(guildID, value, 1); err == nil && len(members) > 0 {
+		return members[0].User.ID
 	}
 	return value
 }
