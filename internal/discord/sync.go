@@ -135,14 +135,22 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			}
 		}
 
-		idx := len(guilds)
-		guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
-		guildMap[key] = len(guilds) - 1
+		var idx int
+		if exists {
+			// Placeholder matched a real thread: reuse the existing entry so manually-set
+			// fields (lore, whatToVisit, etc.) are preserved and no duplicate is created.
+			idx = existingIdx
+			slog.Info("placeholder guild matched to thread", "name", name, "thread", thread.Name)
+		} else {
+			idx = len(guilds)
+			guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
+			guildMap[key] = len(guilds) - 1
+			slog.Info("new guild detected", "name", name, "thread", thread.Name)
+		}
 		newIndices[idx] = true
 		partialStats.New++
 		partialStats.NewNames = append(partialStats.NewNames, name)
 		partialStats.NewThreadLinks[name] = newThreadLink
-		slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		for _, emoji := range []string{"👍", "🔥", "❤️", "⭐"} {
 			if err := b.Session.MessageReactionAdd(thread.ID, thread.ID, emoji); err != nil {
 				slog.Warn("adding reaction to new thread", "thread", name, "emoji", emoji, "err", err)
