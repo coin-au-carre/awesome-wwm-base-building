@@ -175,11 +175,11 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
       dynScore: computeDynScore(g, reactions[threadID(g)], weights, cfg, disabledBlacklist),
     }))
     withScore.sort((a, b) => b.dynScore - a.dynScore)
-    let rank = 1
-    return withScore.map((g, i) => {
-      if (i > 0 && g.dynScore < withScore[i - 1].dynScore) { rank = i + 1 }
-      return { ...g, dynRank: rank }
-    })
+    return withScore.reduce<Array<(typeof withScore)[0] & { dynRank: number }>>((acc, g, i) => {
+      const dynRank = i === 0 ? 1 : (g.dynScore < withScore[i - 1].dynScore ? i + 1 : acc[i - 1].dynRank)
+      acc.push({ ...g, dynRank })
+      return acc
+    }, [])
   }, [guilds, reactions, weights, cfg, disabledBlacklist])
 
   const filtered = useMemo(() => {
