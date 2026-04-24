@@ -285,7 +285,14 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		}
 		bot.Send(channelID, msgFn(g, isSoloEntry))
 	}
+	hasNewVideos := make(map[string]bool, len(stats.MoreVideoNames))
+	for _, name := range stats.MoreVideoNames {
+		hasNewVideos[name] = true
+	}
 	for _, name := range stats.MoreScreenshotNames {
+		if hasNewVideos[name] {
+			continue
+		}
 		g, ok := byName[name]
 		if !ok || g.PosterDiscordID == ahlyamID {
 			continue

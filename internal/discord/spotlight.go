@@ -159,11 +159,7 @@ func FormatNewGuildMessage(g guild.Guild, isSolo bool) string {
 // guild or solo build has gained new screenshots.
 func FormatMoreScreenshotsMessage(g guild.Guild, isSolo bool) string {
 	var sb strings.Builder
-	if isSolo {
-		fmt.Fprintf(&sb, "📸 **%s** just got new screenshots!\n", g.Name)
-	} else {
-		fmt.Fprintf(&sb, "📸 **%s** just got new screenshots!\n", g.Name)
-	}
+	fmt.Fprintf(&sb, "📸 **%s** just got new screenshots!\n", g.Name)
 	meta := buildGuildMeta(g, false)
 	if len(meta) > 0 {
 		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
