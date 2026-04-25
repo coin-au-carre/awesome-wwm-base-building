@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> Keep this file updated when adding/removing files, changing scoring constants, or modifying data shapes.
+
 See [web/CLAUDE.md](web/CLAUDE.md) for Astro site specifics.
 
 ## Quick reference
@@ -21,13 +23,19 @@ interface Guild {
   builders: string[]
   tags?: string[]
   discordThread: string
-  builderDiscordId?: string
+  posterDiscordId?: string
+  posterUsername?: string
+  postedOnBehalfOf?: string  // set when a mod posted on behalf of the builder
   lore?: string
   whatToVisit?: string
   score: number
-  screenshots?: string[]  // Discord CDN URLs
+  coverImage?: string
+  screenshots?: string[]
+  screenshotSections?: { label?: string; screenshots: string[] }[]
   videos?: string[]
-  postedOnBehalfOf?: string  // Discord user ID of the person whose guild was posted by the team
+  createdAt?: string
+  lastModified?: string
+  scoutedByDiscordId?: string
 }
 ```
 
@@ -58,7 +66,10 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
   announce/     # Test-post a new-guild announcement card
   genjson/      # Generate public JSON for the Astro site
 /internal/
-  discord/    # Sync logic, scoring, voter weights, roles, bot handlers
+  discord/    # Bot handlers split by feature: interactions.go (dispatcher),
+              # submit/link/votes/builder.go (commands), sync.go (data pipeline),
+              # llm/prompt/catalog.go (AI), score/roles/spotlight/util.go (support)
+              # moderators.go — single source of truth for mod Discord IDs
   guild/      # Guild struct, JSON store (LoadFile/SaveFile), parser
 /web/         # Astro static site — DO NOT mix with Go code
 data/guilds.json   # Authoritative guild data — source of truth
@@ -113,7 +124,7 @@ ANTHROPIC_API_KEY                     # Claude AI (bot feature)
 - `⭐` = 2 pts, `👍` / `🔥` = 1 pt each
 - Lore bonus: +1, What to Visit bonus: +1
 - Voter weight is computed from **combined** guild + solo thread reactions:
-  - 2+ threads → ×1, 6+ → ×2, 12+ → ×3
+  - 4+ threads → ×1, 8+ → ×2, 12+ → ×3 (Critic)
 - `discord.CollectVoterCounts(bot, channelID)` fetches counts for one channel
 - `discord.MergeVoterCounts(a, b)` adds them together
 - `discord.ComputeVoterWeights(counts)` converts to multipliers
