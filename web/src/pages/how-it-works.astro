@@ -55,8 +55,33 @@ import { TIER_THRESHOLDS } from "@/lib/slugify"
           </TableBody>
         </Table>
       </div>
+
+      <details class="group rounded-xl ring-1 ring-border overflow-hidden">
+        <summary class="flex items-center justify-between gap-2 cursor-pointer px-4 py-3 bg-muted/40 text-sm font-medium select-none hover:bg-muted/60 transition-colors list-none">
+          <span>Build your own voting scale</span>
+          <span class="text-muted-foreground text-xs group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="px-4 py-4 space-y-3 text-sm text-muted-foreground">
+          <p class="leading-relaxed">
+            You can react with <strong class="text-foreground">multiple emojis</strong> on the same post. Each combination adds up, so your reactions become a personal score you give that guild.
+            Using a consistent scale makes the rankings more meaningful for everyone.
+          </p>
+          <p class="leading-relaxed">Here is one way to think about it:</p>
+          <ul class="space-y-1.5 font-mono text-xs">
+            <li class="flex items-center gap-3"><span class="text-base">⭐👍🔥❤️</span><span class="text-muted-foreground">= +5 pts — absolute best, a must-see</span></li>
+            <li class="flex items-center gap-3"><span class="text-base">⭐👍🔥</span><span class="text-muted-foreground">= +4 pts — outstanding, one of your favourites</span></li>
+            <li class="flex items-center gap-3"><span class="text-base">⭐👍</span><span class="text-muted-foreground">= +3 pts — excellent, clearly above average</span></li>
+            <li class="flex items-center gap-3"><span class="text-base">⭐</span><span class="text-muted-foreground">= +2 pts — really good, worth a star</span></li>
+            <li class="flex items-center gap-3"><span class="text-base">👍</span><span class="text-muted-foreground">= +1 pt — nice build, positive impression</span></li>
+            <li class="flex items-center gap-3"><span class="text-base text-muted-foreground">—</span><span class="text-muted-foreground">= +0 pts — no strong feeling either way</span></li>
+          </ul>
+          <p class="leading-relaxed">
+            You are free to pick any scale that feels right to you. What matters is staying consistent: if you give ⭐ to 50 guilds, it loses its meaning. Use it sparingly so it signals something real.
+          </p>
+        </div>
+      </details>
     </section>
-    
+
     <section class="space-y-4">
       <h2 class="font-heading text-base font-medium">Voter weight</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
