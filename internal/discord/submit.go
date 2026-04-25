@@ -24,7 +24,6 @@ var appreciationScore = map[string]int{
 	"b": 0, "B": 0,
 }
 
-const maxWhatToVisit = 80
 
 func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	var guildName string
@@ -189,17 +188,38 @@ func buildDiscoveryMessage(explorer string, g guild.Guild) string {
 		title = fmt.Sprintf("%s [%s]", g.Name, g.ID)
 	}
 
-	wtv := g.WhatToVisit
-	if len(wtv) > maxWhatToVisit {
-		wtv = wtv[:maxWhatToVisit] + " [...]"
+	builder := ""
+	if len(g.Builders) > 0 {
+		builder = strings.Join(g.Builders, ", ")
 	}
 
-	line2 := "📍 " + wtv
+	line1 := fmt.Sprintf("🧭 **%s** by %s — *scouted by %s*", title, builder, explorer)
+	if builder == "" {
+		line1 = fmt.Sprintf("🧭 **%s** — *scouted by %s*", title, explorer)
+	}
+
+	tagLine := ""
 	if len(g.Tags) > 0 {
-		line2 += "  ·  " + strings.Join(g.Tags, " · ")
+		tagLine = strings.Join(g.Tags, " · ")
 	}
 
-	return fmt.Sprintf("🧭 **%s** — *scouted by %s*\n%s", title, explorer, line2)
+	suffix := "||"
+	if tagLine != "" {
+		suffix += "  " + tagLine
+	}
+
+	const (
+		discordMax = 2000
+		ellipsis   = " [...]"
+	)
+	// fixed parts: line1 + "\n" + "||" + wtv + suffix
+	fixed := len(line1) + 1 + 2 + len(suffix)
+	wtv := g.WhatToVisit
+	if fixed+len(wtv) > discordMax {
+		wtv = wtv[:discordMax-fixed-len(ellipsis)] + ellipsis
+	}
+
+	return line1 + "\n||" + wtv + suffix
 }
 
 func handlePostCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
