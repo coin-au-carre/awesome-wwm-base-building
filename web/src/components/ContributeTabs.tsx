@@ -384,9 +384,16 @@ return (
         {selected === "voter" && (
           <>
             <div className="space-y-1.5">
-              <p className="text-sm font-medium text-foreground">React to builds</p>
+              <p className="text-sm font-medium text-foreground">Visit, then vote</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                React to threads in the channel <span className="font-medium text-foreground">#guild-base-showcase</span> to vote for the builds you love. See the <a href={url("/how-it-works")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">how it works</a> page for details on how votes are counted. Votes shape the rankings on the showcase and help the best bases rise to the top.
+                The best votes come from actually visiting a guild in-game. Screenshots don't always do a base justice: hidden rooms, lighting, and atmosphere are hard to capture. Ask the builder for a tour if you can.
+                Once you've been, react to the first post of the thread in <span className="font-medium text-foreground">#guild-base-showcase</span>. See the <a href={url("/how-it-works")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">how it works</a> page for how votes are counted.
+              </p>
+            </div>
+            <div className="space-y-1.5">
+              <p className="text-sm font-medium text-foreground">Check your voting spread</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Run <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/my-votes</code> on the server to see how your reactions are distributed across guilds. Broad engagement carries more weight in the rankings.
               </p>
             </div>
             <div className="space-y-1.5">
@@ -415,7 +422,10 @@ return (
                 <p className="text-sm font-semibold text-foreground">Trusted Eye</p>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. Not automatic: it carries even more voting weight and comes with a few guidelines to keep rankings fair.
+                The <span className="font-medium text-foreground">Trusted Eye</span> role is granted by moderators to members recognized for their expertise and quality feedback. It carries even more voting weight and comes with a few guidelines to keep rankings fair.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                There's no formal application: moderators sometimes reach out to members who naturally engage broadly and leave thoughtful feedback. You can also DM a moderator directly if you're motivated to vote fairly. There's no time commitment beyond what you'd already enjoy. 
               </p>
 
               <div className="rounded-xl ring-1 ring-border overflow-hidden divide-y divide-border">
