@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Table, TableBody, TableHead, TableHeader, TableRow, TableCell } from "@/components/ui/table"
 import { BASE } from "@/lib/url"
 import { LightningIcon } from "@phosphor-icons/react"
+import { TIER_THRESHOLDS } from "@/lib/slugify"
 ---
 
 <Layout
@@ -60,6 +61,7 @@ import { LightningIcon } from "@phosphor-icons/react"
       <h2 class="font-heading text-base font-medium">Voter weight</h2>
       <p class="text-sm text-muted-foreground leading-relaxed">
         Voters who engage across many guilds carry more weight than someone who only reacted to one. This discourages a guild from asking members to vote only for their own base. 
+        For instance voting only on one guild does not count much. 
       </p>
       <p class="text-sm text-muted-foreground leading-relaxed">
         Beware! Voters identified as abusing the system (e.g. voting strategically only to inflate one guild's score) can be excluded from scoring entirely.
@@ -90,7 +92,7 @@ import { LightningIcon } from "@phosphor-icons/react"
                   <span class="size-1.5 rounded-full bg-amber-300 shrink-0"></span>Master
                 </span>
               </TableCell>
-              <TableCell className="text-muted-foreground text-sm">Top 10%</TableCell>
+              <TableCell className="text-muted-foreground text-sm">Top {TIER_THRESHOLDS.master * 100}%</TableCell>
               <TableCell className="text-muted-foreground text-sm">Exceptional community recognition</TableCell>
             </TableRow>
             <TableRow>
@@ -99,7 +101,7 @@ import { LightningIcon } from "@phosphor-icons/react"
                   <span class="size-1.5 rounded-full bg-sky-300 shrink-0"></span>Diamond
                 </span>
               </TableCell>
-              <TableCell className="text-muted-foreground text-sm">Top 25%</TableCell>
+              <TableCell className="text-muted-foreground text-sm">Top {TIER_THRESHOLDS.diamond * 100}%</TableCell>
               <TableCell className="text-muted-foreground text-sm">Strongly appreciated by the community</TableCell>
             </TableRow>
             <TableRow>
@@ -108,7 +110,7 @@ import { LightningIcon } from "@phosphor-icons/react"
                   <span class="size-1.5 rounded-full bg-cyan-200 shrink-0"></span>Platinum
                 </span>
               </TableCell>
-              <TableCell className="text-muted-foreground text-sm">Top 40%</TableCell>
+              <TableCell className="text-muted-foreground text-sm">Top {TIER_THRESHOLDS.platinum * 100}%</TableCell>
               <TableCell className="text-muted-foreground text-sm">Well received by the community</TableCell>
             </TableRow>
             <TableRow>
@@ -117,8 +119,8 @@ import { LightningIcon } from "@phosphor-icons/react"
                   <span class="size-1.5 rounded-full bg-amber-400 shrink-0"></span>Gold
                 </span>
               </TableCell>
-              <TableCell className="text-muted-foreground text-sm">Score ≥ 8</TableCell>
-              <TableCell className="text-muted-foreground text-sm">Active community engagement</TableCell>
+              <TableCell className="text-muted-foreground text-sm">Score ≥ {TIER_THRESHOLDS.silverMaxScore}</TableCell>
+              <TableCell className="text-muted-foreground text-sm">Guilds that could hide hidden gems</TableCell>
             </TableRow>
             <TableRow>
               <TableCell>
@@ -126,7 +128,7 @@ import { LightningIcon } from "@phosphor-icons/react"
                   <span class="size-1.5 rounded-full bg-zinc-400 shrink-0"></span>Silver
                 </span>
               </TableCell>
-              <TableCell className="text-muted-foreground text-sm">Score &lt; 8</TableCell>
+              <TableCell className="text-muted-foreground text-sm">Score &lt; {TIER_THRESHOLDS.silverMaxScore}</TableCell>
               <TableCell className="text-muted-foreground text-sm">Listed but not yet referenced by the builder</TableCell>
             </TableRow>
           </TableBody>
@@ -134,9 +136,9 @@ import { LightningIcon } from "@phosphor-icons/react"
       </div>
 
       <div class="rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 px-4 py-3 space-y-1">
-        <p class="text-sm font-medium text-sky-700 dark:text-sky-300">Why does my guild have a low score?</p>
+        <p class="text-sm font-medium text-sky-700 dark:text-sky-300">Why does my guild have a low score or grow slowly?</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          Scouted guilds start with near zero score. Post your own thread in <strong class="text-foreground">#guild-base-showcase</strong> with screenshots for visibility. It will attract reactions, which will directly raise your tier.
+          Scouted guilds start near zero. To grow faster, post your own thread in <strong class="text-foreground">#guild-base-showcase</strong> with screenshots: more visibility brings more reactions, which raises your tier. Keep in mind that voters are volunteers, so progress may take time.
         </p>
       </div>
     </section>
