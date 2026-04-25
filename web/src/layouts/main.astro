@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title = "Where Builders Meet",
-  description = "Community showcase of guild bases and solo builds for Where Winds Meet, ranked by community votes.",
+  description = "Community showcase of guild bases and solo builds for Where Winds Meet, recognized by community votes.",
   image,
 } = Astro.props
 
@@ -28,8 +28,8 @@ const navLinks = [
   { href: `${base}/tutorials`, label: "Tutorials", version: "2026-04-24-1615" },
   { href: `${base}/media`, label: "Media", version: "2026-04-24-1300" },
   { href: `${base}/catalog`, label: "Catalog", version: "2026-04-15-0000" },
-  { href: `${base}/contribute`, label: "Contribute", version: "2026-04-20-1430" },
-  { href: `${base}/how-it-works`, label: "How it works", version: "2026-04-25-1200" },
+  { href: `${base}/contribute`, label: "Contribute", version: "2026-04-25-1430" },
+  { href: `${base}/how-it-works`, label: "How it works", version: "2026-04-25-1430" },
 ]
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
@@ -61,7 +61,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Where Builders Meet",
-      "description": "Community showcase of guild bases and solo builds for Where Winds Meet, ranked by community votes.",
+      "description": "Community showcase of guild bases and solo builds for Where Winds Meet, recognized by community votes.",
       "url": "https://www.wherebuildersmeet.com",
       "sameAs": ["https://discord.gg/Qygt9u26Bn"],
       "about": { "@type": "VideoGame", "name": "Where Winds Meet" },

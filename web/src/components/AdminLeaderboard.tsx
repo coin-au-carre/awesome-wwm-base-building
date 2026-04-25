@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
 const PAGE_SIZE = 50
+const VOTER_PAGE_SIZE = 30
 
 function threadID(g: RankedGuild): string {
   return g.discordThread.split("/").at(-1) ?? ""
@@ -62,6 +63,7 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
   const [cfg, setCfg] = useState<ScoringConfig>(SCORING_DEFAULTS)
   const [filterVoter, setFilterVoter] = useState("")
   const [page, setPage] = useState(1)
+  const [voterPage, setVoterPage] = useState(1)
   const [disabledBlacklist, setDisabledBlacklist] = useState<Set<string>>(new Set(voterBlacklist))
 
   function set(key: keyof ScoringConfig, value: number) {
@@ -84,6 +86,19 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
     return counts
   }, [guilds, reactions, disabledBlacklist])
 
+  const totalReactions = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const g of guilds) {
+      const emojiMap = reactions[threadID(g)] ?? {}
+      for (const voters of Object.values(emojiMap)) {
+        for (const v of voters) {
+          if (!disabledBlacklist.has(v)) { counts.set(v, (counts.get(v) ?? 0) + 1) }
+        }
+      }
+    }
+    return counts
+  }, [guilds, reactions, disabledBlacklist])
+
   const weights = useMemo(() => {
     const map = new Map<string, number>()
     for (const [voter, count] of voterCounts) {
@@ -91,6 +106,17 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
     }
     return map
   }, [voterCounts, cfg])
+
+  const voterLeaderboard = useMemo(() => {
+    const all = Array.from(voterCounts.entries()).map(([uid, threads]) => ({
+      uid,
+      threads,
+      reactions: totalReactions.get(uid) ?? 0,
+      weight: weights.get(uid) ?? 0,
+    }))
+    all.sort((a, b) => b.threads - a.threads || b.reactions - a.reactions)
+    return all
+  }, [voterCounts, totalReactions, weights])
 
   const ranked = useMemo(() => {
     const withScore = guilds.map((g) => ({
@@ -215,6 +241,45 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
           </p>
         </div>
       )}
+
+      <div className="rounded-xl ring-1 ring-border bg-muted/20 p-4 space-y-3">
+        <p className="text-sm font-semibold">Voters ({voterLeaderboard.length})</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="text-muted-foreground border-b border-border">
+                <th className="text-left py-1 pr-4 font-medium">#</th>
+                <th className="text-left py-1 pr-4 font-medium">Voter</th>
+                <th className="text-right py-1 pr-4 font-medium">Threads</th>
+                <th className="text-right py-1 pr-4 font-medium">Reactions</th>
+                <th className="text-left py-1 font-medium">Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              {voterLeaderboard.slice((voterPage - 1) * VOTER_PAGE_SIZE, voterPage * VOTER_PAGE_SIZE).map((v, i) => (
+                <tr key={v.uid} className="border-b border-border/30 last:border-0">
+                  <td className="py-1 pr-4 text-muted-foreground/50">{(voterPage - 1) * VOTER_PAGE_SIZE + i + 1}</td>
+                  <td className="py-1 pr-4 font-medium">{displayName(v.uid, users)}</td>
+                  <td className="py-1 pr-4 text-right font-mono">{v.threads}</td>
+                  <td className="py-1 pr-4 text-right font-mono text-muted-foreground">{v.reactions}</td>
+                  <td className="py-1">
+                    <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium", weightColor(v.weight))}>
+                      {weightLabel(v.weight)}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {voterLeaderboard.length > VOTER_PAGE_SIZE && (
+          <div className="flex items-center gap-1 pt-1">
+            <Button variant="outline" size="xs" onClick={() => setVoterPage((p) => Math.max(1, p - 1))} disabled={voterPage === 1}>←</Button>
+            <span className="text-xs px-2 text-muted-foreground">{voterPage} / {Math.ceil(voterLeaderboard.length / VOTER_PAGE_SIZE)}</span>
+            <Button variant="outline" size="xs" onClick={() => setVoterPage((p) => Math.min(Math.ceil(voterLeaderboard.length / VOTER_PAGE_SIZE), p + 1))} disabled={voterPage === Math.ceil(voterLeaderboard.length / VOTER_PAGE_SIZE)}>→</Button>
+          </div>
+        )}
+      </div>
 
       <div className="flex items-center gap-3 flex-wrap">
         <Input
