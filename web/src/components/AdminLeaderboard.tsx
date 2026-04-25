@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react"
 import type { RankedGuild } from "@/types/guild"
 import type { ReactionMap, UserMap } from "@/lib/guilds"
-import { formatBuilderName, stripGuildShowcase } from "@/lib/slugify"
+import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import { type ScoringConfig, SCORING_DEFAULTS, getVoterWeight, computeDynScore, weightColor, weightLabel } from "@/lib/scoring"

@@ -1,6 +1,6 @@
 import { readFileSync } from "fs"
 import type { Guild, RankedGuild } from "@/types/guild"
-import { slugify, formatBuilderName } from "@/lib/slugify"
+import { slugify, formatBuilderName } from "@/lib/format"
 import { MOD_IDS } from "@/lib/config"
 
 export interface UserInfo {
