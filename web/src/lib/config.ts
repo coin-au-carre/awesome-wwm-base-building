@@ -6,3 +6,10 @@ export const MOD_IDS = new Set([
 
 // Guilds posted by mods that are nonetheless community entries.
 export const MOD_EXCEPTIONS = new Set(["Jenova", "PleasureSeeker"])
+
+export function isCommunityPosted(g: { postedOnBehalfOf?: string; posterDiscordId?: string; name: string; guildName?: string }): boolean {
+  if (g.postedOnBehalfOf) { return true }
+  if (!g.posterDiscordId) { return false }
+  if (MOD_EXCEPTIONS.has(g.name) || MOD_EXCEPTIONS.has(g.guildName ?? "")) { return true }
+  return !MOD_IDS.has(g.posterDiscordId)
+}

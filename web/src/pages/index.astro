@@ -4,7 +4,7 @@ import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
 import { stripGuildShowcase } from "@/lib/format"
-import { TIER_THRESHOLDS } from "@/lib/scoring"
+import { isCommunityPosted } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
 import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon } from "@phosphor-icons/react"
@@ -44,12 +44,15 @@ const lastSync = getLastSyncDate()
 const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
 const ogImage = guilds.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 
-const masterGuilds = guilds.filter((g) => {
-  const img = g.coverImage ?? g.screenshots?.[0]
-  return img && g.rank / guilds.length <= TIER_THRESHOLDS.master
-})
-const heroGuild = masterGuilds[Math.floor(Math.random() * masterGuilds.length)] ?? topGuilds[0]
-const heroImg = heroGuild?.coverImage ?? heroGuild?.screenshots?.[0]
+const heroCandidates = guilds
+  .filter((g) => isCommunityPosted(g) && (g.coverImage ?? g.screenshots?.[0]))
+  .map((g) => ({
+    img: g.coverImage ?? g.screenshots![0],
+    href: `${BASE}/guilds/${g.slug}`,
+    name: g.name,
+    label: stripGuildShowcase(g.guildName || g.name),
+    builders: (g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", "),
+  }))
 const latestGuilds = getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
@@ -100,27 +103,39 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
   <div class="space-y-6">
     <!-- Hero banner -->
     <div class="-mx-4 -mt-8 relative h-56 sm:h-72 overflow-hidden mb-2">
-      {heroImg ? (
-        <img src={heroImg} alt="" class="absolute inset-0 w-full h-full object-cover object-center" aria-hidden="true" />
-      ) : (
-        <div class="absolute inset-0 bg-muted" />
-      )}
+      <div class="absolute inset-0 bg-muted" />
+      <img id="hero-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover object-center hidden" aria-hidden="true" />
       <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/10" />
-      {heroGuild && (
-        <a
-          href={`${BASE}/guilds/${heroGuild.slug}`}
-          class="absolute top-3 right-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 text-xs text-white/70 hover:text-white hover:bg-black/60 transition-all group"
-          title="View this guild"
-          data-umami-event="hero_guild_credit_click"
-          data-umami-event-name={heroGuild.name}
-        >
-          <span class="max-w-28 truncate">{stripGuildShowcase(heroGuild.guildName || heroGuild.name)}</span>
-          {heroGuild.builders && heroGuild.builders.length > 0 && (
-            <span class="text-white/45 text-[11px] max-w-24 truncate shrink-0">by {heroGuild.builders.map(formatBuilderName).filter(Boolean).join(", ")}</span>
-          )}
-          <svg class="size-3 shrink-0 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-        </a>
-      )}
+      <a
+        id="hero-credit"
+        href="#"
+        class="absolute top-3 right-4 hidden items-center gap-1.5 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 text-xs text-white/70 hover:text-white hover:bg-black/60 transition-all group"
+        title="View this guild"
+        data-umami-event="hero_guild_credit_click"
+      >
+        <span id="hero-label" class="max-w-28 truncate"></span>
+        <span id="hero-builders" class="text-white/45 text-[11px] max-w-24 truncate shrink-0 hidden"></span>
+        <svg class="size-3 shrink-0 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+      </a>
+      <script is:inline define:vars={{ heroCandidates }}>
+        const c = heroCandidates[Math.floor(Math.random() * heroCandidates.length)]
+        if (c) {
+          const img = document.getElementById("hero-img")
+          img.src = c.img
+          img.classList.remove("hidden")
+          const credit = document.getElementById("hero-credit")
+          credit.href = c.href
+          credit.dataset.umamiEventName = c.name
+          credit.classList.remove("hidden")
+          credit.classList.add("flex")
+          document.getElementById("hero-label").textContent = c.label
+          if (c.builders) {
+            const b = document.getElementById("hero-builders")
+            b.textContent = "by " + c.builders
+            b.classList.remove("hidden")
+          }
+        }
+      </script>
       <div class="absolute bottom-0 left-0 right-0 px-6 pb-6">
         <h1 class="font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow mb-1.5 flex items-center gap-2">
           <CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guild Bases
