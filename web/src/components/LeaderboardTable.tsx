@@ -1,11 +1,11 @@
-import { useState, useMemo, useEffect, useRef } from "react"
+import { useState, useMemo, useEffect, useRef, useSyncExternalStore } from "react"
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { getTier } from "@/lib/scoring"
 import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
-import { MOD_IDS, MOD_EXCEPTIONS } from "@/lib/config"
+import { isCommunityPosted } from "@/lib/config"
 import { parseLastModified, formatLastModified } from "@/lib/dates"
 import {
   Table,
@@ -29,12 +29,6 @@ import {
 } from "@/components/ui/sheet"
 import { Search, X, SlidersHorizontal } from "lucide-react"
 
-function isCommunityPosted(g: RankedGuild): boolean {
-  if (g.postedOnBehalfOf) { return true }
-  if (!g.posterDiscordId) { return false }
-  if (MOD_EXCEPTIONS.has(g.name) || MOD_EXCEPTIONS.has(g.guildName ?? "")) { return true }
-  return !MOD_IDS.has(g.posterDiscordId)
-}
 
 type SortField = "rank" | "name" | "lastUpdated"
 type SortDir = "asc" | "desc"
@@ -154,9 +148,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isFirstRender = useRef(true)
   const inputRef = useRef<HTMLInputElement>(null)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => { setMounted(true) }, [])
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false)
 
   useEffect(() => {
     if (search) {
