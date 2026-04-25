@@ -1,6 +1,7 @@
 import { readFileSync } from "fs"
 import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify, formatBuilderName } from "@/lib/slugify"
+import { MOD_IDS } from "@/lib/config"
 
 export interface UserInfo {
   username: string
@@ -75,15 +76,11 @@ export function getAllSoloTags(): string[] { return SOLO_TAGS }
 
 export function hasSolos(): boolean { return ALL_SOLOS.length > 0 }
 
-const AHLYAM_ID = "149790526076354561"
-const WINDXP_ID = "721510597958828183"
-const BABE_ID = "376950312721711118"
-
 export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   const ranked = RANKED_GUILDS
   const withShots = [...ALL_GUILDS]
     .reverse()
-    .filter((g) => g.screenshots && g.screenshots.length > 0 && (g.postedOnBehalfOf || (g.posterDiscordId !== AHLYAM_ID && g.posterDiscordId !== WINDXP_ID && g.posterDiscordId !== BABE_ID)))
+    .filter((g) => g.screenshots && g.screenshots.length > 0 && (g.postedOnBehalfOf || !MOD_IDS.has(g.posterDiscordId ?? "")))
     .slice(0, n)
     .map((g) => ranked.find((r) => r.name === g.name))
     .filter((g): g is RankedGuild => g !== undefined)
