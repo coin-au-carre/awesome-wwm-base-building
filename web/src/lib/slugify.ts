@@ -19,7 +19,7 @@ export type Tier = { label: string; dot: string; badge: string; badgeStyle?: Rec
 // Tier thresholds — edit these to adjust how many guilds fall into each tier.
 // Values are percentages of total guilds (0.10 = top 10%).
 // Silver is score-based, not rank-based.
-const TIER_THRESHOLDS = {
+export const TIER_THRESHOLDS = {
   master: 0.15,        
   diamond: 0.30,      
   platinum: 0.50,     
@@ -77,7 +77,7 @@ export function stripGuildShowcase(name: string): string {
 
 export function formatBuilderName(raw: string): string {
   const match = raw.match(/<@\d+>\s*\((.+?)\)/)
-  if (match) return match[1].trim()
-  if (/^<@\d+>$/.test(raw.trim())) return ""
+  if (match) { return match[1].trim() }
+  if (/^<@\d+>$/.test(raw.trim())) { return "" }
   return raw.trim()
 }
