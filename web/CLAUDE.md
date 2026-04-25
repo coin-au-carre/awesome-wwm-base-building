@@ -5,10 +5,10 @@
 ## Key Files
 
 - `src/lib/guilds.ts` — loads `data/guilds.json` and `data/solos.json` at build time via `readFileSync`
-- `src/lib/slugify.ts` — port of Go `Slugify()` — **must stay in sync with `internal/discord/spotlight.go`**
+- `src/lib/format.ts` — `slugify` (port of Go `Slugify()`, **must stay in sync with `internal/discord/spotlight.go`**), `formatBuilderName`, `stripGuildShowcase`
+- `src/lib/scoring.ts` — `ScoringConfig`, `SCORING_DEFAULTS`, `getVoterWeight`, `computeDynScore`, `weightColor`, `weightLabel`, `Tier`, `TIER_THRESHOLDS`, `getTier`, `rankLabel`
 - `src/lib/config.ts` — shared constants: `MOD_IDS`, `MOD_EXCEPTIONS` (single source of truth for moderator IDs)
 - `src/lib/dates.ts` — `parseLastModified`, `relativeTime`, `formatLastModified`
-- `src/lib/scoring.ts` — `ScoringConfig`, `SCORING_DEFAULTS`, `getVoterWeight`, `computeDynScore`, `weightColor`, `weightLabel`
 - `src/lib/url.ts` — `url(path)` helper for internal links inside React components (handles `BASE_URL`)
 - `src/types/guild.ts` — TypeScript mirror of `internal/guild/guild.go`
 - `src/components/LeaderboardTable.tsx` — `client:load` React island, accepts `basePath` prop (`"guilds"` or `"solos"`)

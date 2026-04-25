@@ -6,7 +6,7 @@ A community showcase for guild bases and solo builds in **Where Winds Meet**, an
 
 A public website where players can browse, vote on, and get inspired by guild bases and solo builds submitted by the community. It is community-run, not affiliated with the game developers.
 
-Website: deployed on GitHub Pages under `/awesome-wwm-base-building`.
+Website: deployed on GitHub Pages under `/awesome-wwm-base-building`. Real website is https://www.wherebuildersmeet.com.
 
 ## How submissions work
 

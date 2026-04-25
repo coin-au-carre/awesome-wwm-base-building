@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
 import type { RankedGuild } from "@/types/guild"
-import { formatBuilderName, stripGuildShowcase } from "@/lib/slugify"
+import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
 import { url } from "@/lib/url"
 
 const TAG_PALETTE = [
