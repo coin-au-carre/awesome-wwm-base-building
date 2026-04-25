@@ -16,7 +16,17 @@ import {
 } from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Search, X } from "lucide-react"
+import { Skeleton } from "@/components/ui/skeleton"
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card"
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetFooter,
+} from "@/components/ui/sheet"
+import { Search, X, SlidersHorizontal } from "lucide-react"
 
 function isCommunityPosted(g: RankedGuild): boolean {
   if (g.postedOnBehalfOf) { return true }
@@ -143,6 +153,9 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isFirstRender = useRef(true)
   const inputRef = useRef<HTMLInputElement>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   useEffect(() => {
     if (search) {
@@ -223,6 +236,43 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
+  if (!mounted) {
+    return (
+      <div className="space-y-4">
+        <Skeleton className="h-9 w-full sm:max-w-lg rounded-lg" />
+        <div className="rounded-xl ring-1 ring-border overflow-hidden">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-muted/40">
+                {!isSolos && <TableHead className="w-24" />}
+                <TableHead />
+                <TableHead className="hidden md:table-cell" />
+                <TableHead className="hidden lg:table-cell" />
+                <TableHead className="hidden lg:table-cell w-28" />
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {Array.from({ length: 8 }).map((_, i) => (
+                <TableRow key={i}>
+                  {!isSolos && <TableCell><Skeleton className="h-6 w-16 rounded-full mx-auto" /></TableCell>}
+                  <TableCell>
+                    <div className="flex items-center gap-2.5">
+                      <Skeleton className="w-8 h-8 rounded-md shrink-0 hidden sm:block" />
+                      <Skeleton className="h-4 w-32" />
+                    </div>
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell"><Skeleton className="h-4 w-28" /></TableCell>
+                  <TableCell className="hidden lg:table-cell"><Skeleton className="h-5 w-20 rounded-full" /></TableCell>
+                  <TableCell className="hidden lg:table-cell"><Skeleton className="h-4 w-14" /></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-1.5">
@@ -261,30 +311,59 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
       </div>
 
       {allTags.length > 0 && (
-        <div className="flex flex-wrap gap-1.5 items-center">
-          <span className="text-xs text-muted-foreground mr-1">Filter:</span>
-          {allTags.map((tag) => (
-            <Tag
-              key={tag}
-              label={tag}
-              active={activeTags.has(tag)}
-              onClick={() => toggleTag(tag)}
-            />
-          ))}
-          {activeTags.size > 0 && (
-            <Button
-              variant="ghost"
-              size="icon-xs"
-              onClick={() => { setActiveTags(new Set()); setPage(1) }}
-              title="Clear filters"
-              aria-label="Clear filters"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </Button>
-          )}
+        <div>
+          {/* Mobile: filter sheet trigger */}
+          <div className="flex sm:hidden items-center gap-2">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-1.5 h-8">
+                  <SlidersHorizontal className="size-3.5" />
+                  Filters{activeTags.size > 0 ? ` (${activeTags.size})` : ""}
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="bottom" className="max-h-[70vh]">
+                <SheetHeader>
+                  <SheetTitle>Filter by tag</SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-wrap gap-2 px-4 py-3 overflow-y-auto">
+                  {allTags.map((tag) => (
+                    <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />
+                  ))}
+                </div>
+                {activeTags.size > 0 && (
+                  <SheetFooter className="px-4 pb-4">
+                    <Button variant="ghost" size="sm" onClick={() => { setActiveTags(new Set()); setPage(1) }}>
+                      Clear all filters
+                    </Button>
+                  </SheetFooter>
+                )}
+              </SheetContent>
+            </Sheet>
+            {activeTags.size > 0 && (
+              <span className="text-xs text-muted-foreground">{activeTags.size} active</span>
+            )}
+          </div>
+          {/* Desktop: inline tags */}
+          <div className="hidden sm:flex flex-wrap gap-1.5 items-center">
+            <span className="text-xs text-muted-foreground mr-1">Filter:</span>
+            {allTags.map((tag) => (
+              <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />
+            ))}
+            {activeTags.size > 0 && (
+              <Button
+                variant="ghost"
+                size="icon-xs"
+                onClick={() => { setActiveTags(new Set()); setPage(1) }}
+                title="Clear filters"
+                aria-label="Clear filters"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </Button>
+            )}
+          </div>
         </div>
       )}
 
@@ -366,13 +445,41 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                           onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
                         />
                       )}
-                      <a
-                        href={url(`/${basePath}/${g.slug}`)}
-                        className="font-medium hover:underline"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {stripGuildShowcase(g.guildName || g.name)}
-                      </a>
+                      <HoverCard openDelay={250} closeDelay={100}>
+                        <HoverCardTrigger asChild>
+                          <a
+                            href={url(`/${basePath}/${g.slug}`)}
+                            className="font-medium hover:underline"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            {stripGuildShowcase(g.guildName || g.name)}
+                          </a>
+                        </HoverCardTrigger>
+                        <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start">
+                          {img && (
+                            <div className="aspect-video w-full overflow-hidden">
+                              <img
+                                src={img}
+                                alt={stripGuildShowcase(g.guildName || g.name)}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          )}
+                          <div className="p-3">
+                            <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
+                            {g.builders && g.builders.length > 0 && (
+                              <p className="text-xs text-muted-foreground mt-0.5">by {formatBuilders(g.builders)}</p>
+                            )}
+                            {g.tags && g.tags.length > 0 && (
+                              <div className="flex flex-wrap gap-1 mt-2">
+                                {g.tags.slice(0, 5).map((tag) => (
+                                  <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </HoverCardContent>
+                      </HoverCard>
                     </div>
                   </TableCell>
                   <TableCell className="text-muted-foreground hidden md:table-cell">

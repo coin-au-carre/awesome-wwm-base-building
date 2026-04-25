@@ -1,5 +1,7 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import Autoplay from "embla-carousel-autoplay"
+import { motion } from "motion/react"
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +9,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
 import type { RankedGuild } from "@/types/guild"
 import { formatBuilderName, stripGuildShowcase } from "@/lib/slugify"
 import { url } from "@/lib/url"
@@ -35,6 +38,18 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
   const plugin = React.useRef(
     Autoplay({ delay: 3500, stopOnInteraction: true })
   )
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[1, 2, 3].map((i) => (
+          <Skeleton key={i} className="aspect-video rounded-xl" />
+        ))}
+      </div>
+    )
+  }
 
   return (
     <Carousel
@@ -43,12 +58,15 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
       className="w-full"
     >
       <CarouselContent>
-        {guilds.map((g) => {
+        {guilds.map((g, idx) => {
           const shots = g.screenshots ?? []
           const img = g.coverImage ?? shots[0]
           return (
             <CarouselItem key={g.slug} className="basis-full sm:basis-1/2 lg:basis-1/3">
-              <a
+              <motion.a
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.04, duration: 0.35, ease: "easeOut" }}
                 href={url(`/${basePath}/${g.slug}`)}
                 className="group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
                 onClick={() => window.umami?.track("guild_click", { name: g.name, rank: g.rank, source: "carousel", type: basePath })}
@@ -86,7 +104,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                     </div>
                   )}
                 </div>
-              </a>
+              </motion.a>
             </CarouselItem>
           )
         })}
