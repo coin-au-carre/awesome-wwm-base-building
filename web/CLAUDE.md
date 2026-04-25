@@ -1,12 +1,18 @@
 # Astro Site (`web/`)
 
+> Keep this file updated when adding pages, components, or lib files.
+
 ## Key Files
 
 - `src/lib/guilds.ts` — loads `data/guilds.json` and `data/solos.json` at build time via `readFileSync`
 - `src/lib/slugify.ts` — port of Go `Slugify()` — **must stay in sync with `internal/discord/spotlight.go`**
+- `src/lib/config.ts` — shared constants: `MOD_IDS`, `MOD_EXCEPTIONS` (single source of truth for moderator IDs)
+- `src/lib/dates.ts` — `parseLastModified`, `relativeTime`, `formatLastModified`
+- `src/lib/scoring.ts` — `ScoringConfig`, `SCORING_DEFAULTS`, `getVoterWeight`, `computeDynScore`, `weightColor`, `weightLabel`
 - `src/lib/url.ts` — `url(path)` helper for internal links inside React components (handles `BASE_URL`)
 - `src/types/guild.ts` — TypeScript mirror of `internal/guild/guild.go`
-- `src/components/GuildTable.tsx` — `client:load` React island, accepts `basePath` prop (`"guilds"` or `"solos"`)
+- `src/components/LeaderboardTable.tsx` — `client:load` React island, accepts `basePath` prop (`"guilds"` or `"solos"`)
+- `src/components/AdminLeaderboard.tsx` — admin scoring explorer (reactions, voter weights, dynamic score)
 - `src/components/TopShowcase.astro` — accepts `basePath` prop
 - `src/components/MediaGallery.astro` — lightbox, YouTube embed, `onerror` fallback
 
