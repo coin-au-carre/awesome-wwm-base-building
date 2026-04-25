@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
-import { stripGuildShowcase } from "@/lib/slugify"
+import { stripGuildShowcase, TIER_THRESHOLDS } from "@/lib/slugify"
 import { BASE } from "@/lib/url"
 import { Badge } from "@/components/ui/badge"
 import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon } from "@phosphor-icons/react"
@@ -42,6 +42,13 @@ const allTags = getAllTags()
 const lastSync = getLastSyncDate()
 const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
 const ogImage = guilds.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
+
+const masterGuilds = guilds.filter((g) => {
+  const img = g.coverImage ?? g.screenshots?.[0]
+  return img && g.rank / guilds.length <= TIER_THRESHOLDS.master
+})
+const heroGuild = masterGuilds[Math.floor(Math.random() * masterGuilds.length)] ?? topGuilds[0]
+const heroImg = heroGuild?.coverImage ?? heroGuild?.screenshots?.[0]
 const latestGuilds = getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
@@ -70,12 +77,12 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
 >
   <style>
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(14px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
     }
     .fade-up {
       opacity: 0;
-      animation: fadeUp 0.4s ease forwards;
+      animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
     @keyframes eventGlow {
       0%, 100% { box-shadow: 0 0 0 1px rgb(34 211 238 / 0.5), 0 0 10px 0px rgb(34 211 238 / 0); }
@@ -90,32 +97,58 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
   </style>
 
   <div class="space-y-6">
-    <!-- Hero -->
-    <div class="flex flex-col gap-3">
-      <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guild Bases</h1>
-        <Badge variant="secondary">{guilds.length} bases</Badge>
-        <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-          <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: <span id="last-sync-date">{lastSync}</span>
-        </Badge>
-        {lastSync && (
-          <script is:inline define:vars={{ lastSync }}>
-            const d = new Date(lastSync)
-            const pad = n => String(n).padStart(2, "0")
-            const formatted = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
-            document.getElementById("last-sync-date").textContent = formatted
-          </script>
-        )}
-        <a href="/rss.xml" class="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground transition-colors" title="Subscribe to new submissions">
-          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="text-orange-400 shrink-0">
-            <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
-          </svg>
-          RSS
+    <!-- Hero banner -->
+    <div class="-mx-4 -mt-8 relative h-56 sm:h-72 overflow-hidden mb-2">
+      {heroImg ? (
+        <img src={heroImg} alt="" class="absolute inset-0 w-full h-full object-cover object-center" aria-hidden="true" />
+      ) : (
+        <div class="absolute inset-0 bg-muted" />
+      )}
+      <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/35 to-black/10" />
+      {heroGuild && (
+        <a
+          href={`${BASE}/guilds/${heroGuild.slug}`}
+          class="absolute top-3 right-4 flex items-center gap-1.5 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 text-xs text-white/70 hover:text-white hover:bg-black/60 transition-all group"
+          title="View this guild"
+          data-umami-event="hero_guild_credit_click"
+          data-umami-event-name={heroGuild.name}
+        >
+          <span class="max-w-28 truncate">{stripGuildShowcase(heroGuild.guildName || heroGuild.name)}</span>
+          {heroGuild.builders && heroGuild.builders.length > 0 && (
+            <span class="text-white/45 text-[11px] max-w-24 truncate shrink-0">by {heroGuild.builders.map(formatBuilderName).filter(Boolean).join(", ")}</span>
+          )}
+          <svg class="size-3 shrink-0 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
         </a>
+      )}
+      <div class="absolute bottom-0 left-0 right-0 px-6 pb-6">
+        <h1 class="font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow mb-1.5 flex items-center gap-2">
+          <CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guild Bases
+        </h1>
+        <p class="text-white/65 text-sm mb-3">The most beautiful constructions in Where Winds Meet, ranked by the community.</p>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-white/60">
+          <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
+            <CastleTurretIcon weight="duotone" className="size-3" /> {guilds.length} guilds
+          </span>
+          <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-400" />
+            <span id="last-sync-date">{lastSync}</span>
+          </span>
+          {lastSync && (
+            <script is:inline define:vars={{ lastSync }}>
+              const d = new Date(lastSync)
+              const pad = n => String(n).padStart(2, "0")
+              const formatted = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+              document.getElementById("last-sync-date").textContent = formatted
+            </script>
+          )}
+          <a href="/rss.xml" class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 hover:bg-white/20 transition-colors" title="RSS feed">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor" class="text-orange-400 shrink-0">
+              <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+            </svg>
+            RSS
+          </a>
+        </div>
       </div>
-      <p class="text-muted-foreground text-sm">
-        The most beautiful constructions in Where Winds Meet.
-      </p>
     </div>
 
     <!-- Featured Articles + Events -->
