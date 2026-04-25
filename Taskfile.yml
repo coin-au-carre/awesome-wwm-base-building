@@ -4,17 +4,19 @@ version: '3'
 tasks:
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
-    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON
+    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON, sync tutorials
     cmds:
       - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
+      - go run ./cmd/tutorial -list data/tutorial_threads.txt
 
   sync:nopull:
-    desc: crawl Discord threads → update guilds.json, generate public JSON (no git pull)
+    desc: crawl Discord threads → update guilds.json, generate public JSON, sync tutorials (no git pull)
     cmds:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
+      - go run ./cmd/tutorial -list data/tutorial_threads.txt
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
