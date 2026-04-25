@@ -22,10 +22,30 @@
 | `/scoring` | Scoring rules |
 | `/contribute` | How to submit a guild/solo |
 | `/how-it-works` | How it works |
+| `/media` | Media (videos, channels) |
+| `/tutorials` | Tutorials Articles |
+| `/catalog` | Items construction catalog |
+| `/events` | WWM events in guild bases |
 
 ## Nav dot versioning
 
 `web/src/layouts/main.astro` has a `navLinks` array where each entry has a `version` field (e.g. `"2026-04-15-1430"`). This drives a "new page" dot indicator stored in `localStorage`. **When you make a meaningful content change to a page, bump its `version` string in `navLinks`** so returning users see the dot again. Use the format `YYYY-MM-DD-HHmm` (e.g. `"2026-04-15-1430"`) — minutes precision since there can be several deploys per day.
+
+## Analytics & Monitoring
+
+- **Umami** (cloud.umami.is) — primary event analytics. Script injected in `src/layouts/main.astro` (website ID `b935013b-6c75-412f-bae6-c35e5bd65858`). Do not remove or move this script.
+- **Cloudflare Web Analytics** — passive traffic analytics. Same layout file. Do not remove.
+- **Google Search Console** — verified via DNS. Sitemap: `https://www.wherebuildersmeet.com/sitemap-index.xml`.
+
+### Conventions
+
+- HTML: `data-umami-event="event_name"` + `data-umami-event-<prop>="value"` attributes.
+- JS: `window.umami?.track("event_name", { key: value })` — always optional-chain, never assume `umami` is defined.
+- Event names and property keys: `snake_case`. Do not add a `page` property — Umami records the URL automatically.
+
+### When to suggest analytics
+
+Proactively suggest tracking when: a new interactive element is added (button, filter, tab, modal), a new CTA links to Discord (`data-umami-event="discord_cta_click"`), a new page is added, or a new outbound link is worth tracking.
 
 ## Rules
 
