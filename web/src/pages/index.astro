@@ -120,7 +120,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
 
     <!-- Featured Articles + Events -->
     {(featuredArticles.length > 0 || upcomingEventsDisplay.length > 0) && (
-      <div class="flex flex-col sm:flex-row gap-2 max-w-xl">
+      <div class="flex flex-col sm:flex-row flex-wrap gap-2">
         {featuredArticles.map((article) => {
           const ytID = article.body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
           const firstImg = article.body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
@@ -149,7 +149,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <svg class="size-3 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
                   <span class="text-[10px] font-semibold uppercase tracking-widest text-pink-500">{article.data.featuredLabel ?? "Featured Article"}</span>
                 </div>
-                <p class="text-xs font-medium leading-snug truncate">{article.data.title}</p>
+                <p class="text-xs font-medium leading-snug line-clamp-2">{article.data.title}</p>
                 {article.data.authors && article.data.authors.length > 0 && (
                   <p class="text-[11px] text-muted-foreground/70">by {article.data.authors.join(", ")}</p>
                 )}
@@ -186,7 +186,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                     {live ? "🟢 " : urgent ? "🔔 " : ""}Event {timeLabel}
                   </span>
                 </div>
-                <p class={`text-xs font-medium leading-snug truncate ${live || urgent ? "text-foreground" : ""}`}>{event.name}</p>
+                <p class={`text-xs font-medium leading-snug line-clamp-2 ${live || urgent ? "text-foreground" : ""}`}>{event.name}</p>
                 {event.guildName && (
                   <p class="text-xs text-muted-foreground/70 truncate">{event.guildName}</p>
                 )}
