@@ -1,5 +1,14 @@
 [
 	{
+		"name": "殿",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "- 殿 means \"palace\" so their primary focus is their stunning palace, which is built exceptionally well with an attention to detail, high technical skill, Chinese architecture, and cultural authenticity. Most likely part of a larger build once component limits increase.",
+		"score": 0,
+		"lastModified": "April 25, 2026 at 12:21 AM UTC",
+		"scoutedByDiscordId": "272559614493458432"
+	},
+	{
 		"name": "Valerune",
 		"builders": [
 			"SeoYeon-hwa"
