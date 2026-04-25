@@ -376,12 +376,36 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 		return nil, fmt.Errorf("fetching active threads: %w", err)
 	}
 
+	seen := make(map[string]bool)
 	var threads []*discordgo.Channel
 	for _, t := range active.Threads {
 		if t.ParentID == forumChannelID {
 			threads = append(threads, t)
+			seen[t.ID] = true
 		}
 	}
+
+	// Also page through archived threads so their CDN attachment URLs get refreshed.
+	var before *time.Time
+	for {
+		archived, err := s.ThreadsArchived(forumChannelID, before, 100)
+		if err != nil {
+			return nil, fmt.Errorf("fetching archived threads: %w", err)
+		}
+		for _, t := range archived.Threads {
+			if !seen[t.ID] {
+				threads = append(threads, t)
+				seen[t.ID] = true
+			}
+		}
+		if !archived.HasMore || len(archived.Threads) == 0 {
+			break
+		}
+		last := archived.Threads[len(archived.Threads)-1]
+		lastArchiveTime := last.ThreadMetadata.ArchiveTimestamp
+		before = &lastArchiveTime
+	}
+
 	return threads, nil
 }
 
