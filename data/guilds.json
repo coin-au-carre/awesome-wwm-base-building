@@ -1,5 +1,20 @@
 [
 	{
+		"name": "Valerune",
+		"builders": [
+			"SeoYeon-hwa"
+		],
+		"tags": [
+			"Nature",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Proposed by Keisha originally\nSuperb alley\nAmazing fountain\nEphemeral Birthday party\nCarroussel",
+		"score": 1,
+		"lastModified": "April 25, 2026 at 12:00 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "DemonBane",
 		"builders": [
 			"Narikiasa"
