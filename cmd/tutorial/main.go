@@ -2,6 +2,7 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
 	"log/slog"
@@ -27,19 +28,32 @@ func slugify(s string) string {
 
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "repository root directory")
+	list := flag.String("list", "", "file with one Discord thread URL per line")
 	flag.Parse()
 
-	if flag.NArg() == 0 {
-		fmt.Fprintln(os.Stderr, "usage: tutorial <discord-thread-url>")
-		os.Exit(1)
+	var urls []string
+	if *list != "" {
+		f, err := os.Open(*list)
+		if err != nil {
+			slog.Error("opening list file", "err", err)
+			os.Exit(1)
+		}
+		sc := bufio.NewScanner(f)
+		for sc.Scan() {
+			line := strings.TrimSpace(sc.Text())
+			if line == "" || strings.HasPrefix(line, "#") {
+				continue
+			}
+			urls = append(urls, line)
+		}
+		f.Close()
 	}
+	urls = append(urls, flag.Args()...)
 
-	m := reURL.FindStringSubmatch(flag.Arg(0))
-	if m == nil {
-		fmt.Fprintln(os.Stderr, "invalid Discord thread URL")
+	if len(urls) == 0 {
+		fmt.Fprintln(os.Stderr, "usage: tutorial [-list <file>] <discord-thread-url>...")
 		os.Exit(1)
 	}
-	threadID := m[1]
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
 		slog.Warn("no .env file")
@@ -56,22 +70,33 @@ func main() {
 		os.Exit(1)
 	}
 
-	thread, err := bot.Session.Channel(threadID)
+	for _, rawURL := range urls {
+		if err := syncThread(bot.Session, *root, rawURL); err != nil {
+			slog.Error("syncing thread", "url", rawURL, "err", err)
+		}
+	}
+}
+
+func syncThread(s *discordgo.Session, root, rawURL string) error {
+	m := reURL.FindStringSubmatch(rawURL)
+	if m == nil {
+		return fmt.Errorf("invalid Discord thread URL: %s", rawURL)
+	}
+	threadID := m[1]
+
+	thread, err := s.Channel(threadID)
 	if err != nil {
-		slog.Error("fetching thread", "err", err)
-		os.Exit(1)
+		return fmt.Errorf("fetching thread: %w", err)
 	}
 
-	allMsgs := fetchAllMessages(bot.Session, threadID)
+	allMsgs := fetchAllMessages(s, threadID)
 	if len(allMsgs) == 0 {
-		slog.Error("no messages found in thread")
-		os.Exit(1)
+		return fmt.Errorf("no messages found in thread %s", threadID)
 	}
 
-	// Resolve author display name (server nickname preferred)
 	authorID := allMsgs[0].Author.ID
 	authorName := allMsgs[0].Author.Username
-	if mem, err := bot.Session.GuildMember(thread.GuildID, authorID); err == nil && mem.Nick != "" {
+	if mem, err := s.GuildMember(thread.GuildID, authorID); err == nil && mem.Nick != "" {
 		authorName = mem.Nick
 	}
 
@@ -105,9 +130,8 @@ func main() {
 		}
 	}
 
-	outPath := filepath.Join(*root, "web", "src", "content", "articles", slug+".md")
+	outPath := filepath.Join(root, "web", "src", "content", "articles", slug+".md")
 
-	// Try to preserve existing frontmatter if file exists
 	var existingFrontmatter string
 	if data, err := os.ReadFile(outPath); err == nil {
 		if fm := extractFrontmatter(string(data)); fm != "" {
@@ -123,13 +147,13 @@ func main() {
 	}
 
 	if err := os.WriteFile(outPath, []byte(content), 0644); err != nil {
-		slog.Error("writing article", "err", err)
-		os.Exit(1)
+		return fmt.Errorf("writing article: %w", err)
 	}
 
 	fmt.Printf("wrote  %s\n", outPath)
 	fmt.Printf("author %s\n", authorName)
 	fmt.Println("note   images and videos embedded via Discord CDN URL — no local files")
+	return nil
 }
 
 // fetchAllMessages pages through all thread messages and returns them in chronological order.
