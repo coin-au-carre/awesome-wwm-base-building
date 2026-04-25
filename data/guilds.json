@@ -1,5 +1,19 @@
 [
 	{
+		"id": "10250998",
+		"name": "MirageBoat",
+		"builders": [],
+		"tags": [
+			"City",
+			"Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "(unfinished) cohesive, mountainous city area. Big palace building.",
+		"score": 0,
+		"lastModified": "April 25, 2026 at 02:41 PM UTC",
+		"scoutedByDiscordId": "315863715302080512"
+	},
+	{
 		"name": "殿",
 		"builders": [],
 		"discordThread": "",
