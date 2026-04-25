@@ -2,13 +2,15 @@
 	{
 		"id": "10250998",
 		"name": "MirageBoat",
-		"builders": [],
+		"builders": ["Sinpli"],
 		"tags": [
 			"City",
-			"Arena"
+			"Arena",
+			"Creative",
+			"Fun"
 		],
 		"discordThread": "",
-		"whatToVisit": "(unfinished) cohesive, mountainous city area. Big palace building.",
+		"whatToVisit": "(unfinished) cohesive, mountainous city area. Big palace building. The car!",
 		"score": 0,
 		"lastModified": "April 25, 2026 at 02:41 PM UTC",
 		"scoutedByDiscordId": "315863715302080512"
