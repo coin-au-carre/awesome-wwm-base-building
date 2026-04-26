@@ -1,5 +1,31 @@
 [
 	{
+		"id": "10263131",
+		"name": "Extemporal",
+		"builders": [],
+		"tags": [
+			"Military"
+		],
+		"discordThread": "",
+		"whatToVisit": "High detail stone watchtower.",
+		"score": 1,
+		"lastModified": "April 26, 2026 at 02:18 PM UTC",
+		"scoutedByDiscordId": "315863715302080512"
+	},
+	{
+		"id": "10130186",
+		"name": "Archivists",
+		"builders": [],
+		"tags": [
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Modified main guild base. Lake bathing area",
+		"score": 0,
+		"lastModified": "April 26, 2026 at 02:14 PM UTC",
+		"scoutedByDiscordId": "315863715302080512"
+	},
+	{
 		"id": "10250998",
 		"name": "MirageBoat",
 		"builders": [
