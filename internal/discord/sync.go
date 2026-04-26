@@ -29,6 +29,7 @@ type SyncStats struct {
 	NewThreadLinks      map[string]string // guild name → discord thread URL
 	VoterGuildCounts    map[string]int    // userID → number of distinct guilds voted on
 	DuplicateWarnings   []string
+	AbuseFlags          []AbuseFlag
 }
 
 type SyncConfig struct {
@@ -367,6 +368,17 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 
 	stats.Total = len(guilds)
 	stats.VoterGuildCounts = result.VoterCounts
+
+	guildNameByThreadID := make(map[string]string, len(result.threads))
+	for _, r := range result.threads {
+		name := guilds[r.idx].Name
+		if r.data.GuildName != "" {
+			name = r.data.GuildName
+		}
+		guildNameByThreadID[r.thread.ID] = name
+	}
+	stats.AbuseFlags = detectVoterAbuse(result.threads, guildNameByThreadID)
+
 	return guilds, reactions, stats
 }
 

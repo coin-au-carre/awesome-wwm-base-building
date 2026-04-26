@@ -65,6 +65,20 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
   const [page, setPage] = useState(1)
   const [voterPage, setVoterPage] = useState(1)
   const [disabledBlacklist, setDisabledBlacklist] = useState<Set<string>>(new Set(voterBlacklist))
+  const [copiedUid, setCopiedUid] = useState(false)
+  const [selectedVoterUid, setSelectedVoterUid] = useState<string | null>(null)
+
+  function copyUid(uid: string) {
+    navigator.clipboard.writeText(uid)
+    setCopiedUid(true)
+    setTimeout(() => setCopiedUid(false), 1500)
+  }
+
+  function filterByVoter(uid: string) {
+    setFilterVoter(displayName(uid, users))
+    setSelectedVoterUid(uid)
+    setPage(1)
+  }
 
   function set(key: keyof ScoringConfig, value: number) {
     setCfg((prev) => ({ ...prev, [key]: value }))
@@ -257,7 +271,11 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
             </thead>
             <tbody>
               {voterLeaderboard.slice((voterPage - 1) * VOTER_PAGE_SIZE, voterPage * VOTER_PAGE_SIZE).map((v, i) => (
-                <tr key={v.uid} className="border-b border-border/30 last:border-0">
+                <tr
+                  key={v.uid}
+                  className="border-b border-border/30 last:border-0 cursor-pointer hover:bg-muted/30 transition-colors"
+                  onClick={() => filterByVoter(v.uid)}
+                >
                   <td className="py-1 pr-4 text-muted-foreground/50">{(voterPage - 1) * VOTER_PAGE_SIZE + i + 1}</td>
                   <td className="py-1 pr-4 font-medium">{displayName(v.uid, users)}</td>
                   <td className="py-1 pr-4 text-right font-mono">{v.threads}</td>
@@ -288,10 +306,23 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
           value={filterVoter}
           onChange={(e) => {
             setFilterVoter(e.target.value)
+            setSelectedVoterUid(null)
             setPage(1)
           }}
           className="h-8 w-64 text-sm"
         />
+        {selectedVoterUid && (
+          <div className="flex items-center gap-1.5 rounded-md bg-muted/40 px-2 py-1 ring-1 ring-border">
+            <span className="font-mono text-xs text-muted-foreground select-all">{selectedVoterUid}</span>
+            <button
+              onClick={() => copyUid(selectedVoterUid)}
+              className="text-muted-foreground/50 hover:text-muted-foreground transition-colors text-xs leading-none"
+              title="Copy user ID"
+            >
+              {copiedUid ? "✓" : "⎘"}
+            </button>
+          </div>
+        )}
         <span className="text-xs text-muted-foreground">
           {filtered.length} / {guilds.length} guilds
         </span>
@@ -393,9 +424,10 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                                   return (
                                     <span
                                       key={voter}
+                                      onClick={() => filterByVoter(voter)}
                                       title={`${name} (${voter}) — ${voterCounts.get(voter) ?? 0} distinct threads, weight ×${w}`}
                                       className={cn(
-                                        "inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium cursor-default",
+                                        "inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium cursor-pointer",
                                         weightColor(w),
                                         highlight && "ring-2 ring-primary"
                                       )}

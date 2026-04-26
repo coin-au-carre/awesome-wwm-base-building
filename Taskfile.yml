@@ -40,6 +40,11 @@ tasks:
     desc: "fetch guild reactions → data/voter_analysis.csv + data/voter_analysis.html"
     cmd: go run ./cmd/analyze {{.CLI_ARGS}}
 
+  # ── abuse detection (offline) ───────────────────────────────
+  check-abuse:
+    desc: "detect concentrated voting from data/reactions.json (no Discord required)"
+    cmd: go run ./cmd/check-abuse {{.CLI_ARGS}}
+
   # ── events sync (one-shot) ──────────────────────────────────
   events-sync:
     desc: fetch Discord Scheduled Events → data/events.json
@@ -158,6 +163,10 @@ tasks:
       - echo "        -- -screenshots    use 'new screenshots' format instead of 'new entry'"
       - echo ""
       - echo "  task analyze             fetch guild reactions → voter_analysis.csv + .html"
+      - echo ""
+      - echo "  task check-abuse         detect concentrated voting (offline, reads data/reactions.json)"
+      - echo "        -- -threshold 0.7  concentration threshold (default 0.70)"
+      - echo "        -- -min-threads 3  minimum guilds voted on before flagging (default 3)"
       - echo ""
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
       - echo ""
