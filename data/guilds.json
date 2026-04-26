@@ -2589,35 +2589,6 @@
 		"lore": "From the remains of a forgotten age, where stone crumbled and nature took over, a palace was reborn. The Mutiny Guild shaped the ruins into a peaceful sanctuary, where green life grows around ancient walls—a simple symbol of prosperity and renewal.",
 		"whatToVisit": "Arena – a big majestic place for our community to gather, spar, dance, battle, or just chill,\nTown – vibrant, full of commerce, and perfect for pics,\nPalace – large, luxurious, and spacious homes for members, featuring many rooms,\nDining Hall – a grand space to share meals together,\nKitchen – where all preparations come to life,\nTraining Area – dedicated to practice and improvement,\nManagement Area – the center of organization and planning,\nSmall Theatre – an intimate space for performances and gatherings,\nThrone Room – a grand hall with a commanding presence",
 		"score": 64,
-		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392792111386644/2026324533.png?ex=69eedde9\u0026is=69ed8c69\u0026hm=4c9387659837701fc7dc72156baa486317b481ba083e41d534d006991c04d781\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793026002995/20263245151.png?ex=69eedde9\u0026is=69ed8c69\u0026hm=cee8d26c23e8184a72762fab8e0f1f29bcd11837f549a824d117cc6bdbf507db\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793717932102/20263245412.png?ex=69eedde9\u0026is=69ed8c69\u0026hm=953332c184b07a68e54ca636a65fa68a82d19b806de296a861475f4f73229a2f\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392794359533639/20263245523.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=fd1e315192a640a8663a17444d9a6711e08dd7d6014b3ed65c945ecac8c09fab\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795081084999/202632451916.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=bd8f41defd8d7f5cd11997f491027fb06b2e6d7de2a3dd558a22cf7a43f8fca3\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795743916195/202632452242.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=febe9f0a2377d42f1f4f5b35be31f0e5e021c595e2ad92a3c63f7aade4454fc9\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392796461011114/202632452454.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=949b47dcd15c039368dc8bd8d6c90e80678d6220119bab43d1ccdbbcc129f96b\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797094481994/202632452726.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=50179df0bc74b25ee2e7432daa2799518f021211d6b0bf4d7ff9b5bcdfaf3ab9\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797798989924/2026325223319.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=10fa67423d9d7474c7fd00e1e655e69c8c9b635d6967b0663595771e1938a6d9\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392798390259834/2026325223337.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=629130727f08a429e1f8197dd758b950e38e4f6ee40b429126793217aa22d32b\u0026"
-		],
-		"screenshotSections": [
-			{
-				"label": "🏯 Mutiny[10000929]",
-				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392792111386644/2026324533.png?ex=69eedde9\u0026is=69ed8c69\u0026hm=4c9387659837701fc7dc72156baa486317b481ba083e41d534d006991c04d781\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793026002995/20263245151.png?ex=69eedde9\u0026is=69ed8c69\u0026hm=cee8d26c23e8184a72762fab8e0f1f29bcd11837f549a824d117cc6bdbf507db\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793717932102/20263245412.png?ex=69eedde9\u0026is=69ed8c69\u0026hm=953332c184b07a68e54ca636a65fa68a82d19b806de296a861475f4f73229a2f\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392794359533639/20263245523.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=fd1e315192a640a8663a17444d9a6711e08dd7d6014b3ed65c945ecac8c09fab\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795081084999/202632451916.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=bd8f41defd8d7f5cd11997f491027fb06b2e6d7de2a3dd558a22cf7a43f8fca3\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795743916195/202632452242.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=febe9f0a2377d42f1f4f5b35be31f0e5e021c595e2ad92a3c63f7aade4454fc9\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392796461011114/202632452454.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=949b47dcd15c039368dc8bd8d6c90e80678d6220119bab43d1ccdbbcc129f96b\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797094481994/202632452726.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=50179df0bc74b25ee2e7432daa2799518f021211d6b0bf4d7ff9b5bcdfaf3ab9\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797798989924/2026325223319.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=10fa67423d9d7474c7fd00e1e655e69c8c9b635d6967b0663595771e1938a6d9\u0026",
-					"https://cdn.discordapp.com/attachments/1486392790836576456/1486392798390259834/2026325223337.png?ex=69eeddea\u0026is=69ed8c6a\u0026hm=629130727f08a429e1f8197dd758b950e38e4f6ee40b429126793217aa22d32b\u0026"
-				]
-			}
-		],
 		"createdAt": "March 25, 2026 at 03:54 PM UTC",
 		"lastModified": "March 25, 2026 at 03:54 PM UTC"
 	},
