@@ -6,7 +6,7 @@ authors: ["Crueliet", "MooDSwing"]
 date: 2026-04-17
 order: 5
 image: "/tutorials/crueliet_wall_trick.jpg"
-featured: false
+featured: true
 ---
 
 A collection of creative tricks shared by **Crueliet** and **MooDSwing** in the Discord `#tips-and-tricks` channel.
