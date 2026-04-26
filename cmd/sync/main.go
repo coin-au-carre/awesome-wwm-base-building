@@ -144,24 +144,6 @@ func main() {
 		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, soloWeights, blacklist)
 	}
 
-	// ── Abuse detection ───────────────────────────────────────────────────────
-
-	allAbuseFlags := append(guildStats.AbuseFlags, soloStats.AbuseFlags...)
-	for _, f := range allAbuseFlags {
-		slog.Warn("voter abuse detected",
-			"userID", f.UserID,
-			"threads_voted", f.Threads,
-			"top_guild", f.TopGuildName,
-			"top_thread_id", f.TopThreadID,
-			"top_raw_pts", f.TopRawPts,
-			"total_raw_pts", f.TotalRawPts,
-			"high_score_others", f.HighScoreOthers,
-		)
-	}
-	if len(allAbuseFlags) > 0 {
-		slog.Warn("abuse summary", "flagged_voters", len(allAbuseFlags))
-	}
-
 	// ── Save ──────────────────────────────────────────────────────────────────
 
 	if *dryRun {

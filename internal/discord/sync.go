@@ -29,7 +29,6 @@ type SyncStats struct {
 	NewThreadLinks      map[string]string // guild name → discord thread URL
 	VoterGuildCounts    map[string]int    // userID → number of distinct guilds voted on
 	DuplicateWarnings   []string
-	AbuseFlags          []AbuseFlag
 }
 
 type SyncConfig struct {
@@ -273,10 +272,21 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 	now := guild.ModifiedNow()
 	reactions := make(guild.ReactionMap, len(result.threads))
 
+	// Detect abuse across all threads first so caps can be applied during scoring.
+	guildNameByThreadID := make(map[string]string, len(result.threads))
+	for _, r := range result.threads {
+		name := guilds[r.idx].Name
+		if r.data.GuildName != "" {
+			name = r.data.GuildName
+		}
+		guildNameByThreadID[r.thread.ID] = name
+	}
+	abuseCaps := buildAbuseCaps(detectVoterAbuse(result.threads, guildNameByThreadID))
+
 	for _, r := range result.threads {
 		data := r.data
 		rxn := filterReactions(r.reactions, blacklist)
-		data.Score = computeScore(rxn, voterWeights, data.Lore, data.WhatToVisit)
+		data.Score = computeScore(rxn, voterWeights, abuseCaps[r.thread.ID], data.Lore, data.WhatToVisit)
 
 		var tags []string
 		for _, tagID := range r.thread.AppliedTags {
@@ -369,17 +379,20 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist
 	stats.Total = len(guilds)
 	stats.VoterGuildCounts = result.VoterCounts
 
-	guildNameByThreadID := make(map[string]string, len(result.threads))
-	for _, r := range result.threads {
-		name := guilds[r.idx].Name
-		if r.data.GuildName != "" {
-			name = r.data.GuildName
-		}
-		guildNameByThreadID[r.thread.ID] = name
-	}
-	stats.AbuseFlags = detectVoterAbuse(result.threads, guildNameByThreadID)
-
 	return guilds, reactions, stats
+}
+
+// buildAbuseCaps converts abuse flags into a per-thread map of userID → raw point cap.
+// Only the voter's top guild thread is capped; their other votes are unaffected.
+func buildAbuseCaps(flags []AbuseFlag) map[string]map[string]int {
+	caps := make(map[string]map[string]int, len(flags))
+	for _, f := range flags {
+		if caps[f.TopThreadID] == nil {
+			caps[f.TopThreadID] = make(map[string]int)
+		}
+		caps[f.TopThreadID][f.UserID] = f.Cap
+	}
+	return caps
 }
 
 func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*discordgo.Channel, error) {

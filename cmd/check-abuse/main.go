@@ -42,8 +42,15 @@ func main() {
 	}
 
 	guilds, _ := guild.LoadFile(filepath.Join(*root, "data", "guilds.json"))
-	solos, _  := guild.LoadFile(filepath.Join(*root, "data", "solos.json"))
-	guildNameByThreadID := buildNameMap(append(guilds, solos...))
+	guildNameByThreadID := buildNameMap(guilds)
+
+	// Keep only threads that belong to guild showcases.
+	guildThreadIDs := buildThreadIDSet(guilds)
+	for tid := range reactions {
+		if !guildThreadIDs[tid] {
+			delete(reactions, tid)
+		}
+	}
 
 	all := discord.SummarizeVoters(reactions, guildNameByThreadID)
 
@@ -77,13 +84,13 @@ func main() {
 		if s.Threads > 1 {
 			avgOther = float64(s.TotalRawPts-s.TopRawPts) / float64(s.Threads-1)
 		}
-		fmt.Printf("  %-30s  top: %-30s  %dpts  (avg others: %.1f pts, %d guilds, %d other high-score)  ID: %s%s\n",
+		fmt.Printf("  %-30s  top: %-30s  %dpts → capped %dpts  (avg others: %.1f pts, %d guilds)  ID: %s%s\n",
 			displayName(s.UserID, users),
 			s.TopGuildName,
 			s.TopRawPts,
+			s.Cap,
 			avgOther,
 			s.Threads,
-			s.HighScoreOthers,
 			s.UserID,
 			blacklisted,
 		)
@@ -97,6 +104,20 @@ func displayName(uid string, users guild.UserMap) string {
 		return info.DisplayName()
 	}
 	return uid
+}
+
+func buildThreadIDSet(all []guild.Guild) map[string]bool {
+	m := make(map[string]bool, len(all))
+	for _, g := range all {
+		if g.DiscordThread == "" {
+			continue
+		}
+		parts := strings.Split(g.DiscordThread, "/")
+		if len(parts) > 0 {
+			m[parts[len(parts)-1]] = true
+		}
+	}
+	return m
 }
 
 // buildNameMap extracts threadID → guild name from the discordThread URL field.
