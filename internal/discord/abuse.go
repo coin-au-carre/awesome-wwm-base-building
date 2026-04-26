@@ -17,6 +17,7 @@ type AbuseFlag struct {
 	TopRawPts       int    // raw pts given to top guild
 	TotalRawPts     int    // raw pts across all guilds
 	HighScoreOthers int    // other guilds (excl. top) where voter gave ≥ abuseHighScoreThreshold pts
+	Cap             int    // ceil(avg pts on other guilds) — score is capped to this on their top guild
 }
 
 // rawPointsPerUser returns a map of userID → raw (unweighted) reaction points for one thread.
@@ -65,6 +66,12 @@ type VoterStats struct {
 	TopGuildName    string  // resolved name for TopThreadID
 	TopRawPts       int     // raw points given to the top guild
 	HighScoreOthers int     // other guilds (excl. top) where voter gave ≥ abuseHighScoreThreshold pts
+	Cap             int     // ceil(avg pts on other guilds)
+}
+
+// ceilDiv returns ceil(a/b) for positive integers.
+func ceilDiv(a, b int) int {
+	return (a + b - 1) / b
 }
 
 // SummarizeVoters returns per-voter stats for every voter found in the ReactionMap.
@@ -99,6 +106,10 @@ func SummarizeVoters(reactions guild.ReactionMap, guildNameByThreadID map[string
 				highOthers++
 			}
 		}
+		cap := 0
+		if len(byThread) > 1 {
+			cap = ceilDiv(total-topPts, len(byThread)-1)
+		}
 		out = append(out, VoterStats{
 			UserID:          uid,
 			Threads:         len(byThread),
@@ -107,6 +118,7 @@ func SummarizeVoters(reactions guild.ReactionMap, guildNameByThreadID map[string
 			TopGuildName:    guildNameByThreadID[topID],
 			TopRawPts:       topPts,
 			HighScoreOthers: highOthers,
+			Cap:             cap,
 		})
 	}
 	return out
@@ -137,6 +149,7 @@ func DetectVoterAbuseFromReactionsWithThresholds(reactions guild.ReactionMap, gu
 				TopRawPts:       s.TopRawPts,
 				TotalRawPts:     s.TotalRawPts,
 				HighScoreOthers: s.HighScoreOthers,
+				Cap:             s.Cap,
 			})
 		}
 	}

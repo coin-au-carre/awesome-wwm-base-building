@@ -31,33 +31,38 @@ export function getVoterWeight(threads: number, cfg: ScoringConfig): number {
   return 0
 }
 
+// rawCaps optionally limits per-voter raw (pre-weight) points for this guild.
 export function computeDynScore(
   g: RankedGuild,
   emojiMap: Record<string, string[]> | undefined,
   weights: Map<string, number>,
   cfg: ScoringConfig,
   blacklisted: Set<string>,
+  rawCaps?: Map<string, number>,
 ): number {
-  let score = 0
-  // Deduplicate thumbs-up voters across all skin-tone variants.
+  // Accumulate raw pts per voter first so caps and weights can be applied cleanly.
+  const userRaw = new Map<string, number>()
   const thumbsVoters = new Set<string>()
   for (const [emoji, voters] of Object.entries(emojiMap ?? {})) {
-    if (emoji === STAR) {
-      for (const v of voters) {
-        if (!blacklisted.has(v)) { score += cfg.starScore * (weights.get(v) ?? 0) }
-      }
-    } else if (THUMBS_EMOJIS.has(emoji)) {
-      for (const v of voters) {
-        if (!blacklisted.has(v)) { thumbsVoters.add(v) }
-      }
-    } else if (LIKE_EMOJIS.has(emoji)) {
-      for (const v of voters) {
-        if (!blacklisted.has(v)) { score += cfg.likeScore * (weights.get(v) ?? 0) }
+    for (const v of voters) {
+      if (blacklisted.has(v)) { continue }
+      if (emoji === STAR) {
+        userRaw.set(v, (userRaw.get(v) ?? 0) + cfg.starScore)
+      } else if (THUMBS_EMOJIS.has(emoji)) {
+        thumbsVoters.add(v)
+      } else if (LIKE_EMOJIS.has(emoji)) {
+        userRaw.set(v, (userRaw.get(v) ?? 0) + cfg.likeScore)
       }
     }
   }
   for (const v of thumbsVoters) {
-    score += cfg.likeScore * (weights.get(v) ?? 0)
+    userRaw.set(v, (userRaw.get(v) ?? 0) + cfg.likeScore)
+  }
+
+  let score = 0
+  for (const [v, raw] of userRaw) {
+    const cap = rawCaps?.get(v)
+    score += (cap !== undefined ? Math.min(raw, cap) : raw) * (weights.get(v) ?? 0)
   }
   if (g.lore) { score += cfg.loreBonus }
   if (g.whatToVisit) { score += cfg.visitBonus }

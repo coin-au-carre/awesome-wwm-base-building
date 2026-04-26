@@ -40,16 +40,18 @@ func filterReactions(reactions map[string][]string, blacklist map[string]bool) m
 	return out
 }
 
-func computeScore(reactions map[string][]string, weights map[string]int, lore, whatToVisit string) int {
-	score := 0
-	// Deduplicate thumbs-up voters across all skin-tone variants so a voter
-	// who reacted with multiple variants only scores once.
+// computeScore tallies weighted reaction points for a thread.
+// rawCaps optionally limits how many raw points a specific voter can contribute (before weight).
+// Pass nil for no caps.
+func computeScore(reactions map[string][]string, weights map[string]int, rawCaps map[string]int, lore, whatToVisit string) int {
+	// Accumulate raw points per voter, then apply weight and optional cap.
+	userRaw := make(map[string]int)
 	thumbsVoters := make(map[string]bool)
 	for emoji, users := range reactions {
 		switch emoji {
 		case "⭐":
 			for _, uid := range users {
-				score += scorePerStar * weights[uid]
+				userRaw[uid] += scorePerStar
 			}
 		case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿":
 			for _, uid := range users {
@@ -57,12 +59,20 @@ func computeScore(reactions map[string][]string, weights map[string]int, lore, w
 			}
 		case "🔥", "❤️":
 			for _, uid := range users {
-				score += scorePerLike * weights[uid]
+				userRaw[uid] += scorePerLike
 			}
 		}
 	}
 	for uid := range thumbsVoters {
-		score += scorePerLike * weights[uid]
+		userRaw[uid] += scorePerLike
+	}
+
+	score := 0
+	for uid, raw := range userRaw {
+		if cap, ok := rawCaps[uid]; ok && raw > cap {
+			raw = cap
+		}
+		score += raw * weights[uid]
 	}
 	if lore != "" {
 		score += scoreLoreBonus
