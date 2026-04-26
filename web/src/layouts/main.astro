@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title = "Where Builders Meet",
-  description = "Community showcase of guild bases and solo builds for Where Winds Meet, recognized by community votes.",
+  description = "Community hub for Where Winds Meet building and construction. Browse guild bases, solo builds, construction items, building guides, and blueprints.",
   image,
 } = Astro.props
 
@@ -41,6 +41,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="keywords" content="Where Winds Meet building, Where Winds Meet construction, Where Winds Meet base building, Where Winds Meet building guide, where winds meet how to build, where winds meet construction recipes, where winds meet blueprints, where winds meet diagrams, where winds meet house building, WWM guild bases" />
     <meta name="color-scheme" content="light dark" />
     <!-- OpenGraph -->
     <meta property="og:type" content="website" />
@@ -61,10 +62,15 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Where Builders Meet",
-      "description": "Community showcase of guild bases and solo builds for Where Winds Meet, recognized by community votes.",
+      "description": "Community hub for Where Winds Meet building and construction. Browse guild bases, solo builds, construction items, building guides, recipes, blueprints, and diagrams.",
       "url": "https://www.wherebuildersmeet.com",
       "sameAs": ["https://discord.gg/Qygt9u26Bn"],
-      "about": { "@type": "VideoGame", "name": "Where Winds Meet" },
+      "about": {
+        "@type": "VideoGame",
+        "name": "Where Winds Meet",
+        "keywords": "base building, construction, guild bases, house building, blueprints, building guide, construction recipes, diagrams"
+      },
+      "keywords": "Where Winds Meet building, Where Winds Meet construction, Where Winds Meet base building, Where Winds Meet building guide, where winds meet construction recipes, where winds meet blueprints, where winds meet diagrams, where winds meet house building",
     })} />
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="alternate" type="application/rss+xml" title="Where Builders Meet — New Submissions" href="/rss.xml" />
