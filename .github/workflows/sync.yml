@@ -35,7 +35,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/guilds.json data/solos.json web/public/guilds.json data/last_sync.json data/reactions.json data/users.json
-          git commit -m "chore: auto-sync $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git stash
           git pull --rebase
+          git stash pop
+          git add data/guilds.json data/solos.json web/public/guilds.json data/last_sync.json data/reactions.json data/users.json
+          git commit -m "chore: auto-sync $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push
