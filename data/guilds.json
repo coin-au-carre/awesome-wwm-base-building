@@ -1,5 +1,55 @@
 [
 	{
+		"name": "Kaifeng 匠 Corp",
+		"builders": [
+			"Crib",
+			"XxDivinityxX"
+		],
+		"tags": [
+			"Floating Island",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Floating colosseum \nFishing cake tower\nUnderground passage\nCute cemetery\nCurrently rebuilding",
+		"score": 0,
+		"lastModified": "April 26, 2026 at 09:25 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "Sinful-Desire",
+		"builders": [
+			"SkellyStelio",
+			"cinder",
+			"SaintPlague"
+		],
+		"tags": [
+			"Nature",
+			"Zen"
+		],
+		"discordThread": "",
+		"whatToVisit": "Wedding avenue on lake\nStage on hill\nGardens",
+		"score": 0,
+		"lastModified": "April 26, 2026 at 08:57 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"id": "10001668",
+		"name": "Syntax",
+		"builders": [
+			"ntye",
+			"Shenyue"
+		],
+		"tags": [
+			"Creative",
+			"Fun"
+		],
+		"discordThread": "",
+		"whatToVisit": "Wedding place which will be destroyed :(\nFunny statues\nPokemon (Bulbasaur, Charizard)\nConstruction en cours...",
+		"score": 0,
+		"lastModified": "April 26, 2026 at 08:31 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10263131",
 		"name": "Extemporal",
 		"builders": [],
