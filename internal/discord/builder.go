@@ -112,7 +112,7 @@ func handleBuilderCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	for _, g := range guilds {
 		if g.PosterDiscordID == userID {
 			if !slices.Contains([]string{AHLYAM_ID, BABE_ID, WINDXP_ID}, g.PosterDiscordID) ||
-				g.Name == "Jenova" || g.GuildName == "PleasureSeeker" {
+				g.Name == "Jenova" || g.GuildName == "PleasureSeeker" || g.GuildName == "Lucid Echoes" {
 				matches = append(matches, baseEntry{g, false})
 			}
 		}
