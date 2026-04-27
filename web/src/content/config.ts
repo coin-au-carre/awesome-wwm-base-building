@@ -12,6 +12,7 @@ const articles = defineCollection({
     image: z.string().optional(),
     featured: z.boolean().optional().default(false),
     featuredLabel: z.string().optional(),
+    published: z.boolean().optional().default(true),
   }),
 })
 

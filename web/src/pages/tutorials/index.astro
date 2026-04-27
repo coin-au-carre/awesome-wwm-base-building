@@ -6,7 +6,7 @@ import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
 import { getBuilderSearchPath } from "@/lib/guilds"
 
-const entries = await getCollection("articles")
+const entries = await getCollection("articles", ({ data }) => data.published !== false)
 
 type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn"
 

@@ -6,7 +6,8 @@ authors: ["SiMing 司命"]
 date: 2026-04-27
 order: 7
 image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f07a24&is=69ef28a4&hm=45f4815aa7fd79402a74c0acc46b3bc02348476c578e503e84224ca3f3ab30f8&"
-featured: true
+featured: false
+published: false
 ---
 
 Are you ever worried that you might be using a component incorrectly due to not knowing what the characters say? Fear no more, here is your comprehensive translation guide of all components in *Where Winds Meet*!
