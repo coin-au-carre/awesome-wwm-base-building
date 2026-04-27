@@ -37,7 +37,7 @@ function relativeDate(createdAt: string): string {
 }
 
 const guilds = getGuildsSortedByScore()
-const allArticles = await getCollection("articles")
+const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
 const featuredArticles = allArticles.filter((e) => e.data.featured).sort((a, b) => a.data.order - b.data.order)
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()

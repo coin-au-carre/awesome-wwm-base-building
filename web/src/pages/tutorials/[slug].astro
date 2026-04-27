@@ -23,7 +23,7 @@ function renderTags(tags: string[] = []) {
 }
 
 export async function getStaticPaths() {
-  const entries = await getCollection("articles")
+  const entries = await getCollection("articles", ({ data }) => data.published !== false)
   return entries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
