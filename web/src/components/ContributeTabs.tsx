@@ -393,7 +393,7 @@ return (
             <div className="space-y-1.5">
               <p className="text-sm font-medium text-foreground">Check your voting spread</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Run <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/my-votes</code> on the server to see how your reactions are distributed across guilds. Broad engagement carries more weight in the rankings.
+                The more guilds you vote on, the more weight each of your votes carries in the rankings. Run <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/my-votes</code> on the server to see how your reactions are distributed across guilds.
               </p>
             </div>
             <div className="space-y-1.5">
