@@ -33,7 +33,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { Content } = await entry.render()
 
-const firstImageSrc = entry.body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? null
+const coverImage = entry.data.image ?? null
+const localCover = coverImage?.startsWith("/") ? coverImage : null
+const firstImageSrc = localCover ?? entry.body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? null
 const ogImage = firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
 
 const datePublished = entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01"
