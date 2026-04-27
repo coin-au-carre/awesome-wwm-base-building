@@ -52,7 +52,7 @@
 	{
 		"id": "10263131",
 		"name": "Extemporal",
-		"builders": [],
+		"builders": ["Hinfra"],
 		"tags": [
 			"Military"
 		],
