@@ -110,7 +110,7 @@ const roles: {
     id: "builder",
     icon: <Hammer className="size-5" />,
     label: "I am a builder",
-    sublabel: "Submit your guild or solo base. Write tutorials.",
+    sublabel: "Submit your guild or solo base. Help fellow builders and write tutorials.",
     discordRole: "Builder",
     roleColor: "text-blue-500",
     cardAccent: "border-blue-500/40 bg-blue-500/5 hover:bg-blue-500/10",
@@ -350,9 +350,9 @@ return (
             </Card>
 
             <div className="space-y-1.5">
-              <p className="text-sm font-medium text-foreground">Write a tutorial</p>
+              <p className="text-sm font-medium text-foreground">Help builders / Write tutorials</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Know a building trick worth sharing? Write a guide and we'll publish it on the{" "}
+                Know a building trick worth sharing? Share with us or write a guide and we'll publish it on the{" "}
                 <a href={url("/tutorials")} className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">
                   tutorials page
                 </a>.
