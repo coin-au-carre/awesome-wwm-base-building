@@ -112,7 +112,7 @@ export type Tier = { label: string; dot: string; badge: string; badgeStyle?: Rec
 // Silver is score-based, not rank-based.
 export const TIER_THRESHOLDS = {
   master: 0.15,
-  diamond: 0.30,
+  diamond: 0.35,
   platinum: 0.50,
                      // rest    → Gold
 
