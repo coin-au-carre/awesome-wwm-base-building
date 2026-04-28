@@ -58,6 +58,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     <meta name="twitter:description" content={description} />
     {image && <meta name="twitter:image" content={image} />}
     <link rel="canonical" href={Astro.url.href} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
