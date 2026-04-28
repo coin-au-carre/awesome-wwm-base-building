@@ -38,8 +38,9 @@ func main() {
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
 	activeChannelID := cmdutil.RequireEnv("RUBY_CHANNEL_ID")
+	devChannelID := os.Getenv("DEV_CHANNEL_ID")
 	allowedChannels := map[string]bool{activeChannelID: true}
-	if devChannelID := os.Getenv("DEV_CHANNEL_ID"); devChannelID != "" {
+	if devChannelID != "" {
 		allowedChannels[devChannelID] = true
 	}
 	slog.Info("bot mode", "channels", len(allowedChannels))
@@ -67,7 +68,7 @@ func main() {
 	logsChannelID := os.Getenv("LOGS_CHANNEL_ID")
 	bot.Session.AddHandler(onReady(discordGuildID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
-	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, responder))
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, responder))
 	bot.Session.AddHandler(onGuildMemberAdd())
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 

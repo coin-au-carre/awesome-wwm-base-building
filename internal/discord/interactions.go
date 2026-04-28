@@ -104,7 +104,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommandAutocomplete:
@@ -147,7 +147,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case submitModalID:
 				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID)
 			case postModalID:
-				handlePostModal(s, i, bot, submissionChannelID, guildForumChannelID)
+				handlePostModal(s, i, bot, devChannelID, guildForumChannelID)
 			case soloModalID:
 				handleSoloModal(s, i, bot, submissionChannelID, soloForumChannelID)
 			}
