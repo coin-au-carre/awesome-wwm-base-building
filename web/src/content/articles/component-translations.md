@@ -16,7 +16,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 日 - day
 堂 - hall
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f122e4&is=69efd164&hm=8056ce27c8c7165927ca5c0766f48d481181a9b6465cba694cfdf90ed24700da&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f1cba4&is=69f07a24&hm=2331b33e0a56bf0a5ab93b6ea9dbe346aaa6699cd9918f6d08314c3e57cfaac9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 悬 - hang
 壶 - gourd
@@ -27,7 +27,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 **Only use this for medical-related builds.**
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=69f124c9&is=69efd349&hm=b8d9691362fc196321170a899fb8f33b90b5e24284c6ce4ab5cc2e9513abcd1b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=69f1cd89&is=69f07c09&hm=ad4ed3f0a33e773c8ffbedbb04e6b6d06374b59184ac8ded1e8eba5fb4237900&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -43,7 +43,7 @@ A loyal heart remains to illuminate written history.
 
 -# 汗青 refers to bamboo slips that were used for writing and documentation, so the literal translation would be "bamboo slips."
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f12d48&is=69efdbc8&hm=11de07ebd9fcef33ecf9784fab34385bb899620dad47b91e1770c61f2d4067c1&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f1d608&is=69f08488&hm=32e29a82f1f1440de781169f75a065a5b264f2f6a3d8d0494358819556c6c517&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family
@@ -51,7 +51,7 @@ A loyal heart remains to illuminate written history.
 
 Can only be used for steamed bun and food stalls, nothing else.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f12d84&is=69efdc04&hm=28c54e276f5ead0add59616599e8b21f31f67539ad283939ab4db86a501869b2&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f1d644&is=69f084c4&hm=4e9db3f0fb054d6ce1fcb5be4f566d79e45ba0a264a8be7f6ee87a65dc736cce&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Luck 
 
@@ -150,4 +150,4 @@ Can use this anywhere you want to name "Jade Gate Pass"
 
 With surging emotion, I seize the longsword. Ferrying the world, renown calls my name. Star banners and lightning rise in multitude; the sun and feathered arrows cross the desolate sky. Ten thousand cavalry encamped at the edge of wilderness; overlooking the plain, five encampments are stationed. Ascending the mountain, the command banner directs the (martial) order. With backs to the water, divine soldiers are released. During the times of old, our spears moved. Now the universe is at peace.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=69f12936&is=69efd7b6&hm=1a50c6604b17a2f1087121a0c71641027865c22decffed1ee84edebbc08ee661&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=69f1d1f6&is=69f08076&hm=11a90b0980dcdb95a349321142795209966b398d39ef1ecf5c0c2ba45320de69&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
