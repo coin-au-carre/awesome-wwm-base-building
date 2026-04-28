@@ -19,8 +19,8 @@ type VoteRecord struct {
 	UserID       string
 	Emojis       []string // all emojis this user reacted with on this thread
 	ThreadsVoted int      // distinct guild threads this user reacted to
-	Weight       int      // computed vote weight
-	Points       int      // weighted points contributed to this guild
+	Weight       float64  // computed vote weight
+	Points       float64  // weighted points contributed to this guild
 }
 
 // AnalyzeVoters fetches all reactions from the guild forum channel and returns
@@ -113,7 +113,7 @@ func AnalyzeVoters(b *Bot, forumChannelID string) ([]VoteRecord, error) {
 		}
 		for uid, emojis := range userEmojis {
 			weight := weights[uid]
-			points := 0
+			var points float64
 			for _, emoji := range emojis {
 				pts := 0
 				switch emoji {
@@ -122,7 +122,7 @@ func AnalyzeVoters(b *Bot, forumChannelID string) ([]VoteRecord, error) {
 				case "👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿", "🔥":
 					pts = scorePerLike
 				}
-				points += pts * weight
+				points += float64(pts) * weight
 			}
 			records = append(records, VoteRecord{
 				GuildName:    tr.name,

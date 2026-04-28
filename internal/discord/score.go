@@ -1,6 +1,7 @@
 package discord
 
 import (
+	"math"
 	"sync"
 
 	"github.com/bwmarrin/discordgo"
@@ -43,7 +44,7 @@ func filterReactions(reactions map[string][]string, blacklist map[string]bool) m
 // computeScore tallies weighted reaction points for a thread.
 // rawCaps optionally limits how many raw points a specific voter can contribute (before weight).
 // Pass nil for no caps.
-func computeScore(reactions map[string][]string, weights map[string]int, rawCaps map[string]int, lore, whatToVisit string) int {
+func computeScore(reactions map[string][]string, weights map[string]float64, rawCaps map[string]int, lore, whatToVisit string) int {
 	// Accumulate raw points per voter, then apply weight and optional cap.
 	userRaw := make(map[string]int)
 	thumbsVoters := make(map[string]bool)
@@ -67,13 +68,14 @@ func computeScore(reactions map[string][]string, weights map[string]int, rawCaps
 		userRaw[uid] += scorePerLike
 	}
 
-	score := 0
+	var total float64
 	for uid, raw := range userRaw {
 		if cap, ok := rawCaps[uid]; ok && raw > cap {
 			raw = cap
 		}
-		score += raw * weights[uid]
+		total += float64(raw) * weights[uid]
 	}
+	score := int(math.Round(total))
 	if lore != "" {
 		score += scoreLoreBonus
 	}
@@ -85,8 +87,10 @@ func computeScore(reactions map[string][]string, weights map[string]int, rawCaps
 
 // voterWeight returns the reaction weight for a user based on how many distinct
 // threads they reacted to across all channels.
-func voterWeight(distinctThreads int) int {
+func voterWeight(distinctThreads int) float64 {
 	switch {
+	case distinctThreads >= 20:
+		return 4
 	case distinctThreads >= 12:
 		return 3
 	case distinctThreads >= 8:
@@ -112,8 +116,8 @@ func MergeVoterCounts(a, b map[string]int) map[string]int {
 }
 
 // ComputeVoterWeights converts per-user thread counts into weight multipliers.
-func ComputeVoterWeights(counts map[string]int) map[string]int {
-	weights := make(map[string]int, len(counts))
+func ComputeVoterWeights(counts map[string]int) map[string]float64 {
+	weights := make(map[string]float64, len(counts))
 	for uid, count := range counts {
 		if w := voterWeight(count); w > 0 {
 			weights[uid] = w

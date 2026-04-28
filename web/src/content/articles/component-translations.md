@@ -16,18 +16,18 @@ Are you ever worried that you might be using a component incorrectly due to not 
 日 - day
 堂 - hall
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f07a24&is=69ef28a4&hm=45f4815aa7fd79402a74c0acc46b3bc02348476c578e503e84224ca3f3ab30f8&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f122e4&is=69efd164&hm=8056ce27c8c7165927ca5c0766f48d481181a9b6465cba694cfdf90ed24700da&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 悬 - hang
 壶 - gourd
 济 - save
 世 - world 
 
-"Hang up the gourd to save the world." A Chinese idiom from *Tai Ping Guang Ji (Extensive Records of the Taiping Era)* that tells the story of a physician who would hang an empty gourd on the ceiling of his house. [Read More](https://www.pureinsight.org/node/2935)
+"Hang up the gourd to save the world." A Chinese idiom from *Extensive Records of the Taiping Era* 《太平廣記》that tells the story of a physician who would hang an empty gourd on the ceiling of his house. [Read More](https://www.pureinsight.org/node/2935)
 
 **Only use this for medical-related builds.**
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=69f07c09&is=69ef2a89&hm=10a76edeb2b0cc223df323bd057da2710ccb0f70cd31925ffd52488c39309f72&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=69f124c9&is=69efd349&hm=b8d9691362fc196321170a899fb8f33b90b5e24284c6ce4ab5cc2e9513abcd1b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -43,21 +43,21 @@ A loyal heart remains to illuminate written history.
 
 -# 汗青 refers to bamboo slips that were used for writing and documentation, so the literal translation would be "bamboo slips."
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f08488&is=69ef3308&hm=07049dd24515b6f50156175c9b17c61967addb8fcacc575b4382a8cb4f476f0b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f12d48&is=69efdbc8&hm=11de07ebd9fcef33ecf9784fab34385bb899620dad47b91e1770c61f2d4067c1&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
-万 ten thousand
+萬 ten thousand
 家 family
 馒头 steamed buns 
 
 Can only be used for steamed bun and food stalls, nothing else.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f084c4&is=69ef3344&hm=863814454e814fad3e85399db4f2b2fb839e2b1a70d70de4181c965d69793bf3&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f12d84&is=69efdc04&hm=28c54e276f5ead0add59616599e8b21f31f67539ad283939ab4db86a501869b2&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Luck 
 
 Used for new years greetings most often.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69efed26&is=69ee9ba6&hm=49f188071f181f33fa2df576eb0a703025d36de74726142de9a41a56ed49d727&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69f13ea6&is=69efed26&hm=2ac0876088336c7fc547dc6a016fc5477a535f7a7c9def3a84d5964c9f60ac3b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -65,26 +65,26 @@ Marvelite and I worked together on this and our best bet is: "性不去松，自
 
 Roughly translated, it means "one's character does not leave the pine (tree); it flows and illuminates itself"
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69efee11&is=69ee9c91&hm=eb438c0f42796365b7793d47badd0a2de2245e9604aab6012d64da4677addc81&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69f13f91&is=69efee11&hm=9d9760c9b56136f3f97ba12d26d121aae64e8e9f4de78beddd0a0dcdcad333c7&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驿 - postal (relay station)
 
 Only used for postal relay stations (courier stations) and sometimes inns
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=69efeef7&is=69ee9d77&hm=3756e3034cc81e1da632a461a3c94130721be8aba5fb93a914c64a94a73930e7&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=69f14077&is=69efeef7&hm=6469cbc85b2e3a8d779c9664ce38b41643ea296f906e2833d6f0a35e599d982b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 天 Heaven
 石 Stone
 
 Heavenly Stone
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69eff021&is=69ee9ea1&hm=ff84038f77c3f576bbcaff8b1968518a23ed221915edcbcfe48c8496d7ef4e2b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69f141a1&is=69eff021&hm=eea2213afb06a00e34a0b1a4e49243f0a74c2cc69dea253b67f0d1a94bb1be70&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驛 - traditional version of "postal relay station" 
 
 Used for postal relay stations/courier stations and inns.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=69eff27c&is=69eea0fc&hm=9e3e48bcc99535a3a7bc770418b1a839f9c1bdd9977d21699cc53785eef3fa53&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=69f143fc&is=69eff27c&hm=afa7c4ff47b8de47126bfa77db011120840abe4ddc5c4e95d14c76e0792bf4a6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Plaque: **妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -97,16 +97,16 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 **This component can only be used for medical settings, unless all of the pillars and the plaque are covered up.**
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69eff386&is=69eea206&hm=4a0a4450ca1f40a1760da18effb700015beff4a133ca63e2ff1251d330e25746&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69f14506&is=69eff386&hm=aee1a451477c241781d669a62c8ba60221ad893125fdd1aedd1cede6dfc2a8cd&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
 
-Written during the Tang Dynasty, this line is the title of the first volume of one of the most important texts in the history of Chinese medicine, 《备急千金要方》*Prescriptions Worth One Thousand Gold* by Sun Si Miao.  Sun was largely considered the Tang Dynasty's "King of Medicine." 
+Written during the Tang Dynasty, this line is the title of the first volume of one of the most important texts in the history of Chinese medicine, 《备急千金要方 》*Prescriptions Worth One Thousand Gold* by Sun Si Miao.  Sun was largely considered the Tang Dynasty's "King of Medicine." 
 
 **This component absolutely cannot be used as anything other than for medical purposes, unless you cover up the sign.** But even if you cover up the sign, please be advised that each drawer is labeled with the names of herbs and medicine.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=69eff4ef&is=69eea36f&hm=9291783fa12f5e9bf1e02c6e1c6a12cff95a0dda701aebda01c68eae0f93c916&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=69f1466f&is=69eff4ef&hm=cb5d891eb94e9011ef858430fb61b14d288fb8a2dc4d1060e91e902eaeeb75fa&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
@@ -116,26 +116,38 @@ Among a hundred thousand things, the breadth is hard to attain
 **Right:** 千機巧竅清心平
 A thousand ingenious mechanisms and openings, a clear heart, peaceful
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120233557299221/sign15.png?ex=69f000b1&is=69eeaf31&hm=e0c302fc8ed27f242000065df6e367c3004534bcbb5fac9b87aba65e073c9378&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120233557299221/sign15.png?ex=69f15231&is=69f000b1&hm=846378d0a0529f724d9ba77c4e4ff2fa10e65fda5aee292cf930dc6fbcdee892&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=69f00165&is=69eeafe5&hm=1c2d867f92ebd805b884c3a045844af4ac985ffbabe244ecdd695d41f8dc83a9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=69f152e5&is=69f00165&hm=8b2e72178bfa94f8d448d8f292d5a5b064c8eb711bc4d4a56111ed811b8e8b27&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=69f00185&is=69eeb005&hm=2504f0e13327c318f2f3736351c1943af35ad5594dc324b82db9e0934b30fc9c&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=69f15305&is=69f00185&hm=83373e5c68e1d9fe8cf6b01ac9542e9c29a2b6f9d00d20435c77d979c6a289bf&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
 It is considered the most famous classical Chinese prose in Chinese calligraphy ever written by some.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=69f00646&is=69eeb4c6&hm=79fabc3f92fdfaa6249a553fa1fb5a6a71b0bd166392f60911980f8bc773ff94&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=69f157c6&is=69f00646&hm=40614e03e12c25c21fb6384266fe1412e24702c4c17c1fa015ac82d24acfeb67&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=69f0075a&is=69eeb5da&hm=01088bf04399df3a5b24330e7c87b0a6534de480bed65a3014173afd07b1b07b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=69f158da&is=69f0075a&hm=453e94e2bd7b73adff6adb6c81b1b1c8a40953843af3ab896d346922b711ab35&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=69f00772&is=69eeb5f2&hm=dc403d0b7372e63776127dee87429a286fa5e480e7ad8b361b682ece8ed61d78&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=69f158f2&is=69f00772&hm=55299d50f5d1ee1c2617376b5a48c24eb119cb37186ed58d77ea4718d1694e06&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+
+玉門關 - Jade Gate Pass
+
+Can use this anywhere you want to name "Jade Gate Pass"
+
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=69f1220a&is=69efd08a&hm=9e2d7524e665230b1ea2fd0ddbba0cb813ad3402741fea235eb0fe32091118f6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+
+慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
+
+With surging emotion, I seize the longsword. Ferrying the world, renown calls my name. Star banners and lightning rise in multitude; the sun and feathered arrows cross the desolate sky. Ten thousand cavalry encamped at the edge of wilderness; overlooking the plain, five encampments are stationed. Ascending the mountain, the command banner directs the (martial) order. With backs to the water, divine soldiers are released. During the times of old, our spears moved. Now the universe is at peace.
+
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=69f12936&is=69efd7b6&hm=1a50c6604b17a2f1087121a0c71641027865c22decffed1ee84edebbc08ee661&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />

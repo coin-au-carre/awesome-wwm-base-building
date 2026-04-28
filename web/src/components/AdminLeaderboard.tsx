@@ -4,7 +4,7 @@ import type { ReactionMap, UserMap } from "@/lib/guilds"
 import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
-import { type ScoringConfig, SCORING_DEFAULTS, getVoterWeight, computeDynScore, weightColor, weightLabel } from "@/lib/scoring"
+import { type ScoringConfig, SCORING_DEFAULTS, getVoterTier, getVoterWeight, computeDynScore, weightColor, weightLabel } from "@/lib/scoring"
 import {
   Table,
   TableHeader,
@@ -32,20 +32,30 @@ function displayName(userID: string, users: UserMap): string {
 function NumInput({
   label,
   value,
+  step = 1,
   onChange,
 }: {
   label: string
   value: number
+  step?: number | "any"
   onChange: (v: number) => void
 }) {
+  const [raw, setRaw] = useState(String(value))
+
   return (
     <div className="flex flex-col gap-1">
       <span className="text-[10px] text-muted-foreground whitespace-nowrap">{label}</span>
       <Input
         type="number"
         min={0}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
+        step={step}
+        value={raw}
+        onChange={(e) => setRaw(e.target.value)}
+        onBlur={() => {
+          const n = parseFloat(raw)
+          if (!isNaN(n)) { onChange(n) }
+          else { setRaw(String(value)) }
+        }}
         className="h-7 w-16 text-xs px-2"
       />
     </div>
@@ -165,12 +175,15 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
     return counts
   }, [guilds, reactions, disabledBlacklist])
 
-  const weights = useMemo(() => {
-    const map = new Map<string, number>()
+  const { weights, tiers } = useMemo(() => {
+    const weights = new Map<string, number>()
+    const tiers = new Map<string, number>()
     for (const [voter, count] of voterCounts) {
-      map.set(voter, getVoterWeight(count, cfg))
+      const tier = getVoterTier(count, cfg)
+      tiers.set(voter, tier)
+      weights.set(voter, getVoterWeight(count, cfg))
     }
-    return map
+    return { weights, tiers }
   }, [voterCounts, cfg])
 
   const voterLeaderboard = useMemo(() => {
@@ -179,10 +192,11 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
       threads,
       reactions: totalReactions.get(uid) ?? 0,
       weight: weights.get(uid) ?? 0,
+      tier: tiers.get(uid) ?? 0,
     }))
     all.sort((a, b) => b.threads - a.threads || b.reactions - a.reactions)
     return all
-  }, [voterCounts, totalReactions, weights])
+  }, [voterCounts, totalReactions, weights, tiers])
 
   const ranked = useMemo(() => {
     const withScore = guilds.map((g) => {
@@ -225,10 +239,10 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
               Emoji weights
             </p>
             <div className="flex gap-3 flex-wrap">
-              <NumInput label="⭐ pts" value={cfg.starScore} onChange={(v) => set("starScore", v)} />
-              <NumInput label="👍/🔥/❤️ pts" value={cfg.likeScore} onChange={(v) => set("likeScore", v)} />
-              <NumInput label="Lore bonus" value={cfg.loreBonus} onChange={(v) => set("loreBonus", v)} />
-              <NumInput label="Visit bonus" value={cfg.visitBonus} onChange={(v) => set("visitBonus", v)} />
+              <NumInput label="⭐ pts" value={cfg.starScore} step={0.1} onChange={(v) => set("starScore", v)} />
+              <NumInput label="👍/🔥/❤️ pts" value={cfg.likeScore} step={0.1} onChange={(v) => set("likeScore", v)} />
+              <NumInput label="Lore bonus" value={cfg.loreBonus} step={0.1} onChange={(v) => set("loreBonus", v)} />
+              <NumInput label="Visit bonus" value={cfg.visitBonus} step={0.1} onChange={(v) => set("visitBonus", v)} />
             </div>
           </div>
           <div className="space-y-2">
@@ -236,21 +250,22 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
               Voter weight thresholds (distinct threads reacted to)
             </p>
             <div className="flex gap-3 flex-wrap">
-              <NumInput
-                label="Critic ×3 ≥"
-                value={cfg.criticThreshold}
-                onChange={(v) => set("criticThreshold", v)}
-              />
-              <NumInput
-                label="×2 ≥"
-                value={cfg.weight2Threshold}
-                onChange={(v) => set("weight2Threshold", v)}
-              />
-              <NumInput
-                label="×1 ≥"
-                value={cfg.weight1Threshold}
-                onChange={(v) => set("weight1Threshold", v)}
-              />
+              <NumInput label="×4 ≥" value={cfg.weight4Threshold} onChange={(v) => set("weight4Threshold", v)} />
+              <NumInput label="×3 ≥" value={cfg.criticThreshold} onChange={(v) => set("criticThreshold", v)} />
+              <NumInput label="×2 ≥" value={cfg.weight2Threshold} onChange={(v) => set("weight2Threshold", v)} />
+              <NumInput label="×1 ≥" value={cfg.weight1Threshold} onChange={(v) => set("weight1Threshold", v)} />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
+              Weight values per tier
+            </p>
+            <div className="flex gap-3 flex-wrap">
+              <NumInput label="Tier 4 wt" value={cfg.w4} step="any" onChange={(v) => set("w4", v)} />
+              <NumInput label="Tier 3 wt" value={cfg.w3} step="any" onChange={(v) => set("w3", v)} />
+              <NumInput label="Tier 2 wt" value={cfg.w2} step="any" onChange={(v) => set("w2", v)} />
+              <NumInput label="Tier 1 wt" value={cfg.w1} step="any" onChange={(v) => set("w1", v)} />
+              <NumInput label="Tier 0 wt" value={cfg.w0} step="any" onChange={(v) => set("w0", v)} />
             </div>
           </div>
         </div>
@@ -291,15 +306,15 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
         </div>
         <div className="flex gap-2 flex-wrap items-center">
           <span className="text-[10px] text-muted-foreground">Voter legend:</span>
-          {[3, 2, 1, 0].map((w) => (
+          {([4, 3, 2, 1, 0] as const).map((tier) => (
             <span
-              key={w}
+              key={tier}
               className={cn(
                 "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-medium",
-                weightColor(w)
+                weightColor(tier)
               )}
             >
-              {weightLabel(w)}
+              {weightLabel(tier, cfg[`w${tier}`])}
             </span>
           ))}
           <span className="text-[10px] text-muted-foreground ml-2">
@@ -380,8 +395,8 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                       <td className="py-1 pr-4 text-right font-mono">{v.threads}</td>
                       <td className="py-1 pr-4 text-right font-mono text-muted-foreground">{v.reactions}</td>
                       <td className="py-1">
-                        <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium", weightColor(v.weight))}>
-                          {weightLabel(v.weight)}
+                        <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium", weightColor(v.tier))}>
+                          {weightLabel(v.tier, v.weight)}
                         </span>
                       </td>
                     </tr>
@@ -518,6 +533,7 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                               <div className="flex flex-wrap gap-1">
                                 {voters.map((voter) => {
                                   const w = weights.get(voter) ?? 0
+                                  const t = tiers.get(voter) ?? 0
                                   const name = displayName(voter, users)
                                   const highlight =
                                     filterVoter.trim() &&
@@ -529,7 +545,7 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                                       title={`${name} (${voter}) — ${voterCounts.get(voter) ?? 0} distinct threads, weight ×${w}`}
                                       className={cn(
                                         "inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium cursor-pointer",
-                                        weightColor(w),
+                                        weightColor(t),
                                         highlight && "ring-2 ring-primary"
                                       )}
                                     >
