@@ -24,7 +24,6 @@ var appreciationScore = map[string]int{
 	"b": 0, "B": 0,
 }
 
-
 func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	var guildName string
 	if guild, err := s.Guild(i.GuildID); err == nil {
@@ -464,10 +463,10 @@ func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 func BuildWelcomeMessage(name string) string {
 	return "**Welcome to [Where Builders Meet](<https://www.wherebuildersmeet.com?utm_source=discord&utm_medium=welcome>), " + name + "!** :wave:\n\n" +
 		"**New to building?** Browse [tutorials & videos](<https://www.wherebuildersmeet.com/media/?utm_source=discord&utm_medium=welcome>), check out <#1483483683456286911> to ask questions and <#1483447711499030634> for ideas.\n" +
+		"**[Want to vote?](<https://www.wherebuildersmeet.com/contribute/?role=voter&utm_source=discord&utm_medium=welcome>)** Read the [voting guide](<https://www.wherebuildersmeet.com/how-it-works/?utm_source=discord&utm_medium=welcome>) before you start. Fair voting keeps the rankings honest and this project alive — explore many guilds and rate each one honestly. Your votes carry more weight the more builds you've visited.\n" +
 		"**Builder?** Check the [Contribute page](<https://www.wherebuildersmeet.com/contribute/?role=builder&utm_source=discord&utm_medium=welcome>) to see your construction on the website and in <#1483455027250200639> or <#1483489266947461321>.\n" +
 		"\tUse `/submit-guild` or `/submit-solo` — the bot sends you a ready-to-paste template via DM. Your build appears on next sync.\n" +
 		"**[Explorer?](<https://www.wherebuildersmeet.com/contribute/?role=scout&utm_source=discord&utm_medium=welcome>)** Use `/scout-guild` to report impressive bases you've found in <#1490051558237405254>.\n" +
-		"**[Voter?](<https://www.wherebuildersmeet.com/contribute/?role=voter&utm_source=discord&utm_medium=welcome>)** React to showcase threads: ⭐ = 2 pts, 👍 🔥 ❤️ = 1 pt each. Votes shape the public rankings.\n" +
 		"Looking something to build in your base you cannot do? ask in <#1486701728551407796>\n" +
 		"Questions? Ask in the chats or ping a moderator. Happy Building!"
 }
