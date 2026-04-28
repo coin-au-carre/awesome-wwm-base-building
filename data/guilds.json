@@ -1,5 +1,100 @@
 [
 	{
+		"name": "GhostCity",
+		"builders": [
+			"frostedvibes"
+		],
+		"tags": [
+			"Fun",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "A city with ghosts",
+		"score": 0,
+		"lastModified": "April 28, 2026 at 11:27 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "Orchid",
+		"builders": [
+			"Sprouto"
+		],
+		"tags": [
+			"Snow",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Event Area",
+		"score": 2,
+		"lastModified": "April 28, 2026 at 11:20 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "MoonlitCafe",
+		"builders": [
+			"奶茶milktea",
+			"Envea"
+		],
+		"tags": [
+			"Zen"
+		],
+		"discordThread": "",
+		"whatToVisit": "Fashion hall\nClassy build",
+		"score": 0,
+		"lastModified": "April 28, 2026 at 11:14 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "AmeNoCapy(SEA)",
+		"builders": [
+			"Inoriyu",
+			"CutesyCapy"
+		],
+		"tags": [
+			"Creative",
+			"Fun",
+			"Cute"
+		],
+		"discordThread": "",
+		"whatToVisit": "Capy capy bara",
+		"score": 0,
+		"lastModified": "April 28, 2026 at 11:07 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "Oh-ho",
+		"builders": [
+			"ChadJinWoo",
+			"Xiaolongnul"
+		],
+		"tags": [
+			"Creative",
+			"Floating Island"
+		],
+		"discordThread": "",
+		"whatToVisit": "Look up the sky",
+		"score": 0,
+		"lastModified": "April 28, 2026 at 11:03 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "SnowCastle",
+		"builders": [
+			"Rislea",
+			"Senèk",
+			"Teledon"
+		],
+		"tags": [
+			"River",
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "The river",
+		"score": 2,
+		"lastModified": "April 28, 2026 at 10:52 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "UNKNOWN火",
 		"builders": [
 			"Xyria",
