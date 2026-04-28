@@ -54,6 +54,16 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
 - **Astro 5 + shadcn/ui + Tailwind 4** — static website (`web/`)
 - **GitHub Actions** — `sync.yml` (data) + `deploy.yml` (site)
 
+### Sync thread-matching rules (`internal/discord/sync.go SyncFetch`)
+
+| Situation | Result |
+|---|---|
+| Same name + same `discordThread` URL | Skip (already known) |
+| Same name + different `discordThread` URL | Conflict warning to #dev, skip |
+| Different name + same `discordThread` URL | **Rename**: update name in place, preserve `createdAt`, notify #dev |
+| Same name + stored entry has no `discordThread` (placeholder) | **New guild**: append fresh entry, delete placeholder, set `createdAt` from thread |
+| No existing entry | **New guild**: same as above |
+
 ## Project Structure
 
 ```
