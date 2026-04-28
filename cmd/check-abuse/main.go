@@ -19,6 +19,7 @@ func main() {
 	root          := flag.String("root", cmdutil.RootDir(), "root directory containing data/")
 	minThreads    := flag.Int("min-threads", 4, "minimum guilds voted on before a voter can be flagged (matches weight ×1 threshold)")
 	minOtherHigh  := flag.Int("min-other-high", 1, "min other guilds that must also have ≥4 pts for the voter to be considered legitimate")
+	hide          := flag.Bool("hide", false, "redact user IDs and guild names from output (safe to share publicly)")
 	flag.Parse()
 
 	reactions, err := guild.LoadReactions(*root)
@@ -92,14 +93,21 @@ func main() {
 		if s.Threads > 1 {
 			avgOther = float64(s.TotalRawPts-s.TopRawPts) / float64(s.Threads-1)
 		}
+		name := displayName(s.UserID, users)
+		guildName := s.TopGuildName
+		uid := s.UserID
+		if *hide {
+			name = "[hidden]"
+			uid = "[hidden]"
+		}
 		fmt.Printf("  %-30s  top: %-30s  %dpts → capped %dpts  (avg others: %.1f pts, %d guilds)  ID: %s%s\n",
-			displayName(s.UserID, users),
-			s.TopGuildName,
+			name,
+			guildName,
 			s.TopRawPts,
 			s.Cap,
 			avgOther,
 			s.Threads,
-			s.UserID,
+			uid,
 			blacklisted,
 		)
 	}
