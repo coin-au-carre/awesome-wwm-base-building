@@ -19,6 +19,7 @@ NOTES.md
 /sync
 /purge-commands
 /tutorial
+/check-abuse
 
 web/.astro/
 web/dist/

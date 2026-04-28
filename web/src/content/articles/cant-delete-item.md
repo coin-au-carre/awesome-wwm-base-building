@@ -5,6 +5,7 @@ tags: ["beginner", "troubleshooting", "guild"]
 authors: ["Veneslash", "alscend", "Diana", "Ahlyam"]
 date: 2026-04-13
 order: 2
+image: "/tutorials/cant-delete-item.jpg"
 ---
 
 Sometimes an item refuses to highlight when you hover over it, making it impossible to delete or recycle. There are two known causes.
@@ -25,6 +26,9 @@ The pen/inkstone (Miscellaneous category, first row) is a confirmed example — 
 
 ## Fix 2. Use the underground camera angle
 
+
+<img src="/tutorials/cant-delete-item.jpg" alt="Camera angled upward from below the map to highlight a sunken item" style="border-radius: 0.75rem; width: 100%;" />
+
 For items that still won't highlight regardless of client, the hitbox may only be reachable from below. This works for small objects placed flush with or sunken into the ground (flowers, pots, etc.).
 
 **Steps:**
@@ -34,6 +38,7 @@ For items that still won't highlight regardless of client, the hitbox may only b
 3. Slowly angle the camera **upward** so you are looking at the item from beneath the map.
 4. Inch forward until the item highlights.
 5. Delete or recycle it as normal.
+
 
 <div style="background: hsl(var(--muted)); border-left: 3px solid hsl(var(--primary)); border-radius: 0.5rem; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem;">
   <strong>Tip:</strong> the camera will try to snap back above the map — keep nudging it down and forward until you find the sweet spot where the highlight appears.

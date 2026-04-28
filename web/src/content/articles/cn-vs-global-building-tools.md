@@ -7,6 +7,7 @@ date: 2026-04-17
 order: 4
 featured: false
 featuredLabel: "Featured Video"
+image: "https://img.youtube.com/vi/HqqSh6cTbdU/maxresdefault.jpg"
 ---
 
 Video by **carnii** comparing the building experience between the Chinese (CN) and Global versions of Where Winds Meet. Eight features that CN builders already have.
