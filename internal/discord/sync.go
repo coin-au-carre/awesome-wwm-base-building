@@ -75,6 +75,24 @@ type SyncFetchResult struct {
 
 // SyncFetch collects threads, fetches content and reactions, and returns raw results.
 // Call SyncFinalize with per-channel voter weights and a voter blacklist to complete scoring.
+//
+// Thread-matching logic (run once per Discord thread found in the forum):
+//
+//  1. Same name, same discordThread URL → already known, skip silently.
+//
+//  2. Same name, different discordThread URL (both non-empty) → conflict warning sent to
+//     #dev; thread skipped. Likely a re-created thread for the same guild.
+//
+//  3. Different name, same discordThread URL → the guild was renamed in Discord.
+//     The stored entry's name is updated in place; createdAt and all other fields are
+//     preserved. An info notice is sent to #dev. No new entry is appended.
+//
+//  4. Same name, stored entry has no discordThread (placeholder) → treat as a brand-new
+//     guild. A fresh entry is appended so it surfaces in "Recently added". The placeholder
+//     is deleted from the guilds slice (it has no thread and would otherwise become an
+//     orphan). createdAt is set from the thread's first post timestamp.
+//
+//  5. No existing entry → new guild, same handling as case 4.
 func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, error) {
 	forumChannel, err := b.Session.Channel(cfg.ForumChannelID)
 	if err != nil {
@@ -106,6 +124,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		}
 	}
 	newIndices := make(map[int]bool)
+	placeholderIndices := make(map[int]bool) // placeholder entries superseded by a real thread
 
 	for _, thread := range threads {
 		name, threadID := guild.ExtractNameAndID(thread.Name)
@@ -132,7 +151,8 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		// (manually added placeholder — a fresh Discord thread is a distinct new guild).
 
 		// Check if this thread URL already belongs to a guild stored under a different name
-		// (the guild was renamed in Discord). Reuse the existing entry and update its name.
+		// (the guild was renamed in Discord). Update the name in place and move on — no new
+		// entry, no reactions, createdAt unchanged.
 		if !exists {
 			if urlIdx, urlMatch := threadURLToIdx[newThreadLink]; urlMatch {
 				oldName := guilds[urlIdx].Name
@@ -145,8 +165,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 				delete(guildMap, strings.ToLower(guild.ExtractName(oldName)))
 				guilds[urlIdx].Name = name
 				guildMap[key] = urlIdx
-				exists = true
-				existingIdx = urlIdx
+				continue
 			}
 		}
 
@@ -165,18 +184,17 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			}
 		}
 
-		var idx int
+		// New guild or placeholder with the same name: always append a fresh entry.
 		if exists {
-			// Placeholder or renamed guild matched a real thread: reuse the existing entry so
-			// manually-set fields (lore, whatToVisit, etc.) are preserved and no duplicate is created.
-			idx = existingIdx
-			slog.Info("existing guild matched to thread", "name", name, "thread", thread.Name)
+			// Mark the placeholder for removal — it is superseded by the real thread.
+			placeholderIndices[existingIdx] = true
+			slog.Info("new thread for placeholder guild", "name", name, "thread", thread.Name)
 		} else {
-			idx = len(guilds)
-			guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
-			guildMap[key] = len(guilds) - 1
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
+		idx := len(guilds)
+		guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
+		guildMap[key] = len(guilds) - 1
 		newIndices[idx] = true
 		partialStats.New++
 		partialStats.NewNames = append(partialStats.NewNames, name)
@@ -186,6 +204,24 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 				slog.Warn("adding reaction to new thread", "thread", name, "emoji", emoji, "err", err)
 			}
 		}
+	}
+
+	// Remove placeholder entries that were superseded by real Discord threads.
+	if len(placeholderIndices) > 0 {
+		filtered := make([]guild.Guild, 0, len(guilds)-len(placeholderIndices))
+		indexRemap := make(map[int]int, len(guilds))
+		for oldIdx, g := range guilds {
+			if !placeholderIndices[oldIdx] {
+				indexRemap[oldIdx] = len(filtered)
+				filtered = append(filtered, g)
+			}
+		}
+		remapped := make(map[int]bool, len(newIndices))
+		for oldIdx := range newIndices {
+			remapped[indexRemap[oldIdx]] = true
+		}
+		guilds = filtered
+		newIndices = remapped
 	}
 
 	type contentWork struct {
