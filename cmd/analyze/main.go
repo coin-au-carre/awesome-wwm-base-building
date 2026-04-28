@@ -117,7 +117,7 @@ func writeHTML(path string, records []discord.VoteRecord) error {
 	weightDist := make(map[int]int)
 	for _, r := range records {
 		totalVoters[r.UserID] = true
-		weightDist[r.Weight]++
+		weightDist[int(r.Weight)]++
 	}
 
 	guildVoterCounts := make(map[string]map[string]bool)

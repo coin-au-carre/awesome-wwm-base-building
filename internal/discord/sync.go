@@ -264,7 +264,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 // SyncFinalize scores all fetched threads using the provided voter weights
 // and returns the final guild list, per-thread reactions (threadID → emoji → []userID), and stats.
 // Voters in blacklist are excluded from scoring and reaction output.
-func SyncFinalize(result SyncFetchResult, voterWeights map[string]int, blacklist map[string]bool) ([]guild.Guild, guild.ReactionMap, SyncStats) {
+func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, blacklist map[string]bool) ([]guild.Guild, guild.ReactionMap, SyncStats) {
 	slog.Info("voter weights applied", "voters", len(voterWeights), "blacklisted", len(blacklist))
 
 	guilds := result.Guilds
