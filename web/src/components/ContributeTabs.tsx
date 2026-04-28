@@ -182,7 +182,7 @@ return (
               type="button"
               onClick={() => select(role.id)}
               className={cn(
-                "group flex flex-col gap-2 rounded-xl border p-4 text-left transition-all focus:outline-none focus:ring-2 focus:ring-primary",
+                "group flex flex-col gap-2 rounded-xl border p-4 text-left transition-all focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer",
                 isSelected
                   ? role.cardAccent + " ring-1"
                   : "border-border bg-card hover:bg-muted/50",

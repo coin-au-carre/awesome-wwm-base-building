@@ -38,6 +38,13 @@ const guides = entries
     authors: e.data.authors ?? [],
     image: e.data.image ?? null,
   }))
+
+const allAuthors = [...new Set(guides.flatMap((g) => g.authors))]
+const authorPaths: Record<string, string> = {}
+for (const name of allAuthors) {
+  const path = getBuilderSearchPath(name)
+  if (path) { authorPaths[name] = path }
+}
 ---
 
 <Layout
@@ -70,6 +77,6 @@ const guides = entries
       </p>
     </div>
 
-    <TutorialsFilter client:load guides={guides} newestSlug={newestSlug} TAG_CONFIG={TAG_CONFIG} />
+    <TutorialsFilter client:load guides={guides} newestSlug={newestSlug} TAG_CONFIG={TAG_CONFIG} authorPaths={authorPaths} />
   </div>
 </Layout>
