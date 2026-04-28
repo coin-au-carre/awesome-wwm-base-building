@@ -97,6 +97,14 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	var partialStats SyncStats
 	partialStats.NewThreadLinks = make(map[string]string)
 	guildMap := buildGuildMap(guilds)
+
+	// Reverse map: discordThread URL → guild index, used to detect renames.
+	threadURLToIdx := make(map[string]int, len(guilds))
+	for i, g := range guilds {
+		if g.DiscordThread != "" {
+			threadURLToIdx[g.DiscordThread] = i
+		}
+	}
 	newIndices := make(map[int]bool)
 
 	for _, thread := range threads {
@@ -123,25 +131,46 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		// Treat as new when: no existing entry, OR existing entry has an empty discordThread
 		// (manually added placeholder — a fresh Discord thread is a distinct new guild).
 
-		// Check for similar existing guild names before adding.
-		for _, existing := range guilds {
-			existingName := guild.ExtractName(existing.Name)
-			if similarGuildName(name, existingName) {
+		// Check if this thread URL already belongs to a guild stored under a different name
+		// (the guild was renamed in Discord). Reuse the existing entry and update its name.
+		if !exists {
+			if urlIdx, urlMatch := threadURLToIdx[newThreadLink]; urlMatch {
+				oldName := guilds[urlIdx].Name
+				slog.Info("guild renamed", "old", oldName, "new", name)
 				warning := fmt.Sprintf(
-					"⚠️ **Possible duplicate guild detected:**\n• New: **%s** → %s\n• Existing: **%s** → %s",
-					name, newThreadLink, existingName, existing.DiscordThread,
+					"ℹ️ **Guild renamed:** **%s** → **%s**\n%s",
+					oldName, name, newThreadLink,
 				)
-				slog.Warn("possible duplicate guild", "new", name, "existing", existingName)
 				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+				delete(guildMap, strings.ToLower(guild.ExtractName(oldName)))
+				guilds[urlIdx].Name = name
+				guildMap[key] = urlIdx
+				exists = true
+				existingIdx = urlIdx
+			}
+		}
+
+		// Check for similar existing guild names before adding.
+		if !exists {
+			for _, existing := range guilds {
+				existingName := guild.ExtractName(existing.Name)
+				if similarGuildName(name, existingName) {
+					warning := fmt.Sprintf(
+						"⚠️ **Possible duplicate guild detected:**\n• New: **%s** → %s\n• Existing: **%s** → %s",
+						name, newThreadLink, existingName, existing.DiscordThread,
+					)
+					slog.Warn("possible duplicate guild", "new", name, "existing", existingName)
+					partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+				}
 			}
 		}
 
 		var idx int
 		if exists {
-			// Placeholder matched a real thread: reuse the existing entry so manually-set
-			// fields (lore, whatToVisit, etc.) are preserved and no duplicate is created.
+			// Placeholder or renamed guild matched a real thread: reuse the existing entry so
+			// manually-set fields (lore, whatToVisit, etc.) are preserved and no duplicate is created.
 			idx = existingIdx
-			slog.Info("placeholder guild matched to thread", "name", name, "thread", thread.Name)
+			slog.Info("existing guild matched to thread", "name", name, "thread", thread.Name)
 		} else {
 			idx = len(guilds)
 			guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
