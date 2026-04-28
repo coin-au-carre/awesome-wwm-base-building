@@ -264,8 +264,8 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 // SyncFinalize scores all fetched threads using the provided voter weights
 // and returns the final guild list, per-thread reactions (threadID → emoji → []userID), and stats.
 // Voters in blacklist are excluded from scoring and reaction output.
-func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, blacklist map[string]bool) ([]guild.Guild, guild.ReactionMap, SyncStats) {
-	slog.Info("voter weights applied", "voters", len(voterWeights), "blacklisted", len(blacklist))
+func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, blacklist, whitelist map[string]bool) ([]guild.Guild, guild.ReactionMap, SyncStats) {
+	slog.Info("voter weights applied", "voters", len(voterWeights), "blacklisted", len(blacklist), "whitelisted", len(whitelist))
 
 	guilds := result.Guilds
 	stats := result.Stats
@@ -282,6 +282,11 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		guildNameByThreadID[r.thread.ID] = name
 	}
 	abuseCaps := buildAbuseCaps(detectVoterAbuse(result.threads, guildNameByThreadID))
+	for _, caps := range abuseCaps {
+		for uid := range whitelist {
+			delete(caps, uid)
+		}
+	}
 
 	for _, r := range result.threads {
 		data := r.data

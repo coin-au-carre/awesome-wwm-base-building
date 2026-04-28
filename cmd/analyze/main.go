@@ -186,7 +186,7 @@ func writeHTML(path string, records []discord.VoteRecord) error {
 	wl(`<tbody>`)
 
 	for _, r := range records {
-		weightClass := fmt.Sprintf("w%d", r.Weight)
+		weightClass := fmt.Sprintf("w%g", r.Weight)
 		emojiLabels := make([]string, len(r.Emojis))
 		for i, e := range r.Emojis {
 			emojiLabels[i] = discord.EmojiLabel(e)
@@ -194,7 +194,7 @@ func writeHTML(path string, records []discord.VoteRecord) error {
 		slices.Sort(emojiLabels)
 		emojiStr := strings.Join(emojiLabels, ", ")
 
-		fmt.Fprintf(f, `<tr data-guild="%s" data-user="%s" data-weight="%d">`,
+		fmt.Fprintf(f, `<tr data-guild="%s" data-user="%s" data-weight="%g">`,
 			html.EscapeString(strings.ToLower(r.GuildName)),
 			html.EscapeString(strings.ToLower(r.Username)),
 			r.Weight,
@@ -203,8 +203,8 @@ func writeHTML(path string, records []discord.VoteRecord) error {
 		fmt.Fprintf(f, `<td>%s</td>`, html.EscapeString(r.Username))
 		fmt.Fprintf(f, `<td>%s</td>`, html.EscapeString(emojiStr))
 		fmt.Fprintf(f, `<td class="num">%d</td>`, r.ThreadsVoted)
-		fmt.Fprintf(f, `<td class="num %s">%d</td>`, weightClass, r.Weight)
-		fmt.Fprintf(f, `<td class="num">%d</td>`, r.Points)
+		fmt.Fprintf(f, `<td class="num %s">%g</td>`, weightClass, r.Weight)
+		fmt.Fprintf(f, `<td class="num">%g</td>`, r.Points)
 		wl(`</tr>`)
 	}
 

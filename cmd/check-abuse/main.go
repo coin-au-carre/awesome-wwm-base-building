@@ -41,6 +41,11 @@ func main() {
 		slog.Warn("could not load voter_blacklist.json", "err", err)
 	}
 
+	whitelist, err := guild.LoadVoterBlacklist(filepath.Join(*root, "data", "voter_whitelist.json"))
+	if err != nil {
+		slog.Warn("could not load voter_whitelist.json", "err", err)
+	}
+
 	guilds, _ := guild.LoadFile(filepath.Join(*root, "data", "guilds.json"))
 	guildNameByThreadID := buildNameMap(guilds)
 
@@ -56,6 +61,9 @@ func main() {
 
 	var suspects []discord.VoterStats
 	for _, s := range all {
+		if whitelist[s.UserID] {
+			continue
+		}
 		if s.Threads >= *minThreads &&
 			s.TopRawPts >= 4 &&
 			s.HighScoreOthers < *minOtherHigh {
