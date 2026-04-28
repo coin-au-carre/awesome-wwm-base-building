@@ -5,7 +5,7 @@ tags: ["cn"]
 authors: ["carnii"]
 date: 2026-04-17
 order: 4
-featured: false
+featured: true
 featuredLabel: "Featured Video"
 image: "https://img.youtube.com/vi/HqqSh6cTbdU/maxresdefault.jpg"
 ---

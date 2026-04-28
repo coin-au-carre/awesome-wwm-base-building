@@ -331,7 +331,12 @@ return (
                     icon: <LayoutList className="size-4 text-amber-500 shrink-0 mt-0.5" />,
                     title: "Screenshot sections",
                     body: <>Organize screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code> (using <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">#</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">##</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">###</code>). Post the label before or after the images it describes.</>,
-                  }
+                  },
+                  {
+                    icon: <Sparkles className="size-4 text-sky-500 shrink-0 mt-0.5" />,
+                    title: "Want more votes?",
+                    body: "Update your guild's screenshots or videos. This triggers an announcement in the general chat that re-exposes your base to the community and encourages members to visit.",
+                  },
                 ].map(({ icon, title, body }) => (
                   <div key={title} className="flex gap-3 px-4 py-3">
                     {icon}
