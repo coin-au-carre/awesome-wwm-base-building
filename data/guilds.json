@@ -149,7 +149,8 @@
 		"name": "Syntax",
 		"builders": [
 			"ntye",
-			"Shenyue"
+			"Shenyue",
+			"Saltedfishy"
 		],
 		"tags": [
 			"Creative",
@@ -327,17 +328,20 @@
 	},
 	{
 		"name": "LeafSide",
-		"builders": [],
+		"builders": ["Danim"],
 		"tags": [
 			"City",
-			"Creative",
-			"Cute",
-			"Zen",
 			"Nature",
-			"Snow"
+			"Snow",
+			"Zen",
+			"Creative",
+			"Military",
+			"Fun",
+			"Cute",
+			"Maze"
 		],
 		"discordThread": "",
-		"whatToVisit": "Gathering area",
+		"whatToVisit": "Gathering area, tiny person maze",
 		"score": 2,
 		"lastModified": "April 23, 2026 at 07:31 AM UTC",
 		"scoutedByDiscordId": "306349275305082880"
@@ -623,27 +627,6 @@
 		"whatToVisit": "Scenic river\nCourt of law\nAuditorium/Mic Stage\nCat-sized cat tower\nHuman-size cat tower",
 		"score": 0,
 		"lastModified": "April 19, 2026 at 06:59 PM UTC"
-	},
-	{
-		"name": "LeafSide",
-		"builders": [
-			"Danim"
-		],
-		"tags": [
-			"City",
-			"Nature",
-			"Snow",
-			"Zen",
-			"Creative",
-			"Military",
-			"Fun",
-			"Cute",
-			"Maze"
-		],
-		"discordThread": "",
-		"whatToVisit": "Tiny person maze",
-		"score": 1,
-		"lastModified": "April 19, 2026 at 07:02 PM UTC"
 	},
 	{
 		"name": "YAKUZA",
