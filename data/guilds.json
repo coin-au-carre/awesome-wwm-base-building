@@ -1,5 +1,19 @@
 [
 	{
+		"name": "Satisfaction",
+		"builders": [
+			"Sarnixi", "Oohi"
+		],
+		"tags": [
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Elevated event hall\nStone alley with green roof",
+		"score": 0,
+		"lastModified": "April 29, 2026 at 04:41 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Mystique",
 		"builders": [
 			"xJin-Mu"
