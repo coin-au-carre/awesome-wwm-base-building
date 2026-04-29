@@ -78,13 +78,13 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 Heavenly Stone
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69f29321&is=69f141a1&hm=4915c5098db897c646be156b761e447e949239dc783d4f8a90b07be8925f8c42&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69f33be1&is=69f1ea61&hm=9815259bbc94fe85d04e44d493d5fa33e9e28c8f8592a6f67907b16a25159bee&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驛 - traditional version of "postal relay station" 
 
 Used for postal relay stations/courier stations and inns.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=69f2957c&is=69f143fc&hm=b4ad50abc7e8904fc59c422b1f748ab24d4806ce174029758a5c4f0af3da3bdc&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=69f33e3c&is=69f1ecbc&hm=03f86ba74c61586e5b9af1f55ede3363e21549b0b2c6cdd11c6457955e824119&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Plaque: **妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -97,7 +97,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 **This component can only be used for medical settings, unless all of the pillars and the plaque are covered up.**
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69f29686&is=69f14506&hm=06c02dcee9c13998e20a5cfc7af4d1d750a43545210d963c6ae5bc1bd6dbfa77&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69f33f46&is=69f1edc6&hm=6aed63c937ddc13d2a3e4e32a5972660bdaf2457c1f7104503f21a7ac5aa7d17&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -106,7 +106,7 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 **This component absolutely cannot be used as anything other than for medical purposes, unless you cover up the sign.** But even if you cover up the sign, please be advised that each drawer is labeled with the names of herbs and medicine.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=69f297ef&is=69f1466f&hm=063ba0a8116c9084edf03a603961df4ee3a7e9a4306d8fae5b6e184b8e05f4db&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=69f340af&is=69f1ef2f&hm=a64b32287efb73aa1a571b2439b6e462b8983221bd35f8943d2edcdce7d83b99&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 

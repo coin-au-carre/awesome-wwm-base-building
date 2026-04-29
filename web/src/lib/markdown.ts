@@ -6,6 +6,7 @@ export function renderMarkdown(text: string): string {
       .replace(/\*(.+?)\*/g, "<em>$1</em>")
       .replace(/_(.+?)_/g, "<em>$1</em>")
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-75 transition-opacity">$1</a>')
+      .replace(/\|\|(.+?)\|\|/g, '<span class="spoiler cursor-pointer select-none rounded bg-foreground/10 px-0.5 text-transparent [&.revealed]:text-inherit transition-colors" onclick="this.classList.toggle(\'revealed\')" title="Click to reveal">$1</span>')
   const paragraphs = text.trim().split(/\n{2,}/)
   return paragraphs
     .map((block) => {
