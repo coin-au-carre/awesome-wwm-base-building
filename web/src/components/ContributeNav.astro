@@ -3,15 +3,16 @@ import { BASE } from "@/lib/url"
 const base = BASE
 
 interface Props {
-  current: "builder" | "voter" | "scout" | "dev"
+  current: "builder" | "tutorial" | "voter" | "scout" | "dev"
 }
 const { current } = Astro.props
 
 const roles = [
-  { id: "builder", label: "Builder", href: `${base}/contribute/builder` },
-  { id: "voter",   label: "Voter",   href: `${base}/contribute/voter` },
-  { id: "scout",   label: "Scout",   href: `${base}/contribute/scout` },
-  { id: "dev",     label: "Developer", href: `${base}/contribute/dev` },
+  { id: "builder",  label: "Builder",    href: `${base}/contribute/builder` },
+  { id: "tutorial", label: "Tutorial",   href: `${base}/contribute/tutorial` },
+  { id: "voter",    label: "Voter",      href: `${base}/contribute/voter` },
+  { id: "scout",    label: "Scout",      href: `${base}/contribute/scout` },
+  { id: "dev",      label: "Developer",  href: `${base}/contribute/dev` },
 ] as const
 ---
 

@@ -1,0 +1,59 @@
+---
+import Layout from "@/layouts/main.astro"
+import ContributeNav from "@/components/ContributeNav.astro"
+import { BASE } from "@/lib/url"
+
+const base = BASE
+---
+
+<Layout
+  title="Where Builders Meet | Write a tutorial"
+  description="Share building tips, answer questions, and write guides for the Where Builders Meet community."
+>
+  <div class="max-w-3xl space-y-10">
+    <ContributeNav current="tutorial" />
+
+    <div class="space-y-2">
+      <h1 class="font-heading text-2xl font-semibold">Help others build</h1>
+      <p class="text-sm text-muted-foreground">
+        Share what you know. Tips, tricks, and guides from experienced builders are some of the most valuable things in the community.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Answer questions</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Jump into <span class="font-medium text-foreground">#building-help</span> and <span class="font-medium text-foreground">#tips-and-tricks</span> on Discord. The most helpful thing you can do is share experience with builders who are stuck.
+        </p>
+      </div>
+
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Share a tip</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Post your trick in <span class="font-medium text-foreground">#tips-and-tricks</span> with a screenshot or short video. If it's solid, we'll collect it into a tutorial article on the <a href={base + "/tutorials"} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">tutorials page</a>.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <p class="text-sm font-medium text-foreground">Write a full tutorial</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Write your guide as a Discord thread in <span class="font-medium text-foreground">#tips-and-tricks</span>: text, screenshots, videos — whatever illustrates the technique best. Once posted, share the thread link with a moderator and we'll publish it directly on the tutorials page.
+        </p>
+        <div class="rounded-xl border border-border bg-muted/40 px-5 py-4 space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">How it gets published</p>
+          <ol class="space-y-1.5 text-sm text-muted-foreground list-none">
+            <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">1.</span> Write your tutorial as a Discord thread (text + images/videos).</li>
+            <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">2.</span> Share the thread link with a moderator on Discord.</li>
+            <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">3.</span> We import it and publish it on <a href={base + "/tutorials"} class="underline hover:text-foreground transition-colors">wherebuildersmeet.com/tutorials</a>.</li>
+          </ol>
+        </div>
+        <p class="text-xs text-muted-foreground">No extra formatting required. We handle the conversion.</p>
+      </div>
+    </div>
+
+    <p class="text-sm text-muted-foreground border-t border-border pt-6">
+      Any question? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Ping us on Discord.</a>
+    </p>
+  </div>
+</Layout>
