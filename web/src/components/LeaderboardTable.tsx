@@ -362,7 +362,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
 
       {!isSolos && (
         <p className="text-xs text-muted-foreground/70 italic">
-          Scores reflect Discord votes and are still a work in progress. Every guild here deserves more attention than a number can show. {" "}
+          Scores don't tell the whole story. Plenty of hidden gems await even with low score, but you'll have to earn them... {" "}
           <a href={url("/how-it-works")} className="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
         </p>
       )}
