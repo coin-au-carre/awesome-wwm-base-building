@@ -58,8 +58,8 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
         ...(g.coverImage ? [g.coverImage] : []),
         ...((g.screenshots ?? []).filter((s) => s !== g.coverImage)),
       ].filter(Boolean),
-      datePublished: g.lastModified ?? "2025-01-01",
-      dateModified: g.lastModified ?? "2025-01-01",
+      datePublished: g.createdAt ?? g.lastModified ?? "2025-01-01",
+      dateModified: g.lastModified ?? g.createdAt ?? "2025-01-01",
       url: Astro.url.href,
       keywords: schemaKeywords,
       author: g.builders?.map((name) => ({ "@type": "Person", name })) ?? [],
@@ -75,7 +75,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Where Builders Meet", item: "https://www.wherebuildersmeet.com" },
-        { "@type": "ListItem", position: 2, name: "Guild Bases", item: "https://www.wherebuildersmeet.com/guilds" },
+        { "@type": "ListItem", position: 2, name: "Guild Bases", item: Astro.url.origin },
         { "@type": "ListItem", position: 3, name: g.name, item: Astro.url.href },
       ],
     })}

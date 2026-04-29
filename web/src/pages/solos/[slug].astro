@@ -38,13 +38,26 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
         ...(g.coverImage ? [g.coverImage] : []),
         ...((g.screenshots ?? []).filter((s: string) => s !== g.coverImage)),
       ].filter(Boolean),
-      datePublished: g.lastModified ?? "2025-01-01",
-      dateModified: g.lastModified ?? "2025-01-01",
+      datePublished: g.createdAt ?? g.lastModified ?? "2025-01-01",
+      dateModified: g.lastModified ?? g.createdAt ?? "2025-01-01",
       url: Astro.url.href,
       keywords: g.tags?.join(", "),
       author: g.builders?.map((name: string) => ({ "@type": "Person", name })) ?? [],
       publisher: { "@type": "Organization", name: "Where Builders Meet", url: "https://www.wherebuildersmeet.com" },
       about: { "@type": "VideoGame", name: "Where Winds Meet" },
+    })}
+  />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Where Builders Meet", item: Astro.url.origin },
+        { "@type": "ListItem", position: 2, name: "Solo Builds", item: `${Astro.url.origin}/solo` },
+        { "@type": "ListItem", position: 3, name: g.name, item: Astro.url.href },
+      ],
     })}
   />
 

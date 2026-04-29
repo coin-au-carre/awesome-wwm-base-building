@@ -15,6 +15,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
+      filter: (page) => !page.includes("/admin/") && !/\/media\/[^/]+\/?$/.test(page),
       serialize(item) {
         const url = item.url
         if (/\/(guilds|solos)\/[^/]+\/?$/.test(url)) {
