@@ -169,9 +169,9 @@ func FormatMoreScreenshotsMessage(g guild.Guild, isSolo bool) string {
 		url = soloWebsiteURL(g, "new_screenshots")
 	}
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, url)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](<%s>)", g.DiscordThread, url)
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", url)
+		fmt.Fprintf(&sb, "🔗 [Website](<%s>)", url)
 	}
 	return sb.String()
 }
@@ -190,9 +190,9 @@ func FormatMoreVideosMessage(g guild.Guild, isSolo bool) string {
 		url = soloWebsiteURL(g, "new_videos")
 	}
 	if g.DiscordThread != "" {
-		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", g.DiscordThread, url)
+		fmt.Fprintf(&sb, "🔗 %s · [Website](<%s>)", g.DiscordThread, url)
 	} else {
-		fmt.Fprintf(&sb, "🔗 [Website](%s)", url)
+		fmt.Fprintf(&sb, "🔗 [Website](<%s>)", url)
 	}
 	return sb.String()
 }
