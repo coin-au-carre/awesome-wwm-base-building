@@ -1,5 +1,21 @@
 [
 	{
+		"name": "Mystique",
+		"builders": [
+			"xJin-Mu"
+		],
+		"tags": [
+			"Snow",
+			"Creative",
+			"Fun"
+		],
+		"discordThread": "",
+		"whatToVisit": "Christmas tree, Platform game, Dragon",
+		"score": 1,
+		"lastModified": "April 29, 2026 at 10:27 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Æther",
 		"builders": [
 			"DrUgZBuNnY"

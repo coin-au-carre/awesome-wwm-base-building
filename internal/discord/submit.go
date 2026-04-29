@@ -197,15 +197,7 @@ func buildDiscoveryMessage(explorer string, g guild.Guild) string {
 		line1 = fmt.Sprintf("🧭 **%s** — *scouted by %s*", title, explorer)
 	}
 
-	tagLine := ""
-	if len(g.Tags) > 0 {
-		tagLine = strings.Join(g.Tags, " · ")
-	}
-
 	suffix := "||"
-	if tagLine != "" {
-		suffix += "  " + tagLine
-	}
 
 	const (
 		discordMax = 2000
