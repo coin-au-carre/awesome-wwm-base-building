@@ -16,7 +16,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 日 - day
 堂 - hall
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f31d24&is=69f1cba4&hm=c6bb68ec966d1c2e7f215aa111732ab31f6c8115c498372ecd3ac36466015747&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f3c5e4&is=69f27464&hm=18071d6c363de1f9e1f85e3adc527dc4d81b9c9e206696fc4fb0a4d0ba9aa5d9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 悬 - hang
 壶 - gourd
@@ -116,35 +116,35 @@ Among a hundred thousand things, the breadth is hard to attain
 **Right:** 千機巧竅清心平
 A thousand ingenious mechanisms and openings, a clear heart, peaceful
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120233557299221/sign15.png?ex=69f2a3b1&is=69f15231&hm=1aecd5795998788bf5dbfdc118b12b3f4bcc0ca2f690f871c1b69c2213bd755e&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120233557299221/sign15.png?ex=69f34c71&is=69f1faf1&hm=1ac3a5c9a91b8db35dc52d5903638c7791b785288c4c9a495ffb8cae4420c941&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=69f2a465&is=69f152e5&hm=d7a5c8dd2c8db1809a4ca27378c437dde6e6b71b94ff5e6bcddf85abcc2f1c77&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=69f34d25&is=69f1fba5&hm=0785b665492063e0d0f7ee84919d088d30ab5a92b6511a64a725ade982ee6fff&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=69f2a485&is=69f15305&hm=d489c203c4a79d48fb892c96bec54310f3f9cd7c6a550ced67971558fb7bfef0&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=69f34d45&is=69f1fbc5&hm=b21ea88d755edbc403da2fbc13498f0c72ff4ad64bbab4102ef71881e7d8244c&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
 It is considered the most famous classical Chinese prose in Chinese calligraphy ever written by some.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=69f2a946&is=69f157c6&hm=a72e63b47a0124c1df093807adf14b026342155f82a11051dbb32854c746c072&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=69f35206&is=69f20086&hm=04fcc6a03b229a6da737b339965d6a455baac5250f97400db2a2747636d2c756&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=69f2aa5a&is=69f158da&hm=832fd228a14bce4a9252d506fa740e2079ab98a05e99ac0f5f9d80e040364c1c&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=69f3531a&is=69f2019a&hm=4829effe8cb0b293c7f593b0501e1b5b89716af4493fe84b07c35cf61e2e488a&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=69f2aa72&is=69f158f2&hm=177ba11249f146783b6077c171d050154fc513319a5f6e29f16146d6d1062464&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=69f35332&is=69f201b2&hm=1cd675afca919ad2ef55a6ee1e20c0b60191505cab2ccf9af70692705867e12f&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 玉門關 - Jade Gate Pass
 
 Can use this anywhere you want to name "Jade Gate Pass"
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=69f31c4a&is=69f1caca&hm=4c50a7833b1343b3a83c7c9252b21f8311a838671d3394fa40c4eca4e73efde4&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=69f3c50a&is=69f2738a&hm=b9e51722ed5252c5327ab514dd078dab1356f5dbd2f3f4e9985c7218e0c6c90f&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 
