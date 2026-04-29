@@ -16,7 +16,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 日 - day
 堂 - hall
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f27464&is=69f122e4&hm=fc34755f366615edbe280724f36bfc43e859c9cd96c9be58b456db78a84cf37f&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f31d24&is=69f1cba4&hm=c6bb68ec966d1c2e7f215aa111732ab31f6c8115c498372ecd3ac36466015747&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 悬 - hang
 壶 - gourd
@@ -27,7 +27,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 **Only use this for medical-related builds.**
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=69f27649&is=69f124c9&hm=81806e7a95c9f5c4c7c733c6226716cd09743876cb513e9345c994d5c5f48717&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=69f31f09&is=69f1cd89&hm=7957f72b87696d99555721cb548d693b1c4c61fa0697af65eedb6af1f08f05f9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -43,7 +43,7 @@ A loyal heart remains to illuminate written history.
 
 -# 汗青 refers to bamboo slips that were used for writing and documentation, so the literal translation would be "bamboo slips."
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f27ec8&is=69f12d48&hm=461b08f6f3c3213e7ffcb98c10bf34fe199dfa2f93f13301c92ff4fb717ce932&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f32788&is=69f1d608&hm=aaf50362894e1982226ea832a25118473dbe76c88abb1da254f18d1348681de9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family
@@ -51,13 +51,13 @@ A loyal heart remains to illuminate written history.
 
 Can only be used for steamed bun and food stalls, nothing else.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f27f04&is=69f12d84&hm=e3e7fe3a1963a3f688b351d06d785a570ca3c262010f2e9209d75c89c3d3bfe4&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f327c4&is=69f1d644&hm=4145126073dad102925189920474d5dda5d6e6d8e9c3be24cf7e6f86e079e33c&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Luck 
 
 Used for new years greetings most often.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69f29026&is=69f13ea6&hm=b6e2b04c0d89b45e7156dd598de524a75a421592b562b08909ea185c3b39a748&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69f338e6&is=69f1e766&hm=9075c36fc65793121233f61cbfbecda79d058fdfb37b708166fc22c2997129a1&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -65,13 +65,13 @@ Marvelite and I worked together on this and our best bet is: "性不去松，自
 
 Roughly translated, it means "one's character does not leave the pine (tree); it flows and illuminates itself"
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69f29111&is=69f13f91&hm=0cb30e681cb0bb08fb000c42eeedeb689f4e8f8801a20255e03dd033adeed8f2&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69f339d1&is=69f1e851&hm=d5f476a6a2ecb74ec1dfdb6059fd3823379e5c859fe17dce61c32f5824a38638&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驿 - postal (relay station)
 
 Only used for postal relay stations (courier stations) and sometimes inns
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=69f291f7&is=69f14077&hm=108aeb43d36d96d09f611be31f634315625405b185446171d85d07504ba3d759&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=69f33ab7&is=69f1e937&hm=3446de3c0270cd9ca7e5ce758a884412b663d68fc3dc3a067df3b8279f220c34&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 天 Heaven
 石 Stone
@@ -144,10 +144,10 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 Can use this anywhere you want to name "Jade Gate Pass"
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=69f2738a&is=69f1220a&hm=2d2f0cf80eec2bb0a2b58fb5c5f9f0a6a696474ee6ed66ae99dd18a557332797&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=69f31c4a&is=69f1caca&hm=4c50a7833b1343b3a83c7c9252b21f8311a838671d3394fa40c4eca4e73efde4&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 
 With surging emotion, I seize the longsword. Ferrying the world, renown calls my name. Star banners and lightning rise in multitude; the sun and feathered arrows cross the desolate sky. Ten thousand cavalry encamped at the edge of wilderness; overlooking the plain, five encampments are stationed. Ascending the mountain, the command banner directs the (martial) order. With backs to the water, divine soldiers are released. During the times of old, our spears moved. Now the universe is at peace.
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=69f27ab6&is=69f12936&hm=3c124e48c40d56cc9e2df5006ec3b9c1d284068ab70628cb4e518e6310cce691&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=69f32376&is=69f1d1f6&hm=7a52f1186740a1519f30603b7524d2eecebc31eb77f8c4806ce389f1679ad346&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />

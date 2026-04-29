@@ -222,6 +222,13 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		}
 		guilds = filtered
 		newIndices = remapped
+		for k, oldIdx := range guildMap {
+			if newIdx, ok := indexRemap[oldIdx]; ok {
+				guildMap[k] = newIdx
+			} else {
+				delete(guildMap, k)
+			}
+		}
 	}
 
 	type contentWork struct {
