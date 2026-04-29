@@ -1,0 +1,118 @@
+---
+import Layout from "@/layouts/main.astro"
+import ContributeNav from "@/components/ContributeNav.astro"
+import BuilderGuide from "@/components/BuilderGuide"
+import { BASE } from "@/lib/url"
+import { Image, LayoutList, Eye, Sparkles, Users, Layers, Bold } from "lucide-react"
+
+const base = BASE
+
+const tips = [
+  {
+    icon: Image,
+    color: "text-emerald-500",
+    title: "Cover image",
+    body: `Add <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post to pin screenshot #N as the cover. Example: <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.`,
+  },
+  {
+    icon: LayoutList,
+    color: "text-amber-500",
+    title: "Screenshot sections",
+    body: `Organize screenshots into labeled groups by posting a message starting with <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code>. Post the label before or after the images it describes.`,
+  },
+  {
+    icon: Eye,
+    color: "text-rose-400",
+    title: "Spoiler text",
+    body: `Wrap text in <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">||like this||</code> to hide it. Readers click to reveal it on the website.`,
+  },
+  {
+    icon: Bold,
+    color: "text-sky-500",
+    title: "Text formatting",
+    body: `Use <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">**bold**</code>, <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">*italic*</code>, or <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">~~strikethrough~~</code> in your lore and what-to-visit text.`,
+  },
+  {
+    icon: Sparkles,
+    color: "text-violet-500",
+    title: "Want more votes?",
+    body: "Update your screenshots or videos. This triggers an announcement in the general chat that re-exposes your base to the community.",
+  },
+  {
+    icon: Users,
+    color: "text-slate-400",
+    title: "Thread already exists?",
+    body: "Create a new one and ask a moderator to close the old one.",
+  },
+  {
+    icon: Users,
+    color: "text-slate-400",
+    title: "Not comfortable posting?",
+    body: "A moderator can post it for you.",
+  },
+  {
+    icon: Layers,
+    color: "text-blue-400",
+    title: "Multiple guilds, one builder?",
+    body: "You can submit in different threads. One guild = one thread.",
+  },
+  {
+    icon: Layers,
+    color: "text-blue-400",
+    title: "One guild, multiple builds?",
+    body: "You can post different styles even if it's the same guild. Same guild = one thread.",
+  },
+]
+---
+
+<Layout
+  title="Where Builders Meet | Submit your guild base"
+  description="How to submit your guild or solo base to the Where Builders Meet showcase."
+>
+  <div class="max-w-5xl space-y-10">
+    <ContributeNav current="builder" />
+
+    <div class="space-y-2">
+      <h1 class="font-heading text-2xl font-semibold">Submit your base</h1>
+      <p class="text-sm text-muted-foreground">
+        Three steps to get your guild or solo build on the leaderboard. Start on
+        <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">Discord ↗</a>
+      </p>
+    </div>
+
+    <BuilderGuide client:load />
+
+    <!-- Tips & formatting -->
+    <div class="space-y-5 border-t border-border pt-10">
+      <div>
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tips & formatting</h2>
+        <p class="text-sm text-muted-foreground mt-1">Everything you can do to improve your entry.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {tips.map(({ icon: Icon, color, title, body }) => (
+          <div class="rounded-xl border border-border bg-card p-4 space-y-2">
+            <div class="flex items-center gap-2">
+              <Icon size={15} className={color} />
+              <p class="text-sm font-medium text-foreground">{title}</p>
+            </div>
+            <p class="text-sm text-muted-foreground leading-relaxed" set:html={body} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Help section -->
+    <div class="space-y-2">
+      <p class="text-sm font-medium text-foreground">Help builders / Write tutorials</p>
+      <p class="text-sm text-muted-foreground">
+        Know a building trick worth sharing? Share with us or write a guide and we'll publish it on the
+        <a href={base + "/tutorials"} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">tutorials page</a>.
+      </p>
+    </div>
+
+    <p class="text-sm text-muted-foreground border-t border-border pt-6">
+      Any question? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Ping us on Discord.</a>
+    </p>
+  </div>
+</Layout>

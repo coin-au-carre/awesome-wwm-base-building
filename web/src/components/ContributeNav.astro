@@ -1,0 +1,31 @@
+---
+import { BASE } from "@/lib/url"
+const base = BASE
+
+interface Props {
+  current: "builder" | "voter" | "scout" | "dev"
+}
+const { current } = Astro.props
+
+const roles = [
+  { id: "builder", label: "Builder", href: `${base}/contribute/builder` },
+  { id: "voter",   label: "Voter",   href: `${base}/contribute/voter` },
+  { id: "scout",   label: "Scout",   href: `${base}/contribute/scout` },
+  { id: "dev",     label: "Developer", href: `${base}/contribute/dev` },
+] as const
+---
+
+<nav class="flex flex-wrap gap-1.5">
+  {roles.map((role) => (
+    <a
+      href={role.href}
+      class={
+        current === role.id
+          ? "inline-flex items-center rounded-full px-3.5 py-1 text-sm font-medium bg-foreground text-background transition-colors"
+          : "inline-flex items-center rounded-full px-3.5 py-1 text-sm font-medium border border-border text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
+      }
+    >
+      {role.label}
+    </a>
+  ))}
+</nav>

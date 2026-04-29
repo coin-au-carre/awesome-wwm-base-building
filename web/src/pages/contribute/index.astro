@@ -1,0 +1,89 @@
+---
+import Layout from "@/layouts/main.astro"
+import { BASE } from "@/lib/url"
+import { SwordIcon } from "@phosphor-icons/react"
+
+const base = BASE
+
+const roles = [
+  {
+    id: "builder",
+    href: `${base}/contribute/builder`,
+    icon: "🔨",
+    label: "I am a builder",
+    sublabel: "Submit your guild or solo base. Help fellow builders and write tutorials.",
+    badge: "Builder",
+    accent: "hover:border-blue-500/40 hover:bg-blue-500/5",
+    badgeColor: "text-blue-500",
+  },
+  {
+    id: "voter",
+    href: `${base}/contribute/voter`,
+    icon: "⭐",
+    label: "I explore and review builds",
+    sublabel: "Vote, leave feedback, and shape the rankings.",
+    badge: "Critic & Trusted Eye",
+    accent: "hover:border-violet-500/40 hover:bg-violet-500/5",
+    badgeColor: "text-violet-500",
+  },
+  {
+    id: "scout",
+    href: `${base}/contribute/scout`,
+    icon: "🗺️",
+    label: "I love scouting guild bases",
+    sublabel: "Discover and share impressive bases.",
+    badge: "Guild Cartographer",
+    accent: "hover:border-amber-500/40 hover:bg-amber-500/5",
+    badgeColor: "text-amber-500",
+  },
+  {
+    id: "dev",
+    href: `${base}/contribute/dev`,
+    icon: "💻",
+    label: "I am a developer",
+    sublabel: "Contribute or use the open source project.",
+    badge: "Developer",
+    accent: "hover:border-slate-500/40 hover:bg-slate-500/5",
+    badgeColor: "text-slate-500",
+  },
+] as const
+---
+
+<Layout
+  title="Where Builders Meet | How to contribute"
+  description="Contribute to the showcase — as a builder, voter, scout, or developer."
+>
+  <div class="max-w-3xl space-y-8">
+    <div class="space-y-2">
+      <h1 class="font-heading text-2xl font-semibold flex items-center gap-2">
+        <SwordIcon weight="duotone" className="size-6 text-primary" /> Contribute
+      </h1>
+      <p class="text-muted-foreground text-sm">
+        Every builder, explorer, voter, and developer helps the community grow.
+        Get started on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">Discord ↗</a>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {roles.map((role) => (
+        <a
+          href={role.href}
+          class={`group flex flex-col gap-3 rounded-xl border border-border bg-card p-4 transition-all ${role.accent}`}
+          data-umami-event="contribute_role_card_click"
+          data-umami-event-role={role.id}
+        >
+          <span class="text-2xl">{role.icon}</span>
+          <div class="space-y-1 flex-1">
+            <p class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{role.label}</p>
+            <p class="text-xs text-muted-foreground leading-snug">{role.sublabel}</p>
+          </div>
+          <span class={`text-xs font-medium ${role.badgeColor}`}>{role.badge} →</span>
+        </a>
+      ))}
+    </div>
+
+    <p class="text-sm text-muted-foreground">
+      Any question? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Ping us on Discord.</a>
+    </p>
+  </div>
+</Layout>
