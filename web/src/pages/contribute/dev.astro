@@ -1,0 +1,58 @@
+---
+import Layout from "@/layouts/main.astro"
+import ContributeNav from "@/components/ContributeNav.astro"
+import { url } from "@/lib/url"
+---
+
+<Layout
+  title="Where Builders Meet | Developer guide"
+  description="Contribute to or build on top of the open source Where Builders Meet project."
+>
+  <div class="max-w-3xl space-y-10">
+    <ContributeNav current="dev" />
+
+    <div class="space-y-2">
+      <h1 class="font-heading text-2xl font-semibold">Developer</h1>
+      <p class="text-sm text-muted-foreground">
+        Open source. Contributions welcome.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Contribute to the project</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          The project is open source. Chat with us on Discord, open an issue, or submit a pull request.
+        </p>
+      </div>
+
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Use our data</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Ping us on Discord if you want to reuse our data — we'll be glad to help and can offer an API. You can use the data freely as long as you credit the website and community.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Example: wwmchill guild page</p>
+        <a
+          href={url("/images/wwmchill_api.png")}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group block w-64 overflow-hidden rounded-xl ring-1 ring-border hover:ring-primary transition-all"
+        >
+          <img
+            src={url("/images/wwmchill_api.png")}
+            alt="wwmchill — example integration of WBM guild data"
+            class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+          />
+        </a>
+        <p class="text-xs text-muted-foreground">A guild website using WBM data — by <span class="text-foreground font-medium">hugnw</span></p>
+      </div>
+    </div>
+
+    <p class="text-sm text-muted-foreground border-t border-border pt-6">
+      Any question? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Ping us on Discord.</a>
+    </p>
+  </div>
+</Layout>

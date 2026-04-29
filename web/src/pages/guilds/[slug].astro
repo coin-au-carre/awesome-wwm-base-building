@@ -37,7 +37,7 @@ const fallbackDesc = [
   tagsStr ? ` (${tagsStr})` : "",
   ". Community-voted showcase on Where Builders Meet.",
 ].join("")
-const pageDesc = g.lore ? (g.lore.length < 80 ? `${g.lore.slice(0, 157)}… ${guildDisplayName} guild base in Where Winds Meet.` : g.lore.slice(0, 160)) : fallbackDesc
+const pageDesc = g.lore ? (g.lore.length < 80 ? `${g.lore.slice(0, 157)}…` : g.lore.slice(0, 160)) : fallbackDesc
 const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base building", ...(g.tags ?? [])].join(", ")
 ---
 

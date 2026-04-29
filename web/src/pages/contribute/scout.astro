@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/main.astro"
+import ContributeNav from "@/components/ContributeNav.astro"
+---
+
+<Layout
+  title="Where Builders Meet | Scout guide"
+  description="How to scout and share impressive guild bases in the Where Builders Meet community."
+>
+  <div class="max-w-3xl space-y-10">
+    <ContributeNav current="scout" />
+
+    <div class="space-y-2">
+      <h1 class="font-heading text-2xl font-semibold">Scout guild bases</h1>
+      <p class="text-sm text-muted-foreground">
+        Found an impressive base? Help get it on the map.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Found a base worth sharing?</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Use <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">/scout-guild</code> to report it. The command opens a short form: guild name and what to visit. The bot logs it to <span class="font-medium text-foreground">#guild-discoveries</span> for the community. You can also share screenshots manually there for more discussion.
+        </p>
+      </div>
+
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Know the builder? Make a new friend.</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Reach out and encourage them to submit it themselves with <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code>. They'll own their thread and can update it anytime: lore, screenshots, cover image, what to visit.
+        </p>
+      </div>
+
+      <div class="space-y-1.5">
+        <p class="text-sm font-medium text-foreground">Earn the Guild Cartographer role</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Moderators grant the <span class="font-medium text-foreground">Guild Cartographer</span> role to members who consistently scout and document guild bases across the community.
+        </p>
+      </div>
+    </div>
+
+    <p class="text-sm text-muted-foreground border-t border-border pt-6">
+      Any question? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Ping us on Discord.</a>
+    </p>
+  </div>
+</Layout>
