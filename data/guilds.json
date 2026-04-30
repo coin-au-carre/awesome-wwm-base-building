@@ -1,5 +1,20 @@
 [
 	{
+		"name": "DoNotTouchMe",
+		"builders": [
+			"TrädgårdsMstr"
+		],
+		"tags": [
+			"Snow",
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Highways, large alley\nhidden hot spring",
+		"score": 0,
+		"lastModified": "April 30, 2026 at 10:01 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "ShadowClaw",
 		"builders": [
 			"MasokisCookie",
@@ -159,14 +174,15 @@
 		"builders": [
 			"Rislea",
 			"Senèk",
-			"Teledon"
+			"Teledon",
+			"Baboose"
 		],
 		"tags": [
 			"River",
 			"Snow"
 		],
 		"discordThread": "",
-		"whatToVisit": "The river",
+		"whatToVisit": "The river. Hidden club under the castle.",
 		"score": 2,
 		"lastModified": "April 28, 2026 at 10:52 PM UTC",
 		"scoutedByDiscordId": "149790526076354561"
@@ -773,9 +789,15 @@
 		"id": "10015127",
 		"name": "Bonsai古",
 		"builders": [
-			"babychi", "choc", "KOrtsu"
+			"babychi",
+			"choc",
+			"KOrtsu"
 		],
-		"tags": ["Cute", "Fun", "Creative"],
+		"tags": [
+			"Cute",
+			"Fun",
+			"Creative"
+		],
 		"discordThread": "",
 		"whatToVisit": "Cats. Kitty. Magic tree. Heart lantern. Snowman.",
 		"score": 1,
