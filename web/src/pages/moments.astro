@@ -18,6 +18,7 @@ const items = posts.flatMap((p) =>
     displayName: p.displayName,
     builderPath: p.builderPath,
     reactions: p.reactions,
+    reactionDetails: p.reactionDetails ?? [],
     messageUrl: p.messageUrl,
     postedAt: p.postedAt,
   }))
@@ -99,6 +100,7 @@ const items = posts.flatMap((p) =>
               data-display-name={item.displayName}
               data-builder-path={item.builderPath ?? ""}
               data-reactions={item.reactions}
+              data-reaction-details={JSON.stringify(item.reactionDetails)}
               data-message-url={item.messageUrl}
               data-posted-at={item.postedAt}
             >
@@ -231,8 +233,10 @@ const items = posts.flatMap((p) =>
       lbAuthorWrap.textContent = name
     }
 
-    const r = Number(item.dataset.reactions ?? 0)
-    lbReactions.textContent = r > 0 ? `❤️ ${r}` : ""
+    const details = JSON.parse(item.dataset.reactionDetails ?? "[]")
+    lbReactions.textContent = details.length > 0
+      ? details.map((d) => `${d.emoji} ${d.count}`).join("  ")
+      : ""
     lbCounter.textContent = `${currentIndex + 1} / ${currentItems.length}`
     lbLink.href = item.dataset.messageUrl ?? "#"
   }

@@ -1,12 +1,18 @@
 import { readFileSync } from "fs"
 import { getUsers, getBuilderSearchPath } from "@/lib/guilds"
 
+export interface ReactionDetail {
+  emoji: string
+  count: number
+}
+
 export interface WhateverPost {
   id: string
   authorName: string
   authorId: string
   images: string[]
   reactions: number
+  reactionDetails: ReactionDetail[]
   messageUrl: string
   postedAt: string
 }
