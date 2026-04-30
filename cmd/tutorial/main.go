@@ -151,7 +151,8 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 
 	var content string
 	if existingFrontmatter != "" {
-		content = fmt.Sprintf("---\n%s---\n\n%s\n", existingFrontmatter, strings.Join(parts, "\n\n"))
+		fm := refreshFrontmatterImage(existingFrontmatter, firstImageURL)
+		content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, strings.Join(parts, "\n\n"))
 	} else {
 		content = buildMarkdown(thread.Name, authorName, firstImageURL, parts)
 	}
@@ -185,6 +186,19 @@ func fetchAllMessages(s *discordgo.Session, threadID string) []*discordgo.Messag
 		all[i], all[j] = all[j], all[i]
 	}
 	return all
+}
+
+var reImageField = regexp.MustCompile(`(?m)^image:.*$`)
+
+func refreshFrontmatterImage(fm, imageURL string) string {
+	if imageURL == "" {
+		return fm
+	}
+	replacement := fmt.Sprintf("image: %q", imageURL)
+	if reImageField.MatchString(fm) {
+		return reImageField.ReplaceAllString(fm, replacement)
+	}
+	return fm + replacement + "\n"
 }
 
 func extractFrontmatter(content string) string {
