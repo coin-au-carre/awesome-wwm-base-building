@@ -5,6 +5,7 @@ import { defineConfig } from "astro/config"
 import react from "@astrojs/react"
 import sitemap, { ChangeFreqEnum } from "@astrojs/sitemap"
 import remarkBreaks from "remark-breaks"
+import { remarkDiscordSubheading } from "./src/lib/remark-discord-subheading.mjs"
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,7 +15,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   markdown: {
-    remarkPlugins: [remarkBreaks],
+    remarkPlugins: [remarkBreaks, remarkDiscordSubheading],
   },
   integrations: [
     react(),
