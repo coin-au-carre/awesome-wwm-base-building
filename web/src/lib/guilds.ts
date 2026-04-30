@@ -1,4 +1,5 @@
 import { readFileSync } from "fs"
+import { resolve } from "path"
 import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify, formatBuilderName } from "@/lib/format"
 import { isCommunityPosted } from "@/lib/config"
@@ -28,9 +29,14 @@ export interface GameEvent {
 
 export { formatBuilderName }
 
+// process.cwd() = web/ at build time; data files live one level up at repo root
+function repoFile(relativePath: string) {
+  return resolve(process.cwd(), "..", relativePath)
+}
+
 function loadJSON(filename: string): Guild[] {
   try {
-    const raw = readFileSync(new URL(`../../../${filename}`, import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile(filename), "utf-8")
     return JSON.parse(raw)
   } catch {
     return []
@@ -100,7 +106,7 @@ export function getLatestSolosWithScreenshots(n: number): RankedGuild[] {
 
 export function getHiddenGems(): RankedGuild[] {
   try {
-    const raw = readFileSync(new URL("../../../data/hidden_gems.json", import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile("data/hidden_gems.json"), "utf-8")
     const entries: string[] = JSON.parse(raw)
     return entries
       .map((entry) =>
@@ -127,7 +133,7 @@ export function getBuilderSearchPath(name: string): string | null {
 
 export function getUpcomingEvents(): GameEvent[] {
   try {
-    const raw = readFileSync(new URL("../../../data/events.json", import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile("data/events.json"), "utf-8")
     const events: GameEvent[] = JSON.parse(raw)
     const now = Date.now()
     const cutoff = now + 24 * 60 * 60 * 1000
@@ -147,7 +153,7 @@ export function getUpcomingEvents(): GameEvent[] {
 
 export function getReactions(): ReactionMap {
   try {
-    const raw = readFileSync(new URL("../../../data/reactions.json", import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile("data/reactions.json"), "utf-8")
     return JSON.parse(raw)
   } catch {
     return {}
@@ -156,7 +162,7 @@ export function getReactions(): ReactionMap {
 
 export function getUsers(): UserMap {
   try {
-    const raw = readFileSync(new URL("../../../data/users.json", import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile("data/users.json"), "utf-8")
     return JSON.parse(raw)
   } catch {
     return {}
@@ -165,7 +171,7 @@ export function getUsers(): UserMap {
 
 export function getVoterBlacklist(): string[] {
   try {
-    const raw = readFileSync(new URL("../../../data/voter_blacklist.json", import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile("data/voter_blacklist.json"), "utf-8")
     return JSON.parse(raw)
   } catch {
     return []
@@ -174,7 +180,7 @@ export function getVoterBlacklist(): string[] {
 
 export function getLastSyncDate(): string {
   try {
-    const raw = readFileSync(new URL("../../../data/last_sync.json", import.meta.url), "utf-8")
+    const raw = readFileSync(repoFile("data/last_sync.json"), "utf-8")
     const { syncedAt } = JSON.parse(raw)
     return new Date(syncedAt).toISOString()
   } catch {
