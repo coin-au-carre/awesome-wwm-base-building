@@ -25,15 +25,26 @@ const navLinks = [
   { href: `${base}/`, label: "Guilds", version: "2026-04-24-1200" },
   { href: `${base}/solo`, label: "Solo", version: "2026-04-15-1430" },
   { href: `${base}/moments`, label: "Moments", version: "2026-04-30-1200" },
+]
+
+const contributeLink = { href: `${base}/contribute`, label: "Contribute", version: "2026-04-29-1600" }
+
+const exploreLinks = [
   { href: `${base}/events`, label: "Events", version: _latestEventId || "0" },
-  { href: `${base}/tutorials`, label: "Tutorials", version: "2026-04-27-1200" },
-  { href: `${base}/media`, label: "Media", version: "2026-04-24-1300" },
-  { href: `${base}/catalog`, label: "Catalog", version: "2026-04-15-0000" },
-  { href: `${base}/contribute`, label: "Contribute", version: "2026-04-29-1600" },
   { href: `${base}/how-it-works`, label: "How it works", version: "2026-04-27-1245" },
 ]
 
+const resourceLinks = [
+  { href: `${base}/tutorials`, label: "Tutorials", version: "2026-04-27-1200" },
+  { href: `${base}/media`, label: "Media", version: "2026-04-24-1300" },
+  { href: `${base}/catalog`, label: "Catalog", version: "2026-04-15-0000" },
+]
+
+const allNavLinks = [...navLinks, ...exploreLinks, ...resourceLinks, contributeLink]
+
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
+const isExploreActive = exploreLinks.some((link) => currentPath.startsWith(link.href))
+const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(link.href))
 ---
 
 <!doctype html>
@@ -134,6 +145,126 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
                 )
               })
             }
+            <!-- Explore dropdown -->
+            <div class="relative" id="explore-wrapper">
+              <button
+                id="explore-toggle"
+                class={[
+                  "px-3 py-1.5 text-sm transition-colors border-b-2 flex items-center gap-1 cursor-pointer",
+                  isExploreActive
+                    ? "border-primary font-medium text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground",
+                ].join(" ")}
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="relative">
+                  Explore
+                  <span class="explore-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="explore-chevron"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div
+                id="explore-menu"
+                class="hidden absolute left-0 top-full mt-1 min-w-36 rounded-md border border-border bg-popover shadow-md z-50 py-1"
+              >
+                {
+                  exploreLinks.map((link) => {
+                    const isActive = currentPath.startsWith(link.href)
+                    return (
+                      <a
+                        href={link.href}
+                        data-nav-href={link.href}
+                        data-nav-version={link.version}
+                        class={[
+                          "flex items-center px-3 py-1.5 text-sm transition-colors",
+                          isActive
+                            ? "font-medium text-foreground bg-muted"
+                            : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
+                        ].join(" ")}
+                      >
+                        <span class="relative">
+                          {link.label}
+                          <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+                        </span>
+                      </a>
+                    )
+                  })
+                }
+              </div>
+            </div>
+
+            <!-- Resources dropdown -->
+            <div class="relative" id="resources-wrapper">
+              <button
+                id="resources-toggle"
+                class={[
+                  "px-3 py-1.5 text-sm transition-colors border-b-2 flex items-center gap-1 cursor-pointer",
+                  isResourcesActive
+                    ? "border-primary font-medium text-foreground"
+                    : "border-transparent text-muted-foreground hover:text-foreground",
+                ].join(" ")}
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="relative">
+                  Resources
+                  <span class="resources-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="resources-chevron"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div
+                id="resources-menu"
+                class="hidden absolute left-0 top-full mt-1 min-w-36 rounded-md border border-border bg-popover shadow-md z-50 py-1"
+              >
+                {
+                  resourceLinks.map((link) => {
+                    const isActive = currentPath.startsWith(link.href)
+                    return (
+                      <a
+                        href={link.href}
+                        data-nav-href={link.href}
+                        data-nav-version={link.version}
+                        class={[
+                          "flex items-center px-3 py-1.5 text-sm transition-colors",
+                          isActive
+                            ? "font-medium text-foreground bg-muted"
+                            : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
+                        ].join(" ")}
+                      >
+                        <span class="relative">
+                          {link.label}
+                          <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+                        </span>
+                      </a>
+                    )
+                  })
+                }
+              </div>
+            </div>
+
+            <!-- Contribute link -->
+            {(() => {
+              const isActive = currentPath.startsWith(contributeLink.href)
+              return (
+                <a
+                  href={contributeLink.href}
+                  data-nav-href={contributeLink.href}
+                  data-nav-version={contributeLink.version}
+                  class={[
+                    "px-3 py-1.5 text-sm transition-colors border-b-2",
+                    isActive
+                      ? "border-primary font-medium text-foreground"
+                      : "border-transparent text-muted-foreground hover:text-foreground",
+                  ].join(" ")}
+                >
+                  <span class="relative">
+                    {contributeLink.label}
+                    <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+                  </span>
+                </a>
+              )
+            })()}
           </nav>
 
           <div class="flex items-center gap-2">
@@ -179,7 +310,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden pb-3 space-y-1 border-t border-border pt-3">
           {
-            navLinks.map((link) => {
+            allNavLinks.map((link) => {
               const isActive =
                 link.href === `${base}/`
                   ? currentPath === `${base}/` || currentPath === base
@@ -260,6 +391,47 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
     </script>
 
     <script is:inline>
+      // Nav dropdowns toggle
+      ;(function () {
+        var dropdowns = [
+          { toggleId: "explore-toggle", menuId: "explore-menu", chevronId: "explore-chevron" },
+          { toggleId: "resources-toggle", menuId: "resources-menu", chevronId: "resources-chevron" },
+        ].map(function (d) {
+          return {
+            toggle: document.getElementById(d.toggleId),
+            menu: document.getElementById(d.menuId),
+            chevron: document.getElementById(d.chevronId),
+            open: false,
+          }
+        })
+
+        function closeAll() {
+          dropdowns.forEach(function (d) {
+            d.open = false
+            if (d.menu) d.menu.classList.add("hidden")
+            if (d.toggle) d.toggle.setAttribute("aria-expanded", "false")
+            if (d.chevron) d.chevron.style.transform = ""
+          })
+        }
+
+        dropdowns.forEach(function (d) {
+          if (!d.toggle || !d.menu) return
+          d.toggle.addEventListener("click", function (e) {
+            e.stopPropagation()
+            var next = !d.open
+            closeAll()
+            d.open = next
+            d.menu.classList.toggle("hidden", !next)
+            d.toggle.setAttribute("aria-expanded", String(next))
+            if (d.chevron) d.chevron.style.transform = next ? "rotate(180deg)" : ""
+          })
+        })
+
+        document.addEventListener("click", closeAll)
+      })()
+    </script>
+
+    <script is:inline>
       const toggle = document.getElementById("menu-toggle")
       const menu = document.getElementById("mobile-menu")
       const bar1 = document.getElementById("bar1")
@@ -278,6 +450,10 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
       ;(function () {
         var PREFIX = 'wbm_nav:'
         var pathClean = window.location.pathname.replace(/\/$/, '') || '/'
+        var exploreMenuEl = document.getElementById('explore-menu')
+        var resourcesMenuEl = document.getElementById('resources-menu')
+        var anyExploreDot = false
+        var anyResourcesDot = false
         document.querySelectorAll('a[data-nav-href]').forEach(function (link) {
           var href = link.dataset.navHref
           var version = link.dataset.navVersion
@@ -291,8 +467,18 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
           if (stored !== version) {
             var dot = link.querySelector('.nav-dot')
             if (dot) dot.classList.remove('hidden')
+            if (exploreMenuEl && exploreMenuEl.contains(link)) anyExploreDot = true
+            if (resourcesMenuEl && resourcesMenuEl.contains(link)) anyResourcesDot = true
           }
         })
+        if (anyExploreDot) {
+          var exploreDot = document.querySelector('.explore-dot')
+          if (exploreDot) exploreDot.classList.remove('hidden')
+        }
+        if (anyResourcesDot) {
+          var resourcesDot = document.querySelector('.resources-dot')
+          if (resourcesDot) resourcesDot.classList.remove('hidden')
+        }
       })()
     </script>
   </body>
