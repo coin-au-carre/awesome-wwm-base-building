@@ -11,15 +11,22 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+// ReactionDetail holds a single emoji reaction and its count.
+type ReactionDetail struct {
+	Emoji string `json:"emoji"`
+	Count int    `json:"count"`
+}
+
 // WhateverPost represents a single message from #whatever-showcase with images.
 type WhateverPost struct {
-	ID         string   `json:"id"`
-	AuthorName string   `json:"authorName"`
-	AuthorID   string   `json:"authorId"`
-	Images     []string `json:"images"`
-	Reactions  int      `json:"reactions"`
-	MessageURL string   `json:"messageUrl"`
-	PostedAt   string   `json:"postedAt"`
+	ID              string           `json:"id"`
+	AuthorName      string           `json:"authorName"`
+	AuthorID        string           `json:"authorId"`
+	Images          []string         `json:"images"`
+	Reactions       int              `json:"reactions"`
+	ReactionDetails []ReactionDetail `json:"reactionDetails"`
+	MessageURL      string           `json:"messageUrl"`
+	PostedAt        string           `json:"postedAt"`
 }
 
 // FetchWhateverShowcase fetches all image-bearing messages from the given plain channel.
@@ -60,13 +67,14 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 			name = msg.Author.Username
 		}
 		posts = append(posts, WhateverPost{
-			ID:         msg.ID,
-			AuthorName: name,
-			AuthorID:   msg.Author.ID,
-			Images:     images,
-			Reactions:  sumReactions(msg),
-			MessageURL: fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, msg.ID),
-			PostedAt:   msg.Timestamp.Format(time.RFC3339),
+			ID:              msg.ID,
+			AuthorName:      name,
+			AuthorID:        msg.Author.ID,
+			Images:          images,
+			Reactions:       sumReactions(msg),
+			ReactionDetails: reactionDetails(msg),
+			MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, msg.ID),
+			PostedAt:        msg.Timestamp.Format(time.RFC3339),
 		})
 	}
 	return posts, nil
@@ -88,4 +96,16 @@ func sumReactions(msg *discordgo.Message) int {
 		n += r.Count
 	}
 	return n
+}
+
+func reactionDetails(msg *discordgo.Message) []ReactionDetail {
+	var details []ReactionDetail
+	for _, r := range msg.Reactions {
+		emoji := r.Emoji.Name
+		if emoji == "" {
+			continue
+		}
+		details = append(details, ReactionDetail{Emoji: emoji, Count: r.Count})
+	}
+	return details
 }

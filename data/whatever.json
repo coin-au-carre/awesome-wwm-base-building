@@ -7,6 +7,20 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1485551172344352809/1771745409515.png?ex=69f45fd7\u0026is=69f30e57\u0026hm=10a1efbff8cf871e5c34050d1d3e55f697244f9c3c04b54dc9f94cc1bd360821\u0026"
     ],
     "reactions": 4,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 2
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      },
+      {
+        "emoji": "momopeekclose",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1485551172566908972",
     "postedAt": "2026-03-23T08:09:59Z"
   },
@@ -18,6 +32,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1488123140021293088/2026330181330.png?ex=69f480ac\u0026is=69f32f2c\u0026hm=735daee3499b5f747a01f3aa8948fa886e2324cba8125b62a2ee8e754fc50a9a\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "🖤",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1488123140369416334",
     "postedAt": "2026-03-30T10:30:04Z"
   },
@@ -26,10 +46,20 @@
     "authorName": "AndHaka54",
     "authorId": "249313949210771466",
     "images": [
-      "https://cdn.discordapp.com/attachments/1483451090048520252/1490149978834997248/20264584119.png?ex=69f3f750\u0026is=69f2a5d0\u0026hm=6f69bc29f2df4abe3a093ebac2d59edd9d98812acd77d1fd1b9bcb15a43fada3\u0026",
-      "https://cdn.discordapp.com/attachments/1483451090048520252/1490149979489304636/20264584218.png?ex=69f3f750\u0026is=69f2a5d0\u0026hm=c5425f891d58925cceeec814db54416333ce1fbf66db8def6870019ce7284e22\u0026"
+      "https://cdn.discordapp.com/attachments/1483451090048520252/1490149978834997248/20264584119.png?ex=69f4a010\u0026is=69f34e90\u0026hm=6920e2b48a37aa0eac2d64fce778566875162143742ac5daa6a51feadfdeed16\u0026",
+      "https://cdn.discordapp.com/attachments/1483451090048520252/1490149979489304636/20264584218.png?ex=69f4a010\u0026is=69f34e90\u0026hm=09092d0829771515608d4fb8d50b4e6fcca00c75a200846a9a49db4706778f64\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "🔥",
+        "count": 1
+      },
+      {
+        "emoji": "✨",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1490149979824721930",
     "postedAt": "2026-04-05T00:44:00Z"
   },
@@ -41,6 +71,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1490368353968324748/image.png?ex=69f419f1\u0026is=69f2c871\u0026hm=b78de5f5cdb2861eaa16736c0065d3b02b2f210c66dfc4975439e063714ec036\u0026"
     ],
     "reactions": 3,
+    "reactionDetails": [
+      {
+        "emoji": "👍",
+        "count": 2
+      },
+      {
+        "emoji": "🔥",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1490368354043691010",
     "postedAt": "2026-04-05T15:11:45Z"
   },
@@ -52,6 +92,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1492340553793146880/image.png?ex=69f40672\u0026is=69f2b4f2\u0026hm=7c12febda325bb4560efd911f73e9695149159c76f126ff575e122a7fb0d9f72\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1492340554707636284",
     "postedAt": "2026-04-11T01:48:34Z"
   },
@@ -63,6 +104,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1492347802003439656/image.png?ex=69f40d32\u0026is=69f2bbb2\u0026hm=850d2996e43c0a0f1a01375b297d5a6cec94e3e05622a257116bdf0d2dcaa191\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1492347802502697173",
     "postedAt": "2026-04-11T02:17:22Z"
   },
@@ -74,6 +116,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1492355779259404338/image.png?ex=69f414a0\u0026is=69f2c320\u0026hm=acd99570d7fc03751fce832bb5bc9b8b7409b07207fc72ea3c721045aca7c454\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1492355779511189576",
     "postedAt": "2026-04-11T02:49:04Z"
   },
@@ -85,6 +128,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1492472413550546985/2026411123127.png?ex=69f48140\u0026is=69f32fc0\u0026hm=d671d6e0b3c0253d270fc20a8e37603fa811de58373477ab699d92ab9a20f865\u0026"
     ],
     "reactions": 3,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 3
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1492472414028959846",
     "postedAt": "2026-04-11T10:32:32Z"
   },
@@ -96,6 +145,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1492737907595673660/202641211240.png?ex=69f42702\u0026is=69f2d582\u0026hm=fa58e49b806a397ae49468248affc6c107977981d76718ccf4c70576f833aec4\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1492737907683758102",
     "postedAt": "2026-04-12T04:07:30Z"
   },
@@ -111,6 +161,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1493542971977498664/Skarmbild_2299.png?ex=69f471c9\u0026is=69f32049\u0026hm=9ff1bd9c2e80f835de58a45b66b85838b481c222bb25b50a55d484b0fd0b0f5a\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "👍",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1493542972309114972",
     "postedAt": "2026-04-14T09:26:33Z"
   },
@@ -122,6 +178,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1493638158074511540/2026414234144.png?ex=69f421af\u0026is=69f2d02f\u0026hm=74555da86ee4fcbd92938e6183558a6e696fd4ba6e0e7f7dbf481133abb7012e\u0026"
     ],
     "reactions": 5,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 5
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1493638158418575400",
     "postedAt": "2026-04-14T15:44:47Z"
   },
@@ -133,6 +195,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1493641058951757935/202641423556.png?ex=69f42462\u0026is=69f2d2e2\u0026hm=34f8251dab6e4aa63598b3ba687dd41bd19c8d53d5cbbbe56a965513ef103a22\u0026"
     ],
     "reactions": 8,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 5
+      },
+      {
+        "emoji": "🔥",
+        "count": 3
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1493641059203551312",
     "postedAt": "2026-04-14T15:56:19Z"
   },
@@ -144,6 +216,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1493979461027233923/image.png?ex=69f40e0c\u0026is=69f2bc8c\u0026hm=24d3fd004149ee751c7c9fb9501f2c2b209814233f15a394d233aec9743d1286\u0026"
     ],
     "reactions": 10,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 10
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1493979461396201542",
     "postedAt": "2026-04-15T14:21:00Z"
   },
@@ -155,6 +233,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494034054964842646/Skarmbild_2375.png?ex=69f440e4\u0026is=69f2ef64\u0026hm=970f2a7cecf6416a67deebb384b22da9272a826efadd88fc064a4632f52f8086\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "❤️‍🔥",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494034055300124822",
     "postedAt": "2026-04-15T17:57:56Z"
   },
@@ -166,6 +250,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494251206388875384/2026416161815.png?ex=69f46261\u0026is=69f310e1\u0026hm=1cd2010db7de6444e71fb25464eca40885d402f20cee8ce92b348e29fa247258\u0026"
     ],
     "reactions": 3,
+    "reactionDetails": [
+      {
+        "emoji": "😆",
+        "count": 2
+      },
+      {
+        "emoji": "👍",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494251206686801980",
     "postedAt": "2026-04-16T08:20:49Z"
   },
@@ -177,6 +271,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494419646726541614/202641732837.png?ex=69f45680\u0026is=69f30500\u0026hm=7aad5a1a1ac7ec61d4f477595231f671656eb4a0c2cc7457327e1d303d97eb14\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494419647095767202",
     "postedAt": "2026-04-16T19:30:08Z"
   },
@@ -188,6 +288,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494421038522437733/202641733125.png?ex=69f457cc\u0026is=69f3064c\u0026hm=94b33aad4d3d998165085c85369830a9dda119209fcc90dacd7a262801f3a5da\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494421038661107774",
     "postedAt": "2026-04-16T19:35:40Z"
   },
@@ -199,6 +305,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494421690422268004/20264173380.png?ex=69f45868\u0026is=69f306e8\u0026hm=e6be12fc9c85f1b5bddc68646dba62b15be1af6f2dc67c3f49230ac8d917130b\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494421690736971946",
     "postedAt": "2026-04-16T19:38:16Z"
   },
@@ -210,6 +317,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494428560109338735/20264174515.png?ex=69f45ecd\u0026is=69f30d4d\u0026hm=edd985aeebe52d5bdfa20427ade3016e5beceda24fb23f65f94098c84aa2d492\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494428560713191526",
     "postedAt": "2026-04-16T20:05:34Z"
   },
@@ -221,6 +334,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494429169881321513/20264174649.png?ex=69f45f5f\u0026is=69f30ddf\u0026hm=a33d612013c2f897435a2c0335a741dec56efc8261e83440eb9c99cd2d30f156\u0026"
     ],
     "reactions": 3,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 2
+      },
+      {
+        "emoji": "💀",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494429170145558648",
     "postedAt": "2026-04-16T20:07:59Z"
   },
@@ -232,6 +355,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494430098357620767/20264174944.png?ex=69f4603c\u0026is=69f30ebc\u0026hm=817afb16de2cf2fdfbb244e0695af0ecf61cbd310028221cf0dc624c5d870193\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494430098458415216",
     "postedAt": "2026-04-16T20:11:40Z"
   },
@@ -243,6 +372,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494433700580954413/202641742416.png?ex=69f46397\u0026is=69f31217\u0026hm=87a54eccc32e8e9cbee95cd8991ee96d3d7e62e2d72d5af9af8b67911a2e7232\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494433700929339596",
     "postedAt": "2026-04-16T20:25:59Z"
   },
@@ -254,6 +384,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1494658483872858323/2026455057.png?ex=69f48c2f\u0026is=69f33aaf\u0026hm=61ee4320abf3a3d3bd7e22848883e70f0a77b7723359e6e263a48b2ac93fef42\u0026"
     ],
     "reactions": 5,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 5
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1494658484128714762",
     "postedAt": "2026-04-17T11:19:12Z"
   },
@@ -265,6 +401,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495079081711108216/202641823554.png?ex=69f419a6\u0026is=69f2c826\u0026hm=639ef9975e2f7b3676813e735bef220a7b61286eeab9e31c657edbcad45c5142\u0026"
     ],
     "reactions": 9,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 9
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495079081740472383",
     "postedAt": "2026-04-18T15:10:30Z"
   },
@@ -276,6 +418,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495083144808894565/2026418232546.png?ex=69f41d6f\u0026is=69f2cbef\u0026hm=edea6310586226978c6dc8b95e55d9b8906aeaa5b237298b2ec143e1ae8d6b65\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495083144825540629",
     "postedAt": "2026-04-18T15:26:39Z"
   },
@@ -287,6 +430,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495106082098643096/image.png?ex=69f432cb\u0026is=69f2e14b\u0026hm=c845504d192c55c8f2399b39000eab2570d5d9758ed160479f3a52c8264c46ba\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495106082387918979",
     "postedAt": "2026-04-18T16:57:47Z"
   },
@@ -298,6 +447,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495868019598037042/image.png?ex=69f45567\u0026is=69f303e7\u0026hm=02d76e91bc5e8d8a7d117c5eabd9332e727130c7b542adf0bea34597108b4ab4\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495868019920867409",
     "postedAt": "2026-04-20T19:25:27Z"
   },
@@ -309,6 +464,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495870754464469062/image.png?ex=69f457f3\u0026is=69f30673\u0026hm=ab6acc8adfd82bb3ac6fb64bb6494ef3bf862f86629446437e7cd2b49135b461\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "👍",
+        "count": 1
+      },
+      {
+        "emoji": "👏🏻",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495870754720448633",
     "postedAt": "2026-04-20T19:36:19Z"
   },
@@ -320,6 +485,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495875140162945254/image.png?ex=69f45c09\u0026is=69f30a89\u0026hm=dab392f5d108ce60dfc35af8338d5f6b11f11197622d6424ff8b67d2cc4c9e0c\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "🩷",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495875140251287725",
     "postedAt": "2026-04-20T19:53:45Z"
   },
@@ -331,6 +502,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495887130189234266/image.png?ex=69f46734\u0026is=69f315b4\u0026hm=5b40e24f0dbb7fadd5ca75a946331f7c72358bb092b943b72dfcf920468551dd\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "💕",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495887130554011849",
     "postedAt": "2026-04-20T20:41:24Z"
   },
@@ -342,6 +519,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495949975752933416/202642181729.png?ex=69f3f8fb\u0026is=69f2a77b\u0026hm=0fd11c3b503ac5193d74889ff06c804a9d11e6fd24746cd462c612d65ee57edd\u0026"
     ],
     "reactions": 7,
+    "reactionDetails": [
+      {
+        "emoji": "🔥",
+        "count": 5
+      },
+      {
+        "emoji": "🩷",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495949976067379270",
     "postedAt": "2026-04-21T00:51:07Z"
   },
@@ -353,6 +540,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495959474127503502/202642185432.png?ex=69f401d4\u0026is=69f2b054\u0026hm=1df36df08d8e324369da15b2a34f2b2ddcfddb24fe3cc7f2e14f5083ad417316\u0026"
     ],
     "reactions": 4,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 4
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495959474446532658",
     "postedAt": "2026-04-21T01:28:52Z"
   },
@@ -364,6 +557,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1495974412623679488/2026421102758.png?ex=69f40fbd\u0026is=69f2be3d\u0026hm=fa5c413ea3de9f307e8c0be2ca672836f361d8bc76b3a231c6524ce2e95ca32e\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1495974413055688834",
     "postedAt": "2026-04-21T02:28:13Z"
   },
@@ -375,6 +569,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496027370652438578/image.png?ex=69f44110\u0026is=69f2ef90\u0026hm=63e0f07d4fecd949c87f9ce3f2cd9fdcbcb40910d6500f2ca0c957b6e4ba1293\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496027370925199380",
     "postedAt": "2026-04-21T05:58:40Z"
   },
@@ -386,6 +586,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496353535955177634/image.png?ex=69f41f53\u0026is=69f2cdd3\u0026hm=8264b9ab5c32536c076e738504a01899a238b4876c534462262124c4e6b8ae6e\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496353536303436008",
     "postedAt": "2026-04-22T03:34:43Z"
   },
@@ -398,6 +599,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496576815861469204/image.png?ex=69f44685\u0026is=69f2f505\u0026hm=d2c4d24b40bdd54be0b26356f2d491e58793e55fb8e42910d962c616f42e3347\u0026"
     ],
     "reactions": 10,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 8
+      },
+      {
+        "emoji": "🤍",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496576816478158912",
     "postedAt": "2026-04-22T18:21:58Z"
   },
@@ -408,7 +619,13 @@
     "images": [
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496580992167710770/1776882528_GIwIM2p9.png?ex=69f44a69\u0026is=69f2f8e9\u0026hm=010f2adc40e89cbfec778ee3a83efbc44446d94250378e7a863d363c9d94b04f\u0026"
     ],
-    "reactions": 0,
+    "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496580992914428056",
     "postedAt": "2026-04-22T18:38:33Z"
   },
@@ -420,6 +637,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496640976637395024/image.png?ex=69f48247\u0026is=69f330c7\u0026hm=ddf9bd3825ebfdc4f3aa83f81ec413ea2cd4ddfb965ae75ca9d5ac9079a87f6f\u0026"
     ],
     "reactions": 1,
+    "reactionDetails": [
+      {
+        "emoji": "👍",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496640977136521397",
     "postedAt": "2026-04-22T22:36:55Z"
   },
@@ -431,6 +654,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496831663655620730/IMG_2040.png?ex=69f48b1e\u0026is=69f3399e\u0026hm=9c19bae1c46ee58b750dc9df45861b63a9f13fd2093ca698f17124c28f9a9b57\u0026"
     ],
     "reactions": 10,
+    "reactionDetails": [
+      {
+        "emoji": "😂",
+        "count": 8
+      },
+      {
+        "emoji": "😭",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496831664335093760",
     "postedAt": "2026-04-23T11:14:38Z"
   },
@@ -442,6 +675,20 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496832056091480154/IMG_2042.png?ex=69f48b7b\u0026is=69f339fb\u0026hm=93cc3afc067d40df78d3ad68b86fae175d21dd6dcdab66b929625983929fb783\u0026"
     ],
     "reactions": 11,
+    "reactionDetails": [
+      {
+        "emoji": "😅",
+        "count": 4
+      },
+      {
+        "emoji": "🔥",
+        "count": 5
+      },
+      {
+        "emoji": "😭",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496832057370873856",
     "postedAt": "2026-04-23T11:16:12Z"
   },
@@ -453,6 +700,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496888801983856750/image_20260423_21_59_44.jpg?ex=69f41795\u0026is=69f2c615\u0026hm=fdc80c26b7214f57767165cb4be441e5e899e6a138226c852fac92398717fbb0\u0026"
     ],
     "reactions": 3,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 3
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496888802411679865",
     "postedAt": "2026-04-23T15:01:41Z"
   },
@@ -465,6 +718,20 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1496927557696749662/20264241248.png?ex=69f43bad\u0026is=69f2ea2d\u0026hm=87bd3b3b80df9a7ac1c2020fad70f6d1dea3b2f797689667a04c1875134e3ca1\u0026"
     ],
     "reactions": 16,
+    "reactionDetails": [
+      {
+        "emoji": "😍",
+        "count": 9
+      },
+      {
+        "emoji": "✨",
+        "count": 5
+      },
+      {
+        "emoji": "❤️",
+        "count": 2
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1496927558078300381",
     "postedAt": "2026-04-23T17:35:41Z"
   },
@@ -476,6 +743,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1497194081951027293/1776960072_tGXBjOtT.png?ex=69f48b25\u0026is=69f339a5\u0026hm=64d85580d657baefdf49650280b51da18c8689bab6810a2dc62190e0a84e68fa\u0026"
     ],
     "reactions": 4,
+    "reactionDetails": [
+      {
+        "emoji": "⭐",
+        "count": 3
+      },
+      {
+        "emoji": "🍆",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1497194082248953926",
     "postedAt": "2026-04-24T11:14:45Z"
   },
@@ -487,6 +764,24 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1497600333655048265/2026425193148.png?ex=69f40b3f\u0026is=69f2b9bf\u0026hm=ab6bbfc91139570a088ffab193bae360d4a95b18951fe0cbbf0b8282743ba495\u0026"
     ],
     "reactions": 11,
+    "reactionDetails": [
+      {
+        "emoji": "🔥",
+        "count": 4
+      },
+      {
+        "emoji": "😭",
+        "count": 5
+      },
+      {
+        "emoji": "NiceLmao",
+        "count": 1
+      },
+      {
+        "emoji": "emoji_1",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1497600333956907008",
     "postedAt": "2026-04-25T14:09:03Z"
   },
@@ -498,6 +793,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1497978048803373056/1777214659_2P18zzwU.png?ex=69f41985\u0026is=69f2c805\u0026hm=2e84220554a5f3bc5868b065af20c718081958c83e906d0d15d58da916a89de2\u0026"
     ],
     "reactions": 3,
+    "reactionDetails": [
+      {
+        "emoji": "🔥",
+        "count": 2
+      },
+      {
+        "emoji": "🥰",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1497978049201836225",
     "postedAt": "2026-04-26T15:09:58Z"
   },
@@ -509,6 +814,7 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1498111513305677834/2026427809.png?ex=69f495d2\u0026is=69f34452\u0026hm=4bc6ca6cc64dd0a2a5183c96dcf54c52bff23c9e12f4e7ea3ec438d6560b1dd0\u0026"
     ],
     "reactions": 0,
+    "reactionDetails": null,
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1498111513209077792",
     "postedAt": "2026-04-27T00:00:18Z"
   },
@@ -521,6 +827,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1498281294486835300/202642719647.png?ex=69f48b31\u0026is=69f339b1\u0026hm=5bf7f7faea907cc80bc4120d89312277152995591a81b89fb0ff5c2392fa6325\u0026"
     ],
     "reactions": 4,
+    "reactionDetails": [
+      {
+        "emoji": "💖",
+        "count": 4
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1498281294805860442",
     "postedAt": "2026-04-27T11:14:57Z"
   },
@@ -535,6 +847,12 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1498373001375121498/fountain_top.png?ex=69f437d9\u0026is=69f2e659\u0026hm=0ec0134da72760b87947775590719d40b970dd1e81a6c86f060ec5817ca0246b\u0026"
     ],
     "reactions": 4,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 4
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1498373002184888423",
     "postedAt": "2026-04-27T17:19:22Z"
   },
@@ -546,6 +864,16 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1499107669691072583/image.png?ex=69f44110\u0026is=69f2ef90\u0026hm=ca53d7fef470b36cc862dcb3ab5fd5a29eb01acf9f1ee9dbe2fdb79479ccebfd\u0026"
     ],
     "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "👍",
+        "count": 1
+      },
+      {
+        "emoji": "❤️",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1499107670131736707",
     "postedAt": "2026-04-29T17:58:40Z"
   }
