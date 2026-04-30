@@ -51,7 +51,7 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
 ```
 
 - **Go 1.26** — Discord sync bot, data parser
-- **Astro 5 + shadcn/ui + Tailwind 4** — static website (`web/`)
+- **Astro 6 + shadcn/ui + Tailwind 4** — static website (`web/`)
 - **GitHub Actions** — `sync.yml` (data) + `deploy.yml` (site)
 
 ### Sync thread-matching rules (`internal/discord/sync.go SyncFetch`)

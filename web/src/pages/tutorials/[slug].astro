@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { buttonVariants } from "@/components/ui/button"
-import { getCollection } from "astro:content"
+import { getCollection, render } from "astro:content"
 import { BASE } from "@/lib/url"
 import { ArrowLeftIcon } from "@phosphor-icons/react"
 import { getBuilderSearchPath } from "@/lib/guilds"
@@ -25,13 +25,13 @@ function renderTags(tags: string[] = []) {
 export async function getStaticPaths() {
   const entries = await getCollection("articles", ({ data }) => data.published !== false)
   return entries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }))
 }
 
 const { entry } = Astro.props
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 
 const coverImage = entry.data.image ?? null
 const localCover = coverImage?.startsWith("/") ? coverImage : null
