@@ -771,9 +771,9 @@
 	},
 	{
 		"id": "10015127",
-		"name": "Bonsai",
+		"name": "Bonsai古",
 		"builders": [
-			"babychi"
+			"babychi", "choc", "KOrtsu"
 		],
 		"discordThread": "",
 		"whatToVisit": "Cats. Kitty. Magic tree. Heart lantern.",
