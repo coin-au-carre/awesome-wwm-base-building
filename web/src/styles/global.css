@@ -173,6 +173,9 @@
   hr {
     @apply border-border my-6;
   }
+  .prose-subtext {
+    @apply text-xs text-muted-foreground/70 italic mb-2;
+  }
 }
 
 @keyframes masterGlow {

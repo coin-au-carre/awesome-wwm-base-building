@@ -108,7 +108,7 @@ Used for postal relay stations/courier stations and inns.
 
 <img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69f490c6&is=69f33f46&hm=84de927570fe11b4eeb2946e40499b3e1b090038cdd083ee1ab5dc685649176b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
-**Plaque: **妙手回春 
+**Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
 
 **Left Pillar:** 银针草药救死扶伤 
