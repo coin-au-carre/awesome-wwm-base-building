@@ -24,6 +24,7 @@ const _latestEventId = _allEvents.reduce((max, e) => (e.id > max ? e.id : max), 
 const navLinks = [
   { href: `${base}/`, label: "Guilds", version: "2026-04-24-1200" },
   { href: `${base}/solo`, label: "Solo", version: "2026-04-15-1430" },
+  { href: `${base}/community`, label: "Moments", version: "2026-04-30-1200" },
   { href: `${base}/events`, label: "Events", version: _latestEventId || "0" },
   { href: `${base}/tutorials`, label: "Tutorials", version: "2026-04-27-1200" },
   { href: `${base}/media`, label: "Media", version: "2026-04-24-1300" },
