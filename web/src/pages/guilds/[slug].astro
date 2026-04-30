@@ -56,13 +56,13 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
       description: pageDesc,
       image: [
         ...(g.coverImage ? [g.coverImage] : []),
-        ...((g.screenshots ?? []).filter((s) => s !== g.coverImage)),
+        ...((g.screenshots ?? []).filter((s: string) => s !== g.coverImage)),
       ].filter(Boolean),
       datePublished: g.createdAt ?? g.lastModified ?? "2025-01-01",
       dateModified: g.lastModified ?? g.createdAt ?? "2025-01-01",
       url: Astro.url.href,
       keywords: schemaKeywords,
-      author: g.builders?.map((name) => ({ "@type": "Person", name })) ?? [],
+      author: g.builders?.map((name: string) => ({ "@type": "Person", name })) ?? [],
       publisher: { "@type": "Organization", name: "Where Builders Meet", url: "https://www.wherebuildersmeet.com" },
       about: { "@type": "VideoGame", name: "Where Winds Meet" },
     })}
@@ -108,7 +108,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
               )}
               {g.tags && g.tags.length > 0 && (
                 <div class="flex flex-wrap gap-1.5 mt-3">
-                  {g.tags.map((tag) => (
+                  {g.tags.map((tag: string) => (
                     <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/15 text-white border border-white/25 backdrop-blur-sm">
                       {tag}
                     </span>
@@ -138,7 +138,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
           )}
           {g.tags && g.tags.length > 0 && (
             <div class="flex flex-wrap gap-1.5 mt-3">
-              {g.tags.map((tag) => <Badge variant="secondary">{tag}</Badge>)}
+              {g.tags.map((tag: string) => <Badge variant="secondary">{tag}</Badge>)}
             </div>
           )}
         </div>

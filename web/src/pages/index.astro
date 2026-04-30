@@ -171,12 +171,13 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     {(featuredArticles.length > 0 || upcomingEventsDisplay.length > 0) && (
       <div class="flex flex-col sm:flex-row flex-wrap gap-2">
         {featuredArticles.map((article) => {
-          const ytID = article.body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
-          const firstImg = article.body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
+          const body = article.body ?? ""
+          const ytID = body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
+          const firstImg = body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
           const thumb = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : (article.data.image ?? firstImg)
           return (
             <a
-              href={`${BASE}/tutorials/${article.slug}`}
+              href={`${BASE}/tutorials/${article.id}`}
               class="group flex flex-1 items-center gap-3 rounded-xl ring-1 ring-pink-500/25 bg-card hover:ring-pink-500/50 hover:shadow-sm transition-all px-3 py-2.5"
               data-umami-event="featured_article_click"
             >

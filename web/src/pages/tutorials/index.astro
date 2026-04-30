@@ -26,12 +26,12 @@ function renderTags(tags: string[] = []) {
 
 const newestSlug = entries.reduce((a, b) =>
   (b.data.date?.getTime() ?? 0) > (a.data.date?.getTime() ?? 0) ? b : a
-).slug
+).id
 
 const guides = entries
   .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
   .map((e) => ({
-    slug: e.slug,
+    slug: e.id,
     title: e.data.title,
     description: e.data.description,
     tags: e.data.tags ?? [],
