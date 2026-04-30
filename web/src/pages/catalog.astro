@@ -2,9 +2,10 @@
 import Layout from "@/layouts/main.astro"
 import { buttonVariants } from "@/components/ui/button"
 import { readFileSync } from "fs"
+import { resolve } from "path"
 import { HammerIcon } from "@phosphor-icons/react"
 
-const raw = readFileSync(new URL("../../../catalog/guild/guild_items.json", import.meta.url), "utf-8")
+const raw = readFileSync(resolve(process.cwd(), "../catalog/guild/guild_items.json"), "utf-8")
 const catalogData = JSON.parse(raw) as Record<string, Record<string, { items: { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string; buyPlace?: string }[] }>>
 
 type Item = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components?: string[]; diagramRef?: string; buyPlace?: string }
