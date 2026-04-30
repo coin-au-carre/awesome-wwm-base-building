@@ -299,7 +299,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
           )}
         </div>
         <p className="text-xs text-muted-foreground">
-          Can't find what you're looking for? Ask <span className="font-medium text-foreground">Ruby</span> on our Discord, she can search more precisely (Pikachu, cats, horse racing...)!
+          Need something more specific? Ask on <span className="font-medium text-foreground">#ruby</span> on our Discord, she can pinpoint exactly what you need (Pikachu, cats, horse racing...)!
         </p>
       </div>
 
