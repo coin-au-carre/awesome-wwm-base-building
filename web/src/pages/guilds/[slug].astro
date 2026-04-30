@@ -32,12 +32,11 @@ const guildDisplayName = stripGuildShowcase(g.guildName || g.name)
 const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
 const tagsStr = g.tags?.slice(0, 3).join(", ")
 const fallbackDesc = [
-  `${guildDisplayName} is a guild base construction in Where Winds Meet`,
-  buildersStr ? `, built by ${buildersStr}` : "",
+  buildersStr ? `Built by ${buildersStr}` : guildDisplayName,
   tagsStr ? ` (${tagsStr})` : "",
-  ". Community-voted showcase on Where Builders Meet.",
+  ". Community-voted guild base showcase.",
 ].join("")
-const pageDesc = g.lore ? (g.lore.length < 80 ? `${g.lore.slice(0, 157)}…` : g.lore.slice(0, 160)) : fallbackDesc
+const pageDesc = g.lore ? g.lore.slice(0, 160) : fallbackDesc
 const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base building", ...(g.tags ?? [])].join(", ")
 ---
 
