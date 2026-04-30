@@ -319,3 +319,23 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
     )}
   </div>
 </Layout>
+
+<script is:inline>
+  ;(function () {
+    var header = document.getElementById('site-header')
+    var lastY = window.scrollY
+    var hidden = false
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY
+      var delta = y - lastY
+      if (delta > 8 && y > 80 && !hidden) {
+        header.style.transform = 'translateY(-100%)'
+        hidden = true
+      } else if (delta < -8 && hidden) {
+        header.style.transform = ''
+        hidden = false
+      }
+      lastY = y
+    }, { passive: true })
+  })()
+</script>
