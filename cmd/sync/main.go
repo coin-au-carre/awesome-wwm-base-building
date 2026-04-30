@@ -196,6 +196,26 @@ func main() {
 		}
 	}
 
+	// ── Guide replies for malformed new threads ──────────────────────────────
+
+	if !*dryRun {
+		const guideURL = "https://www.wherebuildersmeet.com/contribute/builder/"
+		for _, threadID := range guildStats.MalformedNewThreadIDs {
+			msg := "👋 Hey! It looks like your post is missing a guild name or guild ID.\n" +
+				"Check the submission guide for the right format: " + guideURL + "\n" +
+				"You can also use **/submit-guild** to get a ready-to-paste template sent to your DMs."
+			bot.Send(threadID, msg)
+			slog.Info("sent guide reply to malformed guild thread", "thread", threadID)
+		}
+		for _, threadID := range soloStats.MalformedNewThreadIDs {
+			msg := "👋 Hey! It looks like your post is missing some required info.\n" +
+				"Check the submission guide for the right format: " + guideURL + "\n" +
+				"You can also use **/submit-solo** to get a ready-to-paste template sent to your DMs."
+			bot.Send(threadID, msg)
+			slog.Info("sent guide reply to malformed solo thread", "thread", threadID)
+		}
+	}
+
 	// ── Role assignment ───────────────────────────────────────────────────────
 
 	if !*dryRun && (baseBuilderRoleID != "" || baseCriticRoleID != "") {
