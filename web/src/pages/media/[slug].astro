@@ -5,8 +5,8 @@ import { BASE } from "@/lib/url"
 export async function getStaticPaths() {
   const entries = await getCollection("articles")
   return entries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { slug: entry.slug },
+    params: { slug: entry.id },
+    props: { slug: entry.id },
   }))
 }
 
