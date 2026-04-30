@@ -5,7 +5,7 @@ tags: ["Beginner"]
 authors: ["SiMing 司命"]
 date: 2026-04-27
 order: 7
-image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f07a24&is=69ef28a4&hm=45f4815aa7fd79402a74c0acc46b3bc02348476c578e503e84224ca3f3ab30f8&"
+image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=69f46ea4&is=69f31d24&hm=ec6d4f869ea3596683ba028fa1ec479d9606d434e6fba6fa4daa173b36130eed&"
 featured: true
 published: true
 ---
