@@ -89,8 +89,8 @@ tasks:
 
   # ── tutorial (generate article from Discord thread) ─────────
   tutorial:
-    desc: "generate a markdown tutorial from a Discord thread URL. Usage: task tutorial -- <url>"
-    cmd: go run ./cmd/tutorial {{.CLI_ARGS}}
+    desc: "generate markdown tutorials from Discord thread URLs. Reads tutorial-urls.txt by default. Usage: task tutorial -- [<url>...]"
+    cmd: go run ./cmd/tutorial -list data/tutorial_threads.txt {{.CLI_ARGS}}
 
   # ── web (Astro) ─────────────────────────────────────────────
   web:

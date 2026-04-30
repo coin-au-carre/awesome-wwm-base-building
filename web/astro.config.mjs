@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 import react from "@astrojs/react"
 import sitemap, { ChangeFreqEnum } from "@astrojs/sitemap"
+import remarkBreaks from "remark-breaks"
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,9 @@ export default defineConfig({
   output: "static",
   vite: {
     plugins: [tailwindcss()],
+  },
+  markdown: {
+    remarkPlugins: [remarkBreaks],
   },
   integrations: [
     react(),

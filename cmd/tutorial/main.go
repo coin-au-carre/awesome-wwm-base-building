@@ -104,16 +104,15 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 	var firstImageURL string
 	var parts []string
 
+	var groups [][]string
 	for _, msg := range allMsgs {
 		text := strings.TrimSpace(msg.Content)
-		if text != "" {
-			parts = append(parts, text)
-		}
+		var group []string
 		for _, att := range msg.Attachments {
 			ext := mediaExt(att.URL)
 			if isVideo(ext) {
-				parts = append(parts, fmt.Sprintf(
-					`<video src="%s" controls style="border-radius: 0.75rem; width: 100%%; max-width: 480px;"></video>`,
+				group = append(group, fmt.Sprintf(
+					`<video src="%s" controls style="border-radius: 0.75rem; width: 100%%; max-width: 720px;"></video>`,
 					att.URL,
 				))
 				slog.Info("linked video (Discord CDN)", "url", att.URL)
@@ -122,13 +121,24 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 			if firstImageURL == "" {
 				firstImageURL = att.URL
 			}
-			parts = append(parts, fmt.Sprintf(
+			group = append(group, fmt.Sprintf(
 				`<img src="%s" alt="" style="border-radius: 0.75rem; width: 100%%; max-width: 480px;" />`,
 				att.URL,
 			))
 			slog.Info("linked image (Discord CDN)", "url", att.URL)
 		}
+		if text != "" {
+			group = append(group, text)
+		}
+		if len(group) > 0 {
+			groups = append(groups, group)
+		}
 	}
+	var groupStrs []string
+	for _, g := range groups {
+		groupStrs = append(groupStrs, strings.Join(g, "\n\n"))
+	}
+	parts = append(parts, strings.Join(groupStrs, "\n\n---\n\n"))
 
 	outPath := filepath.Join(root, "web", "src", "content", "articles", slug+".md")
 
