@@ -10,6 +10,7 @@ tasks:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt
+      - go run ./cmd/whatever-sync
 
   sync:nopull:
     desc: crawl Discord threads → update guilds.json, generate public JSON, sync tutorials (no git pull)
@@ -17,6 +18,7 @@ tasks:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt
+      - go run ./cmd/whatever-sync
 
   # ── bot (long-running) ──────────────────────────────────────
   bot:
@@ -49,6 +51,10 @@ tasks:
   events-sync:
     desc: fetch Discord Scheduled Events → data/events.json
     cmd: go run ./cmd/events-sync {{.CLI_ARGS}}
+
+  whatever-sync:
+    desc: fetch #whatever-showcase messages → data/whatever.json
+    cmd: go run ./cmd/whatever-sync {{.CLI_ARGS}}
 
   # ── send (one-shot message as Ruby) ────────────────────────
   send:
@@ -169,6 +175,7 @@ tasks:
       - echo "        -- -min-threads 3  minimum guilds voted on before flagging (default 3)"
       - echo ""
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
+      - echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"
       - echo ""
       - echo "  task web                 start Astro dev server"
       - echo "  task web:build           build Astro for production"

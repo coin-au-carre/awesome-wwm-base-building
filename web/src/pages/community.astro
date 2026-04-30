@@ -1,0 +1,315 @@
+---
+import Layout from "@/layouts/main.astro"
+import { ImagesIcon, ArrowSquareOutIcon, ShuffleIcon, SortAscendingIcon } from "@phosphor-icons/react"
+import { getWhateverPosts, getWhateverStats } from "@/lib/whatever"
+import { BASE } from "@/lib/url"
+
+const posts = getWhateverPosts()
+const { totalImages, totalContributors } = getWhateverStats()
+
+// Flatten to one gallery item per image.
+const items = posts.flatMap((p) =>
+  p.images.map((img, imgIdx) => ({
+    postId: p.id,
+    img,
+    imgIdx,
+    allImgs: p.images,
+    displayName: p.displayName,
+    builderPath: p.builderPath,
+    reactions: p.reactions,
+    messageUrl: p.messageUrl,
+    postedAt: p.postedAt,
+  }))
+)
+---
+
+<Layout
+  title="Where Builders Meet | Moments"
+  description="Screenshots shared by the community in #whatever-showcase — moments from Where Winds Meet."
+>
+  <div class="space-y-6">
+
+    <!-- Header -->
+    <div class="flex flex-col gap-2">
+      <h1 class="font-heading text-2xl font-semibold flex items-center gap-2">
+        <ImagesIcon weight="duotone" className="size-6 text-primary" /> Moments
+      </h1>
+      <p class="text-muted-foreground text-sm">
+        Screenshots shared in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">#whatever-showcase ↗</a> by community members.
+      </p>
+    </div>
+
+    {items.length === 0 ? (
+      <div class="py-20 text-center text-muted-foreground text-sm">
+        No screenshots yet. Check back soon!
+      </div>
+    ) : (
+      <>
+        <!-- Stats + Controls -->
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+          <div class="flex items-center gap-3 text-xs text-muted-foreground">
+            <span class="inline-flex items-center gap-1.5 bg-muted rounded-full px-2.5 py-1">
+              <ImagesIcon weight="duotone" className="size-3" /> {totalImages} screenshots
+            </span>
+            <span class="inline-flex items-center gap-1.5 bg-muted rounded-full px-2.5 py-1">
+              👥 {totalContributors} contributors
+            </span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex rounded-lg overflow-hidden ring-1 ring-border text-xs">
+              <button
+                id="sort-reactions"
+                class="sort-btn px-3 py-1.5 flex items-center gap-1.5 bg-primary text-primary-foreground"
+                data-sort="reactions"
+                data-umami-event="community_sort"
+                data-umami-event-sort="reactions"
+              >
+                <SortAscendingIcon weight="bold" className="size-3" /> Top
+              </button>
+              <button
+                id="sort-newest"
+                class="sort-btn px-3 py-1.5 flex items-center gap-1.5 hover:bg-muted transition-colors"
+                data-sort="newest"
+                data-umami-event="community_sort"
+                data-umami-event-sort="newest"
+              >
+                Newest
+              </button>
+            </div>
+            <button
+              id="shuffle-btn"
+              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg ring-1 ring-border text-xs hover:bg-muted transition-colors"
+              data-umami-event="community_shuffle"
+            >
+              <ShuffleIcon weight="bold" className="size-3" /> Shuffle
+            </button>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div id="gallery" class="columns-2 sm:columns-3 lg:columns-4 gap-2">
+          {items.map((item) => (
+            <div
+              class="gallery-item break-inside-avoid mb-2 group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-border hover:ring-primary transition-all"
+              data-post-id={item.postId}
+              data-img={item.img}
+              data-all-imgs={JSON.stringify(item.allImgs)}
+              data-display-name={item.displayName}
+              data-builder-path={item.builderPath ?? ""}
+              data-reactions={item.reactions}
+              data-message-url={item.messageUrl}
+              data-posted-at={item.postedAt}
+            >
+              <img
+                src={item.img}
+                alt={`Screenshot by ${item.displayName}`}
+                loading="lazy"
+                onerror="this.closest('.gallery-item').style.display='none'"
+                class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </div>
+
+  <!-- Lightbox -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Close -->
+    <button
+      id="lb-close"
+      class="absolute top-4 right-4 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+      aria-label="Close"
+    >
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Prev -->
+    <button
+      id="lb-prev"
+      class="absolute left-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+      aria-label="Previous"
+    >
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+
+    <!-- Next -->
+    <button
+      id="lb-next"
+      class="absolute right-14 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+      aria-label="Next"
+    >
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </button>
+
+    <!-- Image + caption -->
+    <div class="flex flex-col items-center gap-3 max-w-5xl w-full max-h-full">
+      <img
+        id="lb-img"
+        src=""
+        alt=""
+        class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl"
+      />
+      <div class="flex items-center gap-3">
+        <span id="lb-author-wrap" class="text-sm font-semibold text-white"></span>
+        <span id="lb-reactions" class="text-white/50 text-xs"></span>
+        <span id="lb-counter" class="text-white/40 text-xs"></span>
+        <a
+          id="lb-discord-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1 text-xs text-white/50 hover:text-white transition-colors"
+          data-umami-event="community_discord_link_click"
+        >
+          <ArrowSquareOutIcon weight="bold" className="size-3.5" /> Discord
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script is:inline define:vars={{ BASE }}>
+  const gallery = document.getElementById("gallery")
+  const lightbox = document.getElementById("lightbox")
+  const lbImg = document.getElementById("lb-img")
+  const lbAuthorWrap = document.getElementById("lb-author-wrap")
+  const lbReactions = document.getElementById("lb-reactions")
+  const lbCounter = document.getElementById("lb-counter")
+  const lbLink = document.getElementById("lb-discord-link")
+  const lbClose = document.getElementById("lb-close")
+  const lbPrev = document.getElementById("lb-prev")
+  const lbNext = document.getElementById("lb-next")
+
+  function getItems() {
+    return [...gallery.querySelectorAll(".gallery-item")]
+  }
+
+  // Lightbox state
+  let currentItems = []
+  let currentIndex = 0
+  let subImages = []
+  let subIndex = 0
+
+  function openLightbox(items, idx, imgSrc) {
+    currentItems = items
+    currentIndex = idx
+    const item = items[idx]
+    subImages = JSON.parse(item.dataset.allImgs ?? "[]")
+    subIndex = imgSrc ? Math.max(subImages.indexOf(imgSrc), 0) : 0
+    renderLightbox()
+    lightbox.classList.remove("hidden")
+    lightbox.classList.add("flex")
+    document.body.style.overflow = "hidden"
+  }
+
+  function renderLightbox() {
+    const item = currentItems[currentIndex]
+    subImages = JSON.parse(item.dataset.allImgs ?? "[]")
+    lbImg.src = subImages[subIndex] ?? item.dataset.img ?? ""
+    lbImg.alt = `Screenshot by ${item.dataset.displayName}`
+
+    const name = item.dataset.displayName ?? ""
+    const path = item.dataset.builderPath ?? ""
+    if (path) {
+      lbAuthorWrap.innerHTML = `<a href="${BASE}${path}" class="hover:underline underline-offset-2 text-white" data-umami-event="community_lb_author_click">${name}</a>`
+    } else {
+      lbAuthorWrap.textContent = name
+    }
+
+    const r = Number(item.dataset.reactions ?? 0)
+    lbReactions.textContent = r > 0 ? `❤️ ${r}` : ""
+    lbCounter.textContent = `${currentIndex + 1} / ${currentItems.length}`
+    lbLink.href = item.dataset.messageUrl ?? "#"
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add("hidden")
+    lightbox.classList.remove("flex")
+    lbImg.src = ""
+    document.body.style.overflow = ""
+  }
+
+  function prevItem() {
+    if (subIndex > 0) { subIndex--; renderLightbox(); return }
+    currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length
+    subImages = JSON.parse(currentItems[currentIndex].dataset.allImgs ?? "[]")
+    subIndex = subImages.length - 1
+    renderLightbox()
+  }
+
+  function nextItem() {
+    if (subIndex < subImages.length - 1) { subIndex++; renderLightbox(); return }
+    currentIndex = (currentIndex + 1) % currentItems.length
+    subImages = JSON.parse(currentItems[currentIndex].dataset.allImgs ?? "[]")
+    subIndex = 0
+    renderLightbox()
+  }
+
+  // Gallery clicks
+  gallery.addEventListener("click", (e) => {
+    const card = e.target.closest(".gallery-item")
+    if (!card) { return }
+    const items = getItems()
+    openLightbox(items, items.indexOf(card), card.dataset.img)
+  })
+
+  lbClose.addEventListener("click", closeLightbox)
+  lbPrev.addEventListener("click", prevItem)
+  lbNext.addEventListener("click", nextItem)
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) { closeLightbox() } })
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.classList.contains("hidden")) { return }
+    if (e.key === "Escape") { closeLightbox() }
+    if (e.key === "ArrowLeft") { prevItem() }
+    if (e.key === "ArrowRight") { nextItem() }
+  })
+
+  // Sort & Shuffle
+  const sortReactionsBtn = document.getElementById("sort-reactions")
+  const sortNewestBtn = document.getElementById("sort-newest")
+  const shuffleBtn = document.getElementById("shuffle-btn")
+
+  function reorder(compareFn) {
+    const items = getItems()
+    items.sort(compareFn)
+    items.forEach((el) => gallery.appendChild(el))
+  }
+
+  function setActiveSort(active, inactive) {
+    active.classList.add("bg-primary", "text-primary-foreground")
+    active.classList.remove("hover:bg-muted")
+    inactive.classList.remove("bg-primary", "text-primary-foreground")
+    inactive.classList.add("hover:bg-muted")
+  }
+
+  sortReactionsBtn.addEventListener("click", () => {
+    reorder((a, b) => Number(b.dataset.reactions ?? 0) - Number(a.dataset.reactions ?? 0))
+    setActiveSort(sortReactionsBtn, sortNewestBtn)
+  })
+
+  sortNewestBtn.addEventListener("click", () => {
+    reorder((a, b) => (b.dataset.postedAt ?? "").localeCompare(a.dataset.postedAt ?? ""))
+    setActiveSort(sortNewestBtn, sortReactionsBtn)
+  })
+
+  shuffleBtn.addEventListener("click", () => {
+    reorder(() => Math.random() - 0.5)
+    ;[sortReactionsBtn, sortNewestBtn].forEach((btn) => {
+      btn.classList.remove("bg-primary", "text-primary-foreground")
+      btn.classList.add("hover:bg-muted")
+    })
+  })
+</script>

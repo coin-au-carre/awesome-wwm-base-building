@@ -1,0 +1,38 @@
+name: Sync Whatever Showcase
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync-whatever:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Fetch #whatever-showcase posts
+        env:
+          RUBY_BOT_TOKEN: ${{ secrets.RUBY_BOT_TOKEN }}
+          WHATEVER_SHOWCASE_CHANNEL_ID: ${{ secrets.WHATEVER_SHOWCASE_CHANNEL_ID }}
+          DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+        run: go run ./cmd/whatever-sync
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/whatever.json
+          if git diff --cached --quiet; then
+            echo "No changes, skipping commit."
+          else
+            git commit -m "chore: sync whatever showcase $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
