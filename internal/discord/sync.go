@@ -19,16 +19,17 @@ import (
 const numWorkers = 20
 
 type SyncStats struct {
-	Total               int
-	New                 int
-	Updated             int
-	NewNames            []string
-	UpdatedNames        []string
-	MoreScreenshotNames []string          // existing entries that gained screenshots
-	MoreVideoNames      []string          // existing entries that gained videos
-	NewThreadLinks      map[string]string // guild name → discord thread URL
-	VoterGuildCounts    map[string]int    // userID → number of distinct guilds voted on
-	DuplicateWarnings   []string
+	Total                  int
+	New                    int
+	Updated                int
+	NewNames               []string
+	UpdatedNames           []string
+	MoreScreenshotNames    []string          // existing entries that gained screenshots
+	MoreVideoNames         []string          // existing entries that gained videos
+	NewThreadLinks         map[string]string // guild name → discord thread URL
+	VoterGuildCounts       map[string]int    // userID → number of distinct guilds voted on
+	DuplicateWarnings      []string
+	MalformedNewThreadIDs  []string // thread IDs of new entries missing both guild ID and structured name
 }
 
 type SyncConfig struct {
@@ -430,6 +431,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		// g.LastModified = data.LastContributorTime.UTC().Format(guild.ModifiedLayout)
 
 		isNew := result.newIndices[r.idx]
+		if isNew && g.ID == "" && data.GuildName == "" {
+			stats.MalformedNewThreadIDs = append(stats.MalformedNewThreadIDs, r.thread.ID)
+		}
 		if !isNew && hasChanged(prev, g) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
