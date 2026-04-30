@@ -6,6 +6,7 @@ import { BASE } from "@/lib/url"
 
 const posts = getWhateverPosts()
 const { totalImages, totalContributors } = getWhateverStats()
+const ogImage = posts.flatMap((p) => p.images).find(Boolean)
 
 // Flatten to one gallery item per image.
 const items = posts.flatMap((p) =>
@@ -24,8 +25,9 @@ const items = posts.flatMap((p) =>
 ---
 
 <Layout
-  title="Where Builders Meet | Moments"
-  description="Screenshots shared by the community in #whatever-showcase — moments from Where Winds Meet."
+  title="Where Builders Meet | Moments — Community Screenshots"
+  description="Player screenshots from Where Winds Meet shared by the community — landscapes, builds, and memorable moments from the game."
+  image={ogImage}
 >
   <div class="space-y-6">
 
