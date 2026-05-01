@@ -1,4 +1,5 @@
 import { readFileSync } from "fs"
+import { resolve } from "path"
 
 export type EventStatus = "scheduled" | "active" | "completed" | "canceled"
 export type EventType = "tour" | "pvp" | "marriage" | "dancing" | "fashion" | "contest" | "race" | "other"
@@ -43,7 +44,7 @@ export const EVENT_TYPE_EMOJI: Record<EventType, string> = {
 
 function loadEvents(): Event[] {
   try {
-    const raw = readFileSync(new URL("../../../data/events.json", import.meta.url), "utf-8")
+    const raw = readFileSync(resolve(process.cwd(), "..", "data/events.json"), "utf-8")
     return JSON.parse(raw)
   } catch {
     return []
