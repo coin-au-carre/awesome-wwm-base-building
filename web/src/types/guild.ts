@@ -22,6 +22,7 @@ export interface Guild {
   videos?: string[]
   createdAt?: string
   lastModified?: string
+  scoutedByDiscordId?: string
 }
 
 export interface RankedGuild extends Guild {
