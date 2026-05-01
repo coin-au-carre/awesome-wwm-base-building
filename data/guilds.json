@@ -1,4 +1,34 @@
-[
+[ {
+		"name": "ShiftMalam",
+		"builders": [
+			"Fleia"
+		],
+		"tags": [
+			"Arena",
+			"Floating Island",
+			"Nature",
+			"Party area"
+		],
+		"discordThread": "",
+		"whatToVisit": "Arena",
+		"score": 0,
+		"lastModified": "May 1, 2026 at 3:49 PM UTC",
+		"scoutedByDiscordId": "832288826210648137"
+	},
+	{
+		"name": "Defiance",
+		"builders": [
+			"noxlamina"
+		],
+		"tags": [
+			"Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "Impressive Arena\nThrone\nIn construction...",
+		"score": 0,
+		"lastModified": "May 1, 2026 at 11:24 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
 	{
 		"name": "DoNotTouchMe",
 		"builders": [
