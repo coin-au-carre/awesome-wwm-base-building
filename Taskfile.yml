@@ -189,4 +189,5 @@ tasks:
       - echo "  task sync -- -dry-run"
       - echo "  task sync -- -no-notify -force-role"
       - echo "  task sync -- -dry-run -no-notify -force-role"
+      - echo "  task announce -- -guild \"Guild Name\" -screenshots -channel 1487016405701492806"
       - echo ""

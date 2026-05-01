@@ -327,7 +327,11 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		if g.PosterDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
 			continue
 		}
-		announce(name, isSolo, discord.FormatMoreScreenshotsMessage)
+		msg := discord.FormatMoreScreenshotsMessage(g, isSolo)
+		if len(g.Screenshots) > 0 {
+			msg += "\n" + g.Screenshots[len(g.Screenshots)-1]
+		}
+		bot.Send(channelID, msg)
 	}
 	for _, name := range stats.MoreVideoNames {
 		g, ok := byName[name]
@@ -346,12 +350,7 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		}
 		msg := discord.FormatNewGuildMessage(g, isSolo)
 		if len(g.Screenshots) > 0 {
-			imgData, filename, err := discord.DownloadImage(g.Screenshots[0])
-			if err == nil {
-				bot.SendWithFile(channelID, msg, filename, imgData)
-				imgData.Close()
-				continue
-			}
+			msg += "\n" + g.Screenshots[0]
 		}
 		bot.Send(channelID, msg)
 	}
