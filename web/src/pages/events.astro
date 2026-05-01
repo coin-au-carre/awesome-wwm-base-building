@@ -59,7 +59,7 @@ const TYPE_COLORS: Record<EventType, string> = {
         <h1 class="font-heading text-2xl font-semibold flex items-center gap-2">
           <CalendarIcon weight="duotone" className="size-6 text-primary" /> Events
         </h1>
-        <Badge variant="secondary">{events.length} upcoming</Badge>
+        <Badge id="events-count" variant="secondary">{events.length} upcoming</Badge>
       </div>
       <p class="text-muted-foreground text-sm">
         Public events organized by WWM players. RSVP on{" "}
@@ -89,17 +89,15 @@ const TYPE_COLORS: Record<EventType, string> = {
     </div>
 
     <!-- Event list -->
-    {
-      events.length === 0 ? (
-        <div class="rounded-xl border border-border bg-muted/30 px-6 py-12 text-center text-muted-foreground">
-          <CalendarIcon weight="duotone" className="size-10 mx-auto mb-3 opacity-40" />
-          <p class="font-medium text-foreground mb-1">No upcoming events</p>
-          <p class="text-sm">Create a Scheduled Event in the Discord server to get started.</p>
-        </div>
-      ) : (
-        <ul class="space-y-4">
-          {events.map((event) => (
-            <li class="rounded-xl border border-border bg-card overflow-hidden flex flex-col gap-3 hover:border-primary/40 transition-colors">
+    <div id="events-empty" class:list={["rounded-xl border border-border bg-muted/30 px-6 py-12 text-center text-muted-foreground", events.length > 0 && "hidden"]}>
+      <CalendarIcon weight="duotone" className="size-10 mx-auto mb-3 opacity-40" />
+      <p class="font-medium text-foreground mb-1">No upcoming events</p>
+      <p class="text-sm">Create a Scheduled Event in the Discord server to get started.</p>
+    </div>
+    {events.length > 0 && (
+      <ul id="events-list" class="space-y-4">
+        {events.map((event) => (
+            <li data-event data-end={event.scheduledEnd ?? ""} class="rounded-xl border border-border bg-card overflow-hidden flex flex-col gap-3 hover:border-primary/40 transition-colors">
               {event.image && (
                 <img src={event.image} alt={event.name} class="w-full aspect-3/1 object-cover" />
               )}
@@ -186,7 +184,25 @@ const TYPE_COLORS: Record<EventType, string> = {
             </li>
           ))}
         </ul>
-      )
-    }
+    )}
   </div>
 </Layout>
+
+<script>
+  const now = Date.now()
+  let visible = 0
+  document.querySelectorAll<HTMLElement>("[data-event]").forEach((el) => {
+    const end = el.dataset.end
+    if (end && new Date(end).getTime() <= now) {
+      el.remove()
+    } else {
+      visible++
+    }
+  })
+  const badge = document.getElementById("events-count")
+  if (badge) badge.textContent = `${visible} upcoming`
+  if (visible === 0) {
+    document.getElementById("events-list")?.remove()
+    document.getElementById("events-empty")?.classList.remove("hidden")
+  }
+</script>
