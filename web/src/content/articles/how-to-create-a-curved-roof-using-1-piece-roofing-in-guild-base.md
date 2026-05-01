@@ -13,7 +13,7 @@ Curious on how to make a curved roof using single-piece pre-fabricated roof comp
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496992360016642109/circle_1.mp4?ex=69f520c7&is=69f3cf47&hm=7897c1978839e8e04a9f047db956732a585990c5915e6a7c595534b887dcba13&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496992360016642109/circle_1.mp4?ex=69f5c987&is=69f47807&hm=de9aa6144284d93a695ce8488a174b5a4ed7c5505ad35eabf1191e65973e21ee&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 1** 
 Make your initial circle which will act as your guide by selecting any **railing** that can snap. To make a perfect circle, you want to make sure that auto-snap is **on** and then begin by setting your railing in the center, then rotate exactly 1 click per segment. 
