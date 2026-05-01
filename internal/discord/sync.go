@@ -36,6 +36,7 @@ type SyncConfig struct {
 	ForumChannelID string
 	DryRun         bool
 	IsSolo         bool
+	GuildFilter    string // if non-empty, only process threads whose name contains this (case-insensitive)
 }
 
 type threadData struct {
@@ -112,6 +113,18 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		return SyncFetchResult{}, err
 	}
 	slog.Info("threads collected", "count", len(threads), "elapsed", time.Since(t0).Round(time.Millisecond))
+
+	if cfg.GuildFilter != "" {
+		filter := strings.ToLower(cfg.GuildFilter)
+		filtered := threads[:0]
+		for _, t := range threads {
+			if strings.Contains(strings.ToLower(t.Name), filter) {
+				filtered = append(filtered, t)
+			}
+		}
+		slog.Info("guild filter applied", "filter", cfg.GuildFilter, "matched", len(filtered))
+		threads = filtered
+	}
 
 	var partialStats SyncStats
 	partialStats.NewThreadLinks = make(map[string]string)
@@ -415,8 +428,12 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		} else {
 			g.CoverImage = ""
 		}
-		g.Lore = data.Lore
-		g.WhatToVisit = data.WhatToVisit
+		if data.Lore != "" {
+			g.Lore = data.Lore
+		}
+		if data.WhatToVisit != "" {
+			g.WhatToVisit = data.WhatToVisit
+		}
 		g.PostedOnBehalfOf = data.PostedOnBehalfOf
 		if data.AuthorID != "" {
 			g.PosterDiscordID = data.AuthorID

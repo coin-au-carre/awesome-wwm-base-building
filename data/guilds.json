@@ -5795,17 +5795,21 @@
 	},
 	{
 		"id": "10208304",
-		"name": "Sky Castle Escape Room",
+		"name": "小童群抽會",
 		"builders": [],
 		"tags": [
-			"City",
 			"Mountain",
-			"Fun"
+			"Fun",
+			"Floating Island",
+			"City",
+			"Creative"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1499701206220804237",
 		"posterDiscordId": "156824007109378048",
 		"posterUsername": "gn5115229567",
-		"score": 20,
+		"lore": "(百業參觀)  迪士尼密室逃脫, 第一關先跟著我, 我會帶你到密室, 第二關, 你再找秘道進去密室內, 第三闔,找方法到城堡頂層就是嬴, 按我圖像, 再按百業名稱前來  名稱：小童群抽會",
+		"whatToVisit": "Escape Room\nParkour\nElevators\nHidden Rooms",
+		"score": 0,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1499701206220804237/1499701206719922206/1.png?ex=69f5c116\u0026is=69f46f96\u0026hm=9f71c79e2d21771de1c8cd8e1541db1ad6038771c1f563183b6bf0c7bc78dd9b\u0026",
 			"https://cdn.discordapp.com/attachments/1499701206220804237/1499701207487221780/2.png?ex=69f5c116\u0026is=69f46f96\u0026hm=7d12bcb5529cb55e5ff690709c3b795aabdeac3f6b4817fd94f542e4e2e249dc\u0026"
