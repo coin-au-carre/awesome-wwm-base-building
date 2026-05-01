@@ -8,7 +8,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/bwmarrin/discordgo"
 	"github.com/joho/godotenv"
 
 	"ruby/internal/cmdutil"
@@ -68,15 +67,19 @@ func main() {
 		msg = idiscord.FormatNewGuildMessage(pick, *isSolo)
 	}
 
-	s, err := discordgo.New("Bot " + token)
+	bot, err := idiscord.NewBot(token, "")
 	if err != nil {
 		slog.Error("creating discord session", "err", err)
 		os.Exit(1)
 	}
 
-	if _, err = s.ChannelMessageSend(target, msg); err != nil {
-		slog.Error("sending announcement", "err", err)
-		os.Exit(1)
+	if len(pick.Screenshots) > 0 {
+		if *screenshots {
+			msg += "\n" + pick.Screenshots[len(pick.Screenshots)-1]
+		} else {
+			msg += "\n" + pick.Screenshots[0]
+		}
 	}
+	bot.Send(target, msg)
 	slog.Info("announced", "guild", pick.Name, "channel", target)
 }
