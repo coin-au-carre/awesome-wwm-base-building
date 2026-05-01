@@ -137,6 +137,7 @@ tasks:
       - echo "        -- -dry-run        crawl only, skip writing guilds.json"
       - echo "        -- -no-notify      skip Discord notification"
       - echo "        -- -force-role     reassign roles to all authors"
+      - echo "        -- -guild name     only sync threads whose name contains this (case-insensitive)"
       - echo ""
       - echo "  task bot                 run bot (RUBY_CHANNEL_ID + DEV_CHANNEL_ID)"
       - echo "  task bot:no-claude       run bot without Claude (slash commands only)"
@@ -175,7 +176,7 @@ tasks:
       - echo "        -- -min-threads 3  minimum guilds voted on before flagging (default 3)"
       - echo ""
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
-      - echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"
+      - 'echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"'
       - echo ""
       - echo "  task web                 start Astro dev server"
       - echo "  task web:build           build Astro for production"
@@ -189,5 +190,5 @@ tasks:
       - echo "  task sync -- -dry-run"
       - echo "  task sync -- -no-notify -force-role"
       - echo "  task sync -- -dry-run -no-notify -force-role"
-      - echo "  task announce -- -guild \"Guild Name\" -screenshots -channel 1487016405701492806"
+      - 'echo "  task announce -- -guild <Guild Name> -screenshots -channel 1487016405701492806"'
       - echo ""

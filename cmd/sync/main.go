@@ -21,6 +21,7 @@ func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing JSON files")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
 	root := flag.String("root", cmdutil.RootDir(), "root directory containing guilds.json and solos.json")
+	guildFilter := flag.String("guild", "", "only sync threads whose name contains this string (case-insensitive)")
 	flag.Parse()
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
@@ -99,7 +100,7 @@ func main() {
 	fetchWg.Add(1)
 	go func() {
 		defer fetchWg.Done()
-		r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{ForumChannelID: guildForumID})
+		r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{ForumChannelID: guildForumID, GuildFilter: *guildFilter})
 		guildCh <- fetchOutcome{r, err}
 	}()
 
@@ -107,7 +108,7 @@ func main() {
 		fetchWg.Add(1)
 		go func() {
 			defer fetchWg.Done()
-			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{ForumChannelID: soloForumID, IsSolo: true})
+			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{ForumChannelID: soloForumID, IsSolo: true, GuildFilter: *guildFilter})
 			soloCh <- fetchOutcome{r, err}
 		}()
 	}
