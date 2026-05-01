@@ -364,9 +364,10 @@
 			"Creative",
 			"Fun"
 		],
+		"lore": "Guild has been disbanded. Build has been destroyed. But Builder kept diagram. Kept it for memento until Narikiasa does another build.",
 		"discordThread": "",
 		"whatToVisit": "Marvellous floating islands platform\nWedding alley\nStylish Elevator\nGo to the top!",
-		"score": 1,
+		"score": -10,
 		"lastModified": "April 24, 2026 at 04:51 PM UTC",
 		"scoutedByDiscordId": "149790526076354561"
 	},
@@ -1286,18 +1287,6 @@
 		"whatToVisit": "fashion show, imposant forest",
 		"score": 1,
 		"note": "contacted wwm"
-	},
-	{
-		"name": "Toronto",
-		"builders": [
-			"FoxiKate"
-		],
-		"tags": [
-			"Fun"
-		],
-		"discordThread": "",
-		"whatToVisit": "Giant tower",
-		"score": 1
 	},
 	{
 		"id": "10248427",
