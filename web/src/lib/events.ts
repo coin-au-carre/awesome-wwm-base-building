@@ -53,10 +53,8 @@ function loadEvents(): Event[] {
 const ALL_EVENTS: Event[] = loadEvents()
 
 export function getUpcomingEvents(): Event[] {
-  const now = new Date()
   return ALL_EVENTS
     .filter((e) => e.status === "scheduled" || e.status === "active")
-    .filter((e) => !e.scheduledEnd || new Date(e.scheduledEnd) > now)
     .sort((a, b) => new Date(a.scheduledStart).getTime() - new Date(b.scheduledStart).getTime())
 }
 
