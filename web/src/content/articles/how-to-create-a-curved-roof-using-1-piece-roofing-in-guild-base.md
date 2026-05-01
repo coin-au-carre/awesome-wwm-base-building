@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "roof"]
 authors: ["SiMing司命"]
 date: 2026-04-24
 order: 6
-image: "https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f52586&is=69f3d406&hm=a7a12a44be62bd633f23c3342f1ad14d2673a63fb97b68bc97bb9121721f2ce5&"
+image: "https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f5ce46&is=69f47cc6&hm=f00fbc339a4d6d32c437d5399a94eda1e60719b42e0d7dcd280a67186180f3d9&"
 featured: false
 ---
 
@@ -56,7 +56,7 @@ If using tie beams, you will need to snap those beams directly to the railing it
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=69f524ed&is=69f3d36d&hm=1b55c62456ec5c0b046f6c8e051051b1b54219d910aefdca473ddea27bfa3460&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=69f5cdad&is=69f47c2d&hm=485b37c76fc544b33e0efd9998a9fca69ee8280a30c1d2b0f840b8acf252fc97&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 10**
 Select any large floor and manually place it at your desired height (either directly on top of the beam, or using the beam as a height guide to slide the floor piece in place.) This is a temporary surface that you will later delete.
@@ -73,7 +73,7 @@ If done correctly, you can create a circular roof that won't be quite as compone
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f52586&is=69f3d406&hm=a7a12a44be62bd633f23c3342f1ad14d2673a63fb97b68bc97bb9121721f2ce5&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f5ce46&is=69f47cc6&hm=f00fbc339a4d6d32c437d5399a94eda1e60719b42e0d7dcd280a67186180f3d9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 (See arena in distance.)
 
