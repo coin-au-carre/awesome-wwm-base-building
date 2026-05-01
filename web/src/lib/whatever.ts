@@ -1,4 +1,5 @@
 import { readFileSync } from "fs"
+import { resolve } from "path"
 import { getUsers, getBuilderSearchPath } from "@/lib/guilds"
 
 export interface ReactionDetail {
@@ -24,7 +25,7 @@ export interface WhateverItem extends WhateverPost {
 
 function loadPosts(): WhateverPost[] {
   try {
-    const raw = readFileSync(new URL("../../../data/whatever.json", import.meta.url), "utf-8")
+    const raw = readFileSync(resolve(process.cwd(), "..", "data/whatever.json"), "utf-8")
     return JSON.parse(raw)
   } catch {
     return []
