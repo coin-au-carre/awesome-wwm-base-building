@@ -58,7 +58,7 @@ function tiktokVideoID(rawURL: string): string {
           const ytID = youtubeVideoID(v)
           const ttID = tiktokVideoID(v)
           if (ytID) return (
-            <div class="aspect-video w-full overflow-hidden rounded-xl">
+            <div class="aspect-video w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
               <iframe
                 src={`https://www.youtube.com/embed/${ytID}`}
                 title="Guild video"
