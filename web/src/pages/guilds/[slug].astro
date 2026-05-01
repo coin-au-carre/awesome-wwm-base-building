@@ -4,7 +4,7 @@ import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { getGuildsSortedByScore, formatBuilderName } from "@/lib/guilds"
+import { getGuildsSortedByScore, formatBuilderName, getUsers } from "@/lib/guilds"
 import { getTier } from "@/lib/scoring"
 import { stripGuildShowcase } from "@/lib/format"
 import { renderMarkdown } from "@/lib/markdown"
@@ -27,6 +27,10 @@ const AHLYAM_ID = "149790526076354561"
 const WINDXP_ID = "721510597958828183"
 const enteredByAhlyam = g.posterDiscordId === AHLYAM_ID || g.posterDiscordId === WINDXP_ID
 const ogImage = g.coverImage ?? g.screenshots?.[0]
+
+const users = getUsers()
+const scoutUser = g.scoutedByDiscordId ? users[g.scoutedByDiscordId] : undefined
+const scoutName = scoutUser?.nickname ?? scoutUser?.globalName ?? scoutUser?.username
 
 const guildDisplayName = stripGuildShowcase(g.guildName || g.name)
 const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
@@ -309,7 +313,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
         <CardContent className="space-y-2 text-sm">
           <p class="font-medium">Is this your guild?</p>
           <p class="text-muted-foreground">
-            This entry was added by the WBM community. If you're a builder of {stripGuildShowcase(g.guildName || g.name)}, you can post your base showcase yourself. See the
+            This entry was added by the WBM community{scoutName ? <>, scouted by <span class="font-medium text-foreground">{scoutName}</span></> : ""}. If you're a builder of {stripGuildShowcase(g.guildName || g.name)}, you can post your base showcase yourself. See the
             <a href={base + "/contribute"} class="underline hover:text-foreground transition-colors">contribute guide</a> to get started.
           </p>
           <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click">Post your base ↗</a>
