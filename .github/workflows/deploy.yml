@@ -7,6 +7,7 @@ on:
       - 'data/guilds.json'
       - 'data/solos.json'
       - 'data/events.json'
+      - 'data/whatever.json'
       - 'web/public/guilds.json'
       - 'web/**'
   workflow_run:
