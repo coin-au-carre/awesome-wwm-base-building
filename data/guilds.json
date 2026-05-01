@@ -6,10 +6,11 @@
 		],
 		"tags": [
 			"Creative",
-			"Fun"
+			"Fun",
+			"Floating Island"
 		],
 		"discordThread": "",
-		"whatToVisit": "Escape Room\nParkour",
+		"whatToVisit": "Escape Room\nParkour\nElevators\nHidden Rooms",
 		"score": 1,
 		"lastModified": "May 1, 2026 at 08:48 AM UTC",
 		"scoutedByDiscordId": "149790526076354561"
@@ -978,19 +979,6 @@
 		"discordThread": "",
 		"score": 0,
 		"note": "Contacted wwm"
-	},
-	{
-		"name": "小童群抽会",
-		"builders": [
-			""
-		],
-		"tags": [
-			"Floating Island"
-		],
-		"discordThread": "",
-		"whatToVisit": "elevators",
-		"score": 0,
-		"note": "elevator fun. Contacted wwm"
 	},
 	{
 		"name": "UndyingEmbers",
