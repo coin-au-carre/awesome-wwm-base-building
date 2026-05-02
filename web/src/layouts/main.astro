@@ -28,22 +28,21 @@ const navLinks = [
   { href: `${base}/catalog`, label: "Catalog", version: "2026-05-02-1200" },
 ]
 
-const contributeLink = { href: `${base}/contribute`, label: "Contribute", version: "2026-04-29-1600" }
-
 const resourceLinks = [
   { href: `${base}/tutorials`, label: "Tutorials", version: "2026-04-27-1200" },
   { href: `${base}/media`, label: "Media", version: "2026-04-24-1300" },
-]
-
-const exploreLinks = [
   { href: `${base}/events`, label: "Events", version: _latestEventId || "0" },
-  { href: `${base}/how-it-works`, label: "How it works", version: "2026-04-27-1245" },
 ]
 
-const allNavLinks = [...navLinks, ...resourceLinks, ...exploreLinks, contributeLink]
+const communityLinks = [
+  { href: `${base}/how-it-works`, label: "How it works", version: "2026-04-27-1245" },
+  { href: `${base}/contribute`, label: "Contribute", version: "2026-04-29-1600" },
+]
+
+const allNavLinks = [...navLinks, ...resourceLinks, ...communityLinks]
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
-const isExploreActive = exploreLinks.some((link) => currentPath.startsWith(link.href))
+const isCommunityActive = communityLinks.some((link) => currentPath.startsWith(link.href))
 const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(link.href))
 ---
 
@@ -194,13 +193,13 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
               </div>
             </div>
 
-            <!-- Explore dropdown -->
+            <!-- Community dropdown -->
             <div class="relative" id="explore-wrapper">
               <button
                 id="explore-toggle"
                 class={[
                   "px-3 py-1.5 text-sm transition-colors border-b-2 flex items-center gap-1 cursor-pointer",
-                  isExploreActive
+                  isCommunityActive
                     ? "border-primary font-medium text-foreground"
                     : "border-transparent text-muted-foreground hover:text-foreground",
                 ].join(" ")}
@@ -208,7 +207,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                 aria-expanded="false"
               >
                 <span class="relative">
-                  Explore
+                  Community
                   <span class="explore-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="explore-chevron"><path d="m6 9 6 6 6-6"/></svg>
@@ -218,7 +217,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                 class="hidden absolute left-0 top-full mt-1 min-w-36 rounded-md border border-border bg-popover shadow-md z-50 py-1"
               >
                 {
-                  exploreLinks.map((link) => {
+                  communityLinks.map((link) => {
                     const isActive = currentPath.startsWith(link.href)
                     return (
                       <a
@@ -242,29 +241,6 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                 }
               </div>
             </div>
-
-            <!-- Contribute link -->
-            {(() => {
-              const isActive = currentPath.startsWith(contributeLink.href)
-              return (
-                <a
-                  href={contributeLink.href}
-                  data-nav-href={contributeLink.href}
-                  data-nav-version={contributeLink.version}
-                  class={[
-                    "px-3 py-1.5 text-sm transition-colors border-b-2",
-                    isActive
-                      ? "border-primary font-medium text-foreground"
-                      : "border-transparent text-muted-foreground hover:text-foreground",
-                  ].join(" ")}
-                >
-                  <span class="relative">
-                    {contributeLink.label}
-                    <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
-                  </span>
-                </a>
-              )
-            })()}
           </nav>
 
           <div class="flex items-center gap-2">
