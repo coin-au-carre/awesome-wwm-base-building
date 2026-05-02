@@ -320,6 +320,9 @@
 			"https://cdn.discordapp.com/attachments/1491956955420295292/1491956963460780173/image.png?ex=69f73e73\u0026is=69f5ecf3\u0026hm=2bb13a83a2c46b9936ee7e265784447486db6e54ad9bb984a45ae8651cbcbd27\u0026"
 		],
 		"videos": [
+			"https://vt.tiktok.com/ZSHxU9Mwn/"
+		],
+		"ignoredVideos": [
 			"https://www.youtube.com/watch?v=Yi46R6FjFmU"
 		],
 		"createdAt": "April 10, 2026 at 12:24 AM UTC",
@@ -404,15 +407,15 @@
 		"lore": "Floating on the river is a boarding school for those who want to sharpen their crafts, upon giving Tea to your new Shizun you will have access to all that the school has to offer, Lecture Hall, Potions/Alchemy, Herbology and Art classrooms, a sparring area to work those muscles to give the mind a break. the kitchens are well stocked and connected to a large dining hall ready for all occasions, the 3 level dormitories have many bedding options and a leisure and study area on the roof and rest those aching bones in the outdoor baths after the day is done.... or maybe climb the stairs and ready yourselves for your trails.   (im Terribly Slack at posting my own stuff)",
 		"score": 35,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621386847391875/1776653600_DaIgEQmp.jpg?ex=69f6bb75\u0026is=69f569f5\u0026hm=f810131c8040e0749b4ec5cadfeb6f88753baae71d1a1d51cf15db6f13cd0228\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621387228942477/1776653186_cGUL0lr5.jpg?ex=69f6bb76\u0026is=69f569f6\u0026hm=e9b013b4ae7ac25fc9a68d262066b81f34924917a44dae57fc1500ee2defbb01\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621387606556742/1776653050_0LAQUgXF.jpg?ex=69f6bb76\u0026is=69f569f6\u0026hm=5dabc674e0fe6047486b031b8f349c067f5af9818e7e27a7e8e030ced35345b9\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621387996631140/1776653019_FealF28r.jpg?ex=69f6bb76\u0026is=69f569f6\u0026hm=061d4d88d085b5e7878ba1845b87ed8ce16860c84b4a740e004780985030ce50\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621388373987428/1776652987_bk6PYfXF.jpg?ex=69f6bb76\u0026is=69f569f6\u0026hm=da1d6e1323b16c991bee35c7a7df4737cdcbe1446ad466a6bd0c72dadb732e74\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621388793282700/1776652959_wVaXixSf.jpg?ex=69f6bb76\u0026is=69f569f6\u0026hm=191c6baaaac7de9c4cd5c49f1a0651f1fd638a00d8f3a0d1ac37b0a5d108efde\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621389225562163/1776652856_Kxsv5nLQ.jpg?ex=69f6bb76\u0026is=69f569f6\u0026hm=6a2a3f78eadab66ef428ce3a3865dd1f5d876eee471c25db4f1a85d1456c6f44\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621389732937738/1773738896416.png?ex=69f6bb76\u0026is=69f569f6\u0026hm=0b2baa48061bbc71bb848f836daa04d89590b6791587f78e511603ed31c6eb6b\u0026",
-			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621390219608124/17734781228068.png?ex=69f6bb76\u0026is=69f569f6\u0026hm=547daf65ce447c12fc7352e97937a65ac2965384d5aa66b5ca10808bb5487010\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621386847391875/1776653600_DaIgEQmp.jpg?ex=69f76435\u0026is=69f612b5\u0026hm=fdb2dad785e1864f3191ff2ef27a2a8f1cec14819fde335cb0359e46c1d0f8e6\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621387228942477/1776653186_cGUL0lr5.jpg?ex=69f76436\u0026is=69f612b6\u0026hm=6d5d45f063aaf25301b7e6726261367af7dbd3c75a7f85096404209acd545058\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621387606556742/1776653050_0LAQUgXF.jpg?ex=69f76436\u0026is=69f612b6\u0026hm=07498268cc16ac3f8890641c977559bdd3754fe7b81926b19f11341f195fc8b5\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621387996631140/1776653019_FealF28r.jpg?ex=69f76436\u0026is=69f612b6\u0026hm=7c33793c3be8d84fe978e8763277e4a5357ae6f89bcdab1b9a31d273bed9f6df\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621388373987428/1776652987_bk6PYfXF.jpg?ex=69f76436\u0026is=69f612b6\u0026hm=c7634e521465a9c69cb81674170fa6da0dbc81914982faea78f523ae79600df0\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621388793282700/1776652959_wVaXixSf.jpg?ex=69f76436\u0026is=69f612b6\u0026hm=e1465920ce1b39018861e7252323469ca16fb88ae19d9509f8827c2288ab65ce\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621389225562163/1776652856_Kxsv5nLQ.jpg?ex=69f76436\u0026is=69f612b6\u0026hm=2de4efb21153dec0dfdba56f967e6429fa19cada198a99da0cb960561df9f35a\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621389732937738/1773738896416.png?ex=69f76436\u0026is=69f612b6\u0026hm=d09d1084207e545aaa19cd83255845f5ed09b9a38630f6254e7dfcfba4636aa4\u0026",
+			"https://cdn.discordapp.com/attachments/1495621386012721192/1495621390219608124/17734781228068.png?ex=69f76436\u0026is=69f612b6\u0026hm=5964c26090619d41890c758c91f098083024310fdaf7f3e349c0174f0db12583\u0026",
 			"https://cdn.discordapp.com/attachments/1495621386012721192/1495622933790593176/1776653168_XX2w6FXu.jpg?ex=69f6bce6\u0026is=69f56b66\u0026hm=5dd5e5f728f054a5dfd9653fdf42fb3c9875150d54697c9168a02a1d7ec4aae6\u0026",
 			"https://cdn.discordapp.com/attachments/1495621386012721192/1495622934599962694/17739666203173.png?ex=69f6bce6\u0026is=69f56b66\u0026hm=5e5bba6dd32a2512da3250aad1c0084227b2061ad90cbd457e8162e4e0d16b5e\u0026",
 			"https://cdn.discordapp.com/attachments/1495621386012721192/1495622935287959552/1773966467481.png?ex=69f6bce7\u0026is=69f56b67\u0026hm=6e2cec8222fa0135f6dcd8b90a5dc29174d06694af1f9d2f98631a5223c08104\u0026",
@@ -452,11 +455,11 @@
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1495812267336270007/image_20260403_20_32_12.jpg?ex=69f6c47b\u0026is=69f572fb\u0026hm=2065d511a4b2ba79d67f42894933d0df0a5da35763e71068bcf35187e6c117a5\u0026",
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1495812267822940311/image_20260403_20_03_04.jpg?ex=69f6c47b\u0026is=69f572fb\u0026hm=e9827aa122afc32d828613453a45f4456a25f7683b043e61bf4c9ea5d581f9cb\u0026",
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1495812268158353438/image_20260403_20_00_30.jpg?ex=69f6c47b\u0026is=69f572fb\u0026hm=84774d436f73192088ec46d1e8331192216487fb4bb20544273c2ca95a1d25b4\u0026",
-			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700015467429938/image_20260422_21_26_38.jpg?ex=69f6b383\u0026is=69f56203\u0026hm=aa5f7d69fbb6f637d277a3990e2ca6e5790c5e503b63b06ecb53143d935bd453\u0026",
-			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700066881212497/Screenshot_20260420_123254_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6b38f\u0026is=69f5620f\u0026hm=aadc934eddb1b9d6a1165da4e1c6ed16c34129bb2c1f061c6fb36a41c23f8f8b\u0026",
-			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700075408097432/Screenshot_20260420_123247_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6b391\u0026is=69f56211\u0026hm=3156b014f3133c16cd196eb454882ebfd64787217f12fc1b0d3092ece2bfd463\u0026",
-			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700085663436961/image_20260420_12_32_31.jpg?ex=69f6b393\u0026is=69f56213\u0026hm=c2f6527ce9ee859c38db9138c16f6d7094c84336fadcd465d49c17e63e0a4caf\u0026",
-			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700104071975062/Screenshot_20260420_130157_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6b398\u0026is=69f56218\u0026hm=608be95fb1ce40970543eec76fc91dc3cfc83928bdcf1710c65436b10845fbae\u0026",
+			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700015467429938/image_20260422_21_26_38.jpg?ex=69f75c43\u0026is=69f60ac3\u0026hm=9279edd3be1564bfbf8e36e9bc0ec25e875e63cea4001a582587e1144e433f80\u0026",
+			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700066881212497/Screenshot_20260420_123254_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f75c4f\u0026is=69f60acf\u0026hm=22b2142522fd7bf23a73a058fa456ff632952818cb21ab7ab5d3541e3f5f095d\u0026",
+			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700075408097432/Screenshot_20260420_123247_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f75c51\u0026is=69f60ad1\u0026hm=887677d2a8d2c4b0d81f0ca4ac718f5bf5a2a32276b0f1ab53f3360176ca82fb\u0026",
+			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700085663436961/image_20260420_12_32_31.jpg?ex=69f75c53\u0026is=69f60ad3\u0026hm=0e46dce076e447aed7172d50b9ddb9645059c58fce873b20f513ee309c19d389\u0026",
+			"https://cdn.discordapp.com/attachments/1495811193716215989/1496700104071975062/Screenshot_20260420_130157_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f75c58\u0026is=69f60ad8\u0026hm=32a2f5ee57b42c428cdf06e51c8beba13daa2b008571a6ffad23ce82e7b9c013\u0026",
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1497443682939310080/Screenshot_20260424_232721_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6c51b\u0026is=69f5739b\u0026hm=057ca55a90c267a295e6752b8ea81167f7441643a89522f671206691872e0d5b\u0026",
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1497443683275112550/Screenshot_20260424_232604_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6c51b\u0026is=69f5739b\u0026hm=016db797b23c0373b702f4463065b879abea0eefb8969f1a48d3ade6eda7955f\u0026",
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1497443693366607942/Screenshot_20260424_231609_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6c51d\u0026is=69f5739d\u0026hm=678d99604cf5fefdc025dc473a5b8512c0ee5c06e9ff9cfb012cac6ce49e2d7f\u0026",
@@ -464,9 +467,14 @@
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1497443715592224799/Screenshot_20260424_231303_com_netease_yysls_MessiahNativeActivity.jpg?ex=69f6c522\u0026is=69f573a2\u0026hm=22583043ddac202549f28c0430b340062f284f087fe413d7049b60d953751828\u0026",
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1497443733191262288/image_20260424_22_58_44.jpg?ex=69f6c527\u0026is=69f573a7\u0026hm=45a11ef514a07c56e14bbfe67eaf66fea25c102838017b309232cf648de2e903\u0026"
 		],
+		"videos": [
+			"https://vt.tiktok.com/ZS9rQQ8Lj/",
+			"https://vt.tiktok.com/ZS9B6eGhm/"
+		],
 		"createdAt": "April 20, 2026 at 03:39 PM UTC",
-		"lastModified": "April 25, 2026 at 06:09 AM UTC",
-		"lastScreenshotNotifiedAt": "April 25, 2026 at 06:09 AM UTC"
+		"lastModified": "May 2, 2026 at 03:09 PM UTC",
+		"lastScreenshotNotifiedAt": "April 25, 2026 at 06:09 AM UTC",
+		"lastVideoNotifiedAt": "May 2, 2026 at 03:09 PM UTC"
 	},
 	{
 		"id": "1015241962",
