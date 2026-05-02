@@ -318,9 +318,10 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Catalog discovery banner -->
     <a
       href={`${BASE}/catalog`}
-      class="group flex items-center gap-4 rounded-xl ring-1 ring-amber-500/25 bg-card hover:ring-amber-500/50 hover:shadow-sm transition-all px-4 py-3"
+      class="group relative flex items-center gap-4 rounded-xl ring-1 ring-amber-500/35 bg-linear-to-r from-amber-500/12 via-amber-500/6 to-card hover:ring-amber-500/65 hover:from-amber-500/18 hover:shadow-md transition-all px-4 py-4 overflow-hidden"
       data-umami-event="catalog_banner_click"
     >
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-linear-to-l from-orange-500/8 to-transparent pointer-events-none" />
       <div class="shrink-0 flex items-center gap-1">
         {[
           { cat: "Basic Structure",      label: "Basic Structure" },
@@ -330,18 +331,20 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
           <img
             src={`/catalog/${encodeURIComponent(cat)}/icon.png`}
             alt={label}
-            class="size-8 object-contain transition-all filter-[brightness(0)_opacity(0.55)] group-hover:filter-[brightness(0)_opacity(0.75)] dark:filter-[brightness(0)_invert(1)_opacity(0.6)] dark:group-hover:filter-[brightness(0)_invert(1)_opacity(0.85)]"
+            class="size-10 object-contain transition-transform group-hover:scale-110"
+            style="filter: brightness(0) saturate(100%) invert(60%) sepia(80%) saturate(600%) hue-rotate(340deg) drop-shadow(0 0 3px rgba(251,146,60,0.45))"
           />
         ))}
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-semibold flex items-center gap-1.5">
+        <p class="text-sm font-semibold flex items-center gap-2 mb-0.5">
           <HammerIcon weight="duotone" className="size-4 text-amber-400 shrink-0" />
           Construction Catalog
+          <span class="text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 shrink-0">Update</span>
         </p>
-        <p class="text-xs text-muted-foreground">Browse every building item, diagrams by tag and style.</p>
+        <p class="text-xs text-muted-foreground">Every WWM building item in one place. Filter by tag, style, or search by name.</p>
       </div>
-      <svg class="size-4 shrink-0 text-amber-400/50 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+      <svg class="size-4 shrink-0 text-amber-400/55 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
     </a>
 
     <!-- Ranked table -->
