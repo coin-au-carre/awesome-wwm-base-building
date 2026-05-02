@@ -24,6 +24,9 @@ const categories: Category[] = Object.entries(catalogData)
       })),
   }))
 
+const totalItems = categories.reduce((n, c) => n + c.subcategories.reduce((m, s) => m + s.items.length, 0), 0)
+const totalCategories = categories.length
+
 function imgPath(category: string, subcategory: string, filename: string) {
   return `/catalog/${encodeURIComponent(category)}/${encodeURIComponent(subcategory)}/${encodeURIComponent(filename)}`
 }
@@ -882,8 +885,8 @@ const catalogJson = JSON.stringify(
   // Group order: structural → furniture → misc. Tags not listed fall into a final group.
   const tagGroupDefs: { label: string; tags: string[] }[] = [
     { label: "Structure",   tags: ["wall", "floor", "ceiling", "roof", "stairs", "guardrail", "door/gate", "window/frame", "railing"] },
-    { label: "Accessories", tags: ["interactive", "statue", "lamp", "plant"] },
     { label: "Furniture",   tags: ["bed", "carpet", "chair", "table", "bath"] },
+    { label: "Accessories", tags: ["interactive", "statue", "lamp", "plant"] },
   ]
   const tagGroupIndex: Record<string, number> = {}
   const tagPositionInGroup: Record<string, number> = {}
@@ -1344,7 +1347,3 @@ const catalogJson = JSON.stringify(
   })
 </script>
 
-<style is:global>
-  body { background-color: oklch(0.955 0.018 60); }
-  .dark body { background-color: oklch(0.168 0.012 60); }
-</style>
