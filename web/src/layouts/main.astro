@@ -408,6 +408,29 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
     </script>
 
     <script is:inline>
+      ;(function () {
+        var header = document.getElementById("site-header")
+        var lastY = 0
+        var ticking = false
+        window.addEventListener("scroll", function () {
+          if (!ticking) {
+            window.requestAnimationFrame(function () {
+              var y = window.scrollY
+              if (y > lastY && y > 80) {
+                header.style.transform = "translateY(-100%)"
+              } else {
+                header.style.transform = ""
+              }
+              lastY = y
+              ticking = false
+            })
+            ticking = true
+          }
+        }, { passive: true })
+      })()
+    </script>
+
+    <script is:inline>
       const toggle = document.getElementById("menu-toggle")
       const menu = document.getElementById("mobile-menu")
       const bar1 = document.getElementById("bar1")
