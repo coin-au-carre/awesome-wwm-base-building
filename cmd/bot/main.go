@@ -162,7 +162,11 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 			text = "Hello!"
 		}
 
-		slog.Info("bot triggered", "channel", m.ChannelID, "user", m.Author.Username, "content", text)
+		displayName := m.Author.Username
+		if m.Member != nil && m.Member.Nick != "" {
+			displayName = m.Member.Nick
+		}
+		slog.Info("bot triggered", "channel", m.ChannelID, "display_name", displayName, "content", text)
 
 		// Fast path: single keyword commands skip Claude entirely.
 		for _, word := range strings.Fields(strings.ToLower(text)) {

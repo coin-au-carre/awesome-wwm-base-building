@@ -147,14 +147,21 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 
 	for {
 		resp, err := r.client.Messages.New(ctx, anthropic.MessageNewParams{
-			Model:     anthropic.ModelClaudeSonnet4_6,
+			Model:     anthropic.ModelClaudeHaiku4_5,
 			MaxTokens: 2048,
-			System:    []anthropic.TextBlockParam{{Text: r.systemPrompt}},
+			System:    []anthropic.TextBlockParam{{Text: r.systemPrompt, CacheControl: anthropic.NewCacheControlEphemeralParam()}},
 			Messages:  msgs,
 			Tools:     tools,
 		})
 		if err != nil {
 			return Result{}, fmt.Errorf("claude API: %w", err)
+		}
+
+		u := resp.Usage
+		if u.CacheReadInputTokens > 0 {
+			slog.Info("ruby cache hit", "read", u.CacheReadInputTokens, "input", u.InputTokens, "output", u.OutputTokens)
+		} else {
+			slog.Info("ruby cache miss", "created", u.CacheCreationInputTokens, "input", u.InputTokens, "output", u.OutputTokens)
 		}
 
 		msgs = append(msgs, resp.ToParam())
