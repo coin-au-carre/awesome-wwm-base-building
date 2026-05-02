@@ -214,7 +214,7 @@ const catalogJson = JSON.stringify(
               class:list={[
                 "sub-tab px-3 py-1.5 text-sm rounded-md transition-colors cursor-pointer",
                 si === 0
-                  ? "bg-primary/15 text-primary ring-1 ring-primary/30"
+                  ? "bg-primary/15 dark:bg-primary/30 text-foreground ring-1 ring-primary/30"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted/50",
               ]}
               data-cat={cat.name}
@@ -292,7 +292,7 @@ const catalogJson = JSON.stringify(
                               <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
                               <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
                             </svg>
-                            <span class="text-[10px] text-primary font-medium">variants</span>
+                            <span class="text-[10px] text-white/90 font-medium">variants</span>
                           </div>
                         )}
                         {(item.tags ?? []).includes("solo") && (
@@ -300,7 +300,7 @@ const catalogJson = JSON.stringify(
                             <svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                               <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
                             </svg>
-                            <span class="text-[10px] text-blue-400 font-medium">solo</span>
+                            <span class="text-[10px] text-white/90 font-medium">solo</span>
                           </div>
                         )}
                       </div>
@@ -790,7 +790,8 @@ const catalogJson = JSON.stringify(
         if (t.dataset.cat !== cat) return
         const on = t.dataset.sub === sub
         t.classList.toggle("bg-primary/15", on)
-        t.classList.toggle("text-primary", on)
+        t.classList.toggle("dark:bg-primary/30", on)
+        t.classList.toggle("text-foreground", on)
         t.classList.toggle("ring-1", on)
         t.classList.toggle("ring-primary/30", on)
         t.classList.toggle("text-muted-foreground", !on)
@@ -1091,14 +1092,14 @@ const catalogJson = JSON.stringify(
       if (item.hasVariants) {
         const badge = document.createElement("div")
         badge.className = "bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1"
-        badge.innerHTML = `<svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg><span class="text-[10px] text-primary font-medium">variants</span>`
+        badge.innerHTML = `<svg class="w-3 h-3 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg><span class="text-[10px] text-white/90 font-medium">variants</span>`
         stack.appendChild(badge)
       }
 
       if (item.tags.includes("solo")) {
         const soloBadge = document.createElement("div")
         soloBadge.className = "bg-black/70 rounded px-1.5 py-0.5 flex items-center gap-1"
-        soloBadge.innerHTML = `<svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="text-[10px] text-blue-400 font-medium">solo</span>`
+        soloBadge.innerHTML = `<svg class="w-3 h-3 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="text-[10px] text-white/90 font-medium">solo</span>`
         stack.appendChild(soloBadge)
       }
 
@@ -1345,3 +1346,8 @@ const catalogJson = JSON.stringify(
     todoChevron.style.transform = open ? "" : "rotate(180deg)"
   })
 </script>
+
+<style is:global>
+  body { background-color: oklch(0.955 0.018 60); }
+  .dark body { background-color: oklch(0.168 0.012 60); }
+</style>
