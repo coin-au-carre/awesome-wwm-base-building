@@ -423,7 +423,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 			}
 		}
 		g.ScreenshotSections = labeledSections
-		g.Videos = data.Videos
+		g.Videos = filterVideos(data.Videos, g.IgnoredVideos)
 		if idx := data.CoverIdx; idx >= 1 && idx <= len(data.Screenshots) {
 			g.CoverImage = data.Screenshots[idx-1]
 		} else {
@@ -624,12 +624,29 @@ func resolveBuilders(s *discordgo.Session, guildID string, builders []string) []
 
 const maxScreenshots = 100
 
+func filterVideos(videos, ignored []string) []string {
+	if len(ignored) == 0 {
+		return videos
+	}
+	skip := make(map[string]bool, len(ignored))
+	for _, u := range ignored {
+		skip[u] = true
+	}
+	out := videos[:0:0]
+	for _, u := range videos {
+		if !skip[u] {
+			out = append(out, u)
+		}
+	}
+	return out
+}
+
 func isSupportedVideoURL(rawURL string) bool {
 	u, err := url.Parse(rawURL)
 	if err != nil {
 		return false
 	}
-	return u.Hostname() == "www.tiktok.com" || u.Hostname() == "tiktok.com"
+	return u.Hostname() == "www.tiktok.com" || u.Hostname() == "tiktok.com" || u.Hostname() == "vt.tiktok.com"
 }
 
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
