@@ -442,6 +442,14 @@ const catalogJson = JSON.stringify(
     document.getElementById("catalog-data")!.textContent!
   )
 
+  // Keys: "cat::sub::name" for names that appear more than once in the same subcategory
+  const duplicateItemKeys = new Set<string>()
+  catalog.forEach((cat) => cat.subcategories.forEach((sub) => {
+    const seen = new Map<string, number>()
+    sub.items.forEach((item) => { if (item.name) seen.set(item.name, (seen.get(item.name) ?? 0) + 1) })
+    seen.forEach((count, name) => { if (count > 1) duplicateItemKeys.add(`${cat.name}::${sub.name}::${name}`) })
+  }))
+
   function hashStr(s: string): number {
     let h = 5381
     for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) & 0xffffff
@@ -655,7 +663,13 @@ const catalogJson = JSON.stringify(
         c.classList.toggle("ring-primary", c === card)
       })
       const itemName = card.querySelector<HTMLElement>("p")?.textContent?.trim() ?? ""
-      ;(window as any).umami?.track("catalog_item_click", { name: itemName, category: card.dataset.category ?? "" })
+      const itemCat = card.dataset.category ?? ""
+      const itemSub = card.dataset.subcategory ?? ""
+      ;(window as any).umami?.track("catalog_item_click", { name: itemName, category: itemCat })
+      activeItem = catalog
+        .find((c) => c.name === itemCat)
+        ?.subcategories.find((s) => s.name === itemSub)
+        ?.items.find((i) => i.name === itemName) ?? null
       showDetail({
         name:        itemName,
         img:         card.dataset.img ?? "",
@@ -666,9 +680,10 @@ const catalogJson = JSON.stringify(
         components:  JSON.parse(card.dataset.components ?? "[]"),
         diagramRef:  card.dataset.diagramRef ?? "",
         buyPlace:    card.dataset.buyPlace ?? "",
-        category:    card.dataset.category ?? "",
-        subCategory: card.dataset.subcategory ?? "",
+        category:    itemCat,
+        subCategory: itemSub,
       })
+      syncUrl()
     })
   }
 
@@ -682,6 +697,8 @@ const catalogJson = JSON.stringify(
   const subPanels = document.querySelectorAll<HTMLDivElement>(".sub-panel")
 
   let activeCat = catTabs[0]?.dataset.cat ?? ""
+  let activeItem: CatalogItem | null = null
+  let initializingFromParams = false
 
   const activeSubByCat: Record<string, string> = {}
   catalog.forEach((cat) => {
@@ -698,6 +715,15 @@ const catalogJson = JSON.stringify(
     if (q) {
       p.set("q", q)
       shareBreadcrumb.textContent = q
+    } else if (activeItem) {
+      p.set("cat", activeItem.category)
+      p.set("sub", activeItem.subCategory)
+      p.set("item", activeItem.name)
+      const isDupe = duplicateItemKeys.has(`${activeItem.category}::${activeItem.subCategory}::${activeItem.name}`)
+      if (isDupe && activeItem.filename) p.set("file", activeItem.filename.replace(/\.[^.]+$/, ""))
+      shareBreadcrumb.textContent = activeItem.name
+        ? `${activeItem.category} › ${activeItem.subCategory} › ${activeItem.name}`
+        : `${activeItem.category} › ${activeItem.subCategory}`
     } else {
       if (activeCat) p.set("cat", activeCat)
       const sub = activeSubByCat[activeCat]
@@ -748,6 +774,7 @@ const catalogJson = JSON.stringify(
         p.style.display = p.dataset.cat === activeCat ? "" : "none"
       })
       runSearch((document.getElementById("catalog-search") as HTMLInputElement).value)
+      if (!initializingFromParams) activeItem = null
       syncUrl()
     })
   })
@@ -772,6 +799,7 @@ const catalogJson = JSON.stringify(
         p.style.display = (sub === "__all__" || p.dataset.sub === sub) ? "" : "none"
       })
       activeSubByCat[cat] = sub
+      if (!initializingFromParams) activeItem = null
       syncUrl()
     })
   })
@@ -1139,6 +1167,7 @@ const catalogJson = JSON.stringify(
 
   function doClearSearch() {
     searchInput.value = ""
+    activeItem = null
     hideSuggestions()
     runSearch("")
     syncUrl()
@@ -1152,6 +1181,7 @@ const catalogJson = JSON.stringify(
   let catalogSearchTimer: ReturnType<typeof setTimeout> | null = null
   searchInput.addEventListener("input", (e) => {
     const val = (e.target as HTMLInputElement).value
+    activeItem = null
     updateSuggestions(val)
     runSearch(val)
     syncUrl()
@@ -1237,9 +1267,11 @@ const catalogJson = JSON.stringify(
   // ── URL param initialization ──────────────────────────────────────────────────
   ;(function initFromParams() {
     const params = new URLSearchParams(location.search)
-    const initQ   = params.get("q")
-    const initCat = params.get("cat")
-    const initSub = params.get("sub")
+    const initQ    = params.get("q")
+    const initCat  = params.get("cat")
+    const initSub  = params.get("sub")
+    const initItem = params.get("item")
+    const initFile = params.get("file")
 
     if (initQ) {
       searchInput.value = initQ
@@ -1247,6 +1279,47 @@ const catalogJson = JSON.stringify(
       updatePillActiveStates()
       return
     }
+
+    if (initItem) {
+      let found: CatalogItem | undefined
+      outer: for (const cat of catalog) {
+        if (initCat && cat.name !== initCat) continue
+        for (const sub of cat.subcategories) {
+          if (initSub && sub.name !== initSub) continue
+          const match = sub.items.find((i) => {
+            if (i.name !== initItem) return false
+            if (initFile) return i.filename.replace(/\.[^.]+$/, "") === initFile
+            return true
+          })
+          if (match) { found = match; break outer }
+        }
+      }
+      if (found) {
+        activeItem = found
+        initializingFromParams = true
+        const catTab = [...catTabs].find((t) => t.dataset.cat === found!.category)
+        if (catTab) catTab.click()
+        const subTab = [...subTabs].find((t) => t.dataset.cat === found!.category && t.dataset.sub === found!.subCategory)
+        if (subTab) subTab.click()
+        initializingFromParams = false
+        showDetail(found)
+        const allCards = document.querySelectorAll<HTMLElement>(".item-card")
+        for (const card of allCards) {
+          if (
+            card.dataset.category === found.category &&
+            card.dataset.subcategory === found.subCategory &&
+            card.dataset.name === found.name.toLowerCase()
+          ) {
+            card.classList.add("ring-2", "ring-primary")
+            setTimeout(() => card.scrollIntoView({ block: "nearest", behavior: "smooth" }), 100)
+            break
+          }
+        }
+        syncUrl()
+      }
+      return
+    }
+
     if (initCat) {
       const tab = [...catTabs].find((t) => t.dataset.cat === initCat)
       if (tab) tab.click()
