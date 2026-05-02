@@ -423,6 +423,9 @@ const catalogJson = JSON.stringify(
     filter: brightness(0) opacity(0.6);
     transition: filter 0.2s ease;
   }
+  :global(.dark) .cat-tab img {
+    filter: brightness(0) invert(1) opacity(0.6);
+  }
   .cat-tab.border-primary img {
     filter: brightness(0) saturate(100%) invert(60%) sepia(80%) saturate(600%) hue-rotate(340deg) drop-shadow(0 0 2px rgba(255, 120, 20, 0.35));
     opacity: 1;
