@@ -33,6 +33,7 @@ interface Guild {
   screenshots?: string[]
   screenshotSections?: { label?: string; screenshots: string[] }[]
   videos?: string[]
+  formerNames?: string[]   // past names, appended each time the thread is renamed in Discord
   createdAt?: string
   lastModified?: string
   scoutedByDiscordId?: string

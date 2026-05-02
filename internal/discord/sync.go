@@ -177,6 +177,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 				)
 				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
 				delete(guildMap, strings.ToLower(guild.ExtractName(oldName)))
+				guilds[urlIdx].FormerNames = append(guilds[urlIdx].FormerNames, oldName)
 				guilds[urlIdx].Name = name
 				guildMap[key] = urlIdx
 				continue
