@@ -6,7 +6,7 @@ import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWit
 import { stripGuildShowcase } from "@/lib/format"
 import { isCommunityPosted } from "@/lib/config"
 import { BASE } from "@/lib/url"
-import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon } from "@phosphor-icons/react"
+import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 
 const TAG_PALETTE = [
@@ -200,14 +200,24 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                       {relativeDate(g.createdAt)}
                     </div>
                   )}
-                  {g.rank <= 10 && (
-                    <div class="absolute top-2 right-2 text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
-                      #{g.rank}
-                    </div>
-                  )}
+                  <div class="absolute top-2 right-2 flex items-center gap-1.5">
+                    {g.buildTitle && (
+                      <div class="flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-blue-300">
+                        <StackIcon weight="fill" className="size-2.5 shrink-0" />
+                        {g.buildTitle}
+                      </div>
+                    )}
+                    {g.rank <= 10 && (
+                      <div class="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
+                        #{g.rank}
+                      </div>
+                    )}
+                  </div>
                   <div class="absolute bottom-0 left-0 right-0 p-3">
                     <div class="flex items-baseline gap-1.5 mb-1">
-                      <p class="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.name)}</p>
+                      <p class="text-white font-medium text-sm leading-tight">
+                        {stripGuildShowcase(g.name)}{g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
+                      </p>
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
                       )}
@@ -405,14 +415,24 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                     />
                   )}
                   <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  {g.rank <= 10 && (
-                    <div class="absolute top-2 right-2 text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
-                      #{g.rank}
-                    </div>
-                  )}
+                  <div class="absolute top-2 right-2 flex items-center gap-1.5">
+                    {g.buildTitle && (
+                      <div class="flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-blue-300">
+                        <StackIcon weight="fill" className="size-2.5 shrink-0" />
+                        {g.buildTitle}
+                      </div>
+                    )}
+                    {g.rank <= 10 && (
+                      <div class="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
+                        #{g.rank}
+                      </div>
+                    )}
+                  </div>
                   <div class="absolute bottom-0 left-0 right-0 p-3">
                     <div class="flex items-baseline gap-1.5 mb-1">
-                      <p class="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.name)}</p>
+                      <p class="text-white font-medium text-sm leading-tight">
+                        {stripGuildShowcase(g.name)}{g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
+                      </p>
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
                       )}

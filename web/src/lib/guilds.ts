@@ -43,6 +43,11 @@ function loadJSON(filename: string): Guild[] {
   }
 }
 
+function guildSlug(g: Guild): string {
+  const base = slugify(g.guildName ?? g.name)
+  return g.buildTitle ? `${base}-${slugify(g.buildTitle)}` : base
+}
+
 function sortByScore(items: Guild[]): RankedGuild[] {
   const sorted = [...items].sort((a, b) => b.score - a.score)
   let rank = 1
@@ -50,7 +55,7 @@ function sortByScore(items: Guild[]): RankedGuild[] {
     if (i > 0 && g.score < sorted[i - 1].score) {
       rank = i + 1
     }
-    return { ...g, slug: slugify(g.guildName ?? g.name), rank }
+    return { ...g, slug: guildSlug(g), rank }
   })
 }
 
@@ -73,6 +78,9 @@ export function getGuildBySlug(slug: string): RankedGuild | undefined {
   return RANKED_GUILDS.find((g) => g.slug === slug)
 }
 export function getAllTags(): string[] { return GUILD_TAGS }
+export function getGuildBuilds(name: string): RankedGuild[] {
+  return RANKED_GUILDS.filter((g) => g.name === name)
+}
 
 export function getSolosSortedByScore(): RankedGuild[] { return RANKED_SOLOS }
 export function getSoloBySlug(slug: string): RankedGuild | undefined {
@@ -88,7 +96,7 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
     .reverse()
     .filter((g) => g.screenshots && g.screenshots.length > 0 && isCommunityPosted(g))
     .slice(0, n)
-    .map((g) => ranked.find((r) => r.name === g.name))
+    .map((g) => ranked.find((r) => r.discordThread === g.discordThread))
     .filter((g): g is RankedGuild => g !== undefined)
   return withShots
 }
@@ -99,7 +107,7 @@ export function getLatestSolosWithScreenshots(n: number): RankedGuild[] {
     .reverse()
     .filter((g) => g.screenshots && g.screenshots.length > 0)
     .slice(0, n)
-    .map((g) => ranked.find((r) => r.name === g.name))
+    .map((g) => ranked.find((r) => r.discordThread === g.discordThread))
     .filter((g): g is RankedGuild => g !== undefined)
   return withShots
 }

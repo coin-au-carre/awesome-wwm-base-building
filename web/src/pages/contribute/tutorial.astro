@@ -31,7 +31,7 @@ const base = BASE
       <div class="space-y-1.5">
         <p class="text-sm font-medium text-foreground">Share a tip</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          Post your trick in <span class="font-medium text-foreground">#tips-and-tricks</span> with a screenshot or short video. If it's solid, we'll collect it into a tutorial article on the <a href={base + "/tutorials"} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">tutorials page</a>.
+          Post your trick in <span class="font-medium text-foreground">#tips-and-tricks</span> with a screenshot or short video. If it's solid, we'll collect it into a tutorial article on the <a href={base + "/tutorials"} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="tutorials_link_click">tutorials page</a>.
         </p>
       </div>
 
@@ -45,7 +45,7 @@ const base = BASE
           <ol class="space-y-1.5 text-sm text-muted-foreground list-none">
             <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">1.</span> Write your tutorial as a Discord thread (text + images/videos).</li>
             <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">2.</span> Share the thread link with a moderator on Discord.</li>
-            <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">3.</span> We import it and publish it on <a href={base + "/tutorials"} class="underline hover:text-foreground transition-colors">wherebuildersmeet.com/tutorials</a>.</li>
+            <li class="flex gap-2"><span class="font-medium text-foreground shrink-0">3.</span> We import it and publish it on <a href={base + "/tutorials"} class="underline hover:text-foreground transition-colors" data-umami-event="tutorials_link_click">wherebuildersmeet.com/tutorials</a>.</li>
           </ol>
         </div>
         <p class="text-xs text-muted-foreground">No extra formatting required. We handle the conversion.</p>

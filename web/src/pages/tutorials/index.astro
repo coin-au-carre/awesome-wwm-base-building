@@ -8,7 +8,7 @@ import { getBuilderSearchPath } from "@/lib/guilds"
 
 const entries = await getCollection("articles", ({ data }) => data.published !== false)
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website"
 
 const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string; ring: string }> = {
   beginner: { label: "Beginner", bg: "bg-emerald-500/10", text: "text-emerald-700 dark:text-emerald-300", dot: "bg-emerald-500", ring: "ring-1 ring-inset ring-emerald-500/30" },
@@ -17,10 +17,11 @@ const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot:
   solo: { label: "Solo", bg: "bg-sky-500/10", text: "text-sky-700 dark:text-sky-300", dot: "bg-sky-500", ring: "ring-1 ring-inset ring-sky-500/30" },
   sightseeing: { label: "Sightseeing", bg: "bg-teal-500/10", text: "text-teal-700 dark:text-teal-300", dot: "bg-teal-500", ring: "ring-1 ring-inset ring-teal-500/30" },
   cn: { label: "CN Content", bg: "bg-rose-500/10", text: "text-rose-700 dark:text-rose-300", dot: "bg-rose-500", ring: "ring-1 ring-inset ring-rose-500/30" },
+  website: { label: "Website", bg: "bg-indigo-500/10", text: "text-indigo-700 dark:text-indigo-300", dot: "bg-indigo-500", ring: "ring-1 ring-inset ring-indigo-500/30" },
 }
 
 function renderTags(tags: string[] = []) {
-  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn"]
+  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website"]
   return tags.filter((t): t is TagKey => known.includes(t as TagKey))
 }
 

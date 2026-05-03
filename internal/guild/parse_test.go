@@ -165,27 +165,27 @@ Posted on behalf of <@423190009445613568> who kindly asked us
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			id, guild, builders, lore, visit, cover, onBehalf := ParseFirstPost(tt.content)
-			if id != tt.wantID {
-				t.Errorf("id: got %q, want %q", id, tt.wantID)
+			p := ParseFirstPost(tt.content)
+			if p.ID != tt.wantID {
+				t.Errorf("id: got %q, want %q", p.ID, tt.wantID)
 			}
-			if guild != tt.wantGuild {
-				t.Errorf("guildName: got %q, want %q", guild, tt.wantGuild)
+			if p.GuildName != tt.wantGuild {
+				t.Errorf("guildName: got %q, want %q", p.GuildName, tt.wantGuild)
 			}
-			if !reflect.DeepEqual(builders, tt.wantBuilders) {
-				t.Errorf("builders: got %v, want %v", builders, tt.wantBuilders)
+			if !reflect.DeepEqual(p.Builders, tt.wantBuilders) {
+				t.Errorf("builders: got %v, want %v", p.Builders, tt.wantBuilders)
 			}
-			if lore != tt.wantLore {
-				t.Errorf("lore: got %q, want %q", lore, tt.wantLore)
+			if p.Lore != tt.wantLore {
+				t.Errorf("lore: got %q, want %q", p.Lore, tt.wantLore)
 			}
-			if visit != tt.wantVisit {
-				t.Errorf("whatToVisit: got %q, want %q", visit, tt.wantVisit)
+			if p.WhatToVisit != tt.wantVisit {
+				t.Errorf("whatToVisit: got %q, want %q", p.WhatToVisit, tt.wantVisit)
 			}
-			if cover != tt.wantCover {
-				t.Errorf("coverIdx: got %d, want %d", cover, tt.wantCover)
+			if p.CoverIdx != tt.wantCover {
+				t.Errorf("coverIdx: got %d, want %d", p.CoverIdx, tt.wantCover)
 			}
-			if onBehalf != tt.wantOnBehalf {
-				t.Errorf("postedOnBehalfOf: got %q, want %q", onBehalf, tt.wantOnBehalf)
+			if p.PostedOnBehalfOf != tt.wantOnBehalf {
+				t.Errorf("postedOnBehalfOf: got %q, want %q", p.PostedOnBehalfOf, tt.wantOnBehalf)
 			}
 		})
 	}
@@ -206,7 +206,7 @@ func TestExtractNameAndID(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		name, id := ExtractNameAndID(tt.input)
+		name, id, _ := ExtractNameAndID(tt.input)
 		if name != tt.wantName {
 			t.Errorf("ExtractNameAndID(%q): name = %q, want %q", tt.input, name, tt.wantName)
 		}

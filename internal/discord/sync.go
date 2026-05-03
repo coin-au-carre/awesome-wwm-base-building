@@ -55,6 +55,10 @@ type threadData struct {
 	PosterUsername      string
 	FirstPostTime       time.Time // First post (should be similar to createdAt)
 	LastContributorTime time.Time // Latest post by allowed contributors (should be similar to modifiedAt)
+	BuildTitle          string
+	IsCurrent           bool
+	HostedAtGuildName   string
+	HostedAtGuildID     string
 }
 
 type fetchedThread struct {
@@ -141,24 +145,26 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	placeholderIndices := make(map[int]bool) // placeholder entries superseded by a real thread
 
 	for _, thread := range threads {
-		name, threadID := guild.ExtractNameAndID(thread.Name)
+		name, threadID, buildTitleFromThread := guild.ExtractNameAndID(thread.Name)
 		key := strings.ToLower(name)
 		newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 
 		existingIdx, exists := guildMap[key]
+		isMultiBuild := false
 		if exists && guilds[existingIdx].DiscordThread != "" {
 			if guilds[existingIdx].DiscordThread == newThreadLink {
 				// Same thread re-encountered (e.g. re-browsing for updates) — skip silently.
 				continue
 			}
-			// Different thread URL for the same name — flag as a conflict.
-			warning := fmt.Sprintf(
-				"⚠️ **Thread conflict for guild %s:**\n• Existing: %s\n• New thread: %s\nThis may indicate a duplicate or re-created thread.",
+			// Same guild name, different thread URL — a new build for this guild.
+			notice := fmt.Sprintf(
+				"ℹ️ **Multi-build guild:** **%s** — a new build thread was detected.\n• Existing: %s\n• New build: %s",
 				name, guilds[existingIdx].DiscordThread, newThreadLink,
 			)
-			slog.Warn("thread conflict: existing discordThread is non-empty", "name", name, "existing", guilds[existingIdx].DiscordThread, "new", newThreadLink)
-			partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
-			continue
+			slog.Info("multi-build guild detected", "name", name, "existing", guilds[existingIdx].DiscordThread, "new", newThreadLink)
+			partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, notice)
+			isMultiBuild = true
+			exists = false // treat as new entry for the addition logic below
 		}
 
 		// Treat as new when: no existing entry, OR existing entry has an empty discordThread
@@ -167,7 +173,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		// Check if this thread URL already belongs to a guild stored under a different name
 		// (the guild was renamed in Discord). Update the name in place and move on — no new
 		// entry, no reactions, createdAt unchanged.
-		if !exists {
+		if !exists && !isMultiBuild {
 			if urlIdx, urlMatch := threadURLToIdx[newThreadLink]; urlMatch {
 				oldName := guilds[urlIdx].Name
 				slog.Info("guild renamed", "old", oldName, "new", name)
@@ -199,17 +205,22 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			}
 		}
 
-		// New guild or placeholder with the same name: always append a fresh entry.
+		// New guild, placeholder supersession, or additional build: always append a fresh entry.
 		if exists {
-			// Mark the placeholder for removal — it is superseded by the real thread.
+			// exists=true only for placeholder case (discordThread was empty).
 			placeholderIndices[existingIdx] = true
 			slog.Info("new thread for placeholder guild", "name", name, "thread", thread.Name)
-		} else {
+		} else if !isMultiBuild {
 			slog.Info("new guild detected", "name", name, "thread", thread.Name)
 		}
 		idx := len(guilds)
-		guilds = append(guilds, guild.Guild{Name: name, ID: threadID, Builders: []string{}})
-		guildMap[key] = len(guilds) - 1
+		guilds = append(guilds, guild.Guild{Name: name, ID: threadID, BuildTitle: buildTitleFromThread, Builders: []string{}})
+		threadURLToIdx[newThreadLink] = idx // track new entry by URL for content fetching
+		if !isMultiBuild {
+			// For multi-build guilds, keep guildMap pointing at the first build so future
+			// same-name threads continue to be detected as additional builds.
+			guildMap[key] = len(guilds) - 1
+		}
 		newIndices[idx] = true
 		partialStats.New++
 		partialStats.NewNames = append(partialStats.NewNames, name)
@@ -244,6 +255,13 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 				delete(guildMap, k)
 			}
 		}
+		remappedURLToIdx := make(map[string]int, len(threadURLToIdx))
+		for u, oldIdx := range threadURLToIdx {
+			if newIdx, ok := indexRemap[oldIdx]; ok {
+				remappedURLToIdx[u] = newIdx
+			}
+		}
+		threadURLToIdx = remappedURLToIdx
 	}
 
 	type contentWork struct {
@@ -299,7 +317,12 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	}
 
 	for _, thread := range threads {
-		idx := guildMap[strings.ToLower(guild.ExtractName(thread.Name))]
+		link := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+		idx, ok := threadURLToIdx[link]
+		if !ok {
+			slog.Warn("thread URL not in index, skipping content fetch", "thread", thread.Name)
+			continue
+		}
 		contentJobs <- contentWork{thread: thread, idx: idx, allowedContributors: guilds[idx].AllowedContributors}
 	}
 	close(contentJobs)
@@ -389,7 +412,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 
 		g := guilds[r.idx]
 		// Normalize stored name if it contains an embedded ID (e.g. "WITCHERS [10248427").
-		if cleanName, embeddedID := guild.ExtractNameAndID(g.Name); cleanName != g.Name {
+		if cleanName, embeddedID, _ := guild.ExtractNameAndID(g.Name); cleanName != g.Name {
 			g.Name = cleanName
 			if g.ID == "" && embeddedID != "" {
 				g.ID = embeddedID
@@ -399,7 +422,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 			g.ID = data.ID
 		}
 		if g.ID == "" {
-			if _, threadID := guild.ExtractNameAndID(r.thread.Name); threadID != "" {
+			if _, threadID, _ := guild.ExtractNameAndID(r.thread.Name); threadID != "" {
 				g.ID = threadID
 			}
 		}
@@ -442,6 +465,12 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		if data.PosterUsername != "" {
 			g.PosterUsername = data.PosterUsername
 		}
+		if data.BuildTitle != "" {
+			g.BuildTitle = data.BuildTitle // first-post Build Title: overrides thread-name suffix
+		}
+		g.IsCurrent = data.IsCurrent
+		g.HostedAtGuildName = data.HostedAtGuildName
+		g.HostedAtGuildID = data.HostedAtGuildID
 		// Now using thread timestamps instead of custom one
 		if g.CreatedAt == "" {
 			g.CreatedAt = data.FirstPostTime.UTC().Format(guild.ModifiedLayout)
@@ -449,7 +478,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		// g.LastModified = data.LastContributorTime.UTC().Format(guild.ModifiedLayout)
 
 		isNew := result.newIndices[r.idx]
-		if isNew && g.ID == "" && data.GuildName == "" {
+		if isNew && g.ID == "" && data.GuildName == "" && g.BuildTitle == "" {
 			stats.MalformedNewThreadIDs = append(stats.MalformedNewThreadIDs, r.thread.ID)
 		}
 		if !isNew && hasChanged(prev, g) {
@@ -540,7 +569,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 		return threadData{}
 	}
 
-	id, guildName, builders, lore, whatToVisit, coverIdx, postedOnBehalfOf := guild.ParseFirstPost(msgs[0].Content)
+	parsed := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
 	authorUsername := msgs[0].Author.Username
 	if m, err := s.GuildMember(thread.GuildID, authorID); err == nil && m.Nick != "" {
@@ -548,11 +577,11 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	}
 
 	if isSolo {
-		if len(builders) == 0 {
-			builders = []string{authorUsername}
+		if len(parsed.Builders) == 0 {
+			parsed.Builders = []string{authorUsername}
 		}
-		if lore == "" {
-			lore = guild.CleanSection(msgs[0].Content)
+		if parsed.Lore == "" {
+			parsed.Lore = guild.CleanSection(msgs[0].Content)
 		}
 	}
 
@@ -562,8 +591,8 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	}
 	sections, screenshots, videos, lastContributorTime := collectMedia(s, thread.ID, allowedIDs)
 
-	if postedOnBehalfOf != "" && postedOnBehalfOf != "unknown" {
-		postedOnBehalfOf = resolveOnBehalf(s, thread.GuildID, postedOnBehalfOf)
+	if parsed.PostedOnBehalfOf != "" && parsed.PostedOnBehalfOf != "unknown" {
+		parsed.PostedOnBehalfOf = resolveOnBehalf(s, thread.GuildID, parsed.PostedOnBehalfOf)
 	}
 	firstPostMsg := msgs[0].Timestamp
 	if len(msgs) > 0 {
@@ -571,18 +600,22 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	}
 
 	return threadData{
-		ID:                  id,
-		GuildName:           guildName,
+		ID:                  parsed.ID,
+		GuildName:           parsed.GuildName,
 		AuthorID:            authorID,
 		PosterUsername:      authorUsername,
-		Builders:            resolveBuilders(s, thread.GuildID, builders),
+		Builders:            resolveBuilders(s, thread.GuildID, parsed.Builders),
 		Screenshots:         screenshots,
 		ScreenshotSections:  sections,
 		Videos:              videos,
-		Lore:                lore,
-		WhatToVisit:         whatToVisit,
-		CoverIdx:            coverIdx,
-		PostedOnBehalfOf:    postedOnBehalfOf,
+		Lore:                parsed.Lore,
+		WhatToVisit:         parsed.WhatToVisit,
+		CoverIdx:            parsed.CoverIdx,
+		PostedOnBehalfOf:    parsed.PostedOnBehalfOf,
+		BuildTitle:          parsed.BuildTitle,
+		IsCurrent:           parsed.IsCurrent,
+		HostedAtGuildName:   parsed.HostedAtGuildName,
+		HostedAtGuildID:     parsed.HostedAtGuildID,
 		FirstPostTime:       firstPostMsg,
 		LastContributorTime: lastContributorTime,
 	}
@@ -876,7 +909,8 @@ func screenshotOnCooldown(ts string) bool {
 }
 
 func hasChanged(prev, next guild.Guild) bool {
-	return prev.Lore != next.Lore ||
+	return prev.BuildTitle != next.BuildTitle ||
+		prev.Lore != next.Lore ||
 		prev.WhatToVisit != next.WhatToVisit ||
 		prev.GuildName != next.GuildName ||
 		prev.CoverImage != next.CoverImage ||
