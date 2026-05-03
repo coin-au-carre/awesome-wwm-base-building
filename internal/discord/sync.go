@@ -149,14 +149,33 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		key := strings.ToLower(name)
 		newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 
+		// URL-first: if this thread is already tracked (any entry, any build), handle rename
+		// or skip. This prevents multi-build guilds from being re-appended on every sync,
+		// which happened because guildMap only stored the last build for a given guild name.
+		if urlIdx, urlMatch := threadURLToIdx[newThreadLink]; urlMatch {
+			storedName := guild.ExtractName(guilds[urlIdx].Name)
+			if !strings.EqualFold(storedName, name) {
+				// Guild was renamed in Discord — update in place, preserve all other fields.
+				slog.Info("guild renamed", "old", storedName, "new", name)
+				warning := fmt.Sprintf(
+					"ℹ️ **Guild renamed:** **%s** → **%s**\n%s",
+					storedName, name, newThreadLink,
+				)
+				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+				delete(guildMap, strings.ToLower(storedName))
+				guilds[urlIdx].FormerNames = append(guilds[urlIdx].FormerNames, guilds[urlIdx].Name)
+				guilds[urlIdx].Name = name
+				guildMap[key] = urlIdx
+			}
+			// Already known — no new entry needed.
+			continue
+		}
+
+		// New thread URL — determine if it's a new build for an existing guild or brand-new.
 		existingIdx, exists := guildMap[key]
 		isMultiBuild := false
 		if exists && guilds[existingIdx].DiscordThread != "" {
-			if guilds[existingIdx].DiscordThread == newThreadLink {
-				// Same thread re-encountered (e.g. re-browsing for updates) — skip silently.
-				continue
-			}
-			// Same guild name, different thread URL — a new build for this guild.
+			// Same guild name, different and previously-unseen thread URL → new build.
 			notice := fmt.Sprintf(
 				"ℹ️ **Multi-build guild:** **%s** — a new build thread was detected.\n• Existing: %s\n• New build: %s",
 				name, guilds[existingIdx].DiscordThread, newThreadLink,
@@ -164,30 +183,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			slog.Info("multi-build guild detected", "name", name, "existing", guilds[existingIdx].DiscordThread, "new", newThreadLink)
 			partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, notice)
 			isMultiBuild = true
-			exists = false // treat as new entry for the addition logic below
-		}
-
-		// Treat as new when: no existing entry, OR existing entry has an empty discordThread
-		// (manually added placeholder — a fresh Discord thread is a distinct new guild).
-
-		// Check if this thread URL already belongs to a guild stored under a different name
-		// (the guild was renamed in Discord). Update the name in place and move on — no new
-		// entry, no reactions, createdAt unchanged.
-		if !exists && !isMultiBuild {
-			if urlIdx, urlMatch := threadURLToIdx[newThreadLink]; urlMatch {
-				oldName := guilds[urlIdx].Name
-				slog.Info("guild renamed", "old", oldName, "new", name)
-				warning := fmt.Sprintf(
-					"ℹ️ **Guild renamed:** **%s** → **%s**\n%s",
-					oldName, name, newThreadLink,
-				)
-				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
-				delete(guildMap, strings.ToLower(guild.ExtractName(oldName)))
-				guilds[urlIdx].FormerNames = append(guilds[urlIdx].FormerNames, oldName)
-				guilds[urlIdx].Name = name
-				guildMap[key] = urlIdx
-				continue
-			}
+			exists = false
 		}
 
 		// Check for similar existing guild names before adding.
