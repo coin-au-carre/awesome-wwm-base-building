@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "roof"]
 authors: ["SiMing司命"]
 date: 2026-04-24
 order: 6
-image: "https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f7c886&is=69f67706&hm=99e004407b58473dbe33d105de0dbea68a1c1452c1ce2745fee39819b79efbae&"
+image: "https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f87146&is=69f71fc6&hm=0f89c77fc0c4d9c187bfb79f895ba80f32c520327f07ed053756e6815af66bb6&"
 featured: false
 ---
 
@@ -26,7 +26,7 @@ Snap 1 piece of roof to the center of each floor piece. This will act as your gu
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496993098390307007/circle_2.mp4?ex=69f7c477&is=69f672f7&hm=3d78b4ac6a7407db179e592131a1a739e4b8abda7cba8f2cd08e26e2a013a043&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496993098390307007/circle_2.mp4?ex=69f86d37&is=69f71bb7&hm=ee2302b5de3034fa4ab6a10e09e43e3287d912cb7fe3d640f1f40f87daf51835&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 4**
 **Disclaimer:** The creation of the outer circle can be a little tricky without precise placement. With precise placement, this next step is quite a bit easier, as you can simply  slide pieces in place, but this guide is for building within guild bases, where we do not yet have precise placement.
@@ -43,7 +43,7 @@ From that railing, you will then rotate 1 time and create a new railing which, i
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496995730169004154/circle_3.mp4?ex=69f7c6ea&is=69f6756a&hm=43a5ac416ebc3e196212aac473dc323c724f130b3b9d16bb603aad2382f30f72&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496995730169004154/circle_3.mp4?ex=69f86faa&is=69f71e2a&hm=190758ab6cc6614c98978a9aa4ec0cd22b34bfb2d66132cf9f695aef93e9e90b&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 7** 
 Place vertical pillars all around the entirety of your circles, ideally using the snap points as guides. While you *can* snap the pillars into place, it will cause the pillar to float above the ground, so I find it easier to manually move them into place. You can either use 1 railing or 2 railing segments for pillar placement here, it's really a question of aesthetics.
@@ -56,7 +56,7 @@ If using tie beams, you will need to snap those beams directly to the railing it
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=69f7c7ed&is=69f6766d&hm=3fa43a4e43c7fb856508f7ade4559234753617b5773f6def19989ba2d61db257&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=69f870ad&is=69f71f2d&hm=b641ac96a93990c12ba46753dc6f1f1310c0ccc0ff26227b60302e955655ff15&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 10**
 Select any large floor and manually place it at your desired height (either directly on top of the beam, or using the beam as a height guide to slide the floor piece in place.) This is a temporary surface that you will later delete.
@@ -73,7 +73,7 @@ If done correctly, you can create a circular roof that won't be quite as compone
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f7c886&is=69f67706&hm=99e004407b58473dbe33d105de0dbea68a1c1452c1ce2745fee39819b79efbae&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=69f87146&is=69f71fc6&hm=0f89c77fc0c4d9c187bfb79f895ba80f32c520327f07ed053756e6815af66bb6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 (See arena in distance.)
 
