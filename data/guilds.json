@@ -1,5 +1,20 @@
 [
 	{
+		"name": "青箜引月",
+		"builders": [
+			"若星不渡雪"
+		],
+		"tags": [
+			"Nature",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Christmas Tree",
+		"score": 0,
+		"lastModified": "May 3, 2026 at 11:47 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10080897",
 		"name": "PhoenixGate",
 		"builders": [
