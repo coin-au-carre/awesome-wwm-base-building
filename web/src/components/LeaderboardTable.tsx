@@ -405,6 +405,16 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
         </p>
       )}
 
+      {totalPages > 1 && (
+        <div className="flex items-center gap-1">
+          <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>←</Button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+            <Button key={p} variant={p === page ? "default" : "outline"} size="xs" className="cursor-pointer" onClick={() => setPage(p)}>{p}</Button>
+          ))}
+          <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages}>→</Button>
+        </div>
+      )}
+
       <div className="rounded-xl ring-1 ring-border overflow-hidden">
         <Table>
           <TableHeader>
@@ -562,15 +572,22 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     }}
                     className={cn("cursor-pointer transition-colors border-l-2 border-l-primary/20", bi % 2 === 0 ? "bg-muted/5 hover:bg-muted/15" : "bg-muted/10 hover:bg-muted/20")}
                   >
-                    {!isSolos && <TableCell className="text-center">{renderTierBadge(g)}</TableCell>}
+                    {!isSolos && <TableCell />}
                     <TableCell>
                       <div className="flex items-center gap-2.5 pl-4">
                         {img && <img src={img} alt={g.buildTitle || "Default"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
                         <div className="min-w-0">
-                          <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
-                            {g.buildTitle || "Default"}
-                          </a>
-                          {g.isCurrent && <span className="ml-1.5 text-[10px] text-emerald-500/90">● current</span>}
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
+                              {g.buildTitle || "Default"}
+                            </a>
+                            {g.isCurrent && <span className="text-[10px] text-emerald-500/90">● current</span>}
+                            {(() => { const t = getTier(g.rank, guilds.length, g.score); return (
+                              <span className={cn("inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] opacity-55", t.badge)} style={t.badgeStyle}>
+                                <span className={cn("size-1 rounded-full shrink-0", t.dot)} />{t.label}
+                              </span>
+                            )})()}
+                          </div>
                         </div>
                       </div>
                     </TableCell>
@@ -596,32 +613,11 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
       <div className="flex items-center justify-between">
         {totalPages > 1 ? (
           <div className="flex items-center gap-1">
-            <Button
-              variant="outline"
-              size="xs"
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-            >
-              ←
-            </Button>
+            <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>←</Button>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-              <Button
-                key={p}
-                variant={p === page ? "default" : "outline"}
-                size="xs"
-                onClick={() => setPage(p)}
-              >
-                {p}
-              </Button>
+              <Button key={p} variant={p === page ? "default" : "outline"} size="xs" className="cursor-pointer" onClick={() => setPage(p)}>{p}</Button>
             ))}
-            <Button
-              variant="outline"
-              size="xs"
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-              disabled={page === totalPages}
-            >
-              →
-            </Button>
+            <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages}>→</Button>
           </div>
         ) : <span />}
         <p className="text-xs text-muted-foreground">
