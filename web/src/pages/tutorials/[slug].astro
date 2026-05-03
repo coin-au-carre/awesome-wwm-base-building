@@ -6,7 +6,7 @@ import { BASE } from "@/lib/url"
 import { ArrowLeftIcon } from "@phosphor-icons/react"
 import { getBuilderSearchPath } from "@/lib/guilds"
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website"
 
 const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string }> = {
   beginner: { label: "Beginner", bg: "bg-emerald-500/10", text: "text-emerald-600 dark:text-emerald-400", dot: "bg-emerald-500" },
@@ -15,10 +15,11 @@ const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot:
   solo: { label: "Solo", bg: "bg-sky-500/10", text: "text-sky-600 dark:text-sky-400", dot: "bg-sky-500" },
   sightseeing: { label: "Sightseeing", bg: "bg-teal-500/10", text: "text-teal-600 dark:text-teal-400", dot: "bg-teal-500" },
   cn: { label: "CN Content", bg: "bg-rose-500/10", text: "text-rose-600 dark:text-rose-400", dot: "bg-rose-500" },
+  website: { label: "Website", bg: "bg-indigo-500/10", text: "text-indigo-600 dark:text-indigo-400", dot: "bg-indigo-500" },
 }
 
 function renderTags(tags: string[] = []) {
-  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn"]
+  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website"]
   return tags.filter((t): t is TagKey => known.includes(t as TagKey))
 }
 
