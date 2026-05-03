@@ -25,6 +25,9 @@ var (
 	reOnBehalf          = regexp.MustCompile(`(?i)on behalf of\s+@([\w.]+)`)
 	reOnBehalfSnowflake = regexp.MustCompile(`(?i)on behalf of\s+<@(\d+)>`)
 	reOnBehalfPresent   = regexp.MustCompile(`(?i)on behalf`)
+	reBuildTitle        = regexp.MustCompile(`(?i)build\s+title\s*:[ \t]*([^\n]+)`)
+	reIsCurrent         = regexp.MustCompile(`(?i)current\s*:[ \t]*(yes|true|1)\b`)
+	reHostedAt          = regexp.MustCompile(`(?im)^hosted\s+at\s*:[ \t]*([^\n\[]+?)(?:[ \t]*[\[(](\d+)[\])])?[ \t]*$`)
 )
 
 var skipPhrases = []string{
@@ -34,71 +37,103 @@ var skipPhrases = []string{
 	"contact us",
 }
 
+// ParsedPost holds all structured data extracted from a Discord thread's first post.
+type ParsedPost struct {
+	ID               string
+	GuildName        string
+	Builders         []string
+	Lore             string
+	WhatToVisit      string
+	CoverIdx         int // 1-based; 0 means not specified
+	PostedOnBehalfOf string // empty when not a behalf post; "unknown" when "on behalf" is present but username cannot be parsed
+	BuildTitle       string
+	IsCurrent        bool
+	HostedAtGuildName string
+	HostedAtGuildID   string
+}
+
 // ParseFirstPost extracts structured data from the first message of a Discord thread.
-// coverIdx is 1-based; 0 means not specified.
-// postedOnBehalfOf is empty when not a behalf post; "unknown" when "on behalf" is present but username cannot be parsed.
-func ParseFirstPost(content string) (id string, guildName string, builders []string, lore string, whatToVisit string, coverIdx int, postedOnBehalfOf string) {
+func ParseFirstPost(content string) ParsedPost {
+	var p ParsedPost
+
 	if m := reBracketID.FindStringSubmatch(content); len(m) > 1 {
-		id = m[1]
+		p.ID = m[1]
 	} else if m := reEightDigit.FindStringSubmatch(content); len(m) > 1 {
-		id = m[1]
+		p.ID = m[1]
 	}
 
 	if m := reGuildName.FindStringSubmatch(content); len(m) > 1 {
-		guildName = strings.TrimSpace(m[1])
+		p.GuildName = strings.TrimSpace(m[1])
 	} else if m := reGuildNameEq.FindStringSubmatch(content); len(m) > 1 {
-		guildName = strings.TrimSpace(m[1])
+		p.GuildName = strings.TrimSpace(m[1])
 	}
 
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
 		for _, b := range strings.Split(m[1], ",") {
 			b = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(b), "*"))
 			if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
-				builders = append(builders, b)
+				p.Builders = append(p.Builders, b)
 			}
 		}
 	}
 
 	if m := reLore.FindStringSubmatch(content); len(m) > 1 {
-		lore = CleanSection(m[1])
+		p.Lore = CleanSection(m[1])
 	}
-	if lore == "" {
+	if p.Lore == "" {
 		if m := reLoreEq.FindStringSubmatch(content); len(m) > 1 {
-			lore = CleanSection(m[1])
+			p.Lore = CleanSection(m[1])
 		}
 	}
 
 	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
-		whatToVisit = CleanSection(m[1])
+		p.WhatToVisit = CleanSection(m[1])
 	}
-	if whatToVisit == "" {
+	if p.WhatToVisit == "" {
 		if m := reWhatToVisitEq.FindStringSubmatch(content); len(m) > 1 {
-			whatToVisit = CleanSection(m[1])
+			p.WhatToVisit = CleanSection(m[1])
 		}
 	}
 
 	if m := reCover.FindStringSubmatch(content); len(m) > 1 {
-		fmt.Sscan(m[1], &coverIdx)
+		fmt.Sscan(m[1], &p.CoverIdx)
 	}
 
 	if m := reOnBehalf.FindStringSubmatch(content); len(m) > 1 {
-		postedOnBehalfOf = m[1]
+		p.PostedOnBehalfOf = m[1]
 	} else if m := reOnBehalfSnowflake.FindStringSubmatch(content); len(m) > 1 {
-		postedOnBehalfOf = m[1]
+		p.PostedOnBehalfOf = m[1]
 	} else if reOnBehalfPresent.MatchString(content) {
-		postedOnBehalfOf = "unknown"
+		p.PostedOnBehalfOf = "unknown"
 	}
 
-	return
+	if m := reBuildTitle.FindStringSubmatch(content); len(m) > 1 {
+		p.BuildTitle = strings.TrimSpace(m[1])
+	}
+
+	p.IsCurrent = reIsCurrent.MatchString(content)
+
+	if m := reHostedAt.FindStringSubmatch(content); len(m) > 1 {
+		p.HostedAtGuildName = strings.TrimSpace(m[1])
+		if len(m) > 2 {
+			p.HostedAtGuildID = strings.TrimSpace(m[2])
+		}
+	}
+
+	return p
 }
 
 // ExtractNameAndID strips decorators/suffixes from a Discord thread name and
-// extracts an optional numeric guild ID embedded as a trailing bracket token.
-// e.g. "WITCHERS [10248427" → ("WITCHERS", "10248427")
-// e.g. "🏯 Iron Keep - Season 2" → ("Iron Keep", "")
-func ExtractNameAndID(threadName string) (name, id string) {
+// extracts an optional numeric guild ID embedded as a trailing bracket token,
+// and an optional build title from the " - Subtitle" suffix.
+// e.g. "WITCHERS [10248427" → ("WITCHERS", "10248427", "")
+// e.g. "🏯 Mutiny - Lost World" → ("Mutiny", "", "Lost World")
+func ExtractNameAndID(threadName string) (name, id, buildTitle string) {
 	parts := strings.SplitN(threadName, " -", 2)
 	raw := strings.TrimSpace(parts[0])
+	if len(parts) > 1 {
+		buildTitle = strings.TrimSpace(parts[1])
+	}
 	raw = strings.TrimSpace(strings.TrimLeft(raw, "#🏯📍"))
 	if m := reThreadID.FindStringSubmatch(raw); len(m) == 2 {
 		id = m[1]
@@ -112,7 +147,7 @@ func ExtractNameAndID(threadName string) (name, id string) {
 // ExtractName strips decorators and suffixes from a Discord thread name.
 // e.g. "🏯 Iron Keep - Season 2" → "Iron Keep"
 func ExtractName(threadName string) string {
-	name, _ := ExtractNameAndID(threadName)
+	name, _, _ := ExtractNameAndID(threadName)
 	return name
 }
 

@@ -64,4 +64,8 @@ type Guild struct {
 	AllowedContributors      []string            `json:"allowedContributors,omitempty"`
 	PostedOnBehalfOf         string              `json:"postedOnBehalfOf,omitempty"`
 	ScoutedByDiscordID       string              `json:"scoutedByDiscordId,omitempty"`
+	BuildTitle               string              `json:"buildTitle,omitempty"`
+	IsCurrent                bool                `json:"isCurrent,omitempty"`
+	HostedAtGuildName        string              `json:"hostedAtGuildName,omitempty"`
+	HostedAtGuildID          string              `json:"hostedAtGuildId,omitempty"`
 }

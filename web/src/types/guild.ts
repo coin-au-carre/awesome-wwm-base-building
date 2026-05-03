@@ -24,6 +24,10 @@ export interface Guild {
   createdAt?: string
   lastModified?: string
   scoutedByDiscordId?: string
+  buildTitle?: string
+  isCurrent?: boolean
+  hostedAtGuildName?: string
+  hostedAtGuildId?: string
 }
 
 export interface RankedGuild extends Guild {
