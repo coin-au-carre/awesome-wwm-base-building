@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f7c4c8&is=69f67348&hm=84542881cf4ba8e3a4f7a3162dbbffe0b1606b0942c611ef1c6f17edd7ee31f3&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69f86d88&is=69f71c08&hm=7b54495907609876ce77f60e7f8f1af4ee03655c305320e72c67643c609c9a0f&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f7c504&is=69f67384&hm=3917314d0e2ac8802454e3dfa3b2a0d8cce8b81fc348a551305626aea789bb45&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69f86dc4&is=69f71c44&hm=7fd35d2bc9a886630a9891c04be76bde3b4c11a042565c60a31050d5f9632644&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family
@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69f7d626&is=69f684a6&hm=2af69fab736322e60c94dc9524455f3491e1d9d57c8b70ce270a6e14930ca754&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69f87ee6&is=69f72d66&hm=4c40b902ba73602235596fbf5c57707b260dc8ec22963487a95f2550cc5d14f0&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Fortune
 
