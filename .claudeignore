@@ -1,8 +1,10 @@
 web/node_modules/
-web/dist
+web/node_modules/**
 web/dist/
+web/dist
 web/dist/**
-web/dist/**/*
+dist/
+dist/**
 **/*.html
 web/.astro/
 data/guilds.json
