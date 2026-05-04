@@ -84,7 +84,8 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
       },
       "keywords": "Where Winds Meet building, Where Winds Meet construction, Where Winds Meet base building, Where Winds Meet building guide, where winds meet construction recipes, where winds meet blueprints, where winds meet diagrams, where winds meet house building",
     })} />
-    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
     <link rel="alternate" type="application/rss+xml" title="Where Builders Meet — New Submissions" href="/rss.xml" />
     <title>{title}</title>
     <!-- Cloudflare Web Analytics -->
@@ -111,9 +112,10 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
           <!-- Logo -->
           <a
             href={`${base}/`}
-            class="shrink-0 font-heading font-semibold text-sm hover:text-primary transition-colors"
+            class="shrink-0 flex items-center gap-2 font-heading font-semibold text-sm hover:text-primary transition-colors"
           >
-            🏯 <span class="hidden xl:inline">Where Builders Meet</span><span class="xl:hidden">WBM</span>
+            <img src={`${base}/images/logo_3.png`} alt="Where Builders Meet" class="h-8 w-8 object-contain" />
+            <span class="hidden xl:inline">Where Builders Meet</span><span class="xl:hidden">WBM</span>
           </a>
 
           <!-- Desktop nav -->
