@@ -108,13 +108,13 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
     <!-- Top nav -->
     <header id="site-header" class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm transition-transform duration-300">
       <div class="mx-auto max-w-7xl px-4">
-        <div class="flex h-14 items-center justify-between gap-4">
+        <div id="header-inner" class="flex h-20 items-center justify-between gap-4 transition-all duration-300">
           <!-- Logo -->
           <a
             href={`${base}/`}
             class="shrink-0 flex items-center gap-2 font-heading font-semibold text-sm hover:text-primary transition-colors"
           >
-            <img src={`${base}/images/logo_3.png`} alt="Where Builders Meet" class="h-8 w-8 object-contain" />
+            <img id="nav-logo" src={`${base}/images/logo_3.png`} alt="Where Builders Meet" class="h-16 w-16 object-contain transition-all duration-300" />
             <span class="hidden xl:inline">Where Builders Meet</span><span class="xl:hidden">WBM</span>
           </a>
 
@@ -412,8 +412,23 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
     <script is:inline>
       ;(function () {
         var header = document.getElementById("site-header")
+        var headerInner = document.getElementById("header-inner")
+        var navLogo = document.getElementById("nav-logo")
         var lastY = 0
         var ticking = false
+        function applyCompact(compact) {
+          if (compact) {
+            headerInner.classList.remove("h-20")
+            headerInner.classList.add("h-14")
+            navLogo.classList.remove("h-16", "w-16")
+            navLogo.classList.add("h-10", "w-10")
+          } else {
+            headerInner.classList.remove("h-14")
+            headerInner.classList.add("h-20")
+            navLogo.classList.remove("h-10", "w-10")
+            navLogo.classList.add("h-16", "w-16")
+          }
+        }
         window.addEventListener("scroll", function () {
           if (!ticking) {
             window.requestAnimationFrame(function () {
@@ -423,6 +438,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
               } else {
                 header.style.transform = ""
               }
+              applyCompact(y > 60)
               lastY = y
               ticking = false
             })
