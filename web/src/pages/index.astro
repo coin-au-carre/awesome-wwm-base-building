@@ -120,8 +120,8 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
         const c = heroCandidates[Math.floor(Math.random() * heroCandidates.length)]
         if (c) {
           const img = document.getElementById("hero-img")
+          img.onload = () => img.classList.remove("hidden")
           img.src = c.img
-          img.classList.remove("hidden")
           const credit = document.getElementById("hero-credit")
           credit.href = c.href
           credit.dataset.umamiEventName = c.name
