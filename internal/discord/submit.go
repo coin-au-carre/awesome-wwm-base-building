@@ -459,7 +459,7 @@ func BuildWelcomeMessage(name string) string {
 		"**Builder?** Check the [Contribute page](<https://www.wherebuildersmeet.com/contribute/builder?utm_source=discord&utm_medium=welcome>) to see your construction on the website and in <#1483455027250200639> or <#1483489266947461321>.\n" +
 		"\tUse `/submit-guild` or `/submit-solo` — the bot sends you a ready-to-paste template via DM. Your build appears on next sync.\n" +
 		"**[Explorer?](<https://www.wherebuildersmeet.com/contribute/scout?utm_source=discord&utm_medium=welcome>)** Use `/scout-guild` to report impressive bases you've found in <#1490051558237405254>.\n" +
-		"Looking something to build in your base you cannot do? ask in <#1486701728551407796>\n" +
+		"Looking for a builder help? ask in <#1486701728551407796>\n" +
 		"Questions? Ask in the chats or ping a moderator. Happy Building!"
 }
 
