@@ -500,6 +500,43 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		slog.Info("guild scored", "name", g.Name, "score", g.Score, "tags", strings.Join(g.Tags, ", "))
 	}
 
+	// Remove placeholders superseded by a new thread whose first-post guild name matches.
+	// This handles threads with decorative Unicode titles that don't normalize to the stored name.
+	phByName := make(map[string]int)
+	for i, g := range guilds {
+		if g.DiscordThread == "" {
+			key := strings.ToLower(g.Name)
+			if g.GuildName != "" {
+				key = strings.ToLower(g.GuildName)
+			}
+			phByName[key] = i
+		}
+	}
+	toRemove := make(map[int]bool)
+	for _, r := range result.threads {
+		if !result.newIndices[r.idx] {
+			continue
+		}
+		for _, n := range []string{r.data.GuildName, guilds[r.idx].GuildName} {
+			if n == "" {
+				continue
+			}
+			if pidx, ok := phByName[strings.ToLower(n)]; ok && pidx != r.idx {
+				toRemove[pidx] = true
+				slog.Info("removing placeholder superseded by real thread", "placeholder", guilds[pidx].Name, "thread", guilds[r.idx].Name)
+			}
+		}
+	}
+	if len(toRemove) > 0 {
+		filtered := make([]guild.Guild, 0, len(guilds)-len(toRemove))
+		for i, g := range guilds {
+			if !toRemove[i] {
+				filtered = append(filtered, g)
+			}
+		}
+		guilds = filtered
+	}
+
 	stats.Total = len(guilds)
 	stats.VoterGuildCounts = result.VoterCounts
 
