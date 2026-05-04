@@ -1,4 +1,10 @@
 import { useState, useMemo, useEffect, useRef, useSyncExternalStore } from "react"
+
+declare global {
+  interface Window {
+    umami?: { track: (event: string, data?: Record<string, unknown>) => void }
+  }
+}
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { getTier } from "@/lib/scoring"
@@ -140,7 +146,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   toggleTag: (tag: string) => void
 }) {
   const [open, setOpen] = useState(false)
-  const timer = useRef<ReturnType<typeof setTimeout>>()
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const img = g.coverImage ?? g.screenshots?.[0]
   const podium = PODIUM_ROW[g.rank]
   const tier = getTier(g.rank, guildsLength, g.score)
@@ -162,7 +168,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
         onMouseEnter={enter}
         onMouseLeave={leave}
         onClick={() => {
-          ;(window as any).umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
+          ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
           window.location.href = url(`/${basePath}/${g.slug}`)
         }}
         className={cn("cursor-pointer transition-colors", podium ?? (gi % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"))}
@@ -337,7 +343,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
     }
     const nameToBuilds = new Map<string, RankedGuild[]>()
     for (const g of filtered) {
-      if (!nameToBuilds.has(g.name)) nameToBuilds.set(g.name, [])
+      if (!nameToBuilds.has(g.name)) { nameToBuilds.set(g.name, []) }
       nameToBuilds.get(g.name)!.push(g)
     }
     const groups: Array<{ key: string; builds: RankedGuild[]; isMulti: boolean }> = []

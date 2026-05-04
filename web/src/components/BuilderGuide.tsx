@@ -3,7 +3,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import TemplateBuilder from "@/components/TemplateBuilder"
-import { Terminal, Image } from "lucide-react"
+import { Terminal, Image, LayoutList, Sparkles, Users, Layers, Bold, FileImage, type LucideIcon } from "lucide-react"
+import { url } from "@/lib/url"
 
 type Mode = "guild" | "solo"
 
@@ -37,7 +38,7 @@ function GuildPostInstructions() {
         <div className="h-px flex-1 bg-border" />
       </div>
       <p className="text-sm text-muted-foreground">
-        Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.
+        Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
       </p>
     </div>
   )
@@ -77,11 +78,70 @@ function SoloPostInstructions() {
         <div className="h-px flex-1 bg-border" />
       </div>
       <p className="text-sm text-muted-foreground">
-        Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.
+        Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
       </p>
     </div>
   )
 }
+
+type Tip = { icon: LucideIcon; color: string; title: string; body: React.ReactNode }
+
+const tips: Tip[] = [
+  {
+    icon: FileImage,
+    color: "text-orange-400",
+    title: "Screenshot size",
+    body: "Keep screenshots under 8 MB for fast loading. Larger files slow down the page for everyone.",
+  },
+  {
+    icon: Image,
+    color: "text-emerald-500",
+    title: "Cover image",
+    body: <>Add <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: N</code> to your first post to pin screenshot #N as the cover. Example: <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">Cover: 3</code> picks your third image.</>,
+  },
+  {
+    icon: LayoutList,
+    color: "text-amber-500",
+    title: "Screenshot sections",
+    body: <>Organize screenshots into labeled groups by posting a message starting with <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs"># Section name</code>. Post the label before or after the images it describes.</>,
+  },
+  {
+    icon: Bold,
+    color: "text-sky-500",
+    title: "Text formatting",
+    body: <>Use <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">**bold**</code>, <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">*italic*</code>, or <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">~~strikethrough~~</code> in your lore and what-to-visit text. Wrap text in <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">||spoilers||</code> to hide it until clicked.</>,
+  },
+  {
+    icon: Sparkles,
+    color: "text-violet-500",
+    title: "Want more votes?",
+    body: "Update your screenshots or videos. This triggers an announcement in the general chat that re-exposes your base to the community.",
+  },
+  {
+    icon: Users,
+    color: "text-slate-400",
+    title: "Thread already exists?",
+    body: "Create a new one and ask a moderator to close the old one.",
+  },
+  {
+    icon: Users,
+    color: "text-slate-400",
+    title: "Not comfortable posting?",
+    body: "A moderator can post it for you.",
+  },
+  {
+    icon: Layers,
+    color: "text-blue-400",
+    title: "Multiple guilds, one builder?",
+    body: "You can submit in as many threads as you want. One build = one thread.",
+  },
+  {
+    icon: Layers,
+    color: "text-blue-400",
+    title: "One guild, multiple builds?",
+    body: <>Name your threads <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">GuildName - Build Title</code> and they'll be grouped automatically on the leaderboard. <a href={url("/tutorials/multiple-builds-per-guild")} className="underline underline-offset-2 hover:text-foreground transition-colors">Full guide ↗</a></>,
+  },
+]
 
 export default function BuilderGuide() {
   const [mode, setMode] = useState<Mode>(() => {
@@ -147,8 +207,27 @@ export default function BuilderGuide() {
         </li>
       </ol>
 
+      {/* Tips & formatting */}
+      <div id="tips" className="space-y-5 border-t border-border pt-2">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tips & formatting</p>
+          <p className="text-sm text-muted-foreground mt-1">Everything you can do to improve your entry.</p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {tips.map(({ icon: Icon, color, title, body }) => (
+            <div key={title} className="rounded-xl border border-border bg-card p-4 space-y-2">
+              <div className="flex items-center gap-2">
+                <Icon size={15} className={color} />
+                <p className="text-sm font-medium text-foreground">{title}</p>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Template builder */}
-      <div className="space-y-3 pt-2 border-t border-border">
+      <div id="template" className="space-y-3 pt-2 border-t border-border">
         <div>
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">First post template</p>
           <p className="text-sm text-muted-foreground mt-1">Fill in the fields below and copy the result into your Discord post.</p>
