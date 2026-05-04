@@ -402,7 +402,8 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-1.5">
-        <div className="relative w-full sm:max-w-lg">
+        <div className="flex items-center gap-4">
+          <div className="relative w-full sm:max-w-lg shrink-0">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
           <Input
             ref={inputRef}
@@ -430,11 +431,14 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               <X className="size-3.5" />
             </button>
           )}
+          </div>
+          {!isSolos && (
+            <p className="hidden sm:block text-xs text-muted-foreground/70 leading-snug">
+              Need something more specific?<br />
+              Ask on <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary transition-colors">#ruby ↗</a>, she can search what you need (Pikachu, dragons...)
+            </p>
+          )}
         </div>
-        <p className="text-xs text-muted-foreground">
-          Need something more specific? Ask on <span className="font-medium text-foreground">#ruby</span> on our Discord, she can pinpoint exactly what you need (Pikachu, cats, horse racing...)!
-        </p>
-      </div>
 
       {allTags.length > 0 && (
         <div>
@@ -492,13 +496,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
           </div>
         </div>
       )}
-
-      {!isSolos && (
-        <p className="text-xs text-muted-foreground/70 italic">
-          Scores don't tell the whole story. Plenty of hidden gems await even with low score, but you'll have to earn them... {" "}
-          <a href={url("/how-it-works")} className="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
-        </p>
-      )}
+      </div>
 
       {totalPages > 1 && (
         <div className="flex items-center gap-1">
@@ -601,7 +599,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                 </TableRow>
               )
 
-              if (!isExpanded) return [headerRow]
+              if (!isExpanded) { return [headerRow] }
 
               const buildRows = builds.map((g, bi) => {
                 const img = g.coverImage ?? g.screenshots?.[0]

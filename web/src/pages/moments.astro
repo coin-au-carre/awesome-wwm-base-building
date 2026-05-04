@@ -3,6 +3,7 @@ import Layout from "@/layouts/main.astro"
 import { ImagesIcon, ArrowSquareOutIcon, ShuffleIcon, SortAscendingIcon } from "@phosphor-icons/react"
 import { getWhateverPosts, getWhateverStats } from "@/lib/whatever"
 import { BASE } from "@/lib/url"
+import { thumbUrl } from "@/lib/format"
 
 const posts = getWhateverPosts()
 const { totalImages, totalContributors } = getWhateverStats()
@@ -96,7 +97,9 @@ const items = posts.flatMap((p) =>
               class="gallery-item break-inside-avoid mb-2 group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-border hover:ring-primary transition-all"
               data-post-id={item.postId}
               data-img={item.img}
+              data-thumb={thumbUrl(item.img)}
               data-all-imgs={JSON.stringify(item.allImgs)}
+              data-all-thumbs={JSON.stringify(item.allImgs.map((s) => thumbUrl(s)))}
               data-display-name={item.displayName}
               data-builder-path={item.builderPath ?? ""}
               data-reactions={item.reactions}
@@ -105,7 +108,7 @@ const items = posts.flatMap((p) =>
               data-posted-at={item.postedAt}
             >
               <img
-                src={item.img}
+                src={thumbUrl(item.img)}
                 alt={`Screenshot by ${item.displayName}`}
                 loading="lazy"
                 onerror="this.closest('.gallery-item').style.display='none'"
@@ -160,12 +163,21 @@ const items = posts.flatMap((p) =>
 
     <!-- Image + caption -->
     <div class="flex flex-col items-center gap-3 max-w-5xl w-full max-h-full">
-      <img
-        id="lb-img"
-        src=""
-        alt=""
-        class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl"
-      />
+      <div class="relative flex items-center justify-center w-full">
+        <div id="lb-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none" style="display:none!important">
+          <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+          </svg>
+        </div>
+        <img
+          id="lb-img"
+          src=""
+          alt=""
+          class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl transition-opacity duration-200"
+          style="opacity:0"
+        />
+      </div>
       <div class="flex items-center gap-3">
         <span id="lb-author-wrap" class="text-sm font-semibold text-white"></span>
         <span id="lb-reactions" class="text-white/50 text-xs"></span>
@@ -189,6 +201,7 @@ const items = posts.flatMap((p) =>
   const gallery = document.getElementById("gallery")
   const lightbox = document.getElementById("lightbox")
   const lbImg = document.getElementById("lb-img")
+  const lbSpinner = document.getElementById("lb-spinner")
   const lbAuthorWrap = document.getElementById("lb-author-wrap")
   const lbReactions = document.getElementById("lb-reactions")
   const lbCounter = document.getElementById("lb-counter")
@@ -196,6 +209,7 @@ const items = posts.flatMap((p) =>
   const lbClose = document.getElementById("lb-close")
   const lbPrev = document.getElementById("lb-prev")
   const lbNext = document.getElementById("lb-next")
+  const preloaded = new Set()
 
   function getItems() {
     return [...gallery.querySelectorAll(".gallery-item")]
@@ -219,11 +233,51 @@ const items = posts.flatMap((p) =>
     document.body.style.overflow = "hidden"
   }
 
+  function preloadFull(src) {
+    if (!src || preloaded.has(src)) return
+    preloaded.add(src)
+    const p = new Image()
+    p.src = src
+  }
+
   function renderLightbox() {
     const item = currentItems[currentIndex]
     subImages = JSON.parse(item.dataset.allImgs ?? "[]")
-    lbImg.src = subImages[subIndex] ?? item.dataset.img ?? ""
-    lbImg.alt = `Screenshot by ${item.dataset.displayName}`
+    const subThumbs = JSON.parse(item.dataset.allThumbs ?? "[]")
+    const fullSrc = subImages[subIndex] ?? item.dataset.img ?? ""
+    const thumbSrc = subThumbs[subIndex] ?? item.dataset.thumb ?? fullSrc
+
+    // Show thumbnail immediately (already in cache from the grid)
+    if (thumbSrc && thumbSrc !== lbImg.src) {
+      lbImg.style.opacity = lbImg.src ? "0" : "1"
+      lbImg.src = thumbSrc
+      lbImg.alt = `Screenshot by ${item.dataset.displayName}`
+      lbSpinner.style.display = "none"
+      if (!lbImg.style.opacity || lbImg.style.opacity === "0") {
+        requestAnimationFrame(() => { lbImg.style.opacity = "1" })
+      }
+    }
+
+    // Load full-res silently, swap when ready
+    if (fullSrc !== thumbSrc) {
+      const captured = { idx: currentIndex, sub: subIndex }
+      const full = new Image()
+      full.onload = () => {
+        if (currentIndex !== captured.idx || subIndex !== captured.sub) return
+        lbImg.src = fullSrc
+        lbSpinner.style.display = "none"
+      }
+      full.src = fullSrc
+      preloaded.add(fullSrc)
+    }
+
+    // Preload next full-res
+    const nextSubFull = subImages[subIndex + 1]
+    if (nextSubFull) preloadFull(nextSubFull)
+    else {
+      const nextItem = currentItems[(currentIndex + 1) % currentItems.length]
+      if (nextItem) preloadFull(JSON.parse(nextItem.dataset.allImgs ?? "[]")[0] ?? nextItem.dataset.img)
+    }
 
     const name = item.dataset.displayName ?? ""
     const path = item.dataset.builderPath ?? ""
@@ -245,6 +299,7 @@ const items = posts.flatMap((p) =>
     lightbox.classList.add("hidden")
     lightbox.classList.remove("flex")
     lbImg.src = ""
+    lbImg.style.opacity = "0"
     document.body.style.overflow = ""
   }
 

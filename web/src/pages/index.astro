@@ -372,8 +372,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
           ))}
         </ul>
       </noscript>
-      <p class="text-xs text-muted-foreground mt-3">Want to vote? <a href={`${BASE}/how-it-works`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Votes count more when you explore many guilds ↗</a></p>
-      <p class="text-xs text-muted-foreground mt-1.5">Looking for a builder? <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="building_request_cta_click">#building-requests ↗</a></p>
+      <p class="text-xs text-muted-foreground mt-3">Looking for a builder? <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="building_request_cta_click">#building-requests ↗</a> · Want to vote? <a href={`${BASE}/how-it-works`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Votes count more when you explore many guilds ↗</a></p>
     </section>
 
     <!-- Top rated carousel -->
@@ -454,6 +453,10 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
               )
             })}
           </div>
+          <p class="mt-3 text-xs text-muted-foreground/60 italic px-1">
+            Scores don't tell the whole story. Plenty of hidden gems await even with a low score, but you will have to search for them to discover them yourself.{" "}
+            <a href={`${BASE}/how-it-works`} class="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
+          </p>
         </div>
       </section>
     )}
