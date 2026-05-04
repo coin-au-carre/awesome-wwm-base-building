@@ -11,11 +11,55 @@ const base = BASE
   description="This page doesn't exist."
 >
   <div class="max-w-3xl space-y-6">
-    <div>
-      <h1 class="font-heading text-2xl font-semibold mb-1">🏚️ 404 — Page Not Found</h1>
+
+    <div id="build-404" class="hidden space-y-4">
+      <div>
+        <h1 class="font-heading text-2xl font-semibold mb-2" id="build-404-title">Build not found yet</h1>
+        <p class="text-muted-foreground text-sm">
+          If this was just submitted, the site hasn't synced it yet totally. So check back a few minutes later.
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-border bg-card px-5 py-4 space-y-3">
+        <p class="text-sm font-medium">Still missing?</p>
+        <p class="text-sm text-muted-foreground">
+          If the build was submitted a while ago and this page still doesn't exist, it likely doesn't exist at all. Contact a moderator on Discord if this seems abnormal.
+        </p>
+        <a
+          href="https://discord.gg/Qygt9u26Bn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants({ variant: "secondary", size: "sm" })}
+          data-umami-event="discord_cta_click"
+        >
+          Contact a moderator on Discord ↗
+        </a>
+      </div>
+    </div>
+
+    <div id="generic-404" class="hidden">
+      <h1 class="font-heading text-2xl font-semibold mb-1">404 — Page Not Found</h1>
       <p class="text-muted-foreground text-sm">This page doesn't exist or was moved.</p>
     </div>
 
-    <a href={`${base}/`} class={buttonVariants({ variant: "outline", size: "lg" })}>← Back to Guilds</a>
+    <a id="back-guilds" href={`${base}/`} class={buttonVariants({ variant: "outline", size: "lg" })}>← Back to Guilds</a>
+    <a id="back-solos" href={`${base}/solo`} class={`${buttonVariants({ variant: "outline", size: "lg" })} hidden`}>← Back to Solo Builds</a>
   </div>
+
+  <script is:inline>
+    const path = window.location.pathname
+    const isGuild = /\/guilds\//.test(path)
+    const isSolo = /\/solos\//.test(path)
+
+    if (isGuild || isSolo) {
+      document.getElementById("build-404").classList.remove("hidden")
+      if (isSolo) {
+        document.getElementById("build-404-title").textContent = "Solo build not found yet"
+        document.getElementById("back-guilds").classList.add("hidden")
+        document.getElementById("back-solos").classList.remove("hidden")
+      }
+    } else {
+      document.getElementById("generic-404").classList.remove("hidden")
+    }
+  </script>
 </Layout>
