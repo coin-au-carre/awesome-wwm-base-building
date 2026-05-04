@@ -65,18 +65,6 @@ const isEmpty = !hasSolos()
       </p>
     </div>
 
-    <!-- Top rated carousel -->
-    {
-      topSolos.length > 0 && (
-        <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Solo Construction</h2>
-          <div class="px-5">
-            <GuildCarousel client:load guilds={topSolos} basePath="solos" />
-          </div>
-        </section>
-      )
-    }
-
     <!-- Recently added -->
     {
       latestSolos.length > 0 && (
@@ -147,6 +135,18 @@ const isEmpty = !hasSolos()
               ))}
             </ul>
           </noscript>
+        </section>
+      )
+    }
+
+    <!-- Top rated carousel -->
+    {
+      topSolos.length > 0 && (
+        <section>
+          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Solo Construction</h2>
+          <div class="px-5">
+            <GuildCarousel client:load guilds={topSolos} basePath="solos" />
+          </div>
         </section>
       )
     }
