@@ -41,9 +41,15 @@ function GuildPostInstructions() {
       </div>
       <div className="space-y-1.5">
         <OptionLabel label="Option B — post manually" />
-        <p className="text-sm text-muted-foreground">
-          Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
-        </p>
+        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <LayoutList className="size-3.5 text-muted-foreground shrink-0" />
+            Post directly in the forum
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
+          </p>
+        </div>
       </div>
     </div>
   )
@@ -80,9 +86,15 @@ function SoloPostInstructions() {
       </div>
       <div className="space-y-1.5">
         <OptionLabel label="Option C — post manually" />
-        <p className="text-sm text-muted-foreground">
-          Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
-        </p>
+        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <LayoutList className="size-3.5 text-muted-foreground shrink-0" />
+            Post directly in the forum
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
+          </p>
+        </div>
       </div>
     </div>
   )
