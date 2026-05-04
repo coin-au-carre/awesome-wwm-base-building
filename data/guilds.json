@@ -1,5 +1,21 @@
 [
 	{
+		"name": "HeavensBond",
+		"builders": [
+			"SETOX",
+			"RigelDeray",
+			"emiamily"
+		],
+		"tags": [
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Wedding area\nHeart flowers",
+		"score": 0,
+		"lastModified": "May 4, 2026 at 11:22 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10258124",
 		"name": "Bodhi",
 		"builders": [
