@@ -38,12 +38,15 @@ NEVER use any sentinel for:
 ❌ "do you have any X" (yes/no or informational questions)
 ❌ Any request for multiple items, filtering, or data about multiple things
 
-Rule: If the request asks about MULTIPLE guilds, MULTIPLE items, or INFORMATION about something, respond with TEXT ONLY. Never append [SPOTLIGHT] or any sentinel.
+Rule: If the request asks about MULTIPLE guilds, MULTIPLE items, or INFORMATION about something, do NOT use sentinels. Instead, use the search_guilds tool to look up accurate results, then narrate them in character.
 
-Examples of TEXT-ONLY responses (no sentinels):
-- User: "show me guilds with rivers" → You: "Hmm, let me think... Jenova has water elements, and..."
-- User: "which guilds are tagged Zen" → You: "I know a few places with that feeling..."
-- User: "list all Nature guilds" → You: "There are several..."
+Examples:
+- User: "show me guilds with rivers" → call search_guilds("river"), then narrate the results
+- User: "which guilds are tagged Zen" → call search_guilds("Zen"), then narrate the results
+- User: "are there guilds with a dragon?" → call search_guilds("dragon"), then narrate the results
+- User: "list all Nature guilds" → call search_guilds("Nature"), then narrate the results
+
+NEVER answer questions about which guilds contain something from memory alone — always use search_guilds first. When search_guilds returns results, mention ALL of them — do not filter or omit any, even if results share a theme. Each result may be brief, but none should be skipped.
 
 For catalog item questions, mention the general category but do NOT list specific names or filenames.`
 
@@ -63,36 +66,45 @@ type tutorialFrontmatter struct {
 	Slug        string
 }
 
-func buildSystemPrompt(root string) string {
+func loadPromptGuilds(root string) []promptGuild {
+	data, err := os.ReadFile(filepath.Join(root, "web", "public", "guilds.json"))
+	if err != nil {
+		return nil
+	}
+	var guilds []promptGuild
+	if err := json.Unmarshal(data, &guilds); err != nil {
+		return nil
+	}
+	return guilds
+}
+
+func buildSystemPrompt(root string, guilds []promptGuild) string {
 	var sb strings.Builder
 	sb.WriteString(systemPrompt)
 
-	if data, err := os.ReadFile(filepath.Join(root, "web", "public", "guilds.json")); err == nil {
-		var guilds []promptGuild
-		if json.Unmarshal(data, &guilds) == nil {
-			sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url)\n")
-			for _, g := range guilds {
-				guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
-				parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
-				if len(g.Tags) > 0 {
-					parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
-				}
-				if len(g.Builders) > 0 {
-					parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
-				}
-				sb.WriteString(strings.Join(parts, " | "))
-				sb.WriteString(" | url: " + guildURL)
+	if len(guilds) > 0 {
+		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url)\n")
+		for _, g := range guilds {
+			guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
+			parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
+			if len(g.Tags) > 0 {
+				parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
+			}
+			if len(g.Builders) > 0 {
+				parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
+			}
+			sb.WriteString(strings.Join(parts, " | "))
+			sb.WriteString(" | url: " + guildURL)
+			sb.WriteByte('\n')
+			if g.Lore != "" {
+				sb.WriteString("  lore: ")
+				sb.WriteString(g.Lore)
 				sb.WriteByte('\n')
-				if g.Lore != "" {
-					sb.WriteString("  lore: ")
-					sb.WriteString(g.Lore)
-					sb.WriteByte('\n')
-				}
-				if g.WhatToVisit != "" {
-					sb.WriteString("  visit: ")
-					sb.WriteString(g.WhatToVisit)
-					sb.WriteByte('\n')
-				}
+			}
+			if g.WhatToVisit != "" {
+				sb.WriteString("  visit: ")
+				sb.WriteString(g.WhatToVisit)
+				sb.WriteByte('\n')
 			}
 		}
 	}
