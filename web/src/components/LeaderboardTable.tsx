@@ -130,6 +130,101 @@ const PODIUM_ROW: Record<number, string> = {
 
 const PAGE_SIZE = 40
 
+function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, toggleTag }: {
+  g: RankedGuild
+  gi: number
+  guildsLength: number
+  basePath: string
+  isSolos: boolean
+  activeTags: Set<string>
+  toggleTag: (tag: string) => void
+}) {
+  const [open, setOpen] = useState(false)
+  const timer = useRef<ReturnType<typeof setTimeout>>()
+  const img = g.coverImage ?? g.screenshots?.[0]
+  const podium = PODIUM_ROW[g.rank]
+  const tier = getTier(g.rank, guildsLength, g.score)
+  const fmt = formatLastModified(g.lastModified)
+
+  const enter = () => {
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setOpen(true), 250)
+  }
+  const leave = () => {
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setOpen(false), 100)
+  }
+
+  return (
+    <HoverCard open={open} onOpenChange={() => {}} openDelay={0} closeDelay={0}>
+      <TableRow
+        key={g.slug}
+        onMouseEnter={enter}
+        onMouseLeave={leave}
+        onClick={() => {
+          ;(window as any).umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
+          window.location.href = url(`/${basePath}/${g.slug}`)
+        }}
+        className={cn("cursor-pointer transition-colors", podium ?? (gi % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"))}
+      >
+        {!isSolos && (
+          <TableCell className="text-center">
+            <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs", tier.badge)} style={tier.badgeStyle}>
+              <span className={cn("size-1.5 rounded-full shrink-0", tier.dot)} />
+              {tier.label}
+            </span>
+          </TableCell>
+        )}
+        <TableCell>
+          <div className="flex items-center gap-2.5">
+            {img && (
+              <img
+                src={thumbUrl(img, 120, 120)}
+                alt={stripGuildShowcase(g.guildName || g.name)}
+                className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block"
+                loading="lazy"
+                onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
+              />
+            )}
+            <HoverCardTrigger asChild>
+              <div className="min-w-0">
+                <a href={url(`/${basePath}/${g.slug}`)} className="font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
+                  {stripGuildShowcase(g.guildName || g.name)}
+                </a>
+                {g.buildTitle && (
+                  <p className="text-[11px] text-muted-foreground/60 leading-tight truncate">{g.buildTitle}{g.isCurrent && <span className="ml-1 text-emerald-500/80">●</span>}</p>
+                )}
+              </div>
+            </HoverCardTrigger>
+          </div>
+        </TableCell>
+        <TableCell className="text-muted-foreground hidden md:table-cell">
+          <div className="flex items-center gap-1.5">
+            {formatBuilders(g.builders)}
+            {isCommunityPosted(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
+          </div>
+        </TableCell>
+        <TableCell className="hidden lg:table-cell">
+          <div className="flex flex-wrap gap-1">{g.tags?.map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
+        </TableCell>
+        <TableCell className="hidden lg:table-cell text-[11px] text-muted-foreground/50">
+          {fmt ? <span title={fmt.full} className="cursor-default">{fmt.relative}</span> : <span>—</span>}
+        </TableCell>
+      </TableRow>
+      <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
+        {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
+        <div className="p-3">
+          <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
+          {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by {formatBuilders(g.builders)}</p>}
+          {g.tags && g.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
+          )}
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  )
+}
+
 export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props) {
   const isSolos = basePath === "solos"
   const [sortField, setSortField] = useState<SortField>("rank")
@@ -467,60 +562,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               }
 
               if (!isMulti) {
-                const g = builds[0]
-                const img = g.coverImage ?? g.screenshots?.[0]
-                const podium = PODIUM_ROW[g.rank]
-                return [(
-                  <TableRow
-                    key={g.slug}
-                    onClick={() => {
-                      ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
-                      window.location.href = url(`/${basePath}/${g.slug}`)
-                    }}
-                    className={cn("cursor-pointer transition-colors", podium ?? (gi % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"))}
-                  >
-                    {!isSolos && <TableCell className="text-center">{renderTierBadge(g)}</TableCell>}
-                    <TableCell>
-                      <div className="flex items-center gap-2.5">
-                        {img && (
-                          <img src={thumbUrl(img, 120, 120)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
-                        )}
-                        <HoverCard openDelay={250} closeDelay={100}>
-                          <HoverCardTrigger asChild>
-                            <div className="min-w-0">
-                              <a href={url(`/${basePath}/${g.slug}`)} className="font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
-                                {stripGuildShowcase(g.guildName || g.name)}
-                              </a>
-                              {g.buildTitle && (
-                                <p className="text-[11px] text-muted-foreground/60 leading-tight truncate">{g.buildTitle}{g.isCurrent && <span className="ml-1 text-emerald-500/80">●</span>}</p>
-                              )}
-                            </div>
-                          </HoverCardTrigger>
-                          <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start">
-                            {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
-                            <div className="p-3">
-                              <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
-                              {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by {formatBuilders(g.builders)}</p>}
-                              {g.tags && g.tags.length > 0 && (
-                                <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
-                              )}
-                            </div>
-                          </HoverCardContent>
-                        </HoverCard>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-muted-foreground hidden md:table-cell">
-                      <div className="flex items-center gap-1.5">
-                        {formatBuilders(g.builders)}
-                        {isCommunityPosted(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
-                      </div>
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell">
-                      <div className="flex flex-wrap gap-1">{g.tags?.map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell text-[11px] text-muted-foreground/50">{renderLastUpdated(g)}</TableCell>
-                  </TableRow>
-                )]
+                return [<SingleGuildRow key={builds[0].slug} g={builds[0]} gi={gi} guildsLength={guilds.length} basePath={basePath} isSolos={isSolos} activeTags={activeTags} toggleTag={toggleTag} />]
               }
 
               // Multi-build guild
