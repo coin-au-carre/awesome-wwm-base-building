@@ -191,11 +191,18 @@ function isTiktokURL(rawURL: string): boolean {
 
   <!-- Image -->
   <div class="flex items-center justify-center w-full h-full px-16 py-12">
+    <div id="lightbox-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+      </svg>
+    </div>
     <img
       id="lightbox-img"
       src=""
       alt=""
-      class="max-h-full max-w-full rounded-xl object-contain shadow-2xl select-none"
+      class="max-h-full max-w-full rounded-xl object-contain shadow-2xl select-none transition-opacity duration-200"
+      style="opacity:0"
     />
   </div>
 
@@ -218,6 +225,7 @@ function isTiktokURL(rawURL: string): boolean {
   const triggers = document.querySelectorAll<HTMLButtonElement>(".lightbox-trigger")
   const lightbox = document.getElementById("lightbox")!
   const img = document.getElementById("lightbox-img") as HTMLImageElement
+  const spinner = document.getElementById("lightbox-spinner")!
   const btnClose = document.getElementById("lightbox-close")!
   const btnPrev = document.getElementById("lightbox-prev") as HTMLButtonElement
   const btnNext = document.getElementById("lightbox-next") as HTMLButtonElement
@@ -225,14 +233,42 @@ function isTiktokURL(rawURL: string): boolean {
 
   const srcs = Array.from(triggers).map((t) => t.dataset.src ?? "")
   let current = 0
+  const preloaded = new Set<string>()
+
+  function preload(index: number) {
+    const src = srcs[index]
+    if (!src || preloaded.has(src)) return
+    preloaded.add(src)
+    const p = new Image()
+    p.src = src
+  }
 
   function show(index: number) {
     current = index
-    img.src = srcs[current]
-    img.alt = `Screenshot ${current + 1}`
+    const src = srcs[current]
     counter.textContent = `${current + 1} / ${srcs.length}`
     btnPrev.disabled = current === 0
     btnNext.disabled = current === srcs.length - 1
+
+    img.style.opacity = "0"
+    spinner.style.display = "flex"
+
+    const next = new Image()
+    next.onload = () => {
+      img.src = src
+      img.alt = `Screenshot ${current + 1}`
+      spinner.style.display = "none"
+      img.style.opacity = "1"
+      preload(current + 1)
+      preload(current - 1)
+    }
+    next.onerror = () => {
+      img.src = src
+      spinner.style.display = "none"
+      img.style.opacity = "1"
+    }
+    next.src = src
+
     lightbox.classList.remove("hidden")
     lightbox.classList.add("flex")
     document.body.style.overflow = "hidden"

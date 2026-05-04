@@ -99,7 +99,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
     {ogImage ? (
       <div class="relative rounded-2xl overflow-hidden">
         <div class="aspect-16/8 sm:aspect-16/6">
-          <img src={ogImage} alt={stripGuildShowcase(g.guildName || g.name)} class="w-full h-full object-cover" />
+          <img src={ogImage} alt={stripGuildShowcase(g.guildName || g.name)} class="w-full h-full object-cover" fetchpriority="high" decoding="async" />
         </div>
         <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
         <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
