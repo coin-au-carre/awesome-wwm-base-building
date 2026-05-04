@@ -1,3 +1,15 @@
+export function thumbUrl(src: string, width = 640, height = 360): string {
+  try {
+    const u = new URL(src)
+    if (u.hostname === "cdn.discordapp.com" || u.hostname === "media.discordapp.net") {
+      u.searchParams.set("width", String(width))
+      u.searchParams.set("height", String(height))
+      return u.toString()
+    }
+  } catch {}
+  return src
+}
+
 /**
  * Port of Go's Slugify() from internal/discord/spotlight.go.
  * Must produce identical output for all guild names.
