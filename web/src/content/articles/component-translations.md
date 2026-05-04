@@ -1,6 +1,6 @@
 ---
 title: "Component Translations"
-description: "Comprehensive chinese translation guide of all components in *Where Winds Meet*!"
+description: "Comprehensive chinese translation guide of all components in Where Winds Meet!"
 tags: ["beginner"]
 authors: ["SiMing 司命"]
 date: 2026-04-27
