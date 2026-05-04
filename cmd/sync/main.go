@@ -208,13 +208,6 @@ func main() {
 			bot.Send(threadID, msg)
 			slog.Info("sent guide reply to malformed guild thread", "thread", threadID)
 		}
-		for _, threadID := range soloStats.MalformedNewThreadIDs {
-			msg := "👋 Hey! It looks like your post is missing some required info.\n" +
-				"Check the submission guide for the right format: " + guideURL + "\n" +
-				"You can also use **/submit-solo** to get a ready-to-paste template sent to your DMs."
-			bot.Send(threadID, msg)
-			slog.Info("sent guide reply to malformed solo thread", "thread", threadID)
-		}
 	}
 
 	// ── Role assignment ───────────────────────────────────────────────────────
