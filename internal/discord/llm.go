@@ -34,6 +34,7 @@ type Responder struct {
 	history      map[string][]anthropic.MessageParam // API mode
 	sessions     map[string]string                   // CLI mode: channelID → session ID
 	systemPrompt string
+	guilds       []promptGuild
 }
 
 // maxHistory is the maximum number of messages (not turns) kept per channel.
@@ -80,20 +81,37 @@ var tools = []anthropic.ToolUnionParam{
 			Required: []string{"query"},
 		},
 	}},
+	{OfTool: &anthropic.ToolParam{
+		Name:        "search_guilds",
+		Description: anthropic.String("Search guild bases by keyword. Use when asked which guilds contain a specific element, theme, landmark, or feature (e.g. 'guilds with a dragon', 'guilds with water', 'guilds with a library'). Returns an exact list from the data — always prefer this over recalling from memory."),
+		InputSchema: anthropic.ToolInputSchemaParam{
+			Properties: map[string]any{
+				"keyword": map[string]any{
+					"type":        "string",
+					"description": "Word or phrase to search for across guild names, tags, lore, and what-to-visit descriptions",
+				},
+			},
+			Required: []string{"keyword"},
+		},
+	}},
 }
 
 func NewResponder(client *anthropic.Client, root string) *Responder {
+	guilds := loadPromptGuilds(root)
 	return &Responder{
 		client:       client,
 		history:      make(map[string][]anthropic.MessageParam),
-		systemPrompt: buildSystemPrompt(root),
+		systemPrompt: buildSystemPrompt(root, guilds),
+		guilds:       guilds,
 	}
 }
 
 func NewCLIResponder(root string) *Responder {
+	guilds := loadPromptGuilds(root)
 	return &Responder{
 		sessions:     make(map[string]string),
-		systemPrompt: buildSystemPrompt(root),
+		systemPrompt: buildSystemPrompt(root, guilds),
+		guilds:       guilds,
 	}
 }
 
@@ -200,6 +218,15 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 					}
 					slog.Info("ruby tool: show_catalog_items", "query", catalogQuery)
 					toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, "Images are being sent to Discord now. Do not list item names or filenames in your reply — just react briefly in character.", false))
+				case "search_guilds":
+					var input struct {
+						Keyword string `json:"keyword"`
+					}
+					if err := json.Unmarshal(tu.Input, &input); err == nil {
+						result := searchGuilds(r.guilds, input.Keyword)
+						slog.Info("ruby tool: search_guilds", "keyword", input.Keyword)
+						toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, result, false))
+					}
 				default:
 					slog.Warn("ruby tool: unknown", "name", tu.Name)
 				}
@@ -302,6 +329,72 @@ func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliRe
 		return cliResult{}, fmt.Errorf("%s", resp.Result)
 	}
 	return cliResult{text: resp.Result, sessionID: resp.SessionID}, nil
+}
+
+func searchGuilds(guilds []promptGuild, keyword string) string {
+	kw := strings.ToLower(keyword)
+	var results []string
+	for _, g := range guilds {
+		var snippets []string
+		if strings.Contains(strings.ToLower(g.Name), kw) {
+			snippets = append(snippets, fmt.Sprintf("name: %q", g.Name))
+		}
+		for _, tag := range g.Tags {
+			if strings.Contains(strings.ToLower(tag), kw) {
+				snippets = append(snippets, fmt.Sprintf("tag: %q", tag))
+				break
+			}
+		}
+		if strings.Contains(strings.ToLower(g.Lore), kw) {
+			snippets = append(snippets, fmt.Sprintf("lore: %q", matchSnippet(g.Lore, kw, 60)))
+		}
+		if strings.Contains(strings.ToLower(g.WhatToVisit), kw) {
+			snippets = append(snippets, fmt.Sprintf("visit: %q", matchSnippet(g.WhatToVisit, kw, 60)))
+		}
+		if len(snippets) > 0 {
+			results = append(results, fmt.Sprintf("- %s (score:%d) — %s", g.Name, g.Score, strings.Join(snippets, "; ")))
+		}
+	}
+	if len(results) == 0 {
+		return fmt.Sprintf("No guilds found matching %q.", keyword)
+	}
+	if len(results) > 15 {
+		return fmt.Sprintf("Too many guilds match %q (%d results) — do not list them. Instead, tell the user in character that there are too many to name and ask them to be more specific.", keyword, len(results))
+	}
+	note := "Mention ALL guilds listed above — do not skip any. Even if two guilds share a theme (e.g. two Singaporean guilds), name both separately. A 'Dragon Playground' still counts as having a dragon."
+	return fmt.Sprintf("%d guilds found matching %q:\n%s\n\n%s", len(results), keyword, strings.Join(results, "\n"), note)
+}
+
+// matchSnippet returns up to contextLen chars around the first occurrence of kw in text.
+func matchSnippet(text, kw string, contextLen int) string {
+	idx := strings.Index(strings.ToLower(text), kw)
+	if idx < 0 {
+		return ""
+	}
+	start := max(0, idx-contextLen/2)
+	end := min(len(text), idx+len(kw)+contextLen/2)
+	snippet := text[start:end]
+	if start > 0 {
+		snippet = "..." + snippet
+	}
+	if end < len(text) {
+		snippet = snippet + "..."
+	}
+	return strings.ReplaceAll(snippet, "\n", " ")
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func removeBlankLines(s string) string {
