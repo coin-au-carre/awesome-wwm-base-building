@@ -71,6 +71,14 @@ function SoloPostInstructions() {
           Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code> anywhere on the server. The bot sends a formatted post via DM. Paste it in <span className="font-medium text-foreground">#solo-building-showcase</span> and add your screenshots.
         </p>
       </div>
+      <div className="flex items-center gap-3">
+        <div className="h-px flex-1 bg-border" />
+        <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
+        <div className="h-px flex-1 bg-border" />
+      </div>
+      <p className="text-sm text-muted-foreground">
+        Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the template below.
+      </p>
     </div>
   )
 }
