@@ -19,67 +19,71 @@ function StepNum({ n, color }: { n: string; color: string }) {
   )
 }
 
+function OptionLabel({ label }: { label: string }) {
+  return <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</p>
+}
+
 function GuildPostInstructions() {
   return (
-    <div className="space-y-3">
-      <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
-        <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
-          <Terminal className="size-3.5 text-blue-500 shrink-0" />
-          Use <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code>
-          <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
-        </p>
+    <div className="space-y-4">
+      <div className="space-y-1.5">
+        <OptionLabel label="Option A — use the bot" />
+        <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
+          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <Terminal className="size-3.5 text-blue-500 shrink-0" />
+            Use <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code>
+            <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot sends you a ready-to-paste post via DM. Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and attach your screenshots.
+          </p>
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <OptionLabel label="Option B — post manually" />
         <p className="text-sm text-muted-foreground">
-          Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot sends you a ready-to-paste post via DM. Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and attach your screenshots.
+          Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
         </p>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="h-px flex-1 bg-border" />
-        <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
-        <div className="h-px flex-1 bg-border" />
-      </div>
-      <p className="text-sm text-muted-foreground">
-        Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
-      </p>
     </div>
   )
 }
 
 function SoloPostInstructions() {
   return (
-    <div className="space-y-3">
-      <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
-        <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
-          <Image className="size-3.5 text-blue-500 shrink-0" />
-          Just write a story and post your screenshots
-          <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
-        </p>
+    <div className="space-y-4">
+      <div className="space-y-1.5">
+        <OptionLabel label="Option A — free form" />
+        <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
+          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <Image className="size-3.5 text-blue-500 shrink-0" />
+            Just write a story and post your screenshots
+            <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, write a short story about your build, and attach your screenshots.
+          </p>
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <OptionLabel label="Option B — use the bot" />
+        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <Terminal className="size-3.5 text-muted-foreground shrink-0" />
+            Use <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code>
+            <span className="text-xs font-normal text-muted-foreground ml-1">more structured</span>
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code> anywhere on the server. The bot sends a formatted post via DM. Paste it in <span className="font-medium text-foreground">#solo-building-showcase</span> and add your screenshots.
+          </p>
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <OptionLabel label="Option C — post manually" />
         <p className="text-sm text-muted-foreground">
-          Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, write a short story about your build, and attach your screenshots.
+          Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
         </p>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="h-px flex-1 bg-border" />
-        <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
-        <div className="h-px flex-1 bg-border" />
-      </div>
-      <div className="rounded-xl border px-4 py-3 space-y-1.5">
-        <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
-          <Terminal className="size-3.5 text-muted-foreground shrink-0" />
-          Use <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code>
-          <span className="text-xs font-normal text-muted-foreground ml-1">more structured</span>
-        </p>
-        <p className="text-sm text-muted-foreground">
-          Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-solo</code> anywhere on the server. The bot sends a formatted post via DM. Paste it in <span className="font-medium text-foreground">#solo-building-showcase</span> and add your screenshots.
-        </p>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="h-px flex-1 bg-border" />
-        <span className="text-xs font-semibold text-foreground uppercase tracking-widest">or</span>
-        <div className="h-px flex-1 bg-border" />
-      </div>
-      <p className="text-sm text-muted-foreground">
-        Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message manually using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
-      </p>
     </div>
   )
 }
