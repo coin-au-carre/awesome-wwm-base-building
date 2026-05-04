@@ -378,10 +378,9 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
         <CardContent className="space-y-2 text-sm">
           <p class="font-medium">Is this your guild?</p>
           <p class="text-muted-foreground">
-            This entry was added by the WBM community{scoutName ? <>, scouted by <span class="font-medium text-foreground">{scoutName}</span></> : ""}. If you're a builder of {stripGuildShowcase(g.guildName || g.name)}, you can post your base showcase yourself. See the
-            <a href={base + "/contribute"} class="underline hover:text-foreground transition-colors">contribute guide</a> to get started.
+            This guild lacks more informations and was added by the WBM community{scoutName ? <>, scouted by <span class="font-medium text-foreground">{scoutName}</span></> : ""}. If you're a builder of {stripGuildShowcase(g.guildName || g.name)}, please help us.<br />See the
+            <a href={base + "/contribute"} class="underline hover:text-foreground transition-colors">contribute guide</a> to get started. <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })} data-umami-event="discord_cta_click">Post your base ↗</a>
           </p>
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click">Post your base ↗</a>
         </CardContent>
       </Card>
     )}

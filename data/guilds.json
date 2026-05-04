@@ -1,5 +1,23 @@
 [
 	{
+		"id": "10258124",
+		"name": "Bodhi",
+		"builders": [
+			"Galanthia",
+			"Nayanahh",
+			"Tianeth"
+		],
+		"tags": [
+			"City",
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Stone alley\nTheatre\nHouse on lake\nTown Square",
+		"score": 0,
+		"lastModified": "May 4, 2026 at 11:09 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10008612",
 		"name": "BrothersEra天",
 		"builders": [
