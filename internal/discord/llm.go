@@ -25,6 +25,7 @@ type Result struct {
 	ShowSolo        bool
 	GuildImageQuery string
 	CatalogQuery    string
+	AllowEmbeds     bool
 }
 
 // Responder calls the Claude API and maintains per-channel conversation history.
@@ -160,7 +161,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 	blocks = append(blocks, anthropic.NewTextBlock(userMessage))
 	msgs = append(msgs, anthropic.NewUserMessage(blocks...))
 
-	var showSpotlight, showSolo bool
+	var showSpotlight, showSolo, allowEmbeds bool
 	var guildImageQuery, catalogQuery string
 
 	for {
@@ -223,9 +224,12 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 						Keyword string `json:"keyword"`
 					}
 					if err := json.Unmarshal(tu.Input, &input); err == nil {
-						result := searchGuilds(r.guilds, input.Keyword)
-						slog.Info("ruby tool: search_guilds", "keyword", input.Keyword)
-						toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, result, false))
+						msg, count := searchGuilds(r.guilds, input.Keyword)
+						if count < 4 {
+							allowEmbeds = true
+						}
+						slog.Info("ruby tool: search_guilds", "keyword", input.Keyword, "count", count)
+						toolResults = append(toolResults, anthropic.NewToolResultBlock(tu.ID, msg, false))
 					}
 				default:
 					slog.Warn("ruby tool: unknown", "name", tu.Name)
@@ -250,7 +254,7 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 		r.history[channelID] = msgs
 		r.mu.Unlock()
 
-		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight, ShowSolo: showSolo, GuildImageQuery: guildImageQuery, CatalogQuery: catalogQuery}, nil
+		return Result{Text: removeBlankLines(text), ShowSpotlight: showSpotlight, ShowSolo: showSolo, GuildImageQuery: guildImageQuery, CatalogQuery: catalogQuery, AllowEmbeds: allowEmbeds}, nil
 	}
 }
 
@@ -331,7 +335,7 @@ func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliRe
 	return cliResult{text: resp.Result, sessionID: resp.SessionID}, nil
 }
 
-func searchGuilds(guilds []promptGuild, keyword string) string {
+func searchGuilds(guilds []promptGuild, keyword string) (string, int) {
 	kw := strings.ToLower(keyword)
 	var results []string
 	for _, g := range guilds {
@@ -356,13 +360,13 @@ func searchGuilds(guilds []promptGuild, keyword string) string {
 		}
 	}
 	if len(results) == 0 {
-		return fmt.Sprintf("No guilds found matching %q.", keyword)
+		return fmt.Sprintf("No guilds found matching %q.", keyword), 0
 	}
 	if len(results) > 15 {
-		return fmt.Sprintf("Too many guilds match %q (%d results) — do not list them. Instead, tell the user in character that there are too many to name and ask them to be more specific.", keyword, len(results))
+		return fmt.Sprintf("Too many guilds match %q (%d results) — do not list them. Instead, tell the user in character that there are too many to name and ask them to be more specific.", keyword, len(results)), len(results)
 	}
 	note := "Mention ALL guilds listed above — do not skip any. Even if two guilds share a theme (e.g. two Singaporean guilds), name both separately. A 'Dragon Playground' still counts as having a dragon."
-	return fmt.Sprintf("%d guilds found matching %q:\n%s\n\n%s", len(results), keyword, strings.Join(results, "\n"), note)
+	return fmt.Sprintf("%d guilds found matching %q:\n%s\n\n%s", len(results), keyword, strings.Join(results, "\n"), note), len(results)
 }
 
 // matchSnippet returns up to contextLen chars around the first occurrence of kw in text.
@@ -381,20 +385,6 @@ func matchSnippet(text, kw string, contextLen int) string {
 		snippet = snippet + "..."
 	}
 	return strings.ReplaceAll(snippet, "\n", " ")
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 
 func removeBlankLines(s string) string {

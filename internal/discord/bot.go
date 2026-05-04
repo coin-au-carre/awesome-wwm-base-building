@@ -59,6 +59,13 @@ func (b *Bot) Reply(channelID, messageID, msg string) {
 	}
 }
 
+func (b *Bot) ReplyWithEmbeds(channelID, messageID, msg string) {
+	_, err := b.Session.ChannelMessageSendReply(channelID, msg, &discordgo.MessageReference{MessageID: messageID})
+	if err != nil {
+		slog.Warn("failed to send reply", "err", err)
+	}
+}
+
 func (b *Bot) ReplyWithFile(channelID, messageID, content, filename string, file io.Reader) error {
 	_, err := b.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
 		Content:   content,
