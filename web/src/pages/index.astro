@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
-import { stripGuildShowcase } from "@/lib/format"
+import { stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { isCommunityPosted } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon } from "@phosphor-icons/react"
@@ -46,7 +46,7 @@ const ogImage = guilds.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boole
 const heroCandidates = guilds
   .filter((g) => isCommunityPosted(g) && (g.coverImage ?? g.screenshots?.[0]))
   .map((g) => ({
-    img: g.coverImage ?? g.screenshots![0],
+    img: thumbUrl(g.coverImage ?? g.screenshots![0], 1400, 560),
     href: `${BASE}/guilds/${g.slug}`,
     name: g.name,
     label: stripGuildShowcase(g.guildName || g.name),
@@ -187,7 +187,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                 >
                   {img && (
                     <img
-                      src={img}
+                      src={thumbUrl(img)}
                       alt={stripGuildShowcase(g.name)}
                       loading="lazy"
                       onerror="this.style.display='none'"
@@ -407,7 +407,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                 >
                   {img && (
                     <img
-                      src={img}
+                      src={thumbUrl(img)}
                       alt={stripGuildShowcase(g.name)}
                       loading="lazy"
                       onerror="this.style.display='none'"

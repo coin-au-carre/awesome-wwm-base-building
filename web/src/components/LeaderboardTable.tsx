@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useRef, useSyncExternalStore } from "reac
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { getTier } from "@/lib/scoring"
-import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
+import { formatBuilderName, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import { isCommunityPosted } from "@/lib/config"
@@ -483,7 +483,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     <TableCell>
                       <div className="flex items-center gap-2.5">
                         {img && (
-                          <img src={img} alt={stripGuildShowcase(g.guildName || g.name)} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
+                          <img src={thumbUrl(img, 120, 120)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />
                         )}
                         <HoverCard openDelay={250} closeDelay={100}>
                           <HoverCardTrigger asChild>
@@ -497,7 +497,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                             </div>
                           </HoverCardTrigger>
                           <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start">
-                            {img && <div className="aspect-video w-full overflow-hidden"><img src={img} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
+                            {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
                             <div className="p-3">
                               <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
                               {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by {formatBuilders(g.builders)}</p>}
@@ -539,7 +539,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                   {!isSolos && <TableCell className="text-center">{renderTierBadge(best)}</TableCell>}
                   <TableCell>
                     <div className="flex items-center gap-2.5">
-                      {bestImg && <img src={bestImg} alt={stripGuildShowcase(best.guildName || best.name)} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+                      {bestImg && <img src={thumbUrl(bestImg, 120, 120)} alt={stripGuildShowcase(best.guildName || best.name)} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-medium">{stripGuildShowcase(best.guildName || best.name)}</span>
@@ -575,7 +575,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     {!isSolos && <TableCell />}
                     <TableCell>
                       <div className="flex items-center gap-2.5 pl-4">
-                        {img && <img src={img} alt={g.buildTitle || "Default"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+                        {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
                         <div className="min-w-0">
                           <div className="flex items-center gap-1.5 flex-wrap">
                             <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>

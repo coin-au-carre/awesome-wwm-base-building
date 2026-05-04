@@ -1,5 +1,6 @@
 ---
 import type { ScreenshotSection } from "@/types/guild"
+import { thumbUrl } from "@/lib/format"
 
 interface Props {
   screenshots?: string[]
@@ -124,10 +125,11 @@ function isTiktokURL(rawURL: string): boolean {
                 type="button"
                 class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
                 data-src={src}
+                data-thumb={thumbUrl(src)}
                 data-index={index}
               >
                 <img
-                  src={src}
+                  src={thumbUrl(src)}
                   alt={`Screenshot ${index + 1}`}
                   loading="lazy"
                   onerror="this.closest('button').style.display='none'"
@@ -232,6 +234,7 @@ function isTiktokURL(rawURL: string): boolean {
   const counter = document.getElementById("lightbox-counter")!
 
   const srcs = Array.from(triggers).map((t) => t.dataset.src ?? "")
+  const thumbs = Array.from(triggers).map((t) => t.dataset.thumb ?? t.dataset.src ?? "")
   let current = 0
   const preloaded = new Set<string>()
 
@@ -244,30 +247,43 @@ function isTiktokURL(rawURL: string): boolean {
   }
 
   function show(index: number) {
+    const navigating = current !== index && lightbox.classList.contains("flex")
     current = index
     const src = srcs[current]
+    const thumb = thumbs[current]
     counter.textContent = `${current + 1} / ${srcs.length}`
     btnPrev.disabled = current === 0
     btnNext.disabled = current === srcs.length - 1
 
-    img.style.opacity = "0"
-    spinner.style.display = "flex"
-
-    const next = new Image()
-    next.onload = () => {
-      img.src = src
+    // Show thumbnail immediately — already in browser cache from the grid
+    if (thumb && thumb !== img.src) {
+      img.style.opacity = navigating ? "0" : "1"
+      img.src = thumb
       img.alt = `Screenshot ${current + 1}`
       spinner.style.display = "none"
-      img.style.opacity = "1"
-      preload(current + 1)
-      preload(current - 1)
+      // Small fade-in when navigating between images
+      if (navigating) requestAnimationFrame(() => { img.style.opacity = "1" })
+    } else {
+      img.style.opacity = "0"
+      spinner.style.display = "flex"
     }
-    next.onerror = () => {
-      img.src = src
-      spinner.style.display = "none"
-      img.style.opacity = "1"
+
+    // Load full-res in the background, swap silently when ready
+    if (src !== thumb) {
+      const captured = index
+      const full = new Image()
+      full.onload = () => {
+        if (current !== captured) return
+        img.src = src
+        spinner.style.display = "none"
+      }
+      full.onerror = () => { spinner.style.display = "none" }
+      full.src = src
+      preloaded.add(src)
     }
-    next.src = src
+
+    // Preload next full-res only (forward navigation is most common)
+    preload(current + 1)
 
     lightbox.classList.remove("hidden")
     lightbox.classList.add("flex")
