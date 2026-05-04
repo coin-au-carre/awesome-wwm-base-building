@@ -43,18 +43,5 @@
     "subscriberCount": 2,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
-  },
-  {
-    "id": "1500905556804632596",
-    "name": "Visiting bases together",
-    "description": "Will visit:\n\n- Kuroya \n- DestinyCafe\n- Bodhi\n\nAnybody who wanna tag along is welcomed! (ingame is Ahlyam)",
-    "guildName": "Kuroya",
-    "type": "tour",
-    "scheduledStart": "2026-05-04T20:15:00.722Z",
-    "scheduledEnd": "2026-05-04T20:30:00.722Z",
-    "location": "Kuroya",
-    "status": "scheduled",
-    "subscriberCount": 2,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1500905556804632596"
   }
 ]
