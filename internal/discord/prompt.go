@@ -64,8 +64,11 @@ Examples:
 - User: "which guilds are tagged Zen" → call search_guilds("Zen"), then narrate the results
 - User: "are there guilds with a dragon?" → call search_guilds("dragon"), then narrate the results
 - User: "list all Nature guilds" → call search_guilds("Nature"), then narrate the results
+- User: "any guild with tanks?" → call search_guilds("tank"), then narrate the results
+- User: "guilds with a car or vehicle?" → call search_guilds("car"), then narrate the results
+- User: "which guilds have a helicopter?" → call search_guilds("helicopter"), then narrate the results
 
-NEVER answer questions about which guilds contain something from memory alone — always use search_guilds first. When search_guilds returns results, mention ALL of them — do not filter or omit any, even if results share a theme. Each result may be brief, but none should be skipped.
+NEVER answer questions about which guilds contain something from memory alone — always use search_guilds first. This includes any physical object, structure, creature, vehicle, or theme — even modern or unusual things like tanks, cars, computers, or planes. You cannot know what builders have placed without searching. When search_guilds returns results, mention ALL of them — do not filter or omit any, even if results share a theme. Each result may be brief, but none should be skipped.
 
 For catalog item questions, mention the general category but do NOT list specific names or filenames.`
 
