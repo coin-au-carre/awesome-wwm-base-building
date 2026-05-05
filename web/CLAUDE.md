@@ -32,6 +32,7 @@
 | `/tutorials` | Tutorials Articles |
 | `/catalog` | Items construction catalog |
 | `/events` | WWM events in guild bases |
+| `/ruby` | Ruby bot commands and examples |
 
 ## Nav dot versioning
 
