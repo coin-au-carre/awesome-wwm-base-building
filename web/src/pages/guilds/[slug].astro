@@ -9,7 +9,7 @@ import { getTier } from "@/lib/scoring"
 import { stripGuildShowcase } from "@/lib/format"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
-import { isCommunityPosted } from "@/lib/config"
+import { isBuilderSubmission } from "@/lib/config"
 import { BookOpen, MapPin, Images, Layers } from "lucide-react"
 
 export async function getStaticPaths() {
@@ -371,7 +371,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
     )}
 
     <!-- Incentive callout -->
-    {(isCommunityPosted(g) || !g.discordThread) && (
+    {(!isBuilderSubmission(g) || !g.discordThread) && (
       <Card>
         <CardContent className="space-y-2 text-sm">
           <p class="font-medium">Is this your guild?</p>
