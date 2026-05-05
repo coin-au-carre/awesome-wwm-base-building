@@ -26,7 +26,40 @@ const helpMessage = `**Ruby's commands**
 
 **Personal**
 /my-votes — show the guild bases you have voted for (only you see the result)
+/warning-list — show the warning list (only you see the result)
 /commands — show this list (only you see the result)`
+
+const (
+	warningListChannelID  = "1486701728551407796"
+	warningListMessageID  = "1500491523631087848"
+	warningListGuildID    = "1483447710617960508"
+	warningListMessageURL = "https://discord.com/channels/" + warningListGuildID + "/" + warningListChannelID + "/" + warningListMessageID
+)
+
+func handleWarningListCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+	slog.Info("/warning-list command used", "user", memberDisplayName(i))
+
+	msg, err := s.ChannelMessage(warningListChannelID, warningListMessageID)
+	if err != nil {
+		slog.Error("fetching warning list message", "err", err)
+		_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+			Type: discordgo.InteractionResponseChannelMessageWithSource,
+			Data: &discordgo.InteractionResponseData{
+				Content: "*(couldn't fetch the warning list... try again!)*",
+				Flags:   discordgo.MessageFlagsEphemeral,
+			},
+		})
+		return
+	}
+
+	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
+		Type: discordgo.InteractionResponseChannelMessageWithSource,
+		Data: &discordgo.InteractionResponseData{
+			Content: msg.Content + "\n\n[View original message](" + warningListMessageURL + ")",
+			Flags:   discordgo.MessageFlagsEphemeral,
+		},
+	})
+}
 
 func handleHelpCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	var serverName string

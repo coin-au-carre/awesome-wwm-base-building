@@ -104,8 +104,6 @@ task web:build         # production Astro build → web/dist/
 task web:preview       # preview production build
 
 task bot               # run Discord bot (dev)
-task bot:build         # build Linux binary → dist/bot
-task bot:deploy        # build + scp + restart systemd on VPS
 
 task send              # post a message as Ruby (one-shot)
 task spotlight         # post a random guild screenshot to the Ruby channel
