@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss"
 import type { APIContext } from "astro"
 import { getGuildsSortedByScore, getSolosSortedByScore } from "@/lib/guilds"
+import { getTier } from "@/lib/scoring"
 import type { RankedGuild } from "@/types/guild"
 
 const FALLBACK_DATE = new Date("2025-01-01T00:00:00Z")
@@ -11,14 +12,15 @@ function safeDate(raw: string | undefined): Date {
   return isNaN(d.getTime()) ? FALLBACK_DATE : d
 }
 
-function buildItems(entries: RankedGuild[], kind: "guilds" | "solos") {
+function buildItems(entries: RankedGuild[], total: number, kind: "guilds" | "solos") {
   return entries.map((g) => {
     const image = g.coverImage ?? g.screenshots?.[0]
     const builders = g.builders?.join(", ") || "Unknown"
+    const tier = getTier(g.rank, total, g.score)
     const desc = [
       g.lore ?? `${kind === "guilds" ? "Guild base" : "Solo build"} showcase for ${g.name} in Where Winds Meet.`,
       `Builders: ${builders}`,
-      `Score: ${g.score}`,
+      `Tier: ${tier.label}`,
       g.tags?.length ? `Tags: ${g.tags.join(", ")}` : "",
       image ? `<img src="${image}" alt="${g.name}" />` : "",
     ]
@@ -43,8 +45,8 @@ export async function GET(context: APIContext) {
   const recentSolos = [...solos].reverse().slice(0, 30)
 
   const items = [
-    ...buildItems(recentGuilds, "guilds"),
-    ...buildItems(recentSolos, "solos"),
+    ...buildItems(recentGuilds, guilds.length, "guilds"),
+    ...buildItems(recentSolos, solos.length, "solos"),
   ].sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime()).slice(0, 50)
 
   return rss({
