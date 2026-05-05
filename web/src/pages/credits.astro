@@ -75,16 +75,16 @@ const critics = Object.entries(threadCountById)
   .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
 
 const BUILDER_PALETTE = [
-  "bg-violet-500/10 text-violet-300 ring-1 ring-inset ring-violet-400/25",
-  "bg-sky-500/10 text-sky-300 ring-1 ring-inset ring-sky-400/25",
-  "bg-emerald-500/10 text-emerald-300 ring-1 ring-inset ring-emerald-400/25",
-  "bg-amber-500/10 text-amber-300 ring-1 ring-inset ring-amber-400/25",
-  "bg-rose-500/10 text-rose-300 ring-1 ring-inset ring-rose-400/25",
-  "bg-teal-500/10 text-teal-300 ring-1 ring-inset ring-teal-400/25",
-  "bg-orange-500/10 text-orange-300 ring-1 ring-inset ring-orange-400/25",
-  "bg-indigo-500/10 text-indigo-300 ring-1 ring-inset ring-indigo-400/25",
-  "bg-pink-500/10 text-pink-300 ring-1 ring-inset ring-pink-400/25",
-  "bg-cyan-500/10 text-cyan-300 ring-1 ring-inset ring-cyan-400/25",
+  "bg-violet-500/10 text-violet-700 dark:text-violet-300 ring-1 ring-inset ring-violet-500/25 dark:ring-violet-400/25",
+  "bg-sky-500/10 text-sky-700 dark:text-sky-300 ring-1 ring-inset ring-sky-500/25 dark:ring-sky-400/25",
+  "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 dark:ring-emerald-400/25",
+  "bg-amber-500/10 text-amber-700 dark:text-amber-300 ring-1 ring-inset ring-amber-500/25 dark:ring-amber-400/25",
+  "bg-rose-500/10 text-rose-700 dark:text-rose-300 ring-1 ring-inset ring-rose-500/25 dark:ring-rose-400/25",
+  "bg-teal-500/10 text-teal-700 dark:text-teal-300 ring-1 ring-inset ring-teal-500/25 dark:ring-teal-400/25",
+  "bg-orange-500/10 text-orange-700 dark:text-orange-300 ring-1 ring-inset ring-orange-500/25 dark:ring-orange-400/25",
+  "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-500/25 dark:ring-indigo-400/25",
+  "bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25",
+  "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 ring-1 ring-inset ring-cyan-500/25 dark:ring-cyan-400/25",
 ]
 function builderColor(name: string): string {
   const hash = [...name].reduce((a, c) => a + c.charCodeAt(0), 0)
@@ -122,14 +122,14 @@ function builderColor(name: string): string {
           return href ? (
             <a
               href={href}
-              class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-300 ring-1 ring-inset ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+              class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
               data-umami-event="credits_creator_click"
               data-umami-event-name={name}
             >
               {name}
             </a>
           ) : (
-            <span class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-300 ring-1 ring-inset ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium">
+            <span class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium">
               {name}
             </span>
           )
@@ -147,7 +147,7 @@ function builderColor(name: string): string {
         {cartographers.map(({ name }) => (
           <a
             href={`${BASE}/?q=${encodeURIComponent(name)}`}
-            class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-300 ring-1 ring-inset ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+            class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 dark:ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
             data-umami-event="credits_cartographer_click"
             data-umami-event-name={name}
           >
@@ -169,7 +169,7 @@ function builderColor(name: string): string {
       </p>
       <div class="flex flex-wrap gap-1.5">
         {critics.map((name) => (
-          <span class="inline-flex items-center rounded-full bg-indigo-500/10 text-indigo-300 ring-1 ring-inset ring-indigo-400/25 px-2.5 py-0.5 text-xs font-medium">
+          <span class="inline-flex items-center rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-500/25 dark:ring-indigo-400/25 px-2.5 py-0.5 text-xs font-medium">
             {name}
           </span>
         ))}
