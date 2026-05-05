@@ -1,0 +1,197 @@
+---
+import Layout from "@/layouts/main.astro"
+import { getGuildsSortedByScore, getSolosSortedByScore, getUsers, getBuilderSearchPath } from "@/lib/guilds"
+import { formatBuilderName } from "@/lib/format"
+import { tutorialVideos, channels } from "@/lib/videos"
+import { getCollection } from "astro:content"
+import { BASE } from "@/lib/url"
+import { HeartIcon, PenNibIcon, MapTrifoldIcon } from "@phosphor-icons/react"
+
+const guilds = getGuildsSortedByScore()
+const solos = getSolosSortedByScore()
+const users = getUsers()
+
+// Builders wall
+const allBuilders = new Set<string>()
+for (const g of [...guilds, ...solos]) {
+  for (const b of g.builders ?? []) {
+    const name = formatBuilderName(b)
+    if (name) allBuilders.add(name)
+  }
+}
+const builderList = [...allBuilders].sort((a, b) => a.localeCompare(b))
+
+// Guild cartographers: scouters sorted by count desc, nickname > globalName > username
+const scoutCounts: Record<string, number> = {}
+for (const g of [...guilds, ...solos]) {
+  if (g.scoutedByDiscordId) scoutCounts[g.scoutedByDiscordId] = (scoutCounts[g.scoutedByDiscordId] ?? 0) + 1
+}
+const cartographers = Object.entries(scoutCounts)
+  .sort(([, a], [, b]) => b - a)
+  .map(([id]) => {
+    const user = users[id]
+    return { name: user?.nickname ?? user?.globalName ?? user?.username ?? id }
+  })
+
+// Tutorial authors (excluding mods) → first article link
+const MODS = new Set(["Ahlyam", "alscend", "Suisen"])
+const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
+const articleAuthorFirstSlug: Record<string, string> = {}
+for (const article of allArticles) {
+  for (const author of article.data.authors ?? []) {
+    if (!MODS.has(author) && !articleAuthorFirstSlug[author]) {
+      articleAuthorFirstSlug[author] = article.id
+    }
+  }
+}
+
+// Video creators who also have builds in the showcase — link to their build page
+const videoCreatorsWithBuilds = [...new Set(tutorialVideos.map((v) => v.author).filter(Boolean) as string[])]
+  .filter((name) => getBuilderSearchPath(name) !== null)
+
+// Merged content creators: tutorial authors + video creators with builds, deduplicated, sorted
+const contentCreators = [...new Set([...Object.keys(articleAuthorFirstSlug), ...videoCreatorsWithBuilds])].sort()
+
+const BUILDER_PALETTE = [
+  "bg-violet-500/10 text-violet-300 ring-1 ring-inset ring-violet-400/25",
+  "bg-sky-500/10 text-sky-300 ring-1 ring-inset ring-sky-400/25",
+  "bg-emerald-500/10 text-emerald-300 ring-1 ring-inset ring-emerald-400/25",
+  "bg-amber-500/10 text-amber-300 ring-1 ring-inset ring-amber-400/25",
+  "bg-rose-500/10 text-rose-300 ring-1 ring-inset ring-rose-400/25",
+  "bg-teal-500/10 text-teal-300 ring-1 ring-inset ring-teal-400/25",
+  "bg-orange-500/10 text-orange-300 ring-1 ring-inset ring-orange-400/25",
+  "bg-indigo-500/10 text-indigo-300 ring-1 ring-inset ring-indigo-400/25",
+  "bg-pink-500/10 text-pink-300 ring-1 ring-inset ring-pink-400/25",
+  "bg-cyan-500/10 text-cyan-300 ring-1 ring-inset ring-cyan-400/25",
+]
+function builderColor(name: string): string {
+  const hash = [...name].reduce((a, c) => a + c.charCodeAt(0), 0)
+  return BUILDER_PALETTE[hash % BUILDER_PALETTE.length]
+}
+---
+
+<Layout
+  title="Where Builders Meet | Credits"
+  description="The people who make Where Builders Meet possible: builders, tutorial writers, video creators, and the moderators behind the site."
+>
+  <div class="max-w-4xl space-y-14">
+
+    <!-- Hero -->
+    <div class="space-y-3">
+      <h1 class="font-heading text-2xl font-semibold flex items-center gap-2.5">
+        <HeartIcon weight="duotone" className="size-6 text-rose-400" client:load /> Credits
+      </h1>
+      <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+        Where Builders Meet is built by the community, for the community. This page is a thank you to everyone who contributed their time, creativity, and skill.
+      </p>
+    </div>
+
+    <!-- Content creators -->
+    <section class="space-y-4">
+      <h2 class="font-heading text-xs font-medium text-muted-foreground uppercase tracking-wide">Content creators</h2>
+      <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+        Builders who wrote tutorials, guides, or made videos to help the community.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        {contentCreators.map((name) => {
+          const buildPath = getBuilderSearchPath(name)
+          const articleSlug = articleAuthorFirstSlug[name]
+          const href = articleSlug ? `${BASE}/tutorials/${articleSlug}` : buildPath ? `${BASE}${buildPath}` : null
+          return href ? (
+            <a
+              href={href}
+              class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-300 ring-1 ring-inset ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+              data-umami-event="credits_creator_click"
+              data-umami-event-name={name}
+            >
+              {name}
+            </a>
+          ) : (
+            <span class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-300 ring-1 ring-inset ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium">
+              {name}
+            </span>
+          )
+        })}
+      </div>
+    </section>
+
+    <!-- Guild cartographers -->
+    <section class="space-y-4">
+      <h2 class="font-heading text-xs font-medium text-muted-foreground uppercase tracking-wide">Guild cartographers</h2>
+      <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+        People who scouted guild bases across Jiang Hu
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        {cartographers.map(({ name }) => (
+          <a
+            href={`${BASE}/?q=${encodeURIComponent(name)}`}
+            class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-300 ring-1 ring-inset ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+            data-umami-event="credits_cartographer_click"
+            data-umami-event-name={name}
+          >
+            <MapTrifoldIcon weight="fill" className="size-3 shrink-0" client:load />
+            {name}
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Builders wall -->
+    <section class="space-y-4">
+      <div class="flex items-baseline gap-3">
+        <h2 class="font-heading text-xs font-medium text-muted-foreground uppercase tracking-wide">The builders</h2>
+        <span class="text-xs text-muted-foreground">{builderList.length} builders</span>
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+        Every builder referenced for a guild base or solo construction to the showcase.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        {builderList.map((name) => {
+          const path = getBuilderSearchPath(name)
+          const href = path ? `${BASE}${path}` : `${BASE}/?q=${encodeURIComponent(name)}`
+          return (
+            <a
+              href={href}
+              class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70 ${builderColor(name)}`}
+              data-umami-event="credits_builder_click"
+              data-umami-event-name={name}
+            >
+              {name}
+            </a>
+          )
+        })}
+      </div>
+      <p class="text-xs text-muted-foreground pt-1">
+        Want to be on this wall? <a href={`${BASE}/contribute`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="contribute_cta_click">Submit your build ↗</a>
+      </p>
+    </section>
+
+    <!-- Moderators (subdued) -->
+    <section class="space-y-3 border-t border-border pt-8">
+      <h2 class="text-xs font-medium text-muted-foreground/60 uppercase tracking-wide">Moderators</h2>
+      <div class="flex flex-wrap gap-3">
+
+        <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
+          <p class="text-sm font-medium text-foreground/80">Suisen</p>
+          <p class="text-xs text-muted-foreground/70">Moderator · Graphist</p>
+        </div>
+
+        <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
+          <p class="text-sm font-medium text-foreground/80">Alscend</p>
+          <p class="text-xs text-muted-foreground/70">Moderator</p>
+        </div>
+
+        <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
+          <p class="text-sm font-medium text-foreground/80">Ahlyam</p>
+          <p class="text-xs text-muted-foreground/70">Admin · Development</p>
+        </div>
+
+      </div>
+    </section>
+
+    <p class="text-sm text-muted-foreground border-t border-border pt-6">
+      Questions or corrections? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Find us on Discord.</a>
+    </p>
+
+  </div>
+</Layout>
