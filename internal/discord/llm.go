@@ -86,7 +86,7 @@ var tools = []anthropic.ToolUnionParam{
 	}},
 	{OfTool: &anthropic.ToolParam{
 		Name:        "search_guilds",
-		Description: anthropic.String("Search guild bases and solo builds by keyword. Use when asked which guilds or solo builds contain a specific element, theme, landmark, or feature (e.g. 'guilds with a dragon', 'solo builds with a castle', 'builds with water'). Returns an exact list from the data — always prefer this over recalling from memory."),
+		Description: anthropic.String("Search guild bases and solo builds by keyword. Use when asked which guilds or solo builds contain a specific element, theme, landmark, feature, creature, or physical object — including modern/unusual things like tanks, vehicles, computers, planes. (e.g. 'guilds with a tank', 'guilds with a dragon', 'solo builds with a castle', 'builds with water'). Returns an exact list from the data — always prefer this over recalling from memory."),
 		InputSchema: anthropic.ToolInputSchemaParam{
 			Properties: map[string]any{
 				"keyword": map[string]any{
