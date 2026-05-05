@@ -33,13 +33,12 @@ const cartographers = Object.entries(scoutCounts)
     return { name: user?.nickname ?? user?.globalName ?? user?.username ?? id }
   })
 
-// Tutorial authors (excluding mods) → first article link
-const MODS = new Set(["Ahlyam", "alscend", "Suisen"])
+// Tutorial authors → first article link
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
 const articleAuthorFirstSlug: Record<string, string> = {}
 for (const article of allArticles) {
   for (const author of article.data.authors ?? []) {
-    if (!MODS.has(author) && !articleAuthorFirstSlug[author]) {
+    if (!articleAuthorFirstSlug[author]) {
       articleAuthorFirstSlug[author] = article.id
     }
   }
