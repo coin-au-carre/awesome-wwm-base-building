@@ -49,7 +49,7 @@ const videoCreatorsWithBuilds = [...new Set(tutorialVideos.map((v) => v.author).
   .filter((name) => getBuilderSearchPath(name) !== null)
 
 // Merged content creators: tutorial authors + video creators with builds, deduplicated, sorted
-const contentCreators = [...new Set([...Object.keys(articleAuthorFirstSlug), ...videoCreatorsWithBuilds])].sort()
+const contentCreators = [...new Set([...Object.keys(articleAuthorFirstSlug), ...videoCreatorsWithBuilds])].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
 
 const BUILDER_PALETTE = [
   "bg-violet-500/10 text-violet-300 ring-1 ring-inset ring-violet-400/25",
