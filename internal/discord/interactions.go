@@ -19,9 +19,10 @@ const (
 	guildLinkCommandName   = "guild"
 	soloLinkCommandName    = "solo"
 	randomCommandName      = "random"
-	myVotesCommandName     = "my-votes"
-	helpCommandName        = "commands"
-	builderCommandName     = "builder"
+	myVotesCommandName      = "my-votes"
+	helpCommandName         = "commands"
+	builderCommandName      = "builder"
+	warningListCommandName  = "warning-list"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 )
@@ -98,6 +99,10 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 				},
 			},
 		},
+		{
+			Name:        warningListCommandName,
+			Description: "Show the warning list (only you see the result)",
+		},
 	})
 	if err != nil {
 		slog.Error("registering commands", "err", err)
@@ -136,6 +141,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleHelpCommand(s, i)
 			case builderCommandName:
 				handleBuilderCommand(s, i, root)
+			case warningListCommandName:
+				handleWarningListCommand(s, i)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID
