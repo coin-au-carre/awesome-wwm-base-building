@@ -30,5 +30,5 @@ export function formatBuilderName(raw: string): string {
   const match = raw.match(/<@\d+>\s*\((.+?)\)/)
   if (match) { return match[1].trim() }
   if (/^<@\d+>$/.test(raw.trim())) { return "" }
-  return raw.trim()
+  return raw.trim().replace(/\s*\(.*$/, "").trim()
 }
