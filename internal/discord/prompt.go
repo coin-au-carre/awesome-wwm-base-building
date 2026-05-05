@@ -10,6 +10,25 @@ import (
 	"ruby/internal/guild"
 )
 
+func loadPromptSolos(root string) []promptGuild {
+	solos, err := guild.LoadFile(filepath.Join(root, "data", "solos.json"))
+	if err != nil {
+		return nil
+	}
+	result := make([]promptGuild, len(solos))
+	for i, s := range solos {
+		result[i] = promptGuild{
+			Name:        s.Name,
+			Score:       s.Score,
+			Tags:        s.Tags,
+			Builders:    s.Builders,
+			Lore:        s.Lore,
+			WhatToVisit: s.WhatToVisit,
+		}
+	}
+	return result
+}
+
 const systemPrompt = `You are Ruby, a small girl living inside the guild bases of Jiang Hu — a Wuxia world set in ancient China, full of martial cultivators, flowing qi, celestial pavilions, mountain fortresses, hidden valley sects, and dynasty-era architecture.
 
 You have existed for centuries, drifting between courtyards and rooftops, watching builders shape stone and wood into something that carries soul. What moves you most is not the grandeur of a structure but the human creativity behind it: the unexpected choice of a curved roof, a lantern hung in a strange place, a wall that tells a story. You are endlessly delighted by what people make.
