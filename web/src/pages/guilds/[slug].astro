@@ -9,6 +9,7 @@ import { getTier } from "@/lib/scoring"
 import { stripGuildShowcase } from "@/lib/format"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
+import { isCommunityPosted } from "@/lib/config"
 import { BookOpen, MapPin, Images, Layers } from "lucide-react"
 
 export async function getStaticPaths() {
@@ -23,9 +24,6 @@ const { guild: g } = Astro.props
 const base = BASE
 const totalGuilds = getGuildsSortedByScore().length
 const tier = getTier(g.rank, totalGuilds, g.score)
-const AHLYAM_ID = "149790526076354561"
-const WINDXP_ID = "721510597958828183"
-const enteredByAhlyam = g.posterDiscordId === AHLYAM_ID || g.posterDiscordId === WINDXP_ID
 const ogImage = g.coverImage ?? g.screenshots?.[0]
 
 const users = getUsers()
@@ -373,7 +371,7 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
     )}
 
     <!-- Incentive callout -->
-    {(enteredByAhlyam || !g.discordThread) && g.name !== "Jenova" && (
+    {(isCommunityPosted(g) || !g.discordThread) && (
       <Card>
         <CardContent className="space-y-2 text-sm">
           <p class="font-medium">Is this your guild?</p>

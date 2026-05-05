@@ -29,7 +29,9 @@ func sendGuildImage(bot *idiscord.Bot, responder idiscord.LLMResponder, channelI
 		return false, true
 	}
 
-	sendErr := bot.ReplyWithFile(channelID, messageID, idiscord.FormatSpotlightMessage(pick, random), filename, imgData)
+	display := pick
+	display.DiscordThread = ""
+	sendErr := bot.ReplyWithFile(channelID, messageID, idiscord.FormatSpotlightMessage(display, random), filename, imgData)
 	imgData.Close()
 
 	if sendErr != nil {
@@ -48,7 +50,7 @@ func sendGuildImage(bot *idiscord.Bot, responder idiscord.LLMResponder, channelI
 	return true, false
 }
 
-// handleSpotlightReply picks a random guild and replies with its formatted card.
+// handleSpotlightReply picks a random guild and replies with its image and formatted card.
 func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder idiscord.LLMResponder, channelID, messageID, root string) {
 	_ = s.ChannelTyping(channelID)
 
@@ -59,20 +61,24 @@ func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder idi
 		return
 	}
 
-	pick, _, ok := idiscord.PickRandomGuild(guilds)
-	if !ok {
-		bot.Reply(channelID, messageID, "*(no guild bases with screenshots yet... come back soon!)*")
-		return
-	}
-
-	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(pick, true))
-	slog.Info("spotlight reply sent", "guild", pick.Name)
-
-	if responder != nil {
-		if caption := responder.Caption(context.Background(), pick.Name, pick.Tags); caption != "" {
-			bot.Send(channelID, caption)
+	var lastPick guild.Guild
+	for range maxImageAttempts {
+		pick, imgURL, ok := idiscord.PickRandomGuild(guilds)
+		if !ok {
+			bot.Reply(channelID, messageID, "*(no guild bases with screenshots yet... come back soon!)*")
+			return
 		}
+		lastPick = pick
+		if sent, fatal := sendGuildImage(bot, responder, channelID, messageID, pick, imgURL, true); sent || fatal {
+			if sent {
+				slog.Info("spotlight reply sent", "guild", pick.Name)
+			}
+			return
+		}
+		slog.Warn("image too large, retrying", "guild", pick.Name)
 	}
+
+	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(lastPick, true))
 }
 
 const maxCatalogImages = 4
@@ -174,12 +180,14 @@ func handleGuildImageReply(bot *idiscord.Bot, s *discordgo.Session, responder id
 		return
 	}
 
+	var lastPick guild.Guild
 	for range maxImageAttempts {
 		pick, imgURL, ok := idiscord.PickFromGuilds(matches)
 		if !ok {
 			bot.Reply(channelID, messageID, "*(no screenshots for that one yet...)*")
 			return
 		}
+		lastPick = pick
 		if sent, fatal := sendGuildImage(bot, responder, channelID, messageID, pick, imgURL, false); sent || fatal {
 			if sent {
 				slog.Info("guild image reply sent", "guild", pick.Name)
@@ -189,5 +197,5 @@ func handleGuildImageReply(bot *idiscord.Bot, s *discordgo.Session, responder id
 		slog.Warn("image too large, retrying", "guild", pick.Name)
 	}
 
-	bot.Reply(channelID, messageID, "*(all the screenshots were too big for the winds... try again later!)*")
+	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(lastPick, false))
 }
