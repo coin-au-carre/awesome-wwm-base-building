@@ -35,7 +35,7 @@ function GuildPostInstructions() {
             <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
           </p>
           <p className="text-sm text-muted-foreground">
-            Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot sends you a ready-to-paste post via DM. Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and attach your screenshots.
+            Type <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">/submit-guild</code> anywhere on the server. Fill in the form and the bot sends you a ready-to-paste post via DM. Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, create a new post, paste it, and attach your screenshots (10 max for the first post).
           </p>
         </div>
       </div>
@@ -67,7 +67,7 @@ function SoloPostInstructions() {
             <span className="text-xs font-normal text-blue-500 ml-1">easiest</span>
           </p>
           <p className="text-sm text-muted-foreground">
-            Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, write a short story about your build, and attach your screenshots.
+            Go to <span className="font-medium text-foreground">#solo-building-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, write a short story about your build, and attach your screenshots (10 max for the first post).
           </p>
         </div>
       </div>
