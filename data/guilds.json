@@ -1,5 +1,20 @@
 [
 	{
+		"name": "INACTIVE",
+		"builders": [
+			"KiemSiDaDen",
+			"Zannitsu"
+		],
+		"tags": [
+			"Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "Fish'n chips restaurant\nMini GvG map\nCat shelter at entrance",
+		"score": 0,
+		"lastModified": "May 5, 2026 at 08:29 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "HeavensBond",
 		"builders": [
 			"SETOX",
