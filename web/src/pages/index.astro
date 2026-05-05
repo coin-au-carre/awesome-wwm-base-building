@@ -6,7 +6,7 @@ import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWit
 import { stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
-import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon } from "@phosphor-icons/react"
+import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon, UsersIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 
 const TAG_PALETTE = [
@@ -56,6 +56,15 @@ const latestGuilds = getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
 const now = Date.now()
+
+let discordMemberCount: number | null = null
+try {
+  const res = await fetch("https://discord.com/api/invites/Qygt9u26Bn?with_counts=true", { signal: AbortSignal.timeout(3000) })
+  if (res.ok) {
+    const data = await res.json()
+    discordMemberCount = data.approximate_member_count ?? null
+  }
+} catch {}
 const upcomingEventsDisplay = upcomingEvents.map((event) => {
   const startMs = new Date(event.scheduledStart).getTime()
   const endMs = event.scheduledEnd ? new Date(event.scheduledEnd).getTime() : startMs
@@ -137,7 +146,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
       </script>
       <div class="absolute bottom-0 left-0 right-0 px-6 pb-6">
         <h1 class="font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow mb-1.5 flex items-center gap-2">
-          <CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guild Bases
+          <CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guilds
         </h1>
         <p class="text-white/65 text-sm mb-3">Beautiful constructions in Where Winds Meet</p>
         <div class="flex items-center gap-2 flex-wrap text-xs text-white/60">
@@ -162,6 +171,12 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
             </svg>
             RSS
           </a>
+          {discordMemberCount && (
+            <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 hover:bg-white/20 transition-colors" data-umami-event="discord_member_count_click">
+              <UsersIcon weight="fill" className="size-3 text-indigo-400 shrink-0" />
+              {discordMemberCount.toLocaleString()} members
+            </a>
+          )}
         </div>
       </div>
     </div>
