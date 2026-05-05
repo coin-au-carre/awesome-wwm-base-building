@@ -4,7 +4,7 @@ import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
 import { stripGuildShowcase, thumbUrl } from "@/lib/format"
-import { isCommunityPosted } from "@/lib/config"
+import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
@@ -44,7 +44,7 @@ const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0
 const ogImage = guilds.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 
 const heroCandidates = guilds
-  .filter((g) => isCommunityPosted(g) && (g.coverImage ?? g.screenshots?.[0]))
+  .filter((g) => isBuilderSubmission(g) && (g.coverImage ?? g.screenshots?.[0]))
   .map((g) => ({
     img: thumbUrl(g.coverImage ?? g.screenshots![0], 1400, 560),
     href: `${BASE}/guilds/${g.slug}`,

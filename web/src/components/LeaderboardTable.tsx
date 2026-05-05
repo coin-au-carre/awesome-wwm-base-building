@@ -11,7 +11,7 @@ import { getTier } from "@/lib/scoring"
 import { formatBuilderName, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
-import { isCommunityPosted } from "@/lib/config"
+import { isBuilderSubmission } from "@/lib/config"
 import { parseLastModified, formatLastModified } from "@/lib/dates"
 import {
   Table,
@@ -207,7 +207,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
         <TableCell className="text-muted-foreground hidden md:table-cell">
           <div className="flex items-center gap-1.5">
             {formatBuilders(g.builders)}
-            {isCommunityPosted(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
+            {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
           </div>
         </TableCell>
         <TableCell className="hidden lg:table-cell">
@@ -640,7 +640,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     <TableCell className="text-muted-foreground hidden md:table-cell">
                       <div className="flex items-center gap-1.5">
                         {formatBuilders(g.builders)}
-                        {isCommunityPosted(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
+                        {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
                       </div>
                     </TableCell>
                     <TableCell className="hidden lg:table-cell">

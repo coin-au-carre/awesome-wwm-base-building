@@ -2,7 +2,7 @@ import { readFileSync } from "fs"
 import { resolve } from "path"
 import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify, formatBuilderName } from "@/lib/format"
-import { isCommunityPosted } from "@/lib/config"
+import { isBuilderSubmission } from "@/lib/config"
 
 export interface UserInfo {
   username: string
@@ -94,7 +94,7 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   const ranked = RANKED_GUILDS
   const withShots = [...ALL_GUILDS]
     .reverse()
-    .filter((g) => g.screenshots && g.screenshots.length > 0 && isCommunityPosted(g))
+    .filter((g) => g.screenshots && g.screenshots.length > 0 && isBuilderSubmission(g))
     .slice(0, n)
     .map((g) => ranked.find((r) => r.discordThread === g.discordThread))
     .filter((g): g is RankedGuild => g !== undefined)
