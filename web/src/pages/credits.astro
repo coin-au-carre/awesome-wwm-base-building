@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { getGuildsSortedByScore, getSolosSortedByScore, getUsers, getBuilderSearchPath } from "@/lib/guilds"
+import { getGuildsSortedByScore, getSolosSortedByScore, getUsers, getBuilderSearchPath, getReactions, getVoterBlacklist } from "@/lib/guilds"
 import { formatBuilderName } from "@/lib/format"
 import { tutorialVideos, channels } from "@/lib/videos"
 import { getCollection } from "astro:content"
@@ -50,6 +50,29 @@ const videoCreatorsWithBuilds = [...new Set(tutorialVideos.map((v) => v.author).
 
 // Merged content creators: tutorial authors + video creators with builds, deduplicated, sorted
 const contentCreators = [...new Set([...Object.keys(articleAuthorFirstSlug), ...videoCreatorsWithBuilds])].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+
+// Critics: users who voted on 4+ unique threads (weight1Threshold)
+const CRITIC_THRESHOLD = 4
+const reactions = getReactions()
+const blacklist = new Set(getVoterBlacklist())
+const threadCountById: Record<string, number> = {}
+for (const [threadId, emojis] of Object.entries(reactions)) {
+  const seen = new Set<string>()
+  for (const voters of Object.values(emojis)) {
+    for (const id of voters) seen.add(id)
+  }
+  for (const id of seen) {
+    if (!blacklist.has(id)) threadCountById[id] = (threadCountById[id] ?? 0) + 1
+  }
+}
+const critics = Object.entries(threadCountById)
+  .filter(([, count]) => count >= CRITIC_THRESHOLD)
+  .map(([id]) => {
+    const user = users[id]
+    return user?.nickname ?? user?.globalName ?? user?.username ?? id
+  })
+  .filter((name) => name.replace(/\p{Z}|\p{C}/gu, "") !== "")
+  .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
 
 const BUILDER_PALETTE = [
   "bg-violet-500/10 text-violet-300 ring-1 ring-inset ring-violet-400/25",
@@ -131,6 +154,24 @@ function builderColor(name: string): string {
             <MapTrifoldIcon weight="fill" className="size-3 shrink-0" client:load />
             {name}
           </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Critics -->
+    <section class="space-y-4">
+      <div class="flex items-baseline gap-3">
+        <h2 class="font-heading text-xs font-medium text-muted-foreground uppercase tracking-wide">Critics</h2>
+        <span class="text-xs text-muted-foreground">{critics.length} critics</span>
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+        Community members who took the time to vote across multiple guild bases.
+      </p>
+      <div class="flex flex-wrap gap-1.5">
+        {critics.map((name) => (
+          <span class="inline-flex items-center rounded-full bg-indigo-500/10 text-indigo-300 ring-1 ring-inset ring-indigo-400/25 px-2.5 py-0.5 text-xs font-medium">
+            {name}
+          </span>
         ))}
       </div>
     </section>
