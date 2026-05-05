@@ -1,18 +1,18 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { GuildCarousel } from "@/components/GuildCarousel"
+import { SoloWall } from "@/components/SoloWall"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots, formatBuilderName } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
-import { HouseLineIcon, ArrowsClockwiseIcon, TrophyIcon, MountainsIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
+import { HouseLineIcon, ArrowsClockwiseIcon, MountainsIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
 
 const solos = getSolosSortedByScore()
 const allTags = getAllSoloTags()
 const lastSync = getLastSyncDate()
-const topSolos = solos.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
+const solosWithScreenshots = solos.filter((g) => (g.coverImage || (g.screenshots && g.screenshots.length > 0)))
 const ogImage = solos.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestSolos = getLatestSolosWithScreenshots(3)
 const isEmpty = !hasSolos()
@@ -118,6 +118,15 @@ const isEmpty = !hasSolos()
       )
     }
 
+    <!-- Random wall -->
+    {
+      solosWithScreenshots.length > 0 && (
+        <section>
+          <SoloWall client:load solos={solosWithScreenshots} count={12} />
+        </section>
+      )
+    }
+
     <!-- Ranked table -->
     {
       solos.length > 0 && (
@@ -135,18 +144,6 @@ const isEmpty = !hasSolos()
               ))}
             </ul>
           </noscript>
-        </section>
-      )
-    }
-
-    <!-- Top rated carousel -->
-    {
-      topSolos.length > 0 && (
-        <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Solo Construction</h2>
-          <div class="px-5">
-            <GuildCarousel client:load guilds={topSolos} basePath="solos" />
-          </div>
         </section>
       )
     }
