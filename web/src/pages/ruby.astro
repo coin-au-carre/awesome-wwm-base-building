@@ -1,0 +1,238 @@
+---
+import Layout from "@/layouts/main.astro"
+import { buttonVariants } from "@/components/ui/button"
+import { BASE } from "@/lib/url"
+---
+
+<Layout
+  title="Where Builders Meet | Ruby — Discord Bot Commands"
+  description="Ruby is the Where Builders Meet Discord bot. Discover all her commands: submit guild bases, find random builds, search catalog items, and more."
+>
+  <div class="max-w-3xl space-y-12">
+
+    <!-- Hero -->
+    <div class="space-y-3">
+      <h1 class="font-heading text-2xl font-semibold flex items-center gap-2.5">
+        <span class="text-2xl">🌸</span> Ruby
+      </h1>
+      <p class="text-muted-foreground text-sm leading-relaxed">
+        Ruby is a small girl who lives inside the guild bases of Jiang Hu. She wanders between courtyards and rooftops, and she knows every build by heart.
+        In the Discord server, she lives in <strong class="text-foreground">#ruby</strong> — ask her anything, or use one of her commands anywhere on the server.
+      </p>
+    </div>
+
+    <!-- Slash commands -->
+    <section class="space-y-4">
+      <h2 class="font-heading text-base font-medium">Slash commands</h2>
+      <p class="text-sm text-muted-foreground leading-relaxed">
+        Slash commands work anywhere on the server. Type <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">/</code> in Discord to see them all with autocomplete.
+      </p>
+
+      <!-- Submissions -->
+      <div class="space-y-2">
+        <p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Submissions</p>
+        <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/submit-guild</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Submit your own guild base to the showcase. A form opens where you fill in the name, builders, and Discord thread link.</p>
+              <p class="text-xs text-muted-foreground/70 italic">Use this if you are the builder and want your base listed on the website.</p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/submit-solo</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Submit your solo construction to the showcase. Same form as guild, but for individual builds not tied to a guild.</p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/scout-guild</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Found a guild base you'd like to see on the website? Scout it here. A moderator will review and reference it for later.</p>
+              <p class="text-xs text-muted-foreground/70 italic">You don't need to be the builder. Anyone can scout.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Personal -->
+      <div class="space-y-2">
+        <p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Personal</p>
+        <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/my-votes</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Shows all the guild bases you have reacted to, grouped by reaction type and points. Only visible to you.</p>
+              <p class="text-xs text-muted-foreground/70 italic">Also suggests guilds you haven't explored yet — great for broadening your voting spread.</p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/builder &lt;member&gt;</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Look up a server member's guild or solo base. Pick any member from the dropdown — only you see the result.</p>
+              <p class="text-xs text-muted-foreground/70 italic">Example: <code class="rounded bg-muted px-1 font-mono text-xs">/builder @Ahlyam</code></p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/commands</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Lists all of Ruby's commands with a short description. Only visible to you.</p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/warning-list</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Shows a guilds/leaders warning list for builders. Only visible to you.</p>
+              <p class="text-xs text-muted-foreground/70 italic">See <a href={`${BASE}/how-it-works`} class="underline underline-offset-2 hover:text-foreground transition-colors">how it works</a> for context on why voting fairness matters.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Discovery -->
+      <div class="space-y-2">
+        <p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Discovery</p>
+        <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/random</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Ruby picks a random guild base and posts its screenshot with a caption.</p>
+              <p class="text-xs text-muted-foreground/70 italic">Great for discovering builds you've never seen before.</p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/guild &lt;name&gt;</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Share a guild base with its Discord thread link and website page. Starts typing to see autocomplete suggestions.</p>
+              <p class="text-xs text-muted-foreground/70 italic">Example: <code class="rounded bg-muted px-1 font-mono text-xs">/guild BlackFurry</code> — posts the card with links for that guild.</p>
+            </div>
+          </div>
+
+          <div class="px-4 py-3 grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-x-6 gap-y-1 items-start">
+            <code class="font-mono text-sm text-foreground whitespace-nowrap">/solo &lt;name&gt;</code>
+            <div class="space-y-1">
+              <p class="text-sm text-muted-foreground">Same as <code class="rounded bg-muted px-1 font-mono text-xs">/guild</code> but for solo constructions. Autocomplete included.</p>
+              <p class="text-xs text-muted-foreground/70 italic">Example: <code class="rounded bg-muted px-1 font-mono text-xs">/solo WINDXP Bridge</code></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Talking to Ruby -->
+    <section class="space-y-4">
+      <h2 class="font-heading text-base font-medium">Talking to Ruby</h2>
+      <p class="text-sm text-muted-foreground leading-relaxed">
+        Ruby reads every message in <strong class="text-foreground">#ruby</strong> that mentions her name or pings her. You don't need any special syntax — just talk to her naturally.
+        She understands context, so you can ask follow-up questions.
+      </p>
+
+      <div class="space-y-3">
+        <p class="text-xs font-medium text-muted-foreground uppercase tracking-wide">Examples</p>
+
+        <div class="rounded-xl border border-border bg-muted/30 divide-y divide-border overflow-hidden">
+          <div class="px-4 py-3 space-y-1">
+            <p class="text-sm font-mono text-foreground">ruby, show me a random guild</p>
+            <p class="text-xs text-muted-foreground">Ruby picks a surprise guild and posts its screenshot with a caption.</p>
+          </div>
+          <div class="px-4 py-3 space-y-1">
+            <p class="text-sm font-mono text-foreground">@Ruby show me the BlackFurry</p>
+            <p class="text-xs text-muted-foreground">Ruby searches for a guild by name and posts a screenshot of it.</p>
+          </div>
+          <div class="px-4 py-3 space-y-1">
+            <p class="text-sm font-mono text-foreground">ruby, are there any guilds with a Pikachu?</p>
+            <p class="text-xs text-muted-foreground">Ruby searches guild tags and lore for matches, then tells you what she finds.</p>
+          </div>
+          <div class="px-4 py-3 space-y-1">
+            <p class="text-sm font-mono text-foreground">ruby, do you have any roof tiles in the catalog?</p>
+            <p class="text-xs text-muted-foreground">Ruby searches the catalog and posts matching item images.</p>
+          </div>
+          <div class="px-4 py-3 space-y-1">
+            <p class="text-sm font-mono text-foreground">ruby, which guilds are tagged Nature?</p>
+            <p class="text-xs text-muted-foreground">Ruby lists all guilds that match that tag.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl border border-sky-200 dark:border-sky-800 bg-sky-50/60 dark:bg-sky-950/30 px-4 py-3 space-y-1">
+        <p class="text-sm font-medium text-sky-700 dark:text-sky-300">Tip: say "random" for a quick shortcut</p>
+        <p class="text-sm text-muted-foreground">Just typing <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">ruby random</code> (or mentioning her and the word "random") skips the AI and instantly posts a surprise guild.</p>
+      </div>
+    </section>
+
+    <!-- Finding guilds -->
+    <section class="space-y-4">
+      <h2 class="font-heading text-base font-medium">Finding guild bases in #ruby</h2>
+      <p class="text-sm text-muted-foreground leading-relaxed">
+        The #ruby channel is the best place to explore the showcase in conversation. Here are some ways people use it.
+      </p>
+
+      <div class="space-y-3">
+
+        <div class="rounded-xl border border-border bg-muted/20 px-4 py-4 space-y-3">
+          <p class="text-sm font-medium">Browse by theme or tag</p>
+          <div class="space-y-2 text-sm text-muted-foreground">
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby, are there any guilds with mountains?</p>
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby, which guilds are tagged Zen?</p>
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby, show me guilds that feel like a hidden sect</p>
+          </div>
+          <p class="text-xs text-muted-foreground">Ruby searches guild names, tags, lore, and "what to visit" sections to find matches.</p>
+        </div>
+
+        <div class="rounded-xl border border-border bg-muted/20 px-4 py-4 space-y-3">
+          <p class="text-sm font-medium">Find a specific guild</p>
+          <div class="space-y-2 text-sm text-muted-foreground">
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby, show me the Iron Fist Valley</p>
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">@Ruby can you show me Eternal Snow Peak?</p>
+          </div>
+          <p class="text-xs text-muted-foreground">Ruby finds the guild by name and posts one of its screenshots directly into the channel.</p>
+        </div>
+
+        <div class="rounded-xl border border-border bg-muted/20 px-4 py-4 space-y-3">
+          <p class="text-sm font-medium">Explore the catalog</p>
+          <div class="space-y-2 text-sm text-muted-foreground">
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby, what lanterns do you have in the catalog?</p>
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby, show me roof tiles</p>
+          </div>
+          <p class="text-xs text-muted-foreground">Ruby searches the building catalog and posts images of matching items, with a link to the full catalog page.</p>
+        </div>
+
+        <div class="rounded-xl border border-border bg-muted/20 px-4 py-4 space-y-3">
+          <p class="text-sm font-medium">Just be surprised</p>
+          <div class="space-y-2">
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">ruby random</p>
+            <p class="font-mono text-foreground text-xs bg-muted rounded px-2 py-1.5">/random</p>
+          </div>
+          <p class="text-xs text-muted-foreground">Ruby picks a random guild from the showcase and posts it with a caption she writes herself.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="rounded-xl border border-border bg-muted/30 px-5 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div class="flex-1">
+        <p class="font-medium text-sm">Come say hi to Ruby</p>
+        <p class="text-sm text-muted-foreground mt-0.5">She's waiting in #ruby on the community Discord.</p>
+      </div>
+      <div class="flex gap-2 shrink-0">
+        <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "lg" })} data-umami-event="discord_cta_click">Discord ↗</a>
+        <a href={`${BASE}/contribute`} class={buttonVariants({ variant: "outline", size: "lg" })}>Contribute</a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
