@@ -1,5 +1,37 @@
 [
 	{
+		"name": "Miraland",
+		"builders": [
+			"Mocchiii",
+			"kymbrly",
+			"Roselily"
+		],
+		"tags": [
+			"Arena",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Arena, Cave path, Performance stage",
+		"score": 0,
+		"lastModified": "May 5, 2026 at 11:39 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
+		"name": "Bingo-Wipeout",
+		"builders": [
+			"Catalëyä"
+		],
+		"tags": [
+			"Snow",
+			"Desert"
+		],
+		"discordThread": "",
+		"whatToVisit": "Central place\nHouse on lake\nMix of biome",
+		"score": 0,
+		"lastModified": "May 5, 2026 at 11:30 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "INACTIVE",
 		"builders": [
 			"KiemSiDaDen",
