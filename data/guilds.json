@@ -1,5 +1,20 @@
 [
 	{
+		"name": "貓與氣球",
+		"builders": [
+			"千冷雪"
+		],
+		"tags": [
+			"Fun",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Maze, Parkour, Racing game",
+		"score": 1,
+		"lastModified": "May 6, 2026 at 10:29 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10021200",
 		"name": "貴妃醉",
 		"builders": [
