@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69fc6208&is=69fb1088&hm=15f63f9b5a30881ab0b178374cdd376e7de50894fa1a9bb3b21116a64b035821&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=69fd0ac8&is=69fbb948&hm=fb77d7920a448c083a59409be17e0fac0c17ccc0a53468896bc00e738b5bd29b&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69fc6244&is=69fb10c4&hm=60e68252efcef248d9a41a7209865b27a6cb023ca844ef5742ee0d6ca9cc3671&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=69fd0b04&is=69fbb984&hm=4924d2d831b94948e731724f22d9f9782d5c1d5b3968776e05c057d56bd7caa7&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family
@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69fc7366&is=69fb21e6&hm=8ba5f61516c3b18c301ddbff3a31448e2e7ed35016b6adaf9cacc0a655712e49&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69fd1c26&is=69fbcaa6&hm=77af0248e1a902886c322e9494353bfe33adc4cb269b1e46c5c77743b18eeb94&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69fc7451&is=69fb22d1&hm=ed336acda125d8fd8cf26b9b72aae0ff24d6db862eaf4f50d9abc4b90487193a&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69fd1d11&is=69fbcb91&hm=0376a6b5f123e02b5040f6cd95a0539451c652495ea4b32609b5c2657622a53a&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -81,7 +81,7 @@ Roughly translated, it means "one's character does not leave the pine (tree); it
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=69fc7537&is=69fb23b7&hm=719cd1bb1ef2e86b39152df8ba001e902b5d57700ac6a4ae67e726837fe769cd&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=69fd1df7&is=69fbcc77&hm=264596e90a7e7846d061716e032738aed0606cf59a9235ac6f41d9387d555e39&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驿 - postal (relay station)
 
@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69fc7661&is=69fb24e1&hm=d2b1d033247c536b6d99847f22f909e751ff6ae99703e6f34b942d87fef6184e&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69fd1f21&is=69fbcda1&hm=4f664595ef5d21ae2b5baa90ccb2cc46d2176a5e7ecbebb501717cd1c9223f21&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 天 Heaven
 石 Stone
