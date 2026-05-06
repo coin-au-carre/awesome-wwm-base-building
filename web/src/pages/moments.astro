@@ -124,7 +124,7 @@ const items = posts.flatMap((p) =>
   <!-- Lightbox -->
   <div
     id="lightbox"
-    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+    class="fixed inset-0 z-50 hidden flex-col bg-black/90 backdrop-blur-sm"
     role="dialog"
     aria-modal="true"
   >
@@ -161,38 +161,38 @@ const items = posts.flatMap((p) =>
       </svg>
     </button>
 
-    <!-- Image + caption -->
-    <div class="flex flex-col items-center gap-3 max-w-5xl w-full max-h-full">
-      <div class="relative flex items-center justify-center w-full">
-        <div id="lb-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none" style="display:none!important">
-          <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-          </svg>
-        </div>
-        <img
-          id="lb-img"
-          src=""
-          alt=""
-          class="max-h-[80vh] max-w-full rounded-xl object-contain shadow-2xl transition-opacity duration-200"
-          style="opacity:0"
-        />
+    <!-- Image -->
+    <div class="flex-1 min-h-0 relative flex items-center justify-center p-2">
+      <div id="lb-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none" style="display:none!important">
+        <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+        </svg>
       </div>
-      <div class="flex items-center gap-3">
-        <span id="lb-author-wrap" class="text-sm font-semibold text-white"></span>
-        <span id="lb-reactions" class="text-white/50 text-xs"></span>
-        <span id="lb-counter" class="text-white/40 text-xs"></span>
-        <a
-          id="lb-discord-link"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center gap-1 text-xs text-white/50 hover:text-white transition-colors"
-          data-umami-event="community_discord_link_click"
-        >
-          <ArrowSquareOutIcon weight="bold" className="size-3.5" /> Discord
-        </a>
-      </div>
+      <img
+        id="lb-img"
+        src=""
+        alt=""
+        class="max-h-full max-w-full rounded-xl object-contain shadow-2xl transition-opacity duration-200"
+        style="opacity:0"
+      />
+    </div>
+
+    <!-- Caption -->
+    <div class="shrink-0 flex items-center justify-center gap-3 px-4 py-2.5 flex-wrap">
+      <span id="lb-author-wrap" class="text-sm font-semibold text-white"></span>
+      <span id="lb-reactions" class="text-white/50 text-xs"></span>
+      <span id="lb-counter" class="text-white/40 text-xs"></span>
+      <a
+        id="lb-discord-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-1 text-xs text-white/50 hover:text-white transition-colors"
+        data-umami-event="community_discord_link_click"
+      >
+        <ArrowSquareOutIcon weight="bold" className="size-3.5" /> Discord
+      </a>
     </div>
   </div>
 </Layout>
@@ -229,7 +229,7 @@ const items = posts.flatMap((p) =>
     subIndex = imgSrc ? Math.max(subImages.indexOf(imgSrc), 0) : 0
     renderLightbox()
     lightbox.classList.remove("hidden")
-    lightbox.classList.add("flex")
+    lightbox.classList.add("flex", "flex-col")
     document.body.style.overflow = "hidden"
   }
 
@@ -297,7 +297,7 @@ const items = posts.flatMap((p) =>
 
   function closeLightbox() {
     lightbox.classList.add("hidden")
-    lightbox.classList.remove("flex")
+    lightbox.classList.remove("flex", "flex-col")
     lbImg.src = ""
     lbImg.style.opacity = "0"
     document.body.style.overflow = ""
@@ -337,6 +337,14 @@ const items = posts.flatMap((p) =>
     if (e.key === "ArrowLeft") { prevItem() }
     if (e.key === "ArrowRight") { nextItem() }
   })
+
+  let touchStartX = 0
+  lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
+  lightbox.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX
+    if (Math.abs(dx) < 40) return
+    if (dx < 0) { nextItem() } else { prevItem() }
+  }, { passive: true })
 
   // Sort & Shuffle
   const sortReactionsBtn = document.getElementById("sort-reactions")
