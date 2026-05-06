@@ -460,7 +460,7 @@ func BuildWelcomeMessage(name string) string {
 		"\tUse `/submit-guild` or `/submit-solo` — the bot sends you a ready-to-paste template via DM. Your build appears on next sync.\n" +
 		"**[Explorer?](<https://www.wherebuildersmeet.com/contribute/scout?utm_source=discord&utm_medium=welcome>)** Use `/scout-guild` to report impressive bases you've found in <#1490051558237405254>.\n" +
 		"Looking for a builder help? ask in <#1486701728551407796>\n" +
-		"Questions? Ask in the chats or ping a moderator. Happy Building!"
+		"Questions? Ask in the chats, <#1499187607790157996> or ping a moderator. Happy Building!"
 }
 
 func handleWelcomeTestCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
