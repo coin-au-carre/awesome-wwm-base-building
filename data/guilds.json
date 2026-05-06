@@ -1,5 +1,22 @@
 [
 	{
+		"id": "10021200",
+		"name": "貴妃醉",
+		"builders": [
+			"一龍馬斯克"
+		],
+		"tags": [
+			"River",
+			"Creative",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Surrounding rivers with castle in middle",
+		"score": 1,
+		"lastModified": "May 6, 2026 at 10:06 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Miraland",
 		"builders": [
 			"Mocchiii",
