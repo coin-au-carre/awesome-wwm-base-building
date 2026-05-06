@@ -1,5 +1,21 @@
 [
 	{
+		"name": "猫爪",
+		"builders": [
+			"烏摩巴麗"
+		],
+		"tags": [
+			"Fun",
+			"Creative",
+			"Cute"
+		],
+		"discordThread": "",
+		"whatToVisit": "Cat pixel art\nPurple trees\nPlatform",
+		"score": 0,
+		"lastModified": "May 6, 2026 at 12:27 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "貓與氣球",
 		"builders": [
 			"千冷雪"
