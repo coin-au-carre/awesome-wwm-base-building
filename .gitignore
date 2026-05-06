@@ -31,3 +31,5 @@ private/
 
 
 scripts/*.mp4
+data/users.json
+data/reactions.json
