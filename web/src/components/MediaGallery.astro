@@ -192,7 +192,7 @@ function isTiktokURL(rawURL: string): boolean {
   </button>
 
   <!-- Image -->
-  <div class="flex items-center justify-center w-full h-full px-16 py-12">
+  <div class="flex items-center justify-center w-full h-full p-2">
     <div id="lightbox-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none">
       <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
@@ -318,4 +318,14 @@ function isTiktokURL(rawURL: string): boolean {
     if (e.key === "ArrowLeft" && current > 0) show(current - 1)
     if (e.key === "ArrowRight" && current < srcs.length - 1) show(current + 1)
   })
+
+  // Swipe navigation
+  let touchStartX = 0
+  lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
+  lightbox.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX
+    if (Math.abs(dx) < 40) return
+    if (dx < 0 && current < srcs.length - 1) show(current + 1)
+    if (dx > 0 && current > 0) show(current - 1)
+  }, { passive: true })
 </script>
