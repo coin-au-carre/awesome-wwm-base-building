@@ -21,6 +21,8 @@ import (
 
 var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
+var reDiscordVideoMarker = regexp.MustCompile(`<!--\s*discord-video:(\d+)/(\d+)\s*-->`)
+var reVideoSrc = regexp.MustCompile(`(<video\s[^>]*src=)"[^"]*"`)
 
 func slugify(s string) string {
 	return strings.Trim(reSlug.ReplaceAllString(strings.ToLower(s), "-"), "-")
@@ -29,6 +31,7 @@ func slugify(s string) string {
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "repository root directory")
 	list := flag.String("list", "", "file with one Discord thread URL per line")
+	refreshVideos := flag.Bool("refresh-videos", false, "refresh Discord CDN URLs in all articles")
 	flag.Parse()
 
 	var urls []string
@@ -50,8 +53,8 @@ func main() {
 	}
 	urls = append(urls, flag.Args()...)
 
-	if len(urls) == 0 {
-		fmt.Fprintln(os.Stderr, "usage: tutorial [-list <file>] <discord-thread-url>...")
+	if len(urls) == 0 && !*refreshVideos {
+		fmt.Fprintln(os.Stderr, "usage: tutorial [-list <file>] [-refresh-videos] <discord-thread-url>...")
 		os.Exit(1)
 	}
 
@@ -73,6 +76,14 @@ func main() {
 	for _, rawURL := range urls {
 		if err := syncThread(bot.Session, *root, rawURL); err != nil {
 			slog.Error("syncing thread", "url", rawURL, "err", err)
+		}
+	}
+
+	if *refreshVideos {
+		articlesDir := filepath.Join(*root, "web", "src", "content", "articles")
+		if err := refreshVideoURLs(bot.Session, articlesDir); err != nil {
+			slog.Error("refreshing video URLs", "err", err)
+			os.Exit(1)
 		}
 	}
 }
@@ -238,5 +249,73 @@ func isVideo(ext string) bool {
 		return true
 	}
 	return false
+}
+
+// refreshVideoURLs scans all articles for <!-- discord-video:CHANNEL/MESSAGE --> markers
+// and updates the src attribute of the following <video> tag with a fresh Discord CDN URL.
+func refreshVideoURLs(s *discordgo.Session, articlesDir string) error {
+	entries, err := os.ReadDir(articlesDir)
+	if err != nil {
+		return fmt.Errorf("reading articles dir: %w", err)
+	}
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") {
+			continue
+		}
+		path := filepath.Join(articlesDir, e.Name())
+		data, err := os.ReadFile(path)
+		if err != nil {
+			slog.Warn("reading article", "file", e.Name(), "err", err)
+			continue
+		}
+		content := string(data)
+		updated, changed := replaceDiscordVideoSrcs(s, content)
+		if !changed {
+			continue
+		}
+		if err := os.WriteFile(path, []byte(updated), 0644); err != nil {
+			slog.Warn("writing article", "file", e.Name(), "err", err)
+			continue
+		}
+		slog.Info("refreshed video URLs", "file", e.Name())
+	}
+	return nil
+}
+
+func replaceDiscordVideoSrcs(s *discordgo.Session, content string) (string, bool) {
+	lines := strings.Split(content, "\n")
+	changed := false
+	for i, line := range lines {
+		sub := reDiscordVideoMarker.FindStringSubmatch(line)
+		if sub == nil {
+			continue
+		}
+		channelID, messageID := sub[1], sub[2]
+		msg, err := s.ChannelMessage(channelID, messageID)
+		if err != nil {
+			slog.Warn("fetching discord message for video", "channel", channelID, "message", messageID, "err", err)
+			continue
+		}
+		var cdnURL string
+		for _, att := range msg.Attachments {
+			if isVideo(mediaExt(att.URL)) {
+				cdnURL = att.URL
+				break
+			}
+		}
+		if cdnURL == "" {
+			slog.Warn("no video attachment found", "channel", channelID, "message", messageID)
+			continue
+		}
+		// Update src in the next <video> line (search up to 3 lines ahead).
+		for j := i + 1; j < len(lines) && j <= i+3; j++ {
+			if strings.Contains(lines[j], "<video") {
+				lines[j] = reVideoSrc.ReplaceAllString(lines[j], `${1}"`+cdnURL+`"`)
+				changed = true
+				break
+			}
+		}
+	}
+	return strings.Join(lines, "\n"), changed
 }
 

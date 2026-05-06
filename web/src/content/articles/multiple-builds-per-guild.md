@@ -6,7 +6,7 @@ authors: ["Ahlyam"]
 date: 2026-05-03
 order: 8
 published: true
-featured: true
+featured: false
 ---
 
 Some guilds go through complete transformations — a new season, a new creative direction, or a new team of builders. The showcase now supports multiple builds per guild: each build lives in its own thread, has its own score and screenshots, and appears as a collapsible group on the leaderboard.

@@ -9,7 +9,7 @@ tasks:
       - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
-      - go run ./cmd/tutorial -list data/tutorial_threads.txt
+      - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos
       - go run ./cmd/whatever-sync
 
   sync:nopull:
@@ -17,7 +17,7 @@ tasks:
     cmds:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
-      - go run ./cmd/tutorial -list data/tutorial_threads.txt
+      - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos
       - go run ./cmd/whatever-sync
 
   # ── bot (long-running) ──────────────────────────────────────
