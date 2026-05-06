@@ -43,6 +43,6 @@ jobs:
           git stash
           git pull --rebase
           git stash pop
-          git add data/guilds.json data/solos.json web/public/guilds.json data/last_sync.json web/src/content/articles/
+          git add data/guilds.json data/solos.json data/users.json data/reactions.json web/public/guilds.json data/last_sync.json web/src/content/articles/
           git commit -m "chore: auto-sync $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push
