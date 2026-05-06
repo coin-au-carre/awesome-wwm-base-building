@@ -92,7 +92,7 @@ const items = posts.flatMap((p) =>
 
         <!-- Gallery -->
         <div id="gallery" class="columns-2 sm:columns-3 lg:columns-4 gap-2">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <div
               class="gallery-item break-inside-avoid mb-2 group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-border hover:ring-primary transition-all"
               data-post-id={item.postId}
@@ -110,7 +110,9 @@ const items = posts.flatMap((p) =>
               <img
                 src={thumbUrl(item.img)}
                 alt={`Screenshot by ${item.displayName}`}
-                loading="lazy"
+                loading={i < 6 ? "eager" : "lazy"}
+                decoding="async"
+                fetchpriority={i < 2 ? "high" : undefined}
                 onerror="this.closest('.gallery-item').style.display='none'"
                 class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
               />

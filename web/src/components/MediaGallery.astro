@@ -132,6 +132,7 @@ function isTiktokURL(rawURL: string): boolean {
                   src={thumbUrl(src)}
                   alt={`Screenshot ${index + 1}`}
                   loading="lazy"
+                  decoding="async"
                   onerror="this.closest('button').style.display='none'"
                   class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
                 />
@@ -282,8 +283,9 @@ function isTiktokURL(rawURL: string): boolean {
       preloaded.add(src)
     }
 
-    // Preload next full-res only (forward navigation is most common)
+    // Preload adjacent images in both directions
     preload(current + 1)
+    preload(current - 1)
 
     lightbox.classList.remove("hidden")
     lightbox.classList.add("flex")
