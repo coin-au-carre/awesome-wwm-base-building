@@ -86,6 +86,11 @@ tasks:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
     cmd: go run ./cmd/announce {{.CLI_ARGS}}
 
+  # ── sim-submit (simulate /submit-guild DM in dev channel) ────
+  sim-submit:
+    desc: "simulate the DM Ruby sends after /submit-guild. Usage: task sim-submit -- [-name \"Guild [ID]\"] [-builders \"B1, B2\"] [-lore \"...\"] [-what-to-visit \"...\"] [-channel <id>]"
+    cmd: go run ./cmd/sim-submit {{.CLI_ARGS}}
+
 
   # ── tutorial (generate article from Discord thread) ─────────
   tutorial:
