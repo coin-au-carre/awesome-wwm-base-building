@@ -5,42 +5,43 @@ import (
 	"strings"
 )
 
-func FormatSyncSummary(s SyncStats) string {
-	return formatSyncSummary(s, false)
-}
+func FormatCombinedSyncSummary(guildStats, soloStats SyncStats, hasSolo bool) string {
+	line1 := fmt.Sprintf("🏯 **%d** guilds", guildStats.Total)
+	if hasSolo {
+		line1 += fmt.Sprintf(" · 🏡 **%d** solo", soloStats.Total)
+	}
+	line1 += " — synced!"
 
-func FormatSoloSyncSummary(s SyncStats) string {
-	return formatSyncSummary(s, true)
-}
+	var activity []string
 
-func formatSyncSummary(s SyncStats, isSolo bool) string {
-	var lines []string
-	if isSolo {
-		lines = []string{
-			fmt.Sprintf("🏡 **%d** solo construction tracked & synced!", s.Total),
-		}
-	} else {
-		lines = []string{
-			fmt.Sprintf("🏯 **%d** guilds tracked & synced!", s.Total),
-		}
+	var updatedNames []string
+	updatedNames = append(updatedNames, guildStats.UpdatedNames...)
+	updatedNames = append(updatedNames, soloStats.UpdatedNames...)
+	if len(updatedNames) > 0 {
+		activity = append(activity, "🔄 "+strings.Join(updatedNames, ", "))
 	}
-	kind := "guild"
-	if isSolo {
-		kind = "solo build"
-	}
-	if s.Updated > 0 {
-		lines = append(lines, fmt.Sprintf("🔄 **%d** %s(s) refreshed: %s",
-			s.Updated, kind, strings.Join(s.UpdatedNames, ", ")))
-	}
-	if s.New > 0 {
-		lines = append(lines, fmt.Sprintf("🆕 **%d** new %s(s) discovered:", s.New, kind))
-		for _, name := range s.NewNames {
-			if link, ok := s.NewThreadLinks[name]; ok {
-				lines = append(lines, fmt.Sprintf("  • [%s](%s)", name, link))
-			} else {
-				lines = append(lines, fmt.Sprintf("  • %s", name))
-			}
+
+	var newLinks []string
+	for _, name := range guildStats.NewNames {
+		if link, ok := guildStats.NewThreadLinks[name]; ok {
+			newLinks = append(newLinks, fmt.Sprintf("[%s](%s)", name, link))
+		} else {
+			newLinks = append(newLinks, name)
 		}
 	}
-	return strings.Join(lines, "\n")
+	for _, name := range soloStats.NewNames {
+		if link, ok := soloStats.NewThreadLinks[name]; ok {
+			newLinks = append(newLinks, fmt.Sprintf("[%s](%s)", name, link))
+		} else {
+			newLinks = append(newLinks, name)
+		}
+	}
+	if len(newLinks) > 0 {
+		activity = append(activity, "🆕 "+strings.Join(newLinks, ", "))
+	}
+
+	if len(activity) > 0 {
+		return line1 + "\n" + strings.Join(activity, " · ")
+	}
+	return line1
 }

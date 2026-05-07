@@ -55,6 +55,11 @@ func main() {
 		os.Exit(1)
 	}
 
+	progressMsgID := ""
+	if !*noNotify && botChannelID != "" {
+		progressMsgID = bot.SendReturnID(botChannelID, "🔄 *(slipping through guild halls...)*")
+	}
+
 	// ── Load existing data ────────────────────────────────────────────────────
 
 	guilds, err := guild.LoadFile(guildsPath)
@@ -116,6 +121,9 @@ func main() {
 	fetchWg.Wait()
 	close(guildCh)
 	close(soloCh)
+	if progressMsgID != "" {
+		bot.EditMessage(botChannelID, progressMsgID, "🔄 *(counting stars and sealing the scrolls...)*")
+	}
 
 	guildFetch := <-guildCh
 	if guildFetch.err != nil {
@@ -242,12 +250,14 @@ func main() {
 
 	// ── Summary ───────────────────────────────────────────────────────────────
 
-	bot.NotifyIf(!*noNotify, discord.FormatSyncSummary(guildStats))
-	slog.Info("guild sync complete", "total", guildStats.Total, "new", guildStats.New, "updated", guildStats.Updated)
-	if soloForumID != "" {
-		bot.NotifyIf(!*noNotify, discord.FormatSoloSyncSummary(soloStats))
-		slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
+	summary := discord.FormatCombinedSyncSummary(guildStats, soloStats, soloForumID != "")
+	if progressMsgID != "" {
+		bot.EditMessage(botChannelID, progressMsgID, summary)
+	} else {
+		bot.NotifyIf(!*noNotify, summary)
 	}
+	slog.Info("guild sync complete", "total", guildStats.Total, "new", guildStats.New, "updated", guildStats.Updated)
+	slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
 
 	if !*dryRun {
 		const maxNewAnnouncements = 5
