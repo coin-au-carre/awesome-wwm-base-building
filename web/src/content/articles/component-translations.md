@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69fd2286&is=69fbd106&hm=6b2a4ea8141d025669d1a1ecfdb798b40a47a391f7b217843f761dc7e7a3731a&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=69fdcb46&is=69fc79c6&hm=bf2af95fe40b882cfbc762061eaaad473641ec5c7ad50d6ccf03f77fe87a96a6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=69fd23ef&is=69fbd26f&hm=352cb5fdeee87cbe7448bc45beffb60f8f5d999c05a7858034092e4816ba572d&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=69fdccaf&is=69fc7b2f&hm=5e54ecdacf267a6a113092c00974c81b881f67c07516695a1ab7f24119c8da29&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
