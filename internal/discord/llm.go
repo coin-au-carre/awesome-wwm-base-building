@@ -122,6 +122,18 @@ func NewCLIResponder(root string) *Responder {
 	}
 }
 
+// Reload refreshes the in-memory guild/solo data and system prompt from disk.
+func (r *Responder) Reload(root string) {
+	guilds := loadPromptGuilds(root)
+	solos := loadPromptSolos(root)
+	prompt := buildSystemPrompt(root, guilds)
+	r.mu.Lock()
+	r.guilds = guilds
+	r.solos = solos
+	r.systemPrompt = prompt
+	r.mu.Unlock()
+}
+
 // Caption generates a short in-character reaction to a guild spotlight.
 func (r *Responder) Caption(ctx context.Context, guildName string, tags []string) string {
 	prompt := fmt.Sprintf("React in one tiny sentence to this guild base spotlight: %s", guildName)
