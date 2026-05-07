@@ -6,7 +6,7 @@ authors: ["Xela", "AegisNite", "Crueliet", "[A]", "WindXP"]
 date: 2026-04-17
 order: 8
 image: "/tutorials/building-trick-vol2-5.jpg"
-featured: true
+featured: false
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` and `#construction-help` channel.
