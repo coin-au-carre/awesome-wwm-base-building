@@ -6,15 +6,45 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
+	"sync"
+	"time"
 
 	"github.com/bwmarrin/discordgo"
 )
 
-const githubRepo = "coin-au-carre/awesome-wwm-base-building"
+const (
+	githubRepo      = "coin-au-carre/awesome-wwm-base-building"
+	syncCooldown    = 5 * time.Minute
+)
+
+var (
+	syncMu       sync.Mutex
+	lastSyncTime time.Time
+)
 
 func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, trustedEyeRoleID, githubToken string) {
 	if !memberHasRole(i, trustedEyeRoleID) {
 		respondEphemeral(s, i, "*(you need the Trusted Eye role to trigger a sync.)*")
+		return
+	}
+
+	syncMu.Lock()
+	elapsed := time.Since(lastSyncTime)
+	if elapsed < syncCooldown {
+		remaining := syncCooldown - elapsed
+		syncMu.Unlock()
+		respondEphemeral(s, i, fmt.Sprintf("*(a sync was just triggered — please wait %s before triggering another.)*", remaining.Round(time.Second)))
+		return
+	}
+	syncMu.Unlock()
+
+	active, err := workflowIsActive(githubToken)
+	if err != nil {
+		slog.Warn("checking workflow status", "err", err)
+		// non-fatal: proceed anyway
+	}
+	if active {
+		respondEphemeral(s, i, "*(a sync is already running or queued on GitHub — it will finish on its own.)*")
 		return
 	}
 
@@ -26,19 +56,43 @@ func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 		return
 	}
 
+	syncMu.Lock()
+	lastSyncTime = time.Now()
+	syncMu.Unlock()
+
 	respondEphemeral(s, i, "Sync triggered! Check [GitHub Actions](https://github.com/"+githubRepo+"/actions) for progress.")
 }
 
-func memberHasRole(i *discordgo.InteractionCreate, roleID string) bool {
-	if i.Member == nil || roleID == "" {
-		return false
+func workflowIsActive(token string) (bool, error) {
+	type runsResponse struct {
+		TotalCount int `json:"total_count"`
 	}
-	for _, r := range i.Member.Roles {
-		if r == roleID {
-			return true
+
+	for _, status := range []string{"in_progress", "queued", "requested"} {
+		url := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/runs?status=%s&per_page=1", githubRepo, status)
+		req, err := http.NewRequest(http.MethodGet, url, nil)
+		if err != nil {
+			return false, fmt.Errorf("build request: %w", err)
+		}
+		req.Header.Set("Authorization", "Bearer "+token)
+		req.Header.Set("Accept", "application/vnd.github+json")
+		req.Header.Set("X-GitHub-Api-Version", "2022-11-28")
+
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			return false, fmt.Errorf("http: %w", err)
+		}
+		var result runsResponse
+		err = json.NewDecoder(resp.Body).Decode(&result)
+		resp.Body.Close()
+		if err != nil {
+			return false, fmt.Errorf("decode: %w", err)
+		}
+		if result.TotalCount > 0 {
+			return true, nil
 		}
 	}
-	return false
+	return false, nil
 }
 
 func triggerGitHubWorkflow(token string) error {
@@ -64,6 +118,18 @@ func triggerGitHubWorkflow(token string) error {
 		return fmt.Errorf("unexpected status %d", resp.StatusCode)
 	}
 	return nil
+}
+
+func memberHasRole(i *discordgo.InteractionCreate, roleID string) bool {
+	if i.Member == nil || roleID == "" {
+		return false
+	}
+	for _, r := range i.Member.Roles {
+		if r == roleID {
+			return true
+		}
+	}
+	return false
 }
 
 func respondEphemeral(s *discordgo.Session, i *discordgo.InteractionCreate, msg string) {
