@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69fd1f21&is=69fbcda1&hm=4f664595ef5d21ae2b5baa90ccb2cc46d2176a5e7ecbebb501717cd1c9223f21&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=69fdc7e1&is=69fc7661&hm=3e39e3fda0ad05356aebad04ce0f7bef02e50a168432d869c8708fea7181c782&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 天 Heaven
 石 Stone
@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=69fd217c&is=69fbcffc&hm=d320785c69260ed5f0403354f447c43096e75d6415acccd2b271b105f1c4ff4e&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=69fdca3c&is=69fc78bc&hm=7ce84813e6d65d544eaf565820cf1efa213a635b6b6ab01afb7e5f0cd42c1711&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驛 - traditional version of "postal relay station" 
 
