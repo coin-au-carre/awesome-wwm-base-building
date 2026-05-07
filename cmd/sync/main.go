@@ -55,8 +55,9 @@ func main() {
 		os.Exit(1)
 	}
 
+	discordTriggered := os.Getenv("DISCORD_TRIGGER") == "true"
 	progressMsgID := ""
-	if !*noNotify && botChannelID != "" {
+	if !*noNotify && !discordTriggered && botChannelID != "" {
 		progressMsgID = bot.SendReturnID(botChannelID, "🔄 *(slipping through guild halls...)*")
 	}
 
@@ -101,11 +102,33 @@ func main() {
 	guildCh := make(chan fetchOutcome, 1)
 	soloCh := make(chan fetchOutcome, 1)
 
+	makeProgressFn := func(label string) func(done, total int) {
+		lastPct := -1
+		return func(done, total int) {
+			if progressMsgID == "" {
+				return
+			}
+			pct := done * 100 / total
+			if pct/10 == lastPct/10 {
+				return
+			}
+			lastPct = pct
+			bar := discord.ProgressBar(pct)
+			bot.EditMessage(botChannelID, progressMsgID, fmt.Sprintf(
+				"🔄 *(wandering through %s...)* %s %d%%", label, bar, pct,
+			))
+		}
+	}
+
 	var fetchWg sync.WaitGroup
 	fetchWg.Add(1)
 	go func() {
 		defer fetchWg.Done()
-		r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{ForumChannelID: guildForumID, GuildFilter: *guildFilter})
+		r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{
+			ForumChannelID: guildForumID,
+			GuildFilter:    *guildFilter,
+			OnProgress:     makeProgressFn("guild halls"),
+		})
 		guildCh <- fetchOutcome{r, err}
 	}()
 
@@ -113,7 +136,12 @@ func main() {
 		fetchWg.Add(1)
 		go func() {
 			defer fetchWg.Done()
-			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{ForumChannelID: soloForumID, IsSolo: true, GuildFilter: *guildFilter})
+			r, err := discord.SyncFetch(bot, solos, discord.SyncConfig{
+				ForumChannelID: soloForumID,
+				IsSolo:         true,
+				GuildFilter:    *guildFilter,
+				OnProgress:     makeProgressFn("solo courts"),
+			})
 			soloCh <- fetchOutcome{r, err}
 		}()
 	}
