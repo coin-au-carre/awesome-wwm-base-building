@@ -127,7 +127,7 @@ func pollSyncProgress(bot *Bot, channelID, msgID, triggeredBy string, triggerTim
 				icon, label = "❌", "failed"
 			}
 			bot.EditMessage(channelID, msgID, fmt.Sprintf(
-				"%s Guild data sync manually triggered by **%s** — %s in %s\n%s 100%%",
+				"%s Data sync manually triggered by **%s** — %s in %s\n%s 100%%",
 				icon, triggeredBy, label, elapsed, bar,
 			))
 			return

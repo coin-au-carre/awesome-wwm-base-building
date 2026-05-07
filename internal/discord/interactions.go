@@ -159,7 +159,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
 			case submitModalID:
-				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID)
+				handleSubmitModal(s, i, bot, root, submissionChannelID, discoveriesChannelID, devChannelID)
 			case postModalID:
 				handlePostModal(s, i, bot, devChannelID, guildForumChannelID)
 			case soloModalID:
