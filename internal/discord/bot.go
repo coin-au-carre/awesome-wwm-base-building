@@ -85,6 +85,21 @@ func (b *Bot) Send(channelID, msg string) {
 	}
 }
 
+func (b *Bot) SendReturnID(channelID, msg string) string {
+	m, err := b.Session.ChannelMessageSend(channelID, msg)
+	if err != nil {
+		slog.Warn("failed to send message", "err", err)
+		return ""
+	}
+	return m.ID
+}
+
+func (b *Bot) EditMessage(channelID, messageID, msg string) {
+	if _, err := b.Session.ChannelMessageEdit(channelID, messageID, msg); err != nil {
+		slog.Warn("failed to edit message", "err", err)
+	}
+}
+
 func (b *Bot) SendWithFile(channelID, content, filename string, file io.Reader) error {
 	_, err := b.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
 		Content: content,
