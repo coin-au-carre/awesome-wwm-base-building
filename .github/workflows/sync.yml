@@ -4,6 +4,10 @@ on:
   schedule:
     - cron: '34 */2 * * *'  # every 2h, 10:00–00:00 CEST
   workflow_dispatch:       # manual trigger from GitHub UI or bot
+    inputs:
+      discord_trigger:
+        description: 'Triggered from Discord bot (suppresses cmd/sync progress, keeps final summary)'
+        default: 'false'
 
 concurrency:
   group: sync-guild-data
@@ -38,6 +42,7 @@ jobs:
           GENERAL_CHANNEL_ID: ${{ secrets.GENERAL_CHANNEL_ID }}
           WHATEVER_SHOWCASE_CHANNEL_ID: ${{ secrets.WHATEVER_SHOWCASE_CHANNEL_ID }}
           DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+          DISCORD_TRIGGER: ${{ inputs.discord_trigger }}
         run: task sync
 
       - name: Commit and push

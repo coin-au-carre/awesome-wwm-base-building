@@ -36,7 +36,8 @@ type SyncConfig struct {
 	ForumChannelID string
 	DryRun         bool
 	IsSolo         bool
-	GuildFilter    string // if non-empty, only process threads whose name contains this (case-insensitive)
+	GuildFilter    string            // if non-empty, only process threads whose name contains this (case-insensitive)
+	OnProgress     func(done, total int) // called as threads are fetched; may be nil
 }
 
 type threadData struct {
@@ -331,6 +332,8 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	tFetch := time.Now()
 	var fetched []fetchedThread
 	userThreads := make(map[string]map[string]bool)
+	total := len(threads)
+	lastReportedPct := -1
 	for r := range contentResults {
 		fetched = append(fetched, fetchedThread{
 			idx:       r.idx,
@@ -344,6 +347,13 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 					userThreads[uid] = make(map[string]bool)
 				}
 				userThreads[uid][r.thread.ID] = true
+			}
+		}
+		if cfg.OnProgress != nil && total > 0 {
+			pct := len(fetched) * 100 / total
+			if pct/10 != lastReportedPct/10 {
+				lastReportedPct = pct
+				cfg.OnProgress(len(fetched), total)
 			}
 		}
 	}

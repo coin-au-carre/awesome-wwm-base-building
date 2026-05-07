@@ -54,7 +54,7 @@ func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 	triggerTime := time.Now()
 	if err := triggerGitHubWorkflow(githubToken); err != nil {
 		slog.Error("triggering github workflow", "err", err)
-		respondEphemeral(s, i, "*(something went wrong triggering the sync — check the logs.)*")
+		respondEphemeral(s, i, "*(something went wrong triggering the sync. Ask Ahlyam.)*")
 		return
 	}
 
@@ -64,7 +64,7 @@ func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 
 	name := memberDisplayName(i)
 	slog.Info("/sync-data triggered", "user", name)
-	respondEphemeral(s, i, "Sync triggered! Progress will appear in the bot channel.")
+	respondEphemeral(s, i, fmt.Sprintf("Sync triggered! Progress will appear in <#%s>.", notifyChannelID))
 
 	if notifyChannelID != "" {
 		msgID := bot.SendReturnID(notifyChannelID, fmt.Sprintf("🔄 Guild data sync manually triggered by **%s** — looking for run...", name))
@@ -113,7 +113,7 @@ func pollSyncProgress(bot *Bot, channelID, msgID, triggeredBy string, triggerTim
 			continue
 		}
 
-		bar := progressBar(prog.pct)
+		bar := ProgressBar(prog.pct)
 		elapsed := time.Since(start).Round(time.Second)
 
 		if prog.done {
@@ -168,7 +168,7 @@ func rubyStepName(name string) string {
 	}
 }
 
-func progressBar(pct int) string {
+func ProgressBar(pct int) string {
 	if pct > 100 {
 		pct = 100
 	}
@@ -327,22 +327,40 @@ func workflowIsActive(token string) (bool, error) {
 }
 
 func triggerGitHubWorkflow(token string) error {
-	body, _ := json.Marshal(map[string]string{"ref": "main"})
-	url := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/dispatches", githubRepo)
-	req, err := githubRequest(http.MethodPost, url, token, body)
-	if err != nil {
-		return fmt.Errorf("build request: %w", err)
-	}
-	req.Header.Set("Content-Type", "application/json")
+	dispatchURL := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/dispatches", githubRepo)
 
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return fmt.Errorf("http: %w", err)
+	do := func(payload any) (int, error) {
+		body, _ := json.Marshal(payload)
+		req, err := githubRequest(http.MethodPost, dispatchURL, token, body)
+		if err != nil {
+			return 0, fmt.Errorf("build request: %w", err)
+		}
+		req.Header.Set("Content-Type", "application/json")
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			return 0, fmt.Errorf("http: %w", err)
+		}
+		resp.Body.Close()
+		return resp.StatusCode, nil
 	}
-	defer resp.Body.Close()
 
-	if resp.StatusCode != http.StatusNoContent {
-		return fmt.Errorf("unexpected status %d", resp.StatusCode)
+	status, err := do(map[string]any{
+		"ref":    "main",
+		"inputs": map[string]string{"discord_trigger": "true"},
+	})
+	if err != nil {
+		return err
+	}
+	if status == http.StatusUnprocessableEntity {
+		// Workflow on GitHub doesn't define discord_trigger yet — retry without inputs.
+		slog.Warn("workflow inputs not supported yet, retrying without inputs")
+		status, err = do(map[string]string{"ref": "main"})
+		if err != nil {
+			return err
+		}
+	}
+	if status != http.StatusNoContent {
+		return fmt.Errorf("unexpected status %d", status)
 	}
 	return nil
 }
