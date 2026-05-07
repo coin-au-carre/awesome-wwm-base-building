@@ -71,12 +71,14 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
   const live = event.status === "active" || (startMs <= now && endMs >= now)
   const minsUntil = Math.round((startMs - now) / 60000)
   const urgent = !live && minsUntil >= 0 && minsUntil <= 60
+  const h = Math.floor(minsUntil / 60)
+  const m = minsUntil % 60
   const timeLabel = live
     ? "Live now"
     : urgent
     ? `in ${minsUntil} min`
     : minsUntil <= 1440
-    ? `in ${Math.round(minsUntil / 60)}h`
+    ? m > 0 ? `in ${h}h${m}m` : `in ${h}h`
     : `in ${Math.round(minsUntil / 1440)}d`
   return { ...event, live, urgent, timeLabel }
 })
@@ -349,12 +351,14 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
               const isLive = card.dataset.status === "active" || (startMs <= now && endMs >= now)
               const minsUntil = Math.round((startMs - now) / 60000)
               const isUrgent = !isLive && minsUntil >= 0 && minsUntil <= 60
+              const h = Math.floor(minsUntil / 60)
+              const m = minsUntil % 60
               const timeLabel = isLive
                 ? "Live now"
                 : isUrgent
                 ? "in " + minsUntil + " min"
                 : minsUntil <= 1440
-                ? "in " + Math.round(minsUntil / 60) + "h"
+                ? m > 0 ? "in " + h + "h" + m + "m" : "in " + h + "h"
                 : "in " + Math.round(minsUntil / 1440) + "d"
 
               // Update card classes
