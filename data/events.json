@@ -43,19 +43,5 @@
     "subscriberCount": 2,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
-  },
-  {
-    "id": "1501708784286961784",
-    "name": "Guild Bases Tour #2",
-    "description": "Dear tourists, we will visit:\n[一紙桃箋寄](https://discord.com/channels/1483447710617960508/1501532476210675883): new build\n[Echoes-of-Sin](https://discord.com/channels/1483447710617960508/1486175479185539152) : builder just finalized!\n[貴妃醉](https://discord.com/channels/1483447710617960508/1501791062426128434): new build\n[Clouds](https://discord.com/channels/1483447710617960508/1496620740978540635) : if SiMing is around here",
-    "guildName": "Echoes-of-Sin",
-    "type": "tour",
-    "scheduledStart": "2026-05-07T17:00:00Z",
-    "scheduledEnd": "2026-05-07T17:30:00Z",
-    "location": "Echoes-of-Sin",
-    "status": "scheduled",
-    "subscriberCount": 7,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1501708784286961784",
-    "image": "https://cdn.discordapp.com/guild-events/1501708784286961784/b40b09ecb511f519c94707a7e8b2ecc1.png?size=512"
   }
 ]
