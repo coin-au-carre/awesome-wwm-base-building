@@ -81,10 +81,14 @@ func main() {
 		os.Exit(1)
 	}
 
+	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer cancel()
+
+	discord.PullOnStart(*root, responder)
+	discord.StartDataWatcher(ctx, *root, responder)
+
 	slog.Info("bot running")
-	stop := make(chan os.Signal, 1)
-	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
-	<-stop
+	<-ctx.Done()
 
 	slog.Info("shutting down")
 }
