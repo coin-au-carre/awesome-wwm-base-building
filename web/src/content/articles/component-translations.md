@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69fd1c26&is=69fbcaa6&hm=77af0248e1a902886c322e9494353bfe33adc4cb269b1e46c5c77743b18eeb94&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=69fdc4e6&is=69fc7366&hm=7a3120f769769246f6903d6c7c796015c692910772c175244f2a60d9ff45e4b8&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69fd1d11&is=69fbcb91&hm=0376a6b5f123e02b5040f6cd95a0539451c652495ea4b32609b5c2657622a53a&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=69fdc5d1&is=69fc7451&hm=867b6675bd3b6d230097e10edd4acec02572e26ae34b862273b8e9ef93c2ff7e&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
