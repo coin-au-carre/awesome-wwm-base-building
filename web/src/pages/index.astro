@@ -305,8 +305,11 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
           return (
             <a
               href={`${BASE}/events`}
-              class={`group flex flex-1 items-center gap-3 rounded-xl bg-card hover:shadow-sm transition-all px-3 py-2.5 ${live ? "event-live bg-green-500/5" : urgent ? "event-urgent bg-cyan-500/5" : "ring-1 ring-cyan-500/25 hover:ring-cyan-500/50"}`}
+              class={`event-card group flex flex-1 items-center gap-3 rounded-xl bg-card hover:shadow-sm transition-all px-3 py-2.5 ${live ? "event-live bg-green-500/5" : urgent ? "event-urgent bg-cyan-500/5" : "ring-1 ring-cyan-500/25 hover:ring-cyan-500/50"}`}
               data-umami-event="upcoming_event_click"
+              data-start={event.scheduledStart}
+              data-end={event.scheduledEnd ?? ""}
+              data-status={event.status ?? ""}
             >
               {event.image ? (
                 <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-black">
@@ -317,14 +320,14 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   />
                 </div>
               ) : (
-                <div class={`shrink-0 w-20 aspect-video rounded-md flex items-center justify-center ${live ? "bg-green-500/20" : urgent ? "bg-cyan-500/20" : "bg-cyan-500/10"}`}>
-                  <CalendarDotIcon weight="duotone" className={`size-5 ${live ? "text-green-300" : urgent ? "text-cyan-300" : "text-cyan-400"}`} />
+                <div class={`event-icon-bg shrink-0 w-20 aspect-video rounded-md flex items-center justify-center ${live ? "bg-green-500/20" : urgent ? "bg-cyan-500/20" : "bg-cyan-500/10"}`}>
+                  <CalendarDotIcon weight="duotone" className={`event-icon size-5 ${live ? "text-green-300" : urgent ? "text-cyan-300" : "text-cyan-400"}`} />
                 </div>
               )}
               <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-1.5 mb-0.5">
-                  <span class={`inline-block size-1.5 rounded-full shrink-0 ${live ? "bg-green-400 animate-ping" : urgent ? "bg-cyan-300 animate-ping" : "bg-cyan-400 animate-pulse"}`} />
-                  <span class={`text-[10px] font-semibold uppercase tracking-widest ${live ? "text-green-400" : urgent ? "text-cyan-300" : "text-cyan-400"}`}>
+                  <span class={`event-dot inline-block size-1.5 rounded-full shrink-0 ${live ? "bg-green-400 animate-ping" : urgent ? "bg-cyan-300 animate-ping" : "bg-cyan-400 animate-pulse"}`} />
+                  <span class={`event-label text-[10px] font-semibold uppercase tracking-widest ${live ? "text-green-400" : urgent ? "text-cyan-300" : "text-cyan-400"}`}>
                     {live ? "🟢 " : urgent ? "🔔 " : ""}Event {timeLabel}
                   </span>
                 </div>
@@ -333,10 +336,77 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <p class="text-xs text-muted-foreground/70 truncate">{event.guildName}</p>
                 )}
               </div>
-              <svg class={`size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 ${live ? "text-green-400" : urgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              <svg class={`event-arrow size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 ${live ? "text-green-400" : urgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
           )
         })}
+        <script is:inline>
+          function updateEventCards() {
+            const now = Date.now()
+            document.querySelectorAll(".event-card").forEach(function(card) {
+              const startMs = new Date(card.dataset.start).getTime()
+              const endMs = card.dataset.end ? new Date(card.dataset.end).getTime() : startMs
+              const isLive = card.dataset.status === "active" || (startMs <= now && endMs >= now)
+              const minsUntil = Math.round((startMs - now) / 60000)
+              const isUrgent = !isLive && minsUntil >= 0 && minsUntil <= 60
+              const timeLabel = isLive
+                ? "Live now"
+                : isUrgent
+                ? "in " + minsUntil + " min"
+                : minsUntil <= 1440
+                ? "in " + Math.round(minsUntil / 60) + "h"
+                : "in " + Math.round(minsUntil / 1440) + "d"
+
+              // Update card classes
+              card.classList.remove("event-live", "event-urgent", "ring-1", "ring-cyan-500/25", "hover:ring-cyan-500/50", "bg-green-500/5", "bg-cyan-500/5")
+              if (isLive) {
+                card.classList.add("event-live", "bg-green-500/5")
+              } else if (isUrgent) {
+                card.classList.add("event-urgent", "bg-cyan-500/5")
+              } else {
+                card.classList.add("ring-1", "ring-cyan-500/25", "hover:ring-cyan-500/50")
+              }
+
+              // Update dot
+              const dot = card.querySelector(".event-dot")
+              if (dot) {
+                dot.className = "event-dot inline-block size-1.5 rounded-full shrink-0 " +
+                  (isLive ? "bg-green-400 animate-ping" : isUrgent ? "bg-cyan-300 animate-ping" : "bg-cyan-400 animate-pulse")
+              }
+
+              // Update label
+              const label = card.querySelector(".event-label")
+              if (label) {
+                label.className = "event-label text-[10px] font-semibold uppercase tracking-widest " +
+                  (isLive ? "text-green-400" : isUrgent ? "text-cyan-300" : "text-cyan-400")
+                label.textContent = (isLive ? "🟢 " : isUrgent ? "🔔 " : "") + "Event " + timeLabel
+              }
+
+              // Update icon bg
+              const iconBg = card.querySelector(".event-icon-bg")
+              if (iconBg) {
+                iconBg.className = "event-icon-bg shrink-0 w-20 aspect-video rounded-md flex items-center justify-center " +
+                  (isLive ? "bg-green-500/20" : isUrgent ? "bg-cyan-500/20" : "bg-cyan-500/10")
+              }
+
+              // Update icon color
+              const icon = card.querySelector(".event-icon")
+              if (icon) {
+                icon.className = "event-icon size-5 " +
+                  (isLive ? "text-green-300" : isUrgent ? "text-cyan-300" : "text-cyan-400")
+              }
+
+              // Update arrow color
+              const arrow = card.querySelector(".event-arrow")
+              if (arrow) {
+                arrow.className = "event-arrow size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 " +
+                  (isLive ? "text-green-400" : isUrgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400")
+              }
+            })
+          }
+          updateEventCards()
+          setInterval(updateEventCards, 30000)
+        </script>
       </div>
     )}
 
