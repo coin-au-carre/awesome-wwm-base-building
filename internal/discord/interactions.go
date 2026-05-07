@@ -23,6 +23,7 @@ const (
 	helpCommandName         = "commands"
 	builderCommandName      = "builder"
 	warningListCommandName  = "warning-list"
+	syncDataCommandName     = "sync-data"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 )
@@ -103,13 +104,17 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Name:        warningListCommandName,
 			Description: "Show the warning list (only you see the result)",
 		},
+		{
+			Name:        syncDataCommandName,
+			Description: "Trigger a guild data sync (Trusted Eye only)",
+		},
 	})
 	if err != nil {
 		slog.Error("registering commands", "err", err)
 	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID, trustedEyeRoleID, githubToken string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommandAutocomplete:
@@ -143,6 +148,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleBuilderCommand(s, i, root)
 			case warningListCommandName:
 				handleWarningListCommand(s, i)
+			case syncDataCommandName:
+				handleSyncDataCommand(s, i, trustedEyeRoleID, githubToken)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID
