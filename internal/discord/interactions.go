@@ -19,11 +19,11 @@ const (
 	guildLinkCommandName   = "guild"
 	soloLinkCommandName    = "solo"
 	randomCommandName      = "random"
-	myVotesCommandName      = "my-votes"
-	helpCommandName         = "commands"
-	builderCommandName      = "builder"
-	warningListCommandName  = "warning-list"
-	syncDataCommandName     = "sync-data"
+	myVotesCommandName     = "my-votes"
+	helpCommandName        = "commands"
+	builderCommandName     = "builder"
+	warningListCommandName = "warning-list"
+	syncDataCommandName    = "sync-data"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 )
@@ -106,7 +106,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 		},
 		{
 			Name:        syncDataCommandName,
-			Description: "Trigger a guild data sync (Trusted Eye only)",
+			Description: "Trigger data sync on guilds, solo, tutorials (elevated roles only)",
 		},
 	})
 	if err != nil {
@@ -114,7 +114,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID, botChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommandAutocomplete:
@@ -149,7 +149,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case warningListCommandName:
 				handleWarningListCommand(s, i)
 			case syncDataCommandName:
-				handleSyncDataCommand(s, i, bot, devChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
+				handleSyncDataCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID

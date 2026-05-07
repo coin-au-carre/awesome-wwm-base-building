@@ -16,7 +16,7 @@ import (
 const (
 	githubRepo   = "coin-au-carre/awesome-wwm-base-building"
 	syncCooldown = 5 * time.Minute
-	pollInterval = 15 * time.Second
+	pollInterval = 10 * time.Second
 	pollTimeout  = 10 * time.Minute
 	findRunLimit = 30 * time.Second
 )
@@ -135,7 +135,7 @@ func pollSyncProgress(bot *Bot, channelID, msgID, triggeredBy string, triggerTim
 
 		stepInfo := ""
 		if prog.currentStep != "" {
-			stepInfo = " • " + prog.currentStep
+			stepInfo = " • " + rubyStepName(prog.currentStep)
 		}
 		bot.EditMessage(channelID, msgID, fmt.Sprintf(
 			"%s\n%s %d%%%s — _%s elapsed_",
@@ -143,6 +143,28 @@ func pollSyncProgress(bot *Bot, channelID, msgID, triggeredBy string, triggerTim
 		))
 
 		time.Sleep(pollInterval)
+	}
+}
+
+func rubyStepName(name string) string {
+	lower := strings.ToLower(name)
+	switch {
+	case strings.Contains(lower, "set up job"):
+		return "*(stretching awake...)*"
+	case strings.Contains(lower, "checkout"):
+		return "*(finding the path...)*"
+	case strings.Contains(lower, "go"):
+		return "*(sharpening the tools...)*"
+	case strings.Contains(lower, "task"):
+		return "*(reading the scrolls...)*"
+	case strings.Contains(lower, "sync"):
+		return "*(wandering through guild halls...)*"
+	case strings.Contains(lower, "commit"):
+		return "*(sealing the records...)*"
+	case strings.Contains(lower, "post"):
+		return "*(tidying up...)*"
+	default:
+		return name
 	}
 }
 
