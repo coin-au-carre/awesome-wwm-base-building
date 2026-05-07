@@ -4,7 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"log/slog"
+	"os/exec"
 	"strings"
+	"sync"
 
 	"ruby/internal/guild"
 
@@ -92,7 +94,7 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	}
 }
 
-func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, root, submissionChannelID, discoveriesChannelID string) {
+func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, root, submissionChannelID, discoveriesChannelID, devChannelID string) {
 	fields := modalFields(i.ModalSubmitData().Components)
 
 	name, guildID := parseLocation(fields["name"])
@@ -153,6 +155,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	}
 
 	slog.Info("guild proposed", "user", memberDisplayName(i), "name", name, "appreciation", appreciation, "score", score)
+	go gitCommitAndPush(root, "data: scout-guild", bot, devChannelID)
 
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
@@ -489,4 +492,48 @@ func filterTags(tags []string) []string {
 		return []string{}
 	}
 	return out
+}
+
+var gitMu sync.Mutex
+
+func gitCommitAndPush(root, message string, bot *Bot, devChannelID string) {
+	gitMu.Lock()
+	defer gitMu.Unlock()
+
+	run := func(args ...string) ([]byte, error) {
+		cmd := exec.Command("git", append([]string{"-C", root}, args...)...)
+		out, err := cmd.CombinedOutput()
+		return out, err
+	}
+
+	fail := func(step string, err error, out []byte) {
+		slog.Error("git "+step, "err", err, "output", string(out))
+		if devChannelID != "" {
+			bot.Send(devChannelID, fmt.Sprintf("⚠️ scout-guild git error at `%s`: %v\n```\n%s\n```", step, err, out))
+		}
+	}
+
+	if out, err := run("add", "data/guilds.json"); err != nil {
+		fail("add", err, out)
+		return
+	}
+	// If a concurrent scout already committed our entry, nothing will be staged.
+	if out, err := run("diff", "--staged", "--quiet"); err == nil {
+		slog.Info("git: nothing to commit, entry already included", "output", string(out))
+		return
+	}
+	if out, err := run("commit", "-m", message); err != nil {
+		fail("commit", err, out)
+		return
+	}
+	if out, err := run("pull", "--rebase"); err != nil {
+		_, _ = run("rebase", "--abort")
+		fail("pull --rebase", err, out)
+		return
+	}
+	if out, err := run("push"); err != nil {
+		fail("push", err, out)
+		return
+	}
+	slog.Info("git commit and push done", "message", message)
 }
