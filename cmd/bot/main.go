@@ -67,10 +67,11 @@ func main() {
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
 	logsChannelID := os.Getenv("LOGS_CHANNEL_ID")
 	trustedEyeRoleID := os.Getenv("TRUSTED_EYE_ROLE_ID")
+	trustedMemberRoleID := os.Getenv("TRUSTED_MEMBER_ROLE_ID")
 	githubToken := os.Getenv("GITHUB_ACTIONS_TOKEN")
 	bot.Session.AddHandler(onReady(discordGuildID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
-	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, trustedEyeRoleID, githubToken, responder))
+	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken, responder))
 	bot.Session.AddHandler(onGuildMemberAdd())
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 

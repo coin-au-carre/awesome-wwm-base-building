@@ -114,7 +114,7 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	}
 }
 
-func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID, trustedEyeRoleID, githubToken string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
+func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannelID, guildForumChannelID, soloForumChannelID, devChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken string, responder LLMResponder) func(*discordgo.Session, *discordgo.InteractionCreate) {
 	return func(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		switch i.Type {
 		case discordgo.InteractionApplicationCommandAutocomplete:
@@ -149,7 +149,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case warningListCommandName:
 				handleWarningListCommand(s, i)
 			case syncDataCommandName:
-				handleSyncDataCommand(s, i, trustedEyeRoleID, githubToken)
+				handleSyncDataCommand(s, i, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID
