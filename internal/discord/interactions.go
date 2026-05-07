@@ -149,7 +149,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case warningListCommandName:
 				handleWarningListCommand(s, i)
 			case syncDataCommandName:
-				handleSyncDataCommand(s, i, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
+				handleSyncDataCommand(s, i, bot, devChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID

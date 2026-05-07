@@ -22,7 +22,7 @@ var (
 	lastSyncTime time.Time
 )
 
-func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, allowedRoleIDs []string, githubToken string) {
+func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
 	if !memberHasAnyRole(i, allowedRoleIDs) {
 		respondEphemeral(s, i, "*(you need the Trusted Eye role to trigger a sync.)*")
 		return
@@ -61,6 +61,9 @@ func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 	syncMu.Unlock()
 
 	respondEphemeral(s, i, "Sync triggered! Check [GitHub Actions](https://github.com/"+githubRepo+"/actions) for progress.")
+	if notifyChannelID != "" {
+		bot.Send(notifyChannelID, fmt.Sprintf("🔄 **%s** triggered a guild data sync.", memberDisplayName(i)))
+	}
 }
 
 func workflowIsActive(token string) (bool, error) {
