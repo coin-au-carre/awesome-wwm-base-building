@@ -1,5 +1,22 @@
 [
 	{
+		"name": "BearingBaddies",
+		"builders": [
+			"AegisNite"
+		],
+		"tags": [
+			"Fun",
+			"Creative",
+			"Cute",
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "The cute bear\nField crops",
+		"score": 0,
+		"lastModified": "May 7, 2026 at 10:42 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "猫爪",
 		"builders": [
 			"烏摩巴麗",
