@@ -22,8 +22,8 @@ var (
 	lastSyncTime time.Time
 )
 
-func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, trustedEyeRoleID, githubToken string) {
-	if !memberHasRole(i, trustedEyeRoleID) {
+func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, allowedRoleIDs []string, githubToken string) {
+	if !memberHasAnyRole(i, allowedRoleIDs) {
 		respondEphemeral(s, i, "*(you need the Trusted Eye role to trigger a sync.)*")
 		return
 	}
@@ -120,12 +120,18 @@ func triggerGitHubWorkflow(token string) error {
 	return nil
 }
 
-func memberHasRole(i *discordgo.InteractionCreate, roleID string) bool {
-	if i.Member == nil || roleID == "" {
+func memberHasAnyRole(i *discordgo.InteractionCreate, roleIDs []string) bool {
+	if i.Member == nil {
 		return false
 	}
+	allowed := make(map[string]bool, len(roleIDs))
+	for _, id := range roleIDs {
+		if id != "" {
+			allowed[id] = true
+		}
+	}
 	for _, r := range i.Member.Roles {
-		if r == roleID {
+		if allowed[r] {
 			return true
 		}
 	}
