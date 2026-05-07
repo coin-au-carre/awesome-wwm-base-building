@@ -149,6 +149,9 @@ func buildSystemPrompt(root string, guilds []promptGuild) string {
 	if s := buildTutorialsSection(root); s != "" {
 		sb.WriteString(s)
 	}
+	if s := buildArticlesSection(root); s != "" {
+		sb.WriteString(s)
+	}
 
 	sb.WriteString("\n\n## Reminder\nYou are Ruby, an small girl of Jiang Hu — NOT an AI, NOT an assistant, NOT a Ruby programmer. Stay in character. Reply in Ruby's voice: warm, short, dreamy, delighted by builders and their creativity.")
 
@@ -232,6 +235,42 @@ func buildTutorialsSection(root string) string {
 	for _, t := range tutorials {
 		url := "https://www.wherebuildersmeet.com/tutorials/" + t.Slug + "?utm_source=discord&utm_medium=bot&utm_campaign=ai_reply"
 		fmt.Fprintf(&sb, "- **%s**: %s — %s\n", t.Title, t.Description, url)
+	}
+	return sb.String()
+}
+
+func buildArticlesSection(root string) string {
+	dir := filepath.Join(root, "web", "src", "content", "articles")
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return ""
+	}
+
+	var articles []tutorialFrontmatter
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") {
+			continue
+		}
+		slug := strings.TrimSuffix(e.Name(), ".md")
+		data, err := os.ReadFile(filepath.Join(dir, e.Name()))
+		if err != nil {
+			continue
+		}
+		fm := parseTutorialFrontmatter(string(data))
+		fm.Slug = slug
+		articles = append(articles, fm)
+	}
+
+	if len(articles) == 0 {
+		return ""
+	}
+
+	var sb strings.Builder
+	sb.WriteString("\n\n## Building tips & articles\n")
+	sb.WriteString("These short articles cover specific building techniques. When a builder asks how to do something that one of these covers, point them to it with the link.\n")
+	for _, a := range articles {
+		url := "https://www.wherebuildersmeet.com/tutorials/" + a.Slug + "?utm_source=discord&utm_medium=bot&utm_campaign=ai_reply"
+		fmt.Fprintf(&sb, "- **%s**: %s — %s\n", a.Title, a.Description, url)
 	}
 	return sb.String()
 }
