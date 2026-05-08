@@ -168,6 +168,9 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 				guilds[urlIdx].Name = name
 				guildMap[key] = urlIdx
 			}
+			// Always sync the build title suffix from the thread name (first-post parser
+			// overrides this later if an explicit "Build Title:" field is present).
+			guilds[urlIdx].BuildTitle = buildTitleFromThread
 			// Already known — no new entry needed.
 			continue
 		}
