@@ -116,34 +116,67 @@ function isTiktokURL(rawURL: string): boolean {
       </h3>
       {sectionsWithIndex.map(sec => (
         <div>
-          {sec.label && (
-            <p class="text-sm font-medium mb-2">{sec.label}</p>
+          {sec.label ? (
+            <details open class="group/sec">
+              <summary class="flex items-center gap-2 cursor-pointer list-none mb-2 select-none">
+                <svg class="w-4 h-4 text-muted-foreground transition-transform group-open/sec:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+                <span class="text-sm font-medium">{sec.label}</span>
+              </summary>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {sec.items.map(({ src, index }) => (
+                  <button
+                    type="button"
+                    class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
+                    data-src={src}
+                    data-thumb={thumbUrl(src)}
+                    data-index={index}
+                  >
+                    <img
+                      src={thumbUrl(src)}
+                      alt={`Screenshot ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                      onerror="this.closest('button').style.display='none'"
+                      class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <svg class="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                      </svg>
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </details>
+          ) : (
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {sec.items.map(({ src, index }) => (
+                <button
+                  type="button"
+                  class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
+                  data-src={src}
+                  data-thumb={thumbUrl(src)}
+                  data-index={index}
+                >
+                  <img
+                    src={thumbUrl(src)}
+                    alt={`Screenshot ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    onerror="this.closest('button').style.display='none'"
+                    class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                    <svg class="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                    </svg>
+                  </div>
+                </button>
+              ))}
+            </div>
           )}
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {sec.items.map(({ src, index }) => (
-              <button
-                type="button"
-                class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
-                data-src={src}
-                data-thumb={thumbUrl(src)}
-                data-index={index}
-              >
-                <img
-                  src={thumbUrl(src)}
-                  alt={`Screenshot ${index + 1}`}
-                  loading="lazy"
-                  decoding="async"
-                  onerror="this.closest('button').style.display='none'"
-                  class="w-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105"
-                />
-                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <svg class="opacity-0 group-hover:opacity-100 transition-opacity w-8 h-8 text-white drop-shadow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
-                  </svg>
-                </div>
-              </button>
-            ))}
-          </div>
         </div>
       ))}
     </section>
