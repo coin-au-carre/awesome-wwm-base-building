@@ -314,7 +314,7 @@
     "authorName": "Hausballaz",
     "authorId": "411339877574115338",
     "images": [
-      "https://cdn.discordapp.com/attachments/1483451090048520252/1494428560109338735/20264174515.png?ex=69fe420d\u0026is=69fcf08d\u0026hm=0f590c0c12483e7b58dcf16729ddfa9f4c0c8023467d84ff3b928a9f298f8c73\u0026"
+      "https://cdn.discordapp.com/attachments/1483451090048520252/1494428560109338735/20264174515.png?ex=69feeacd\u0026is=69fd994d\u0026hm=7f0ee756d3afb87bc12057d842b784900be3aed21e0d2023eef5428ff5ca8dc1\u0026"
     ],
     "reactions": 2,
     "reactionDetails": [
@@ -1281,8 +1281,17 @@
     "images": [
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502171428680761375/202658125232.png?ex=69febda9\u0026is=69fd6c29\u0026hm=cc109f460a49d93a961ccc7b91bef366d5d1e9c2a391a790fa138489ed290826\u0026"
     ],
-    "reactions": 0,
-    "reactionDetails": null,
+    "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 1
+      },
+      {
+        "emoji": "blobcatdrink",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1502171428945133729",
     "postedAt": "2026-05-08T04:52:57Z"
   },
@@ -1293,8 +1302,17 @@
     "images": [
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502171651557818418/202658125337.png?ex=69febdde\u0026is=69fd6c5e\u0026hm=1db6a77e560c66bf0e5ac7f04a816675fd1ccb7d3e6c3443f37993f8da6f5a11\u0026"
     ],
-    "reactions": 0,
-    "reactionDetails": null,
+    "reactions": 2,
+    "reactionDetails": [
+      {
+        "emoji": "❤️",
+        "count": 1
+      },
+      {
+        "emoji": "Cat_Besito",
+        "count": 1
+      }
+    ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1502171651612213309",
     "postedAt": "2026-05-08T04:53:50Z"
   },
@@ -1308,11 +1326,11 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502173911264002188/image.png?ex=69febff9\u0026is=69fd6e79\u0026hm=32fb97bc25979e91f7c2c0fe77a41faf184913a29963e7ac2ce065fe98d6be6e\u0026",
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502173912103125012/image.png?ex=69febff9\u0026is=69fd6e79\u0026hm=a51cf93b71693e3f6fbdf93c8bf99b9e93f158dc8d52b94c18647c4934bb1560\u0026"
     ],
-    "reactions": 2,
+    "reactions": 3,
     "reactionDetails": [
       {
         "emoji": "❤️",
-        "count": 1
+        "count": 2
       },
       {
         "emoji": "🫶🏻",
@@ -1329,11 +1347,11 @@
     "images": [
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502181397580742776/202658133212.png?ex=69fec6f2\u0026is=69fd7572\u0026hm=1880683e44a59a4a1f38c9bad098acbb290e64fffad4db0958a4819a9601eaf5\u0026"
     ],
-    "reactions": 1,
+    "reactions": 2,
     "reactionDetails": [
       {
         "emoji": "❤️",
-        "count": 1
+        "count": 2
       }
     ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1502181397811695708",
@@ -1347,11 +1365,11 @@
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502211507814006867/image.png?ex=69fee2fd\u0026is=69fd917d\u0026hm=1bc1e0ba2e913094af6944958a2ccc976415f38bbb4a28ca8382810b988a729b\u0026",
       "https://cdn.discordapp.com/attachments/1483451090048520252/1502211508220989661/image.png?ex=69fee2fd\u0026is=69fd917d\u0026hm=f5220778eb658d1688c1a2badec6ade4f87164462e0f13e3171113f0e992f6af\u0026"
     ],
-    "reactions": 1,
+    "reactions": 2,
     "reactionDetails": [
       {
         "emoji": "❤️",
-        "count": 1
+        "count": 2
       }
     ],
     "messageUrl": "https://discord.com/channels/1483447710617960508/1483451090048520252/1502211508652740628",
