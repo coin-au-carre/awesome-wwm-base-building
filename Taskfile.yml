@@ -81,6 +81,11 @@ tasks:
     desc: delete all registered Discord slash commands (global + guild), then restart bot to re-register
     cmd: go run ./cmd/purge-commands {{.CLI_ARGS}}
 
+  # ── assign-roles (force-assign builder role to all forum authors) ──
+  assign-roles:
+    desc: "force-assign the builder role to all forum authors, ignoring role cache"
+    cmd: go run ./cmd/assign-roles
+
   # ── announce (test general-channel announcement card) ────────
   announce:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
