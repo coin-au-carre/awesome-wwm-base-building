@@ -246,7 +246,9 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
     return new URLSearchParams(window.location.search).get("q") ?? ""
   })
   const [page, setPage] = useState(1)
-  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(new Set())
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
+    () => new Set(guilds.length > 0 ? guilds.map(g => g.name) : [])
+  )
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isFirstRender = useRef(true)
   const inputRef = useRef<HTMLInputElement>(null)
