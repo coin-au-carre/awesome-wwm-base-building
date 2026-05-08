@@ -6573,22 +6573,6 @@
 	{
 		"id": "10001675",
 		"name": "ECL",
-		"builders": null,
-		"tags": [
-			"Arena",
-			"Mountain",
-			"River",
-			"Nature",
-			"City"
-		],
-		"discordThread": "https://discord.com/channels/1483447710617960508/1502311059028181095",
-		"score": 0,
-		"createdAt": "January 1, 0001 at 12:00 AM UTC",
-		"lastModified": "May 8, 2026 at 02:32 PM UTC"
-	},
-	{
-		"id": "10001675",
-		"name": "ECL",
 		"builders": [
 			"MOONN"
 		],
