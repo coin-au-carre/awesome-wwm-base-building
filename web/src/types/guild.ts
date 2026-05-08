@@ -24,6 +24,7 @@ export interface Guild {
   createdAt?: string
   lastModified?: string
   scoutedByDiscordId?: string
+  disbandedAt?: string
   buildTitle?: string
   isCurrent?: boolean
   hostedAtGuildName?: string
