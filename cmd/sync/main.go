@@ -20,6 +20,7 @@ import (
 func main() {
 	dryRun := flag.Bool("dry-run", false, "crawl Discord but skip writing JSON files")
 	noNotify := flag.Bool("no-notify", false, "skip posting summary to bot channel")
+	forceRole := flag.Bool("force-role", false, "reassign roles to all authors, ignoring the role cache")
 	root := flag.String("root", cmdutil.RootDir(), "root directory containing guilds.json and solos.json")
 	guildFilter := flag.String("guild", "", "only sync threads whose name contains this string (case-insensitive)")
 	flag.Parse()
@@ -258,6 +259,9 @@ func main() {
 				slog.Warn("loading role cache, skipping cache", "err", err)
 				roleCache = nil
 			}
+			if *forceRole {
+				roleCache = nil
+			}
 			discordGuildID := forumCh.GuildID
 			if baseBuilderRoleID != "" {
 				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, nil, roleCache)
@@ -270,8 +274,10 @@ func main() {
 				slog.Info("assigning critic role", "total_voters", len(mergedCounts))
 				discord.AssignRoleToVoters(bot.Session, discordGuildID, baseCriticRoleID, mergedCounts, 6, roleCache)
 			}
-			if err := roleCache.Save(); err != nil {
-				slog.Warn("saving role cache", "err", err)
+			if roleCache != nil {
+				if err := roleCache.Save(); err != nil {
+					slog.Warn("saving role cache", "err", err)
+				}
 			}
 		}
 	}
