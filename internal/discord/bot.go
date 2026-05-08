@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
+	"strings"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -57,6 +58,71 @@ func (b *Bot) Reply(channelID, messageID, msg string) {
 	if err != nil {
 		slog.Warn("failed to send reply", "err", err)
 	}
+}
+
+// ReplyChunked splits msg at paragraph/sentence boundaries and sends each chunk
+// as a reply, staying within Discord's 2000-character limit.
+func (b *Bot) ReplyChunked(channelID, messageID, msg string) {
+	for i, chunk := range splitMessage(msg, 2000) {
+		ref := messageID
+		if i > 0 {
+			ref = ""
+		}
+		var err error
+		if ref != "" {
+			_, err = b.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
+				Content:   chunk,
+				Reference: &discordgo.MessageReference{MessageID: ref},
+				Flags:     discordgo.MessageFlagsSuppressEmbeds,
+			})
+		} else {
+			_, err = b.Session.ChannelMessageSend(channelID, chunk)
+		}
+		if err != nil {
+			slog.Warn("failed to send reply chunk", "chunk", i, "err", err)
+		}
+	}
+}
+
+// splitMessage splits text into chunks of at most maxLen characters,
+// breaking at paragraph boundaries first, then sentence ends, then words.
+func splitMessage(text string, maxLen int) []string {
+	if len(text) <= maxLen {
+		return []string{text}
+	}
+
+	var chunks []string
+	for len(text) > 0 {
+		if len(text) <= maxLen {
+			chunks = append(chunks, text)
+			break
+		}
+		cut := findSplit(text, maxLen)
+		chunks = append(chunks, strings.TrimSpace(text[:cut]))
+		text = strings.TrimSpace(text[cut:])
+	}
+	return chunks
+}
+
+// findSplit returns the index at which to cut text, preferring paragraph > sentence > word boundaries.
+func findSplit(text string, maxLen int) int {
+	window := text[:maxLen]
+
+	if i := strings.LastIndex(window, "\n\n"); i > 0 {
+		return i + 2
+	}
+	if i := strings.LastIndex(window, "\n"); i > 0 {
+		return i + 1
+	}
+	for _, sep := range []string{". ", "! ", "? "} {
+		if i := strings.LastIndex(window, sep); i > 0 {
+			return i + len(sep)
+		}
+	}
+	if i := strings.LastIndex(window, " "); i > 0 {
+		return i + 1
+	}
+	return maxLen
 }
 
 func (b *Bot) ReplyWithEmbeds(channelID, messageID, msg string) {

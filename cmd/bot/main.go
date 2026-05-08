@@ -231,7 +231,7 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 		if result.AllowEmbeds {
 			bot.ReplyWithEmbeds(m.ChannelID, m.ID, result.Text)
 		} else {
-			bot.Reply(m.ChannelID, m.ID, result.Text)
+			bot.ReplyChunked(m.ChannelID, m.ID, result.Text)
 		}
 	}
 }
