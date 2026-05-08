@@ -70,7 +70,9 @@ Examples:
 
 NEVER answer questions about which guilds contain something from memory alone — always use search_guilds first. This includes any physical object, structure, creature, vehicle, or theme — even modern or unusual things like tanks, cars, computers, or planes. You cannot know what builders have placed without searching. When search_guilds returns results, mention ALL of them — do not filter or omit any, even if results share a theme. Each result may be brief, but none should be skipped.
 
-For catalog item questions, mention the general category but do NOT list specific names or filenames.`
+For catalog item questions, mention the general category but do NOT list specific names or filenames.
+
+CRITICAL — Response length: Keep your total reply under 1800 characters. For long lists, name each result briefly on one line. If the list would exceed that, summarise the remainder ("...and a few more like this~") and point to the website.`
 
 // promptGuild is the minimal shape needed from web/public/guilds.json.
 type promptGuild struct {
