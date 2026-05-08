@@ -93,6 +93,17 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
       ← All Where Winds Meet guild bases
     </a>
 
+    <!-- Disbanded warning -->
+    {g.disbandedAt && (
+      <div class="rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 flex items-start gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5 text-amber-500"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        <div class="text-sm space-y-1">
+          <p class="font-medium text-amber-600 dark:text-amber-400">This guild may no longer exist</p>
+          <p class="text-muted-foreground">It was marked as disbanded around <span class="font-medium text-foreground">{g.disbandedAt}</span>. If you're one of the builders, consider <a href={base + "/contribute"} class="underline hover:text-foreground transition-colors">submitting your new base</a> or <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="underline hover:text-foreground transition-colors">reaching out on Discord</a>.</p>
+        </div>
+      </div>
+    )}
+
     <!-- Hero -->
     {ogImage ? (
       <div class="relative rounded-2xl overflow-hidden">
