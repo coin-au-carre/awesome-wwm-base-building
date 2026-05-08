@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
-import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { getGuildsSortedByScore, formatBuilderName, getUsers, getGuildBuilds } from "@/lib/guilds"
@@ -126,15 +125,6 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
                   {g.isCurrent && <span class="not-italic text-[10px] font-semibold bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 rounded-full px-2 py-0.5">current</span>}
                 </p>
               )}
-              {g.tags && g.tags.length > 0 && (
-                <div class="flex flex-wrap gap-1.5 mt-3">
-                  {g.tags.map((tag: string) => (
-                    <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/15 text-white border border-white/25 backdrop-blur-sm">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
             </div>
             <button
               id="share-btn"
@@ -161,11 +151,6 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
               {g.buildTitle}
               {g.isCurrent && <span class="not-italic text-[10px] font-semibold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 rounded-full px-2 py-0.5">current</span>}
             </p>
-          )}
-          {g.tags && g.tags.length > 0 && (
-            <div class="flex flex-wrap gap-1.5 mt-3">
-              {g.tags.map((tag: string) => <Badge variant="secondary">{tag}</Badge>)}
-            </div>
           )}
         </div>
         <button
