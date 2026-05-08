@@ -1,5 +1,20 @@
 [
 	{
+		"name": "EON",
+		"builders": [
+			"Makima-D"
+		],
+		"tags": [
+			"Creative",
+			"Floating Island"
+		],
+		"discordThread": "",
+		"whatToVisit": "High platform in the sky",
+		"score": 0,
+		"lastModified": "May 8, 2026 at 12:23 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "BearingBaddies",
 		"builders": [
 			"AegisNite"
