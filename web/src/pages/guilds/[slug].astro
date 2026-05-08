@@ -38,7 +38,7 @@ const tagsStr = g.tags?.slice(0, 3).join(", ")
 const fallbackDesc = [
   buildersStr ? `Built by ${buildersStr}` : guildDisplayName,
   tagsStr ? ` (${tagsStr})` : "",
-  ". Community-voted guild base showcase.",
+  ". Community guild base showcase.",
 ].join("")
 const pageDesc = g.lore ? g.lore.slice(0, 160) : fallbackDesc
 const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base building", ...(g.tags ?? [])].join(", ")
