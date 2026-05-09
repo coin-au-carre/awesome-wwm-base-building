@@ -1,5 +1,20 @@
 [
 	{
+		"name": "RoastGeese",
+		"builders": [
+			"滾Ocean"
+		],
+		"tags": [
+			"Nature",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Elven village\nMarketplace\nBathhouse (flower women room and tree men room)\nGuild hall\nLiving place",
+		"score": 0,
+		"lastModified": "May 9, 2026 at 10:33 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "EON",
 		"builders": [
 			"Makima-D"
@@ -559,8 +574,7 @@
 		"whatToVisit": "Marvellous floating islands platform\nWedding alley\nStylish Elevator\nGo to the top!",
 		"score": -10,
 		"lastModified": "April 24, 2026 at 04:51 PM UTC",
-		"scoutedByDiscordId": "149790526076354561",
-		"disbandedAt": "May 1, 2026"
+		"scoutedByDiscordId": "149790526076354561"
 	},
 	{
 		"name": "AlienNuggets",
