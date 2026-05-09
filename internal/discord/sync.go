@@ -344,6 +344,13 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			data:      r.data,
 			reactions: r.reactions,
 		})
+		// Include thread author so they appear in users.json with globalName.
+		if r.data.AuthorID != "" {
+			if userThreads[r.data.AuthorID] == nil {
+				userThreads[r.data.AuthorID] = make(map[string]bool)
+			}
+			userThreads[r.data.AuthorID][r.thread.ID] = true
+		}
 		for _, users := range r.reactions {
 			for _, uid := range users {
 				if userThreads[uid] == nil {

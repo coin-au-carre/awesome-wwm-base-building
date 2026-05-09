@@ -267,6 +267,15 @@ func (r *Responder) Reply(ctx context.Context, channelID, userMessage string, im
 
 		if len(msgs) > maxHistory {
 			msgs = msgs[len(msgs)-maxHistory:]
+			// Trim leading messages that would leave orphaned tool_result blocks.
+			// We need to start with a plain user message (no tool_results).
+			for len(msgs) > 0 {
+				m := msgs[0]
+				if m.Role == anthropic.MessageParamRoleUser && !msgHasToolResults(m) {
+					break
+				}
+				msgs = msgs[1:]
+			}
 		}
 		r.mu.Lock()
 		r.history[channelID] = msgs
@@ -414,6 +423,15 @@ func matchSnippet(text, kw string, contextLen int) string {
 		snippet = snippet + "..."
 	}
 	return strings.ReplaceAll(snippet, "\n", " ")
+}
+
+func msgHasToolResults(msg anthropic.MessageParam) bool {
+	for _, block := range msg.Content {
+		if block.OfToolResult != nil {
+			return true
+		}
+	}
+	return false
 }
 
 func removeBlankLines(s string) string {
