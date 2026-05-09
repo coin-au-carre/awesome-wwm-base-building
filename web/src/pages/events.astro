@@ -6,6 +6,8 @@ import { getUpcomingEvents, EVENT_TYPE_LABELS, EVENT_TYPE_EMOJI } from "@/lib/ev
 import type { EventType } from "@/lib/events"
 import { BASE } from "@/lib/url"
 import { getGuildsSortedByScore } from "@/lib/guilds"
+import { readFileSync } from "fs"
+import { resolve } from "path"
 
 const events = getUpcomingEvents()
 
@@ -13,13 +15,31 @@ const _allGuilds = getGuildsSortedByScore()
 const guildSlugById = new Map(_allGuilds.filter((g) => g.id).map((g) => [g.id!, g.slug]))
 const guildSlugByName = new Map(_allGuilds.map((g) => [(g.guildName ?? g.name).toLowerCase(), g.slug]))
 
-function formatDescription(text: string): string {
-  const escaped = text
+const _usersRaw: Record<string, { username: string; globalName?: string }> = JSON.parse(
+  readFileSync(resolve(process.cwd(), "..", "data/users.json"), "utf-8")
+)
+const discordIdToUsername = new Map(
+  Object.entries(_usersRaw).map(([id, u]) => [id, u.globalName ?? u.username])
+)
+
+function formatDescription(text: string, idToUser: Map<string, string>): string {
+  // Replace <@ID> Discord mentions with @username before HTML-escaping
+  const resolved = text.replace(/<@(\d+)>/g, (_, id) => {
+    const name = idToUser.get(id)
+    return name ? `@${name}` : `<@${id}>`
+  })
+  const escaped = resolved
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-  const linked = escaped.replace(
-    /(https?:\/\/[^\s]+)/g,
+  // markdown links first: [label](url)
+  const mdLinked = escaped.replace(
+    /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">$1</a>',
+  )
+  // bare URLs — skip ones already inside href="..."
+  const linked = mdLinked.replace(
+    /(?<!href=")(https?:\/\/[^\s<"]+)/g,
     '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">$1</a>',
   )
   return linked.replace(/\n/g, "<br>")
@@ -159,7 +179,7 @@ const TYPE_COLORS: Record<EventType, string> = {
               )}
 
               {event.description && (
-                <p class="text-sm text-muted-foreground leading-relaxed" set:html={formatDescription(event.description)} />
+                <p class="text-sm text-muted-foreground leading-relaxed" set:html={formatDescription(event.description, discordIdToUsername)} />
               )}
 
               <!-- Meta row: date, location, attendees -->
