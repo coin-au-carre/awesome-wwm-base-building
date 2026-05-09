@@ -29,7 +29,7 @@ const users = getUsers()
 const scoutUser = g.scoutedByDiscordId ? users[g.scoutedByDiscordId] : undefined
 const scoutName = scoutUser?.nickname ?? scoutUser?.globalName ?? scoutUser?.username
 
-const siblingBuilds = getGuildBuilds(g.name).filter((b) => b.slug !== g.slug)
+const allBuilds = getGuildBuilds(g.name)
 
 const guildDisplayName = stripGuildShowcase(g.guildName || g.name)
 const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
@@ -186,14 +186,41 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
       })
     </script>
 
-    <!-- Other builds from the same guild -->
-    {siblingBuilds.length > 0 && (
+    <!-- All builds from the same guild -->
+    {allBuilds.length > 1 && (
       <div class="rounded-xl border border-border bg-card px-4 py-3 space-y-2.5">
-        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><Layers size={12} />{siblingBuilds.length + 1} builds from this guild</p>
+        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><Layers size={12} />{allBuilds.length} builds from this guild</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {siblingBuilds.map((b) => {
+          {allBuilds.map((b) => {
+            const isCurrent = b.slug === g.slug
             const img = b.coverImage ?? b.screenshots?.[0]
             const bTier = getTier(b.rank, totalGuilds, b.score)
+            if (isCurrent) {
+              return (
+                <div class="flex items-center gap-3 rounded-lg border border-border bg-muted/30 px-3 py-2 opacity-50 cursor-default">
+                  {img ? (
+                    <div class="shrink-0 w-16 aspect-video rounded-md overflow-hidden bg-muted">
+                      <img src={img} alt={b.buildTitle ?? b.name} class="w-full h-full object-cover grayscale" loading="lazy" onerror="this.style.display='none'" />
+                    </div>
+                  ) : (
+                    <div class="shrink-0 w-16 aspect-video rounded-md bg-muted flex items-center justify-center">
+                      <Layers size={16} className="text-muted-foreground/40" />
+                    </div>
+                  )}
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium leading-snug truncate">
+                      {b.buildTitle ?? "Default"}
+                      {b.isCurrent && <span class="ml-1.5 text-[10px] font-semibold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 rounded-full px-1.5 py-0.5 not-italic">current</span>}
+                    </p>
+                    <span class={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] mt-0.5 ${bTier.badge}`} style={bTier.badgeStyle}>
+                      <span class={`size-1.5 rounded-full shrink-0 ${bTier.dot}`} />
+                      {bTier.label}
+                    </span>
+                  </div>
+                  <span class="text-[10px] font-medium text-muted-foreground shrink-0">viewing</span>
+                </div>
+              )
+            }
             return (
               <a
                 href={`${base}/guilds/${b.slug}`}
