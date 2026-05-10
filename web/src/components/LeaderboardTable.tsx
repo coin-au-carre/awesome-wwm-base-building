@@ -8,7 +8,7 @@ declare global {
 import * as React from "react"
 import type { RankedGuild } from "@/types/guild"
 import { getTier } from "@/lib/scoring"
-import { formatBuilderName, stripGuildShowcase, thumbUrl } from "@/lib/format"
+import { formatBuilderName, builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import { isBuilderSubmission } from "@/lib/config"
@@ -45,13 +45,25 @@ interface Props {
   basePath?: string
 }
 
-function formatBuilders(builders: string[] | undefined): string {
+function BuilderNames({ builders }: { builders?: string[] }) {
   const names = (builders ?? []).map(formatBuilderName).filter(Boolean)
-  const s = names.join(", ") || "—"
-  if (s.length <= 50) {
-    return s
-  }
-  return s.slice(0, 50).replace(/,?\s*\w*$/, "") + "..."
+  if (!names.length) return <span>—</span>
+  return (
+    <>
+      {names.map((name, i) => (
+        <React.Fragment key={name}>
+          <a
+            href={url(`/builders/${builderSlug(name)}`)}
+            className="hover:text-primary hover:underline underline-offset-2 transition-colors"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {name}
+          </a>
+          {i < names.length - 1 && ", "}
+        </React.Fragment>
+      ))}
+    </>
+  )
 }
 
 const TAG_PALETTE = [
@@ -165,7 +177,6 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
     <HoverCard open={open} onOpenChange={() => {}} openDelay={0} closeDelay={0}>
       <TableRow
         key={g.slug}
-        onMouseEnter={enter}
         onMouseLeave={leave}
         onClick={() => {
           ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
@@ -181,7 +192,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
             </span>
           </TableCell>
         )}
-        <TableCell>
+        <TableCell onMouseEnter={enter} onMouseLeave={leave}>
           <div className="flex items-center gap-2.5">
             {img && (
               <img
@@ -204,9 +215,9 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
             </HoverCardTrigger>
           </div>
         </TableCell>
-        <TableCell className="text-muted-foreground hidden md:table-cell">
+        <TableCell className="text-muted-foreground hidden md:table-cell" onMouseEnter={leave}>
           <div className="flex items-center gap-1.5">
-            {formatBuilders(g.builders)}
+            <BuilderNames builders={g.builders} />
             {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
           </div>
         </TableCell>
@@ -221,7 +232,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
         {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
         <div className="p-3">
           <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
-          {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by {formatBuilders(g.builders)}</p>}
+          {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by <BuilderNames builders={g.builders} /></p>}
           {g.tags && g.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
           )}
@@ -599,7 +610,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell className="text-muted-foreground hidden md:table-cell">{formatBuilders(best.builders)}</TableCell>
+                  <TableCell className="text-muted-foreground hidden md:table-cell"><BuilderNames builders={best.builders} /></TableCell>
                   <TableCell className="hidden lg:table-cell">
                     <div className="flex flex-wrap gap-1">{allTags.slice(0, 4).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
                   </TableCell>
@@ -641,7 +652,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                     </TableCell>
                     <TableCell className="text-muted-foreground hidden md:table-cell">
                       <div className="flex items-center gap-1.5">
-                        {formatBuilders(g.builders)}
+                        <BuilderNames builders={g.builders} />
                         {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
                       </div>
                     </TableCell>

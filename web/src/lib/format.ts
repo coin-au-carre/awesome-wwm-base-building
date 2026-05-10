@@ -32,3 +32,8 @@ export function formatBuilderName(raw: string): string {
   if (/^<@\d+>$/.test(raw.trim())) { return "" }
   return raw.trim().replace(/\s*\(.*$/, "").trim()
 }
+
+/** URL slug for a builder profile page. */
+export function builderSlug(name: string): string {
+  return slugify(formatBuilderName(name))
+}

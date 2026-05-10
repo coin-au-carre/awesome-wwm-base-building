@@ -2,7 +2,7 @@
 title: "Component Translations"
 description: "Comprehensive chinese translation guide of all components in Where Winds Meet!"
 tags: ["beginner"]
-authors: ["SiMing 司命"]
+authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
 image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a019da4&is=6a004c24&hm=15961019fccdce416f940b2e73747c104dc3c211afef710f502e6953ee4b3b16&"
