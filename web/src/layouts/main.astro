@@ -24,6 +24,7 @@ const _latestEventId = _allEvents.reduce((max, e) => (e.id > max ? e.id : max), 
 const navLinks = [
   { href: `${base}/`, label: "Guilds", version: "2026-05-02-1530" },
   { href: `${base}/solo`, label: "Solo", version: "2026-05-05-1200" },
+  { href: `${base}/blueprints`, label: "Blueprints", version: "2026-05-10-1200", badge: "beta" },
   { href: `${base}/moments`, label: "Moments", version: "2026-04-30-1200" },
   { href: `${base}/catalog`, label: "Catalog", version: "2026-05-02-1200" },
 ]
@@ -142,8 +143,9 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                         : "border-transparent text-muted-foreground hover:text-foreground",
                     ].join(" ")}
                   >
-                    <span class="relative">
+                    <span class="relative inline-flex items-center gap-1">
                       {link.label}
+                      {link.badge && <span class="inline-flex items-center rounded px-1 py-px text-[10px] font-medium leading-none bg-primary/15 text-primary border border-primary/30">{link.badge}</span>}
                       <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
                     </span>
                   </a>
@@ -309,8 +311,9 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
                   ].join(" ")}
                 >
-                  <span class="relative">
+                  <span class="relative inline-flex items-center gap-1">
                     {link.label}
+                    {link.badge && <span class="inline-flex items-center rounded px-1 py-px text-[10px] font-medium leading-none bg-primary/15 text-primary border border-primary/30">{link.badge}</span>}
                     <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
                   </span>
                 </a>

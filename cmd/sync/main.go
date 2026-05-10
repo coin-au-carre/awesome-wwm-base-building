@@ -7,9 +7,11 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strings"
 	"sync"
 	"time"
 
+	"ruby/internal/blueprint"
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
 	"ruby/internal/guild"
@@ -23,27 +25,50 @@ func main() {
 	forceRole := flag.Bool("force-role", false, "reassign roles to all authors, ignoring the role cache")
 	root := flag.String("root", cmdutil.RootDir(), "root directory containing guilds.json and solos.json")
 	guildFilter := flag.String("guild", "", "only sync threads whose name contains this string (case-insensitive)")
+	only := flag.String("only", "", "sync only specific channels: guilds, solo, blueprints (comma-separated; default: all)")
 	flag.Parse()
+
+	syncGuilds := true
+	syncSolo := true
+	syncBlueprints := true
+	if *only != "" {
+		syncGuilds, syncSolo, syncBlueprints = false, false, false
+		for _, ch := range strings.Split(*only, ",") {
+			switch strings.TrimSpace(strings.ToLower(ch)) {
+			case "guilds", "guild":
+				syncGuilds = true
+			case "solo", "solos":
+				syncSolo = true
+			case "blueprints", "blueprint":
+				syncBlueprints = true
+			}
+		}
+	}
 
 	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
 		slog.Warn("no .env file found, relying on environment variables")
 	}
 
-	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
-	guildForumID := cmdutil.RequireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	var guildForumID string
+	if syncGuilds {
+		guildForumID = cmdutil.RequireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
+	}
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
+	blueprintForumID := os.Getenv("BLUEPRINT_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	devChannelID := os.Getenv("DEV_CHANNEL_ID")
 	generalChannelID := os.Getenv("GENERAL_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
-	guildsPath        := filepath.Join(*root, "data", "guilds.json")
-	solosPath         := filepath.Join(*root, "data", "solos.json")
-	roleCachePath     := filepath.Join(*root, "data", "role_assignments.json")
-	blacklistPath     := filepath.Join(*root, "data", "voter_blacklist.json")
-	whitelistPath     := filepath.Join(*root, "data", "voter_whitelist.json")
+	guildsPath := filepath.Join(*root, "data", "guilds.json")
+	solosPath := filepath.Join(*root, "data", "solos.json")
+	blueprintsPath := filepath.Join(*root, "data", "blueprints.json")
+	roleCachePath := filepath.Join(*root, "data", "role_assignments.json")
+	blacklistPath := filepath.Join(*root, "data", "voter_blacklist.json")
+	whitelistPath := filepath.Join(*root, "data", "voter_whitelist.json")
 
+	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 	bot, err := discord.NewBot(token, botChannelID)
 	if err != nil {
 		slog.Error("creating bot", "err", err)
@@ -64,18 +89,30 @@ func main() {
 
 	// ── Load existing data ────────────────────────────────────────────────────
 
-	guilds, err := guild.LoadFile(guildsPath)
-	if err != nil {
-		slog.Warn("could not load guilds, starting fresh", "err", err)
-		guilds = []guild.Guild{}
+	var guilds []guild.Guild
+	if syncGuilds {
+		guilds, err = guild.LoadFile(guildsPath)
+		if err != nil {
+			slog.Warn("could not load guilds, starting fresh", "err", err)
+			guilds = []guild.Guild{}
+		}
 	}
 
 	var solos []guild.Guild
-	if soloForumID != "" {
+	if syncSolo && soloForumID != "" {
 		solos, err = guild.LoadFile(solosPath)
 		if err != nil {
 			slog.Warn("could not load solos, starting fresh", "err", err)
 			solos = []guild.Guild{}
+		}
+	}
+
+	var blueprints []blueprint.Blueprint
+	if syncBlueprints && blueprintForumID != "" {
+		blueprints, err = blueprint.LoadFile(blueprintsPath)
+		if err != nil {
+			slog.Warn("could not load blueprints, starting fresh", "err", err)
+			blueprints = []blueprint.Blueprint{}
 		}
 	}
 
@@ -92,16 +129,20 @@ func main() {
 	}
 	slog.Info("voter whitelist loaded", "count", len(whitelist))
 
-
-	// ── Fetch both channels in parallel ──────────────────────────────────────
+	// ── Fetch channels in parallel ────────────────────────────────────────────
 
 	type fetchOutcome struct {
 		result discord.SyncFetchResult
 		err    error
 	}
+	type blueprintFetchOutcome struct {
+		result discord.BlueprintSyncFetchResult
+		err    error
+	}
 
 	guildCh := make(chan fetchOutcome, 1)
 	soloCh := make(chan fetchOutcome, 1)
+	blueprintCh := make(chan blueprintFetchOutcome, 1)
 
 	makeProgressFn := func(label string) func(done, total int) {
 		lastPct := -1
@@ -122,18 +163,20 @@ func main() {
 	}
 
 	var fetchWg sync.WaitGroup
-	fetchWg.Add(1)
-	go func() {
-		defer fetchWg.Done()
-		r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{
-			ForumChannelID: guildForumID,
-			GuildFilter:    *guildFilter,
-			OnProgress:     makeProgressFn("guild halls"),
-		})
-		guildCh <- fetchOutcome{r, err}
-	}()
+	if syncGuilds {
+		fetchWg.Add(1)
+		go func() {
+			defer fetchWg.Done()
+			r, err := discord.SyncFetch(bot, guilds, discord.SyncConfig{
+				ForumChannelID: guildForumID,
+				GuildFilter:    *guildFilter,
+				OnProgress:     makeProgressFn("guild halls"),
+			})
+			guildCh <- fetchOutcome{r, err}
+		}()
+	}
 
-	if soloForumID != "" {
+	if syncSolo && soloForumID != "" {
 		fetchWg.Add(1)
 		go func() {
 			defer fetchWg.Done()
@@ -147,22 +190,39 @@ func main() {
 		}()
 	}
 
+	if syncBlueprints && blueprintForumID != "" {
+		fetchWg.Add(1)
+		go func() {
+			defer fetchWg.Done()
+			r, err := discord.BlueprintSyncFetch(bot, blueprints, discord.SyncConfig{
+				ForumChannelID: blueprintForumID,
+				GuildFilter:    *guildFilter,
+				OnProgress:     makeProgressFn("blueprint hall"),
+			})
+			blueprintCh <- blueprintFetchOutcome{r, err}
+		}()
+	}
+
 	fetchWg.Wait()
 	close(guildCh)
 	close(soloCh)
+	close(blueprintCh)
 	if progressMsgID != "" {
 		bot.EditMessage(botChannelID, progressMsgID, "🔄 *(counting stars and sealing the scrolls...)*")
 	}
 
-	guildFetch := <-guildCh
-	if guildFetch.err != nil {
-		bot.NotifyIf(!*noNotify, "💥 **Guilds failed to synchronize!** — "+guildFetch.err.Error())
-		slog.Error("guild fetch failed", "err", guildFetch.err)
-		os.Exit(1)
+	var guildFetch fetchOutcome
+	if syncGuilds {
+		guildFetch = <-guildCh
+		if guildFetch.err != nil {
+			bot.NotifyIf(!*noNotify, "💥 **Guilds failed to synchronize!** — "+guildFetch.err.Error())
+			slog.Error("guild fetch failed", "err", guildFetch.err)
+			os.Exit(1)
+		}
 	}
 
 	var soloFetch fetchOutcome
-	if soloForumID != "" {
+	if syncSolo && soloForumID != "" {
 		soloFetch = <-soloCh
 		if soloFetch.err != nil {
 			bot.NotifyIf(!*noNotify, "💥 **Solo construction failed to synchronize!** — "+soloFetch.err.Error())
@@ -171,22 +231,42 @@ func main() {
 		}
 	}
 
-	// ── Per-channel voter weights ─────────────────────────────────────────────
+	var blueprintFetch blueprintFetchOutcome
+	if syncBlueprints && blueprintForumID != "" {
+		blueprintFetch = <-blueprintCh
+		if blueprintFetch.err != nil {
+			bot.NotifyIf(!*noNotify, "💥 **Blueprints failed to synchronize!** — "+blueprintFetch.err.Error())
+			slog.Error("blueprint fetch failed", "err", blueprintFetch.err)
+			os.Exit(1)
+		}
+	}
 
-	guildWeights := discord.ComputeVoterWeights(guildFetch.result.VoterCounts)
-	slog.Info("guild voter weights", "voters", len(guildWeights))
+	// ── Finalize (score) ─────────────────────────────────────────────────────
 
-	// ── Finalize (score) both channels ────────────────────────────────────────
-
-	updatedGuilds, guildReactions, guildStats := discord.SyncFinalize(guildFetch.result, guildWeights, blacklist, whitelist)
+	var updatedGuilds []guild.Guild
+	var guildReactions guild.ReactionMap
+	var guildStats discord.SyncStats
+	if syncGuilds {
+		guildWeights := discord.ComputeVoterWeights(guildFetch.result.VoterCounts)
+		slog.Info("guild voter weights", "voters", len(guildWeights))
+		updatedGuilds, guildReactions, guildStats = discord.SyncFinalize(guildFetch.result, guildWeights, blacklist, whitelist)
+	}
 
 	var updatedSolos []guild.Guild
-	var soloStats discord.SyncStats
 	var soloReactions guild.ReactionMap
-	if soloForumID != "" {
+	var soloStats discord.SyncStats
+	if syncSolo && soloForumID != "" {
 		soloWeights := discord.ComputeVoterWeights(soloFetch.result.VoterCounts)
 		slog.Info("solo voter weights", "voters", len(soloWeights))
 		updatedSolos, soloReactions, soloStats = discord.SyncFinalize(soloFetch.result, soloWeights, blacklist, whitelist)
+	}
+
+	var updatedBlueprints []blueprint.Blueprint
+	var blueprintStats discord.SyncStats
+	if syncBlueprints && blueprintForumID != "" {
+		bpWeights := discord.ComputeVoterWeights(blueprintFetch.result.VoterCounts)
+		slog.Info("blueprint voter weights", "voters", len(bpWeights))
+		updatedBlueprints, blueprintStats = discord.BlueprintSyncFinalize(blueprintFetch.result, bpWeights, blacklist)
 	}
 
 	// ── Save ──────────────────────────────────────────────────────────────────
@@ -194,13 +274,21 @@ func main() {
 	if *dryRun {
 		slog.Info("dry-run: skipping save")
 	} else {
-		if err := guild.SaveFile(guildsPath, updatedGuilds); err != nil {
-			slog.Error("saving guilds", "err", err)
-			os.Exit(1)
+		if syncGuilds {
+			if err := guild.SaveFile(guildsPath, updatedGuilds); err != nil {
+				slog.Error("saving guilds", "err", err)
+				os.Exit(1)
+			}
 		}
-		if soloForumID != "" {
+		if syncSolo && soloForumID != "" {
 			if err := guild.SaveFile(solosPath, updatedSolos); err != nil {
 				slog.Error("saving solos", "err", err)
+				os.Exit(1)
+			}
+		}
+		if syncBlueprints && blueprintForumID != "" {
+			if err := blueprint.SaveFile(blueprintsPath, updatedBlueprints); err != nil {
+				slog.Error("saving blueprints", "err", err)
 				os.Exit(1)
 			}
 		}
@@ -212,8 +300,10 @@ func main() {
 		for k, v := range soloReactions {
 			allReactions[k] = v
 		}
-		if err := guild.SaveReactions(*root, allReactions); err != nil {
-			slog.Warn("saving reactions", "err", err)
+		if len(allReactions) > 0 {
+			if err := guild.SaveReactions(*root, allReactions); err != nil {
+				slog.Warn("saving reactions", "err", err)
+			}
 		}
 
 		allUsers := make(guild.UserMap)
@@ -223,8 +313,10 @@ func main() {
 		for k, v := range soloFetch.result.Users {
 			allUsers[k] = v
 		}
-		if err := guild.SaveUsers(*root, allUsers); err != nil {
-			slog.Warn("saving users", "err", err)
+		if len(allUsers) > 0 {
+			if err := guild.SaveUsers(*root, allUsers); err != nil {
+				slog.Warn("saving users", "err", err)
+			}
 		}
 
 		lastSyncPath := filepath.Join(*root, "data", "last_sync.json")
@@ -234,9 +326,9 @@ func main() {
 		}
 	}
 
-	// ── Guide replies for malformed new threads ──────────────────────────────
+	// ── Guide replies for malformed new guild threads ─────────────────────────
 
-	if !*dryRun {
+	if syncGuilds && !*dryRun {
 		const guideURL = "https://www.wherebuildersmeet.com/contribute/builder/"
 		for _, threadID := range guildStats.MalformedNewThreadIDs {
 			msg := "👋 Hey! It looks like your post is missing a guild name or guild ID.\n" +
@@ -249,7 +341,7 @@ func main() {
 
 	// ── Role assignment ───────────────────────────────────────────────────────
 
-	if !*dryRun && (baseBuilderRoleID != "" || baseCriticRoleID != "") {
+	if syncGuilds && !*dryRun && (baseBuilderRoleID != "" || baseCriticRoleID != "") {
 		forumCh, err := bot.Session.Channel(guildForumID)
 		if err != nil {
 			slog.Warn("fetching forum channel for role assignment", "err", err)
@@ -265,7 +357,7 @@ func main() {
 			discordGuildID := forumCh.GuildID
 			if baseBuilderRoleID != "" {
 				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, nil, roleCache)
-				if soloForumID != "" {
+				if syncSolo && soloForumID != "" {
 					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, nil, roleCache)
 				}
 			}
@@ -284,19 +376,29 @@ func main() {
 
 	// ── Summary ───────────────────────────────────────────────────────────────
 
-	summary := discord.FormatCombinedSyncSummary(guildStats, soloStats, soloForumID != "")
+	summary := discord.FormatCombinedSyncSummary(guildStats, soloStats, syncSolo && soloForumID != "")
+	if syncBlueprints && blueprintForumID != "" && (blueprintStats.New > 0 || blueprintStats.Updated > 0) {
+		summary += fmt.Sprintf("\n📐 **%d** blueprints — %d new, %d updated", blueprintStats.Total, blueprintStats.New, blueprintStats.Updated)
+	}
 	if progressMsgID != "" {
 		bot.EditMessage(botChannelID, progressMsgID, summary)
 	} else {
 		bot.NotifyIf(!*noNotify, summary)
 	}
-	slog.Info("guild sync complete", "total", guildStats.Total, "new", guildStats.New, "updated", guildStats.Updated)
-	slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
+	if syncGuilds {
+		slog.Info("guild sync complete", "total", guildStats.Total, "new", guildStats.New, "updated", guildStats.Updated)
+	}
+	if syncSolo {
+		slog.Info("solo sync complete", "total", soloStats.Total, "new", soloStats.New, "updated", soloStats.Updated)
+	}
+	if syncBlueprints {
+		slog.Info("blueprint sync complete", "total", blueprintStats.Total, "new", blueprintStats.New, "updated", blueprintStats.Updated)
+	}
 
 	if !*dryRun {
 		const maxNewAnnouncements = 5
-		guildSpam := guildStats.New > maxNewAnnouncements
-		soloSpam := soloStats.New > maxNewAnnouncements
+		guildSpam := syncGuilds && guildStats.New > maxNewAnnouncements
+		soloSpam := syncSolo && soloStats.New > maxNewAnnouncements
 
 		if guildSpam || soloSpam {
 			warn := fmt.Sprintf(
@@ -311,21 +413,31 @@ func main() {
 				}
 			}
 		} else {
-			if !*noNotify && guildStats.New > 0 {
+			if syncGuilds && !*noNotify && guildStats.New > 0 {
 				notifyNewEntries(bot, updatedGuilds, guildStats, false)
 			}
-			if !*noNotify && soloStats.New > 0 {
+			if syncSolo && !*noNotify && soloStats.New > 0 {
 				notifyNewEntries(bot, updatedSolos, soloStats, true)
 			}
 			if !*noNotify && generalChannelID != "" {
-				announceToGeneral(bot, generalChannelID, updatedGuilds, guildStats, false)
-				announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
+				if syncGuilds {
+					announceToGeneral(bot, generalChannelID, updatedGuilds, guildStats, false)
+				}
+				if syncSolo {
+					announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
+				}
 			}
 		}
 	}
 
 	if devChannelID != "" && !*noNotify {
-		allWarnings := append(guildStats.DuplicateWarnings, soloStats.DuplicateWarnings...)
+		var allWarnings []string
+		if syncGuilds {
+			allWarnings = append(allWarnings, guildStats.DuplicateWarnings...)
+		}
+		if syncSolo {
+			allWarnings = append(allWarnings, soloStats.DuplicateWarnings...)
+		}
 		for _, w := range allWarnings {
 			bot.Send(devChannelID, w)
 		}
@@ -407,4 +519,3 @@ func notifyNewEntries(bot *discord.Bot, entries []guild.Guild, stats discord.Syn
 		bot.Notify(discord.FormatNewGuildMessage(g, isSolo))
 	}
 }
-

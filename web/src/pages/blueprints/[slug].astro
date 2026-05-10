@@ -1,0 +1,269 @@
+---
+import Layout from "@/layouts/main.astro"
+import MediaGallery from "@/components/MediaGallery.astro"
+import { Badge } from "@/components/ui/badge"
+import { getBlueprintsSortedByScore } from "@/lib/blueprints"
+import { renderMarkdown } from "@/lib/markdown"
+import { BASE } from "@/lib/url"
+import { Hammer, Images, Tag } from "lucide-react"
+
+export async function getStaticPaths() {
+  const blueprints = getBlueprintsSortedByScore()
+  return blueprints.map((bp) => ({
+    params: { slug: bp.slug },
+    props: { blueprint: bp },
+  }))
+}
+
+const { blueprint: bp } = Astro.props
+const base = BASE
+const ogImage = bp.coverImage ?? bp.screenshots?.[0]
+---
+
+<Layout
+  title={`${bp.name} — Blueprint for Where Winds Meet`}
+  description={bp.materials ? `Blueprint: ${bp.name}. Materials: ${bp.materials}` : `Blueprint showcase for ${bp.name} in Where Winds Meet.`}
+  image={ogImage}
+>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${bp.name} — Blueprint`,
+      description: bp.materials ? `Blueprint: ${bp.name}. Materials: ${bp.materials}` : `Blueprint for ${bp.name} in Where Winds Meet.`,
+      image: [
+        ...(bp.coverImage ? [bp.coverImage] : []),
+        ...((bp.screenshots ?? []).filter((s: string) => s !== bp.coverImage)),
+      ].filter(Boolean),
+      datePublished: bp.createdAt ?? bp.lastModified ?? "2025-01-01",
+      dateModified: bp.lastModified ?? bp.createdAt ?? "2025-01-01",
+      url: Astro.url.href,
+      keywords: bp.tags?.join(", "),
+      author: bp.builderName ? [{ "@type": "Person", name: bp.builderName }] : [],
+      publisher: { "@type": "Organization", name: "Where Builders Meet", url: "https://www.wherebuildersmeet.com" },
+      about: { "@type": "VideoGame", name: "Where Winds Meet" },
+    })}
+  />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Where Builders Meet", item: Astro.url.origin },
+        { "@type": "ListItem", position: 2, name: "Blueprints", item: `${Astro.url.origin}/blueprints` },
+        { "@type": "ListItem", position: 3, name: bp.name, item: Astro.url.href },
+      ],
+    })}
+  />
+
+  <div class="space-y-5">
+    <!-- Back -->
+    <a
+      href={`${base}/blueprints`}
+      class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+    >
+      ← Blueprints
+    </a>
+
+    <!-- Hero -->
+    {ogImage ? (
+      <div class="relative rounded-2xl overflow-hidden">
+        <div class="aspect-16/8 sm:aspect-16/6">
+          <img src={ogImage} alt={bp.name} class="w-full h-full object-cover" fetchpriority="high" decoding="async" />
+        </div>
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
+        <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <h1 class="font-heading text-3xl sm:text-4xl font-bold text-white drop-shadow-sm leading-tight">
+                {bp.name}
+              </h1>
+              <div class="flex flex-wrap items-center gap-2 mt-2">
+                {bp.isFree && bp.isPayToBuild ? (
+                  <span class="inline-flex items-center rounded-full bg-sky-600/90 px-2.5 py-0.5 text-xs font-semibold text-white backdrop-blur-sm">
+                    Free + Paid
+                  </span>
+                ) : bp.isPayToBuild ? (
+                  <span class="inline-flex items-center rounded-full bg-amber-500/90 px-2.5 py-0.5 text-xs font-semibold text-white backdrop-blur-sm">
+                    Pay-to-build
+                  </span>
+                ) : (
+                  <span class="inline-flex items-center rounded-full bg-emerald-600/90 px-2.5 py-0.5 text-xs font-semibold text-white backdrop-blur-sm">
+                    Free
+                  </span>
+                )}
+                {bp.tags && bp.tags.length > 0 && bp.tags.map((tag: string) => (
+                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/15 text-white border border-white/25 backdrop-blur-sm">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <button
+              id="share-btn"
+              title="Copy link"
+              class="text-white/70 hover:text-white transition-colors p-2 rounded-lg bg-white/10 hover:bg-white/20 backdrop-blur-sm cursor-pointer shrink-0"
+            >
+              <svg id="share-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden" style="color: rgb(74 222 128)"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h1 class="font-heading text-3xl sm:text-4xl font-bold leading-tight">{bp.name}</h1>
+          <div class="flex flex-wrap items-center gap-2 mt-2">
+            {bp.isFree && bp.isPayToBuild ? (
+              <Badge className="bg-sky-600 text-white hover:bg-sky-700">Free + Paid</Badge>
+            ) : bp.isPayToBuild ? (
+              <Badge className="bg-amber-500 text-white hover:bg-amber-600">Pay-to-build</Badge>
+            ) : (
+              <Badge className="bg-emerald-600 text-white hover:bg-emerald-700">Free</Badge>
+            )}
+            {bp.tags && bp.tags.map((tag: string) => <Badge variant="secondary">{tag}</Badge>)}
+          </div>
+        </div>
+        <button
+          id="share-btn"
+          title="Copy link"
+          class="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-muted cursor-pointer shrink-0"
+        >
+          <svg id="share-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          <svg id="check-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden text-green-500"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+    )}
+
+    <script is:inline>
+      document.getElementById("share-btn").addEventListener("click", async () => {
+        const shareIcon = document.getElementById("share-icon")
+        const checkIcon = document.getElementById("check-icon")
+        const url = window.location.href
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: document.title, url })
+          } else {
+            await navigator.clipboard.writeText(url)
+            window.umami?.track("share_url_copied", { type: "blueprint" })
+            shareIcon.classList.add("hidden")
+            checkIcon.classList.remove("hidden")
+            setTimeout(() => {
+              shareIcon.classList.remove("hidden")
+              checkIcon.classList.add("hidden")
+            }, 2000)
+          }
+        } catch {}
+      })
+    </script>
+
+    <!-- Stats strip -->
+    <div class="flex flex-wrap gap-3">
+      {bp.builderName && (
+        <div class="rounded-xl border border-border bg-card px-4 py-2 min-w-35 flex-1">
+          <div class="text-xs text-muted-foreground mb-1">Builder</div>
+          <div class="text-sm font-medium">{bp.builderName}</div>
+          {bp.builderId && bp.discordThread && (
+            <a
+              href={bp.discordThread}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs text-muted-foreground hover:text-foreground transition-colors mt-0.5 block"
+              data-umami-event="discord_thread_click"
+            >
+              Get builder ID on Discord ↗
+            </a>
+          )}
+        </div>
+      )}
+      {bp.price && (
+        <div class="rounded-xl border border-border bg-card px-4 py-2">
+          <div class="text-xs text-muted-foreground mb-2">Price</div>
+          <div class="flex flex-col gap-1.5">
+            {bp.price.split(",").map((tier: string) => {
+              const t = tier.trim()
+              const isFreeTier = t.toLowerCase() === "free"
+              return (
+                <span class={`inline-flex items-center gap-1.5 text-sm font-medium ${isFreeTier ? "text-emerald-600 dark:text-emerald-400" : "text-amber-600 dark:text-amber-400"}`}>
+                  <span class={`w-1.5 h-1.5 rounded-full shrink-0 ${isFreeTier ? "bg-emerald-500" : "bg-amber-500"}`} />
+                  {t}
+                </span>
+              )
+            })}
+          </div>
+        </div>
+      )}
+      {bp.createdAt && (
+        <div class="rounded-xl border border-border bg-card px-4 py-2">
+          <div class="text-xs text-muted-foreground mb-1">Posted</div>
+          <div class="text-sm text-muted-foreground" id="bp-created-at">{bp.createdAt}</div>
+          <script is:inline define:vars={{ createdAt: bp.createdAt }}>
+            {
+              const d = new Date(createdAt.replace(" at ", " "))
+              if (!isNaN(d.getTime())) {
+                const pad = n => String(n).padStart(2, "0")
+                document.getElementById("bp-created-at").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`
+              }
+            }
+          </script>
+        </div>
+      )}
+    </div>
+
+    <!-- Description -->
+    {bp.description && (
+      <section class="space-y-3">
+        <div
+          class="text-sm text-muted-foreground leading-relaxed space-y-2 [&_strong]:text-foreground [&_strong]:font-medium [&_em]:italic"
+          set:html={renderMarkdown(bp.description)}
+        />
+      </section>
+    )}
+
+    <!-- Materials -->
+    {bp.materials && (
+      <section class="space-y-3">
+        <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+          <Hammer size={13} /> Materials needed
+        </h2>
+        <div class="rounded-xl bg-muted/40 border border-border px-5 py-4">
+          <div
+            class="text-sm leading-relaxed space-y-1 [&_ul]:space-y-1 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground"
+            set:html={renderMarkdown(bp.materials)}
+          />
+        </div>
+      </section>
+    )}
+
+    {(bp.materials || bp.screenshots?.length) && <div class="border-t border-border" />}
+
+    <!-- Media -->
+    <section class="space-y-4">
+      <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+        <Images size={13} /> Screenshots
+      </h2>
+      <MediaGallery screenshots={bp.screenshots} screenshotSections={bp.screenshotSections} videos={bp.videos} />
+    </section>
+
+    <!-- CTA -->
+    {bp.discordThread && (
+      <p class="text-sm text-muted-foreground">
+        Interested in this blueprint?{" "}
+        <a
+          href={bp.discordThread}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline underline-offset-4 hover:text-foreground transition-colors"
+          data-umami-event="discord_thread_click"
+        >
+          Find the builder on Discord ↗
+        </a>
+      </p>
+    )}
+  </div>
+</Layout>

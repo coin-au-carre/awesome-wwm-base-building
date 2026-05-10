@@ -20,6 +20,24 @@ tasks:
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos
       - go run ./cmd/whatever-sync
 
+  sync:guilds:
+    desc: sync guild forum only (no git pull, no tutorial/whatever-sync)
+    cmds:
+      - go run ./cmd/sync -only guilds {{.CLI_ARGS}}
+      - go run ./cmd/genjson
+
+  sync:solo:
+    desc: sync solo forum only (no git pull, no tutorial/whatever-sync)
+    cmds:
+      - go run ./cmd/sync -only solo {{.CLI_ARGS}}
+      - go run ./cmd/genjson
+
+  sync:blueprints:
+    desc: sync blueprint forum only (no git pull, no tutorial/whatever-sync)
+    cmds:
+      - go run ./cmd/sync -only blueprints {{.CLI_ARGS}}
+      - go run ./cmd/genjson
+
   # ── bot (long-running) ──────────────────────────────────────
   bot:
     desc: run the bot (responds on RUBY_CHANNEL_ID and DEV_CHANNEL_ID)
@@ -142,9 +160,12 @@ tasks:
       - echo "  task <command> [-- -flag1 -flag2]"
       - echo ""
       - echo "Commands & flags:"
-      - echo "  task sync                git pull + crawl + generate public JSON"
-      - echo "  task sync:nopull         crawl + generate public JSON (no git pull)"
-      - echo "        -- -dry-run        crawl only, skip writing guilds.json"
+      - echo "  task sync                git pull + crawl all channels + genjson + tutorials"
+      - echo "  task sync:nopull         same, no git pull"
+      - echo "  task sync:guilds         guild forum only + genjson (no pull, no tutorials)"
+      - echo "  task sync:solo           solo forum only  + genjson (no pull, no tutorials)"
+      - echo "  task sync:blueprints     blueprint forum only + genjson (no pull, no tutorials)"
+      - echo "        -- -dry-run        crawl only, skip writing JSON files"
       - echo "        -- -no-notify      skip Discord notification"
       - echo "        -- -force-role     reassign roles to all authors"
       - echo "        -- -guild name     only sync threads whose name contains this (case-insensitive)"
@@ -175,7 +196,7 @@ tasks:
       - echo ""
       - echo "  task announce            test-post a general-channel announcement card"
       - echo "        -- -guild name     guild/solo name to announce (substring match)"
-      - 'echo "        -- -channel ID     target channel (default: GENERAL_CHANNEL_ID)"'
+      - 'echo "        -- -channel ID     target channel (default: GENERAL_CHANNEL_ID<)"'
       - echo "        -- -solo           search solos instead of guilds"
       - echo "        -- -screenshots    use 'new screenshots' format instead of 'new entry'"
       - echo ""
