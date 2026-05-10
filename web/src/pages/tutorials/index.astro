@@ -4,7 +4,6 @@ import TutorialsFilter from "@/components/TutorialsFilter"
 import { BookOpenIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
-import { getBuilderSearchPath } from "@/lib/guilds"
 
 const entries = await getCollection("articles", ({ data }) => data.published !== false)
 
@@ -40,12 +39,6 @@ const guides = entries
     image: e.data.image ?? null,
   }))
 
-const allAuthors = [...new Set(guides.flatMap((g) => g.authors))]
-const authorPaths: Record<string, string> = {}
-for (const name of allAuthors) {
-  const path = getBuilderSearchPath(name)
-  if (path) { authorPaths[name] = path }
-}
 ---
 
 <Layout
@@ -76,6 +69,6 @@ for (const name of allAuthors) {
       </p>
     </div>
 
-    <TutorialsFilter client:load guides={guides} newestSlug={newestSlug} TAG_CONFIG={TAG_CONFIG} authorPaths={authorPaths} />
+    <TutorialsFilter client:load guides={guides} newestSlug={newestSlug} TAG_CONFIG={TAG_CONFIG} />
   </div>
 </Layout>
