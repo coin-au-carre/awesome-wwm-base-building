@@ -4,7 +4,7 @@ import { getCollection } from "astro:content"
 import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { BASE } from "@/lib/url"
-import { BlueprintIcon, BookOpenIcon } from "@phosphor-icons/react"
+import { BlueprintIcon, BookOpenIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -37,6 +37,7 @@ const tutorials = allArticles.filter((a) =>
 
 const displayName = profile?.name ?? builderName
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
+const contributionTypes = [(profile?.guilds.length ?? 0) > 0, (profile?.solos.length ?? 0) > 0, (profile?.blueprints.length ?? 0) > 0, tutorials.length > 0].filter(Boolean).length
 const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
 
 ---
@@ -61,29 +62,39 @@ const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
       </div>
       <div>
         <h1 class="font-heading text-2xl font-bold">{displayName}</h1>
-        <div class="flex flex-wrap items-center gap-2 mt-1.5">
+        <div class="flex flex-wrap items-center gap-2 mt-2">
           {profile && profile.guilds.length > 0 && (
-            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
-              <img src="/images/logo_1.png" alt="" aria-hidden="true" class="size-3.5 object-contain" />
-              {profile.guilds.length} guild base{profile.guilds.length !== 1 ? "s" : ""}
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-violet-500/10 text-violet-600 dark:text-violet-300 ring-1 ring-inset ring-violet-500/25">
+              <HammerIcon weight="duotone" className="size-3.5 shrink-0" />
+              Guild Base Builder
+              <span class="text-[10px] opacity-60 font-normal">· {profile.guilds.length}</span>
             </span>
           )}
           {profile && profile.solos.length > 0 && (
-            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
-              <img src="/images/logo_2.png" alt="" aria-hidden="true" class="size-3.5 object-contain" />
-              {profile.solos.length} solo build{profile.solos.length !== 1 ? "s" : ""}
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-300 ring-1 ring-inset ring-teal-500/25">
+              <HouseIcon weight="duotone" className="size-3.5 shrink-0" />
+              Solo Builder
+              <span class="text-[10px] opacity-60 font-normal">· {profile.solos.length}</span>
             </span>
           )}
           {profile && profile.blueprints.length > 0 && (
-            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
-              <BlueprintIcon weight="duotone" className="size-3.5 text-primary shrink-0" />
-              {profile.blueprints.length} blueprint{profile.blueprints.length !== 1 ? "s" : ""}
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-300 ring-1 ring-inset ring-blue-500/25">
+              <BlueprintIcon weight="duotone" className="size-3.5 shrink-0" />
+              Blueprint Creator
+              <span class="text-[10px] opacity-60 font-normal">· {profile.blueprints.length}</span>
             </span>
           )}
           {tutorials.length > 0 && (
-            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
-              <BookOpenIcon weight="duotone" className="size-3.5 text-pink-500 shrink-0" />
-              {tutorials.length} tutorial{tutorials.length !== 1 ? "s" : ""}
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-pink-500/10 text-pink-600 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25">
+              <BookOpenIcon weight="duotone" className="size-3.5 shrink-0" />
+              Tutorial Author
+              <span class="text-[10px] opacity-60 font-normal">· {tutorials.length}</span>
+            </span>
+          )}
+          {contributionTypes >= 2 && (
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 ring-1 ring-inset ring-amber-500/25">
+              <MedalIcon weight="duotone" className="size-3.5 shrink-0" />
+              Community Contributor
             </span>
           )}
         </div>
