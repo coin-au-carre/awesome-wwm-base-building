@@ -4,6 +4,7 @@ import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
 import { stripGuildShowcase, thumbUrl, builderSlug } from "@/lib/format"
+import { getActiveBuilderSlugs } from "@/lib/builders"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon, UsersIcon } from "@phosphor-icons/react"
@@ -38,6 +39,8 @@ function relativeDate(createdAt: string): string {
 const guilds = getGuildsSortedByScore()
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
 const featuredArticles = allArticles.filter((e) => e.data.featured).sort((a, b) => a.data.order - b.data.order)
+const tutorialAuthorSlugs = new Set(allArticles.flatMap((a) => (a.data.authors ?? []).map((n) => builderSlug(n))))
+const activeBuilders = getActiveBuilderSlugs(tutorialAuthorSlugs)
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
 const topGuilds = guilds.filter((g) => g.screenshots && g.screenshots.length > 0).slice(0, 12)
@@ -242,7 +245,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
                           <Fragment>
-                            <a href={`${BASE}/builders/${builderSlug(name)}`} class="relative z-30 hover:text-white transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
+                            <a href={`${BASE}/builders/${builderSlug(name)}`} class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`} title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined} data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
                           </Fragment>
                         ))}</p>
                       )}
@@ -456,7 +459,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Ranked table -->
     <section>
       <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.png" alt="" aria-hidden="true" class="size-10 object-contain" /> All Guild bases</h2>
-      <LeaderboardTable client:load guilds={guilds} allTags={allTags} />
+      <LeaderboardTable client:load guilds={guilds} allTags={allTags} activeBuilderSlugs={[...activeBuilders]} />
       <noscript>
         <ul class="mt-4 space-y-1 text-sm">
           {guilds.map((g) => (
@@ -535,7 +538,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
                           <Fragment>
-                            <a href={`${BASE}/builders/${builderSlug(name)}`} class="relative z-30 hover:text-white transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
+                            <a href={`${BASE}/builders/${builderSlug(name)}`} class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`} title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined} data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
                           </Fragment>
                         ))}</p>
                       )}
