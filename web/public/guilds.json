@@ -51,8 +51,9 @@
 			"千冷雪"
 		],
 		"tags": [
+			"Creative",
 			"Fun",
-			"Creative"
+			"Maze/Parkour"
 		],
 		"discordThread": "",
 		"whatToVisit": "Maze, Parkour, Racing game",
@@ -67,8 +68,9 @@
 			"Roselily"
 		],
 		"tags": [
+			"City",
 			"Military/Arena",
-			"City"
+			"Mountain/Cave"
 		],
 		"discordThread": "",
 		"whatToVisit": "Arena, Cave path, Performance stage",
@@ -125,6 +127,7 @@
 			"Sniick"
 		],
 		"tags": [
+			"Castle/Palace",
 			"Military/Arena",
 			"River/Canal",
 			"Snow"
@@ -359,6 +362,7 @@
 			"Baboose"
 		],
 		"tags": [
+			"Castle/Palace",
 			"River/Canal",
 			"Snow"
 		],
@@ -390,8 +394,9 @@
 			"XxDivinityxX"
 		],
 		"tags": [
+			"City",
 			"Floating Island",
-			"City"
+			"Military/Arena"
 		],
 		"discordThread": "",
 		"whatToVisit": "Floating colosseum \nFishing cake tower\nUnderground passage\nCute cemetery\nCurrently rebuilding",
@@ -449,10 +454,11 @@
 			"Sinpli"
 		],
 		"tags": [
+			"Castle/Palace",
 			"City",
-			"Military/Arena",
 			"Creative",
-			"Fun"
+			"Fun",
+			"Military/Arena"
 		],
 		"discordThread": "",
 		"whatToVisit": "(unfinished) cohesive, mountainous city area. Big palace building. The car!",
@@ -488,6 +494,9 @@
 	{
 		"name": "殿",
 		"builders": [],
+		"tags": [
+			"Castle/Palace"
+		],
 		"discordThread": "",
 		"whatToVisit": "- 殿 means \"palace\" so their primary focus is their stunning palace, which is built exceptionally well with an attention to detail, high technical skill, Chinese architecture, and cultural authenticity. Most likely part of a larger build once component limits increase.",
 		"score": 0,
@@ -577,9 +586,6 @@
 		],
 		"tags": [
 			"City",
-			"Zen/Nature",
-			"Snow",
-			"Creative",
 			"Military/Arena",
 			"Fun",
 			"Cute",
@@ -624,6 +630,9 @@
 		"builders": [
 			"Kukubirdz",
 			"Pie"
+		],
+		"tags": [
+			"Military/Arena"
 		],
 		"discordThread": "",
 		"whatToVisit": "Large Scale Guild Wars Map near the back",
@@ -764,9 +773,11 @@
 			"yuiviy"
 		],
 		"tags": [
-			"Zen/Nature",
+			"Castle/Palace",
 			"Mountain/Cave",
-			"River/Canal"
+			"Party Area",
+			"River/Canal",
+			"Zen/Nature"
 		],
 		"discordThread": "",
 		"whatToVisit": "Party zone, massive palace buildings, nature",
@@ -804,10 +815,11 @@
 			"Z-RONIN"
 		],
 		"tags": [
-			"Snow",
 			"Creative",
 			"Fun",
-			"Military/Arena"
+			"Military/Arena",
+			"Snow",
+			"Underground/Underwater"
 		],
 		"discordThread": "",
 		"whatToVisit": "- Underwater wedding hall\n- Helicopter, canon\n- Snowy area\n- Caroussel",
@@ -874,6 +886,9 @@
 	{
 		"name": "AMERTA",
 		"builders": [],
+		"tags": [
+			"Fun"
+		],
 		"discordThread": "",
 		"whatToVisit": "horse Racing",
 		"score": 0
@@ -882,6 +897,10 @@
 		"name": "MacDandChill",
 		"builders": [
 			"boop"
+		],
+		"tags": [
+			"Creative",
+			"Fun"
 		],
 		"discordThread": "",
 		"whatToVisit": "Macdonald Fast food, I'm lovin' it.",
@@ -894,6 +913,9 @@
 			"AsheValentine",
 			"Rubadooske"
 		],
+		"tags": [
+			"Fun"
+		],
 		"discordThread": "",
 		"whatToVisit": "Giant stairs. Snake",
 		"score": 2
@@ -903,6 +925,9 @@
 		"builders": [
 			"Fėmboy"
 		],
+		"tags": [
+			"Castle/Palace"
+		],
 		"discordThread": "",
 		"whatToVisit": "Impressive castle",
 		"score": 1
@@ -911,6 +936,10 @@
 		"name": "Infinite",
 		"builders": [
 			"XiuHu"
+		],
+		"tags": [
+			"City",
+			"River/Canal"
 		],
 		"discordThread": "",
 		"whatToVisit": "The canal in the city",
@@ -938,6 +967,9 @@
 		"builders": [
 			"Tribulum"
 		],
+		"tags": [
+			"Party Area"
+		],
 		"discordThread": "",
 		"whatToVisit": "The big rocky Hand. Awesome guild war map. The Party area. Check at night.",
 		"score": 1
@@ -946,6 +978,10 @@
 		"name": "x-Void-x",
 		"builders": [
 			"PHOENIXOOX"
+		],
+		"tags": [
+			"Creative",
+			"Fun"
 		],
 		"discordThread": "",
 		"whatToVisit": "Pikachu, dragon",
@@ -956,6 +992,9 @@
 		"builders": [
 			"HuLasi"
 		],
+		"tags": [
+			"Creative"
+		],
 		"discordThread": "",
 		"whatToVisit": "Creative imposing structure with lanterns",
 		"score": 0
@@ -964,6 +1003,10 @@
 		"name": "CastAway",
 		"builders": [
 			"Coirr"
+		],
+		"tags": [
+			"Creative",
+			"Fun"
 		],
 		"discordThread": "",
 		"whatToVisit": "F1 car, toilets, horse racing...",
@@ -1363,6 +1406,9 @@
 		"builders": [
 			"Luna-Tuna"
 		],
+		"tags": [
+			"Zen/Nature"
+		],
 		"discordThread": "",
 		"lore": "Swimming in the pond can be fatal if you are stuck between some rocks...",
 		"whatToVisit": "fashion show, imposant forest",
@@ -1422,7 +1468,8 @@
 		],
 		"tags": [
 			"City",
-			"River/Canal"
+			"River/Canal",
+			"Castle/Palace"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1490787707104792797",
 		"lore": "Building with the flow idk hahah main idea was having a castlesih building in the middle and like a small town around it.",
@@ -1695,24 +1742,24 @@
 			"https://cdn.discordapp.com/attachments/1488676600232022036/1488676845795676221/20264164541.png?ex=6a01b91a\u0026is=6a00679a\u0026hm=231713fd6a21071078c686413b097a9ce141ae760ee05ceaf4eb7a7344073eb1\u0026",
 			"https://cdn.discordapp.com/attachments/1488676600232022036/1488676846504509520/20264164731.png?ex=6a01b91a\u0026is=6a00679a\u0026hm=e50feb45f797877b9c50f2ae53e0490691cc2e053e0189c267e60ff1c0b14b94\u0026",
 			"https://cdn.discordapp.com/attachments/1488676600232022036/1488676847544696872/2026416484.png?ex=6a01b91a\u0026is=6a00679a\u0026hm=da7bf2e6bcba3b0855193ea1c1fb9fa4ae5ae9db307264464aaf21e026b2afc6\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809686434222191/IMG_1225.png?ex=6a014e14\u0026is=69fffc94\u0026hm=dc5a45f6404dceffad52d9c221600351ffba392c8b5cc41391cdc32e6bc9bd22\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809687717675200/IMG_1230.png?ex=6a014e14\u0026is=69fffc94\u0026hm=4fafac90a2bf8f7aa15635f6391c2fc3c069b7c4c4b4d8bb70166a25a501ae95\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809688670044250/IMG_1229.png?ex=6a014e14\u0026is=69fffc94\u0026hm=cec2a860d5110128fc8a9f2b8d60a456e57c87c90b7a9798e666ba01df169dcd\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809689558978601/IMG_1231.png?ex=6a014e14\u0026is=69fffc94\u0026hm=5bfda1f2e32b0d7429578ae177416ab3c27c3ef1ee27744607cce3779332c61d\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809690532315316/IMG_1233.png?ex=6a014e15\u0026is=69fffc95\u0026hm=96c2adc4a5b6fe8b94d643c3e05de2ffb8ea63f8165a4fb9f3371d651d767555\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809691949731940/IMG_1232.png?ex=6a014e15\u0026is=69fffc95\u0026hm=3cbb365627463edc4ff786262b555a0f108c3b7ca7f4991393156ffb77a247ac\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809694420176946/IMG_1227.png?ex=6a014e15\u0026is=69fffc95\u0026hm=9220b6a629d24219cd4520a74103e24a6cc5ae6a36f7154765b10206314f9049\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809695468884109/IMG_1234.png?ex=6a014e16\u0026is=69fffc96\u0026hm=71e2aca032c68c44ce425a40fe4adcc85ec987ce2742d4402f9f084312622e53\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809696739627028/IMG_1235.png?ex=6a014e16\u0026is=69fffc96\u0026hm=02512236dd5aaab4bf089a80b76f899d1d71689ed2e1af741df27c37d7df3cf1\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809754746851430/IMG_1241.jpg?ex=6a014e24\u0026is=69fffca4\u0026hm=c57f84103f38b2ebe97b0c9194badbcf3497c1ec4b3f4edbf82ebf3d3dbb483c\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809755137183774/IMG_1246.jpg?ex=6a014e24\u0026is=69fffca4\u0026hm=ac761f8c23280d3e21e2e312bfc99c593320780a39d9a230e1493f9277aa1423\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809755694891129/IMG_1238.png?ex=6a014e24\u0026is=69fffca4\u0026hm=84f04af488abd2b885bd4a05e7eae2882261a46ae99d236a1670ac6cea69b70b\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809756454064299/IMG_1240.png?ex=6a014e24\u0026is=69fffca4\u0026hm=e183e792c9b168387ec89d6a8da1fc4b5f5bf72944c5ba34c6712d3db88c8053\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809758194569276/IMG_1243.png?ex=6a014e25\u0026is=69fffca5\u0026hm=64ca098bd7aac8dba1b8b9be0fd46c4bf64413fffedfd80fcf10ca646771da1b\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809759050338456/IMG_1239.png?ex=6a014e25\u0026is=69fffca5\u0026hm=8be0e7eba34f797c310254e29868eaa41e30c9ee95b9f32fa3b0e1b3c230c061\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809760489115749/IMG_1242.png?ex=6a014e25\u0026is=69fffca5\u0026hm=89b9c80208527bfcc47847f47593340659bafc0c9e161fd796e5112f607288b4\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809761277378760/IMG_1245.jpg?ex=6a014e25\u0026is=69fffca5\u0026hm=f469fb951243220261b4efd59b78fff19f9c03153378b2c7f8a347a29f30cfec\u0026",
-			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809767145341140/IMG_1236.png?ex=6a014e27\u0026is=69fffca7\u0026hm=1f750eb870c6adb4c3150e9bcc4505233b00986b2c8ee58fa917d2e67176b5ed\u0026"
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809686434222191/IMG_1225.png?ex=6a01f6d4\u0026is=6a00a554\u0026hm=c828e1ff6a2b0517bb860516cbffff7190498e982f16107a3f252631d0113bc0\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809687717675200/IMG_1230.png?ex=6a01f6d4\u0026is=6a00a554\u0026hm=5fd3321b2f4ec4bb19002298da1bf855e6aed5f953cfed36c357125ae187b89b\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809688670044250/IMG_1229.png?ex=6a01f6d4\u0026is=6a00a554\u0026hm=d1bf9717be055f8687f4e331a36a42beffca184e98f0fec123f2559c834a2740\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809689558978601/IMG_1231.png?ex=6a01f6d4\u0026is=6a00a554\u0026hm=0406a7487938f3c525abc98e83886e9c4e984068607666c5426e5095ad60b87e\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809690532315316/IMG_1233.png?ex=6a01f6d5\u0026is=6a00a555\u0026hm=8751ff5152e290f185ff2078fe1b29c7049775e9fbe819f22cf8f57127d5e003\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809691949731940/IMG_1232.png?ex=6a01f6d5\u0026is=6a00a555\u0026hm=a6a9dcc5954cd3c089546bd6f111dfd98f826cb529e7c98b051fa9c2b6cd7e6d\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809694420176946/IMG_1227.png?ex=6a01f6d5\u0026is=6a00a555\u0026hm=24d297e027300a425ab200579688aad9349457e504b8b9a3a24dc27aa25a208a\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809695468884109/IMG_1234.png?ex=6a01f6d6\u0026is=6a00a556\u0026hm=364d86d74d766ca481968cef64eb26d6911313eb00cac35bd2b894427ff27aaf\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809696739627028/IMG_1235.png?ex=6a01f6d6\u0026is=6a00a556\u0026hm=c73ae77312037b9235846bbb429199efb3cba10137a5adb916695bb92d10ce30\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809754746851430/IMG_1241.jpg?ex=6a01f6e4\u0026is=6a00a564\u0026hm=bac38869740612a4511bd976f659af25a81d1a497706af6ca6ad9118300d3ef3\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809755137183774/IMG_1246.jpg?ex=6a01f6e4\u0026is=6a00a564\u0026hm=0fa4ef070205c11b275af5e31c10f5a2bb7a5292a1d4af67b598ce552adf3b58\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809755694891129/IMG_1238.png?ex=6a01f6e4\u0026is=6a00a564\u0026hm=c0637cab5fec7aead80bb6ae753c02ba0b2337f9b1c7b87a0d7473ac27be8c37\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809756454064299/IMG_1240.png?ex=6a01f6e4\u0026is=6a00a564\u0026hm=b3147ac8fbe878cfb69b219bd549c4c645bee5537865923cc95f9ca4a2fad9f6\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809758194569276/IMG_1243.png?ex=6a01f6e5\u0026is=6a00a565\u0026hm=8e57ecbab6075e33a450c018f1e95c14e21dafa179a5618c71afb4f265597d0b\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809759050338456/IMG_1239.png?ex=6a01f6e5\u0026is=6a00a565\u0026hm=ad4c178bd734d7b89b22b38b7af877dbf434f2aeb14b5a34b6e95057e6657db6\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809760489115749/IMG_1242.png?ex=6a01f6e5\u0026is=6a00a565\u0026hm=64ced6f8fe13cf99910a33d73c9dc49e631d3996da68c8f69ddbe5197160f52f\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809761277378760/IMG_1245.jpg?ex=6a01f6e5\u0026is=6a00a565\u0026hm=8be9a46aeead2de95d7d0d73abc0a0ea91750e609725c83e9dbcde43fa50e1d6\u0026",
+			"https://cdn.discordapp.com/attachments/1488676600232022036/1495809767145341140/IMG_1236.png?ex=6a01f6e7\u0026is=6a00a567\u0026hm=be5c8b55be9c683922238367bf7109d31a474d6c733f736002b0df58e97e5bd1\u0026"
 		],
 		"lastModified": "May 4, 2026 at 09:38 PM UTC"
 	},
@@ -1751,7 +1798,9 @@
 			"Veneslash"
 		],
 		"tags": [
-			"City"
+			"City",
+			"Mountain/Cave",
+			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1487878510260519063",
 		"lore": "No lore - just building",
@@ -1912,7 +1961,7 @@
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1487085998922924032/2026311181854.png?ex=6a01de42\u0026is=6a008cc2\u0026hm=86d2d6a9a03ec4781c5e3ae3d9fe1922f8ce3ebd93d96b59c4ebd263a31799d2\u0026",
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1487085999686422578/2026327111211.png?ex=6a01de43\u0026is=6a008cc3\u0026hm=a1de7c133fe83c45eb9cc52d4d3afd371f859d738c20cce3c2bd4655315a8228\u0026",
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1487275495442874589/Summer_Palace.png?ex=6a01e5fe\u0026is=6a00947e\u0026hm=e7125a6ae5285473e4c842350f1b243b6c3d4f86e80a0661ec8232a28f4003e0\u0026",
-			"https://cdn.discordapp.com/attachments/1487085991041826961/1488745466479902912/202632812292.png?ex=6a015042\u0026is=69fffec2\u0026hm=5cf37f061ea5d983bab41684d233051fb8af27efe4f5602a85b67dc5a98382f6\u0026",
+			"https://cdn.discordapp.com/attachments/1487085991041826961/1488745466479902912/202632812292.png?ex=6a01f902\u0026is=6a00a782\u0026hm=9d2058aed0384d0d1be3602fc3d708c5da018a44192331f4e44356db2de803ce\u0026",
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1493610160940122204/2026410205846.png?ex=6a01df5c\u0026is=6a008ddc\u0026hm=12c6e8c998438a538b5a7951e07f0d8ea81602b82ac53006212c9136dbd9d174\u0026",
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1493610161867067522/202641020549.png?ex=6a01df5c\u0026is=6a008ddc\u0026hm=2e1eb0e8225df1ecfd1397bcd64d82f42aa7073fa9f8f767eadd079252540d00\u0026",
 			"https://cdn.discordapp.com/attachments/1487085991041826961/1496749228578312303/2026417121932.png?ex=6a016d58\u0026is=6a001bd8\u0026hm=f68d677467d62ca2e37797c6f54f1b9c46eb6e5a5b0c863ee2b954c719dabddc\u0026",
@@ -1980,8 +2029,9 @@
 		],
 		"tags": [
 			"City",
-			"Zen/Nature",
-			"Fun"
+			"Fun",
+			"Castle/Palace",
+			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1487058305653411951",
 		"lore": "Dragon City is the seat of Dragons-Heirs — a living capital shaped by the will of the Divine Dragon. Built upon layered platforms of stone and discipline, it stands as both sanctuary and stronghold. Here, warriors are forged, traditions are honored, and the path of the dragon is carried forward into every battle and every moment of peace.",
@@ -2043,6 +2093,7 @@
 		"tags": [
 			"Military/Arena",
 			"Floating Island",
+			"Castle/Palace",
 			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1486736303264497817",
@@ -2072,6 +2123,7 @@
 		"tags": [
 			"Floating Island",
 			"Mountain/Cave",
+			"Party Area",
 			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1486718947335082155",
@@ -2235,6 +2287,7 @@
 		"tags": [
 			"City",
 			"Military/Arena",
+			"Castle/Palace",
 			"Fun"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1486479083121672284",
@@ -2261,7 +2314,7 @@
 		"tags": [
 			"Military/Arena",
 			"Mountain/Cave",
-			"River/Canal",
+			"Castle/Palace",
 			"Zen/Nature",
 			"City"
 		],
@@ -2270,16 +2323,16 @@
 		"whatToVisit": "Arena – a big majestic place for our community to gather, spar, dance, battle, or just chill,\nTown – vibrant, full of commerce, and perfect for pics,\nPalace – large, luxurious, and spacious homes for members, featuring many rooms,\nDining Hall – a grand space to share meals together,\nKitchen – where all preparations come to life,\nTraining Area – dedicated to practice and improvement,\nManagement Area – the center of organization and planning,\nSmall Theatre – an intimate space for performances and gatherings,\nThrone Room – a grand hall with a commanding presence",
 		"score": 113,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392792111386644/2026324533.png?ex=6a0152e9\u0026is=6a000169\u0026hm=f15397a3ab0c4290072c63277c188d421d2a81babdbb0d4f4ae97a7f3a40b0ef\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793026002995/20263245151.png?ex=6a0152e9\u0026is=6a000169\u0026hm=8cfb2f710c9f51880e8f9e205cd0a37fbed85d9f7ac2c7a7c78ef196c054cfef\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793717932102/20263245412.png?ex=6a0152e9\u0026is=6a000169\u0026hm=51692cbea4b1a023869db1708b92ff48c8aa9d110c6eaab5e4a0b3e88047624e\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392794359533639/20263245523.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=e986dbd9bcb0134f3c72b59ade1c8bb25d25598a6a452f0b1c3285cdc0377792\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795081084999/202632451916.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=a198cebcb23f72468deca4221266d7af87cfaa8d4636365440911578633d5047\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795743916195/202632452242.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=b388497d9b378b8499e43d2c1e432500003694834dbe685e9ae062ea0113bb29\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392796461011114/202632452454.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=e78aa953eb4e73b564f6161218128314b6858f180cc6add3b48b3963884866d3\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797094481994/202632452726.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=cbb03428c88b2f88150cbfee1183218211f000edaabaddcce45982fe5b4fb256\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797798989924/2026325223319.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=17b2d873e60e0f45e4895c4bfaf95a863b60357143bd6f92ed24b869f72a729a\u0026",
-			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392798390259834/2026325223337.png?ex=6a0152ea\u0026is=6a00016a\u0026hm=3cdf87540ad1946cec6a91c9403aa55b78df565946abc72fa1a16e332734fc58\u0026"
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392792111386644/2026324533.png?ex=6a01fba9\u0026is=6a00aa29\u0026hm=080d464268d665cb107df51983e14df0e471454cd81b02fe9de2ef7f5253c186\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793026002995/20263245151.png?ex=6a01fba9\u0026is=6a00aa29\u0026hm=8895fb15a2b2c0fc05a09e581160ccd95c9a011cb94a02e04e886c46eaacbfa8\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392793717932102/20263245412.png?ex=6a01fba9\u0026is=6a00aa29\u0026hm=70e92ea68824774f10a9bcda47be069f1dd35d28bae77a99dc752071a4acf418\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392794359533639/20263245523.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=e7ce29fb4d86f01558720a89a19a06415d30c20aca87cbb850008a2cf1b88f42\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795081084999/202632451916.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=7fd07166df024a5ce1003f3e4bd39086dcbc86edff4fe51e96328d2d907d8d29\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392795743916195/202632452242.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=45100f44ab31418495562104a2866b7245285483551a55a40e726b4d38367ea8\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392796461011114/202632452454.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=e284113ebc162a5fc2046fa1a630513649394883cd65523364c6a7ca35442fd6\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797094481994/202632452726.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=dbb4273a69611a3d3edf3d6f0c802987eb86546ab36028e1e282606bbce74653\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392797798989924/2026325223319.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=326313e7e4d6bf2e77c53ae53cbcb3ca0502907c227bf6e6f34277cff8d55e88\u0026",
+			"https://cdn.discordapp.com/attachments/1486392790836576456/1486392798390259834/2026325223337.png?ex=6a01fbaa\u0026is=6a00aa2a\u0026hm=0a1e8c4f72cffb15517bac09dcf3498a216c51547d49348a2f06e0bb4946793c\u0026"
 		],
 		"lastModified": "April 26, 2026 at 11:23 AM UTC"
 	},
@@ -2380,7 +2433,7 @@
 			"https://cdn.discordapp.com/attachments/1485331669136441477/1498733910799155270/4.jpg?ex=6a016579\u0026is=6a0013f9\u0026hm=62c3a066b648fdb35de218b9894e84f6151fd6f7439d88f045b5f8af031907b6\u0026",
 			"https://cdn.discordapp.com/attachments/1485331669136441477/1498733911281369149/5.jpg?ex=6a016579\u0026is=6a0013f9\u0026hm=f39041b63967c9631c4c217cfaa0f7767b2572a484cdfd117d280804e24addf0\u0026",
 			"https://cdn.discordapp.com/attachments/1485331669136441477/1498733911893606572/6.jpg?ex=6a016579\u0026is=6a0013f9\u0026hm=524421a1f95bbf7be9f44492b938f87494235756fb0950a9fa64c1355c13c6f8\u0026",
-			"https://cdn.discordapp.com/attachments/1485331669136441477/1499071900800913631/MEITU_20260429_144719932.jpg?ex=6a014ec0\u0026is=69fffd40\u0026hm=e92b10ed540341ef98504ed8556c4b45c813e518c1dde33642ad1e8b22e03474\u0026"
+			"https://cdn.discordapp.com/attachments/1485331669136441477/1499071900800913631/MEITU_20260429_144719932.jpg?ex=6a01f780\u0026is=6a00a600\u0026hm=ff70a12d40e93dfbf5f3c195af9205ffec313378ac95c780d9e13b4ddafbb80d\u0026"
 		],
 		"lastModified": "April 29, 2026 at 04:15 PM UTC"
 	},
@@ -2428,6 +2481,7 @@
 			"KimmiSenpai"
 		],
 		"tags": [
+			"Military/Arena",
 			"Fun"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484258514540167178",
@@ -2477,6 +2531,10 @@
 			"Ju-Kyung",
 			"Seong-Je"
 		],
+		"tags": [
+			"City",
+			"Party Area"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484175329537953973",
 		"whatToVisit": "The theater, dancing hall",
 		"score": 55,
@@ -2490,6 +2548,10 @@
 		"name": "Jasmin'Tea",
 		"builders": [
 			"Sidereus"
+		],
+		"tags": [
+			"Cute",
+			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484169335260971058",
 		"whatToVisit": "Flowers alley",
@@ -2507,6 +2569,7 @@
 			"FoxiKate"
 		],
 		"tags": [
+			"Architecture",
 			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484168217453662248",
@@ -2555,6 +2618,7 @@
 		],
 		"tags": [
 			"City",
+			"Castle/Palace",
 			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1484131605428703262",
@@ -2588,7 +2652,7 @@
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417348816998/2026317205618.png?ex=6a01e066\u0026is=6a008ee6\u0026hm=b7045dff815e6206d6c230799464499da449b54e205f6b25912ebc9edd174e4f\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464417931952238/202631543758.png?ex=6a01e066\u0026is=6a008ee6\u0026hm=f3ac2993554a64a84daf6cbb886221a7df2d75eaabc64bddfdda3eeade8213c6\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1483464418506440814/202631244846.png?ex=6a01e066\u0026is=6a008ee6\u0026hm=0d6ced3fb7b7cc9be607610a9dab5e9685393dea07ab54f9e54ce738f048fb94\u0026",
-			"https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=6a01503c\u0026is=69fffebc\u0026hm=e147a6855ce4e361513000ee0698972ff98fdbb890891ae97415019408cb07c7\u0026",
+			"https://cdn.discordapp.com/attachments/1483464416480465018/1483490817778913411/2026317233012.png?ex=6a01f8fc\u0026is=6a00a77c\u0026hm=d516e1771f7bf36a471e95b266eb40d00fb0c708fc87da6e7474db9ff65fb335\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1484522883437826088/2026227204655.png?ex=6a01c5ac\u0026is=6a00742c\u0026hm=1925dae729ebd492b778ad42a5d42f0ffafa758fed198b2cf6c9f6a21190f4a9\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1491970275086958622/202641091156.png?ex=6a01d6d9\u0026is=6a008559\u0026hm=39aee77de4a51fbcf6f01690722cee9a2539955b406d7c50cf7ca0ec2dd6f783\u0026",
 			"https://cdn.discordapp.com/attachments/1483464416480465018/1491970332326629396/20264109133.png?ex=6a01d6e6\u0026is=6a008566\u0026hm=48e204efb42375c7ecfc74a81e5383dcd5bb1d84fdae70cb38a7def2e8e3c832\u0026",
@@ -2721,9 +2785,9 @@
 			"Xela-la"
 		],
 		"tags": [
+			"Creative",
 			"Mountain/Cave",
 			"Snow",
-			"Creative",
 			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1493194844733177906",
@@ -2731,8 +2795,8 @@
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1493194844733177906/1493194845768912896/IMG_4497.png?ex=6a01ae11\u0026is=6a005c91\u0026hm=de59961b3f577b43c65896ff025b4ce75698f1b95a56f8ed4a1f3cabb83abc8a\u0026",
 			"https://cdn.discordapp.com/attachments/1493194844733177906/1493194846616158380/IMG_4495.png?ex=6a01ae11\u0026is=6a005c91\u0026hm=feee98d76b33fd2b38e7eb4a1d35c1353ace03b5f6944cefe73136a6fa4aa4fd\u0026",
-			"https://cdn.discordapp.com/attachments/1493194844733177906/1494008784354283541/IMG_4562.png?ex=6a01585b\u0026is=6a0006db\u0026hm=bc2717f179b2f42ff6f6a74acc0727e37fd7b40533342909613666b5a1afe366\u0026",
-			"https://cdn.discordapp.com/attachments/1493194844733177906/1494008799642648586/IMG_4564.png?ex=6a01585f\u0026is=6a0006df\u0026hm=3803345760ed0f1e03d9bbe8221240be90814130cc7f5489eeb12721cd94966c\u0026",
+			"https://cdn.discordapp.com/attachments/1493194844733177906/1494008784354283541/IMG_4562.png?ex=6a02011b\u0026is=6a00af9b\u0026hm=e674ff9172bf697281dc967cffbc0c532c645932b8fe688bf1b6096953443473\u0026",
+			"https://cdn.discordapp.com/attachments/1493194844733177906/1494008799642648586/IMG_4564.png?ex=6a02011f\u0026is=6a00af9f\u0026hm=2c2100b5110c3c41e7ac78bcbb5e39f44b7cc9ed03d142b54a4d6c41b90000f4\u0026",
 			"https://cdn.discordapp.com/attachments/1493194844733177906/1494863581177446501/IMG_4597.png?ex=6a01d172\u0026is=6a007ff2\u0026hm=e75d81b6b0c549a0aa36ba25add469ac30316bba3f5f96db6dc73656e63de7c1\u0026",
 			"https://cdn.discordapp.com/attachments/1493194844733177906/1494863838741270730/IMG_4598.png?ex=6a01d1b0\u0026is=6a008030\u0026hm=5860d243dcbbcad55aac0053c094b19f125410748fcdce41c02b643793750a3f\u0026",
 			"https://cdn.discordapp.com/attachments/1493194844733177906/1494864210482696202/IMG_4599.jpg?ex=6a01d209\u0026is=6a008089\u0026hm=ad6b68ea4c2f67ad33904d90104f5c12abeeb0ed1be30ef10bf27d999db2d2ea\u0026",
@@ -2770,10 +2834,10 @@
 		"score": 66,
 		"coverImage": "https://cdn.discordapp.com/attachments/1492912049259417725/1492951312038494278/Kitty.jpg?ex=6a017402\u0026is=6a002282\u0026hm=119d695c145dc04501206eebeb9d72b12afa89abce3a7cdce07b4f4c4fede582\u0026",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912050316251247/202641223141.png?ex=6a014f71\u0026is=69fffdf1\u0026hm=f0af7f31787665a6e8be9b6ce1076e5fb7bad1cb0b0f9d60600f4c30529a5142\u0026",
-			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912051339657246/202641223156.png?ex=6a014f72\u0026is=69fffdf2\u0026hm=d810eeee34e826471b5a880bc458a6dafc92162c370417e6bf34a3d3962261ad\u0026",
-			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912051994230824/2026412231529.png?ex=6a014f72\u0026is=69fffdf2\u0026hm=5a2d55f1bb3cc0652fc2153bf4f4d9356027c7a5d62d8fcba271f9b76761c9b2\u0026",
-			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912052904399030/2026412231542.png?ex=6a014f72\u0026is=69fffdf2\u0026hm=ac14425b497a4084d3232e5e371b25d2d282ddf4363e80cecfaf1b612c244c27\u0026",
+			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912050316251247/202641223141.png?ex=6a01f831\u0026is=6a00a6b1\u0026hm=d49e756c754aa3c38d0a01a7fd2223d1b1edc6e6c223c706af90e555222a7edb\u0026",
+			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912051339657246/202641223156.png?ex=6a01f832\u0026is=6a00a6b2\u0026hm=e5b5ceb9524f9a5947570fc93a4a4acea93761c48522739025d7b050d74103f1\u0026",
+			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912051994230824/2026412231529.png?ex=6a01f832\u0026is=6a00a6b2\u0026hm=ae29d736558f0b7fc30f86fcfeeabe08696182ce7ce783d12b5fe0b971e6c0a3\u0026",
+			"https://cdn.discordapp.com/attachments/1492912049259417725/1492912052904399030/2026412231542.png?ex=6a01f832\u0026is=6a00a6b2\u0026hm=a411e0fd64ed578baf711b0c9918a7a144908f9eb0c6b969da11b364750d2568\u0026",
 			"https://cdn.discordapp.com/attachments/1492912049259417725/1492951312038494278/Kitty.jpg?ex=6a017402\u0026is=6a002282\u0026hm=119d695c145dc04501206eebeb9d72b12afa89abce3a7cdce07b4f4c4fede582\u0026"
 		],
 		"lastModified": "April 12, 2026 at 06:15 PM UTC"
@@ -2822,11 +2886,11 @@
 		"score": 232,
 		"coverImage": "https://cdn.discordapp.com/attachments/1493649519651455106/1494745620467028069/image.png?ex=6a016396\u0026is=6a001216\u0026hm=d64d45ce0a13837443b776b7234886ee8985e064db2b284f667551714bd6c3dd\u0026",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649529558532247/20264150442.png?ex=6a015b46\u0026is=6a0009c6\u0026hm=9859ced49a4a6296d8810f7854d71c86e34d9b61c17b86dcecf8439d200f95ff\u0026",
-			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649530632016122/20264150041.png?ex=6a015b46\u0026is=6a0009c6\u0026hm=6fb547b630ec2b4d0e7e63421afddf959dcc7779f8a8545ef65e73e32d558e5c\u0026",
-			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649531764740116/202641501015.png?ex=6a015b47\u0026is=6a0009c7\u0026hm=9a4c0b8aeef71548a2c2061ae4b4d723e912aa936ae488a307b489d1c5935bb0\u0026",
-			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649533060645035/202641501346.png?ex=6a015b47\u0026is=6a0009c7\u0026hm=045f5cf554a33668748c9a3d9864887ad57414f248eb4baf68e4faf5e9d6ec79\u0026",
-			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649534545432616/2026415084.png?ex=6a015b47\u0026is=6a0009c7\u0026hm=206502afe9c0c4b461b7416cab6929d72d02626842398c931b8d2cea9c6b9860\u0026",
+			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649529558532247/20264150442.png?ex=6a020406\u0026is=6a00b286\u0026hm=a35fde0d41e5aa79214c59dc59c8e1d26d0b61c2b623e455f77bbc86f73b8f80\u0026",
+			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649530632016122/20264150041.png?ex=6a020406\u0026is=6a00b286\u0026hm=ac8b521073476841bb76858c51f7a3b087b5e0862455c24c3f36140b29708f0d\u0026",
+			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649531764740116/202641501015.png?ex=6a020407\u0026is=6a00b287\u0026hm=c695731ba7e2e5ba4ae7da976bd0677a150f00a322cb03b4dac68cfeb8e6ecaf\u0026",
+			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649533060645035/202641501346.png?ex=6a020407\u0026is=6a00b287\u0026hm=773c8466bc10d7bf487073f5d497aaae04c8671950f5441ab7bc40d0fbc63f7b\u0026",
+			"https://cdn.discordapp.com/attachments/1493649519651455106/1493649534545432616/2026415084.png?ex=6a020407\u0026is=6a00b287\u0026hm=2a1e7d7c1d8eebec611ea596ee2b457f1515ed6ac24cb363847db72d894fec67\u0026",
 			"https://cdn.discordapp.com/attachments/1493649519651455106/1493653102853619782/image.png?ex=6a015e9a\u0026is=6a000d1a\u0026hm=a345a27408a8ea77d2fdf5ca5c0b5b89fc9e832ca20c78a6cbe3038d9beb936e\u0026",
 			"https://cdn.discordapp.com/attachments/1493649519651455106/1494741167223345284/image.png?ex=6a015f71\u0026is=6a000df1\u0026hm=399318d1d8039fffa030616c7650dc6678d56bf573cea6bfb61570bf6d4ff960\u0026",
 			"https://cdn.discordapp.com/attachments/1493649519651455106/1494741167689040035/image.png?ex=6a015f71\u0026is=6a000df1\u0026hm=8f6debea28d134c11542e0d0f126acaa64762e6e22d60b42306396e2b5e42668\u0026",
@@ -2861,10 +2925,11 @@
 			"Gettø/Pashie - DYOSAM"
 		],
 		"tags": [
-			"City",
+			"Architecture",
 			"Desert",
+			"Zen/Nature",
 			"Snow",
-			"Zen/Nature"
+			"City"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1494037400303702198",
 		"lore": "This Design is inspired from Greek gods and Goddesses . Combining other historical Buildings to make a new Majestic View .\nallowing people to feel powerful yet elegant at the same way 👑",
@@ -2892,6 +2957,7 @@
 		"builders": [],
 		"tags": [
 			"Military/Arena",
+			"Castle/Palace",
 			"Snow",
 			"Creative"
 		],
@@ -2949,8 +3015,8 @@
 			"https://cdn.discordapp.com/attachments/1494236801555103844/1494236804805824614/Screenshot_2026-04-11_223549.png?ex=6a0183f7\u0026is=6a003277\u0026hm=0fa9e25640b9816bf2f866408ecc19b3b40033e6ba2b298bfad9f911b7752cf4\u0026",
 			"https://cdn.discordapp.com/attachments/1494236801555103844/1494236805359337552/Screenshot_2026-04-11_223011.png?ex=6a0183f7\u0026is=6a003277\u0026hm=aeb5b3e7f6258b06b9ede935d69d7b835517d67f1bd72955ad1b8d036c57dba4\u0026",
 			"https://cdn.discordapp.com/attachments/1494236801555103844/1494241705178955776/Screenshot_2026-04-16_004247.png?ex=6a018888\u0026is=6a003708\u0026hm=e783d71112708c600f844c4c6e861ff2fed362729ee17cade2697d527a4b90ef\u0026",
-			"https://cdn.discordapp.com/attachments/1494236801555103844/1497082016108380271/image.png?ex=6a0151c7\u0026is=6a000047\u0026hm=bb3eaef0b00e184b3d673e982bfaef393dad58e34d577f42abcbcc7bd66a57f3\u0026",
-			"https://cdn.discordapp.com/attachments/1494236801555103844/1497086397780066414/image.png?ex=6a0155db\u0026is=6a00045b\u0026hm=c0777def537d978090a42a610ed9366777c371fb71e29fd4f8d4382274f45b67\u0026",
+			"https://cdn.discordapp.com/attachments/1494236801555103844/1497082016108380271/image.png?ex=6a01fa87\u0026is=6a00a907\u0026hm=6ee203e72bf4aec28663486384b53e35438e0d90ac1ac41ee7be63cfc031b80f\u0026",
+			"https://cdn.discordapp.com/attachments/1494236801555103844/1497086397780066414/image.png?ex=6a01fe9b\u0026is=6a00ad1b\u0026hm=1acadbe15ff6cbf00645c6d3f50319ab7b4a6a5f114150eb3a53d63d7d5c9518\u0026",
 			"https://cdn.discordapp.com/attachments/1494236801555103844/1498599714080297011/image.png?ex=6a01913e\u0026is=6a003fbe\u0026hm=abaf5441a0aafc424f003eb07de267d510e310b2413b2f8e0a16d6548fd5e0af\u0026",
 			"https://cdn.discordapp.com/attachments/1494236801555103844/1498600575179427850/image.png?ex=6a01920b\u0026is=6a00408b\u0026hm=9b459e0a70a35f7df272e3cd52a0065cb10a6e94c43fe4b9cdc7305c9ff4a355\u0026",
 			"https://cdn.discordapp.com/attachments/1494236801555103844/1500767139530018836/image.png?ex=6a018ad0\u0026is=6a003950\u0026hm=47a2872c53373d1c70c0430f853506eade663d478818e12189023f300ba89682\u0026",
@@ -2965,7 +3031,8 @@
 		],
 		"tags": [
 			"City",
-			"Floating Island"
+			"Floating Island",
+			"Party Area"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1494323748830969957",
 		"whatToVisit": "- Guild Entrance\n- Party Area\n- Restaurant on water\n- Small old district vibes",
@@ -3064,6 +3131,7 @@
 		],
 		"tags": [
 			"City",
+			"Architecture",
 			"Underground/Underwater",
 			"Zen/Nature"
 		],
@@ -3206,15 +3274,18 @@
 			"MoBoDao",
 			"marybel"
 		],
+		"tags": [
+			"Maze/Parkour"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1495091180302499860",
 		"whatToVisit": "- Sky pathway\n- Platform game",
 		"score": 46,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091181619642549/202641823755.png?ex=6a0153eb\u0026is=6a00026b\u0026hm=ffbeb922824148c0fff3996c1b3328ad72dcfeeafb5574a335fa7fb30daa36de\u0026",
-			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091182584467626/202641823816.png?ex=6a0153eb\u0026is=6a00026b\u0026hm=c45d1efbc4543f4b92fe22bad162f729d4628d01bd7a86117c1b58ee581fd110\u0026",
-			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091183284785324/202641823912.png?ex=6a0153eb\u0026is=6a00026b\u0026hm=a015fdb1b435735572289dedaad328ca1e6bd4bb6db7863f3f08c7c704ade946\u0026",
-			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091183968583740/202641823939.png?ex=6a0153eb\u0026is=6a00026b\u0026hm=8ef43e4ce281f0f0510909c48f282e806ba36be70d36159eeaed4f3eb0564bea\u0026",
-			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091184459055184/2026418231316.png?ex=6a0153eb\u0026is=6a00026b\u0026hm=174e11c5ece96f5636040fbf6deb8519ed6e5b677494d01162d89c575def3cb1\u0026"
+			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091181619642549/202641823755.png?ex=6a01fcab\u0026is=6a00ab2b\u0026hm=e9a19428be0972600f1aee711d1068a29d8c63dca542d0d966eb5b08b5349495\u0026",
+			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091182584467626/202641823816.png?ex=6a01fcab\u0026is=6a00ab2b\u0026hm=cee23fb441752ed661f63b0e423a8a44b14693af7e882ea571e74319196c8989\u0026",
+			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091183284785324/202641823912.png?ex=6a01fcab\u0026is=6a00ab2b\u0026hm=74862ccd7a12200756abc8aa60767f79fcd5523258fa854932b6f18bfdd67e22\u0026",
+			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091183968583740/202641823939.png?ex=6a01fcab\u0026is=6a00ab2b\u0026hm=6139976d8d4c5580ff689981a83e238032f4f9537dfe5f8f0dd88562c8909d14\u0026",
+			"https://cdn.discordapp.com/attachments/1495091180302499860/1495091184459055184/2026418231316.png?ex=6a01fcab\u0026is=6a00ab2b\u0026hm=828987e59792027c0dbff4675898d961b00de4720e191c6316f063d21416621e\u0026"
 		],
 		"lastModified": "May 1, 2026 at 04:37 AM UTC"
 	},
@@ -3232,12 +3303,12 @@
 		"whatToVisit": "Akatsuki logo from Naruto",
 		"score": 51,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084782357315666/2026418231849.png?ex=6a014df5\u0026is=69fffc75\u0026hm=cf54bf8b8a9995d377846b053fbd54496c6272f1a31aee1d5f81816bab684215\u0026",
-			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084783426998533/2026418232322.png?ex=6a014df5\u0026is=69fffc75\u0026hm=08b25fab9d5a3ab62c414132f95ab8657ae4f49241943e63e2429e800c3e5cc3\u0026",
-			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084784412528740/2026418231947.png?ex=6a014df5\u0026is=69fffc75\u0026hm=bda157387022d699d4741c3df5467c1853a4d4dfc982eae8fe34c3ca1ab1309c\u0026",
-			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084785301979187/2026418231921.png?ex=6a014df6\u0026is=69fffc76\u0026hm=f36d3cd24669c26e36fd2a6b4d69896ea61e4954996c22286eedf6b39b8f1d00\u0026",
-			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084786534977567/2026418231817.png?ex=6a014df6\u0026is=69fffc76\u0026hm=103bc1fc6eff9bac0747addc26ac864669ce1f9e946a38a37f82fb0041f56a94\u0026",
-			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084787973492989/2026418231738.png?ex=6a014df6\u0026is=69fffc76\u0026hm=c73a48329af25ef5bca30b4c34bed4e4d7c301fe563c67e2c8f6aaa4799058aa\u0026"
+			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084782357315666/2026418231849.png?ex=6a01f6b5\u0026is=6a00a535\u0026hm=8e0fc9458834e7607a0ddf32ac1e13b74c5804148a16f5ec91e71b9526d6b902\u0026",
+			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084783426998533/2026418232322.png?ex=6a01f6b5\u0026is=6a00a535\u0026hm=a6c72866cfa924854cc268c77f0e64212e379bdad35e2218fc88b1315175b8e4\u0026",
+			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084784412528740/2026418231947.png?ex=6a01f6b5\u0026is=6a00a535\u0026hm=9403c59cfd32d046d88083d403193faa6ec21695a7f4d6182a3c08f507c759ab\u0026",
+			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084785301979187/2026418231921.png?ex=6a01f6b6\u0026is=6a00a536\u0026hm=cd71f72cbf648ac111f604dc9cd8be9baf6446fdeb7d1b5493cb9044dc73622e\u0026",
+			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084786534977567/2026418231817.png?ex=6a01f6b6\u0026is=6a00a536\u0026hm=6ffe4472b40a4b3192de3165ab02dfa51fb64651abe7f756e2a4af6a7559efc1\u0026",
+			"https://cdn.discordapp.com/attachments/1495084780239196271/1495084787973492989/2026418231738.png?ex=6a01f6b6\u0026is=6a00a536\u0026hm=bf339d5fd035cb181124a58ada0d9a9dad5a40cfa704bafc9664e14c64cdfda7\u0026"
 		],
 		"lastModified": "April 20, 2026 at 07:55 AM UTC"
 	},
@@ -3269,6 +3340,8 @@
 		],
 		"tags": [
 			"Architecture",
+			"Castle/Palace",
+			"Snow",
 			"Creative"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1496144246804189246",
@@ -3298,6 +3371,11 @@
 			"tingting",
 			"Taishakuten"
 		],
+		"tags": [
+			"City",
+			"Architecture",
+			"Modern/Futuristic"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1496205792007688222",
 		"lore": "\"Singapore\" is the first (but certainly not the last) guild made by Singaporeans, for Singaporeans. The guild base features multiple points of interests that are inspired by Singapore's iconic landmarks with a touch of the jianghu's essence.",
 		"whatToVisit": "- \"Marina Bay Sands\"\n- \"Gardens by the Bay\"\n- \"Changi Jewel\" + \"Changi Tower\"\n- The \"National Gallery\" + Visitor's Corner\n- The Singapore Flag\n- Performers' Stage \n- \"Gambling Den\" (dont ask)\n- The Dragon Playground\n- Tan Tock Seng Hospital + Ambulance\n- MRT (train/metro) + Stations\n- Doro pixel art",
@@ -3322,6 +3400,10 @@
 		"builders": [
 			"Yaban",
 			"WickedShai and Sinarong"
+		],
+		"tags": [
+			"Mountain/Cave",
+			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1496324512352960572",
 		"lore": "Aye wassup Yaban here, I've been the majority builder here but of course with some help on ideas and feedback from my awesome guild also keep in mind still a work in progress. But this game brings people from all walks of life together. From the deadliest swords of the Midnight blades, classiest of the VelvetShade, creatives of the Mask Troupe and even the rowdiness of the Raging Tides. That's the idea I had in mind for our Guild and especially our base a fun safe space everyone can enjoy no matter what you're doing on this game",
@@ -3409,7 +3491,7 @@
 			"https://cdn.discordapp.com/attachments/1496620740978540635/1499490517128581341/20264288420a.png?ex=6a01831e\u0026is=6a00319e\u0026hm=02e97906b4fd7fedaec1166ae03ea7faf3290278e316d661f93aa70da18069cc\u0026",
 			"https://cdn.discordapp.com/attachments/1496620740978540635/1499490517736620062/202642883933a.png?ex=6a01831e\u0026is=6a00319e\u0026hm=64a58a8f0e1d56739e9b4f48a16ac2c9f2817264c1735adac1d870f52e7f559d\u0026",
 			"https://cdn.discordapp.com/attachments/1496620740978540635/1499490518068101201/202642873140.png?ex=6a01831e\u0026is=6a00319e\u0026hm=edca738218cdf4a8877fa00a11413659074eb49b98363b0176b0843197b2c865\u0026",
-			"https://cdn.discordapp.com/attachments/1496620740978540635/1501077505132597269/20265512239.png?ex=6a015a5d\u0026is=6a0008dd\u0026hm=0e3acc35469b87bbd54279a9ba5cdaeb235855219a3647b09c5958956a0c148a\u0026"
+			"https://cdn.discordapp.com/attachments/1496620740978540635/1501077505132597269/20265512239.png?ex=6a02031d\u0026is=6a00b19d\u0026hm=dc01939e832233081328490a78454e7293074bad4130b16070b87a7946f76dd2\u0026"
 		],
 		"videos": [
 			"https://www.youtube.com/watch?v=XWyX0537LdI"
@@ -3489,6 +3571,7 @@
 			"Zaya ( I D : 10247091)"
 		],
 		"tags": [
+			"Military/Arena",
 			"Underground/Underwater"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1496846268360560741",
@@ -3517,6 +3600,10 @@
 		"name": "Veil",
 		"builders": [
 			"TEAM VEIL"
+		],
+		"tags": [
+			"Fun",
+			"Zen/Nature"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1496590675641237644",
 		"lore": "Our theme was a Japanese festival theme our team work really hard and I think we did a great job making everything detailed as possible.\nThis base is still WIP so there will be alot off unfinished things",
@@ -3646,6 +3733,11 @@
 			"Vana",
 			"Jujinyii"
 		],
+		"tags": [
+			"Military/Arena",
+			"Mountain/Cave",
+			"Zen/Nature"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1496972564160057465",
 		"lore": "Here is a show case of the guild base myself, Vana and Jujinyii built together. It’s themed to be more natural.",
 		"whatToVisit": "Pond\nMountain \nArena \nGwegory the T-Rex\n```",
@@ -3711,10 +3803,11 @@
 			"LetMeCookThem"
 		],
 		"tags": [
-			"Floating Island",
+			"Fun",
 			"Zen/Nature",
-			"Creative",
-			"Fun"
+			"Floating Island",
+			"Maze/Parkour",
+			"Creative"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1497052125535141928",
 		"lore": "The guild is built around a sky-sculpture theme. At the center, there’s a large circular structure inspired by an umbrella frame, blended with natural elements. The goal is to make it feel visually calming from any angle. We also added platforms you can jump across like an obby, with a few hidden traps in certain areas. And the restaurant serves Krapao Kai, which is a popular dish in Thailand and also the name of the guild",
@@ -3730,9 +3823,13 @@
 			"https://cdn.discordapp.com/attachments/1497052125535141928/1497052128823480461/202642493730.png?ex=6a01deb1\u0026is=6a008d31\u0026hm=cc918e8289fc1bf0534890ba726721c5d16e702728301d6d96bf173d05b94caf\u0026",
 			"https://cdn.discordapp.com/attachments/1497052125535141928/1497052129192448130/202642493452.png?ex=6a01deb1\u0026is=6a008d31\u0026hm=32b67ed64db4cc1f7dc1c034b7fc32144924311fc71cd47219805b243e5c2375\u0026",
 			"https://cdn.discordapp.com/attachments/1497052125535141928/1497052129586839574/2026423221116.png?ex=6a01deb1\u0026is=6a008d31\u0026hm=8e380b1ba5b8e27b762177d5ef81594eaa7722116c838928b94199246eb51a19\u0026",
-			"https://cdn.discordapp.com/attachments/1497052125535141928/1497052130375372850/image.png?ex=6a01deb1\u0026is=6a008d31\u0026hm=b488098f2e0280c085faf02481e5e694f3a1bdea0d69426c6f9d384297fd4874\u0026"
+			"https://cdn.discordapp.com/attachments/1497052125535141928/1497052130375372850/image.png?ex=6a01deb1\u0026is=6a008d31\u0026hm=b488098f2e0280c085faf02481e5e694f3a1bdea0d69426c6f9d384297fd4874\u0026",
+			"https://cdn.discordapp.com/attachments/1497052125535141928/1503059771337478264/202651023350.png?ex=6a01f8fe\u0026is=6a00a77e\u0026hm=bb12a0f9809bdabf78dd8aaf502d0f125071ef2bec6ffb88c70a41319250fcce\u0026",
+			"https://cdn.discordapp.com/attachments/1497052125535141928/1503059772293775450/2026510233628.png?ex=6a01f8ff\u0026is=6a00a77f\u0026hm=d864f6530ac77fb37d324879ac3e51528f215d4078e0a4d280a9718ef2652bdb\u0026",
+			"https://cdn.discordapp.com/attachments/1497052125535141928/1503059773543682058/2026510233645.png?ex=6a01f8ff\u0026is=6a00a77f\u0026hm=d993d8752f82d8ca875cc17d3f048c548e678de7ca85f82ac7f6f237c1419710\u0026",
+			"https://cdn.discordapp.com/attachments/1497052125535141928/1503059774768677015/2026510233754.png?ex=6a01f8ff\u0026is=6a00a77f\u0026hm=f4f175dfa419c61fa217da8fea607c97b245ce683ce57e8c92fbaa3f48af7dd7\u0026"
 		],
-		"lastModified": "April 24, 2026 at 04:00 AM UTC"
+		"lastModified": "May 10, 2026 at 04:30 PM UTC"
 	},
 	{
 		"id": "10135885",
@@ -3812,18 +3909,18 @@
 			"https://cdn.discordapp.com/attachments/1497430394495045735/1497439595678404749/image.png?ex=6a01f60c\u0026is=6a00a48c\u0026hm=40c053aed09294ced819b6b920890bed3201bf309642b146affd5c03d3a45129\u0026",
 			"https://cdn.discordapp.com/attachments/1497430394495045735/1497439596160618538/20264259456.png?ex=6a01f60c\u0026is=6a00a48c\u0026hm=2032eb20c69218aa4af04b9b5c47695bfc1758e8edc2aed7bf86d78a8ec303cf\u0026",
 			"https://cdn.discordapp.com/attachments/1497430394495045735/1497439596647022705/2026425947.png?ex=6a01f60c\u0026is=6a00a48c\u0026hm=efec2b567554f2fcdd7c7f71a039e841ee4b6c629512260b46760aec3a103f90\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440443921600594/20264259913.png?ex=6a014e16\u0026is=69fffc96\u0026hm=ebee8b1b81ebf681204365ac205018b34c4c8ddf8052838e3fe30ed76135bed9\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440444420849724/20264259832.png?ex=6a014e17\u0026is=69fffc97\u0026hm=32e6a9c0f90b87bd4a72703ee9113dc83fddc836dd0095cab974d91228162a03\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440444873838792/20264259321.png?ex=6a014e17\u0026is=69fffc97\u0026hm=3c54dbb59e999f31e6916b3eb014242b0205e51dc2d53d0a8d749b56704893a8\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440445368635392/20264259154.png?ex=6a014e17\u0026is=69fffc97\u0026hm=663438798710bcb0ec9dd05ff063092c682d0bace7ad3e672a1766afc4c55934\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440445708501153/1777078488_299zFhG2.jpg?ex=6a014e17\u0026is=69fffc97\u0026hm=3e5f4adb37b899c97c748201f91281e5220475bc140dec6cb7810ca3f6cf5161\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440446874386622/image.png?ex=6a014e17\u0026is=69fffc97\u0026hm=eba18447ae4692f4c7bf5e512c2dfeacd723657aeb945ce67b6cf4bd0ba5bd79\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440447390552084/202642585239.png?ex=6a014e17\u0026is=69fffc97\u0026hm=7e0f6ce8100695ae032a56d95ca8cc4b8fd34caef68ae2522fa854a578917c56\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440447826624533/20264258511.png?ex=6a014e17\u0026is=69fffc97\u0026hm=157b64956e46a2f07ceb13b7bbe6a605e04ff787b25e595a921d24e479665571\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440448241995856/202642584642.png?ex=6a014e17\u0026is=69fffc97\u0026hm=0d2ff870aad132517f9e0e0c7d7d782de46a11acd4c8395a40db589baa76fa45\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440621659426816/202642584743.png?ex=6a014e41\u0026is=69fffcc1\u0026hm=5eed694bb70ca2878fd54d59ab7d2fef463704571af619a3cc9261b5b6a271d8\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440622255280218/202642584916.png?ex=6a014e41\u0026is=69fffcc1\u0026hm=0854cb9e81eda703ea9955e9aa261e950ee68221b0922d932f88680c92a84d43\u0026",
-			"https://cdn.discordapp.com/attachments/1497430394495045735/1497441077680931009/image.png?ex=6a014eae\u0026is=69fffd2e\u0026hm=6cf88a96b22e9c7a1b97d6a659e260cd5fac55106e6864efc3dfd5d4fdca51bd\u0026"
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440443921600594/20264259913.png?ex=6a01f6d6\u0026is=6a00a556\u0026hm=01bb12db0b17570b257c17d3447b285811fd7e382569080af119095210363933\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440444420849724/20264259832.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=feb6445f8d344bf3ca773b69457e050420cec4dc1b285ff2a0cbfa89981f1e4a\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440444873838792/20264259321.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=ad88abae7d3307be7c45e09a014593cac138ee082b12c4deb6ea65683fda8abb\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440445368635392/20264259154.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=e544dbc3863e8d6bc14e4d4ab6bc73a3d00d5aa8e4252078761101295084a46c\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440445708501153/1777078488_299zFhG2.jpg?ex=6a01f6d7\u0026is=6a00a557\u0026hm=a09d0d24b88b272cb61fd33a56af8632e7d64032e2a711aead569ca422dabcc0\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440446874386622/image.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=19d16a90a83ff328d4c4d9049732a53f3e3b8c4ef4c6c614454e614ecd19c2de\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440447390552084/202642585239.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=74e30b724e50f7f1e83b7a9a209244e653370850794c578d957e3e060b7858f9\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440447826624533/20264258511.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=d627881268042adebc07a2b8b7df92f8ac7cbb6872b859162e01f42609ab3954\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440448241995856/202642584642.png?ex=6a01f6d7\u0026is=6a00a557\u0026hm=f69dfd3aee4adbe3b73ba6a08c2ca65bdcc3190edff6c57db7f267f9a029969a\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440621659426816/202642584743.png?ex=6a01f701\u0026is=6a00a581\u0026hm=cbced4e219432fd7ed41e98a0e4072c3e3ae256e228001b90dadf086b84ff336\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497440622255280218/202642584916.png?ex=6a01f701\u0026is=6a00a581\u0026hm=8ddf03ac3fce8c278a86c66ca427477ab3953a2a471e812e360e59c263588c4f\u0026",
+			"https://cdn.discordapp.com/attachments/1497430394495045735/1497441077680931009/image.png?ex=6a01f76e\u0026is=6a00a5ee\u0026hm=678425556ca87685586f643db391beb5041cc174e48cc80745c057f86113b023\u0026"
 		],
 		"videos": [
 			"https://www.youtube.com/watch?v=hKRMBHxAOTk"
@@ -3849,14 +3946,17 @@
 			"CuiHua",
 			"FanJun"
 		],
+		"tags": [
+			"City"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1498355095841148948",
 		"lore": "A medium size, wealthy city district at the outskirts of Kaifeng, where the four most respected and important factions reside, The Azures Court, The Jade Lotus Bureau of Mystic Arts, The Crimson Vanguard, The Gilded Lantern.",
 		"whatToVisit": "-every faction respected area\n-the secret faction residing amongst the crowd.",
 		"score": 43,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1498355095841148948/1498355096575021209/IMG_20260423_181252216_AE.jpg?ex=6a01562d\u0026is=6a0004ad\u0026hm=01added2bcc7c866aca5d80761c77ad4003eae64408f527703d7c9e95c8246fd\u0026",
-			"https://cdn.discordapp.com/attachments/1498355095841148948/1498355475551621190/19dc7e0775842-screenshotUrl.jpg?ex=6a015687\u0026is=6a000507\u0026hm=2cddb16edc1e1210f08514f105e1d5a885ddd07d9f6c23129f714ff9a119f01e\u0026",
-			"https://cdn.discordapp.com/attachments/1498355095841148948/1498355475941429411/19dc7e061d79-screenshotUrl.jpg?ex=6a015687\u0026is=6a000507\u0026hm=cef1b94687ff9f99212db38473013996fb9be5bb1b9105c554577453a3389e13\u0026",
+			"https://cdn.discordapp.com/attachments/1498355095841148948/1498355096575021209/IMG_20260423_181252216_AE.jpg?ex=6a01feed\u0026is=6a00ad6d\u0026hm=9a38c06f3a81cc95fb82bec84b6405a41526b09fbaa4823710a3cad9d425fe27\u0026",
+			"https://cdn.discordapp.com/attachments/1498355095841148948/1498355475551621190/19dc7e0775842-screenshotUrl.jpg?ex=6a01ff47\u0026is=6a00adc7\u0026hm=88d8debaa64760658f87d2a37fa559923dd2be939d6842297c15b6e24fac0129\u0026",
+			"https://cdn.discordapp.com/attachments/1498355095841148948/1498355475941429411/19dc7e061d79-screenshotUrl.jpg?ex=6a01ff47\u0026is=6a00adc7\u0026hm=bad5e3c0d0245438291852348a8b8b29a289748a3d344721ea830382f2713bd2\u0026",
 			"https://cdn.discordapp.com/attachments/1498355095841148948/1498401199957737562/19dd05865ea28-screenshotUrl.jpg?ex=6a01811d\u0026is=6a002f9d\u0026hm=7a8f675ce285f3d6fc256ff7d17751b106d1d40b42b7c6e53c7b564f77d5862a\u0026",
 			"https://cdn.discordapp.com/attachments/1498355095841148948/1498401200373104830/19dd058785599-screenshotUrl.jpg?ex=6a01811d\u0026is=6a002f9d\u0026hm=f8559b0ef0305d4733b8165dcd20b42fb456ddb8b973da82776322510d3b74e3\u0026",
 			"https://cdn.discordapp.com/attachments/1498355095841148948/1498401201077620826/19dd058864349-screenshotUrl.jpg?ex=6a01811d\u0026is=6a002f9d\u0026hm=278bd110f14d493748facd9d3de5c3665ced727c0c2ebb6858525433d9a64bb2\u0026",
@@ -3881,6 +3981,9 @@
 		"name": "Lucid Echoes",
 		"builders": [
 			"WindXP"
+		],
+		"tags": [
+			"Architecture"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1498212731113701497",
 		"whatToVisit": "Gardens\nGreek style structures",
@@ -4004,6 +4107,11 @@
 			"LeeHuangYing",
 			"Mihoyashi"
 		],
+		"tags": [
+			"Fun",
+			"Military/Arena",
+			"Zen/Nature"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1498861707743854703",
 		"lore": "Vietnamese chill guild. Old but Gold. We welcome everyone come to our base. Love and Peace",
 		"whatToVisit": "Test your skill arena\nGuild party\nHot spring spa\nBuddha temple\nRain pavilion\nKoi Fish Lantern Square\nSnow inn\nBig castle",
@@ -4091,21 +4199,21 @@
 		"lore": "Night Jade is a very cozy and majestic place for our members to relax and escape to. There are a lot of hidden spots with little details I dreamt up. Three hidden water spirit sites. 🎏  I wanted the area to be as open, detailed and least but confusing as possible for all to enjoy! It's expanded through inspiration from others and in game structures. There are 2 distinct sides and themes to the GH as a whole. Tell me which one you like more? Modern yet natural or developed and traditional 🤙⚔️",
 		"whatToVisit": "1. Game Hall♟️\n2.Oasis Lake:ocean\n\n3. Lakeside Cabins🏘️\n4.Modern Lake 🏡 5.Bozai Residence (compound on western side)🏯\n6.Outdoor market and Onsen🛍️\n7.Armory and Archery Range🏹\n8. Gate Bridge Dueling Arena⚔️\n9. Royal Court and Treasury🎎\n10. Hidden Winterland 🥶\n*Party Area is my favorite area\n```\n🌐 **Future page on the website:** \u003chttps://www.wherebuildersmeet.com/guilds/幽-night-jade-玉\u003e\n*(may take a little while to appear once everything syncs)*",
 		"score": 39,
-		"coverImage": "https://cdn.discordapp.com/attachments/1499074161002418206/1499074162323619840/19dd9e7085686-screenshotUrl.jpg?ex=6a0150db\u0026is=69ffff5b\u0026hm=6dfae068b7e3392654ad3926e136ae107841c7dfb6c60afb08df563b16dd8635\u0026",
+		"coverImage": "https://cdn.discordapp.com/attachments/1499074161002418206/1499074162323619840/19dd9e7085686-screenshotUrl.jpg?ex=6a01f99b\u0026is=6a00a81b\u0026hm=4807db65ce160d14760dcff4b11f765036c44076ccbe52e46075b4b71f1d254e\u0026",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074161543217293/19dd9e6c0fe86-screenshotUrl.jpg?ex=6a0150db\u0026is=69ffff5b\u0026hm=c3d4f5e207553d7744b376a3eeedc1a497484a56fb5e9f73aee16f60eb51f32e\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074162323619840/19dd9e7085686-screenshotUrl.jpg?ex=6a0150db\u0026is=69ffff5b\u0026hm=6dfae068b7e3392654ad3926e136ae107841c7dfb6c60afb08df563b16dd8635\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074162721820812/19dd9e8092780-screenshotUrl.jpg?ex=6a0150db\u0026is=69ffff5b\u0026hm=1abafd9589a087cc103d99fbaf4b077b75f34569fc29f87f7538920524dbddc3\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074163179257876/19dd9e7a0c359-screenshotUrl.jpg?ex=6a0150db\u0026is=69ffff5b\u0026hm=56b7a1134a001213fa79ee11c434923c756a1dca7abc87f3a5f35f43ed92f385\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074163627790446/19dd9e72a1260-screenshotUrl.jpg?ex=6a0150dc\u0026is=69ffff5c\u0026hm=640a779d5a8ee627c381541a83f293350755812f63bc230fc47445018be0d917\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074164177371366/19dd9e7833373-screenshotUrl.jpg?ex=6a0150dc\u0026is=69ffff5c\u0026hm=5fcc52f4017a3c5c9917934301dcbf64ab63b66c4344a6e8d8c9ca67f83202cb\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074164689211463/19dd9e7ec5d93-screenshotUrl.jpg?ex=6a0150dc\u0026is=69ffff5c\u0026hm=fcbe8870d3f7e5700bc4dff45a92d9c2600b426bbcadca012d8e9120e0c8fa76\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074165288861777/19dd9e7431241-screenshotUrl.jpg?ex=6a0150dc\u0026is=69ffff5c\u0026hm=67692a630ba3e34af04677fbd1d178686883147565ceb741f5943f6fd0163b25\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074165943177306/19dd9e76d6139-screenshotUrl.jpg?ex=6a0150dc\u0026is=69ffff5c\u0026hm=f42e1bb58ad66a55319168eb56810eab55f0e8e61a1498ee18dae9075a92188b\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075240037187627/19dd9ee15d834-screenshotUrl.jpg?ex=6a0151dc\u0026is=6a00005c\u0026hm=633f77a945dd12d25f6beec7f08dfdb6de79a8f9852dadb1dc0bdadf2242d05b\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075240490176604/19dd9ee288a3-screenshotUrl.jpg?ex=6a0151dc\u0026is=6a00005c\u0026hm=ce5ac5dd2874e029b9d5ae6ee6562bb6476117e5438daa6684bf0886575d0377\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075241090088990/19dd9edf8b396-screenshotUrl.jpg?ex=6a0151dc\u0026is=6a00005c\u0026hm=1b95b289b596dc5d2490dc849194a8568ffdf2d3d6c6553848f8ed396916caf6\u0026",
-			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075241933275268/19dd9ee06d74-screenshotUrl.jpg?ex=6a0151dd\u0026is=6a00005d\u0026hm=1b87c492421db1ceadaab0eda301ea6c8856ee92bd3324638a9bb7d9ac10f171\u0026"
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074161543217293/19dd9e6c0fe86-screenshotUrl.jpg?ex=6a01f99b\u0026is=6a00a81b\u0026hm=923e438b22402ba7c0a5be24187b6f7719eb3077c5816edaf13c3ba9c395ba0e\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074162323619840/19dd9e7085686-screenshotUrl.jpg?ex=6a01f99b\u0026is=6a00a81b\u0026hm=4807db65ce160d14760dcff4b11f765036c44076ccbe52e46075b4b71f1d254e\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074162721820812/19dd9e8092780-screenshotUrl.jpg?ex=6a01f99b\u0026is=6a00a81b\u0026hm=ecf285d749947ea4177e3e94e3dddc4488f87bce726ee91fe2e0c116aa6d8a88\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074163179257876/19dd9e7a0c359-screenshotUrl.jpg?ex=6a01f99b\u0026is=6a00a81b\u0026hm=62e2784e12b27b366233b9e83cf6d8c0a5ef7a8c672f9d91902e02c28c9e50b2\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074163627790446/19dd9e72a1260-screenshotUrl.jpg?ex=6a01f99c\u0026is=6a00a81c\u0026hm=db5af8c1444d43d00629bb24d022bfaeb642cdadc6497498f1041cfa9ad2ea36\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074164177371366/19dd9e7833373-screenshotUrl.jpg?ex=6a01f99c\u0026is=6a00a81c\u0026hm=02e6eb722b6c725de06eb70f43c84d3140bd154f24f4402f239120cc8d328fbc\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074164689211463/19dd9e7ec5d93-screenshotUrl.jpg?ex=6a01f99c\u0026is=6a00a81c\u0026hm=3a77391bd4022e77ba6c5a80d7349852f03af9406df2b906eab336a4f81ff0fb\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074165288861777/19dd9e7431241-screenshotUrl.jpg?ex=6a01f99c\u0026is=6a00a81c\u0026hm=c3ec97a4918601f0f995b2ee72f1c112a7ff827a242f0d3529ec41db75039726\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499074165943177306/19dd9e76d6139-screenshotUrl.jpg?ex=6a01f99c\u0026is=6a00a81c\u0026hm=0897f490e28dbddb78f47ba5cd86ca5000db40b252a449d73b65ee75e080a130\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075240037187627/19dd9ee15d834-screenshotUrl.jpg?ex=6a01fa9c\u0026is=6a00a91c\u0026hm=8c4d1e11bacada6e929ea64a0dc737732d7399d65c64c005b55ff1f34ab5b4b1\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075240490176604/19dd9ee288a3-screenshotUrl.jpg?ex=6a01fa9c\u0026is=6a00a91c\u0026hm=0c19d0a7793feb7035872212136a52897e196281bffd53964590acf6579aff54\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075241090088990/19dd9edf8b396-screenshotUrl.jpg?ex=6a01fa9c\u0026is=6a00a91c\u0026hm=ccfe28392407a873aef9ffd6bf00623e2f8632b83a1d1a17ef0e20a04362d3e9\u0026",
+			"https://cdn.discordapp.com/attachments/1499074161002418206/1499075241933275268/19dd9ee06d74-screenshotUrl.jpg?ex=6a01fa9d\u0026is=6a00a91d\u0026hm=63a4973cfef2378074500b2f1d70e800a9bcbd4b2144980ccb527d95db4e74ab\u0026"
 		],
 		"lastModified": "April 29, 2026 at 04:15 PM UTC"
 	},
@@ -4150,6 +4258,10 @@
 			"Ziijing",
 			"|||Celestine|||"
 		],
+		"tags": [
+			"Military/Arena",
+			"Castle/Palace"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1499155607243067432",
 		"lore": "Clan Nyghtshade stood across many worlds, building community and fostering friendship. Hidden in the valley under the shade of red, we cultivate our martial skills and venture throughout the Jianghu.",
 		"whatToVisit": "The guild palace\nThe sparring ring\nThe entertainment pavilion\nThe library\nThe Onsen Forest\nThe Shades of Red Nightclub",
@@ -4179,9 +4291,9 @@
 		"name": "小童群抽會",
 		"builders": [],
 		"tags": [
-			"Mountain/Cave",
 			"Fun",
 			"Floating Island",
+			"Maze/Parkour",
 			"City",
 			"Creative"
 		],
@@ -4253,27 +4365,27 @@
 		"lore": "In the sanctuary of Kuroya, the four seasons coexist in eternal harmony, guarding a realm where spirit meets art. We at Kuroya believe in being free spirits like seasons that may come n go, enchanting us with its beauty.At its heart lies the lovers Lake, cradling the crimson leaves tree. Here, members tie silk vows to branches, praying for prosperity and the strength of their kinship.\n\nGrowth in Kuroya is found through the Twin Arts: the fluid rhythm of dance and the soulful precision of poetry as we move through dungeons,fight both man and beasts. By weaving movement with verse, members master their inner selves. To Kuroya, true success is not gold, but the unbreakable bonds formed beneath the blossoms of a perpetual spring.",
 		"whatToVisit": "🌸 Guild Party area\n🌸 Crimson Tree lake\n🌸 Cafe\n🌸 Tea Party \n🌸 Morning Walk in Bamboo\n🌸 Auditorium For dance and poetry\n🌸Mysterious bridge where you may find your Fated one",
 		"score": 65,
-		"coverImage": "https://cdn.discordapp.com/attachments/1500896882455613601/1500896893209936013/10.png?ex=6a015ae8\u0026is=6a000968\u0026hm=20317a1321094751bb35f46fb4af35166535a5df25bbfb7b7221ac094d651f05\u0026",
+		"coverImage": "https://cdn.discordapp.com/attachments/1500896882455613601/1500896893209936013/10.png?ex=6a0203a8\u0026is=6a00b228\u0026hm=e94ba8a772ffc06f395b3d0f4728d3b063d079dfe1b753f6ec98099791cf8b5c\u0026",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896884469010514/1.png?ex=6a015ae6\u0026is=6a000966\u0026hm=7f78ced4c9a4af5dea80366556e41ce7f182fb6bf5c935363c7625a07817e919\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896885316255754/2.png?ex=6a015ae6\u0026is=6a000966\u0026hm=94240ec0b9055fa2886beb2a1e43ca6ca0d4ff637742f6446102b7e1bc5637f1\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896885949337691/3.png?ex=6a015ae6\u0026is=6a000966\u0026hm=06b6acdf49bd26bd1b18587401edf8ab25950cc799b90178e0255edd46c7344d\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896888033902773/5.png?ex=6a015ae7\u0026is=6a000967\u0026hm=29cbad8588af1b18d260896ba9fdc994edc6ef38865ca3647b61f8e58b24b107\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896888923099196/6.png?ex=6a015ae7\u0026is=6a000967\u0026hm=fce948d998c7f1e7c05aea6afb77eb259413ab1f3026f3f017dcc0705ff6213b\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896889560895679/7.png?ex=6a015ae7\u0026is=6a000967\u0026hm=ba94f5ca550c47f9c62039e365adda6996e8fcfe80137617f498562191558cd6\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896890957594774/8.png?ex=6a015ae8\u0026is=6a000968\u0026hm=a1eac9a88f599f9df05b3041e666a50a8ffae0cb2339cda8dddcaf1ed2e2226f\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896891968426175/9.png?ex=6a015ae8\u0026is=6a000968\u0026hm=1b1e4b5e83f305f86ae38f22ee48636d5297e93951ac8a1365d4f49b54008353\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896893209936013/10.png?ex=6a015ae8\u0026is=6a000968\u0026hm=20317a1321094751bb35f46fb4af35166535a5df25bbfb7b7221ac094d651f05\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896972821758025/11.png?ex=6a015afb\u0026is=6a00097b\u0026hm=ef9f9156a9e154814b32edeb11455d5a97c5a0dac88ff3c6789ddbae902b5867\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896973295976678/12.png?ex=6a015afb\u0026is=6a00097b\u0026hm=943e24345d54f1fdd8112588e205802c7466e8d6e12a8b0bb3d9dacb5f10ac12\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896973702693014/13.png?ex=6a015afb\u0026is=6a00097b\u0026hm=7e4b6b94d7e58f0425dbb6e3fe984fbe771a34a8eba9448e36fa7c49fe0869f8\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896974226849812/14.png?ex=6a015afb\u0026is=6a00097b\u0026hm=818b1a09e7d3920893a1afa68c0519a2d2b486e46a9df70b651a6b5f35ac70fc\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896974638022836/15.png?ex=6a015afc\u0026is=6a00097c\u0026hm=43ab93486a800de197c283d08c11a26f926d9f524b9ff2ea2e0c7702578f266c\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896975124431001/16.png?ex=6a015afc\u0026is=6a00097c\u0026hm=47fa7e0da631d6bfc538a973941b98d503656c3edfcbd1cda285c6880aca1ac2\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896975569031219/17.png?ex=6a015afc\u0026is=6a00097c\u0026hm=7f76c79ecfbd71e29a6f19acdbef0c26aa62e3b805f1df4b4b47538cf2d2e173\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896975984394432/18.png?ex=6a015afc\u0026is=6a00097c\u0026hm=346a6e0473be4352203c0da71b05db02b026296ac67dad8ccc8011d8abf74ac5\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896976424669346/19.png?ex=6a015afc\u0026is=6a00097c\u0026hm=ea61c26e962cc37799008754545dff9fa16b9a72d975341ef6c3fc8abad1d005\u0026",
-			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896976819060950/20.png?ex=6a015afc\u0026is=6a00097c\u0026hm=bd67eb99db64009aa7b7a3c7eafadf0d315e2e84465a6bcd9fdde137d7707851\u0026"
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896884469010514/1.png?ex=6a0203a6\u0026is=6a00b226\u0026hm=53e2261dcb35c30965473eaca90df7740e5cb7786c6306b26a3cec5630c113ee\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896885316255754/2.png?ex=6a0203a6\u0026is=6a00b226\u0026hm=4b7ebe2fecce21e0edff1f63e9228651a17c0075c1e1dc06c87c5377ef53cf57\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896885949337691/3.png?ex=6a0203a6\u0026is=6a00b226\u0026hm=87d85cdee6d8d7c6035e65940b1bcdb7aa4758fcf32d1d677c43a4067015d8a2\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896888033902773/5.png?ex=6a0203a7\u0026is=6a00b227\u0026hm=226fd299f5babc558781a2e4aeb9a2370b7055bce94fbff3d1e67fc062753987\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896888923099196/6.png?ex=6a0203a7\u0026is=6a00b227\u0026hm=134168cd042ee437c906974b35b258b37f868c79e02dc39835c8954431749e2b\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896889560895679/7.png?ex=6a0203a7\u0026is=6a00b227\u0026hm=5103dc9cf03fa3b2c7f30c87b0830971ed4d4ff5a6c0c4348355684cc211a3a2\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896890957594774/8.png?ex=6a0203a8\u0026is=6a00b228\u0026hm=79d8f24d2e2fbb2308f61c8dfecbb6961985b580d165295bc7a3639f04af9342\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896891968426175/9.png?ex=6a0203a8\u0026is=6a00b228\u0026hm=4dcecab798c611d1fead3845dac65a1e8f7d235c6e746a366f3e19fb72dfe956\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896893209936013/10.png?ex=6a0203a8\u0026is=6a00b228\u0026hm=e94ba8a772ffc06f395b3d0f4728d3b063d079dfe1b753f6ec98099791cf8b5c\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896972821758025/11.png?ex=6a0203bb\u0026is=6a00b23b\u0026hm=8277c821f029888856cb59f710629845f3a9789abe8fa5ba0370a2c313d06323\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896973295976678/12.png?ex=6a0203bb\u0026is=6a00b23b\u0026hm=12d88f0ef2b93db8ccb5f85e4df8a267b399e9acc7b79f553bbbaee40d7b7e77\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896973702693014/13.png?ex=6a0203bb\u0026is=6a00b23b\u0026hm=5e71924b4222e418fdd24607c33fa38d145a105375abdbfb66481e2592672176\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896974226849812/14.png?ex=6a0203bb\u0026is=6a00b23b\u0026hm=ddef6ec0619e2dd49613c7c53cd40cf506d415742c52876f5208da13272157ca\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896974638022836/15.png?ex=6a0203bc\u0026is=6a00b23c\u0026hm=174230109ddeba034336e59c13b153501b9dfb01d6d63cebaa42cce8d98691ca\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896975124431001/16.png?ex=6a0203bc\u0026is=6a00b23c\u0026hm=d754bbe398d1a39f34913fc065e1593b9c67e8eaee3a0442b28c1770c5af6195\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896975569031219/17.png?ex=6a0203bc\u0026is=6a00b23c\u0026hm=6e5ad3d455f84c162f02ae8c117c568ee0f779b2e089f53e1c3ad7cc356fc850\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896975984394432/18.png?ex=6a0203bc\u0026is=6a00b23c\u0026hm=f89b6bfc8296e2c67950a3212eade712c5f1db9275d3d548cb95be1d72debe51\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896976424669346/19.png?ex=6a0203bc\u0026is=6a00b23c\u0026hm=8d24f594ed72d815a2f68175757695223f63f0b495d817a3da6a8822e68e270d\u0026",
+			"https://cdn.discordapp.com/attachments/1500896882455613601/1500896976819060950/20.png?ex=6a0203bc\u0026is=6a00b23c\u0026hm=fb05144c38d519f9fa2a6aceaf9e4c443ac3555dbadd577f81db53fc2947b6e4\u0026"
 		],
 		"lastModified": "May 4, 2026 at 04:33 PM UTC"
 	},
@@ -4314,10 +4426,10 @@
 			"流浪貓"
 		],
 		"tags": [
-			"Fun",
-			"Mountain/Cave",
 			"Underground/Underwater",
-			"Creative"
+			"Mountain/Cave",
+			"Creative",
+			"Fun"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1501532476210675883",
 		"lore": "MEWMEWMEW",
@@ -4347,67 +4459,67 @@
 		"lore": "our president can do a backflip!",
 		"whatToVisit": "**motto**: unity in desolation, prosperity in the cold\n**theme**: *water margin* outlaw spirit meets gritty wuxia realism\n\n**1. concept**\n◆style: **\"desolate grandeur\"** —raw power and solitude over luxury\n\n◆atmosphere: a rugged, mysterious stronghold with a heavy, grounded presence\n\n\n**2. visuals \u0026 materials**\n◆textures: weathered dark timber, grey brick masonry walls and sand path\n\n◆color palette: black wood, white snow, and crimson maple for a **high-contrast vibe**\n\n◆lighting: chilling blue light reflecting off rivers of thawing ice during the winter-spring transition\n\n\n**3. layout**\n◆the nexus: an **octagonal formation** centered on the base\n\n◆experience: a **centralized yet open-world** experience\n\n\n**4. interest \u0026 charm**\n◆the \"must-have\": no stronghold is complete without **adorable cats🐱 ** wandering through the rugged landscape, adding a touch of warmth to the cold wuxia world.",
 		"score": 66,
-		"coverImage": "https://cdn.discordapp.com/attachments/1501791062426128434/1501791073591365682/30-1.webp?ex=6a014fed\u0026is=69fffe6d\u0026hm=f9c8f30999972be7a1904472356133bbf913fc565b1c639058e3f447d9d796f8\u0026",
+		"coverImage": "https://cdn.discordapp.com/attachments/1501791062426128434/1501791073591365682/30-1.webp?ex=6a01f8ad\u0026is=6a00a72d\u0026hm=a36c023edb75f905c6365cb23d3e2da9b1006e20fef0fb838320f07c86cbf81d\u0026",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791064846237757/00.png?ex=6a014feb\u0026is=69fffe6b\u0026hm=3c9884e8327d73dd288a3956452987e77a44057a326e530b86e6ff224014d1f6\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791073591365682/30-1.webp?ex=6a014fed\u0026is=69fffe6d\u0026hm=f9c8f30999972be7a1904472356133bbf913fc565b1c639058e3f447d9d796f8\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791233821900991/01.png?ex=6a015014\u0026is=69fffe94\u0026hm=241f0794091e297bb3b87d5b94dbc01afdcc3598b0c94e445b3a5d4e1c94f455\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791234472022046/02.png?ex=6a015014\u0026is=69fffe94\u0026hm=3b4cf0eb60aa6de93d192b7b2c24130cbc29a7dcd2c6b669026e18bb6f2fcb27\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791235101298739/03.png?ex=6a015014\u0026is=69fffe94\u0026hm=2d8f9adb7ad77c86ef3c3d14b6e27df17669c3b8d163443b9c60235bb51819be\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791235814195250/04.png?ex=6a015014\u0026is=69fffe94\u0026hm=c5657aba42f8184ac34c1241a208cf4e14326fff18e0197122915abed0a887a1\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791236476899430/04-1.png?ex=6a015014\u0026is=69fffe94\u0026hm=47181baa89c670b11a9aced075a75a72250294f514fa500e6b15c814ee6aaa34\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791237173284914/05.png?ex=6a015014\u0026is=69fffe94\u0026hm=b07d440a63e1260a7a3901d68fa548e896cdbbe5175b0b46f9b976fcef7174a2\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791237819072544/06.png?ex=6a015015\u0026is=69fffe95\u0026hm=be673f3bad5975856b9744cb5b29398d1d3d5a76d865c1a73564e0cbd76abaec\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791238490165308/07.png?ex=6a015015\u0026is=69fffe95\u0026hm=9c7c1d35087efb408c7dc82a32c4168990a8cb4f5ced051c6cd39b6c376e5579\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791239387877406/08.png?ex=6a015015\u0026is=69fffe95\u0026hm=2ff02862be6cc1e45e010d4e9d8b0fb468cf293ee2a2c50bdaefdab5a1fbd1b9\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791240017149962/08-1.png?ex=6a015015\u0026is=69fffe95\u0026hm=585a1cad00079f457ce0f9bcc758b4d1cee9875e3502fd9e41a98496c22283dd\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791296501846037/08-3.png?ex=6a015023\u0026is=69fffea3\u0026hm=efb70c1a4f74ec52aee8030d41d29e938e773dafc8153661f67a8a2f8ec59850\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791298036961320/08-4.png?ex=6a015023\u0026is=69fffea3\u0026hm=c2ebaef96d2bd904773e36aac6d1fe811587a2e5213d3b8ba1b2596e49995abb\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791298624032908/09.png?ex=6a015023\u0026is=69fffea3\u0026hm=7939fa1209d8b3d88176d71432bb3055a9a401bfa065fb9da86a8afbd264c9e3\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791299379134595/08-2.png?ex=6a015023\u0026is=69fffea3\u0026hm=a84725660000cfc5d6583590ead70a0e8a297a21baa623562800cae5f9ae539f\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791719782617139/13.png?ex=6a015087\u0026is=69ffff07\u0026hm=5f07d8a9fe4fd1ed616670a0d2201e7f9f74012236cf105ffa234e5cc7c4c277\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791720554102925/11.png?ex=6a015088\u0026is=69ffff08\u0026hm=79b97132e0eecfeae41bb281d5f7b86392dc60a1c9ccfd82331d0d61af7f917c\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791721095299112/12.png?ex=6a015088\u0026is=69ffff08\u0026hm=e65d75769c18b3f07ae3262f373b9fb5541ac50b0a33f14493420ca43e26b552\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791878918701166/23.png?ex=6a0150ad\u0026is=69ffff2d\u0026hm=7d037f98368ffe070a90949f38d410c644e3bf1b35f1d5e7ddbeb8d370f36552\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791879660834946/23-1.png?ex=6a0150ae\u0026is=69ffff2e\u0026hm=12591802ccbea6b3533bb474cf3babb079799230b84de6d0d88474455ee3b9c5\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791880004898886/23-2.webp?ex=6a0150ae\u0026is=69ffff2e\u0026hm=27c9a9260a924aca98c3bdeb63b149fe08951dc826ccd540d99b936420b5ec03\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791880608874507/23-3.webp?ex=6a0150ae\u0026is=69ffff2e\u0026hm=d8abf5500e68bd233889540ea6ad27c7a4f15b00e64d29e31dc2c563256195bb\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791881368178710/24.png?ex=6a0150ae\u0026is=69ffff2e\u0026hm=0ce01a3d4a56e74b1d75488e01ea04603da202dc2343e60a24e3a95238ae37c9\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791882080948375/25.png?ex=6a0150ae\u0026is=69ffff2e\u0026hm=9e6b1ce3af6ebb64a113f8ffbfd4d24c9ef43aad6173e3b3eda64ca1389f84b9\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791882890707105/26.png?ex=6a0150ae\u0026is=69ffff2e\u0026hm=4f24e6a36425fc8f80aa924e91f7fc9b4ac2c76207235b7b44a0c2d3e1eb40e0\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791883767320668/27.png?ex=6a0150af\u0026is=69ffff2f\u0026hm=d8bc10b7519e7bd691a4d3269163a365e7952fc52df147168cc999d8c6663b6f\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791884526223390/28.png?ex=6a0150af\u0026is=69ffff2f\u0026hm=ef7c8a0fc5c9b210d59e06baa27dfa306c66c4aef11c40b67e4d21cc83317f21\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791885180796928/22.png?ex=6a0150af\u0026is=69ffff2f\u0026hm=bcad1fffbcf367c71ed0e33e436b3dc3ce87fd5259454025cdc866adb350813c\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791919464779816/29.png?ex=6a0150b7\u0026is=69ffff37\u0026hm=b007f3aa9de751e48d99714327c1f23dc47135000181b395cbc27c5356e78456\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791920161161377/30.png?ex=6a0150b7\u0026is=69ffff37\u0026hm=1455efc675af318574c28961ed442d1dcff2bdd5e1292186a29eefd0f66e2826\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792308784267324/30-1.webp?ex=6a015114\u0026is=69ffff94\u0026hm=b708ebe4de8d9d808e1a48a2da99a3fccfe68233d2cf5ca8a05c5196b00999fc\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792310050951290/31.png?ex=6a015114\u0026is=69ffff94\u0026hm=57a7e28b181b29187bdc9dd731f7589814aed7ff56f19cde6c8f23ef7132f4c4\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792311019831418/32.png?ex=6a015114\u0026is=69ffff94\u0026hm=d2977f73b39d3174c94f16261fec776025e403bdcfaa2c05c48ae02eb410a345\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792312035119204/33.png?ex=6a015115\u0026is=69ffff95\u0026hm=b3e4dbb2626c306ab519776e6099df376533d15d2388eb8ba13a828e9a0c7589\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792313293279312/34.png?ex=6a015115\u0026is=69ffff95\u0026hm=482cf9a9ebaaa8eb529bfbecdab174af536951da9586907ab74fde3e1a23fc2b\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792314597838989/35.png?ex=6a015115\u0026is=69ffff95\u0026hm=30b9f056e0651ce6946132d71ae482630963e045211deda7ed476bd53a557bcd\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792315755335700/35-1.webp?ex=6a015116\u0026is=69ffff96\u0026hm=536ce696fc60f49b53748c586cf0731c5794166101eaaed39d2603e272beca13\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792316476620943/36.png?ex=6a015116\u0026is=69ffff96\u0026hm=f65a0d223e4d9293f84c7940fbb0b3f3c512db5d1b9fd18284aa6bcc2e402e9b\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792449188855858/44.png?ex=6a015135\u0026is=69ffffb5\u0026hm=db4314d6da2b68744e2d84450913bac4f9140b22fc7731a764eb2de4d7090fd1\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792449897431101/41.png?ex=6a015136\u0026is=69ffffb6\u0026hm=7c8200b0d5a49a09d5eb63f1166bed19691eb03caf0cd64ae91857fe3c09f682\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792450367455252/42.webp?ex=6a015136\u0026is=69ffffb6\u0026hm=afa074637d09ed78b0ce2e9709dff7ffe4c3f05cb74585a75eb879e9eb46c539\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792450988081162/43.png?ex=6a015136\u0026is=69ffffb6\u0026hm=30e3ee9814383e24c8c30a37fd8c378fcfb473450109f68cb0ccac7f1ebde3c0\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792733029863556/61.jpg?ex=6a015179\u0026is=69fffff9\u0026hm=915f05494710b30212c89abf9fa2b65e0f2caf2923e2f30bd9f8fe9abd8d56c3\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792733424123994/62.jpg?ex=6a015179\u0026is=69fffff9\u0026hm=83fbc2462ea020dea6f81b5810409dd4e5a305ea9cd7c04ada01bbb23bcec7b0\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792734355128391/63.png?ex=6a015179\u0026is=69fffff9\u0026hm=48874c31167f643eac296a722b1279aabe3a797ffcc9a5707acd0baf84cc0599\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792735047454913/64.png?ex=6a015179\u0026is=69fffff9\u0026hm=434479fbdbd76453d74ff8720497778b7100c6419907f2e5df73be65cf8d4296\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792735718277261/65.png?ex=6a01517a\u0026is=69fffffa\u0026hm=58565e5bef2a3dc07666decfe5ceac8ff7c6b3ce925f80b963f71f1789a7eb1a\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792736347426917/66.png?ex=6a01517a\u0026is=69fffffa\u0026hm=2038a85364ce2fc8ba27fa83e2e8f0b32474ca47fc513ea50389578bc89133cf\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792736972640337/69.png?ex=6a01517a\u0026is=69fffffa\u0026hm=0a91ab0ebe89e00025ff693a9bed8d2f10d0d7be31a05d578d4eb4dd7ccd6cc2\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792737639530567/70.png?ex=6a01517a\u0026is=69fffffa\u0026hm=e7636954e23216f0ea84723a11dd63d7a7d25e385372b0774fafa99734df1963\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792840467091576/84.webp?ex=6a015193\u0026is=6a000013\u0026hm=1e554fc0ce4e179f4a7f47d905c14cfecec8218a58c7d0665d2a03acd86e7249\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792840835924028/81.webp?ex=6a015193\u0026is=6a000013\u0026hm=46378138f742aff002b2ec7a0df76d470aa54dc83e8b91d450a85e6e82a4755a\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792841217609849/82.webp?ex=6a015193\u0026is=6a000013\u0026hm=48c88d51e850df37797b7f94768d7ca61bc5f1f487da8b82fae20e4f163d0bc9\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792841624719531/83.webp?ex=6a015193\u0026is=6a000013\u0026hm=a66ad30241296bc39fbd8f2fc8507ce9f23bfccb878f7f7d92a7fa394dc3283c\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793011099500586/91.png?ex=6a0151bb\u0026is=6a00003b\u0026hm=e16d3c7240a3bb947d010c1832d89316d25b874530840d55cce0e80a8e0f111e\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793012144144444/92.png?ex=6a0151bc\u0026is=6a00003c\u0026hm=44ce672afb5b528481f19ba98a8cd6863da51ea72e99727f6bcfbb8b542ea1ea\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793012760449127/93.png?ex=6a0151bc\u0026is=6a00003c\u0026hm=90abb0558f17fcc27ecde12ca661335cc2cec5c49d8a6befd1c309cd95ea6c08\u0026",
-			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793115873349672/94.png?ex=6a0151d4\u0026is=6a000054\u0026hm=bdc1fba40fb0ecca3453827e02877089835781e13ca3b3400a08e198e8cfadb8\u0026"
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791064846237757/00.png?ex=6a01f8ab\u0026is=6a00a72b\u0026hm=b72bef4af96f33101de8db9c0e51016f1b08a64836967454e70abcef5bfa6808\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791073591365682/30-1.webp?ex=6a01f8ad\u0026is=6a00a72d\u0026hm=a36c023edb75f905c6365cb23d3e2da9b1006e20fef0fb838320f07c86cbf81d\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791233821900991/01.png?ex=6a01f8d4\u0026is=6a00a754\u0026hm=57a23a1c6c676dc102331acee073be0ded30d0324ea4f12207b8ead5ca330f03\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791234472022046/02.png?ex=6a01f8d4\u0026is=6a00a754\u0026hm=974de1b2a2ade3345c08eb40c5bc072d9a507cbe8e4fdef5d853e1f0e138f713\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791235101298739/03.png?ex=6a01f8d4\u0026is=6a00a754\u0026hm=2fbaaf7b096dfedbad1a08fcdcceafef81d3b2f94ae4d7094ea3922f9ed2c802\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791235814195250/04.png?ex=6a01f8d4\u0026is=6a00a754\u0026hm=8b1177990c16e7d61214aa81bbe06749acc74c5f3d0c3c349483a2204a1ca1f2\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791236476899430/04-1.png?ex=6a01f8d4\u0026is=6a00a754\u0026hm=1a1e8f8081c8e485544747d34c86d1a309d00a8e3bf1bee0e648b5de65787fe7\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791237173284914/05.png?ex=6a01f8d4\u0026is=6a00a754\u0026hm=94663ef670a214f3dfc1f1c2650a665bcc06f4e3da369b858677015d894cba53\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791237819072544/06.png?ex=6a01f8d5\u0026is=6a00a755\u0026hm=c2a00954e8f246c924ddaac1c16fccaf805791c08e15be1211f02e94fbfb301a\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791238490165308/07.png?ex=6a01f8d5\u0026is=6a00a755\u0026hm=79d64be61fc44992f2040832294144dbb6e958c8908b92e9b6cb9809c7f2fc26\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791239387877406/08.png?ex=6a01f8d5\u0026is=6a00a755\u0026hm=3ad4003a843f2c8b9ad4a02408533a87d4b0ab466b546656941442702cd25da8\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791240017149962/08-1.png?ex=6a01f8d5\u0026is=6a00a755\u0026hm=8bbe233b0b423bc8af82a7a557c04364b3fd1f09c818adc300d6ea09a7865539\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791296501846037/08-3.png?ex=6a01f8e3\u0026is=6a00a763\u0026hm=00567ead769b1b5f6517c651786cf7a7034f7a41e0e90471aa10f5d773f78012\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791298036961320/08-4.png?ex=6a01f8e3\u0026is=6a00a763\u0026hm=e2bf05e57d54236ba22d013786657e80d674f6eba839f26d820784ede96f985c\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791298624032908/09.png?ex=6a01f8e3\u0026is=6a00a763\u0026hm=f52354019c3321c077fef1b5f8b6c843ce6a71ea9f5a7c9b27471feea76a1d02\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791299379134595/08-2.png?ex=6a01f8e3\u0026is=6a00a763\u0026hm=70adf69c2268b07601c467089835f9bb7dc74600bf7809af4f445f5e65160e79\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791719782617139/13.png?ex=6a01f947\u0026is=6a00a7c7\u0026hm=78539096dbbbbb4fd8ac7f39b3526673479f010af3411e9695c8a348515674bc\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791720554102925/11.png?ex=6a01f948\u0026is=6a00a7c8\u0026hm=6534e27eabd608139d75d998ff60fc5e454b09fbfcf39568fbc6832d603bc92b\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791721095299112/12.png?ex=6a01f948\u0026is=6a00a7c8\u0026hm=dd7e202f8d2162eedcbc88290d4047600b49fc42aa55ad212722b24e4413a7fd\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791878918701166/23.png?ex=6a01f96d\u0026is=6a00a7ed\u0026hm=ad22610105642cd7f10f68bda3050c719d0272654eafb11714fe5432eacf1149\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791879660834946/23-1.png?ex=6a01f96e\u0026is=6a00a7ee\u0026hm=e92ffbff9963b5722c3f064fd9462cc2bbc7441abbedf6c7562454b995eec204\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791880004898886/23-2.webp?ex=6a01f96e\u0026is=6a00a7ee\u0026hm=b22c8a19c1bf101b3fe890c382b27866fd1c9306f050b70537bd462e3a47f38c\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791880608874507/23-3.webp?ex=6a01f96e\u0026is=6a00a7ee\u0026hm=56da9321fe5b4097e1e41be01bc667702c83152bc026ab7d5d2f598d0facdd17\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791881368178710/24.png?ex=6a01f96e\u0026is=6a00a7ee\u0026hm=9a6cc75403684fe5fd9b6b0f4b7e38a273e196df859b40ee4ae04ab50eca60c7\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791882080948375/25.png?ex=6a01f96e\u0026is=6a00a7ee\u0026hm=e3421ee8f0db033a46d85d7eb4833172f04787460c3c0cd423e92a6a405c8dbf\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791882890707105/26.png?ex=6a01f96e\u0026is=6a00a7ee\u0026hm=385ab7945d25486f5438c5e9e4880fb129412699abf9401c099c98650d3afa05\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791883767320668/27.png?ex=6a01f96f\u0026is=6a00a7ef\u0026hm=7d266589b292168c318de89a5b9d01cdb1f73ce2da84bd9a5c256b22d7004410\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791884526223390/28.png?ex=6a01f96f\u0026is=6a00a7ef\u0026hm=2b58acedef526faeaef1ad9f8f56402500331d67482ef62e7fd6852b4c373fed\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791885180796928/22.png?ex=6a01f96f\u0026is=6a00a7ef\u0026hm=0570bae65a79abffb87bd586c8c7db91b5a8a08dea791415c210656576189d75\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791919464779816/29.png?ex=6a01f977\u0026is=6a00a7f7\u0026hm=d31894a15dbfce7b3d6e0dfa4758df79e8f0b1fdfb633f9afba57d1b1cd61b5c\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501791920161161377/30.png?ex=6a01f977\u0026is=6a00a7f7\u0026hm=b53ca46ed92f604640a735dad657c9b999b49485a674c4f4c0c3b00235ca4cc6\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792308784267324/30-1.webp?ex=6a01f9d4\u0026is=6a00a854\u0026hm=95d56c82d1b7649357ca9bf7c1efcaf40b7e7d32e8413c5d1ff0ee6077ec6e3c\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792310050951290/31.png?ex=6a01f9d4\u0026is=6a00a854\u0026hm=5dc44a0fbd69b6f14ea37f4defe7b81991188f6d10f046ec4bc4a2a6de01b1d8\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792311019831418/32.png?ex=6a01f9d4\u0026is=6a00a854\u0026hm=a8da18c894f2cf5ff9bb6a01151eb59855cc37c2e4d23d2b6fa68c01b0a1e29a\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792312035119204/33.png?ex=6a01f9d5\u0026is=6a00a855\u0026hm=50dc7303439b1eb98b31f6749c6b9f064ccd940333deee053614005c0fc02678\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792313293279312/34.png?ex=6a01f9d5\u0026is=6a00a855\u0026hm=999eae721b085bea3d9b813fc42db29b692490e04c7fce870908d2f0d781b7b5\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792314597838989/35.png?ex=6a01f9d5\u0026is=6a00a855\u0026hm=5c50ff534d385411ab37a9a343aeefb394837be8aad58eece6abb9dab047eda9\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792315755335700/35-1.webp?ex=6a01f9d6\u0026is=6a00a856\u0026hm=5df0bfc0fac2a305e35a1139984ae6e7aa1a571b16df51f5c32b1e20fa9c9528\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792316476620943/36.png?ex=6a01f9d6\u0026is=6a00a856\u0026hm=bd10117b66aa09c4bdde0ed0c153559ea5a61d6b14894eb8333aa966d2529582\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792449188855858/44.png?ex=6a01f9f5\u0026is=6a00a875\u0026hm=08bf77077b38df2bfbd494293435f361b660db95f98d4f780202b4addd6058c3\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792449897431101/41.png?ex=6a01f9f6\u0026is=6a00a876\u0026hm=7efbd322eef9d7f46cd863f851744f25bd9eb65d94f5057d588f7bd3bf4f4d22\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792450367455252/42.webp?ex=6a01f9f6\u0026is=6a00a876\u0026hm=bd1e591b6186d06d1b276ddb8d434b3a90691f25d0215fd2b88f91a7ed333624\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792450988081162/43.png?ex=6a01f9f6\u0026is=6a00a876\u0026hm=d404902313a81396bcced05c540b2f4162a07b165f60dbb6df9fb1cce4544c79\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792733029863556/61.jpg?ex=6a01fa39\u0026is=6a00a8b9\u0026hm=49c84990d531aaff2855e1152edc041b3bd0deabab85fdea9022a93bb7ca70d9\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792733424123994/62.jpg?ex=6a01fa39\u0026is=6a00a8b9\u0026hm=0348554ba23ce718e480dafdd47f909a78be20fa878901022667281672fa28e2\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792734355128391/63.png?ex=6a01fa39\u0026is=6a00a8b9\u0026hm=f8b5dfec42508d04c79f4078e3c15ddf8e12d5d81de0cafa705b83b761a39ea4\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792735047454913/64.png?ex=6a01fa39\u0026is=6a00a8b9\u0026hm=a0ca8aee175c7b820ad1f7feee31beb7d0064eaa1b4bcbcdd038964eb4b863f6\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792735718277261/65.png?ex=6a01fa3a\u0026is=6a00a8ba\u0026hm=9a9770a5d522ed6054f0ba3b2c354c5bdb4ff470b48be2df707361c20fe83085\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792736347426917/66.png?ex=6a01fa3a\u0026is=6a00a8ba\u0026hm=40cdbbc9f3811ab54886ac29f5fe329dab307d01defbd3792a95f5d5035854ca\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792736972640337/69.png?ex=6a01fa3a\u0026is=6a00a8ba\u0026hm=66ee1cc78057c109847a5a33be9afd9c77a4c8bb6fc609d1880313ec613a9117\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792737639530567/70.png?ex=6a01fa3a\u0026is=6a00a8ba\u0026hm=390fd2500f0fdaed341c83fceebfb1dfaa462a4450258e0715b71457088727ec\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792840467091576/84.webp?ex=6a01fa53\u0026is=6a00a8d3\u0026hm=d9266f6bf3aead40c1d48025b1e07e429ff37ed236549e4f656798689bc9119a\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792840835924028/81.webp?ex=6a01fa53\u0026is=6a00a8d3\u0026hm=f7c70fafcd2b3cdbb1d3a9847cddd1e01307eb7f53cbf9b5fbd0f584274c52b4\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792841217609849/82.webp?ex=6a01fa53\u0026is=6a00a8d3\u0026hm=75ef7cb98a6260dab8ca9d26ecd05a224a82e03c8ab035c9434fa1def4e618fa\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501792841624719531/83.webp?ex=6a01fa53\u0026is=6a00a8d3\u0026hm=f42d6fd5c640e524d079542d6f37a696afb8cb4c6bfcceed861e59a55ccd42f6\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793011099500586/91.png?ex=6a01fa7b\u0026is=6a00a8fb\u0026hm=f60b0f83e80c7ead6634663160732dc117d6b0640f6ddb07eaedb903b056d60c\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793012144144444/92.png?ex=6a01fa7c\u0026is=6a00a8fc\u0026hm=f8f5a220bc34ebce013825e706ad7325fd1298794f2454e206e4b5abe49bcd94\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793012760449127/93.png?ex=6a01fa7c\u0026is=6a00a8fc\u0026hm=6a0b6dd8a72bf7ceaf99777db656986dbaf099fabb8cc1a42edbb393e5305c56\u0026",
+			"https://cdn.discordapp.com/attachments/1501791062426128434/1501793115873349672/94.png?ex=6a01fa94\u0026is=6a00a914\u0026hm=56d930e0af81c01199dfd9f1cd0549f7da9597d1b2e162172ce049dcde9d72bf\u0026"
 		],
 		"lastModified": "May 7, 2026 at 04:13 AM UTC"
 	},
@@ -4505,6 +4617,10 @@
 		"name": "KALYANMITR",
 		"builders": [
 			"Li-LongDong"
+		],
+		"tags": [
+			"Party Area",
+			"Fun"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1502320477559853136",
 		"lore": "hmm Its just happened",
