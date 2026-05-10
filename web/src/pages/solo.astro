@@ -7,11 +7,16 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots, formatBuilderName } from "@/lib/guilds"
 import { builderSlug } from "@/lib/format"
+import { getActiveBuilderSlugs } from "@/lib/builders"
+import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
 import { ArrowsClockwiseIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
 
 const solos = getSolosSortedByScore()
 const allTags = getAllSoloTags()
+const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
+const tutorialAuthorSlugs = new Set(allArticles.flatMap((a) => (a.data.authors ?? []).map((n) => builderSlug(n))))
+const activeBuilders = getActiveBuilderSlugs(tutorialAuthorSlugs)
 const lastSync = getLastSyncDate()
 const solosWithScreenshots = solos.filter((g) => (g.coverImage || (g.screenshots && g.screenshots.length > 0)))
 const ogImage = solos.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
@@ -102,7 +107,7 @@ const isEmpty = !hasSolos()
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
                           <Fragment>
-                            <a href={`${BASE}/builders/${builderSlug(name)}`} class="relative z-30 hover:text-white transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
+                            <a href={`${BASE}/builders/${builderSlug(name)}`} class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`} title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined} data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
                           </Fragment>
                         ))}</p>
                       )}
@@ -139,7 +144,7 @@ const isEmpty = !hasSolos()
       solos.length > 0 && (
         <section>
           <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.png" alt="" aria-hidden="true" class="size-10 object-contain" /> All Solo construction</h2>
-          <LeaderboardTable client:load guilds={solos} allTags={allTags} basePath="solos" />
+          <LeaderboardTable client:load guilds={solos} allTags={allTags} basePath="solos" activeBuilderSlugs={[...activeBuilders]} />
           <noscript>
             <ul class="mt-4 space-y-1 text-sm">
               {solos.map((g) => (

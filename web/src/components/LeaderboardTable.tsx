@@ -43,25 +43,36 @@ interface Props {
   guilds: RankedGuild[]
   allTags: string[]
   basePath?: string
+  activeBuilderSlugs?: string[]
 }
 
-function BuilderNames({ builders }: { builders?: string[] }) {
+function BuilderNames({ builders, activeSet }: { builders?: string[]; activeSet?: Set<string> }) {
   const names = (builders ?? []).map(formatBuilderName).filter(Boolean)
-  if (!names.length) return <span>—</span>
+  if (!names.length) { return <span>—</span> }
   return (
     <>
-      {names.map((name, i) => (
-        <React.Fragment key={name}>
-          <a
-            href={url(`/builders/${builderSlug(name)}`)}
-            className="hover:text-primary hover:underline underline-offset-2 transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {name}
-          </a>
-          {i < names.length - 1 && ", "}
-        </React.Fragment>
-      ))}
+      {names.map((name, i) => {
+        const slug = builderSlug(name)
+        const isActive = activeSet?.has(slug) ?? false
+        return (
+          <React.Fragment key={name}>
+            <a
+              href={url(`/builders/${slug}`)}
+              className={cn(
+                "hover:underline underline-offset-2 transition-colors",
+                isActive
+                  ? "text-rose-400/90 dark:text-rose-300/80 font-medium hover:text-rose-300 dark:hover:text-rose-200"
+                  : "hover:text-primary",
+              )}
+              title={isActive ? "Active community contributor" : undefined}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {name}
+            </a>
+            {i < names.length - 1 && ", "}
+          </React.Fragment>
+        )
+      })}
     </>
   )
 }
@@ -148,7 +159,7 @@ const PODIUM_ROW: Record<number, string> = {
 
 const PAGE_SIZE = 40
 
-function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, toggleTag }: {
+function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, toggleTag, activeSet }: {
   g: RankedGuild
   gi: number
   guildsLength: number
@@ -156,6 +167,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   isSolos: boolean
   activeTags: Set<string>
   toggleTag: (tag: string) => void
+  activeSet?: Set<string>
 }) {
   const [open, setOpen] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
@@ -205,9 +217,12 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
             )}
             <HoverCardTrigger asChild>
               <div className="min-w-0">
-                <a href={url(`/${basePath}/${g.slug}`)} className="font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
-                  {stripGuildShowcase(g.guildName || g.name)}
-                </a>
+                <div className="flex items-center gap-1.5">
+                  <a href={url(`/${basePath}/${g.slug}`)} className="font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
+                    {stripGuildShowcase(g.guildName || g.name)}
+                  </a>
+                  {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
+                </div>
                 {g.buildTitle && (
                   <p className="text-[11px] text-muted-foreground/60 leading-tight truncate">{g.buildTitle}{g.isCurrent && <span className="ml-1 text-emerald-500/80">●</span>}</p>
                 )}
@@ -216,10 +231,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
           </div>
         </TableCell>
         <TableCell className="text-muted-foreground hidden md:table-cell" onMouseEnter={leave}>
-          <div className="flex items-center gap-1.5">
-            <BuilderNames builders={g.builders} />
-            {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
-          </div>
+          <BuilderNames builders={g.builders} activeSet={activeSet} />
         </TableCell>
         <TableCell className="hidden lg:table-cell">
           <div className="flex flex-wrap gap-1">{g.tags?.map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
@@ -232,7 +244,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
         {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
         <div className="p-3">
           <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
-          {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by <BuilderNames builders={g.builders} /></p>}
+          {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by <BuilderNames builders={g.builders} activeSet={activeSet} /></p>}
           {g.tags && g.tags.length > 0 && (
             <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
           )}
@@ -242,8 +254,9 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   )
 }
 
-export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props) {
+export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeBuilderSlugs }: Props) {
   const isSolos = basePath === "solos"
+  const activeSet = useMemo(() => new Set(activeBuilderSlugs ?? []), [activeBuilderSlugs])
   const [sortField, setSortField] = useState<SortField>("rank")
   const [sortDir, setSortDir] = useState<SortDir>("asc")
   const [activeTags, setActiveTags] = useState<Set<string>>(() => {
@@ -579,7 +592,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
               }
 
               if (!isMulti) {
-                return [<SingleGuildRow key={builds[0].slug} g={builds[0]} gi={gi} guildsLength={guilds.length} basePath={basePath} isSolos={isSolos} activeTags={activeTags} toggleTag={toggleTag} />]
+                return [<SingleGuildRow key={builds[0].slug} g={builds[0]} gi={gi} guildsLength={guilds.length} basePath={basePath} isSolos={isSolos} activeTags={activeTags} toggleTag={toggleTag} activeSet={activeSet} />]
               }
 
               // Multi-build guild
@@ -610,7 +623,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell className="text-muted-foreground hidden md:table-cell"><BuilderNames builders={best.builders} /></TableCell>
+                  <TableCell className="text-muted-foreground hidden md:table-cell"><BuilderNames builders={best.builders} activeSet={activeSet} /></TableCell>
                   <TableCell className="hidden lg:table-cell">
                     <div className="flex flex-wrap gap-1">{allTags.slice(0, 4).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
                   </TableCell>
@@ -640,6 +653,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                             <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
                               {g.buildTitle || "Default"}
                             </a>
+                            {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
                             {g.isCurrent && <span className="text-[10px] text-emerald-500/90">● current</span>}
                             {(() => { const t = getTier(g.rank, guilds.length, g.score); return (
                               <span className={cn("inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] opacity-55", t.badge)} style={t.badgeStyle}>
@@ -651,10 +665,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds" }: Props
                       </div>
                     </TableCell>
                     <TableCell className="text-muted-foreground hidden md:table-cell">
-                      <div className="flex items-center gap-1.5">
-                        <BuilderNames builders={g.builders} />
-                        {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
-                      </div>
+                      <BuilderNames builders={g.builders} activeSet={activeSet} />
                     </TableCell>
                     <TableCell className="hidden lg:table-cell">
                       <div className="flex flex-wrap gap-1">{g.tags?.map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
