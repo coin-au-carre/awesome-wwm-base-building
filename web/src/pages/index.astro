@@ -6,7 +6,7 @@ import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWit
 import { stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
-import { CastleTurretIcon, ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, MountainsIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon, UsersIcon } from "@phosphor-icons/react"
+import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon, UsersIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
 
 const TAG_PALETTE = [
@@ -148,12 +148,12 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
       </script>
       <div class="absolute bottom-0 left-0 right-0 px-6 pb-6">
         <h1 class="font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow mb-1.5 flex items-center gap-2">
-          <CastleTurretIcon weight="duotone" className="size-6 text-primary" /> Guilds
+          <img src="/images/logo_1.png" alt="" aria-hidden="true" class="size-14 object-contain" /> Guilds
         </h1>
         <p class="text-white/65 text-sm mb-3">Beautiful constructions in Where Winds Meet</p>
         <div class="flex items-center gap-2 flex-wrap text-xs text-white/60">
           <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
-            <CastleTurretIcon weight="duotone" className="size-3" /> {guilds.length} guilds
+            <img src="/images/logo_1.png" alt="" aria-hidden="true" class="size-5 object-contain" /> {guilds.length} guilds
           </span>
           {discordMemberCount && (
             <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 hover:bg-white/20 transition-colors" data-umami-event="discord_member_count_click">
@@ -447,7 +447,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
 
     <!-- Ranked table -->
     <section>
-      <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><MountainsIcon weight="duotone" className="size-4 text-primary" /> All Guild bases</h2>
+      <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.png" alt="" aria-hidden="true" class="size-10 object-contain" /> All Guild bases</h2>
       <LeaderboardTable client:load guilds={guilds} allTags={allTags} />
       <noscript>
         <ul class="mt-4 space-y-1 text-sm">
