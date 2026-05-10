@@ -125,6 +125,13 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
                   {g.isCurrent && <span class="not-italic text-[10px] font-semibold bg-emerald-500/30 text-emerald-200 border border-emerald-400/40 rounded-full px-2 py-0.5">current</span>}
                 </p>
               )}
+              {g.tags && g.tags.length > 0 && (
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  {g.tags.map((tag: string) => (
+                    <span class="text-[11px] text-white/70 bg-white/10 rounded-full px-2 py-0.5">{tag}</span>
+                  ))}
+                </div>
+              )}
             </div>
             <button
               id="share-btn"
