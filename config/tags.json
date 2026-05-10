@@ -1,0 +1,42 @@
+{
+  "guild": [
+    "Architecture",
+    "Castle/Palace",
+    "City",
+    "Creative",
+    "Cute",
+    "Desert",
+    "Floating Island",
+    "Fun",
+    "Maze/Parkour",
+    "Military/Arena",
+    "Miniature",
+    "Modern/Futuristic",
+    "Mountain/Cave",
+    "Party Area",
+    "River/Canal",
+    "Snow",
+    "Underground/Underwater",
+    "Zen/Nature"
+  ],
+  "solo": [
+    "Architecture",
+    "Castle/Palace",
+    "City",
+    "Creative",
+    "Cute",
+    "Desert",
+    "Floating Island",
+    "Fun",
+    "Maze/Parkour",
+    "Military/Arena",
+    "Miniature",
+    "Modern/Futuristic",
+    "Mountain/Cave",
+    "Party Area",
+    "River/Canal",
+    "Snow",
+    "Underground/Underwater",
+    "Zen/Nature"
+  ]
+}

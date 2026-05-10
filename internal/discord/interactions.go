@@ -24,6 +24,7 @@ const (
 	builderCommandName     = "builder"
 	warningListCommandName = "warning-list"
 	syncDataCommandName    = "sync-data"
+	syncTagsCommandName    = "sync-tags"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 )
@@ -108,6 +109,11 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Name:        syncDataCommandName,
 			Description: "Trigger data sync on guilds, solo, tutorials (elevated roles only)",
 		},
+		{
+			Name:                     syncTagsCommandName,
+			Description:              "Sync forum channel tags to the canonical list in config/tags.json (admins only)",
+			DefaultMemberPermissions: &adminPerm,
+		},
 	})
 	if err != nil {
 		slog.Error("registering commands", "err", err)
@@ -150,6 +156,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleWarningListCommand(s, i)
 			case syncDataCommandName:
 				handleSyncDataCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
+			case syncTagsCommandName:
+				handleSyncTagsCommand(s, i, root, guildForumChannelID, soloForumChannelID)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID
