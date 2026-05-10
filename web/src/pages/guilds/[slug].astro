@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { getGuildsSortedByScore, formatBuilderName, getUsers, getGuildBuilds } from "@/lib/guilds"
 import { getTier } from "@/lib/scoring"
-import { stripGuildShowcase } from "@/lib/format"
+import { stripGuildShowcase, builderSlug } from "@/lib/format"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
 import { isBuilderSubmission } from "@/lib/config"
@@ -266,7 +266,15 @@ const schemaKeywords = ["Where Winds Meet", "guild base", "construction", "base 
     <div class="flex flex-wrap gap-3">
       <div class="rounded-xl border border-border bg-card px-4 py-2 min-w-35 flex-1">
         <div class="text-xs text-muted-foreground mb-1">Builders</div>
-        <div class="text-sm font-medium">{g.builders?.map(formatBuilderName).filter(Boolean).join(", ") || "—"}</div>
+        <div class="text-sm font-medium">
+          {g.builders?.map(formatBuilderName).filter(Boolean).length
+            ? g.builders.map(formatBuilderName).filter(Boolean).map((name: string, i: number, arr: string[]) => (
+                <Fragment>
+                  <a href={`${base}/builders/${builderSlug(name)}`} class="hover:text-primary hover:underline underline-offset-2 transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
+                </Fragment>
+              ))
+            : "—"}
+        </div>
       </div>
       <div class="rounded-xl border border-border bg-card px-4 py-2">
         <div class="flex gap-5">

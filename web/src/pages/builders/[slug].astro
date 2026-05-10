@@ -1,0 +1,279 @@
+---
+import Layout from "@/layouts/main.astro"
+import { getCollection } from "astro:content"
+import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
+import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
+import { getTier } from "@/lib/scoring"
+import { getGuildsSortedByScore, getSolosSortedByScore } from "@/lib/guilds"
+import { BASE } from "@/lib/url"
+import { BlueprintIcon, BookOpenIcon } from "@phosphor-icons/react"
+
+export async function getStaticPaths() {
+  const builderSlugs = getAllBuilderSlugs()
+  const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
+
+  const slugMap = new Map(builderSlugs.map((b) => [b.slug, b]))
+  for (const article of allArticles) {
+    for (const authorName of article.data.authors ?? []) {
+      const s = builderSlug(authorName)
+      if (s && !slugMap.has(s)) {
+        slugMap.set(s, { name: authorName, slug: s })
+      }
+    }
+  }
+
+  return [...slugMap.values()].map(({ name, slug }) => ({
+    params: { slug },
+    props: { builderName: name },
+  }))
+}
+
+const { builderName } = Astro.props
+const slug = Astro.params.slug as string
+const profile = getBuilderProfile(slug)
+
+const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
+const tutorials = allArticles.filter((a) =>
+  (a.data.authors ?? []).some((n) => builderSlug(n) === slug)
+)
+
+const displayName = profile?.name ?? builderName
+const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
+const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
+const totalGuildsInDb = getGuildsSortedByScore().length
+const totalSolosInDb = getSolosSortedByScore().length
+
+---
+
+<Layout
+  title={`${displayName} — Builder Profile | Where Builders Meet`}
+  description={`Builder profile for ${displayName} in Where Winds Meet. ${totalCount} contribution${totalCount !== 1 ? "s" : ""} including guild bases, solo builds, blueprints, and tutorials.`}
+>
+  <div class="space-y-8">
+    <!-- Back -->
+    <a
+      href={`${BASE}/`}
+      class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+    >
+      ← All guild bases
+    </a>
+
+    <!-- Header -->
+    <div class="flex items-center gap-5">
+      <div class="size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold shrink-0 ring-2 ring-primary/20">
+        {initial}
+      </div>
+      <div>
+        <h1 class="font-heading text-2xl font-bold">{displayName}</h1>
+        <div class="flex flex-wrap items-center gap-2 mt-1.5">
+          {profile && profile.guilds.length > 0 && (
+            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
+              <img src="/images/logo_1.png" alt="" aria-hidden="true" class="size-3.5 object-contain" />
+              {profile.guilds.length} guild base{profile.guilds.length !== 1 ? "s" : ""}
+            </span>
+          )}
+          {profile && profile.solos.length > 0 && (
+            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
+              <img src="/images/logo_2.png" alt="" aria-hidden="true" class="size-3.5 object-contain" />
+              {profile.solos.length} solo build{profile.solos.length !== 1 ? "s" : ""}
+            </span>
+          )}
+          {profile && profile.blueprints.length > 0 && (
+            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
+              <BlueprintIcon weight="duotone" className="size-3.5 text-primary shrink-0" />
+              {profile.blueprints.length} blueprint{profile.blueprints.length !== 1 ? "s" : ""}
+            </span>
+          )}
+          {tutorials.length > 0 && (
+            <span class="inline-flex items-center gap-1.5 text-xs text-muted-foreground bg-muted rounded-full px-2.5 py-1">
+              <BookOpenIcon weight="duotone" className="size-3.5 text-pink-500 shrink-0" />
+              {tutorials.length} tutorial{tutorials.length !== 1 ? "s" : ""}
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Guild bases -->
+    {profile && profile.guilds.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <img src="/images/logo_1.png" alt="" aria-hidden="true" class="size-7 object-contain" />
+          Guild Bases
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {profile.guilds.map((g) => {
+            const img = g.coverImage ?? g.screenshots?.[0]
+            const tier = getTier(g.rank, totalGuildsInDb, g.score)
+            return (
+              <a
+                href={`${BASE}/guilds/${g.slug}`}
+                class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                data-umami-event="builder_profile_guild_click"
+                data-umami-event-name={g.name}
+              >
+                {img && (
+                  <img
+                    src={thumbUrl(img)}
+                    alt={stripGuildShowcase(g.name)}
+                    loading="lazy"
+                    onerror="this.style.display='none'"
+                    class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
+                <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                <div class="absolute top-2 right-2">
+                  <span class={`inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${tier.badge}`} style={tier.badgeStyle}>
+                    <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
+                    {tier.label}
+                  </span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-3">
+                  <p class="text-white font-medium text-sm leading-tight">
+                    {stripGuildShowcase(g.name)}
+                    {g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
+                  </p>
+                  <p class="text-white/50 text-[11px] mt-0.5">#{g.rank} · {g.score} pts</p>
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Solo builds -->
+    {profile && profile.solos.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <img src="/images/logo_2.png" alt="" aria-hidden="true" class="size-7 object-contain" />
+          Solo Builds
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {profile.solos.map((g) => {
+            const img = g.coverImage ?? g.screenshots?.[0]
+            const tier = getTier(g.rank, totalSolosInDb, g.score)
+            return (
+              <a
+                href={`${BASE}/solos/${g.slug}`}
+                class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                data-umami-event="builder_profile_solo_click"
+                data-umami-event-name={g.name}
+              >
+                {img && (
+                  <img
+                    src={thumbUrl(img)}
+                    alt={g.name}
+                    loading="lazy"
+                    onerror="this.style.display='none'"
+                    class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                )}
+                <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                <div class="absolute top-2 right-2">
+                  <span class={`inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${tier.badge}`} style={tier.badgeStyle}>
+                    <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
+                    {tier.label}
+                  </span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-3">
+                  <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
+                  <p class="text-white/50 text-[11px] mt-0.5">#{g.rank} · {g.score} pts</p>
+                </div>
+              </a>
+            )
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Blueprints -->
+    {profile && profile.blueprints.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <BlueprintIcon weight="duotone" className="size-4 text-primary" />
+          Blueprints
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {profile.blueprints.map((bp) => {
+            const img = bp.coverImage ?? bp.screenshots?.[0]
+            return (
+              <a
+                href={`${BASE}/blueprints`}
+                class="group flex items-center gap-3 rounded-xl ring-1 ring-border bg-card hover:ring-primary transition-all px-3 py-2.5"
+                data-umami-event="builder_profile_blueprint_click"
+                data-umami-event-name={bp.name}
+              >
+                {img ? (
+                  <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-muted">
+                    <img src={thumbUrl(img)} alt={bp.name} loading="lazy" onerror="this.style.display='none'" class="absolute inset-0 h-full w-full object-cover" />
+                  </div>
+                ) : (
+                  <div class="shrink-0 w-20 aspect-video rounded-md bg-primary/5 flex items-center justify-center">
+                    <BlueprintIcon weight="duotone" className="size-5 text-primary/50" />
+                  </div>
+                )}
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium leading-tight">{bp.name}</p>
+                  {bp.price && (
+                    <p class="text-xs text-muted-foreground mt-0.5">{bp.isFree ? "Free" : bp.price}</p>
+                  )}
+                </div>
+                <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            )
+          })}
+        </div>
+      </section>
+    )}
+
+    <!-- Tutorials -->
+    {tutorials.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <BookOpenIcon weight="duotone" className="size-4 text-pink-500" />
+          Tutorials
+        </h2>
+        <div class="flex flex-col gap-2">
+          {tutorials.map((article) => {
+            const body = article.body ?? ""
+            const ytID = body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
+            const firstImg = body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
+            const thumb = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : (article.data.image ?? firstImg)
+            return (
+              <a
+                href={`${BASE}/tutorials/${article.id}`}
+                class="group flex items-center gap-3 rounded-xl ring-1 ring-pink-500/25 bg-card hover:ring-pink-500/50 hover:shadow-sm transition-all px-3 py-2.5"
+                data-umami-event="builder_profile_tutorial_click"
+                data-umami-event-name={article.data.title}
+              >
+                {thumb ? (
+                  <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-black">
+                    <img src={thumb} alt={article.data.title} loading="lazy" class="absolute inset-0 h-full w-full object-cover" />
+                  </div>
+                ) : (
+                  <div class="shrink-0 w-20 aspect-video rounded-md bg-pink-500/10 flex items-center justify-center">
+                    <BookOpenIcon weight="duotone" className="size-5 text-pink-400" />
+                  </div>
+                )}
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-medium leading-snug line-clamp-2">{article.data.title}</p>
+                  {article.data.description && (
+                    <p class="text-[11px] text-muted-foreground/70 mt-0.5 line-clamp-1">{article.data.description}</p>
+                  )}
+                </div>
+                <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-pink-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            )
+          })}
+        </div>
+      </section>
+    )}
+
+    {totalCount === 0 && (
+      <div class="text-center py-12 text-muted-foreground text-sm">
+        No contributions found for this builder.
+      </div>
+    )}
+  </div>
+</Layout>

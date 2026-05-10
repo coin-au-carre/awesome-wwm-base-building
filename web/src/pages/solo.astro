@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots, formatBuilderName } from "@/lib/guilds"
+import { builderSlug } from "@/lib/format"
 import { BASE } from "@/lib/url"
 import { ArrowsClockwiseIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
 
@@ -75,14 +76,16 @@ const isEmpty = !hasSolos()
               const shots = g.screenshots ?? []
               const img = g.coverImage ?? shots[0]
               return (
-                <a
-                  href={`${BASE}/solos/${g.slug}`}
-                  class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
-                  data-umami-event="solo_click"
-                  data-umami-event-name={g.name}
-                  data-umami-event-source="recently_added"
-                  data-umami-event-type="solos"
-                >
+                <div class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all">
+                  <a
+                    href={`${BASE}/solos/${g.slug}`}
+                    class="absolute inset-0 z-10"
+                    aria-label={g.name}
+                    data-umami-event="solo_click"
+                    data-umami-event-name={g.name}
+                    data-umami-event-source="recently_added"
+                    data-umami-event-type="solos"
+                  />
                   {img && (
                     <img
                       src={img}
@@ -93,11 +96,15 @@ const isEmpty = !hasSolos()
                     />
                   )}
                   <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  <div class="absolute bottom-0 left-0 right-0 p-3">
+                  <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
                       {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
+                          <Fragment>
+                            <a href={`${BASE}/builders/${builderSlug(name)}`} class="relative z-30 hover:text-white transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
+                          </Fragment>
+                        ))}</p>
                       )}
                     </div>
                     {g.tags && g.tags.length > 0 && (
@@ -110,7 +117,7 @@ const isEmpty = !hasSolos()
                       </div>
                     )}
                   </div>
-                </a>
+                </div>
               )
             })}
           </div></div>

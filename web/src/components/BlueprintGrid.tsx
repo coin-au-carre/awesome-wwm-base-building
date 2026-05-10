@@ -2,6 +2,7 @@ import { useState, useMemo } from "react"
 import * as React from "react"
 import type { RankedBlueprint } from "@/types/blueprint"
 import { url } from "@/lib/url"
+import { builderSlug } from "@/lib/format"
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -301,7 +302,7 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                     )}
                   </div>
                   {bp.builderName && (
-                    <p className="text-xs text-muted-foreground">by {bp.builderName}</p>
+                    <p className="text-xs text-muted-foreground">by <a href={url(`/builders/${builderSlug(bp.builderName)}`)} className="hover:text-foreground hover:underline underline-offset-2 transition-colors" onClick={(e) => e.stopPropagation()}>{bp.builderName}</a></p>
                   )}
                   {bp.price && bp.isPayToBuild && (
                     <p className="text-xs text-amber-600 dark:text-amber-400">{bp.price}</p>
