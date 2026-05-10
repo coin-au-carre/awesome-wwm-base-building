@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { getBlueprintsSortedByScore } from "@/lib/blueprints"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
-import { Hammer, Images, Tag } from "lucide-react"
+import { Hammer, Images } from "lucide-react"
 
 export async function getStaticPaths() {
   const blueprints = getBlueprintsSortedByScore()

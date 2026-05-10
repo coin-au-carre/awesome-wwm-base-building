@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react"
 import { BookOpenIcon } from "@phosphor-icons/react"
 import { BASE } from "@/lib/url"
+import { builderSlug } from "@/lib/format"
 
 type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website"
 
@@ -17,16 +18,15 @@ interface Props {
   guides: Tutorial[]
   newestSlug: string
   TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string; ring: string }>
-  authorPaths?: Record<string, string>
 }
 
-export default function TutorialsFilter({ guides, newestSlug, TAG_CONFIG, authorPaths = {} }: Props) {
+export default function TutorialsFilter({ guides, newestSlug, TAG_CONFIG }: Props) {
   const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(new Set())
 
   const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website"]
 
   const filteredGuides = useMemo(() => {
-    if (selectedTags.size === 0) return guides
+    if (selectedTags.size === 0) { return guides }
     return guides.filter((guide) =>
       guide.tags.some((tag) => selectedTags.has(tag as TagKey))
     )
@@ -135,23 +135,20 @@ export default function TutorialsFilter({ guides, newestSlug, TAG_CONFIG, author
                     })}
                   {item.authors.length > 0 && (
                     <span className="text-xs text-muted-foreground/70">
-                      by {item.authors.map((name, i) => {
-                        const path = authorPaths[name]
-                        return (
-                          <span key={`${item.slug}-${name}`}>
-                            {path ? (
-                              <a
-                                href={`${BASE}${path}?utm_source=tutorials&utm_medium=author_link`}
-                                className="relative z-10 hover:text-foreground hover:underline underline-offset-2 transition-colors"
-                                onClick={(e) => e.stopPropagation()}
-                              >
-                                {name}
-                              </a>
-                            ) : name}
-                            {i < item.authors.length - 1 ? ", " : ""}
-                          </span>
-                        )
-                      })}
+                      by {item.authors.map((name, i) => (
+                        <span key={`${item.slug}-${name}`}>
+                          <a
+                            href={`${BASE}/builders/${builderSlug(name)}`}
+                            className="relative z-10 hover:text-foreground hover:underline underline-offset-2 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                            data-umami-event="builder_click"
+                            data-umami-event-name={name}
+                          >
+                            {name}
+                          </a>
+                          {i < item.authors.length - 1 ? ", " : ""}
+                        </span>
+                      ))}
                     </span>
                   )}
                 </div>

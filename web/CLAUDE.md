@@ -33,6 +33,7 @@
 | `/catalog` | Items construction catalog |
 | `/events` | WWM events in guild bases |
 | `/ruby` | Ruby bot commands and examples |
+| `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials by one builder |
 
 ## Nav dot versioning
 

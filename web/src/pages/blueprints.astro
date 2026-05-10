@@ -59,6 +59,22 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
     </div>
     </div>
 
+    <!-- Share your blueprint CTA -->
+    <div class="rounded-xl border border-violet-500/30 bg-violet-500/5 px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-3">
+      <p class="text-sm flex-1 text-muted-foreground">
+        Have a blueprint to share? Post it in <span class="font-medium text-foreground">#blueprint-sharing</span> on the Discord server and it will appear here.
+      </p>
+      <a
+        href="https://discord.gg/Qygt9u26Bn"
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`shrink-0 ${buttonVariants({ variant: "outline", size: "sm" })}`}
+        data-umami-event="discord_cta_click"
+      >
+        Share on Discord ↗
+      </a>
+    </div>
+
     {
       isEmpty && (
         <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
