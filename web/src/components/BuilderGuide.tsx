@@ -6,7 +6,7 @@ import TemplateBuilder from "@/components/TemplateBuilder"
 import { Terminal, Image, LayoutList, Sparkles, Users, Layers, Bold, FileImage, type LucideIcon } from "lucide-react"
 import { url } from "@/lib/url"
 
-type Mode = "guild" | "solo"
+type Mode = "guild" | "solo" | "blueprint"
 
 function StepNum({ n, color }: { n: string; color: string }) {
   return (
@@ -48,6 +48,38 @@ function GuildPostInstructions() {
           </p>
           <p className="text-sm text-muted-foreground">
             Go to <span className="font-medium text-foreground">#guild-base-showcase</span>, click <span className="font-medium text-foreground">New Post</span>, and fill in your first message using the <a href="#template" className="underline underline-offset-2 hover:text-foreground transition-colors">template below ↓</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function BlueprintPostInstructions() {
+  return (
+    <div className="space-y-4">
+      <div className="space-y-1.5">
+        <div className="rounded-xl border border-blue-500/30 bg-blue-500/5 px-4 py-3 space-y-1.5">
+          <p className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+            <Image className="size-3.5 text-blue-500 shrink-0" />
+            Post in <span className="font-mono text-xs bg-muted rounded px-1 py-0.5">#blueprints-showcase</span>
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Click <span className="font-medium text-foreground">New Post</span>, give it a clear title, attach your blueprint screenshots, and optionally write a short description.
+          </p>
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <OptionLabel label="Optional — price" />
+        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+          <p className="text-sm text-muted-foreground">
+            Add a line in your post with the price so buyers know what to expect:
+          </p>
+          <code className="block rounded bg-muted px-3 py-2 font-mono text-xs text-foreground">
+            Price: Free, 30 pearls
+          </code>
+          <p className="text-sm text-muted-foreground">
+            Use <span className="font-medium text-foreground">Free</span> if no payment is needed, or list the cost in pearls. You can combine both if you offer a free base version and a paid premium one.
           </p>
         </div>
       </div>
@@ -162,7 +194,8 @@ const tips: Tip[] = [
 export default function BuilderGuide() {
   const [mode, setMode] = useState<Mode>(() => {
     if (typeof window !== "undefined") {
-      return new URLSearchParams(window.location.search).get("mode") === "solo" ? "solo" : "guild"
+      const m = new URLSearchParams(window.location.search).get("mode")
+      if (m === "solo" || m === "blueprint") return m
     }
     return "guild"
   })
@@ -182,6 +215,7 @@ export default function BuilderGuide() {
         <TabsList>
           <TabsTrigger value="guild">Guild base</TabsTrigger>
           <TabsTrigger value="solo">Solo build</TabsTrigger>
+          <TabsTrigger value="blueprint">Blueprint</TabsTrigger>
         </TabsList>
       </Tabs>
 
@@ -201,6 +235,9 @@ export default function BuilderGuide() {
             {mode === "guild" && (
               <p className="text-sm text-muted-foreground">Even if your guild is already registered, posting yourself gives you more visibility and engagement from the community.</p>
             )}
+            {mode === "blueprint" && (
+              <p className="text-sm text-muted-foreground">The blueprint channel is only accessible to Discord members.</p>
+            )}
           </div>
         </li>
 
@@ -208,8 +245,8 @@ export default function BuilderGuide() {
         <li className="flex gap-4">
           <StepNum n="2" color="bg-violet-500 text-white border-0" />
           <div className="space-y-3 flex-1 pt-0.5">
-            <p className="font-medium text-sm">Post your base</p>
-            {mode === "guild" ? <GuildPostInstructions /> : <SoloPostInstructions />}
+            <p className="font-medium text-sm">{mode === "blueprint" ? "Post your blueprint" : "Post your base"}</p>
+            {mode === "guild" ? <GuildPostInstructions /> : mode === "solo" ? <SoloPostInstructions /> : <BlueprintPostInstructions />}
           </div>
         </li>
 
@@ -218,39 +255,43 @@ export default function BuilderGuide() {
           <StepNum n="3" color="bg-emerald-500 text-white border-0" />
           <div className="space-y-1.5 pt-0.5">
             <p className="font-medium text-sm">Wait for the next sync</p>
-            <p className="text-sm text-muted-foreground">The site syncs several times a day. Your {mode === "guild" ? "guild" : "build"} will appear automatically after the next sync.</p>
+            <p className="text-sm text-muted-foreground">The site syncs several times a day. Your {mode === "guild" ? "guild" : mode === "solo" ? "build" : "blueprint"} will appear automatically after the next sync.</p>
           </div>
         </li>
       </ol>
 
       {/* Tips & formatting */}
-      <div id="tips" className="space-y-5 border-t border-border pt-2">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tips & formatting</p>
-          <p className="text-sm text-muted-foreground mt-1">Everything you can do to improve your entry.</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          {tips.map(({ icon: Icon, color, title, body }) => (
-            <div key={title} className="rounded-xl border border-border bg-card p-4 space-y-2">
-              <div className="flex items-center gap-2">
-                <Icon size={15} className={color} />
-                <p className="text-sm font-medium text-foreground">{title}</p>
+      {mode !== "blueprint" && (
+        <div id="tips" className="space-y-5 border-t border-border pt-2">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tips & formatting</p>
+            <p className="text-sm text-muted-foreground mt-1">Everything you can do to improve your entry.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {tips.map(({ icon: Icon, color, title, body }) => (
+              <div key={title} className="rounded-xl border border-border bg-card p-4 space-y-2">
+                <div className="flex items-center gap-2">
+                  <Icon size={15} className={color} />
+                  <p className="text-sm font-medium text-foreground">{title}</p>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">{body}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Template builder */}
-      <div id="template" className="space-y-3 pt-2 border-t border-border">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">First post template</p>
-          <p className="text-sm text-muted-foreground mt-1">Fill in the fields below and copy the result into your Discord post.</p>
+      {mode !== "blueprint" && (
+        <div id="template" className="space-y-3 pt-2 border-t border-border">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">First post template</p>
+            <p className="text-sm text-muted-foreground mt-1">Fill in the fields below and copy the result into your Discord post.</p>
+          </div>
+          <TemplateBuilder mode={mode as "guild" | "solo"} onModeChange={(m) => switchMode(m)} />
+          <p className="text-xs text-muted-foreground">Edit your posts at any time. Changes are picked up on the next sync.</p>
         </div>
-        <TemplateBuilder mode={mode} onModeChange={switchMode} />
-        <p className="text-xs text-muted-foreground">Edit your posts at any time. Changes are picked up on the next sync.</p>
-      </div>
+      )}
     </div>
   )
 }
