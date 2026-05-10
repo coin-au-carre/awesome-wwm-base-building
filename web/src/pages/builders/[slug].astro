@@ -3,8 +3,6 @@ import Layout from "@/layouts/main.astro"
 import { getCollection } from "astro:content"
 import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
-import { getTier } from "@/lib/scoring"
-import { getGuildsSortedByScore, getSolosSortedByScore } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, BookOpenIcon } from "@phosphor-icons/react"
 
@@ -40,8 +38,6 @@ const tutorials = allArticles.filter((a) =>
 const displayName = profile?.name ?? builderName
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
 const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
-const totalGuildsInDb = getGuildsSortedByScore().length
-const totalSolosInDb = getSolosSortedByScore().length
 
 ---
 
@@ -104,7 +100,6 @@ const totalSolosInDb = getSolosSortedByScore().length
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {profile.guilds.map((g) => {
             const img = g.coverImage ?? g.screenshots?.[0]
-            const tier = getTier(g.rank, totalGuildsInDb, g.score)
             return (
               <a
                 href={`${BASE}/guilds/${g.slug}`}
@@ -122,18 +117,18 @@ const totalSolosInDb = getSolosSortedByScore().length
                   />
                 )}
                 <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                <div class="absolute top-2 right-2">
-                  <span class={`inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${tier.badge}`} style={tier.badgeStyle}>
-                    <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
-                    {tier.label}
-                  </span>
-                </div>
                 <div class="absolute bottom-0 left-0 right-0 p-3">
-                  <p class="text-white font-medium text-sm leading-tight">
+                  <p class="text-white font-medium text-sm leading-tight mb-1">
                     {stripGuildShowcase(g.name)}
                     {g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
                   </p>
-                  <p class="text-white/50 text-[11px] mt-0.5">#{g.rank} · {g.score} pts</p>
+                  {g.tags && g.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-1">
+                      {g.tags.slice(0, 3).map((tag) => (
+                        <span class="inline-flex items-center rounded-full bg-white/10 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/80">{tag}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </a>
             )
@@ -152,7 +147,6 @@ const totalSolosInDb = getSolosSortedByScore().length
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {profile.solos.map((g) => {
             const img = g.coverImage ?? g.screenshots?.[0]
-            const tier = getTier(g.rank, totalSolosInDb, g.score)
             return (
               <a
                 href={`${BASE}/solos/${g.slug}`}
@@ -170,15 +164,15 @@ const totalSolosInDb = getSolosSortedByScore().length
                   />
                 )}
                 <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                <div class="absolute top-2 right-2">
-                  <span class={`inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] font-medium ${tier.badge}`} style={tier.badgeStyle}>
-                    <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
-                    {tier.label}
-                  </span>
-                </div>
                 <div class="absolute bottom-0 left-0 right-0 p-3">
-                  <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
-                  <p class="text-white/50 text-[11px] mt-0.5">#{g.rank} · {g.score} pts</p>
+                  <p class="text-white font-medium text-sm leading-tight mb-1">{g.name}</p>
+                  {g.tags && g.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-1">
+                      {g.tags.slice(0, 3).map((tag) => (
+                        <span class="inline-flex items-center rounded-full bg-white/10 backdrop-blur-sm px-2 py-0.5 text-[10px] text-white/80">{tag}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </a>
             )
