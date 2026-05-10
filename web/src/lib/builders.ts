@@ -44,6 +44,84 @@ export function getAllBuilderSlugs(): { name: string; slug: string }[] {
   return [...slugMap.entries()].map(([slug, name]) => ({ name, slug }))
 }
 
+export interface NotableBuilder {
+  name: string
+  slug: string
+  coverImage?: string
+  guildCount: number
+  soloCount: number
+  blueprintCount: number
+  tutorialCount: number
+  typeCount: number
+}
+
+export function getNotableBuilders(
+  tutorialCountBySlug?: Map<string, number>,
+  limit?: number,
+): NotableBuilder[] {
+  const bySlug = new Map<string, NotableBuilder>()
+
+  function get(slug: string, name: string): NotableBuilder {
+    if (!bySlug.has(slug)) bySlug.set(slug, { name, slug, guildCount: 0, soloCount: 0, blueprintCount: 0, tutorialCount: 0, typeCount: 0 })
+    return bySlug.get(slug)!
+  }
+
+  for (const g of getGuildsSortedByScore()) {
+    for (const b of g.builders ?? []) {
+      const name = formatBuilderName(b)
+      if (!name) continue
+      const s = builderSlug(name)
+      if (!s) continue
+      const entry = get(s, name)
+      if (!entry.coverImage) entry.coverImage = g.coverImage ?? g.screenshots?.[0]
+      entry.guildCount++
+    }
+  }
+
+  for (const g of getSolosSortedByScore()) {
+    for (const b of g.builders ?? []) {
+      const name = formatBuilderName(b)
+      if (!name) continue
+      const s = builderSlug(name)
+      if (!s) continue
+      const entry = get(s, name)
+      if (!entry.coverImage) entry.coverImage = g.coverImage ?? g.screenshots?.[0]
+      entry.soloCount++
+    }
+  }
+
+  for (const bp of getBlueprintsSortedByScore()) {
+    if (!bp.builderName) continue
+    const s = builderSlug(bp.builderName)
+    if (!s) continue
+    const entry = get(s, bp.builderName)
+    if (!entry.coverImage) entry.coverImage = bp.coverImage ?? bp.screenshots?.[0]
+    entry.blueprintCount++
+  }
+
+  if (tutorialCountBySlug) {
+    for (const [s, count] of tutorialCountBySlug) {
+      if (bySlug.has(s)) bySlug.get(s)!.tutorialCount = count
+    }
+  }
+
+  for (const entry of bySlug.values()) {
+    entry.typeCount = [entry.guildCount, entry.soloCount, entry.blueprintCount, entry.tutorialCount].filter(Boolean).length
+  }
+
+  return [...bySlug.values()]
+    .filter((e) => e.typeCount >= 2)
+    .sort((a, b) => {
+      // 1. most diverse contributors first
+      if (b.typeCount !== a.typeCount) return b.typeCount - a.typeCount
+      // 2. tutorial authors surface before pure builders
+      if (b.tutorialCount !== a.tutorialCount) return b.tutorialCount - a.tutorialCount
+      // 3. total contributions as tiebreaker
+      return (b.guildCount + b.soloCount + b.blueprintCount) - (a.guildCount + a.soloCount + a.blueprintCount)
+    })
+    .slice(0, limit)
+}
+
 export function getActiveBuilderSlugs(tutorialAuthorSlugs?: Set<string>): Set<string> {
   const typeCount = new Map<string, number>()
 

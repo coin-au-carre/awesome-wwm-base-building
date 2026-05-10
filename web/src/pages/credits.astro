@@ -1,11 +1,12 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers, getBuilderSearchPath, getReactions, getVoterBlacklist } from "@/lib/guilds"
-import { formatBuilderName } from "@/lib/format"
+import { formatBuilderName, builderSlug, thumbUrl } from "@/lib/format"
+import { getNotableBuilders } from "@/lib/builders"
 import { tutorialVideos, channels } from "@/lib/videos"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
-import { HeartIcon, PenNibIcon, MapTrifoldIcon } from "@phosphor-icons/react"
+import { HeartIcon, PenNibIcon, MapTrifoldIcon, UsersThreeIcon, BookOpenIcon } from "@phosphor-icons/react"
 
 const guilds = getGuildsSortedByScore()
 const solos = getSolosSortedByScore()
@@ -36,13 +37,16 @@ const cartographers = Object.entries(scoutCounts)
 // Tutorial authors → first article link
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
 const articleAuthorFirstSlug: Record<string, string> = {}
+const tutorialCountBySlug = new Map<string, number>()
 for (const article of allArticles) {
   for (const author of article.data.authors ?? []) {
-    if (!articleAuthorFirstSlug[author]) {
-      articleAuthorFirstSlug[author] = article.id
-    }
+    if (!articleAuthorFirstSlug[author]) articleAuthorFirstSlug[author] = article.id
+    const s = builderSlug(author)
+    if (s) tutorialCountBySlug.set(s, (tutorialCountBySlug.get(s) ?? 0) + 1)
   }
 }
+
+const notableBuilders = getNotableBuilders(tutorialCountBySlug).filter((b) => b.slug !== builderSlug("Ahlyam"))
 
 // Video creators who also have builds in the showcase — link to their build page
 const videoCreatorsWithBuilds = [...new Set(tutorialVideos.map((v) => v.author).filter(Boolean) as string[])]
@@ -108,6 +112,119 @@ function builderColor(name: string): string {
       </p>
     </div>
 
+    <!-- Notable Builders -->
+    {notableBuilders.length > 0 && (
+      <section class="space-y-4">
+        <h2 class="font-heading text-xs font-medium text-muted-foreground uppercase tracking-wide flex items-center gap-2">
+          <UsersThreeIcon weight="duotone" className="size-4 text-violet-400" client:load /> Notable builders
+          <span class="text-muted-foreground/50 font-normal normal-case tracking-normal">{notableBuilders.length}</span>
+        </h2>
+        <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
+          Builders who contributed across multiple content types: guild bases, solo builds, blueprints, and tutorials.
+        </p>
+        <div class="relative">
+          <div id="nb-scroll" class="flex gap-3 overflow-x-auto pb-1 snap-x snap-mandatory" style="scrollbar-width: none; -webkit-overflow-scrolling: touch">
+            {notableBuilders.map((b) => (
+              <a
+                href={`${BASE}/builders/${b.slug}`}
+                class="snap-start shrink-0 relative w-40 aspect-video rounded-xl overflow-hidden bg-muted ring-1 ring-border hover:ring-primary group transition-all"
+                data-umami-event="notable_builder_click"
+                data-umami-event-name={b.name}
+              >
+                {b.coverImage ? (
+                  <img
+                    src={thumbUrl(b.coverImage, 320, 240)}
+                    alt={b.name}
+                    loading="lazy"
+                    onerror="this.style.display='none'"
+                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div class="absolute inset-0 bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary/30">
+                    {b.name[0]?.toUpperCase()}
+                  </div>
+                )}
+                <div class="absolute inset-0 bg-linear-to-t from-black/85 via-black/20 to-transparent" />
+                <div class="absolute bottom-0 left-0 right-0 p-2.5">
+                  <p class="text-white font-medium text-xs leading-tight mb-1.5 truncate">{b.name}</p>
+                  <div class="flex flex-wrap gap-1">
+                    {b.guildCount > 0 && (
+                      <span class="inline-flex items-center gap-0.5 text-[9px] font-medium px-1.5 py-0.5 rounded-full bg-black/50 backdrop-blur-sm text-violet-200">
+                        <img src="/images/logo_1.png" alt="" aria-hidden="true" class="size-2.5 object-contain" />{b.guildCount}
+                      </span>
+                    )}
+                    {b.soloCount > 0 && (
+                      <span class="inline-flex items-center gap-0.5 text-[9px] font-medium px-1.5 py-0.5 rounded-full bg-black/50 backdrop-blur-sm text-teal-200">
+                        <img src="/images/logo_2.png" alt="" aria-hidden="true" class="size-2.5 object-contain" />{b.soloCount}
+                      </span>
+                    )}
+                    {b.blueprintCount > 0 && (
+                      <span class="inline-flex items-center gap-0.5 text-[9px] font-medium px-1.5 py-0.5 rounded-full bg-black/50 backdrop-blur-sm text-blue-200">
+                        <svg class="size-2.5 shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"/></svg>
+                        {b.blueprintCount}
+                      </span>
+                    )}
+                    {b.tutorialCount > 0 && (
+                      <span class="inline-flex items-center gap-0.5 text-[9px] font-medium px-1.5 py-0.5 rounded-full bg-black/50 backdrop-blur-sm text-pink-200">
+                        <BookOpenIcon weight="fill" className="size-2.5 shrink-0" client:load />{b.tutorialCount}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          <button id="nb-prev" aria-label="Previous" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 size-7 rounded-full bg-background border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-all opacity-0 pointer-events-none">
+            <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button id="nb-next" aria-label="Next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 size-7 rounded-full bg-background border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-all">
+            <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+        <script is:inline>
+          ;(function () {
+            const el = document.getElementById("nb-scroll")
+            const prev = document.getElementById("nb-prev")
+            const next = document.getElementById("nb-next")
+            const AMT = 500
+            const INTERVAL = 3000
+            let timer
+
+            function update() {
+              const atStart = el.scrollLeft <= 8
+              const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8
+              prev.style.opacity = atStart ? "0" : "1"
+              prev.style.pointerEvents = atStart ? "none" : "auto"
+              next.style.opacity = atEnd ? "0" : "1"
+              next.style.pointerEvents = atEnd ? "none" : "auto"
+            }
+
+            function advance() {
+              const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8
+              if (atEnd) {
+                el.scrollTo({ left: 0, behavior: "smooth" })
+              } else {
+                el.scrollBy({ left: AMT, behavior: "smooth" })
+              }
+              setTimeout(update, 350)
+            }
+
+            function startAuto() { timer = setInterval(advance, INTERVAL) }
+            function stopAuto() { clearInterval(timer) }
+
+            prev.addEventListener("click", function () { stopAuto(); el.scrollBy({ left: -AMT, behavior: "smooth" }); setTimeout(update, 350); startAuto() })
+            next.addEventListener("click", function () { stopAuto(); el.scrollBy({ left: AMT, behavior: "smooth" }); setTimeout(update, 350); startAuto() })
+            el.addEventListener("scroll", update, { passive: true })
+            el.addEventListener("mouseenter", stopAuto)
+            el.addEventListener("mouseleave", startAuto)
+
+            update()
+            startAuto()
+          })()
+        </script>
+      </section>
+    )}
+
     <!-- Content creators -->
     <section class="space-y-4">
       <h2 class="font-heading text-xs font-medium text-muted-foreground uppercase tracking-wide">Content creators</h2>
@@ -116,12 +233,10 @@ function builderColor(name: string): string {
       </p>
       <div class="flex flex-wrap gap-1.5">
         {contentCreators.map((name) => {
-          const buildPath = getBuilderSearchPath(name)
-          const articleSlug = articleAuthorFirstSlug[name]
-          const href = articleSlug ? `${BASE}/tutorials/${articleSlug}` : buildPath ? `${BASE}${buildPath}` : null
-          return href ? (
+          const slug = builderSlug(name)
+          return slug ? (
             <a
-              href={href}
+              href={`${BASE}/builders/${slug}`}
               class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
               data-umami-event="credits_creator_click"
               data-umami-event-name={name}
@@ -186,20 +301,16 @@ function builderColor(name: string): string {
         Every builder referenced for a guild base or solo construction to the showcase.
       </p>
       <div class="flex flex-wrap gap-1.5">
-        {builderList.map((name) => {
-          const path = getBuilderSearchPath(name)
-          const href = path ? `${BASE}${path}` : `${BASE}/?q=${encodeURIComponent(name)}`
-          return (
-            <a
-              href={href}
-              class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70 ${builderColor(name)}`}
-              data-umami-event="credits_builder_click"
-              data-umami-event-name={name}
-            >
-              {name}
-            </a>
-          )
-        })}
+        {builderList.map((name) => (
+          <a
+            href={`${BASE}/builders/${builderSlug(name)}`}
+            class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70 ${builderColor(name)}`}
+            data-umami-event="credits_builder_click"
+            data-umami-event-name={name}
+          >
+            {name}
+          </a>
+        ))}
       </div>
       <p class="text-xs text-muted-foreground pt-1">
         Want to be on this wall? <a href={`${BASE}/contribute`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="contribute_cta_click">Submit your build ↗</a>
