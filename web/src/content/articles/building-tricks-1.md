@@ -37,7 +37,9 @@ Placing three trees together produces a much fuller, more natural-looking result
 
 When you hit the maximum area density and can't place more items, you can sink trees or plants below the map surface to work around the limit. Use a signpost as an aim point to help offset the items into position — the signpost is especially handy for precision placement in general.
 
-<img src="/tutorials/MoodSwing_build_under_using_panel.jpg" alt="Using a signpost to sink plants below the map and bypass density limits" style="border-radius: 0.75rem; width: 100%;" />
+
+<!-- discord-video:1483447711499030634/1494424053497331952 -->
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1494424042822828242/Where_Winds_Meet_2026.04.16_-_20.45.41.01.mp4?ex=6a018998&is=6a003818&hm=150f4668ba491a5d3bbdd6e3970be5b532c45c41baf72d65213ef49982c49e5c&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 *Credit: MooDSwing*
 
