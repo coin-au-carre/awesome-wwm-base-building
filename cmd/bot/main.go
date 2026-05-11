@@ -26,6 +26,7 @@ import (
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	noClaude := flag.Bool("no-claude", false, "disable Claude responses (slash commands still work)")
+	noWelcomeDM := flag.Bool("no-welcome-dm", false, "disable welcome DM sent to new members")
 	useOllama := flag.Bool("ollama", false, "use local Ollama instead of Claude")
 	ollamaURL := flag.String("ollama-url", "http://localhost:11434", "Ollama API endpoint")
 	ollamaModel := flag.String("ollama-model", "llama3.1", "Ollama model name")
@@ -73,7 +74,9 @@ func main() {
 	bot.Session.AddHandler(onReady(discordGuildID))
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, botChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken, responder))
-	bot.Session.AddHandler(onGuildMemberAdd())
+	if !*noWelcomeDM {
+		bot.Session.AddHandler(onGuildMemberAdd())
+	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 
 	if err := bot.Open(); err != nil {
