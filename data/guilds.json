@@ -1,5 +1,21 @@
 [
 	{
+		"name": "無名客栈",
+		"builders": [
+			"醜奴兒",
+			"啾啾要你命"
+		],
+		"tags": [
+			"Creative",
+			"Fun"
+		],
+		"discordThread": "",
+		"whatToVisit": "Use of diagrams",
+		"score": 0,
+		"lastModified": "May 11, 2026 at 11:52 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Mijuri",
 		"builders": [
 			"Leeshychan",
