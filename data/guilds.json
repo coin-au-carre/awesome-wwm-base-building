@@ -1,5 +1,19 @@
 [
 	{
+		"name": "Noblesse",
+		"builders": [
+			"NuméroBis"
+		],
+		"tags": [
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Arena surrounded by water (courtyard)",
+		"score": 0,
+		"lastModified": "May 11, 2026 at 09:22 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Arab-Nomads",
 		"builders": [
 			"william"
