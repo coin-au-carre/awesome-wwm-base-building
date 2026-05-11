@@ -1,5 +1,20 @@
 [
 	{
+		"name": "Daracheyr",
+		"builders": [
+			"DeNa"
+		],
+		"tags": [
+			"Creative",
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "Train station\nRailways\nUnderwater\nColosseum",
+		"score": 2,
+		"lastModified": "May 11, 2026 at 12:49 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "FLMxLuiTH",
 		"builders": [
 			"ChiXiao",
