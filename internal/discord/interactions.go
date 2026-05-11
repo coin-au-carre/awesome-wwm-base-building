@@ -133,7 +133,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 		case discordgo.InteractionApplicationCommand:
 			switch i.ApplicationCommandData().Name {
 			case submitCommandName:
-				handleSubmitCommand(s, i)
+				handleSubmitCommand(s, i, root)
 			case postCommandName:
 				handlePostCommand(s, i)
 			case soloCommandName:
