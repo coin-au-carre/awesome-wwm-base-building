@@ -1,4 +1,49 @@
 [
+  {
+    "name": "Arab-Nomads",
+    "builders": [
+        "william"
+    ],
+    "tags": [
+        "Creative",
+        "Fun",
+        "Cute"
+    ],
+    "discordThread": "",
+    "whatToVisit": "Pixel art bunny\nGames\nArena",
+    "score": 0,
+    "lastModified": "May 11, 2026 at 12:26 AM UTC",
+    "scoutedByDiscordId": "721510597958828183"
+  },
+  {
+    "name": "Royal",
+    "builders": [
+        "大 mulch"
+    ],
+    "tags": [
+        "Cute"
+    ],
+    "discordThread": "",
+    "whatToVisit": "Nice café\nCozy place",
+    "score": 0,
+    "lastModified": "May 11, 2026 at 12:18 AM UTC",
+    "scoutedByDiscordId": "721510597958828183"
+  },
+	{
+		"name": "RoastGeese",
+		"builders": [
+			"滾Ocean"
+		],
+		"tags": [
+			"Zen/Nature",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "Elven village\nMarketplace\nBathhouse (flower women room and tree men room)\nGuild hall\nLiving place",
+		"score": 0,
+		"lastModified": "May 9, 2026 at 10:33 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
 	{
 		"name": "Arab-Nomads",
 		"builders": [
@@ -6828,20 +6873,5 @@
 		],
 		"createdAt": "May 8, 2026 at 06:51 PM UTC",
 		"lastModified": "May 8, 2026 at 06:54 PM UTC"
-	},
-	{
-		"name": "RoastGeese",
-		"builders": [
-			"滾Ocean"
-		],
-		"tags": [
-			"Zen/Nature",
-			"City"
-		],
-		"discordThread": "",
-		"whatToVisit": "Elven village\nMarketplace\nBathhouse (flower women room and tree men room)\nGuild hall\nLiving place",
-		"score": 0,
-		"lastModified": "May 9, 2026 at 10:33 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
 	}
 ]
