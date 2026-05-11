@@ -1,5 +1,19 @@
 [
 	{
+		"name": "ChillxWind",
+		"builders": [
+			"xAéliax"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Build is in a huge cave (lake included)",
+		"score": 0,
+		"lastModified": "May 11, 2026 at 03:48 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "MythCovenant",
 		"builders": [
 			"PapiBerry",
