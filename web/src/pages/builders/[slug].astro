@@ -39,6 +39,12 @@ const tutorials = allArticles.filter((a) =>
 
 const displayName = profile?.name ?? builderName
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
+
+const tagCounts = new Map<string, number>()
+for (const g of [...(profile?.guilds ?? []), ...(profile?.solos ?? [])]) {
+  for (const tag of g.tags ?? []) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1)
+}
+const topTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]).map(([tag]) => tag)
 const contributionTypes = [(profile?.guilds.length ?? 0) > 0, (profile?.solos.length ?? 0) > 0, (profile?.blueprints.length ?? 0) > 0, tutorials.length > 0].filter(Boolean).length
 const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
 
@@ -100,6 +106,13 @@ const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
             </span>
           )}
         </div>
+        {topTags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5 mt-3">
+            {topTags.map((tag) => (
+              <span class="inline-flex items-center rounded-full bg-muted px-2.5 py-0.5 text-[11px] text-muted-foreground ring-1 ring-inset ring-border">{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
 
