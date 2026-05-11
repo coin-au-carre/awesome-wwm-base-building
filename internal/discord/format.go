@@ -8,7 +8,7 @@ import (
 func FormatCombinedSyncSummary(guildStats, soloStats SyncStats, hasSolo bool) string {
 	line1 := fmt.Sprintf("🏯 **%d** guilds", guildStats.Total)
 	if hasSolo {
-		line1 += fmt.Sprintf(" · 🏡 **%d** solo", soloStats.Total)
+		line1 += fmt.Sprintf(" · 🏡 **%d** solos", soloStats.Total)
 	}
 	line1 += " — synced!"
 

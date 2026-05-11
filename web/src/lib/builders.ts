@@ -3,6 +3,7 @@ import type { RankedBlueprint } from "@/types/blueprint"
 import { getGuildsSortedByScore, getSolosSortedByScore } from "@/lib/guilds"
 import { getBlueprintsSortedByScore } from "@/lib/blueprints"
 import { formatBuilderName, builderSlug } from "@/lib/format"
+import { resolveCanonical, getAllSlugsForCanonical } from "@/lib/builder-aliases"
 
 export interface BuilderProfile {
   name: string
@@ -12,17 +13,20 @@ export interface BuilderProfile {
   blueprints: RankedBlueprint[]
 }
 
-function matchesSlug(rawName: string, targetSlug: string): boolean {
+function matchesSlug(rawName: string, targetCanonical: string): boolean {
   const cleaned = formatBuilderName(rawName)
-  return !!cleaned && builderSlug(cleaned) === targetSlug
+  if (!cleaned) return false
+  return resolveCanonical(builderSlug(cleaned)) === targetCanonical
 }
 
 export function getAllBuilderSlugs(): { name: string; slug: string }[] {
-  const slugMap = new Map<string, string>() // slug → canonical name
+  const slugMap = new Map<string, string>() // canonical slug → display name
 
   function addName(name: string) {
     const s = builderSlug(name)
-    if (s && !slugMap.has(s)) slugMap.set(s, name)
+    if (!s) return
+    const canonical = resolveCanonical(s)
+    if (!slugMap.has(canonical)) slugMap.set(canonical, name)
   }
 
   for (const g of getGuildsSortedByScore()) {
@@ -70,7 +74,7 @@ export function getNotableBuilders(
     for (const b of g.builders ?? []) {
       const name = formatBuilderName(b)
       if (!name) continue
-      const s = builderSlug(name)
+      const s = resolveCanonical(builderSlug(name))
       if (!s) continue
       const entry = get(s, name)
       if (!entry.coverImage) entry.coverImage = g.coverImage ?? g.screenshots?.[0]
@@ -82,7 +86,7 @@ export function getNotableBuilders(
     for (const b of g.builders ?? []) {
       const name = formatBuilderName(b)
       if (!name) continue
-      const s = builderSlug(name)
+      const s = resolveCanonical(builderSlug(name))
       if (!s) continue
       const entry = get(s, name)
       if (!entry.coverImage) entry.coverImage = g.coverImage ?? g.screenshots?.[0]
@@ -92,7 +96,7 @@ export function getNotableBuilders(
 
   for (const bp of getBlueprintsSortedByScore()) {
     if (!bp.builderName) continue
-    const s = builderSlug(bp.builderName)
+    const s = resolveCanonical(builderSlug(bp.builderName))
     if (!s) continue
     const entry = get(s, bp.builderName)
     if (!entry.coverImage) entry.coverImage = bp.coverImage ?? bp.screenshots?.[0]
@@ -132,7 +136,7 @@ export function getActiveBuilderSlugs(tutorialAuthorSlugs?: Set<string>): Set<st
   const seenGuild = new Set<string>()
   for (const g of getGuildsSortedByScore()) {
     for (const b of g.builders ?? []) {
-      const s = builderSlug(formatBuilderName(b))
+      const s = resolveCanonical(builderSlug(formatBuilderName(b)))
       if (s && !seenGuild.has(s)) { seenGuild.add(s); add(s) }
     }
   }
@@ -140,7 +144,7 @@ export function getActiveBuilderSlugs(tutorialAuthorSlugs?: Set<string>): Set<st
   const seenSolo = new Set<string>()
   for (const g of getSolosSortedByScore()) {
     for (const b of g.builders ?? []) {
-      const s = builderSlug(formatBuilderName(b))
+      const s = resolveCanonical(builderSlug(formatBuilderName(b)))
       if (s && !seenSolo.has(s)) { seenSolo.add(s); add(s) }
     }
   }
@@ -148,7 +152,7 @@ export function getActiveBuilderSlugs(tutorialAuthorSlugs?: Set<string>): Set<st
   const seenBlueprint = new Set<string>()
   for (const bp of getBlueprintsSortedByScore()) {
     if (!bp.builderName) continue
-    const s = builderSlug(bp.builderName)
+    const s = resolveCanonical(builderSlug(bp.builderName))
     if (s && !seenBlueprint.has(s)) { seenBlueprint.add(s); add(s) }
   }
 
@@ -166,24 +170,27 @@ export function getActiveBuilderSlugs(tutorialAuthorSlugs?: Set<string>): Set<st
 }
 
 export function getBuilderProfile(slug: string): BuilderProfile | null {
+  const canonical = resolveCanonical(slug)
+  const allSlugs = getAllSlugsForCanonical(canonical)
+
   const guilds = getGuildsSortedByScore().filter((g) =>
-    (g.builders ?? []).some((b) => matchesSlug(b, slug))
+    (g.builders ?? []).some((b) => matchesSlug(b, canonical))
   )
   const solos = getSolosSortedByScore().filter((g) =>
-    (g.builders ?? []).some((b) => matchesSlug(b, slug))
+    (g.builders ?? []).some((b) => matchesSlug(b, canonical))
   )
   const blueprints = getBlueprintsSortedByScore().filter(
-    (bp) => bp.builderName && builderSlug(bp.builderName) === slug
+    (bp) => bp.builderName && allSlugs.has(resolveCanonical(builderSlug(bp.builderName)))
   )
 
   if (!guilds.length && !solos.length && !blueprints.length) return null
 
-  // Derive canonical display name from found data
+  // Prefer canonical slug's name over alias names
   let name: string | undefined
   for (const g of guilds) {
     for (const b of g.builders ?? []) {
       const n = formatBuilderName(b)
-      if (n && builderSlug(n) === slug) { name = n; break }
+      if (n && resolveCanonical(builderSlug(n)) === canonical) { name = n; break }
     }
     if (name) break
   }
@@ -191,12 +198,12 @@ export function getBuilderProfile(slug: string): BuilderProfile | null {
     for (const g of solos) {
       for (const b of g.builders ?? []) {
         const n = formatBuilderName(b)
-        if (n && builderSlug(n) === slug) { name = n; break }
+        if (n && resolveCanonical(builderSlug(n)) === canonical) { name = n; break }
       }
       if (name) break
     }
   }
   if (!name && blueprints[0]?.builderName) name = blueprints[0].builderName
 
-  return { name: name ?? slug, slug, guilds, solos, blueprints }
+  return { name: name ?? canonical, slug: canonical, guilds, solos, blueprints }
 }
