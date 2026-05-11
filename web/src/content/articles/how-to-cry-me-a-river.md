@@ -20,7 +20,7 @@ Hiding the middle part below ground is optional, depending on how far above grou
 ---
 
 <!-- discord-video:1483483683456286911/1500737049140002816 -->
-<video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a021788&is=6a00c608&hm=064d07e31070b9eda3516b504b3f4a8fe61a21a963fe790898b14e73d9c754f3&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a02c048&is=6a016ec8&hm=ec20f346bd9954362b4782594621aa2a99e5f6d47d6b432dad88881756654b4a&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 *Credit: KARIN*
 
@@ -35,6 +35,6 @@ The key steps: place a wall, then position a small flat ceiling above it. Simula
 The advantage over manual adjustment (going up and down until sections blend) is consistency: once the ceiling reference is set, every water unit snaps to the same height with no retries needed.
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a023e66&is=6a00ece6&hm=64d8f240a8bebdb0340521b80f17de844762ca645524a7be73cd93de7146be4f&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a02e726&is=6a0195a6&hm=e67835f3a1d2db9bdb879b2cfd66f457ce0ebb67c9a00e8a56b75dc9b9898ffc&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 *Credit: Carni*
