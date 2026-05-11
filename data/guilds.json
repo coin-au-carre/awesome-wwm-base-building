@@ -1,5 +1,21 @@
 [
 	{
+		"name": "MythCovenant",
+		"builders": [
+			"PapiBerry"
+		],
+		"tags": [
+			"Creative",
+			"Fun",
+			"Cute"
+		],
+		"discordThread": "",
+		"whatToVisit": "Majestuous Duck",
+		"score": 1,
+		"lastModified": "May 11, 2026 at 12:55 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Daracheyr",
 		"builders": [
 			"DeNa"
