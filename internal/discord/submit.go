@@ -13,11 +13,44 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-var knownTags = map[string]bool{
-	"Arena": true, "Cave": true, "City": true, "Creative": true,
-	"Cute": true, "Dance Floor": true, "Desert": true, "Floating Island": true,
-	"Fun": true, "Maze": true, "Military": true, "Mountain": true,
-	"Nature": true, "River": true, "Snow": true, "Zen": true,
+func loadKnownTags(root string) map[string]bool {
+	cfg, err := loadTagsConfig(root)
+	if err != nil {
+		slog.Warn("could not load tags config, tag filtering disabled", "err", err)
+		return nil
+	}
+	m := make(map[string]bool, len(cfg.Guild))
+	for _, t := range cfg.Guild {
+		m[t] = true
+	}
+	return m
+}
+
+// buildTagsPlaceholder returns a comma-joined tag list truncated to Discord's
+// 100-char placeholder limit, cutting at the last clean tag boundary.
+func buildTagsPlaceholder(root string) string {
+	const maxLen = 100
+	cfg, err := loadTagsConfig(root)
+	if err != nil || len(cfg.Guild) == 0 {
+		return "Architecture, Castle/Palace, City, Creative, Cute, Desert, Fun..."
+	}
+	var b strings.Builder
+	for idx, t := range cfg.Guild {
+		sep := ""
+		if idx > 0 {
+			sep = ", "
+		}
+		candidate := b.String() + sep + t
+		if len(candidate) > maxLen {
+			if b.Len() > 0 {
+				b.WriteString("...")
+			}
+			break
+		}
+		b.WriteString(sep)
+		b.WriteString(t)
+	}
+	return b.String()
 }
 
 var appreciationScore = map[string]int{
@@ -26,7 +59,7 @@ var appreciationScore = map[string]int{
 	"b": 0, "B": 0,
 }
 
-func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
+func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate, root string) {
 	var guildName string
 	if guild, err := s.Guild(i.GuildID); err == nil {
 		guildName = guild.Name
@@ -34,6 +67,10 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 		guildName = i.GuildID
 	}
 	slog.Info("/scout-guild command used", "user", memberDisplayName(i), "server", guildName)
+
+	tagsPlaceholder := buildTagsPlaceholder(root)
+
+
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
 		Data: &discordgo.InteractionResponseData{
@@ -83,7 +120,7 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 						Label:       "Tags — optional, comma-separated",
 						Style:       discordgo.TextInputParagraph,
 						Required:    false,
-						Placeholder: "Arena, Cave, City, Creative, Cute, Desert, Fun, Maze, Military, Mountain, Nature, River, Snow, Zen",
+						Placeholder: tagsPlaceholder,
 					},
 				}},
 			},
@@ -99,7 +136,7 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 
 	name, guildID := parseLocation(fields["name"])
 	whatToVisit := fields["what_to_visit"]
-	tags := filterTags(splitCSV(fields["tags"]))
+	tags := filterTags(splitCSV(fields["tags"]), loadKnownTags(root))
 	builders := splitCSV(fields["builders_proposed"])
 
 	appreciation := strings.ToUpper(strings.TrimSpace(fields["appreciation"]))
@@ -480,11 +517,11 @@ func handleWelcomeTestCommand(s *discordgo.Session, i *discordgo.InteractionCrea
 	}
 }
 
-func filterTags(tags []string) []string {
+func filterTags(tags []string, known map[string]bool) []string {
 	var out []string
 	for _, t := range tags {
-		t = titleCase(t)
-		if knownTags[t] {
+		t = strings.TrimSpace(t)
+		if known == nil || known[t] {
 			out = append(out, t)
 		}
 	}
