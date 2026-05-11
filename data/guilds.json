@@ -1,5 +1,20 @@
 [
 	{
+		"name": "Mijuri",
+		"builders": [
+			"Leeshychan",
+			"JINxSIN"
+		],
+		"tags": [
+			"Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Grand tower",
+		"score": 0,
+		"lastModified": "May 11, 2026 at 11:38 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Noblesse",
 		"builders": [
 			"NuméroBis"
