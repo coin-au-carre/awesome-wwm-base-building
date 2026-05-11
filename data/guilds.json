@@ -2,7 +2,9 @@
 	{
 		"name": "MythCovenant",
 		"builders": [
-			"PapiBerry"
+			"PapiBerry",
+			"VuQuân",
+			"Thí Ming"
 		],
 		"tags": [
 			"Creative",
@@ -10,10 +12,10 @@
 			"Cute"
 		],
 		"discordThread": "",
-		"whatToVisit": "Majestuous Duck",
+		"whatToVisit": "Majestuous Goose",
 		"score": 1,
 		"lastModified": "May 11, 2026 at 12:55 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
+		"scoutedByDiscordId": "814547014565888050"
 	},
 	{
 		"name": "Daracheyr",
@@ -28,7 +30,7 @@
 		"whatToVisit": "Train station\nRailways\nUnderwater\nColosseum",
 		"score": 2,
 		"lastModified": "May 11, 2026 at 12:49 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
+		"scoutedByDiscordId": "814547014565888050"
 	},
 	{
 		"name": "FLMxLuiTH",
@@ -43,7 +45,7 @@
 		"whatToVisit": "The Moon,\nThe passage at entrance\nImmersive build",
 		"score": 2,
 		"lastModified": "May 11, 2026 at 12:28 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
+		"scoutedByDiscordId": "814547014565888050"
 	},
 	{
 		"name": "無名客栈",
