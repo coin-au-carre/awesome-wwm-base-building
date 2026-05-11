@@ -20,11 +20,14 @@ export async function getStaticPaths() {
 const { solo: g } = Astro.props
 const base = BASE
 const ogImage = g.coverImage ?? g.screenshots?.[0]
+const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
+const lorePrefix = buildersStr ? `By ${buildersStr}. ` : ""
+const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) : `Solo build showcase for ${g.name} in Where Winds Meet.`
 ---
 
 <Layout
   title={`${g.name} - A Where Winds Meet construction`}
-  description={g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`}
+  description={pageDesc}
   image={ogImage}
 >
   <script
@@ -34,7 +37,7 @@ const ogImage = g.coverImage ?? g.screenshots?.[0]
       "@context": "https://schema.org",
       "@type": "Article",
       headline: `${g.name} — Solo Build`,
-      description: g.lore?.slice(0, 160) ?? `Solo build showcase for ${g.name} in Where Winds Meet.`,
+      description: pageDesc,
       image: [
         ...(g.coverImage ? [g.coverImage] : []),
         ...((g.screenshots ?? []).filter((s: string) => s !== g.coverImage)),
