@@ -16,7 +16,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ## 1. Make the rain stop *(by Carnii)*
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a036a9d&is=6a02191d&hm=5bc3b752861bf53a4ea61d36df131cb95104bcf2c9f52b7f289746fb63fb4ae3&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a04135d&is=6a02c1dd&hm=0c7489d1e3fe71e91fbac41afa839a764e3f7b0968f82d62fe3f3f0130ca6a2d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 *Credit: Carnii*
 
@@ -25,7 +25,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ## 2. Remove grass partially *(by Carnii)*
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a03691d&is=6a02179d&hm=728ff427eb1bf21c01c412f8f6a476bdd093866878dba4bba5405a8354239cd0&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a0411dd&is=6a02c05d&hm=3b1a06e3aac84fab047508e72303c6ec1a22e77cb6f62bd51f54baeffdeebe3c&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 *Credit: Carnii*
 
