@@ -75,7 +75,9 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                   <img
                     src={img}
                     alt={stripGuildShowcase(g.name)}
-                    loading="lazy"
+                    loading={idx === 0 ? "eager" : "lazy"}
+                    fetchPriority={idx === 0 ? "high" : "auto"}
+                    decoding="async"
                     onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
