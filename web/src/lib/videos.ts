@@ -58,7 +58,7 @@ export const channels: Channel[] = [
     handle: "@azzel83",
   },
   {
-    name: "Carni",
+    name: "Carnii",
     url: "https://www.youtube.com/@heyu5152",
     handle: "@heyu5152",
   },

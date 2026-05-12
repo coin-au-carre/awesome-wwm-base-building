@@ -2,7 +2,7 @@
 title: "How to Cry Me A River"
 description: "Use the courtyard landscape tool and wall trick to create a flowing water area by stitching multiple water features together."
 tags: ["advanced", "guild", "solo"]
-authors: ["Crueliet", "KARIN", "Carni"]
+authors: ["Crueliet", "KARIN", "Carnii"]
 date: 2026-05-06
 order: 9
 image: "/tutorials/how-to-cry-me-a-river.jpg"
@@ -26,9 +26,9 @@ Hiding the middle part below ground is optional, depending on how far above grou
 
 ---
 
-## Carni's precision technique
+## Carnii's precision technique
 
-For large river areas, eye-level alignment tends to leave visible irregularities between water sections. Carni's approach uses a ceiling as a reference plane to keep every water surface perfectly flat.
+For large river areas, eye-level alignment tends to leave visible irregularities between water sections. Carnii's approach uses a ceiling as a reference plane to keep every water surface perfectly flat.
 
 The key steps: place a wall, then position a small flat ceiling above it. Simulate the courtyard by placing a wood wall without moving the mouse, then set down a stone floor followed by a wood floor on top. Place the courtyard exactly in the center of the wood floor, and attach the water container to the ceiling rather than adjusting it by eye. Using walls between sections prevents gaps.
 
@@ -37,4 +37,4 @@ The advantage over manual adjustment (going up and down until sections blend) is
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a038fe6&is=6a023e66&hm=81faa1d827ffacb3a2b63150c83f655003f457b6688895db11da666d52db5cb2&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
-*Credit: Carni*
+*Credit: Carnii*

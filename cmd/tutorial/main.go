@@ -3,9 +3,12 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"flag"
 	"fmt"
+	"io"
 	"log/slog"
+	"net/http"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -282,6 +285,55 @@ func refreshVideoURLs(s *discordgo.Session, articlesDir string) error {
 	return nil
 }
 
+func firstVideoAttachment(atts []*discordgo.MessageAttachment) string {
+	for _, att := range atts {
+		if isVideo(mediaExt(att.URL)) {
+			return att.URL
+		}
+	}
+	return ""
+}
+
+// fetchSnapshotVideoURL fetches the raw Discord message JSON and looks for a
+// video attachment inside message_snapshots (forwarded/transferred messages).
+func fetchSnapshotVideoURL(token, channelID, messageID string) string {
+	url := fmt.Sprintf("https://discord.com/api/v10/channels/%s/messages/%s", channelID, messageID)
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return ""
+	}
+	req.Header.Set("Authorization", token)
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil || resp.StatusCode != 200 {
+		return ""
+	}
+	defer resp.Body.Close()
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return ""
+	}
+	var raw struct {
+		MessageSnapshots []struct {
+			Message struct {
+				Attachments []struct {
+					URL string `json:"url"`
+				} `json:"attachments"`
+			} `json:"message"`
+		} `json:"message_snapshots"`
+	}
+	if err := json.Unmarshal(body, &raw); err != nil {
+		return ""
+	}
+	for _, snap := range raw.MessageSnapshots {
+		for _, att := range snap.Message.Attachments {
+			if isVideo(mediaExt(att.URL)) {
+				return att.URL
+			}
+		}
+	}
+	return ""
+}
+
 func replaceDiscordVideoSrcs(s *discordgo.Session, content string) (string, bool) {
 	lines := strings.Split(content, "\n")
 	changed := false
@@ -296,12 +348,11 @@ func replaceDiscordVideoSrcs(s *discordgo.Session, content string) (string, bool
 			slog.Warn("fetching discord message for video", "channel", channelID, "message", messageID, "err", err)
 			continue
 		}
-		var cdnURL string
-		for _, att := range msg.Attachments {
-			if isVideo(mediaExt(att.URL)) {
-				cdnURL = att.URL
-				break
-			}
+		cdnURL := firstVideoAttachment(msg.Attachments)
+		if cdnURL == "" {
+			// Forwarded messages store attachments in message_snapshots — discordgo
+			// doesn't parse that field, so fall back to a raw REST call.
+			cdnURL = fetchSnapshotVideoURL(s.Token, channelID, messageID)
 		}
 		if cdnURL == "" {
 			slog.Warn("no video attachment found", "channel", channelID, "message", messageID)
