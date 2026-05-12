@@ -1,5 +1,19 @@
 [
 	{
+		"name": "ShaCrow",
+		"builders": [
+			"KiraKosma"
+		],
+		"tags": [
+			"Zen/Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Path leading to lake\nWater area",
+		"score": 0,
+		"lastModified": "May 12, 2026 at 05:42 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "WolvesLat",
 		"builders": [
 			"Sir Gary"
