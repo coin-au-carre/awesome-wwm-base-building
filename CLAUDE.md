@@ -120,6 +120,7 @@ task push              # vet + test + git push
 RUBY_BOT_TOKEN                        # required — Discord bot token
 GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID  # required — guild forum channel ID
 SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID  # optional — solo forum channel ID
+BLUEPRINT_CHANNEL_FORUM_ID           # optional — blueprint forum channel ID
 BOT_CHANNEL_ID                        # optional — bot notification channel
 RUBY_CHANNEL_ID                       # production bot channel
 DEV_CHANNEL_ID                        # dev bot channel
@@ -127,6 +128,11 @@ BASE_BUILDER_ROLE_ID                  # Discord role for builders
 BASE_CRITIC_ROLE_ID                   # Discord role for voters
 ANTHROPIC_API_KEY                     # Claude AI (bot feature)
 ```
+
+> **When adding a new env var that affects `task sync`:** you must do all three or Discord CDN URLs in the output file will expire and break images on the live site:
+> 1. Add to `.env` locally
+> 2. Add as a secret in GitHub repo Settings → Secrets and variables → Actions
+> 3. Add to `.github/workflows/sync.yml` — both in the `env:` block of the "Run sync" step, and in the `git add` line of the "Commit and push" step (for any new output data file)
 
 ## Scoring & Voter Weights
 

@@ -42,6 +42,7 @@ jobs:
           GENERAL_CHANNEL_ID: ${{ secrets.GENERAL_CHANNEL_ID }}
           WHATEVER_SHOWCASE_CHANNEL_ID: ${{ secrets.WHATEVER_SHOWCASE_CHANNEL_ID }}
           DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
+          BLUEPRINT_CHANNEL_FORUM_ID: ${{ secrets.BLUEPRINT_CHANNEL_FORUM_ID }}
           DISCORD_TRIGGER: ${{ inputs.discord_trigger }}
         run: task sync
 
@@ -52,6 +53,6 @@ jobs:
           git stash
           git pull --rebase
           git stash pop
-          git add data/guilds.json data/solos.json data/users.json data/reactions.json web/public/guilds.json data/last_sync.json web/src/content/articles/
+          git add data/guilds.json data/solos.json data/blueprints.json data/users.json data/reactions.json web/public/guilds.json data/last_sync.json web/src/content/articles/
           git commit -m "chore: auto-sync $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
           git push
