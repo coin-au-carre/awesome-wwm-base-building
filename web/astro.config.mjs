@@ -6,6 +6,8 @@ import react from "@astrojs/react"
 import sitemap, { ChangeFreqEnum } from "@astrojs/sitemap"
 import remarkBreaks from "remark-breaks"
 import { remarkDiscordSubheading } from "./src/lib/remark-discord-subheading.mjs"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeSlug from "rehype-slug"
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +18,10 @@ export default defineConfig({
   },
   markdown: {
     remarkPlugins: [remarkBreaks, remarkDiscordSubheading],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "wrap" }],
+    ],
   },
   integrations: [
     react(),
