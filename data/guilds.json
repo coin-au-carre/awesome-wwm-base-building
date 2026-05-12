@@ -1,5 +1,19 @@
 [
 	{
+		"name": "Eidoria",
+		"builders": [
+			"arume"
+		],
+		"tags": [
+			"River/Canal"
+		],
+		"discordThread": "",
+		"whatToVisit": "River, take whole guild base",
+		"score": 0,
+		"lastModified": "May 12, 2026 at 04:26 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "人間失格",
 		"builders": [
 			"悠然 [3012450702]"
