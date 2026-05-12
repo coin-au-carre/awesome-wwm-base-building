@@ -56,12 +56,12 @@ const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
 >
   <div class="space-y-8">
     <!-- Back -->
-    <a
-      href={`${BASE}/`}
-      class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+    <button
+      onclick="history.back()"
+      class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
     >
-      ← All guild bases
-    </a>
+      ← Back
+    </button>
 
     <!-- Header -->
     <div class="flex items-center gap-5">
