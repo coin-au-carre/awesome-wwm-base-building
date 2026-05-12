@@ -35,9 +35,12 @@ const { entry } = Astro.props
 const { Content } = await render(entry)
 
 const coverImage = entry.data.image ?? null
-const localCover = coverImage?.startsWith("/") ? coverImage : null
-const firstImageSrc = localCover ?? entry.body?.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? null
-const ogImage = firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
+const firstImageSrc = coverImage?.startsWith("http")
+  ? null
+  : (coverImage?.startsWith("/") ? coverImage : null) ?? entry.body?.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? null
+const ogImage = coverImage?.startsWith("http")
+  ? coverImage
+  : firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
 
 const datePublished = entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01"
 const keywords = (entry.data.tags ?? []).join(", ") || undefined

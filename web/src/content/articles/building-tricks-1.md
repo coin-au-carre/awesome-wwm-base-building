@@ -14,7 +14,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ---
 
 ## 1. Paint walls with indoor screens
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Indoor screens can be placed flush against walls to paint them with custom patterns. They also work as a replacement for long wall sections, saving on component count.
 
@@ -23,7 +23,7 @@ Indoor screens can be placed flush against walls to paint them with custom patte
 ---
 
 ## 2. Triple tree cluster
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Placing three trees together produces a much fuller, more natural-looking result. The arrangement naturally leaves a hollow in the center — perfect for a lantern or decorative object.
 
@@ -32,7 +32,7 @@ Placing three trees together produces a much fuller, more natural-looking result
 ---
 
 ## 3. Bypass area density limits by sinking items
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/moodswing" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">MooDSwing</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/moodswing" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">MooDSwing</a></p>
 
 When you hit the maximum area density and can't place more items, you can sink trees or plants below the map surface to work around the limit. Use a signpost as an aim point to help offset the items into position — the signpost is especially handy for precision placement in general.
 
@@ -43,7 +43,7 @@ When you hit the maximum area density and can't place more items, you can sink t
 ---
 
 ## 4. Steam effect from the Furniture tub
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 The large tub in the Furniture category produces a steam particle effect. Bury it underground so only the steam rises above the surface — great for a pool area or atmospheric ground fog.
 
@@ -52,7 +52,7 @@ The large tub in the Furniture category produces a steam particle effect. Bury i
 ---
 
 ## 5. Buddha statue back as decoration base
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 The back face of the buddha statue makes a clean decorative backdrop. The underside of the statue can also be used as a platform to create objects with golden lotus legs.
 
@@ -61,7 +61,7 @@ The back face of the buddha statue makes a clean decorative backdrop. The unders
 ---
 
 ## 6. Hanging items with chains
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Many items can be suspended using chains. Here is an example of what is possible.
 
