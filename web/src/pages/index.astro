@@ -42,6 +42,7 @@ const heroCandidates = guilds
     label: stripGuildShowcase(g.guildName || g.name),
     builders: (g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", "),
   }))
+const heroFirst = heroCandidates[0]
 const latestGuilds = getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
@@ -78,6 +79,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
   title="Where Builders Meet | Awesome constructions and builders in Where Winds Meet"
   description="Community gallery of guild base constructions in Where Winds Meet, ranked by community votes. Find base building inspiration from top builders."
   image={ogImage}
+  preloadImage={heroFirst?.img}
 >
   <style>
     @keyframes fadeUp {
@@ -104,35 +106,44 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Hero banner -->
     <div class="-mx-4 -mt-8 rounded-2xl relative h-56 sm:h-72 overflow-hidden mb-2">
       <div class="absolute inset-0 bg-muted" />
-      <img id="hero-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover object-center hidden" aria-hidden="true" />
+      <img
+        id="hero-img"
+        src={heroFirst?.img ?? ""}
+        alt=""
+        fetchpriority="high"
+        loading="eager"
+        class={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300${heroFirst ? "" : " hidden"}`}
+        aria-hidden="true"
+      />
       <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-black/5 dark:from-black/85 dark:via-black/35 dark:to-black/10" />
       <a
         id="hero-credit"
-        href="#"
-        class="absolute top-3 right-4 hidden items-center gap-1.5 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 text-xs text-white/70 hover:text-white hover:bg-black/60 transition-all group"
+        href={heroFirst?.href ?? "#"}
+        class={`absolute top-3 right-4 items-center gap-1.5 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 text-xs text-white/70 hover:text-white hover:bg-black/60 transition-all group${heroFirst ? " flex" : " hidden"}`}
         title="View this guild"
         data-umami-event="hero_guild_credit_click"
+        data-umami-event-name={heroFirst?.name}
       >
-        <span id="hero-label" class="max-w-28 truncate"></span>
-        <span id="hero-builders" class="text-white/45 text-[11px] max-w-24 truncate shrink-0 hidden"></span>
+        <span id="hero-label" class="max-w-28 truncate">{heroFirst?.label}</span>
+        <span id="hero-builders" class={`text-white/45 text-[11px] max-w-24 truncate shrink-0${heroFirst?.builders ? "" : " hidden"}`}>{heroFirst?.builders ? `by ${heroFirst.builders}` : ""}</span>
         <svg class="size-3 shrink-0 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
       </a>
       <script is:inline define:vars={{ heroCandidates }}>
-        const c = heroCandidates[Math.floor(Math.random() * heroCandidates.length)]
-        if (c) {
-          const img = document.getElementById("hero-img")
-          img.onload = () => img.classList.remove("hidden")
-          img.src = c.img
-          const credit = document.getElementById("hero-credit")
-          credit.href = c.href
-          credit.dataset.umamiEventName = c.name
-          credit.classList.remove("hidden")
-          credit.classList.add("flex")
-          document.getElementById("hero-label").textContent = c.label
-          if (c.builders) {
+        if (heroCandidates.length > 1) {
+          const idx = Math.floor(Math.random() * heroCandidates.length)
+          const c = heroCandidates[idx]
+          if (idx !== 0 && c) {
+            const img = document.getElementById("hero-img")
+            img.style.opacity = "0"
+            img.onload = () => { img.style.opacity = "1" }
+            img.src = c.img
+            const credit = document.getElementById("hero-credit")
+            credit.href = c.href
+            credit.dataset.umamiEventName = c.name
+            document.getElementById("hero-label").textContent = c.label
             const b = document.getElementById("hero-builders")
-            b.textContent = "by " + c.builders
-            b.classList.remove("hidden")
+            if (c.builders) { b.textContent = "by " + c.builders; b.classList.remove("hidden") }
+            else { b.classList.add("hidden") }
           }
         }
       </script>
@@ -442,7 +453,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Ranked table -->
     <section>
       <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.png" alt="" aria-hidden="true" class="size-10 object-contain" /> All Guild bases</h2>
-      <LeaderboardTable client:load guilds={guilds} allTags={allTags} activeBuilderSlugs={[...activeBuilders]} />
+      <LeaderboardTable client:visible guilds={guilds} allTags={allTags} activeBuilderSlugs={[...activeBuilders]} />
       <noscript>
         <ul class="mt-4 space-y-1 text-sm">
           {guilds.map((g) => (

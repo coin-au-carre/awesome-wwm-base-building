@@ -131,7 +131,7 @@ const isEmpty = !hasSolos()
     {
       solosWithScreenshots.length > 0 && (
         <section>
-          <SoloWall client:load solos={solosWithScreenshots} count={12} />
+          <SoloWall client:visible solos={solosWithScreenshots} count={12} />
         </section>
       )
     }
@@ -141,7 +141,7 @@ const isEmpty = !hasSolos()
       solos.length > 0 && (
         <section>
           <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.png" alt="" aria-hidden="true" class="size-10 object-contain" /> All Solo construction</h2>
-          <LeaderboardTable client:load guilds={solos} allTags={allTags} basePath="solos" activeBuilderSlugs={[...activeBuilders]} />
+          <LeaderboardTable client:visible guilds={solos} allTags={allTags} basePath="solos" activeBuilderSlugs={[...activeBuilders]} />
           <noscript>
             <ul class="mt-4 space-y-1 text-sm">
               {solos.map((g) => (
