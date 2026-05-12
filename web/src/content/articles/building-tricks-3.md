@@ -13,35 +13,33 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 ---
 
-## 1. Make the rain stop *(by Carnii)*
+## 1. Make the rain stop
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a04135d&is=6a02c1dd&hm=0c7489d1e3fe71e91fbac41afa839a764e3f7b0968f82d62fe3f3f0130ca6a2d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
-*Credit: Carnii*
-
 ---
 
-## 2. Remove grass partially *(by Carnii)*
+## 2. Remove grass partially
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a0411dd&is=6a02c05d&hm=3b1a06e3aac84fab047508e72303c6ec1a22e77cb6f62bd51f54baeffdeebe3c&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
-*Credit: Carnii*
-
 ---
 
-## 3. Cover the Great Healer sign *(by SiMing 司命)*
+## 3. Cover the Great Healer sign
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/siming-司命" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">SiMing 司命</a></p>
 
 The Great Healer NPC sign can be hidden with the right placement. Here is one clean approach.
 
 <img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a034209&is=6a01f089&hm=55ee1f854d8a6b23a37b1de1a54745a62caf769e1b9c775f56bd29a0af8436d7&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
-*Credit: SiMing司命*
-
 ---
 
-## 4. Fill the open gate in the guild party area *(by alscend)*
+## 4. Fill the open gate in the guild party area
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
@@ -49,11 +47,10 @@ The guild party area has an open gate that leads directly into the guild wall, w
 
 <img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a031df8&is=6a01cc78&hm=cd72ce76fa6e69aba4290a9b6832764595c7881fbdc1b440e20e47e0a780cbca&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
-*Credit: alscend*
-
 ---
 
-## 5. Sink the wooden bridge for parallel fences *(by Crueliet)*
+## 5. Sink the wooden bridge for parallel fences
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 By sinking the wooden bridge into the ground, you can create parallel fences and more. This greatly reduces component costs and looks fantastic.
 
@@ -65,14 +62,11 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 <img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a040111&is=6a02af91&hm=f6009ca3beb3a85caaad311e6e6af04e5ae4a862ab5685953170e4caa94ceedb&" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
 
-*Credit: Crueliet*
-
 ---
 
-## 6. Quickly replenish guild funds *(by Carnii)*
+## 6. Quickly replenish guild funds
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
 <img src="https://cdn.discordapp.com/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a03568e&is=6a02050e&hm=e2cd70f951e03799ae9d9fc643b758f61489348a1c98066691e99b1dcba7cd88&" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
-
-*Credit: Carnii*
