@@ -10,7 +10,7 @@ featured: true
 ---
 
 ## Sofa design
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/choc" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Choc</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/choc" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Choc</a></p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.75rem; margin-bottom: 1.5rem;">
   <iframe

@@ -14,7 +14,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ---
 
 ## 1. Removing trees with a stone platform
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/xela" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Xela</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/xela" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Xela</a></p>
 
 If you cover the water area with a large stone platform, it removes the trees around it. This frees up a significant amount of space to decorate, giving you a much cleaner canvas to work with in that zone.
 
@@ -25,7 +25,7 @@ If you cover the water area with a large stone platform, it removes the trees ar
 ---
 
 ## 2. Window layering trick
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/a" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">[A]</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/a" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">[A]</a></p>
 
 Layer a circular cutout panel with a decorative screen behind it to create a stylish window effect. Simple to execute and works well on mobile too.
 
@@ -36,7 +36,7 @@ Layer a circular cutout panel with a decorative screen behind it to create a sty
 ---
 
 ## 3. Dining table steam effect
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/aegisnite" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">AegisNite</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/aegisnite" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">AegisNite</a></p>
 
 Place heating pads under a dining table to create a steaming hot pot atmosphere. The pads are hidden beneath the table, so only the rising steam is visible, making the scene feel alive and cozy.
 
@@ -47,7 +47,7 @@ Place heating pads under a dining table to create a steaming hot pot atmosphere.
 ---
 
 ## 4. Hanging items with chains
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/aegisnite" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">AegisNite</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/aegisnite" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">AegisNite</a></p>
 
 Use hanging chain decorations as a base and slot plants or lights into them. The result is a dramatic ceiling installation, great for indoor or covered outdoor spaces.
 
@@ -56,7 +56,7 @@ Use hanging chain decorations as a base and slot plants or lights into them. The
 ---
 
 ## 5. Glowing stone lantern
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Insert a regular lantern inside a guild-only stone lantern to make it emit light. The stone lantern on its own does not glow, but nesting a lit lantern inside it brings it to life.
 
@@ -65,7 +65,7 @@ Insert a regular lantern inside a guild-only stone lantern to make it emit light
 ---
 
 ## 6. Avoid placing components parallel to the sun
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/windxp" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">WindXP</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/windxp" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">WindXP</a></p>
 
 Do not place components parallel to the sun's direction or they will appear completely dark. A slight rotational tilt is enough to catch the light and fully illuminate the surface.
 

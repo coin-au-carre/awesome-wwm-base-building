@@ -14,7 +14,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ---
 
 ## 1. Make the rain stop
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a04135d&is=6a02c1dd&hm=0c7489d1e3fe71e91fbac41afa839a764e3f7b0968f82d62fe3f3f0130ca6a2d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
@@ -22,7 +22,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ---
 
 ## 2. Remove grass partially
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a0411dd&is=6a02c05d&hm=3b1a06e3aac84fab047508e72303c6ec1a22e77cb6f62bd51f54baeffdeebe3c&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
@@ -30,7 +30,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 ---
 
 ## 3. Cover the Great Healer sign
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/siming-司命" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">SiMing 司命</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/siming-司命" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">SiMing 司命</a></p>
 
 The Great Healer NPC sign can be hidden with the right placement. Here is one clean approach.
 
@@ -39,7 +39,7 @@ The Great Healer NPC sign can be hidden with the right placement. Here is one cl
 ---
 
 ## 4. Fill the open gate in the guild party area
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
@@ -50,7 +50,7 @@ The guild party area has an open gate that leads directly into the guild wall, w
 ---
 
 ## 5. Sink the wooden bridge for parallel fences
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 By sinking the wooden bridge into the ground, you can create parallel fences and more. This greatly reduces component costs and looks fantastic.
 
@@ -65,7 +65,7 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 ---
 
 ## 6. Quickly replenish guild funds
-<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="../builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
