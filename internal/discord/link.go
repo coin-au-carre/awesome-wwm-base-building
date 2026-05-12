@@ -244,7 +244,7 @@ func handleRandomCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
-			Content: FormatSpotlightMessage(pick, true),
+			Content: FormatSpotlightMessage(pick, false, true),
 		},
 	})
 }

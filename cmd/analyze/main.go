@@ -15,8 +15,6 @@ import (
 
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -24,9 +22,7 @@ func main() {
 	out := flag.String("out", "", "output directory (default: <root>/private)")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(*root)
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 	guildForumID := cmdutil.RequireEnv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")

@@ -157,6 +157,11 @@ ANTHROPIC_API_KEY                     # Claude AI (bot feature)
 Use `guild.LoadFile(path)` / `guild.SaveFile(path, guilds)` for arbitrary paths.
 `guild.Load(root)` / `guild.Save(root, guilds)` are convenience wrappers for `data/guilds.json` only.
 
+### cmdutil helpers
+- `cmdutil.LoadEnv(root)` — loads `<root>/.env`, warns and continues if absent. Call this at the top of every command's `main` after parsing flags.
+- `cmdutil.RequireEnv(key)` — returns the env var value or exits with an error.
+- `cmdutil.RootDir()` — returns `"."` when run from the repo root, `".."` otherwise.
+
 ## GitHub Actions
 
 - `sync.yml` — runs `task sync` on schedule (8×/day), commits `data/guilds.json data/solos.json`, triggers deploy on completion

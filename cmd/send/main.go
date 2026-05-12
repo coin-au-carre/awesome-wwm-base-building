@@ -7,7 +7,6 @@ import (
 	"path/filepath"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 
 	"ruby/internal/cmdutil"
 )
@@ -18,9 +17,7 @@ func main() {
 	image := flag.String("image", "", "path to an image file to attach")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(cmdutil.RootDir(), ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(cmdutil.RootDir())
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 

@@ -31,7 +31,7 @@ func sendGuildImage(bot *idiscord.Bot, responder idiscord.LLMResponder, channelI
 
 	display := pick
 	display.DiscordThread = ""
-	sendErr := bot.ReplyWithFile(channelID, messageID, idiscord.FormatSpotlightMessage(display, random), filename, imgData)
+	sendErr := bot.ReplyWithFile(channelID, messageID, idiscord.FormatSpotlightMessage(display, false, random), filename, imgData)
 	imgData.Close()
 
 	if sendErr != nil {
@@ -78,7 +78,7 @@ func handleSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder idi
 		slog.Warn("image too large, retrying", "guild", pick.Name)
 	}
 
-	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(lastPick, true))
+	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(lastPick, false, true))
 }
 
 const maxCatalogImages = 4
@@ -147,7 +147,7 @@ func handleSoloSpotlightReply(bot *idiscord.Bot, s *discordgo.Session, responder
 		return
 	}
 
-	bot.Reply(channelID, messageID, idiscord.FormatSoloSpotlightMessage(pick, true))
+	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(pick, true, true))
 	slog.Info("solo spotlight reply sent", "build", pick.Name)
 
 	if responder != nil {
@@ -197,5 +197,5 @@ func handleGuildImageReply(bot *idiscord.Bot, s *discordgo.Session, responder id
 		slog.Warn("image too large, retrying", "guild", pick.Name)
 	}
 
-	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(lastPick, false))
+	bot.Reply(channelID, messageID, idiscord.FormatSpotlightMessage(lastPick, false, false))
 }

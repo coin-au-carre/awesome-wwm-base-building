@@ -5,14 +5,12 @@ import (
 	"flag"
 	"log/slog"
 	"os"
-	"path/filepath"
 	"time"
 
 	"ruby/internal/cmdutil"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 var reactEmojis = []string{"👍", "🔥", "❤️", "⭐"}
@@ -24,9 +22,7 @@ func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory containing .env")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(*root)
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 

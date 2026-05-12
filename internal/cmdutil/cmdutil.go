@@ -3,6 +3,9 @@ package cmdutil
 import (
 	"log/slog"
 	"os"
+	"path/filepath"
+
+	"github.com/joho/godotenv"
 )
 
 // RequireEnv returns the value of the environment variable key,
@@ -23,4 +26,11 @@ func RootDir() string {
 		return "."
 	}
 	return ".."
+}
+
+// LoadEnv loads the .env file from root, silently continuing if absent.
+func LoadEnv(root string) {
+	if err := godotenv.Load(filepath.Join(root, ".env")); err != nil {
+		slog.Warn("no .env file found, relying on environment variables")
+	}
 }
