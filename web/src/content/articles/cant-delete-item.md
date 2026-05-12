@@ -2,7 +2,7 @@
 title: "Can't delete or recycle an item in your base"
 description: "Two fixes: switching off lite client or better camera management"
 tags: ["beginner", "troubleshooting", "guild"]
-authors: ["Veneslash", "alscend", "Diana", "Ahlyam"]
+authors: ["Veneslash", "alscend", "Ðìana", "Ahlyam"]
 date: 2026-04-13
 order: 2
 image: "/tutorials/cant-delete-item.jpg"
