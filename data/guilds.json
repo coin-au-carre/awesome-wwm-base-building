@@ -1,5 +1,21 @@
 [
 	{
+		"name": "ALFAS",
+		"builders": [
+			"ZbbPanico"
+		],
+		"tags": [
+			"Architecture",
+			"Creative",
+			"Military/Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "Large scale guild wars map\nPalace with interesting ornaments at end of the road",
+		"score": 0,
+		"lastModified": "May 12, 2026 at 08:35 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "MaximusMancus",
 		"builders": [
 			"MaakiGraaO"
