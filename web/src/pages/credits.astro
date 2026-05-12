@@ -2,6 +2,7 @@
 import Layout from "@/layouts/main.astro"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers, getBuilderSearchPath, getReactions, getVoterBlacklist } from "@/lib/guilds"
 import { builderSlug, thumbUrl } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
 import { getNotableBuilders, getAllBuilderSlugs } from "@/lib/builders"
 import { tutorialVideos, channels } from "@/lib/videos"
 import { getCollection } from "astro:content"
@@ -24,18 +25,21 @@ const cartographers = Object.entries(scoutCounts)
   .sort(([, a], [, b]) => b - a)
   .map(([id]) => {
     const user = users[id]
-    return { name: user?.nickname ?? user?.globalName ?? user?.username ?? id }
+    const name = user?.nickname ?? user?.globalName ?? user?.username ?? id
+    return { name }
   })
 
-// Tutorial authors → first article link
+// Tutorial authors → deduplicated by canonical slug
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
-const articleAuthorFirstSlug: Record<string, string> = {}
+const canonicalSlugToName = new Map<string, string>()
 const tutorialCountBySlug = new Map<string, number>()
 for (const article of allArticles) {
   for (const author of article.data.authors ?? []) {
-    if (!articleAuthorFirstSlug[author]) articleAuthorFirstSlug[author] = article.id
     const s = builderSlug(author)
-    if (s) tutorialCountBySlug.set(s, (tutorialCountBySlug.get(s) ?? 0) + 1)
+    if (!s) continue
+    const canonical = resolveCanonical(s)
+    if (!canonicalSlugToName.has(canonical)) canonicalSlugToName.set(canonical, author)
+    tutorialCountBySlug.set(canonical, (tutorialCountBySlug.get(canonical) ?? 0) + 1)
   }
 }
 
@@ -45,8 +49,17 @@ const notableBuilders = getNotableBuilders(tutorialCountBySlug).filter((b) => b.
 const videoCreatorsWithBuilds = [...new Set(tutorialVideos.map((v) => v.author).filter(Boolean) as string[])]
   .filter((name) => getBuilderSearchPath(name) !== null)
 
-// Merged content creators: tutorial authors + video creators with builds, deduplicated, sorted
-const contentCreators = [...new Set([...Object.keys(articleAuthorFirstSlug), ...videoCreatorsWithBuilds])].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+// Merged content creators: tutorial authors + video creators with builds, deduplicated by canonical slug, sorted
+const creatorsByCanonical = new Map<string, string>(canonicalSlugToName)
+for (const name of videoCreatorsWithBuilds) {
+  const s = builderSlug(name)
+  if (!s) continue
+  const canonical = resolveCanonical(s)
+  if (!creatorsByCanonical.has(canonical)) creatorsByCanonical.set(canonical, name)
+}
+const contentCreators = [...creatorsByCanonical.entries()]
+  .map(([slug, name]) => ({ slug, name }))
+  .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
 
 // Critics: users who voted on 4+ unique threads (weight1Threshold)
 const CRITIC_THRESHOLD = 4
@@ -225,23 +238,16 @@ function builderColor(name: string): string {
         Builders who wrote tutorials, guides, or made videos to help the community.
       </p>
       <div class="flex flex-wrap gap-1.5">
-        {contentCreators.map((name) => {
-          const slug = builderSlug(name)
-          return slug ? (
-            <a
-              href={`${BASE}/builders/${slug}`}
-              class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
-              data-umami-event="credits_creator_click"
-              data-umami-event-name={name}
-            >
-              {name}
-            </a>
-          ) : (
-            <span class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium">
-              {name}
-            </span>
-          )
-        })}
+        {contentCreators.map(({ slug, name }) => (
+          <a
+            href={`${BASE}/builders/${slug}`}
+            class="inline-flex items-center rounded-full bg-pink-500/10 text-pink-700 dark:text-pink-300 ring-1 ring-inset ring-pink-500/25 dark:ring-pink-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+            data-umami-event="credits_creator_click"
+            data-umami-event-name={name}
+          >
+            {name}
+          </a>
+        ))}
       </div>
     </section>
 
@@ -253,15 +259,10 @@ function builderColor(name: string): string {
       </p>
       <div class="flex flex-wrap gap-1.5">
         {cartographers.map(({ name }) => (
-          <a
-            href={`${BASE}/?q=${encodeURIComponent(name)}`}
-            class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 dark:ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
-            data-umami-event="credits_cartographer_click"
-            data-umami-event-name={name}
-          >
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 dark:ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium">
             <MapTrifoldIcon weight="fill" className="size-3 shrink-0" client:load />
             {name}
-          </a>
+          </span>
         ))}
       </div>
     </section>

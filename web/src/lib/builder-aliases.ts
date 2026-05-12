@@ -1,9 +1,9 @@
 // Maps alias slug → canonical slug.
 // Add a line here whenever two differently-spelled names refer to the same builder.
+// Keys and values are slugs (output of slugify/builderSlug), not display names.
 export const BUILDER_ALIASES: Record<string, string> = {
   "diana念": "ðìana",
-  "SiMing 司命": "SiMing司命",
-  "Kuri (SiMing 司命)": "SiMing司命",
+  "siming-司命": "siming司命",
 }
 
 export function resolveCanonical(slug: string): string {
