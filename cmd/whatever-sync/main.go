@@ -11,7 +11,6 @@ import (
 	"ruby/internal/discord"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -19,9 +18,7 @@ func main() {
 	dryRun := flag.Bool("dry-run", false, "fetch posts but skip writing JSON")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(*root)
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 	channelID := cmdutil.RequireEnv("WHATEVER_SHOWCASE_CHANNEL_ID")

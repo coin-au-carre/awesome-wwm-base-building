@@ -19,7 +19,6 @@ import (
 	"ruby/internal/discord"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)`)
@@ -61,9 +60,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file")
-	}
+	cmdutil.LoadEnv(*root)
 
 	bot, err := discord.NewBot(cmdutil.RequireEnv("RUBY_BOT_TOKEN"), "")
 	if err != nil {

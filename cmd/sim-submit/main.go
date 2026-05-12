@@ -7,12 +7,10 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
-	"path/filepath"
 	"regexp"
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 
 	"ruby/internal/cmdutil"
 )
@@ -48,9 +46,7 @@ func main() {
 	channelID := flag.String("channel", "", "Discord channel ID (default: DEV_CHANNEL_ID)")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(cmdutil.RootDir(), ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(cmdutil.RootDir())
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 

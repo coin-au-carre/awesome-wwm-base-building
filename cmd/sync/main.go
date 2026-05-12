@@ -15,8 +15,6 @@ import (
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
 	"ruby/internal/guild"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -45,9 +43,7 @@ func main() {
 		}
 	}
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(*root)
 
 	var guildForumID string
 	if syncGuilds {

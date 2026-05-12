@@ -8,7 +8,6 @@ import (
 	"math/rand"
 	"os"
 	"os/signal"
-	"path/filepath"
 	"regexp"
 	"strings"
 	"syscall"
@@ -20,7 +19,6 @@ import (
 	"github.com/anthropics/anthropic-sdk-go"
 	"github.com/anthropics/anthropic-sdk-go/option"
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -32,9 +30,7 @@ func main() {
 	ollamaModel := flag.String("ollama-model", "llama3.1", "Ollama model name")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file found, relying on environment variables")
-	}
+	cmdutil.LoadEnv(*root)
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 

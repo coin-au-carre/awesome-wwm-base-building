@@ -4,21 +4,17 @@ import (
 	"flag"
 	"log/slog"
 	"os"
-	"path/filepath"
 
 	"ruby/internal/cmdutil"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/joho/godotenv"
 )
 
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	flag.Parse()
 
-	if err := godotenv.Load(filepath.Join(*root, ".env")); err != nil {
-		slog.Warn("no .env file found")
-	}
+	cmdutil.LoadEnv(*root)
 
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 	guildID := os.Getenv("DISCORD_GUILD_ID")
