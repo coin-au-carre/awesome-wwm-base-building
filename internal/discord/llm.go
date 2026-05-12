@@ -105,7 +105,7 @@ func NewResponder(client *anthropic.Client, root string) *Responder {
 	return &Responder{
 		client:       client,
 		history:      make(map[string][]anthropic.MessageParam),
-		systemPrompt: buildSystemPrompt(root, guilds),
+		systemPrompt: buildSystemPrompt(root, guilds, false),
 		guilds:       guilds,
 		solos:        solos,
 	}
@@ -116,7 +116,7 @@ func NewCLIResponder(root string) *Responder {
 	solos := loadPromptSolos(root)
 	return &Responder{
 		sessions:     make(map[string]string),
-		systemPrompt: buildSystemPrompt(root, guilds),
+		systemPrompt: buildSystemPrompt(root, guilds, true),
 		guilds:       guilds,
 		solos:        solos,
 	}
@@ -126,7 +126,7 @@ func NewCLIResponder(root string) *Responder {
 func (r *Responder) Reload(root string) {
 	guilds := loadPromptGuilds(root)
 	solos := loadPromptSolos(root)
-	prompt := buildSystemPrompt(root, guilds)
+	prompt := buildSystemPrompt(root, guilds, r.client == nil)
 	r.mu.Lock()
 	r.guilds = guilds
 	r.solos = solos
