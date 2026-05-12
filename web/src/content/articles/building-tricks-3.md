@@ -1,7 +1,7 @@
 ---
 title: "Building tips and tricks #3"
 description: "More community building tricks: stopping rain, removing grass, hiding the healer sign, filling open gates, sink wooden bridge, and replenishing guild funds."
-tags: ["advanced", "guild", "solo"]
+tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 order: 10
