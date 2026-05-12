@@ -1,7 +1,7 @@
 ---
 title: "Building tips and tricks #1"
 description: "Six creative techniques: painting walls with screens, tree clusters, density bypass, steam effects, buddha statue decoration, and chain hanging"
-tags: ["advanced", "decoration", "guild"]
+tags: ["advanced", "guild"]
 authors: ["Crueliet", "MooDSwing"]
 date: 2026-04-17
 order: 5

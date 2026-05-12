@@ -1,8 +1,8 @@
 ---
 title: "Building tips and tricks #3"
-description: "More community building tricks: stopping rain, removing grass, hiding the healer sign, filling open gates, and replenishing guild funds."
-tags: ["advanced", "decoration", "guild"]
-authors: ["Carnii", "SiMing 司命", "alscend"]
+description: "More community building tricks: stopping rain, removing grass, hiding the healer sign, filling open gates, sink wooden bridge, and replenishing guild funds."
+tags: ["advanced", "guild", "solo"]
+authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 order: 10
 image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a034209&is=6a01f089&hm=55ee1f854d8a6b23a37b1de1a54745a62caf769e1b9c775f56bd29a0af8436d7&"
@@ -53,7 +53,23 @@ The guild party area has an open gate that leads directly into the guild wall, w
 
 ---
 
-## 5. Quickly replenish guild funds *(by Carnii)*
+## 5. Sink the wooden bridge for parallel fences *(by Crueliet)*
+
+By sinking the wooden bridge into the ground, you can create parallel fences and more. This greatly reduces component costs and looks fantastic.
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a040111&is=6a02af91&hm=0554b4c11f2c515cacf6a8f27d82f0c20c6412c59423c9f33d34d0447dc7fd97&" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a040111&is=6a02af91&hm=b11449d3530e2629f0a3eb39e9e2988243cbf346f5fd1c9db84fd5db8578774f&" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a040111&is=6a02af91&hm=4aac14c5476be0db052e98b0c1b38bb9bf45efa843e154c979296a00fd671e4e&" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a040111&is=6a02af91&hm=f6009ca3beb3a85caaad311e6e6af04e5ae4a862ab5685953170e4caa94ceedb&" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
+
+*Credit: Crueliet*
+
+---
+
+## 6. Quickly replenish guild funds *(by Carnii)*
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
