@@ -44,7 +44,7 @@ type ollamaChatResponse struct {
 
 // NewOllamaResponder creates a responder that uses a local Ollama instance.
 func NewOllamaResponder(baseURL, model, root string) *OllamaResponder {
-	prompt := buildSystemPrompt(root, loadPromptGuilds(root))
+	prompt := buildSystemPrompt(root, loadPromptGuilds(root), false)
 	slog.Info("ollama: system prompt loaded", "chars", len(prompt), "approx_tokens", len(prompt)/4)
 	return &OllamaResponder{
 		baseURL:      strings.TrimSuffix(baseURL, "/"),
