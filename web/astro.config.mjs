@@ -13,6 +13,10 @@ import rehypeSlug from "rehype-slug"
 export default defineConfig({
   site: "https://www.wherebuildersmeet.com",
   output: "static",
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   vite: {
     plugins: [tailwindcss()],
   },

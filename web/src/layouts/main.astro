@@ -145,6 +145,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                     href={link.href}
                     data-nav-href={link.href}
                     data-nav-version={link.version}
+
                     class={[
                       "px-3 py-1.5 text-sm transition-colors border-b-2",
                       isActive
@@ -192,6 +193,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                         href={link.href}
                         data-nav-href={link.href}
                         data-nav-version={link.version}
+    
                         class={[
                           "flex items-center px-3 py-1.5 text-sm transition-colors",
                           isActive
@@ -241,6 +243,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                         href={link.href}
                         data-nav-href={link.href}
                         data-nav-version={link.version}
+    
                         class={[
                           "flex items-center px-3 py-1.5 text-sm transition-colors",
                           isActive
@@ -313,6 +316,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
                   href={link.href}
                   data-nav-href={link.href}
                   data-nav-version={link.version}
+                  data-astro-prefetch="viewport"
                   class={[
                     "block rounded-md px-3 py-2 text-sm transition-colors",
                     isActive

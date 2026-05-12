@@ -189,3 +189,6 @@
   50%       { box-shadow: 0 0 8px 3px rgba(244, 63, 94, 0.7); }
 }
 .nav-dot { animation: navDotGlow 2s ease-in-out infinite; }
+
+::view-transition-old(root) { animation-duration: 60ms; }
+::view-transition-new(root) { animation-duration: 90ms; }
