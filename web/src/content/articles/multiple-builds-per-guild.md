@@ -7,28 +7,24 @@ date: 2026-05-03
 order: 8
 published: true
 featured: false
+image: "/tutorials/multiple-build-for-one-guild.jpg"
 ---
 
-Some guilds go through complete transformations — a new season, a new creative direction, or a new team of builders. The showcase now supports multiple builds per guild: each build lives in its own thread, has its own score and screenshots, and appears as a collapsible group on the leaderboard.
+Your guild can have multiple builds on the leaderboard. Each build is its own thread with its own score, screenshots, and page. They appear grouped under your guild name.
 
 ---
 
-## How it works
+## How to add a build
 
-Each build is a **separate Discord thread** in `#guild-base-showcase`. Threads from the same guild are automatically grouped together on the leaderboard when they share the same guild name.
-
-To create a new build for your guild, create a new thread and name it:
+Create a new thread in `#guild-base-showcase` named:
 
 ```
 GuildName - Build Title
 ```
 
-**Examples:**
-- `Mutiny - Lost World`
-- `Mutiny - Celestial Mountain`
-- `Jenova - First Build`
+Examples: `DrunkenFist - Winter Wonderland`, `DrunkenFist - Tropical Oasis`
 
-The part after ` - ` becomes the build title shown on the site. If you skip the title (plain `GuildName`), the build is listed as **Default** in the group.
+You have to use the same guild name! The site picks up the grouping automatically.
 
 ---
 
@@ -43,32 +39,19 @@ Hosted at: LittleFury [12345678]
 
 | Field | What it does |
 |---|---|
-| `Current: yes` | Marks this as the guild's active build (green dot on the site) |
-| `Hosted at: GuildName [ID]` | Links to the guild currently hosting this build if applicable (ID is optional) |
+| `Current: yes` | Marks this as the guild's active build (green tag and dot on the site) |
+| `Hosted at: GuildName [ID]` | Links to the guild currently hosting this build (ID is optional) |
 
 ---
 
 ## Voting and scores
 
-Each build has its own independent score and leaderboard rank. The grouped entry on the leaderboard shows the **best rank** across all your builds. Clicking the group expands it to show each build individually.
-
----
-
-## Example
-
-**Mutiny** has two builds. Their threads are named:
-
-- `Mutiny - Celestial Mountain` → build title: *Celestial Mountain*
-- `Mutiny - Lost World` (with `Current: yes` in the first post) → build title: *Lost World*, marked current
-
-On the leaderboard, Mutiny appears as a single row with a **2 builds** badge. Clicking it expands to show both builds, each with their own tier, builders, and link.
+Each build has its own independent score and leaderboard rank. The grouped entry shows the **best rank** across all your builds. Clicking it expands to show each build individually.
 
 ---
 
 ## Tips
 
-- **Don't delete the old thread** — old builds keep their votes and their page stays accessible.
-- **The thread name is the primary source** for the build title. 
-- **One thread per build** — avoid putting multiple builds in a single thread. Use the section system for screenshots instead (post a `# Section name` message to label groups of images).
+- **Don't delete old threads.** Old builds keep their votes and their page stays up.
 
 Any questions? Ask in Discord.
