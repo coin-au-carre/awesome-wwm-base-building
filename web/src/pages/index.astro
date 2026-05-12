@@ -2,28 +2,15 @@
 import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
+import BuilderLinks from "@/components/BuilderLinks.astro"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
 import { stripGuildShowcase, thumbUrl, builderSlug } from "@/lib/format"
 import { getActiveBuilderSlugs } from "@/lib/builders"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
+import { tagColor } from "@/lib/colors"
 import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon, UsersIcon } from "@phosphor-icons/react"
 import { getCollection } from "astro:content"
-
-const TAG_PALETTE = [
-  { bg: "bg-violet-500/20", text: "text-violet-200", ring: "ring-1 ring-inset ring-violet-400/40" },
-  { bg: "bg-sky-500/20", text: "text-sky-200", ring: "ring-1 ring-inset ring-sky-400/40" },
-  { bg: "bg-emerald-500/20", text: "text-emerald-200", ring: "ring-1 ring-inset ring-emerald-400/40" },
-  { bg: "bg-amber-500/20", text: "text-amber-200", ring: "ring-1 ring-inset ring-amber-400/40" },
-  { bg: "bg-rose-500/20", text: "text-rose-200", ring: "ring-1 ring-inset ring-rose-400/40" },
-  { bg: "bg-teal-500/20", text: "text-teal-200", ring: "ring-1 ring-inset ring-teal-400/40" },
-  { bg: "bg-orange-500/20", text: "text-orange-200", ring: "ring-1 ring-inset ring-orange-400/40" },
-  { bg: "bg-indigo-500/20", text: "text-indigo-200", ring: "ring-1 ring-inset ring-indigo-400/40" },
-]
-function tagColor(tag: string) {
-  const hash = [...tag].reduce((a, c) => a + c.charCodeAt(0), 0)
-  return TAG_PALETTE[hash % TAG_PALETTE.length]
-}
 function relativeDate(createdAt: string): string {
   const ms = Date.now() - new Date(createdAt.replace(" at ", " ")).getTime()
   if (isNaN(ms) || ms < 0) return ""
@@ -243,11 +230,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                         {stripGuildShowcase(g.name)}{g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
                       </p>
                       {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
-                          <Fragment>
-                            <a href={`${BASE}/builders/${builderSlug(name)}`} class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`} title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined} data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
-                          </Fragment>
-                        ))}</p>
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
                       )}
                     </div>
                     {g.tags && g.tags.length > 0 && (
@@ -536,11 +519,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                         {stripGuildShowcase(g.name)}{g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
                       </p>
                       {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
-                          <Fragment>
-                            <a href={`${BASE}/builders/${builderSlug(name)}`} class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`} title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined} data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
-                          </Fragment>
-                        ))}</p>
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
                       )}
                     </div>
                     {g.tags && g.tags.length > 0 && (
