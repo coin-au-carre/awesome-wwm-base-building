@@ -17,6 +17,22 @@ export function relativeTime(ms: number): string {
   return `${Math.floor(months / 12)}y ago`
 }
 
+export function formatDateYMD(s: string | undefined): string {
+  if (!s) { return "" }
+  const d = new Date(s.replace(" at ", " "))
+  if (isNaN(d.getTime())) { return s }
+  const pad = (n: number) => String(n).padStart(2, "0")
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
+export function formatDateYMDHM(s: string | undefined): string {
+  if (!s) { return "" }
+  const d = new Date(s.replace(" at ", " "))
+  if (isNaN(d.getTime())) { return s }
+  const pad = (n: number) => String(n).padStart(2, "0")
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+}
+
 export function formatLastModified(s: string | undefined): { relative: string; full: string } | null {
   if (!s) { return null }
   const d = new Date(s.replace(" at ", " "))

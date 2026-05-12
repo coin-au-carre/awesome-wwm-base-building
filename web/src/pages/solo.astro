@@ -5,7 +5,8 @@ import { LeaderboardTable } from "@/components/LeaderboardTable"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots, formatBuilderName } from "@/lib/guilds"
+import BuilderLinks from "@/components/BuilderLinks.astro"
+import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots } from "@/lib/guilds"
 import { builderSlug } from "@/lib/format"
 import { getActiveBuilderSlugs } from "@/lib/builders"
 import { getCollection } from "astro:content"
@@ -105,11 +106,7 @@ const isEmpty = !hasSolos()
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">{g.name}</p>
                       {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).map((name, i, arr) => (
-                          <Fragment>
-                            <a href={`${BASE}/builders/${builderSlug(name)}`} class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`} title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined} data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
-                          </Fragment>
-                        ))}</p>
+                        <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
                       )}
                     </div>
                     {g.tags && g.tags.length > 0 && (

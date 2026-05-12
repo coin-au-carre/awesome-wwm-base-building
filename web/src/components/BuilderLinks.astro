@@ -1,0 +1,23 @@
+---
+import { builderSlug, formatBuilderName } from "@/lib/format"
+import { BASE } from "@/lib/url"
+
+interface Props {
+  builders: string[]
+  activeBuilders: Set<string>
+}
+
+const { builders, activeBuilders } = Astro.props
+const names = builders.map(formatBuilderName).filter(Boolean)
+---
+{names.map((name, i) => (
+  <Fragment>
+    <a
+      href={`${BASE}/builders/${builderSlug(name)}`}
+      class={`relative z-30 transition-colors ${activeBuilders.has(builderSlug(name)) ? "text-rose-300/90 font-medium hover:text-rose-200" : "hover:text-white"}`}
+      title={activeBuilders.has(builderSlug(name)) ? "Active community contributor" : undefined}
+      data-umami-event="builder_click"
+      data-umami-event-name={name}
+    >{name}</a>{i < names.length - 1 ? ", " : ""}
+  </Fragment>
+))}
