@@ -3,6 +3,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -25,6 +26,7 @@ var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 var reDiscordVideoMarker = regexp.MustCompile(`<!--\s*discord-video:(\d+)/(\d+)\s*-->`)
 var reVideoSrc = regexp.MustCompile(`(<video\s[^>]*src=)"[^"]*"`)
+var reDiscordCDN = regexp.MustCompile(`https://cdn\.discordapp\.com/attachments/[^\s"'<>]+`)
 
 func slugify(s string) string {
 	return strings.Trim(reSlug.ReplaceAllString(strings.ToLower(s), "-"), "-")
@@ -33,7 +35,8 @@ func slugify(s string) string {
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "repository root directory")
 	list := flag.String("list", "", "file with one Discord thread URL per line")
-	refreshVideos := flag.Bool("refresh-videos", false, "refresh Discord CDN URLs in all articles")
+	refreshVideos := flag.Bool("refresh-videos", false, "refresh Discord CDN video URLs in all articles (requires <!-- discord-video --> markers)")
+	refreshImages := flag.Bool("refresh-images", false, "refresh all Discord CDN image/video src URLs in all articles via the Discord refresh-urls API")
 	flag.Parse()
 
 	var urls []string
@@ -55,8 +58,8 @@ func main() {
 	}
 	urls = append(urls, flag.Args()...)
 
-	if len(urls) == 0 && !*refreshVideos {
-		fmt.Fprintln(os.Stderr, "usage: tutorial [-list <file>] [-refresh-videos] <discord-thread-url>...")
+	if len(urls) == 0 && !*refreshVideos && !*refreshImages {
+		fmt.Fprintln(os.Stderr, "usage: tutorial [-list <file>] [-refresh-videos] [-refresh-images] <discord-thread-url>...")
 		os.Exit(1)
 	}
 
@@ -79,10 +82,18 @@ func main() {
 		}
 	}
 
+	articlesDir := filepath.Join(*root, "web", "src", "content", "articles")
+
 	if *refreshVideos {
-		articlesDir := filepath.Join(*root, "web", "src", "content", "articles")
 		if err := refreshVideoURLs(bot.Session, articlesDir); err != nil {
 			slog.Error("refreshing video URLs", "err", err)
+			os.Exit(1)
+		}
+	}
+
+	if *refreshImages {
+		if err := refreshAllCDNURLs(bot.Session.Token, articlesDir); err != nil {
+			slog.Error("refreshing image URLs", "err", err)
 			os.Exit(1)
 		}
 	}
@@ -329,6 +340,89 @@ func fetchSnapshotVideoURL(token, channelID, messageID string) string {
 		}
 	}
 	return ""
+}
+
+// refreshAllCDNURLs scans all articles for Discord CDN URLs and refreshes their
+// tokens via the Discord refresh-urls API, without touching any other content.
+func refreshAllCDNURLs(token, articlesDir string) error {
+	entries, err := os.ReadDir(articlesDir)
+	if err != nil {
+		return fmt.Errorf("reading articles dir: %w", err)
+	}
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") {
+			continue
+		}
+		path := filepath.Join(articlesDir, e.Name())
+		data, err := os.ReadFile(path)
+		if err != nil {
+			slog.Warn("reading article", "file", e.Name(), "err", err)
+			continue
+		}
+		content := string(data)
+		urls := reDiscordCDN.FindAllString(content, -1)
+		if len(urls) == 0 {
+			continue
+		}
+		refreshed, err := bulkRefreshDiscordURLs(token, urls)
+		if err != nil {
+			slog.Warn("refreshing CDN URLs", "file", e.Name(), "err", err)
+			continue
+		}
+		updated := content
+		changed := false
+		for orig, fresh := range refreshed {
+			if fresh != orig {
+				updated = strings.ReplaceAll(updated, orig, fresh)
+				changed = true
+			}
+		}
+		if !changed {
+			continue
+		}
+		if err := os.WriteFile(path, []byte(updated), 0644); err != nil {
+			slog.Warn("writing article", "file", e.Name(), "err", err)
+			continue
+		}
+		slog.Info("refreshed CDN URLs", "file", e.Name(), "count", len(refreshed))
+	}
+	return nil
+}
+
+func bulkRefreshDiscordURLs(token string, urls []string) (map[string]string, error) {
+	body, err := json.Marshal(map[string]any{"attachment_urls": urls})
+	if err != nil {
+		return nil, err
+	}
+	req, err := http.NewRequest("POST", "https://discord.com/api/v10/attachments/refresh-urls", bytes.NewReader(body))
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Authorization", token)
+	req.Header.Set("Content-Type", "application/json")
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		b, _ := io.ReadAll(resp.Body)
+		return nil, fmt.Errorf("discord API %d: %s", resp.StatusCode, b)
+	}
+	var result struct {
+		RefreshedURLs []struct {
+			Original  string `json:"original"`
+			Refreshed string `json:"refreshed"`
+		} `json:"refreshed_urls"`
+	}
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return nil, fmt.Errorf("decode: %w", err)
+	}
+	m := make(map[string]string, len(result.RefreshedURLs))
+	for _, r := range result.RefreshedURLs {
+		m[r.Original] = r.Refreshed
+	}
+	return m, nil
 }
 
 func replaceDiscordVideoSrcs(s *discordgo.Session, content string) (string, bool) {

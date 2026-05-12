@@ -9,7 +9,7 @@ tasks:
       - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
-      - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos
+      - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
       - go run ./cmd/whatever-sync
 
   sync:nopull:
@@ -17,7 +17,7 @@ tasks:
     cmds:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
-      - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos
+      - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
       - go run ./cmd/whatever-sync
 
   sync:guilds:
@@ -117,7 +117,7 @@ tasks:
 
   # ── tutorial (generate article from Discord thread) ─────────
   tutorial:
-    desc: "generate markdown tutorials from Discord thread URLs. Reads tutorial-urls.txt by default. Usage: task tutorial -- [<url>...]"
+    desc: "generate/refresh markdown tutorials. Usage: task tutorial -- [<url>...] [-refresh-videos] [-refresh-images]"
     cmd: go run ./cmd/tutorial -list data/tutorial_threads.txt {{.CLI_ARGS}}
 
   # ── web (Astro) ─────────────────────────────────────────────
