@@ -1,5 +1,19 @@
 [
 	{
+		"name": "WolvesLat",
+		"builders": [
+			"Sir Gary"
+		],
+		"tags": [
+			"Party Area"
+		],
+		"discordThread": "",
+		"whatToVisit": "Fashion show\nColumns alley",
+		"score": 0,
+		"lastModified": "May 12, 2026 at 04:50 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "BlackSail",
 		"builders": [
 			"Sir Gary"
