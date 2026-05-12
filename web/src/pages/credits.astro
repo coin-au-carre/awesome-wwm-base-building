@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers, getBuilderSearchPath, getReactions, getVoterBlacklist } from "@/lib/guilds"
-import { formatBuilderName, builderSlug, thumbUrl } from "@/lib/format"
-import { getNotableBuilders } from "@/lib/builders"
+import { builderSlug, thumbUrl } from "@/lib/format"
+import { getNotableBuilders, getAllBuilderSlugs } from "@/lib/builders"
 import { tutorialVideos, channels } from "@/lib/videos"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
@@ -12,15 +12,8 @@ const guilds = getGuildsSortedByScore()
 const solos = getSolosSortedByScore()
 const users = getUsers()
 
-// Builders wall
-const allBuilders = new Set<string>()
-for (const g of [...guilds, ...solos]) {
-  for (const b of g.builders ?? []) {
-    const name = formatBuilderName(b)
-    if (name) allBuilders.add(name)
-  }
-}
-const builderList = [...allBuilders].sort((a, b) => a.localeCompare(b))
+// Builders wall — getAllBuilderSlugs already deduplicates via canonical slug resolution
+const builderList = getAllBuilderSlugs().sort((a, b) => a.name.localeCompare(b.name))
 
 // Guild cartographers: scouters sorted by count desc, nickname > globalName > username
 const scoutCounts: Record<string, number> = {}
@@ -301,9 +294,9 @@ function builderColor(name: string): string {
         Every builder referenced for a guild base or solo construction to the showcase.
       </p>
       <div class="flex flex-wrap gap-1.5">
-        {builderList.map((name) => (
+        {builderList.map(({ name, slug }) => (
           <a
-            href={`${BASE}/builders/${builderSlug(name)}`}
+            href={`${BASE}/builders/${slug}`}
             class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70 ${builderColor(name)}`}
             data-umami-event="credits_builder_click"
             data-umami-event-name={name}

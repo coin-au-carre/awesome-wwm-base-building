@@ -2,6 +2,8 @@
 // Add a line here whenever two differently-spelled names refer to the same builder.
 export const BUILDER_ALIASES: Record<string, string> = {
   "diana念": "ðìana",
+  "SiMing 司命": "SiMing司命",
+  "Kuri (SiMing 司命)": "SiMing司命",
 }
 
 export function resolveCanonical(slug: string): string {
