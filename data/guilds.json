@@ -41,7 +41,7 @@
 			"Snow"
 		],
 		"discordThread": "",
-		"whatToVisit": "Train station\nRailways\nUnderwater\nColosseum",
+		"whatToVisit": "Train station\nRailways\nUnderwater\nColosseum\nSnowman",
 		"score": 2,
 		"lastModified": "May 11, 2026 at 12:49 PM UTC",
 		"scoutedByDiscordId": "814547014565888050"
@@ -96,7 +96,8 @@
 	{
 		"name": "Noblesse",
 		"builders": [
-			"NuméroBis"
+			"NuméroBis",
+			"HyyuK"
 		],
 		"tags": [
 			"Zen/Nature"
@@ -1581,14 +1582,6 @@
 		],
 		"discordThread": "",
 		"score": 1
-	},
-	{
-		"name": "Noblesse",
-		"builders": [
-			"HyyuK"
-		],
-		"discordThread": "",
-		"score": 0
 	},
 	{
 		"name": "Saints",
