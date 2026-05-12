@@ -32,7 +32,7 @@ func buildTagsPlaceholder(root string) string {
 	const maxLen = 100
 	cfg, err := loadTagsConfig(root)
 	if err != nil || len(cfg.Guild) == 0 {
-		return "Architecture, Castle/Palace, City, Creative, Cute, Desert, Fun..."
+		return "Zen/Nature, Castle/Palace, River/Canal, Maze/Parkour..."
 	}
 	var b strings.Builder
 	for idx, t := range cfg.Guild {
@@ -69,7 +69,6 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 	slog.Info("/scout-guild command used", "user", memberDisplayName(i), "server", guildName)
 
 	tagsPlaceholder := buildTagsPlaceholder(root)
-
 
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseModal,
