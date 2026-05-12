@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect, useRef, useSyncExternalStore } from "react"
+import { navigate } from "astro:transitions/client"
 
 declare global {
   interface Window {
@@ -192,7 +193,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
         onMouseLeave={leave}
         onClick={() => {
           ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
-          window.location.href = url(`/${basePath}/${g.slug}`)
+          navigate(url(`/${basePath}/${g.slug}`))
         }}
         className={cn("cursor-pointer transition-colors", podium ?? (gi % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"))}
       >
@@ -640,7 +641,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
                     key={g.slug}
                     onClick={() => {
                       ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table_build", type: basePath })
-                      window.location.href = url(`/${basePath}/${g.slug}`)
+                      navigate(url(`/${basePath}/${g.slug}`))
                     }}
                     className={cn("cursor-pointer transition-colors border-l-2 border-l-primary/20", bi % 2 === 0 ? "bg-muted/5 hover:bg-muted/15" : "bg-muted/10 hover:bg-muted/20")}
                   >
