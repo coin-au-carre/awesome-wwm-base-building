@@ -1,5 +1,20 @@
 [
 	{
+		"name": "AuroraOfLotus",
+		"builders": [
+			"AnarkySoul"
+		],
+		"tags": [
+			"Creative",
+			"Architecture"
+		],
+		"discordThread": "",
+		"whatToVisit": "Tower from space. \nAnarky style.",
+		"score": 0,
+		"lastModified": "May 13, 2026 at 08:24 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "ALFAS",
 		"builders": [
 			"ZbbPanico"
