@@ -13,7 +13,7 @@ var (
 	reEightDigit      = regexp.MustCompile(`\b(\d{8})\b`)
 	reEightDigitName  = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
 	reBuilders        = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
-	reGuildName       = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}\s*)*(.+?)\**\s*[\[(]\d{6,9}[\])]`)
+	reGuildName       = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}[\x{FE0E}\x{FE0F}]?\s*|\x{FE0F}\s*)*(?:[A-Za-z]+:\s*)?(.+?)\**\s*[\[(]\d{6,9}[\])]`)
 	reGuildNameEq     = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
 	reLore            = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|⚠️|^###|\z)`)
 	reLoreEq          = regexp.MustCompile(`(?im)\blore\b\s*=\s*([^\n]+)`)
@@ -134,12 +134,12 @@ func ExtractNameAndID(threadName string) (name, id, buildTitle string) {
 	if len(parts) > 1 {
 		buildTitle = strings.TrimSpace(parts[1])
 	}
-	raw = strings.TrimSpace(strings.TrimLeft(raw, "#🏯📍"))
+	raw = strings.TrimSpace(strings.TrimLeft(raw, "#🏯📍️"))
 	if m := reThreadID.FindStringSubmatch(raw); len(m) == 2 {
 		id = m[1]
 		raw = reThreadID.ReplaceAllString(raw, "")
 	}
-	name = strings.TrimSpace(strings.Trim(raw, "[] 🏯📍"))
+	name = strings.TrimSpace(strings.Trim(raw, "[] 🏯📍️"))
 	name = strings.TrimSpace(reEightDigitName.ReplaceAllString(name, ""))
 	return
 }
