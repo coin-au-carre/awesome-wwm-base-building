@@ -43,9 +43,9 @@ The Great Healer NPC sign can be hidden with the right placement. Here is one cl
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a051837&is=6a03c6b7&hm=b671eb88cb5b50bcef909fccdaf73d6a261f993274053fa69347b26e9587b782&" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a05c0f7&is=6a046f77&hm=301f84a66e723ccccc522a203764c4c357646e5f71b15e04ee9a443955cac7b5&" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a051838&is=6a03c6b8&hm=50864cca32c31f5c9dd9f7f3c0e771a8c3580afc212cf65623f4b4653534d9e1&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a05c0f8&is=6a046f78&hm=50c1f47f8273dfeced20e3574101b8dce58158f771e0f8c8c9c3ce027491bb53&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
