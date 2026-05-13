@@ -132,13 +132,13 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a0470a5&is=6a031f25&hm=3c431ac2bc9ceb15843a7e5ed3dead7497495b88a19fd5de8e0dd410abb521d6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a051965&is=6a03c7e5&hm=9af1b88bac2e00906ef7522a78ce20b3f732cbeedd5173bdd0269b5e09ab80e3&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a0470c5&is=6a031f45&hm=ead7b5948a65a5796fefd693182649884345a12cfed4a5610de6129a234d3f53&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a051985&is=6a03c805&hm=ab1c0a2a9daa9e41f4cd4f7177750cd3108349911ec7aff24f7be0758fd7276f&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
