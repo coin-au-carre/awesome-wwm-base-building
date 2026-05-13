@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a04769a&is=6a03251a&hm=5f93ba29a0854dfb92befe2c25abfebe84a0b24aacb0342b283bbe01a6dabce1&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a051f5a&is=6a03cdda&hm=ab01e80132647aeb9213bc4a57dd8639976e91500db1b3eb56dd6a818e04bf01&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a0476b2&is=6a032532&hm=fe861a4ef037eeb6d737e9a6f6f0944fae81a2bf8836ca0c520fe1808e3a9e59&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a051f72&is=6a03cdf2&hm=6f6115d0793cbd9aee7c63553e0a7c5f3c0b3178da4124b0f0b89e43c4b17dac&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
