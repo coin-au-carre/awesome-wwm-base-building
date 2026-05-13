@@ -238,7 +238,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">
-                        {stripGuildShowcase(g.name)}{g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
+                        {stripGuildShowcase(g.name)}
                       </p>
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
@@ -527,7 +527,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">
-                        {stripGuildShowcase(g.name)}{g.buildTitle && <span class="font-normal text-white/55 ml-1">— {g.buildTitle}</span>}
+                        {stripGuildShowcase(g.name)}
                       </p>
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
