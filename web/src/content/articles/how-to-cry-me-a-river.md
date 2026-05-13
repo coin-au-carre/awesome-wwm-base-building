@@ -38,4 +38,4 @@ The key steps: place a wall, then position a small flat ceiling above it. Simula
 The advantage over manual adjustment (going up and down until sections blend) is consistency: once the ceiling reference is set, every water unit snaps to the same height with no retries needed.
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a04e166&is=6a038fe6&hm=96dc9a33817bb1909ab5c134972c3e29fb4467934abab0bc51d2c3f4a240348a&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a058a26&is=6a0438a6&hm=a1cd139877b678b6bc2e28c897d8bd088eaeb9b29f3c3361920e272a13dbd598&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
