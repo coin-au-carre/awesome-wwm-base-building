@@ -1,5 +1,19 @@
 [
 	{
+		"name": "Celestial-Way",
+		"builders": [
+			"Aelestia"
+		],
+		"tags": [
+			"Zen/Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Flowers, flower, flowers...\nNice decorations\nElegant\nStage\nCave",
+		"score": 1,
+		"lastModified": "May 13, 2026 at 09:30 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "AuroraOfLotus",
 		"builders": [
 			"AnarkySoul"
