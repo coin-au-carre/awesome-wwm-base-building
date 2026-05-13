@@ -36,11 +36,16 @@ func main() {
 
 	activeChannelID := cmdutil.RequireEnv("RUBY_CHANNEL_ID")
 	devChannelID := os.Getenv("DEV_CHANNEL_ID")
+	generalChannelID := os.Getenv("GENERAL_CHANNEL_ID")
 	allowedChannels := map[string]bool{activeChannelID: true}
 	if devChannelID != "" {
 		allowedChannels[devChannelID] = true
 	}
-	slog.Info("bot mode", "channels", len(allowedChannels))
+	spotlightOnlyChannels := map[string]bool{}
+	if generalChannelID != "" {
+		spotlightOnlyChannels[generalChannelID] = true
+	}
+	slog.Info("bot mode", "channels", len(allowedChannels), "spotlight_only_channels", len(spotlightOnlyChannels))
 
 	guildForumID := os.Getenv("GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID")
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
@@ -68,7 +73,7 @@ func main() {
 	trustedMemberRoleID := os.Getenv("TRUSTED_MEMBER_ROLE_ID")
 	githubToken := os.Getenv("GITHUB_ACTIONS_TOKEN")
 	bot.Session.AddHandler(onReady(discordGuildID))
-	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, rubyRoleID))
+	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, spotlightOnlyChannels, activeChannelID, rubyRoleID))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, botChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken, responder))
 	if *welcomeDM {
 		bot.Session.AddHandler(onGuildMemberAdd())
@@ -133,7 +138,7 @@ var restingResponses = []string{
 }
 
 // onMessageCreate reacts when the bot is mentioned or "Ruby" appears in a message.
-func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root string, allowedChannels map[string]bool, rubyRoleID string) func(*discordgo.Session, *discordgo.MessageCreate) {
+func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root string, allowedChannels map[string]bool, spotlightOnlyChannels map[string]bool, rubyChannelID, rubyRoleID string) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if m.Author.ID == s.State.User.ID {
 			return
@@ -146,7 +151,8 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 		}
 
 		// Ignore messages outside allowed channels.
-		if !allowedChannels[m.ChannelID] {
+		spotlightOnly := spotlightOnlyChannels[m.ChannelID]
+		if !allowedChannels[m.ChannelID] && !spotlightOnly {
 			return
 		}
 
@@ -181,6 +187,12 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 				handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
 				return
 			}
+		}
+
+		// General channel only handles spotlight keywords.
+		if spotlightOnly {
+			bot.Reply(m.ChannelID, m.ID, "*(psst... come find me in <#"+rubyChannelID+"> to chat~)*")
+			return
 		}
 
 		if responder == nil {
