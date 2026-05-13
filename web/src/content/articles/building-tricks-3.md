@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 order: 10
-image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a053c49&is=6a03eac9&hm=769e366e7dcf86fa652a2673d83223a28f5eeb2a394f1a64232d897e74db4fa0&"
+image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a05e509&is=6a049389&hm=4dd1a3918a543cab376c0ee3deeb19f557cce215356333ea052861cd1664b069&"
 featured: true
 ---
 
@@ -34,7 +34,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here is one clean approach.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a053c49&is=6a03eac9&hm=769e366e7dcf86fa652a2673d83223a28f5eeb2a394f1a64232d897e74db4fa0&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a05e509&is=6a049389&hm=4dd1a3918a543cab376c0ee3deeb19f557cce215356333ea052861cd1664b069&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -69,4 +69,4 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a0550ce&is=6a03ff4e&hm=9a07419bbed6af525c591667c604b60427feb9a95bf7de93f4f74c54239b9f40&" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a05f98e&is=6a04a80e&hm=69c8d4dc86ed4a8c2f18b2b3ceb5b044160d59e37b9671a0399d6deb6a033cbc&" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
