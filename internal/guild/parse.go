@@ -12,7 +12,9 @@ var (
 	reBracketID       = regexp.MustCompile(`[\[(](\d+)[\])]`)
 	reEightDigit      = regexp.MustCompile(`\b(\d{8})\b`)
 	reEightDigitName  = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
-	reBuilders        = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
+	reBuilders           = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
+	reBuildersBulkBlock  = regexp.MustCompile(`(?i)builders?:[ \t]*\n((?:[ \t]*-[^\n]+\n?)*)`)
+	reAdditionalCredits  = regexp.MustCompile(`(?i)^additional\s+credits?\s+to\s+(.+)`)
 	reGuildName       = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}[\x{FE0E}\x{FE0F}]?\s*|\x{FE0F}\s*)*(?:[A-Za-z]+:\s*)?(.+?)\**\s*[\[(]\d{6,9}[\])]`)
 	reGuildNameEq     = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
 	reLore            = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*what\s+to\s+visit\s*\*\*|\bwhat\s+to\s+visit\b|⚠️|^###|\z)`)
@@ -69,10 +71,16 @@ func ParseFirstPost(content string) ParsedPost {
 	}
 
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
-		for _, b := range strings.Split(m[1], ",") {
-			b = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(b), "*"))
-			if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
-				p.Builders = append(p.Builders, b)
+		if inline := strings.TrimSpace(m[1]); inline != "" {
+			for b := range strings.SplitSeq(inline, ",") {
+				b = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(b), "*"))
+				if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {
+					p.Builders = append(p.Builders, b)
+				}
+			}
+		} else if m2 := reBuildersBulkBlock.FindStringSubmatch(content); len(m2) > 1 {
+			for line := range strings.SplitSeq(m2[1], "\n") {
+				p.Builders = append(p.Builders, parseBuilderBullet(line)...)
 			}
 		}
 	}
@@ -167,6 +175,30 @@ func IsVideo(filename string) bool {
 		return true
 	}
 	return false
+}
+
+func parseBuilderBullet(line string) []string {
+	line = strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(line), "-"))
+	if line == "" {
+		return nil
+	}
+	if m := reAdditionalCredits.FindStringSubmatch(line); len(m) > 1 {
+		raw := strings.ReplaceAll(m[1], " and ", ",")
+		var names []string
+		for n := range strings.SplitSeq(raw, ",") {
+			if n = strings.TrimSpace(n); n != "" {
+				names = append(names, n)
+			}
+		}
+		return names
+	}
+	if i := strings.IndexAny(line, "[|"); i >= 0 {
+		line = line[:i]
+	}
+	if name := strings.TrimSpace(line); name != "" {
+		return []string{name}
+	}
+	return nil
 }
 
 func CleanSection(s string) string {
