@@ -1,5 +1,21 @@
 [
 	{
+		"id": "10264607",
+		"name": "KaiJeow",
+		"builders": [
+			"KHIM"
+		],
+		"tags": [
+			"Architecture",
+			"Castle/Palace"
+		],
+		"discordThread": "",
+		"whatToVisit": "Theater on water\nElegant",
+		"score": 0,
+		"lastModified": "May 13, 2026 at 11:22 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Celestial-Way",
 		"builders": [
 			"Aelestia"
