@@ -47,13 +47,38 @@ for (const g of [...(profile?.guilds ?? []), ...(profile?.solos ?? [])]) {
 const topTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]).map(([tag]) => tag)
 const contributionTypes = [(profile?.guilds.length ?? 0) > 0, (profile?.solos.length ?? 0) > 0, (profile?.blueprints.length ?? 0) > 0, tutorials.length > 0].filter(Boolean).length
 const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
+const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${totalCount} contribution${totalCount !== 1 ? "s" : ""} including guild bases, solo builds, blueprints, and tutorials.`
 
 ---
 
 <Layout
   title={`${displayName} — Builder Profile | Where Builders Meet`}
-  description={`Builder profile for ${displayName} in Where Winds Meet. ${totalCount} contribution${totalCount !== 1 ? "s" : ""} including guild bases, solo builds, blueprints, and tutorials.`}
+  description={pageDesc}
 >
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "name": `${displayName} — Builder Profile`,
+        "description": pageDesc,
+        "url": Astro.url.href,
+        "mainEntity": {
+          "@type": "Person",
+          "name": displayName,
+          "url": Astro.url.href,
+          "description": pageDesc,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Where Builders Meet", "item": "https://www.wherebuildersmeet.com" },
+          { "@type": "ListItem", "position": 2, "name": displayName, "item": Astro.url.href },
+        ],
+      },
+    ],
+  })} />
   <div class="space-y-8">
     <!-- Back -->
     <button
