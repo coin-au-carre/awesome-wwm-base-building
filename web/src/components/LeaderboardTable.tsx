@@ -255,6 +255,84 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   )
 }
 
+function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, toggleTag, activeSet, renderLastUpdated }: {
+  g: RankedGuild
+  bi: number
+  basePath: string
+  isSolos: boolean
+  guildsLength: number
+  activeTags: Set<string>
+  toggleTag: (tag: string) => void
+  activeSet?: Set<string>
+  renderLastUpdated: (g: RankedGuild) => React.ReactNode
+}) {
+  const [open, setOpen] = useState(false)
+  const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const img = g.coverImage ?? g.screenshots?.[0]
+
+  const enter = () => {
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setOpen(true), 250)
+  }
+  const leave = () => {
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setOpen(false), 100)
+  }
+
+  return (
+    <HoverCard open={open} onOpenChange={() => {}} openDelay={0} closeDelay={0}>
+      <TableRow
+        onClick={() => {
+          ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table_build", type: basePath })
+          navigate(url(`/${basePath}/${g.slug}`))
+        }}
+        className={cn("cursor-pointer transition-colors border-l-2 border-l-primary/20", bi % 2 === 0 ? "bg-muted/5 hover:bg-muted/15" : "bg-muted/10 hover:bg-muted/20")}
+        onMouseLeave={leave}
+      >
+        {!isSolos && <TableCell />}
+        <TableCell onMouseEnter={enter} onMouseLeave={leave}>
+          <div className="flex items-center gap-2.5 pl-4">
+            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+            <HoverCardTrigger asChild>
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
+                    {g.buildTitle || "Default"}
+                  </a>
+                  {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
+                  {g.isCurrent && <span className="text-[10px] text-emerald-500/90">● current</span>}
+                  {(() => { const t = getTier(g.rank, guildsLength, g.score); return (
+                    <span className={cn("inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] opacity-55", t.badge)} style={t.badgeStyle}>
+                      <span className={cn("size-1 rounded-full shrink-0", t.dot)} />{t.label}
+                    </span>
+                  )})()}
+                </div>
+              </div>
+            </HoverCardTrigger>
+          </div>
+        </TableCell>
+        <TableCell className="text-muted-foreground hidden md:table-cell" onMouseEnter={leave}>
+          <BuilderNames builders={g.builders} activeSet={activeSet} />
+        </TableCell>
+        <TableCell className="hidden lg:table-cell">
+          <div className="flex flex-wrap gap-1">{g.tags?.map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
+        </TableCell>
+        <TableCell className="hidden lg:table-cell text-[11px] text-muted-foreground/50">{renderLastUpdated(g)}</TableCell>
+      </TableRow>
+      <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
+        {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={g.buildTitle || stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
+        <div className="p-3">
+          <p className="font-medium text-sm leading-tight">{g.buildTitle || stripGuildShowcase(g.guildName || g.name)}</p>
+          {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by <BuilderNames builders={g.builders} activeSet={activeSet} /></p>}
+          {g.tags && g.tags.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
+          )}
+        </div>
+      </HoverCardContent>
+    </HoverCard>
+  )
+}
+
 export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeBuilderSlugs }: Props) {
   const isSolos = basePath === "solos"
   const activeSet = useMemo(() => new Set(activeBuilderSlugs ?? []), [activeBuilderSlugs])
@@ -634,47 +712,20 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
 
               if (!isExpanded) { return [headerRow] }
 
-              const buildRows = builds.map((g, bi) => {
-                const img = g.coverImage ?? g.screenshots?.[0]
-                return (
-                  <TableRow
-                    key={g.slug}
-                    onClick={() => {
-                      ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table_build", type: basePath })
-                      navigate(url(`/${basePath}/${g.slug}`))
-                    }}
-                    className={cn("cursor-pointer transition-colors border-l-2 border-l-primary/20", bi % 2 === 0 ? "bg-muted/5 hover:bg-muted/15" : "bg-muted/10 hover:bg-muted/20")}
-                  >
-                    {!isSolos && <TableCell />}
-                    <TableCell>
-                      <div className="flex items-center gap-2.5 pl-4">
-                        {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-1.5 flex-wrap">
-                            <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
-                              {g.buildTitle || "Default"}
-                            </a>
-                            {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
-                            {g.isCurrent && <span className="text-[10px] text-emerald-500/90">● current</span>}
-                            {(() => { const t = getTier(g.rank, guilds.length, g.score); return (
-                              <span className={cn("inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] opacity-55", t.badge)} style={t.badgeStyle}>
-                                <span className={cn("size-1 rounded-full shrink-0", t.dot)} />{t.label}
-                              </span>
-                            )})()}
-                          </div>
-                        </div>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-muted-foreground hidden md:table-cell">
-                      <BuilderNames builders={g.builders} activeSet={activeSet} />
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell">
-                      <div className="flex flex-wrap gap-1">{g.tags?.map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
-                    </TableCell>
-                    <TableCell className="hidden lg:table-cell text-[11px] text-muted-foreground/50">{renderLastUpdated(g)}</TableCell>
-                  </TableRow>
-                )
-              })
+              const buildRows = builds.map((g, bi) => (
+                <MultiBuildRow
+                  key={g.slug}
+                  g={g}
+                  bi={bi}
+                  basePath={basePath}
+                  isSolos={isSolos}
+                  guildsLength={guilds.length}
+                  activeTags={activeTags}
+                  toggleTag={toggleTag}
+                  activeSet={activeSet}
+                  renderLastUpdated={renderLastUpdated}
+                />
+              ))
 
               return [headerRow, ...buildRows]
             })}
