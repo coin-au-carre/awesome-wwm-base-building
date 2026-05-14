@@ -203,7 +203,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <a
                     href={`${BASE}/guilds/${g.slug}`}
                     class="absolute inset-0 z-10"
-                    aria-label={stripGuildShowcase(g.name)}
+                    aria-label={stripGuildShowcase(g.guildName || g.name)}
                     data-umami-event="guild_click"
                     data-umami-event-name={g.name}
                     data-umami-event-source="recently_added"
@@ -212,7 +212,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   {img && (
                     <img
                       src={thumbUrl(img)}
-                      alt={stripGuildShowcase(g.name)}
+                      alt={stripGuildShowcase(g.guildName || g.name)}
                       loading="lazy"
                       onerror="this.style.display='none'"
                       class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -240,7 +240,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">
-                        {stripGuildShowcase(g.name)}
+                        {stripGuildShowcase(g.guildName || g.name)}
                       </p>
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
@@ -497,7 +497,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <a
                     href={`${BASE}/guilds/${g.slug}`}
                     class="absolute inset-0 z-10"
-                    aria-label={stripGuildShowcase(g.name)}
+                    aria-label={stripGuildShowcase(g.guildName || g.name)}
                     data-umami-event="guild_click"
                     data-umami-event-name={g.name}
                     data-umami-event-source="hidden_gems"
@@ -506,7 +506,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   {img && (
                     <img
                       src={thumbUrl(img)}
-                      alt={stripGuildShowcase(g.name)}
+                      alt={stripGuildShowcase(g.guildName || g.name)}
                       loading="lazy"
                       onerror="this.style.display='none'"
                       class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -529,7 +529,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                   <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
                     <div class="flex items-baseline gap-1.5 mb-1">
                       <p class="text-white font-medium text-sm leading-tight">
-                        {stripGuildShowcase(g.name)}
+                        {stripGuildShowcase(g.guildName || g.name)}
                       </p>
                       {g.builders && g.builders.length > 0 && (
                         <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
