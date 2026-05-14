@@ -10,7 +10,7 @@ import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { tagColor } from "@/lib/colors"
 import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, HammerIcon, StackIcon, UsersIcon } from "@phosphor-icons/react"
-import { getCollection } from "astro:content"
+import { getCollection, type CollectionEntry } from "astro:content"
 function relativeDate(createdAt: string): string {
   const ms = Date.now() - new Date(createdAt.replace(" at ", " ")).getTime()
   if (isNaN(ms) || ms < 0) return ""
@@ -24,9 +24,16 @@ function relativeDate(createdAt: string): string {
 }
 
 const guilds = getGuildsSortedByScore()
-const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
-const featuredArticles = allArticles.filter((e) => e.data.featured).sort((a, b) => a.data.order - b.data.order)
-const tutorialAuthorSlugs = new Set(allArticles.flatMap((a) => (a.data.authors ?? []).map((n) => builderSlug(n))))
+const allArticles: CollectionEntry<"articles">[] = await getCollection("articles", (e: CollectionEntry<"articles">) => e.data.published !== false)
+type FeaturedEntry = { article: CollectionEntry<"articles">; thumb: string }
+const featuredArticles: FeaturedEntry[] = allArticles.filter((e) => e.data.featured).sort((a, b) => a.data.order - b.data.order).map((article) => {
+  const body = article.body ?? ""
+  const ytID = body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
+  const firstImg = body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
+  const thumb = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : (article.data.image ?? firstImg)
+  return { article, thumb }
+})
+const tutorialAuthorSlugs = new Set<string>(allArticles.flatMap((a) => (a.data.authors ?? []).map((n: string) => builderSlug(n))))
 const activeBuilders = getActiveBuilderSlugs(tutorialAuthorSlugs)
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
@@ -268,23 +275,25 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
 
     <!-- Featured Articles + Events -->
     {(featuredArticles.length > 0 || upcomingEventsDisplay.length > 0) && (
-      <div class="flex flex-col sm:flex-row flex-wrap gap-2">
-        {featuredArticles.map((article) => {
-          const body = article.body ?? ""
-          const ytID = body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
-          const firstImg = body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
-          const thumb = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : (article.data.image ?? firstImg)
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <svg class="size-4 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+          Featured articles
+        </h2>
+        <div class="px-5">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-2">
+        {featuredArticles.map((fa) => {
           return (
             <a
-              href={`${BASE}/tutorials/${article.id}`}
+              href={`${BASE}/tutorials/${fa.article.id}`}
               class="group flex flex-1 items-center gap-3 rounded-xl ring-1 ring-pink-500/25 bg-card hover:ring-pink-500/50 hover:shadow-sm transition-all px-3 py-2.5"
               data-umami-event="featured_article_click"
             >
-              {thumb ? (
+              {fa.thumb ? (
                 <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-black">
                   <img
-                    src={thumb}
-                    alt={article.data.title}
+                    src={fa.thumb}
+                    alt={fa.article.data.title}
                     class="absolute inset-0 h-full w-full object-cover"
                   />
                 </div>
@@ -294,13 +303,9 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                 </div>
               )}
               <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-1.5 mb-0.5">
-                  <svg class="size-3 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-                  <span class="text-[10px] font-semibold uppercase tracking-widest text-pink-500">{article.data.featuredLabel ?? "Featured Article"}</span>
-                </div>
-                <p class="text-xs font-medium leading-snug line-clamp-2">{article.data.title}</p>
-                {article.data.authors && article.data.authors.length > 0 && (
-                  <p class="text-[11px] text-muted-foreground/70">by {article.data.authors.join(", ")}</p>
+                <p class="text-xs font-medium leading-snug line-clamp-2 mb-0.5">{fa.article.data.title}</p>
+                {fa.article.data.authors && fa.article.data.authors.length > 0 && (
+                  <p class="text-[11px] text-muted-foreground/70">by {fa.article.data.authors.join(", ")}</p>
                 )}
               </div>
               <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-pink-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
@@ -417,6 +422,8 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
           setInterval(updateEventCards, 30000)
         </script>
       </div>
+        </div>
+      </section>
     )}
 
     <!-- Catalog discovery banner -->
