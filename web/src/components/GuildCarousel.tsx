@@ -29,12 +29,25 @@ function tagColor(tag: string) {
   return TAG_PALETTE[hash % TAG_PALETTE.length]
 }
 
+function relativeDate(createdAt: string): string {
+  const ms = Date.now() - new Date(createdAt.replace(" at ", " ")).getTime()
+  if (isNaN(ms) || ms < 0) return ""
+  const hours = Math.floor(ms / 3600000)
+  const days = Math.floor(ms / 86400000)
+  if (hours < 24) return hours <= 1 ? "1h ago" : `${hours}h ago`
+  if (days === 1) return "yesterday"
+  if (days < 7) return `${days}d ago`
+  if (days < 30) return `${Math.floor(days / 7)}w ago`
+  return `${Math.floor(days / 30)}mo ago`
+}
+
 interface Props {
   guilds: RankedGuild[]
   basePath?: string
+  showDate?: boolean
 }
 
-export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
+export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }: Props) {
   const plugin = React.useRef(
     Autoplay({ delay: 3500, stopOnInteraction: true })
   )
@@ -74,7 +87,7 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                 {img && (
                   <img
                     src={img}
-                    alt={stripGuildShowcase(g.name)}
+                    alt={stripGuildShowcase(g.guildName || g.name)}
                     loading={idx === 0 ? "eager" : "lazy"}
                     fetchPriority={idx === 0 ? "high" : "auto"}
                     decoding="async"
@@ -83,9 +96,14 @@ export function GuildCarousel({ guilds, basePath = "guilds" }: Props) {
                   />
                 )}
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                {showDate && g.createdAt && (
+                  <div className="absolute top-2 left-2 z-20 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/60">
+                    {relativeDate(g.createdAt)}
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="flex items-baseline gap-1.5 mb-1">
-                    <p className="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.name)}</p>
+                    <p className="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
                     {g.builders && g.builders.length > 0 && (
                       <p className="text-white/60 text-[11px] leading-tight truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
                     )}
