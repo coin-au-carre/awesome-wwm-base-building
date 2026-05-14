@@ -5,6 +5,7 @@ import { LeaderboardTable } from "@/components/LeaderboardTable"
 import BuilderLinks from "@/components/BuilderLinks.astro"
 import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
 import { stripGuildShowcase, thumbUrl, builderSlug } from "@/lib/format"
+import { formatDateYMDHM } from "@/lib/dates"
 import { getActiveBuilderSlugs } from "@/lib/builders"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
@@ -169,17 +170,11 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
               {discordMemberCount.toLocaleString()} members
             </a>
           )}
-          <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
-            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-400" />
-            <span id="last-sync-date">{lastSync}</span>
-          </span>
           {lastSync && (
-            <script is:inline define:vars={{ lastSync }}>
-              const d = new Date(lastSync)
-              const pad = n => String(n).padStart(2, "0")
-              const formatted = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
-              document.getElementById("last-sync-date").textContent = formatted
-            </script>
+            <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
+              <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-400" />
+              {formatDateYMDHM(lastSync)}
+            </span>
           )}
           <a href="/rss.xml" class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 hover:bg-white/20 transition-colors" title="RSS feed">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor" class="text-orange-400 shrink-0">
