@@ -101,6 +101,20 @@ export function getLatestGuildsWithScreenshots(n: number): RankedGuild[] {
   return withShots
 }
 
+export function getRecentGuildsWithScreenshots(days: number): RankedGuild[] {
+  const cutoff = Date.now() - days * 86400000
+  return [...ALL_GUILDS]
+    .reverse()
+    .filter((g) => {
+      if (!g.screenshots || !g.screenshots.length || !isBuilderSubmission(g)) return false
+      if (!g.createdAt) return false
+      const ms = new Date(g.createdAt.replace(" at ", " ")).getTime()
+      return !isNaN(ms) && ms >= cutoff
+    })
+    .map((g) => RANKED_GUILDS.find((r) => r.discordThread === g.discordThread))
+    .filter((g): g is RankedGuild => g !== undefined)
+}
+
 export function getLatestSolosWithScreenshots(n: number): RankedGuild[] {
   const ranked = RANKED_SOLOS
   const withShots = [...ALL_SOLOS]

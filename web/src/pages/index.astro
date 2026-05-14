@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import { GuildCarousel } from "@/components/GuildCarousel"
 import { LeaderboardTable } from "@/components/LeaderboardTable"
 import BuilderLinks from "@/components/BuilderLinks.astro"
-import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
+import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWithScreenshots, getRecentGuildsWithScreenshots, getHiddenGems, formatBuilderName, getUpcomingEvents } from "@/lib/guilds"
 import { stripGuildShowcase, thumbUrl, builderSlug } from "@/lib/format"
 import { formatDateYMDHM } from "@/lib/dates"
 import { getActiveBuilderSlugs } from "@/lib/builders"
@@ -51,7 +51,9 @@ const heroCandidates = guilds
     builders: (g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", "),
   }))
 const heroFirst = heroCandidates[0]
-const latestGuilds = getLatestGuildsWithScreenshots(3)
+const recentGuilds = getRecentGuildsWithScreenshots(4)
+const useCarousel = recentGuilds.length > 3
+const latestGuilds = useCarousel ? recentGuilds : getLatestGuildsWithScreenshots(3)
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
 const now = Date.now()
@@ -189,80 +191,87 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Recently added -->
     {latestGuilds.length > 0 && (
       <section>
-        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added
+          {useCarousel && <span class="text-xs font-normal text-muted-foreground/60">{latestGuilds.length} in the last 4 days</span>}
+        </h2>
         <div class="px-5">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {latestGuilds.map((g, idx) => {
-              const shots = g.screenshots ?? []
-              const img = g.coverImage ?? shots[0]
-              return (
-                <div
-                  class="fade-up group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
-                  style={`animation-delay: ${idx * 80}ms`}
-                >
-                  <a
-                    href={`${BASE}/guilds/${g.slug}`}
-                    class="absolute inset-0 z-10"
-                    aria-label={stripGuildShowcase(g.guildName || g.name)}
-                    data-umami-event="guild_click"
-                    data-umami-event-name={g.name}
-                    data-umami-event-source="recently_added"
-                    data-umami-event-type="guilds"
-                  />
-                  {img && (
-                    <img
-                      src={thumbUrl(img)}
-                      alt={stripGuildShowcase(g.guildName || g.name)}
-                      loading="lazy"
-                      onerror="this.style.display='none'"
-                      class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          {useCarousel ? (
+            <GuildCarousel client:load guilds={latestGuilds} showDate={true} />
+          ) : (
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {latestGuilds.map((g, idx) => {
+                const shots = g.screenshots ?? []
+                const img = g.coverImage ?? shots[0]
+                return (
+                  <div
+                    class="fade-up group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                    style={`animation-delay: ${idx * 80}ms`}
+                  >
+                    <a
+                      href={`${BASE}/guilds/${g.slug}`}
+                      class="absolute inset-0 z-10"
+                      aria-label={stripGuildShowcase(g.guildName || g.name)}
+                      data-umami-event="guild_click"
+                      data-umami-event-name={g.name}
+                      data-umami-event-source="recently_added"
+                      data-umami-event-type="guilds"
                     />
-                  )}
-                  <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  {g.createdAt && (
-                    <div class="absolute top-2 left-2 z-20 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/60">
-                      {relativeDate(g.createdAt)}
-                    </div>
-                  )}
-                  <div class="absolute top-2 right-2 z-20 flex items-center gap-1.5">
-                    {g.buildTitle && (
-                      <div class="flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-blue-300">
-                        <StackIcon weight="fill" className="size-2.5 shrink-0" />
-                        {g.buildTitle}
+                    {img && (
+                      <img
+                        src={thumbUrl(img)}
+                        alt={stripGuildShowcase(g.guildName || g.name)}
+                        loading="lazy"
+                        onerror="this.style.display='none'"
+                        class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    )}
+                    <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+                    {g.createdAt && (
+                      <div class="absolute top-2 left-2 z-20 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/60">
+                        {relativeDate(g.createdAt)}
                       </div>
                     )}
-                    {g.rank <= 10 && (
-                      <div class="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
-                        #{g.rank}
-                      </div>
-                    )}
-                  </div>
-                  <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
-                    <div class="flex items-baseline gap-1.5 mb-1">
-                      <p class="text-white font-medium text-sm leading-tight">
-                        {stripGuildShowcase(g.guildName || g.name)}
-                      </p>
-                      {g.builders && g.builders.length > 0 && (
-                        <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
+                    <div class="absolute top-2 right-2 z-20 flex items-center gap-1.5">
+                      {g.buildTitle && (
+                        <div class="flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-blue-300">
+                          <StackIcon weight="fill" className="size-2.5 shrink-0" />
+                          {g.buildTitle}
+                        </div>
+                      )}
+                      {g.rank <= 10 && (
+                        <div class="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
+                          #{g.rank}
+                        </div>
                       )}
                     </div>
-                    {g.tags && g.tags.length > 0 && (
-                      <div class="flex flex-wrap gap-1">
-                        {g.tags.slice(0, 3).map((tag) => {
-                          const cfg = tagColor(tag)
-                          return (
-                            <span class={`inline-flex items-center rounded-full ${cfg.bg} ${cfg.text} ${cfg.ring} backdrop-blur-sm px-2 py-0.5 text-[10px] font-medium`}>
-                              {tag}
-                            </span>
-                          )
-                        })}
+                    <div class="absolute bottom-0 left-0 right-0 p-3 z-20">
+                      <div class="flex items-baseline gap-1.5 mb-1">
+                        <p class="text-white font-medium text-sm leading-tight">
+                          {stripGuildShowcase(g.guildName || g.name)}
+                        </p>
+                        {g.builders && g.builders.length > 0 && (
+                          <p class="text-white/60 text-[11px] leading-tight truncate">by <BuilderLinks builders={g.builders} activeBuilders={activeBuilders} /></p>
+                        )}
                       </div>
-                    )}
+                      {g.tags && g.tags.length > 0 && (
+                        <div class="flex flex-wrap gap-1">
+                          {g.tags.slice(0, 3).map((tag) => {
+                            const cfg = tagColor(tag)
+                            return (
+                              <span class={`inline-flex items-center rounded-full ${cfg.bg} ${cfg.text} ${cfg.ring} backdrop-blur-sm px-2 py-0.5 text-[10px] font-medium`}>
+                                {tag}
+                              </span>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          )}
           <p class="text-xs text-muted-foreground mt-3">Want to add your guild? <a href={`${BASE}/contribute`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="contribute_cta_click">Contribute ↗</a></p>
         </div>
       </section>
