@@ -161,6 +161,46 @@ Posted on behalf of <@423190009445613568> who kindly asked us
 			wantBuilders: []string{"X"},
 			wantOnBehalf: "unknown",
 		},
+		{
+			name: "AMP standard ### headers",
+			content: `## 🏯 AMP [10185138]
+
+👷 Builders: Pears, Laksa, Cakatoi, Smùid, Nanami, AshaAzazill, Ligesxila
+
+### 📝 Lore
+Forged not by war, but by friendship, laughter, and countless battles fought side by side, our guild stands as more than a clan — we are family. Whether we go by Kittens or Roaches, every member carries the same bond: loyalty, chaos, and a home that endures through every victory and defeat. In this world, names may change and legends may fade, but the family we built will remain.
+
+### 🧙 What to visit
+(1) Our AMP sign!
+(2) Come to our Guild Party
+(3) Nanami's Architectural designs!
+(4) Our floating zen garden!
+(5) Our lake!
+(6) Our flower shop!`,
+			wantID:       "10185138",
+			wantGuild:    "AMP",
+			wantBuilders: []string{"Pears", "Laksa", "Cakatoi", "Smùid", "Nanami", "AshaAzazill", "Ligesxila"},
+			wantLore:     "Forged not by war, but by friendship, laughter, and countless battles fought side by side, our guild stands as more than a clan — we are family. Whether we go by Kittens or Roaches, every member carries the same bond: loyalty, chaos, and a home that endures through every victory and defeat. In this world, names may change and legends may fade, but the family we built will remain.",
+			wantVisit:    "(1) Our AMP sign!\n(2) Come to our Guild Party\n(3) Nanami's Architectural designs!\n(4) Our floating zen garden!\n(5) Our lake!\n(6) Our flower shop!",
+		},
+		{
+			name: "places to visit alias",
+			content: `🏯 SNEJNAYA (10269444)
+
+👷 Builders: Ðìana
+
+Lore:
+A snowy castle of the White Queen.
+
+Places to visit:
+•    The Rose Garden — where beauty and steel stand side by side.
+•    The Castle Library — home to old chronicles.`,
+			wantID:       "10269444",
+			wantGuild:    "SNEJNAYA",
+			wantBuilders: []string{"Ðìana"},
+			wantLore:     "A snowy castle of the White Queen.",
+			wantVisit:    "•    The Rose Garden — where beauty and steel stand side by side.\n•    The Castle Library — home to old chronicles.",
+		},
 	}
 
 	for _, tt := range tests {
