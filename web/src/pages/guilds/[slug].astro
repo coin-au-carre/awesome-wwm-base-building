@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { getGuildsSortedByScore, formatBuilderName, getUsers, getGuildBuilds } from "@/lib/guilds"
+import { getGuildsSortedByScore, getGuildRedirects, formatBuilderName, getUsers, getGuildBuilds } from "@/lib/guilds"
 import { getTier } from "@/lib/scoring"
 import { stripGuildShowcase, builderSlug } from "@/lib/format"
 import { formatDateYMD, formatDateYMDHM } from "@/lib/dates"
@@ -14,13 +14,23 @@ import { BookOpen, MapPin, Images, Layers } from "lucide-react"
 
 export async function getStaticPaths() {
   const guilds = getGuildsSortedByScore()
-  return guilds.map((g) => ({
-    params: { slug: g.slug },
-    props: { guild: g },
-  }))
+  const redirects = getGuildRedirects()
+  return [
+    ...guilds.map((g) => ({
+      params: { slug: g.slug },
+      props: { guild: g, redirectTo: undefined as string | undefined },
+    })),
+    ...redirects.map(({ fromSlug, toSlug }) => ({
+      params: { slug: fromSlug },
+      props: { guild: undefined as (typeof guilds)[number] | undefined, redirectTo: toSlug },
+    })),
+  ]
 }
 
-const { guild: g } = Astro.props
+const { guild: g, redirectTo } = Astro.props
+if (redirectTo) {
+  return Astro.redirect(`${BASE}/guilds/${redirectTo}/`, 301)
+}
 const base = BASE
 const totalGuilds = getGuildsSortedByScore().length
 const tier = getTier(g.rank, totalGuilds, g.score)

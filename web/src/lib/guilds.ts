@@ -4,6 +4,11 @@ import type { Guild, RankedGuild } from "@/types/guild"
 import { slugify, formatBuilderName } from "@/lib/format"
 import { isBuilderSubmission } from "@/lib/config"
 
+export interface GuildRedirect {
+  fromSlug: string
+  toSlug: string
+}
+
 export interface UserInfo {
   username: string
   globalName?: string
@@ -204,6 +209,43 @@ export function getVoterBlacklist(): string[] {
     return []
   }
 }
+
+function computeRedirects(ranked: RankedGuild[], basePath: string): GuildRedirect[] {
+  const redirects: GuildRedirect[] = []
+  const allSlugs = new Set(ranked.map((g) => g.slug))
+
+  // Group by name
+  const groups = new Map<string, RankedGuild[]>()
+  for (const g of ranked) {
+    const list = groups.get(g.name) ?? []
+    list.push(g)
+    groups.set(g.name, list)
+  }
+
+  for (const builds of groups.values()) {
+    const current = builds.find((b) => b.isCurrent) ?? (builds.length === 1 ? builds[0] : undefined)
+    if (!current || !current.buildTitle) continue
+
+    // Base slug (name only, no buildTitle) → current build
+    const baseSlug = slugify(current.guildName ?? current.name)
+    if (baseSlug !== current.slug && !allSlugs.has(baseSlug)) {
+      redirects.push({ fromSlug: baseSlug, toSlug: current.slug })
+    }
+
+    // Former names → current build
+    for (const former of current.formerNames ?? []) {
+      const formerSlug = slugify(former)
+      if (formerSlug !== current.slug && !allSlugs.has(formerSlug)) {
+        redirects.push({ fromSlug: formerSlug, toSlug: current.slug })
+      }
+    }
+  }
+
+  return redirects
+}
+
+export function getGuildRedirects(): GuildRedirect[] { return computeRedirects(RANKED_GUILDS, "guilds") }
+export function getSoloRedirects(): GuildRedirect[] { return computeRedirects(RANKED_SOLOS, "solos") }
 
 export function getLastSyncDate(): string {
   try {
