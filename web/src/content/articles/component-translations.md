@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a083f88&is=6a06ee08&hm=945e8711787697783af1c08e0ff23fcd575bdc310b0db8e2f5826ef70da888b6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a08e848&is=6a0796c8&hm=9c107050fed6da12724434aace58cb477926a6d0ce99e0e3b62308c2c5e5b7bd&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a083fc4&is=6a06ee44&hm=788759ac8f2fd262e9a0282d2b4f9e3ca0fc7aaf50ca53ecea3adef283e04960&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a08e884&is=6a079704&hm=887991903ea55095305cd65a881ab35b2685159f88ba83b371b5349f7f3768c2&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family
