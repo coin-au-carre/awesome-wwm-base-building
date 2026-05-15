@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
-import { getSolosSortedByScore, formatBuilderName } from "@/lib/guilds"
+import { getSolosSortedByScore, getSoloRedirects, formatBuilderName } from "@/lib/guilds"
 import { builderSlug } from "@/lib/format"
 import { formatDateYMD, formatDateYMDHM } from "@/lib/dates"
 import { renderMarkdown } from "@/lib/markdown"
@@ -12,13 +12,23 @@ import { BookOpen, MapPin, Images } from "lucide-react"
 
 export async function getStaticPaths() {
   const solos = getSolosSortedByScore()
-  return solos.map((g) => ({
-    params: { slug: g.slug },
-    props: { solo: g },
-  }))
+  const redirects = getSoloRedirects()
+  return [
+    ...solos.map((g) => ({
+      params: { slug: g.slug },
+      props: { solo: g, redirectTo: undefined as string | undefined },
+    })),
+    ...redirects.map(({ fromSlug, toSlug }) => ({
+      params: { slug: fromSlug },
+      props: { solo: undefined as (typeof solos)[number] | undefined, redirectTo: toSlug },
+    })),
+  ]
 }
 
-const { solo: g } = Astro.props
+const { solo: g, redirectTo } = Astro.props
+if (redirectTo) {
+  return Astro.redirect(`${BASE}/solos/${redirectTo}/`, 301)
+}
 const base = BASE
 const ogImage = g.coverImage ?? g.screenshots?.[0]
 const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
