@@ -27,7 +27,7 @@ function relativeDate(createdAt: string): string {
 const guilds = getGuildsSortedByScore()
 const allArticles: CollectionEntry<"articles">[] = await getCollection("articles", (e: CollectionEntry<"articles">) => e.data.published !== false)
 type FeaturedEntry = { article: CollectionEntry<"articles">; thumb: string }
-const featuredArticles: FeaturedEntry[] = allArticles.filter((e) => e.data.featured).sort((a, b) => a.data.order - b.data.order).map((article) => {
+const featuredArticles: FeaturedEntry[] = allArticles.filter((e) => e.data.featured).sort((a, b) => new Date(b.data.date ?? 0).getTime() - new Date(a.data.date ?? 0).getTime()).map((article) => {
   const body = article.body ?? ""
   const ytID = body.match(/youtube\.com\/embed\/([^"?\s]+)/)?.[1] ?? ""
   const firstImg = body.match(/<img[^>]+src=["']([^"']+)["']/)?.[1] ?? ""
@@ -81,8 +81,8 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     : minsUntil <= 1440
     ? m > 0 ? `in ${h}h${m}m` : `in ${h}h`
     : `in ${Math.round(minsUntil / 1440)}d`
-  return { ...event, live, urgent, timeLabel }
-})
+  return { ...event, live, urgent, timeLabel, startMs }
+}).sort((a, b) => a.startMs - b.startMs)
 ---
 
 <Layout
@@ -281,40 +281,10 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
       <section>
         <h2 class="font-heading text-base font-medium mb-1 flex items-center gap-2">
           <svg class="size-4 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-          Featured articles
+          Featured articles & events
         </h2>
         <div class="px-5">
         <div class="flex flex-col sm:flex-row flex-wrap gap-2">
-        {featuredArticles.map((fa) => {
-          return (
-            <a
-              href={`${BASE}/tutorials/${fa.article.id}`}
-              class="group flex flex-1 items-center gap-3 rounded-xl ring-1 ring-pink-500/25 bg-card hover:ring-pink-500/50 hover:shadow-sm transition-all px-3 py-2.5"
-              data-umami-event="featured_article_click"
-            >
-              {fa.thumb ? (
-                <div class="relative shrink-0 w-20 aspect-video rounded-md overflow-hidden bg-black">
-                  <img
-                    src={fa.thumb}
-                    alt={fa.article.data.title}
-                    class="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-              ) : (
-                <div class="shrink-0 w-20 aspect-video rounded-md bg-pink-500/10 flex items-center justify-center">
-                  <BookOpenIcon weight="duotone" className="size-5 text-pink-400" />
-                </div>
-              )}
-              <div class="flex-1 min-w-0">
-                <p class="text-xs font-medium leading-snug line-clamp-2 mb-0.5">{fa.article.data.title}</p>
-                {fa.article.data.authors && fa.article.data.authors.length > 0 && (
-                  <p class="text-[11px] text-muted-foreground/70">by {fa.article.data.authors.join(", ")}</p>
-                )}
-              </div>
-              <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-pink-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </a>
-          )
-        })}
         {upcomingEventsDisplay.map((event) => {
           const { live, urgent, timeLabel } = event
           return (
@@ -352,6 +322,36 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
                 )}
               </div>
               <svg class={`event-arrow size-3.5 shrink-0 transition-all group-hover:translate-x-0.5 ${live ? "text-green-400" : urgent ? "text-cyan-400" : "text-muted-foreground/40 group-hover:text-cyan-400"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          )
+        })}
+        {featuredArticles.map((fa) => {
+          return (
+            <a
+              href={`${BASE}/tutorials/${fa.article.id}`}
+              class="group flex flex-1 items-center gap-3 rounded-xl ring-1 ring-pink-500/25 bg-card hover:ring-pink-500/50 hover:shadow-sm transition-all px-3 py-2.5"
+              data-umami-event="featured_article_click"
+            >
+              {fa.thumb ? (
+                <div class="relative shrink-0 w-32 aspect-video rounded-md overflow-hidden bg-black">
+                  <img
+                    src={fa.thumb}
+                    alt={fa.article.data.title}
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div class="shrink-0 w-32 aspect-video rounded-md bg-pink-500/10 flex items-center justify-center">
+                  <BookOpenIcon weight="duotone" className="size-5 text-pink-400" />
+                </div>
+              )}
+              <div class="flex-1 min-w-0">
+                <p class="text-xs font-medium leading-snug line-clamp-2 mb-0.5">{fa.article.data.title}</p>
+                {fa.article.data.authors && fa.article.data.authors.length > 0 && (
+                  <p class="text-[11px] text-muted-foreground/70">by {fa.article.data.authors.join(", ")}</p>
+                )}
+              </div>
+              <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-pink-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </a>
           )
         })}
@@ -481,7 +481,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Top rated carousel -->
     {topGuilds.length > 0 && (
       <section>
-        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
+        <h2 class="font-heading text-base font-medium mb-1 flex items-center gap-2"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
         <div class="px-5">
           <GuildCarousel client:load guilds={topGuilds} />
         </div>
@@ -491,7 +491,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     <!-- Hidden gems -->
     {hiddenGems.length > 0 && (
       <section>
-        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><DiamondIcon weight="duotone" className="size-4 text-cyan-400" /> Hidden Gems</h2>
+        <h2 class="font-heading text-base font-medium mb-1 flex items-center gap-2"><DiamondIcon weight="duotone" className="size-4 text-cyan-400" /> Hidden Gems</h2>
         <div class="px-5">
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {hiddenGems.map((g, idx) => {
