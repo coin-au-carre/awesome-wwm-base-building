@@ -83,6 +83,8 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     : `in ${Math.round(minsUntil / 1440)}d`
   return { ...event, live, urgent, timeLabel, startMs }
 }).sort((a, b) => a.startMs - b.startMs)
+const eventsToShow = upcomingEventsDisplay.slice(0, 4)
+const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.length))
 ---
 
 <Layout
@@ -277,7 +279,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     )}
 
     <!-- Featured Articles + Events -->
-    {(featuredArticles.length > 0 || upcomingEventsDisplay.length > 0) && (
+    {(articlesToShow.length > 0 || eventsToShow.length > 0) && (
       <section>
         <h2 class="font-heading text-base font-medium mb-1 flex items-center gap-2">
           <svg class="size-4 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
@@ -285,7 +287,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
         </h2>
         <div class="px-5">
         <div class="flex flex-col sm:flex-row flex-wrap gap-2">
-        {upcomingEventsDisplay.map((event) => {
+        {eventsToShow.map((event) => {
           const { live, urgent, timeLabel } = event
           return (
             <a
@@ -325,7 +327,7 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
             </a>
           )
         })}
-        {featuredArticles.map((fa) => {
+        {articlesToShow.map((fa) => {
           return (
             <a
               href={`${BASE}/tutorials/${fa.article.id}`}
