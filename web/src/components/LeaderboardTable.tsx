@@ -694,7 +694,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-medium">{stripGuildShowcase(best.guildName || best.name)}</span>
-                          <span className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-primary/8 text-primary/70 ring-1 ring-inset ring-primary/20 shrink-0">
+                          <span className="inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 rounded-full bg-violet-500/15 text-violet-600 dark:text-violet-300 ring-1 ring-inset ring-violet-500/30 shrink-0">
                             {isExpanded ? <ChevronDown className="size-2.5" /> : <ChevronRight className="size-2.5" />}
                             {builds.length} builds
                           </span>
