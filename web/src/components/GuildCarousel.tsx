@@ -2,6 +2,7 @@ import * as React from "react"
 import { useState, useEffect } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import { motion } from "motion/react"
+import { StackIcon } from "@phosphor-icons/react"
 import {
   Carousel,
   CarouselContent,
@@ -101,6 +102,19 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }:
                     {relativeDate(g.createdAt)}
                   </div>
                 )}
+                <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5">
+                  {g.buildTitle && (
+                    <div className="flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-blue-300">
+                      <StackIcon weight="fill" className="size-2.5 shrink-0" />
+                      {g.buildTitle}
+                    </div>
+                  )}
+                  {g.rank <= 10 && (
+                    <div className="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
+                      #{g.rank}
+                    </div>
+                  )}
+                </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className="flex items-baseline gap-1.5 mb-1">
                     <p className="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
