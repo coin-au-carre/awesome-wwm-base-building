@@ -435,6 +435,7 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
         var navLogo = document.getElementById("nav-logo")
         var lastY = window.scrollY
         var ticking = false
+        var isCompact = lastY > 150
         function applyCompact(compact) {
           if (!headerInner || !navLogo) return
           if (compact) {
@@ -449,19 +450,25 @@ const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(li
             navLogo.classList.add("h-16", "w-16")
           }
         }
-        applyCompact(lastY > 60)
+        applyCompact(isCompact)
         function onScroll() {
           if (!ticking) {
             window.requestAnimationFrame(function () {
               var y = window.scrollY
               if (header) {
-                if (y > lastY && y > 80) {
+                if (y > lastY && y > 400) {
                   header.style.transform = "translateY(-100%)"
                 } else {
                   header.style.transform = ""
                 }
               }
-              applyCompact(y > 60)
+              // Hysteresis: compact at y>150, expand at y<80 — the 70px gap is wider than
+              // the 24px header height delta so scroll anchoring can't trigger a feedback loop.
+              var shouldBeCompact = isCompact ? y > 80 : y > 150
+              if (shouldBeCompact !== isCompact) {
+                isCompact = shouldBeCompact
+                applyCompact(isCompact)
+              }
               lastY = y
               ticking = false
             })
