@@ -834,6 +834,28 @@ func guildID(fetched []fetchedThread) string {
 	return ""
 }
 
+// ResolveUserIDs resolves a small set of Discord user IDs to UserInfo using
+// individual GuildMember calls. Use this for small sets (scouts, etc.);
+// prefer resolveUsers for bulk resolution (voters, authors).
+func ResolveUserIDs(s *discordgo.Session, discordGuildID string, ids []string) guild.UserMap {
+	result := make(guild.UserMap, len(ids))
+	counter := 1
+	for _, id := range ids {
+		if m, err := s.GuildMember(discordGuildID, id); err == nil {
+			result[id] = guild.UserInfo{
+				Username:   m.User.Username,
+				GlobalName: m.User.GlobalName,
+				Nickname:   m.Nick,
+			}
+		} else {
+			slog.Warn("resolving user ID", "id", id, "err", err)
+			result[id] = guild.UserInfo{Username: fmt.Sprintf("unknown#%d", counter)}
+			counter++
+		}
+	}
+	return result
+}
+
 // resolveUsers builds a userID→UserInfo map for all voters using bulk
 // GuildMembers pages (1 API call per 1000 members) instead of per-user lookups.
 func resolveUsers(s *discordgo.Session, discordGuildID string, userThreads map[string]map[string]bool) guild.UserMap {

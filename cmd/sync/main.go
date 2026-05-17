@@ -309,6 +309,41 @@ func main() {
 		for k, v := range soloFetch.result.Users {
 			allUsers[k] = v
 		}
+
+		// Resolve scoutedByDiscordId values not already covered by voter/author resolution.
+		var scoutIDs []string
+		seen := make(map[string]bool)
+		for _, g := range updatedGuilds {
+			if id := g.ScoutedByDiscordID; id != "" && !seen[id] && allUsers[id].Username == "" {
+				scoutIDs = append(scoutIDs, id)
+				seen[id] = true
+			}
+		}
+		for _, g := range updatedSolos {
+			if id := g.ScoutedByDiscordID; id != "" && !seen[id] && allUsers[id].Username == "" {
+				scoutIDs = append(scoutIDs, id)
+				seen[id] = true
+			}
+		}
+		if len(scoutIDs) > 0 {
+			discordGuildID := ""
+			if guildForumID != "" {
+				if ch, err := bot.Session.Channel(guildForumID); err == nil {
+					discordGuildID = ch.GuildID
+				}
+			} else if soloForumID != "" {
+				if ch, err := bot.Session.Channel(soloForumID); err == nil {
+					discordGuildID = ch.GuildID
+				}
+			}
+			if discordGuildID != "" {
+				slog.Info("resolving scout user IDs", "count", len(scoutIDs))
+				for k, v := range discord.ResolveUserIDs(bot.Session, discordGuildID, scoutIDs) {
+					allUsers[k] = v
+				}
+			}
+		}
+
 		if len(allUsers) > 0 {
 			if err := guild.SaveUsers(*root, allUsers); err != nil {
 				slog.Warn("saving users", "err", err)

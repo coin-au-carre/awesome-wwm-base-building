@@ -18,6 +18,7 @@ import (
 
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
+	"ruby/internal/guild"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -183,8 +184,22 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 		return fmt.Errorf("writing article: %w", err)
 	}
 
+	// Persist author's Discord ID to users.json so the credits page can display their name.
+	userMap, _ := guild.LoadUsers(root)
+	info := guild.UserInfo{
+		Username:   allMsgs[0].Author.Username,
+		GlobalName: allMsgs[0].Author.GlobalName,
+	}
+	if mem, err := s.GuildMember(thread.GuildID, authorID); err == nil && mem.Nick != "" {
+		info.Nickname = mem.Nick
+	}
+	userMap[authorID] = info
+	if err := guild.SaveUsers(root, userMap); err != nil {
+		slog.Warn("saving users.json", "err", err)
+	}
+
 	fmt.Printf("wrote  %s\n", outPath)
-	fmt.Printf("author %s\n", authorName)
+	fmt.Printf("author %s (%s)\n", authorName, authorID)
 	fmt.Println("note   images and videos embedded via Discord CDN URL — no local files")
 	return nil
 }
