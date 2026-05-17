@@ -19,8 +19,10 @@ var (
 	reGuildNameEq     = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
 	reLore            = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*(?:what|places)\s+to\s+visit\s*\*\*|\b(?:what|places)\s+to\s+visit\b|⚠️|^###|\z)`)
 	reLoreEq          = regexp.MustCompile(`(?im)\blore\b\s*=\s*([^\n]+)`)
+	reLoreInline      = regexp.MustCompile("(?im)^[^\\S\\n]*(?:\\p{So}[^\\S\\n]*)?\\blore\\b[^\\S\\n]*[`=:]?[^\\S\\n]*(\\S[^\\n]*)")
 	reWhatToVisit     = regexp.MustCompile(`(?im)(?:^###[^\n]*(?:what|places)\s+to\s+visit|\*\*\s*(?:what|places)\s+to\s+visit\s*\*\*|\b(?:what|places)\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|⚠️|^###|\z)`)
 	reWhatToVisitEq   = regexp.MustCompile(`(?im)what\s+to\s+visit\s*=\s*([^\n]+)`)
+	reWhatToVisitInline = regexp.MustCompile("(?im)^[^\\S\\n]*(?:\\p{So}[^\\S\\n]*)?\\b(?:what|places)\\s+to\\s+visit\\b[^\\S\\n]*[`=:]?[^\\S\\n]*(\\S[^\\n]*)")
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 	reCoverStrip      = regexp.MustCompile(`(?im)[\n\r]*[ \t]*cover:[ \t]*\d+[ \t]*$`)
 	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
@@ -89,6 +91,11 @@ func ParseFirstPost(content string) ParsedPost {
 		p.Lore = CleanSection(m[1])
 	}
 	if p.Lore == "" {
+		if m := reLoreInline.FindStringSubmatch(content); len(m) > 1 {
+			p.Lore = CleanSection(m[1])
+		}
+	}
+	if p.Lore == "" {
 		if m := reLoreEq.FindStringSubmatch(content); len(m) > 1 {
 			p.Lore = CleanSection(m[1])
 		}
@@ -96,6 +103,11 @@ func ParseFirstPost(content string) ParsedPost {
 
 	if m := reWhatToVisit.FindStringSubmatch(content); len(m) > 1 {
 		p.WhatToVisit = CleanSection(m[1])
+	}
+	if p.WhatToVisit == "" {
+		if m := reWhatToVisitInline.FindStringSubmatch(content); len(m) > 1 {
+			p.WhatToVisit = CleanSection(m[1])
+		}
 	}
 	if p.WhatToVisit == "" {
 		if m := reWhatToVisitEq.FindStringSubmatch(content); len(m) > 1 {

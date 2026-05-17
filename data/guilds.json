@@ -568,24 +568,6 @@
 		"scoutedByDiscordId": "149790526076354561"
 	},
 	{
-		"id": "10189768",
-		"name": "HoNK",
-		"builders": [
-			"DrUgZBuNnY"
-		],
-		"tags": [
-			"Mountain/Cave",
-			"River/Canal",
-			"Military/Arena"
-		],
-		"discordThread": "",
-		"whatToVisit": "Cave Library\nMassive Throne Room\nColosseum\nLong river",
-		"score": 2,
-		"note": "Guild leader: Aecchi",
-		"lastModified": "April 29, 2026 at 01:56 AM UTC",
-		"scoutedByDiscordId": "149790526076354561"
-	},
-	{
 		"name": "GhostCity",
 		"builders": [
 			"frostedvibes"
