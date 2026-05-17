@@ -5,7 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0ad824&is=6a0986a4&hm=16cbf768da5b07988996493fb2fb1987f20688481da9a3cb9f83edeef6fb7733&"
+image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0b80e4&is=6a0a2f64&hm=4d8de27532ebb9250179080203aa71060dc72346f6296b38355ee2b685ff2bb9&"
 featured: false
 published: true
 ---
@@ -14,7 +14,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0ad824&is=6a0986a4&hm=16cbf768da5b07988996493fb2fb1987f20688481da9a3cb9f83edeef6fb7733&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0b80e4&is=6a0a2f64&hm=4d8de27532ebb9250179080203aa71060dc72346f6296b38355ee2b685ff2bb9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 寒 - winter / cold
 日 - day
@@ -22,7 +22,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a0ada09&is=6a098889&hm=ef895099151f0660b15e8aa8a486c53368fa22a1b1582f1b378aaeff3034badf&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a0b82c9&is=6a0a3149&hm=1a7e1fba3b1f12b08967f86153ab51d8e44a310da3ee138638351f519fa71e16&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 悬 - hang
 壶 - gourd
@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a0ad74a&is=6a0985ca&hm=f2bb0c729fb7285fe1e3d5cfc617c44524912c8ccb3d7240655f21393b5839c9&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a0b800a&is=6a0a2e8a&hm=76813b3024c2c6ee2768dca699248141d2c30dadc4c6cdcf21881bc6375376b7&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 玉門關 - Jade Gate Pass
 
