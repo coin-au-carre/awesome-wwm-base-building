@@ -20,7 +20,7 @@ featured: false
 ## The build is fine, the screenshot is just from a bad angle
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/noxlamina" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">noxlamina</a></p>
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a0a713e&is=6a091fbe&hm=4e545517d5550b43b007749a401b2358e08b31c8867b43a4258a1baead9f0551&" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a0b19fe&is=6a09c87e&hm=d9417b00d4540e155cb0e52b10c2756c0d8b64941e987ad94cfa13a964579a0d&" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a0a52ef&is=6a09016f&hm=0df2faf0549eb523dea7a7f6084b7104b3e53fba461715a4c5fe2219a2bf49db&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a0afbaf&is=6a09aa2f&hm=298cf41bb09255e85319e3139ce687b7ba4e4bbb9c8395086a2d0631cca5c024&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a0a5f65&is=6a090de5&hm=3899d7f299aadb9f3fc57924e8ae66036d42c06f26c3111d92115cee7a6e9a5a&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a0b0825&is=6a09b6a5&hm=f59a6a959e3e6f91890decb7610b421c722e7495c60d660ea25c6d221d6442e8&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a0a5f85&is=6a090e05&hm=db4b3f0ea08b70ebc2543700cdfa6c0a43765a1d8df23c36e6e60752eaf66722&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a0b0845&is=6a09b6c5&hm=cc567158fa89e49d3aff38e9e882c2c854823a92462175be1cc526923164d611&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a0a6446&is=6a0912c6&hm=b1f1dca7ccba00a1b70fcd8df081a9be0f8856bb1acd51eabc4bcbe24442f059&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a0b0d06&is=6a09bb86&hm=b745faca6418b7c1d960714e25ffcc91f339538aac16001f919643d61bebcffe&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a0a655a&is=6a0913da&hm=6aeef1b7c4791e705bbd98312565580e439d31cbbd2d1620d197896e21ce7b36&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a0b0e1a&is=6a09bc9a&hm=ba31cd8af5f53e54fdc6142167c85589ca01cb96bc30a079377f86842c5bb9c1&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a0a6572&is=6a0913f2&hm=452f5f41b67bb69c56f89c588add23fe2a6ed8091de8042863b77829d8d788b1&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a0b0e32&is=6a09bcb2&hm=1f91c81aa861f1d25607db4d4f8f909faa71d9c1d447282b877100d0367ab714&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
