@@ -292,12 +292,12 @@ function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, tog
         {!isSolos && <TableCell />}
         <TableCell onMouseEnter={enter} onMouseLeave={leave}>
           <div className="flex items-center gap-2.5 pl-4">
-            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default build"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
             <HoverCardTrigger asChild>
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5 flex-wrap">
                   <a href={url(`/${basePath}/${g.slug}`)} className="text-sm font-medium hover:underline" onClick={(e) => e.stopPropagation()}>
-                    {g.buildTitle || "Default"}
+                    {g.buildTitle || "Default build"}
                   </a>
                   {isBuilderSubmission(g) && <span title={g.postedOnBehalfOf ? `Posted on behalf of @${g.postedOnBehalfOf}` : "Submitted by the community"} className="size-1.5 rounded-full bg-sky-400/60 shrink-0" />}
                   {g.isCurrent && <span className="text-[10px] text-emerald-500/90">● current</span>}
@@ -349,9 +349,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
     return new URLSearchParams(window.location.search).get("q") ?? ""
   })
   const [page, setPage] = useState(1)
-  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(
-    () => new Set(guilds.length > 0 ? guilds.map(g => g.name) : [])
-  )
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(() => new Set())
   const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const isFirstRender = useRef(true)
   const inputRef = useRef<HTMLInputElement>(null)
