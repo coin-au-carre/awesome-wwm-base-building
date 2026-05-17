@@ -184,6 +184,20 @@ Forged not by war, but by friendship, laughter, and countless battles fought sid
 			wantVisit:    "(1) Our AMP sign!\n(2) Come to our Guild Party\n(3) Nanami's Architectural designs!\n(4) Our floating zen garden!\n(5) Our lake!\n(6) Our flower shop!",
 		},
 		{
+			name: "inline lore and what-to-visit on same line with backtick separator",
+			content: `🏯 YourGuildName HoNK
+
+👷 Builders: DrugzBunny
+
+ 📝 Lore Mountain Village Dragon Temple
+
+
+🧙 What to visit` + "`" + ` Take a nice tour trough chill lake area before that u can spar in the huge Arena inspired by Gladiator. Then u can move up towards the mountain village and enjoy the nature, small huts and alot of places to chill. Near the lake u can visit the library. And last but not least the chills of the of our HoNK Dragon temple 🙂`,
+			wantBuilders: []string{"DrugzBunny"},
+			wantLore:     "Mountain Village Dragon Temple",
+			wantVisit:    "Take a nice tour trough chill lake area before that u can spar in the huge Arena inspired by Gladiator. Then u can move up towards the mountain village and enjoy the nature, small huts and alot of places to chill. Near the lake u can visit the library. And last but not least the chills of the of our HoNK Dragon temple 🙂",
+		},
+		{
 			name: "places to visit alias",
 			content: `🏯 SNEJNAYA (10269444)
 
