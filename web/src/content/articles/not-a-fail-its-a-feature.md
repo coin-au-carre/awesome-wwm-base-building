@@ -24,7 +24,7 @@ featured: false
 
 ---
 
-## Works as intended
+## Guild base pool area
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 <img src="https://cdn.discordapp.com/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a0b308b&is=6a09df0b&hm=2b3f518dbac507e330ad143d8fd2869246b3615cf03e9d57ca90b52303fd573b&" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
