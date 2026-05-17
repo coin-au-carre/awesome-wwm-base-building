@@ -1,5 +1,17 @@
 [
 	{
+		"name": "StarRegalia",
+		"builders": [
+			"Bisskwit",
+			"Zachriel"
+		],
+		"discordThread": "",
+		"whatToVisit": "Lake area\nWedding/Guild building",
+		"score": 0,
+		"lastModified": "May 17, 2026 at 03:48 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10264607",
 		"name": "KaiJeow",
 		"builders": [
