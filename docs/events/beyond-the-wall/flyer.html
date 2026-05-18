@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px;
+  height: 670px;
+  overflow: hidden;
+  background: #09090b;
+}
+
+.flyer {
+  width: 1200px;
+  height: 670px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+/* ── Background ── */
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('houses_on_hill.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  filter: brightness(0.2) saturate(0.5);
+}
+
+.bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(9,9,11,1) 0%, rgba(9,9,11,0.97) 45%, rgba(9,9,11,0.85) 62%, rgba(9,9,11,0.4) 80%, rgba(9,9,11,0.05) 100%),
+    linear-gradient(to top,   rgba(9,9,11,1)    0%, transparent 32%);
+}
+
+/* warm glow from the reds in bg */
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 68% 38%, rgba(200,50,120,0.13) 0%, transparent 55%);
+}
+
+/* ── Carni ── */
+.carni {
+  position: absolute;
+  right: 0;
+  bottom: 162px;
+  height: 72%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(-16px 0 50px rgba(0,0,0,0.95));
+  z-index: 2;
+}
+
+/* ── Carni bottom fade — hides watermark ── */
+.carni-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 158px;
+  height: 120px;
+  background: linear-gradient(to top, rgba(9,9,11,1) 40%, transparent 100%);
+  z-index: 5;
+}
+
+/* ── Corner decorations ── */
+.corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(236,72,153,0.4);
+  border-style: solid;
+}
+.c-tl { top: 30px;     left: 30px;  border-width: 1.5px 0 0 1.5px; }
+.c-tr { top: 30px;     right: 30px; border-width: 1.5px 1.5px 0 0; }
+.c-bl { bottom: 162px; left: 30px;  border-width: 0 0 1.5px 1.5px; }
+.c-br { bottom: 162px; right: 30px; border-width: 0 1.5px 1.5px 0; }
+
+/* ── Main content ── */
+.content {
+  position: absolute;
+  left: 62px;
+  top: 50px;
+  width: 470px;
+  z-index: 10;
+}
+
+/* mirrors site's small uppercase tracking label */
+.event-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(236,72,153,0.08);
+  border: 1px solid rgba(236,72,153,0.25);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 9.5px;
+  letter-spacing: 3.5px;
+  color: rgba(236,72,153,0.8);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 60px;
+  line-height: 0.95;
+  color: #fafafa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 60px rgba(236,72,153,0.25), 0 2px 10px rgba(0,0,0,0.9);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 28px;
+  color: rgba(236,72,153,0.85);
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+}
+
+/* thin amber rule, like the site's dividers */
+.divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, rgba(236,72,153,0.7), transparent);
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 24px;
+  max-width: 400px;
+  text-shadow: 0 1px 12px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,0.9);
+}
+
+/* pill row — mirrors the hero stats from the site */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* base pill: matches  bg-white/10 backdrop-blur border-white/15 from index.astro */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 9999px;
+  padding: 5px 13px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.65);
+  white-space: nowrap;
+}
+
+.pill .icon { font-size: 13px; }
+
+/* voice channel pill — indigo, matches Discord's brand color */
+.pill-voice {
+  background: rgba(99,102,241,0.12);
+  border-color: rgba(99,102,241,0.45);
+  color: rgba(165,168,255,0.95);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 16px;
+}
+
+/* discord link pill — mirrors the amber banner ring-amber-500/35 style */
+.pill-discord {
+  background: rgba(236,72,153,0.1);
+  border-color: rgba(236,72,153,0.4);
+  color: rgba(236,72,153,0.95);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 16px;
+}
+
+/* ── QR code block — top right ── */
+.qr-block {
+  position: absolute;
+  top: 44px;
+  right: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  z-index: 20;
+}
+
+.qr-label {
+  font-family: 'Cinzel', serif;
+  font-size: 8.5px;
+  letter-spacing: 3px;
+  color: rgba(236,72,153,0.55);
+  text-transform: uppercase;
+}
+
+/* card shell: mirrors bg-card ring-1 ring-border from the site */
+.qr-card {
+  background: rgba(9,9,11,0.82);
+  border: 1px solid rgba(236,72,153,0.3);
+  border-radius: 10px;
+  padding: 9px;
+  backdrop-filter: blur(8px);
+}
+
+/* qrcodejs injects a table or canvas — make it display block */
+.qr-card > * { display: block !important; }
+.qr-card canvas, .qr-card table { image-rendering: pixelated; }
+
+.qr-url {
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(236,72,153,0.55);
+  letter-spacing: 0.2px;
+  text-align: center;
+  max-width: 130px;
+}
+
+/* ── Site watermark ── */
+.site-tag {
+  position: absolute;
+  bottom: 172px;
+  right: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(9,9,11,0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.65);
+  text-transform: lowercase;
+  z-index: 10;
+}
+
+/* ── Thumbnail strip ── */
+.thumbnails {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 158px;
+  display: flex;
+}
+
+.thumb {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55) saturate(0.7);
+}
+
+.thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9,9,11,0.88) 0%, rgba(9,9,11,0.15) 55%, transparent 100%);
+}
+
+/* thin separator above strip */
+.thumb-line {
+  position: absolute;
+  bottom: 158px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(236,72,153,0.25) 20%, rgba(236,72,153,0.25) 80%, transparent);
+}
+</style>
+</head>
+<body>
+<div class="flyer">
+
+  <div class="bg"></div>
+  <div class="bg-gradient"></div>
+  <div class="bg-glow"></div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <!-- QR code top-right, above Carni's head -->
+  <div class="qr-block">
+    <div class="qr-label">Join the community</div>
+    <div class="qr-card">
+      <div id="qr"></div>
+    </div>
+    <div class="qr-url">wherebuildersmeet.com/discord</div>
+  </div>
+
+  <img class="carni" src="carni.jpg" alt="Carni">
+  <div class="carni-fade"></div>
+
+  <div class="content">
+    <div class="event-tag">✦ WWM Event by Where Builders Meet ✦</div>
+    <div class="title">Beyond<br>the Wall</div>
+    <div class="subtitle">with Carni</div>
+<div class="divider"></div>
+    <div class="description">
+      Carni, one of the finest builders, streams CN content live on Discord! Watch her explore Chinese constructions across solo world and the islands of Family Business.
+    </div>
+
+    <div class="pills">
+      <div class="pill"><span class="icon">📅</span> Tuesday, May 19, 2026 · 15:00 UTC</div>
+      <div class="pill pill-voice"><span class="icon">🎙️</span> #General Voice</div>
+      <div class="pill"><span class="icon">👥</span> Open to everyone</div>
+      <div class="pill pill-discord"><span class="icon">🔗</span> wherebuildersmeet.com/discord</div>
+    </div>
+  </div>
+
+  <div class="site-tag">wherebuildersmeet.com</div>
+
+  <div class="thumb-line"></div>
+  <div class="thumbnails">
+    <div class="thumb"><img src="dream_house.jpg" alt=""></div>
+    <div class="thumb"><img src="coffee.jpg" alt=""></div>
+    <div class="thumb"><img src="flower_house.jpg" alt=""></div>
+    <div class="thumb"><img src="cube_tree.jpg" alt=""></div>
+  </div>
+
+</div>
+<script>
+  new QRCode(document.getElementById("qr"), {
+    text: "https://www.wherebuildersmeet.com/discord",
+    width: 116,
+    height: 116,
+    colorDark: "#ec4899",
+    colorLight: "#09090b",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+</body>
+</html>
