@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px;
+  height: 670px;
+  overflow: hidden;
+  background: #09090b;
+}
+
+.flyer {
+  width: 1200px;
+  height: 670px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+/* ── Right: guild image mosaic ── */
+.mosaic {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 640px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
+}
+
+.mosaic-cell {
+  overflow: hidden;
+  position: relative;
+}
+
+.mosaic-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9) saturate(0.85);
+}
+
+/* fade mosaic into left content */
+.mosaic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(9,9,11,1) 0%, rgba(9,9,11,0.3) 25%, transparent 55%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* top/bottom fade */
+.mosaic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(9,9,11,0.5) 0%, transparent 18%),
+    linear-gradient(to top,    rgba(9,9,11,0.5) 0%, transparent 18%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Left content panel ── */
+.panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 620px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 44px 60px 36px;
+  overflow: visible;
+}
+
+/* ── Logo + title row ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 16px rgba(236,72,153,0.3));
+}
+
+.title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.9);
+  white-space: nowrap;
+}
+
+.title-sub {
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.12), transparent);
+  margin-bottom: 16px;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  margin-top: 8px;
+  margin-bottom: 16px;
+  max-width: 460px;
+}
+
+/* ── Feature grid ── */
+.features-label {
+  font-family: 'Cinzel', serif;
+  font-size: 8.5px;
+  letter-spacing: 3.5px;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(4px);
+}
+
+.feature-icon { font-size: 18px; flex-shrink: 0; }
+
+.feature-name {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.3px;
+}
+.feature-desc {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.3;
+  margin-top: 1px;
+}
+
+/* ── Events section ── */
+.events-label {
+  font-family: 'Cinzel', serif;
+  font-size: 8.5px;
+  letter-spacing: 3.5px;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.events {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.event-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: 12px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  width: fit-content;
+}
+.event-pill.pink  { background: rgba(236,72,153,0.1);  border-color: rgba(236,72,153,0.35); color: rgba(249,168,212,0.95); }
+.event-pill.cyan  { background: rgba(6,182,212,0.08);  border-color: rgba(6,182,212,0.3);   color: rgba(103,232,249,0.9);  }
+
+.event-pill-icon { font-size: 14px; }
+.event-pill-logo { width: 16px; height: 16px; object-fit: contain; flex-shrink: 0; }
+
+/* ── Bottom row: featured post + QR ── */
+.bottom-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.featured-post {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featured-thumb {
+  width: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  flex-shrink: 0;
+  align-self: flex-start;
+  height: 80%;
+}
+
+.featured-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: brightness(0.9) saturate(0.85);
+  display: block;
+}
+
+.featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 2px;
+}
+
+.featured-channel {
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+
+.featured-reactions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
+
+.featured-reactions span {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.5px;
+}
+
+.featured-author {
+  font-style: italic;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* QR */
+.qr-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.qr-label {
+  font-family: 'Cinzel', serif;
+  font-size: 7.5px;
+  letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+.qr-card {
+  background: rgba(9,9,11,0.85);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 7px;
+}
+.qr-card > * { display: block !important; }
+.qr-url {
+  font-family: 'Cinzel', serif;
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+}
+
+/* ── Corner deco ── */
+.corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: rgba(255,255,255,0.15);
+  border-style: solid;
+  z-index: 20;
+}
+.c-tl { top: 26px;  left: 26px;  border-width: 1.5px 0 0 1.5px; }
+.c-tr { top: 26px;  right: 26px; border-width: 1.5px 1.5px 0 0; }
+.c-bl { bottom: 26px; left: 26px;  border-width: 0 0 1.5px 1.5px; }
+.c-br { bottom: 26px; right: 26px; border-width: 0 1.5px 1.5px 0; }
+</style>
+</head>
+<body>
+<div class="flyer">
+
+  <!-- Guild image mosaic (right side): BlackFurry, Clouds, SNEJNAYA, GoldenOrcas, NíneLives, SHAMELESS -->
+  <div class="mosaic">
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1494022386226298900/20264161930.png?ex=6a0bf106&is=6a0a9f86&hm=33a502baa120abc76549deb9e23612e03691b436e69f79a2b22448438e9b730a&" alt="BlackFurry"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1496620740978540635/1496620742756929656/20264187310.png?ex=6a0c2a6e&is=6a0ad8ee&hm=2c84051f0dc3eaadfe2e9e33f5f8a49198d8c652745dafd3a9754b71e6caed23&" alt="Clouds"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1504928982292893888/1504928983140139151/IMG_6857.png?ex=6a0c1195&is=6a0ac015&hm=6e5195656ef547c79c4558227986d11394165afedb7382db9b0e033eb326cb62&" alt="SNEJNAYA"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1494037400303702198/1494037400979116074/2026412571.png?ex=6a0bff02&is=6a0aad82&hm=3e58085787225056968fcc0b581aa659f896fcc4412302048caeddbdf1345720&" alt="GoldenOrcas"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1489094514327945377/1489094516270043206/202642102159.png?ex=6a0bcfd6&is=6a0a7e56&hm=508e99514e1f432d55e0faa59693045e37229153e6dd85acfc44731787c2a224&" alt="NíneLives"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1493649519651455106/1494745620467028069/image.png?ex=6a0bef96&is=6a0a9e16&hm=b9009deae2f07ddc7361e02ff43243a0c5c00c552b8bce41ade72424703ad933&" alt="SHAMELESS"></div>
+  </div>
+
+  <div class="corner c-tl"></div>
+  <div class="corner c-tr"></div>
+  <div class="corner c-bl"></div>
+  <div class="corner c-br"></div>
+
+  <!-- Left content panel -->
+  <div class="panel">
+
+    <div class="brand">
+      <img class="logo" src="../../web/public/images/logo_3.png" alt="Where Builders Meet">
+      <div class="brand-text">
+        <div class="title">Where Builders Meet</div>
+        <div class="title-sub">wherebuildersmeet.com</div>
+      </div>
+    </div>
+
+    <div class="tagline">
+      A community for builders and enthusiasts of construction.<br>
+      Explore, learn, vote, and build together.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="events-label">✦ &nbsp; Our events</div>
+    <div class="events">
+      <div class="event-pill pink"><span class="event-pill-icon">🎥</span> Beyond the Wall · CN content</div>
+      <div class="event-pill cyan"><img class="event-pill-logo" src="../../web/public/images/logo_1.png" alt=""> Guild Base Tours</div>
+    </div>
+
+    <div class="features-label">✦ &nbsp; What we offer</div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🏯</div>
+        <div class="feature-text">
+          <div class="feature-name">Guild Showcases</div>
+          <div class="feature-desc">Hundreds of awesome base guilds</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏠</div>
+        <div class="feature-text">
+          <div class="feature-name">Solo Builds</div>
+          <div class="feature-desc">Beautiful individual creations</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📖</div>
+        <div class="feature-text">
+          <div class="feature-name">Tutorials</div>
+          <div class="feature-desc">Guides from top builders</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🧱</div>
+        <div class="feature-text">
+          <div class="feature-name">Building Catalog</div>
+          <div class="feature-desc">Every construction item organized!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="featured-post">
+        <div class="featured-thumb">
+          <img src="https://cdn.discordapp.com/attachments/1483451090048520252/1496927557696749662/20264241248.png?ex=6a0bf6ad&is=6a0aa52d&hm=8ca058cb80251abc869cb5677d8106e1ae4436be51230a9c16ca5b4b634eeb3a&" alt="Featured post">
+        </div>
+        <div class="featured-info">
+          <div class="featured-channel"># whatever-showcase</div>
+          <div class="featured-reactions">😍 <span>9</span> ✨ <span>5</span> ❤️ <span>2</span></div>
+          <div class="featured-author">by Davidsu</div>
+        </div>
+      </div>
+      <div class="qr-col">
+        <div class="qr-label">Join our discord</div>
+        <div class="qr-card"><div id="qr"></div></div>
+        <div class="qr-url">wherebuildersmeet.com/discord</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  new QRCode(document.getElementById("qr"), {
+    text: "https://www.wherebuildersmeet.com/discord",
+    width: 96,
+    height: 96,
+    colorDark: "#ffffff",
+    colorLight: "#09090b",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+</script>
+</body>
+</html>
