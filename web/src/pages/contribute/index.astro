@@ -30,7 +30,7 @@ const roles = [
     id: "voter",
     href: `${base}/contribute/voter`,
     icon: "⭐",
-    label: "I explore and review builds",
+    label: "I explore, vote and review builds",
     sublabel: "Vote, leave feedback, and shape the rankings.",
     badge: "Critic & Trusted Eye",
     accent: "hover:border-violet-500/40 hover:bg-violet-500/5",
@@ -100,6 +100,28 @@ const roles = [
           <span class={`text-xs font-medium ${role.badgeColor}`}>{role.badge} →</span>
         </a>
       ))}
+    </div>
+
+    <!-- Spread the word -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div>
+          <p class="text-sm font-semibold">Spread the word</p>
+          <p class="text-xs text-muted-foreground mt-0.5">Download and share this flyer anywhere construction enthusiasts hang out.</p>
+        </div>
+        <a
+          href="/images/wherebuildersmeet.com.png"
+          download="wherebuildersmeet.png"
+          class="inline-flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-3 py-1.5 text-xs font-medium hover:bg-muted transition-colors shrink-0"
+          data-umami-event="community_flyer_download"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"/></svg>
+          Download
+        </a>
+      </div>
+      <a href="/images/wherebuildersmeet.com.png" target="_blank" rel="noopener noreferrer" class="block rounded-xl overflow-hidden border border-border hover:border-primary/40 transition-colors" data-umami-event="community_flyer_view">
+        <img src="/images/wherebuildersmeet.com.png" alt="Where Builders Meet community flyer" class="w-full block" />
+      </a>
     </div>
 
     <p class="text-sm text-muted-foreground">
