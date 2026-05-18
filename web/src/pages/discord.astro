@@ -1,0 +1,13 @@
+---
+const DISCORD_URL = "https://discord.gg/Qygt9u26Bn";
+---
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${DISCORD_URL}`} />
+    <title>Redirecting to Discord...</title>
+  </head>
+  <body>
+    <script is:inline define:vars={{ DISCORD_URL }}>window.location.replace(DISCORD_URL)</script>
+  </body>
+</html>
