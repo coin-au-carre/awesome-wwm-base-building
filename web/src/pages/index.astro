@@ -58,6 +58,9 @@ const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
 const now = Date.now()
 
+// Toggle this to restore normal sections after the event
+const SHOW_BEYOND_WALL_EVENT = true
+
 let discordMemberCount: number | null = null
 try {
   const res = await fetch("https://discord.com/api/invites/Qygt9u26Bn?with_counts=true", { signal: AbortSignal.timeout(3000) })
@@ -190,6 +193,75 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
       </div>
     </div>
 
+    <!-- Beyond the Wall event banner (temporary) — set SHOW_BEYOND_WALL_EVENT = false to restore normal sections -->
+    {SHOW_BEYOND_WALL_EVENT && (
+      <section>
+        <a
+          href="https://discord.com/events/1483447710617960508/1505853545424093265"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex rounded-2xl overflow-hidden ring-1 ring-pink-500/40 hover:ring-pink-500/70 hover:shadow-xl transition-all h-48 sm:h-56"
+          data-umami-event="beyond_wall_event_banner_click"
+        >
+          {/* background */}
+          <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/events/beyond-the-wall/houses_on_hill.jpg'); filter: brightness(0.45) saturate(0.7);" />
+          <div class="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-transparent" />
+          <div class="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+          {/* build thumbnails strip — right side */}
+          <div class="absolute right-0 top-0 bottom-0 w-2/5 hidden sm:flex">
+            <div class="flex-1 overflow-hidden"><img src="/events/beyond-the-wall/dream_house.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover opacity-70" style="mask-image: linear-gradient(to right, transparent 0%, black 40%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);" /></div>
+            <div class="flex-1 overflow-hidden"><img src="/events/beyond-the-wall/coffee.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover opacity-70" /></div>
+          </div>
+          {/* content */}
+          <div class="relative flex flex-col justify-center gap-2 px-6 py-5 max-w-lg">
+            <div class="flex items-center gap-2">
+              <span id="btw-dot" class="size-2 rounded-full bg-pink-400 animate-pulse shrink-0" />
+              <span id="btw-label" class="text-[10px] font-semibold uppercase tracking-widest text-pink-400">WWM Event · May 19 · 15:00 UTC</span>
+            </div>
+            <div>
+              <p class="text-xl sm:text-2xl font-bold text-white leading-tight drop-shadow">
+                Beyond the Wall <span class="text-pink-400">with Carni</span>
+              </p>
+              <p class="text-sm text-white/70 mt-1">
+                Carni, one of the finest builders, streams CN content live on Discord
+              </p>
+              <p class="text-xs text-white/50 mt-0.5">
+                Join <span class="text-indigo-300 font-medium">#General Voice</span> to watch · Open to everyone
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="inline-flex items-center gap-1.5 bg-pink-500/20 ring-1 ring-pink-500/50 rounded-full px-3 py-1 text-xs font-semibold text-pink-200 group-hover:bg-pink-500/35 transition-colors">
+                🎙️ Join the event ↗
+              </span>
+            </div>
+          </div>
+        </a>
+        <script is:inline>
+          (function () {
+            const startMs = 1779202800 * 1000
+            function update() {
+              const now = Date.now()
+              const diff = startMs - now
+              const label = document.getElementById("btw-label")
+              const dot = document.getElementById("btw-dot")
+              if (!label) return
+              if (diff <= 0 && diff > -7200000) {
+                label.textContent = "🟢 Live now"
+                label.classList.replace("text-pink-400", "text-green-400")
+                if (dot) { dot.classList.replace("bg-pink-400", "bg-green-400"); dot.classList.replace("animate-pulse", "animate-ping") }
+              } else if (diff > 0) {
+                const h = Math.floor(diff / 3600000)
+                const m = Math.floor((diff % 3600000) / 60000)
+                label.textContent = "WWM Event · " + (h > 24 ? `in ${Math.round(h / 24)}d` : m > 0 ? `in ${h}h${m}m` : `in ${h}h`)
+              }
+            }
+            update()
+            setInterval(update, 30000)
+          })()
+        </script>
+      </section>
+    )}
+
     <!-- Recently added -->
     {latestGuilds.length > 0 && (
       <section>
@@ -278,8 +350,9 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
       </section>
     )}
 
+
     <!-- Featured Articles + Events -->
-    {(articlesToShow.length > 0 || eventsToShow.length > 0) && (
+    {!SHOW_BEYOND_WALL_EVENT && (articlesToShow.length > 0 || eventsToShow.length > 0) && (
       <section>
         <h2 class="font-heading text-base font-medium mb-1 flex items-center gap-2">
           <svg class="size-4 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
@@ -432,7 +505,7 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
     )}
 
     <!-- Catalog discovery banner -->
-    <a
+    {!SHOW_BEYOND_WALL_EVENT && <a
       href={`${BASE}/catalog`}
       class="group relative flex items-center gap-3 rounded-xl ring-1 ring-amber-500/35 bg-linear-to-r from-amber-500/12 via-amber-500/6 to-card hover:ring-amber-500/65 hover:from-amber-500/18 hover:shadow-md transition-all px-4 py-2.5 overflow-hidden"
       data-umami-event="catalog_banner_click"
@@ -460,7 +533,7 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
         </p>
       </div>
       <svg class="size-4 shrink-0 text-amber-400/55 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-    </a>
+    </a>}
 
     <!-- Ranked table -->
     <section>
