@@ -43,5 +43,15 @@
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
+  },
+  {
+    "id": "1505853545424093265",
+    "name": "Beyond the Wall with Carni (CN content)",
+    "description": "Carni goes live! \nWatch her explore construction on CN servers across Solo World and Family Business islands.\n\nChat freely in voice or the event thread below (WIP). \nCarni replies via text. All are welcome.",
+    "scheduledStart": "2026-05-19T15:00:00Z",
+    "status": "scheduled",
+    "subscriberCount": 1,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1505853545424093265",
+    "image": "https://cdn.discordapp.com/guild-events/1505853545424093265/c458555fef065c65820698a01bc55c38.png?size=512"
   }
 ]
