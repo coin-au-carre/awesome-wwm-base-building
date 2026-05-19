@@ -98,6 +98,11 @@ tasks:
     desc: "add 👍 🔥 ❤️ ⭐ to the first post of every thread in the guild or solo forum. Use -- -solo for solo channel"
     cmd: go run ./cmd/react {{.CLI_ARGS}}
 
+  # ── numreact (add :one:…:N: to a specific message) ─────────
+  numreact:
+    desc: "add :one: through :N: reactions to a Discord message. Usage: task numreact -- <url> -n <N>"
+    cmd: go run ./cmd/numreact {{.CLI_ARGS}}
+
   # ── purge-commands (one-shot Discord command cleanup) ───────
   bot:purge-commands:
     desc: delete all registered Discord slash commands (global + guild), then restart bot to re-register
@@ -197,6 +202,10 @@ tasks:
       - echo "        -- -name name      only react to threads whose name contains this (case-insensitive)"
       - echo "        -- -solo           target the solo forum instead of guild forum"
       - echo "        -- -dry-run        fetch threads but skip adding reactions"
+      - echo ""
+      - 'echo "  task numreact            add :one: through :N: to a specific Discord message"'
+      - 'echo "        -- <url>           Discord message URL (channels/{guild}/{channel}/{message})"'
+      - echo "        -- -n N            number of reactions (1–10)"
       - echo ""
       - echo "  task announce            test-post a general-channel announcement card"
       - echo "        -- -guild name     guild/solo name to announce (substring match)"
