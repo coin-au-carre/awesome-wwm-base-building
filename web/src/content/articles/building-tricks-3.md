@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 order: 10
-image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0d2549&is=6a0bd3c9&hm=635a21ca0efd837bdca3f430cec84503620961924f668fdd9112fd16a0d47f79&"
+image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0dce09&is=6a0c7c89&hm=dd3bd7339ef52928b86e0780f764b78939a881bd76a6a2a2f6c3dcaae1f28ac4&"
 featured: true
 ---
 
@@ -34,7 +34,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here is one clean approach.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0d2549&is=6a0bd3c9&hm=635a21ca0efd837bdca3f430cec84503620961924f668fdd9112fd16a0d47f79&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0dce09&is=6a0c7c89&hm=dd3bd7339ef52928b86e0780f764b78939a881bd76a6a2a2f6c3dcaae1f28ac4&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -43,9 +43,9 @@ The Great Healer NPC sign can be hidden with the right placement. Here is one cl
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a0d0137&is=6a0bafb7&hm=2ab903828d26b10066e69128278035160b9126c4f2ffd466ef864877c1e8eeff&" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a0da9f7&is=6a0c5877&hm=d51c061c1f749e8bee3db49faa7177048caa2fa6c7d0e362b313c3b74f0109b2&" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a0d0138&is=6a0bafb8&hm=dad5f6e2e5e046a88de54cf4085946861bfb1154abb4d87c4318a32fdad93b34&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a0da9f8&is=6a0c5878&hm=81b92df49f995deef995ff0c76a80a7b04de1f532527d93c01e515166ba74de1&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
