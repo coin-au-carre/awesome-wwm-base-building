@@ -9,13 +9,14 @@ const posts = getWhateverPosts()
 const { totalImages, totalContributors } = getWhateverStats()
 const ogImage = posts.flatMap((p) => p.images).find(Boolean)
 
-// Flatten to one gallery item per image.
-const items = posts.flatMap((p) =>
-  p.images.map((img, imgIdx) => ({
+// Flatten to one gallery item per image. Cap at 2 images for posts with more than 3.
+const items = posts.flatMap((p) => {
+  const images = p.images.length > 3 ? p.images.slice(0, 2) : p.images
+  return images.map((img, imgIdx) => ({
     postId: p.id,
     img,
     imgIdx,
-    allImgs: p.images,
+    allImgs: images,
     displayName: p.displayName,
     builderPath: p.builderPath,
     reactions: p.reactions,
@@ -23,7 +24,7 @@ const items = posts.flatMap((p) =>
     messageUrl: p.messageUrl,
     postedAt: p.postedAt,
   }))
-)
+})
 ---
 
 <Layout

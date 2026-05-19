@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import BuilderLinks from "@/components/BuilderLinks.astro"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots } from "@/lib/guilds"
 import { builderSlug } from "@/lib/format"
+import { formatDateYMDHM } from "@/lib/dates"
 import { getActiveBuilderSlugs } from "@/lib/builders"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
@@ -54,17 +55,10 @@ const isEmpty = !hasSolos()
       <div class="flex items-center gap-3 flex-wrap">
         <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><img src="/images/logo_2.png" alt="" aria-hidden="true" class="size-14 object-contain" /> Solo Construction</h1>
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
-        {!isEmpty && (
-          <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: <span id="last-sync-date">{lastSync}</span>
-          </Badge>
-        )}
         {!isEmpty && lastSync && (
-          <script is:inline define:vars={{ lastSync }}>
-            const d = new Date(lastSync)
-            const pad = n => String(n).padStart(2, "0")
-            document.getElementById("last-sync-date").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
-          </script>
+          <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> {formatDateYMDHM(lastSync)}
+          </Badge>
         )}
       </div>
       <p class="text-muted-foreground text-sm">

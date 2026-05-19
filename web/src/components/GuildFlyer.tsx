@@ -305,7 +305,7 @@ function FlyerCanvas({
               {/* Solo Builds */}
               <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
                 <img src={`${siteBase}/images/logo_mountain1.png`} crossOrigin="anonymous" alt="" style={{ width: 28, height: 28, objectFit: "contain", flexShrink: 0 }} />
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.2px" }}>Solo Builds</div>
+                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.2px" }}>Solos</div>
               </div>
 
               {/* Tutorials */}
