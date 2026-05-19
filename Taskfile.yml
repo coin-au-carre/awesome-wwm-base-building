@@ -74,6 +74,10 @@ tasks:
     desc: fetch #whatever-showcase messages → data/whatever.json
     cmd: go run ./cmd/whatever-sync {{.CLI_ARGS}}
 
+  flyer:update:
+    desc: refresh Discord CDN tokens in docs/events/community-flyer.html from local data files
+    cmd: python3 docs/events/update-flyer-urls.py
+
   # ── send (one-shot message as Ruby) ────────────────────────
   send:
     desc: "send a message (or image) as Ruby. Usage: task send -- [-channel <id>] [-image path] \"text\""
@@ -208,6 +212,7 @@ tasks:
       - echo ""
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
       - 'echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"'
+      - echo "  task flyer:update        refresh Discord CDN tokens in community-flyer.html"
       - echo ""
       - echo "  task web                 start Astro dev server"
       - echo "  task web:build           build Astro for production"
