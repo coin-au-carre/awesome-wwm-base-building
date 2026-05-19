@@ -62,6 +62,10 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 		if len(images) == 0 {
 			continue
 		}
+		reactions := sumReactions(msg)
+		if reactions == 0 {
+			continue
+		}
 		name := msg.Author.GlobalName
 		if name == "" {
 			name = msg.Author.Username
@@ -71,7 +75,7 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 			AuthorName:      name,
 			AuthorID:        msg.Author.ID,
 			Images:          images,
-			Reactions:       sumReactions(msg),
+			Reactions:       reactions,
 			ReactionDetails: reactionDetails(msg),
 			MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, msg.ID),
 			PostedAt:        msg.Timestamp.Format(time.RFC3339),
