@@ -113,7 +113,7 @@ export type Tier = { label: string; dot: string; badge: string; badgeStyle?: Rec
 export const TIER_THRESHOLDS = {
   master: 0.15,
   diamond: 0.35,
-  platinum: 0.50,
+  platinum: 0.42,
                      // rest    → Gold
 
   silverMaxScore: 1, // below this score → Silver
