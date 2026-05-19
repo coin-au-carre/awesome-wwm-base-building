@@ -493,8 +493,8 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
             </div>
           </div>
 
-          {/* Hidden full-size for capture */}
-          <div style={{ position: "absolute", left: -9999, top: -9999, pointerEvents: "none" }} aria-hidden>
+          {/* Hidden full-size for capture — fixed so it's outside the dialog's layout context */}
+          <div style={{ position: "fixed", left: -9999, top: -9999, pointerEvents: "none" }} aria-hidden>
             <div ref={flyerRef}>
               <FlyerCanvas {...flyerProps} />
             </div>
