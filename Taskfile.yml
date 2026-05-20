@@ -220,6 +220,7 @@ tasks:
       - echo "        -- -min-threads 3  minimum guilds voted on before flagging (default 3)"
       - echo ""
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
+      - echo "        -- -dry-run        fetch events but skip writing JSON"
       - 'echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"'
       - echo "  task flyer:update        refresh Discord CDN tokens in community-flyer.html"
       - echo ""
