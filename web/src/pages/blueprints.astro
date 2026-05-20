@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { getBlueprintsSortedByScore, getAllBlueprintTags, hasBlueprints } from "@/lib/blueprints"
 import { getLastSyncDate } from "@/lib/guilds"
+import { formatSyncDate } from "@/lib/dates"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, ArrowsClockwiseIcon, InfoIcon } from "@phosphor-icons/react"
 
@@ -31,17 +32,10 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
           Blueprints
         </h1>
         <Badge variant="secondary">{blueprints.length} blueprint{blueprints.length !== 1 ? "s" : ""}</Badge>
-        {!isEmpty && (
-          <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> Last sync: <span id="last-sync-date">{lastSync}</span>
-          </Badge>
-        )}
         {!isEmpty && lastSync && (
-          <script is:inline define:vars={{ lastSync }}>
-            const d = new Date(lastSync)
-            const pad = n => String(n).padStart(2, "0")
-            document.getElementById("last-sync-date").textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
-          </script>
+          <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> {formatSyncDate(lastSync)}
+          </Badge>
         )}
       </div>
       <!-- <p class="text-muted-foreground text-sm">

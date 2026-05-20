@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import BuilderLinks from "@/components/BuilderLinks.astro"
 import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots } from "@/lib/guilds"
 import { builderSlug } from "@/lib/format"
-import { formatDateYMDHM } from "@/lib/dates"
+import { formatSyncDate } from "@/lib/dates"
 import { getActiveBuilderSlugs } from "@/lib/builders"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
@@ -57,7 +57,7 @@ const isEmpty = !hasSolos()
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
         {!isEmpty && lastSync && (
           <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> {formatDateYMDHM(lastSync)}
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> {formatSyncDate(lastSync)}
           </Badge>
         )}
       </div>

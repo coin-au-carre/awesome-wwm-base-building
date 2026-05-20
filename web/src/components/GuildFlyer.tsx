@@ -463,7 +463,6 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
           <circle cx="9" cy="9" r="2"/>
           <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
         </svg>
-        Flyer
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
@@ -505,6 +504,8 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
               <button
                 onClick={shuffle}
                 className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/60 transition-colors hover:bg-white/10 hover:text-white/80"
+                data-umami-event="guild_flyer_shuffle"
+                data-umami-event-guild={guild.slug}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/>
@@ -539,7 +540,7 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
                 ) : (
                   <>
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Download PNG
+                    Download
                   </>
                 )}
               </button>
