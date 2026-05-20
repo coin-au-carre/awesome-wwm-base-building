@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 order: 10
-image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0dce09&is=6a0c7c89&hm=dd3bd7339ef52928b86e0780f764b78939a881bd76a6a2a2f6c3dcaae1f28ac4&"
+image: "https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0e76c9&is=6a0d2549&hm=865e794f3f0381116600178935e85e5c8a85108cfe5d05eb8710b79e5f4da887&"
 featured: true
 ---
 
@@ -34,7 +34,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here is one clean approach.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0dce09&is=6a0c7c89&hm=dd3bd7339ef52928b86e0780f764b78939a881bd76a6a2a2f6c3dcaae1f28ac4&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a0e76c9&is=6a0d2549&hm=865e794f3f0381116600178935e85e5c8a85108cfe5d05eb8710b79e5f4da887&" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -43,9 +43,9 @@ The Great Healer NPC sign can be hidden with the right placement. Here is one cl
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a0da9f7&is=6a0c5877&hm=d51c061c1f749e8bee3db49faa7177048caa2fa6c7d0e362b313c3b74f0109b2&" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a0e52b7&is=6a0d0137&hm=1e7d9a5a96c050c41010e9cbeeb961985c4c4df02b8d3f1c321657cbc4ba38fd&" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a0da9f8&is=6a0c5878&hm=81b92df49f995deef995ff0c76a80a7b04de1f532527d93c01e515166ba74de1&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a0e52b8&is=6a0d0138&hm=2345da03a4ece767f5677adc5d06b444aa398bc60f3b3e4afc4f650d2a2f1bc9&" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -54,13 +54,13 @@ The guild party area has an open gate that leads directly into the guild wall, w
 
 By sinking the wooden bridge into the ground, you can create parallel fences and more. This greatly reduces component costs and looks fantastic.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a0de451&is=6a0c92d1&hm=f993f79329f1be49699036ec3c2868de0f863c19fa171ca6a6a6432d5b17da90&" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a0e8d11&is=6a0d3b91&hm=5d53e4817cbb1ce7a56b75df92274d3718d95733bebba9b9033fff4270209e41&" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a0de451&is=6a0c92d1&hm=40f8c6c73db769068bb1262cc1503cc674329eed4172e6a41d5ea3b26cd9b096&" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a0e8d11&is=6a0d3b91&hm=409b47231f701fb5c92928af0c67692f2c4f30eda022f098658659a86594ff44&" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a0de451&is=6a0c92d1&hm=d0f4035a7025bf51cc1d0d2219000bb9cb8a58e44748d181b5bb61be9830b597&" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a0e8d11&is=6a0d3b91&hm=7896e6c2deb309ae015ee46086a44f1d80df5672e3d8161da8c9a1e47dc75db8&" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a0de451&is=6a0c92d1&hm=f039870bfbb35451cbbe74b2b3b1d54caeaab9d4f05633a0ea8fc5a39c2d63d2&" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a0e8d11&is=6a0d3b91&hm=d85c998a354c2d840d76e0cc2a50f5e168727d3d759344b3340938c45f120182&" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -69,4 +69,4 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a0de28e&is=6a0c910e&hm=ae88efe41e66cb01022484b49ff3e4dff019b0950434edabc9bc10f28e7bd549&" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a0e8b4e&is=6a0d39ce&hm=35aaaec48c4324c443daf250e2c124430f72a80a1413892385bdecd4dd204d55&" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
