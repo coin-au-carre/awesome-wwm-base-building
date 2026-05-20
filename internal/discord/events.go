@@ -10,8 +10,10 @@ import (
 )
 
 var (
-	reLocBracket = regexp.MustCompile(`^(.*?)\s*[\[(](?:ID\s+)?(\d+)[\])]?\s*$`)
-	reLocSpaceID = regexp.MustCompile(`^(.*?)\s+(\d+)\s*$`)
+	reLocBracket     = regexp.MustCompile(`^(.*?)\s*[\[(](?:ID\s+)?(\d+)[\])]?\s*$`)
+	reLocSpaceID     = regexp.MustCompile(`^(.*?)\s+(\d+)\s*$`)
+	reDiscordMention = regexp.MustCompile(`<@(\d+)>`)
+	rePlainMention   = regexp.MustCompile(`@(\w+)`)
 )
 
 // EventStatus mirrors Discord scheduled event status values.
@@ -216,11 +218,80 @@ func discordStatus(s discordgo.GuildScheduledEventStatus) EventStatus {
 	}
 }
 
+// resolvePlainMention looks up a plain @username handle in the guild and returns
+// the member's display name (server nickname > global name > username). Returns
+// the original handle unchanged if no matching member is found.
+func resolvePlainMention(s *discordgo.Session, guildID, handle string) string {
+	members, err := s.GuildMembersSearch(guildID, handle, 5)
+	if err != nil || len(members) == 0 {
+		return handle
+	}
+	lower := strings.ToLower(handle)
+	for _, m := range members {
+		if strings.ToLower(m.User.Username) == lower ||
+			strings.ToLower(m.User.GlobalName) == lower ||
+			strings.ToLower(m.Nick) == lower {
+			if m.Nick != "" {
+				return m.Nick
+			}
+			if m.User.GlobalName != "" {
+				return m.User.GlobalName
+			}
+			return m.User.Username
+		}
+	}
+	return handle
+}
+
 // FetchEvents returns all scheduled events for the given guild.
+// <@ID> Discord mentions and plain @username handles in descriptions are
+// resolved to server nicknames where possible.
 func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 	raw, err := s.GuildScheduledEvents(guildID, true)
 	if err != nil {
 		return nil, fmt.Errorf("fetching scheduled events: %w", err)
+	}
+
+	// Collect all unique user IDs mentioned across all descriptions.
+	mentionedIDs := map[string]bool{}
+	for _, e := range raw {
+		for _, m := range reDiscordMention.FindAllStringSubmatch(e.Description, -1) {
+			mentionedIDs[m[1]] = true
+		}
+	}
+
+	// Resolve IDs to server nicknames (batch).
+	var idToName map[string]string
+	if len(mentionedIDs) > 0 {
+		ids := make([]string, 0, len(mentionedIDs))
+		for id := range mentionedIDs {
+			ids = append(ids, id)
+		}
+		resolved := ResolveUserIDs(s, guildID, ids)
+		idToName = make(map[string]string, len(resolved))
+		for id, info := range resolved {
+			idToName[id] = info.DisplayName()
+		}
+	}
+
+	resolveMentions := func(text string) string {
+		// Replace <@ID> mentions first.
+		if len(idToName) > 0 {
+			text = reDiscordMention.ReplaceAllStringFunc(text, func(match string) string {
+				id := reDiscordMention.FindStringSubmatch(match)[1]
+				if name, ok := idToName[id]; ok {
+					return "@" + name
+				}
+				return match
+			})
+		}
+		// Replace remaining plain @handle mentions that weren't already <@ID>.
+		text = rePlainMention.ReplaceAllStringFunc(text, func(match string) string {
+			handle := match[1:] // strip leading @
+			name := resolvePlainMention(s, guildID, handle)
+			return "@" + name
+		})
+		return text
 	}
 
 	events := make([]Event, 0, len(raw))
@@ -233,7 +304,7 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 			scheduledEnd = &t
 		}
 
-		parsed := parseDescription(e.Description)
+		parsed := parseDescription(resolveMentions(e.Description))
 
 		if parsed.guildName == "" && location != "" {
 			locName, locID := parseLocation(location)

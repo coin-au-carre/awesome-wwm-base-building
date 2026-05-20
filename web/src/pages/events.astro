@@ -15,11 +15,11 @@ const _allGuilds = getGuildsSortedByScore()
 const guildSlugById = new Map(_allGuilds.filter((g) => g.id).map((g) => [g.id!, g.slug]))
 const guildSlugByName = new Map(_allGuilds.map((g) => [(g.guildName ?? g.name).toLowerCase(), g.slug]))
 
-const _usersRaw: Record<string, { username: string; globalName?: string }> = JSON.parse(
+const _usersRaw: Record<string, { username: string; globalName?: string; nickname?: string }> = JSON.parse(
   readFileSync(resolve(process.cwd(), "..", "data/users.json"), "utf-8")
 )
 const discordIdToUsername = new Map(
-  Object.entries(_usersRaw).map(([id, u]) => [id, u.globalName ?? u.username])
+  Object.entries(_usersRaw).map(([id, u]) => [id, u.nickname ?? u.globalName ?? u.username])
 )
 
 function formatDescription(text: string, idToUser: Map<string, string>): string {
