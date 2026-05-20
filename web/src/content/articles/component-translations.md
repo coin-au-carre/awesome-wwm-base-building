@@ -5,7 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0ecca4&is=6a0d7b24&hm=13d819d1d632cb7492f443c75700df225e1342b2312caeae327ef743193331a7&"
+image: "https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0f7564&is=6a0e23e4&hm=169ea9a5061544b87da2a4f29ff2422474262b97aa42ec8ed72e7dcbba3efe99&"
 featured: false
 published: true
 ---
@@ -14,7 +14,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0ecca4&is=6a0d7b24&hm=13d819d1d632cb7492f443c75700df225e1342b2312caeae327ef743193331a7&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a0f7564&is=6a0e23e4&hm=169ea9a5061544b87da2a4f29ff2422474262b97aa42ec8ed72e7dcbba3efe99&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 寒 - winter / cold
 日 - day
@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a0ecbca&is=6a0d7a4a&hm=332a387c0842abdb59f38140a81cee795ab988c848a811c0aaaed98256ab2029&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a0f748a&is=6a0e230a&hm=c9cca91699a514dcaf2e2a6a6779af74533535901123c6bb16b8fa7fda89d900&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 玉門關 - Jade Gate Pass
 
