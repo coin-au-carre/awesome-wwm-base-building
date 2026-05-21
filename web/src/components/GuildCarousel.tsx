@@ -1,7 +1,6 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
 import Autoplay from "embla-carousel-autoplay"
-import { motion } from "motion/react"
 import { StackIcon } from "@phosphor-icons/react"
 import {
   Carousel,
@@ -58,9 +57,10 @@ interface Props {
   guilds: CarouselGuild[]
   basePath?: string
   showDate?: boolean
+  showRank?: boolean
 }
 
-export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }: Props) {
+export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, showRank = true }: Props) {
   const plugin = React.useRef(
     Autoplay({ delay: 3500, stopOnInteraction: true })
   )
@@ -89,12 +89,10 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }:
           const img = g.coverImage ?? shots[0]
           return (
             <CarouselItem key={g.slug} className="basis-full sm:basis-1/2 lg:basis-1/3">
-              <motion.a
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.04, duration: 0.35, ease: "easeOut" }}
+              <a
                 href={url(`/${basePath}/${g.slug}`)}
-                className="group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                className="carousel-fade-up group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                style={{ animationDelay: `${idx * 40}ms` }}
                 onClick={() => window.umami?.track("guild_click", { name: g.name, rank: g.rank, source: "carousel", type: basePath })}
               >
                 {img && (
@@ -121,7 +119,7 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }:
                       {g.buildTitle}
                     </div>
                   )}
-                  {g.rank <= 10 && (
+                  {showRank && g.rank <= 10 && (
                     <div className="text-[11px] font-bold font-mono px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/90">
                       #{g.rank}
                     </div>
@@ -150,7 +148,7 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }:
                     </div>
                   )}
                 </div>
-              </motion.a>
+              </a>
             </CarouselItem>
           )
         })}

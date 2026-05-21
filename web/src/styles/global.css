@@ -202,3 +202,12 @@
 
 ::view-transition-old(root) { animation-duration: 60ms; }
 ::view-transition-new(root) { animation-duration: 90ms; }
+
+@keyframes carouselFadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.carousel-fade-up {
+  opacity: 0;
+  animation: carouselFadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
