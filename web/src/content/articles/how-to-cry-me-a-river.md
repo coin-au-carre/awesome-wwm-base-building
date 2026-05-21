@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "solo"]
 authors: ["Crueliet", "KARIN", "Carnii"]
 date: 2026-05-06
 order: 9
-image: "/tutorials/how-to-cry-me-a-river.jpg"
+image: "/tutorials/how-to-cry-me-a-river.webp"
 featured: true
 ---
 
@@ -16,7 +16,7 @@ Place a wall, point the courtyard landscape at the wall and adjust the height, t
 
 Hiding the middle part below ground is optional, depending on how far above ground your water creation is. Doing this will leave behind the tail ends which you can incorporate into another build or hide them with something like big rocks.
 
-<img src="/tutorials/how-to-cry-me-a-river.jpg" alt="Water feature created using the courtyard landscape and wall trick" style="border-radius: 0.75rem; width: 100%;" />
+<img src="/tutorials/how-to-cry-me-a-river.webp" alt="Water feature created using the courtyard landscape and wall trick" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

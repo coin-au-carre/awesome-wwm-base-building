@@ -7,13 +7,29 @@ declare global {
   }
 }
 import * as React from "react"
-import type { RankedGuild } from "@/types/guild"
 import { getTier } from "@/lib/scoring"
 import { formatBuilderName, builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import { isBuilderSubmission } from "@/lib/config"
 import { parseLastModified, formatLastModified } from "@/lib/dates"
+
+export interface LeaderboardGuild {
+  slug: string
+  rank: number
+  name: string
+  guildName?: string
+  builders: string[]
+  tags?: string[]
+  score: number
+  lastModified?: string
+  coverImage?: string
+  screenshots?: string[]
+  buildTitle?: string
+  isCurrent?: boolean
+  posterDiscordId?: string
+  postedOnBehalfOf?: string
+}
 import {
   Table,
   TableHeader,
@@ -41,7 +57,7 @@ type SortField = "rank" | "name" | "lastUpdated"
 type SortDir = "asc" | "desc"
 
 interface Props {
-  guilds: RankedGuild[]
+  guilds: LeaderboardGuild[]
   allTags: string[]
   basePath?: string
   activeBuilderSlugs?: string[]
@@ -161,7 +177,7 @@ const PODIUM_ROW: Record<number, string> = {
 const PAGE_SIZE = 40
 
 function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, toggleTag, activeSet }: {
-  g: RankedGuild
+  g: LeaderboardGuild
   gi: number
   guildsLength: number
   basePath: string
@@ -261,7 +277,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
 }
 
 function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, toggleTag, activeSet, renderLastUpdated }: {
-  g: RankedGuild
+  g: LeaderboardGuild
   bi: number
   basePath: string
   isSolos: boolean
@@ -269,7 +285,7 @@ function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, tog
   activeTags: Set<string>
   toggleTag: (tag: string) => void
   activeSet?: Set<string>
-  renderLastUpdated: (g: RankedGuild) => React.ReactNode
+  renderLastUpdated: (g: LeaderboardGuild) => React.ReactNode
 }) {
   const [open, setOpen] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
@@ -449,12 +465,12 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
     if (isSolos) {
       return filtered.map((g) => ({ key: g.slug, builds: [g], isMulti: false }))
     }
-    const nameToBuilds = new Map<string, RankedGuild[]>()
+    const nameToBuilds = new Map<string, LeaderboardGuild[]>()
     for (const g of filtered) {
       if (!nameToBuilds.has(g.name)) { nameToBuilds.set(g.name, []) }
       nameToBuilds.get(g.name)!.push(g)
     }
-    const groups: Array<{ key: string; builds: RankedGuild[]; isMulti: boolean }> = []
+    const groups: Array<{ key: string; builds: LeaderboardGuild[]; isMulti: boolean }> = []
     for (const [key, builds] of nameToBuilds) {
       groups.push({ key, builds, isMulti: builds.length > 1 })
     }
@@ -659,7 +675,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
               const { key, builds, isMulti } = group
               const isExpanded = expandedGroups.has(key)
 
-              function renderTierBadge(g: RankedGuild) {
+              function renderTierBadge(g: LeaderboardGuild) {
                 const tier = getTier(g.rank, guilds.length, g.score)
                 return (
                   <span className={cn("inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs", tier.badge)} style={tier.badgeStyle}>
@@ -669,7 +685,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
                 )
               }
 
-              function renderLastUpdated(g: RankedGuild) {
+              function renderLastUpdated(g: LeaderboardGuild) {
                 const fmt = formatLastModified(g.lastModified)
                 return fmt ? <span title={fmt.full} className="cursor-default">{fmt.relative}</span> : <span>—</span>
               }

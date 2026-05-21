@@ -7,7 +7,7 @@ date: 2026-05-03
 order: 8
 published: true
 featured: false
-image: "/tutorials/multiple-build-for-one-guild.jpg"
+image: "/tutorials/multiple-build-for-one-guild.webp"
 ---
 
 Your guild can have multiple builds on the leaderboard. Each build has its own post with its own score, screenshots, and page. They appear grouped under your guild name.

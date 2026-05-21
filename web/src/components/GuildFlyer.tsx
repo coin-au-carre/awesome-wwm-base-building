@@ -134,7 +134,7 @@ function FlyerCanvas({
         {/* ── Top: logo + guild name + builder ── */}
         <div style={{ display: "flex", alignItems: "flex-start", gap: 18, marginBottom: 16 }}>
           <img
-            src={`${siteBase}/images/logo_3.png`}
+            src={`${siteBase}/images/logo_3.webp`}
             crossOrigin="anonymous"
             alt=""
             style={{

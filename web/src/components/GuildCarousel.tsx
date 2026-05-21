@@ -11,8 +11,20 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel"
 import { Skeleton } from "@/components/ui/skeleton"
-import type { RankedGuild } from "@/types/guild"
-import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
+import { formatBuilderName, stripGuildShowcase, thumbUrl } from "@/lib/format"
+
+export interface CarouselGuild {
+  slug: string
+  rank: number
+  name: string
+  guildName?: string
+  builders: string[]
+  tags?: string[]
+  coverImage?: string
+  screenshots?: string[]
+  buildTitle?: string
+  createdAt?: string
+}
 import { url } from "@/lib/url"
 
 const TAG_PALETTE = [
@@ -43,7 +55,7 @@ function relativeDate(createdAt: string): string {
 }
 
 interface Props {
-  guilds: RankedGuild[]
+  guilds: CarouselGuild[]
   basePath?: string
   showDate?: boolean
 }
@@ -87,7 +99,7 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false }:
               >
                 {img && (
                   <img
-                    src={img}
+                    src={thumbUrl(img, 640, 360)}
                     alt={stripGuildShowcase(g.guildName || g.name)}
                     loading={idx === 0 ? "eager" : "lazy"}
                     fetchPriority={idx === 0 ? "high" : "auto"}
