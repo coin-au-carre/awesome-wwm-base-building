@@ -61,7 +61,7 @@ function FlyerCanvas({
         height: H,
         position: "relative",
         overflow: "hidden",
-        fontFamily: "'Crimson Text', Georgia, serif",
+        fontFamily: "'Crimson Text', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif",
         background: "#09090b",
         flexShrink: 0,
       }}
@@ -138,12 +138,12 @@ function FlyerCanvas({
             crossOrigin="anonymous"
             alt=""
             style={{
-              width: 72,
-              height: 72,
+              width: 96,
+              height: 96,
               objectFit: "contain",
               flexShrink: 0,
               marginTop: 2,
-              filter: "drop-shadow(0 0 18px rgba(236,72,153,0.35))",
+              filter: "drop-shadow(0 0 22px rgba(236,72,153,0.4))",
             }}
           />
           <div>
@@ -163,7 +163,7 @@ function FlyerCanvas({
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               {buildersStr && (
-                <div style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", fontStyle: "italic" }}>
+                <div style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", fontStyle: "italic" }}>
                   by {buildersStr}
                 </div>
               )}
@@ -188,23 +188,23 @@ function FlyerCanvas({
 
         {/* Tags */}
         {tags.length > 0 && (
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 18 }}>
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  padding: "3px 10px",
-                  borderRadius: 999,
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  fontFamily: "'Cinzel', serif",
-                  fontSize: 9,
-                  letterSpacing: "2px",
-                  color: "rgba(255,255,255,0.45)",
-                  textTransform: "uppercase",
-                }}
-              >
-                {tag}
+          <div style={{ display: "flex", alignItems: "center", gap: 0, marginBottom: 16, marginTop: 4 }}>
+            {tags.map((tag, i) => (
+              <span key={tag} style={{ display: "flex", alignItems: "center" }}>
+                {i > 0 && (
+                  <span style={{ color: "rgba(255,255,255,0.18)", margin: "0 8px", fontSize: 10 }}>·</span>
+                )}
+                <span
+                  style={{
+                    fontFamily: "'Cinzel', serif",
+                    fontSize: 9,
+                    letterSpacing: "2.5px",
+                    color: "rgba(255,255,255,0.38)",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {tag}
+                </span>
               </span>
             ))}
           </div>
@@ -215,11 +215,12 @@ function FlyerCanvas({
           <div
             dangerouslySetInnerHTML={{ __html: renderLore(guild.lore) }}
             style={{
-              fontSize: 13.5,
-              lineHeight: 1.6,
-              color: "rgba(255,255,255,0.42)",
+              fontSize: 15,
+              lineHeight: 1.65,
+              color: "rgba(255,255,255,0.5)",
               fontStyle: "italic",
-              maxWidth: 460,
+              fontFamily: "'Crimson Text', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif",
+              maxWidth: 480,
               display: "-webkit-box",
               WebkitLineClamp: hasBoth ? 4 : 6,
               WebkitBoxOrient: "vertical",
@@ -232,32 +233,35 @@ function FlyerCanvas({
 
         {/* What to Visit */}
         {guild.whatToVisit && (
-          <div style={{ marginBottom: 16 }}>
-            <div
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: 9,
-                letterSpacing: "3px",
-                color: "rgba(255,255,255,0.28)",
-                textTransform: "uppercase",
-                marginBottom: 5,
-              }}
-            >
-              ✦ &nbsp; What to visit
+          <div style={{ marginBottom: 16, display: "flex", gap: 12 }}>
+            <div style={{ width: 2, borderRadius: 2, background: "rgba(236,72,153,0.25)", flexShrink: 0, alignSelf: "stretch" }} />
+            <div>
+              <div
+                style={{
+                  fontFamily: "'Cinzel', serif",
+                  fontSize: 9,
+                  letterSpacing: "3px",
+                  color: "rgba(255,255,255,0.32)",
+                  textTransform: "uppercase",
+                  marginBottom: 6,
+                }}
+              >
+                What to visit
+              </div>
+              <div
+                dangerouslySetInnerHTML={{ __html: renderLore(guild.whatToVisit) }}
+                style={{
+                  fontSize: 14,
+                  lineHeight: 1.65,
+                  color: "rgba(255,255,255,0.45)",
+                  maxWidth: 480,
+                  display: "-webkit-box",
+                  WebkitLineClamp: hasBoth ? 10 : 14,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                }}
+              />
             </div>
-            <div
-              dangerouslySetInnerHTML={{ __html: renderLore(guild.whatToVisit) }}
-              style={{
-                fontSize: 13,
-                lineHeight: 1.6,
-                color: "rgba(255,255,255,0.4)",
-                maxWidth: 460,
-                display: "-webkit-box",
-                WebkitLineClamp: hasBoth ? 10 : 14,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-              }}
-            />
           </div>
         )}
 
@@ -269,8 +273,8 @@ function FlyerCanvas({
             style={{
               fontFamily: "'Cinzel', serif",
               fontSize: 10,
-              letterSpacing: "3px",
-              color: "rgba(255,255,255,0.25)",
+              letterSpacing: "1px",
+              color: "rgba(255,255,255,0.5)",
               textTransform: "lowercase",
               whiteSpace: "nowrap",
             }}
@@ -299,6 +303,27 @@ function FlyerCanvas({
           }}
         />
       ))}
+
+      {/* Branding — vertical right edge */}
+      <div
+        style={{
+          position: "absolute",
+          right: 3,
+          top: "50%",
+          transform: "translateY(-50%)",
+          writingMode: "vertical-rl",
+          zIndex: 21,
+          fontFamily: "'Cinzel', serif",
+          fontSize: 8,
+          letterSpacing: "3px",
+          color: "rgba(255,255,255,0.28)",
+          textTransform: "lowercase",
+          whiteSpace: "nowrap",
+          userSelect: "none",
+        }}
+      >
+        wherebuildersmeet.com
+      </div>
     </div>
   )
 }
