@@ -99,7 +99,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 34px 60px 36px;
+  padding: 20px 60px 36px;
   overflow: visible;
 }
 
@@ -108,12 +108,12 @@ body {
   display: flex;
   align-items: center;
   gap: 18px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
 }
 
 .logo {
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   flex-shrink: 0;
   filter: drop-shadow(0 0 16px rgba(236,72,153,0.3));
@@ -150,10 +150,10 @@ body {
 
 .tagline {
   font-style: italic;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   color: rgba(255,255,255,0.6);
-  margin-top: 8px;
+  margin-top: 2px;
   margin-bottom: 16px;
   max-width: 460px;
 }
@@ -268,7 +268,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center top;
+  transform: scale(1.25);
+  transform-origin: center top;
   filter: brightness(0.9) saturate(0.85);
   display: block;
 }
@@ -359,12 +361,12 @@ body {
 
   <!-- Guild image mosaic (right side): BlackFurry, Clouds, SNEJNAYA, GoldenOrcas, NíneLives, SHAMELESS -->
   <div class="mosaic">
-    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1494022386226298900/20264161930.png?ex=6a0c99c6&is=6a0b4846&hm=886af98dd42735172251fa11aeabc8f795461b51c5fead898511cd9650536768&" alt="BlackFurry"></div>
-    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1496620740978540635/1496620742756929656/20264187310.png?ex=6a0cd32e&is=6a0b81ae&hm=69f65deb6f37f8a0dd6c8954483b78ca1327c5986d0466d83c06e2d95e0887f7&" alt="Clouds"></div>
-    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1504928982292893888/1504928983140139151/IMG_6857.png?ex=6a0cba55&is=6a0b68d5&hm=e8663132a0a553af552f988ed39fd4f191750e871f293923c9bd95be8151da0a&" alt="SNEJNAYA"></div>
-    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1493649519651455106/1494745620467028069/image.png?ex=6a0c9856&is=6a0b46d6&hm=afab6a3cded02bf6f07a0966299efc602f3b4893427b564fef7a9e4bf9a814b0&" alt="SHAMELESS"></div>
-    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1489094514327945377/1489094516270043206/202642102159.png?ex=6a0d2156&is=6a0bcfd6&hm=7ea7bb7bb2c0674cdb5b5074877e7ba201fe1670220f9eb2dcc8f7c9cd1341df&" alt="NíneLives"></div>
-    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1494037400303702198/1494037400979116074/2026412571.png?ex=6a0ca7c2&is=6a0b5642&hm=252e38ef9d9c5c55029dcf25c134dc4309d39b70c53f86fe5e2d3e70d12027b8&" alt="GoldenOrcas"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1486717348718313553/1494022386226298900/20264161930.png?ex=6a0fe586&is=6a0e9406&hm=c6a2961ca72487bf6e70a087b989f128f6e383e620d5803cc585a95acaad2011&" alt="BlackFurry"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1496620740978540635/1496620742756929656/20264187310.png?ex=6a0f762e&is=6a0e24ae&hm=c513f2aba202839b952727d2c8e52603b96bdb72c09e911c8b4c8f910b5e51c3&" alt="Clouds"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1504928982292893888/1504928983140139151/IMG_6857.png?ex=6a0f5d55&is=6a0e0bd5&hm=925005c03c03ec9575b67d666ef71ecabca54014b614cc5e794c68e0f55b3afb&" alt="SNEJNAYA"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1493649519651455106/1494745620467028069/image.png?ex=6a0fe416&is=6a0e9296&hm=c10666d2557e9704e47fd140ffc8ce993ae633ba6b8e38463622c42bb0548583&" alt="SHAMELESS"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1489094514327945377/1489094516270043206/202642102159.png?ex=6a0fc456&is=6a0e72d6&hm=013230cb878450b03a81e248683f588bf2d7bff0d1ef6fa413c0af6d95b5eefa&" alt="NíneLives"></div>
+    <div class="mosaic-cell"><img src="https://cdn.discordapp.com/attachments/1494037400303702198/1494037400979116074/2026412571.png?ex=6a0f4ac2&is=6a0df942&hm=6ea552dc698b4799531dea95784b252934905d29c4558937d1d80258931b9269&" alt="GoldenOrcas"></div>
   </div>
 
   <div class="corner c-tl"></div>
@@ -437,12 +439,12 @@ body {
     <div class="bottom-row">
       <div class="featured-post">
         <div class="featured-thumb">
-          <!-- In whatever.json 2nd image of  "id": "1496927558078300381" -->
-          <img src="https://cdn.discordapp.com/attachments/1483451090048520252/1496927557696749662/20264241248.png?ex=6a0c9f6d&is=6a0b4ded&hm=924fe5cc077d38ab72cc8e2bacb7a878a2954424ec0180ed73af44d60c6d7dd5&" alt="Featured post">
+          <!-- In whatever.json 1st image of "id": "1506676444430995558" -->
+          <img src="https://cdn.discordapp.com/attachments/1483451090048520252/1506676446200860873/3.png?ex=6a0fca09&is=6a0e7889&hm=d9985c72164c4fdb3731fe0b7b225a80afa2d6aaaf877a7f4cb37f0f0c6e5f69&" alt="Featured post">
         </div>
         <div class="featured-info">
           <div class="featured-channel">#whatever-showcase</div>
-          <div class="featured-reactions">😍 <span>9</span> ✨ <span>5</span> ❤️ <span>2</span></div>
+          <div class="featured-reactions">👍 <span>6</span> ❤️ <span>7</span> ✨ <span>7</span> 💯 <span>3</span></div>
           <div class="featured-author">by Davidsu</div>
         </div>
       </div>
