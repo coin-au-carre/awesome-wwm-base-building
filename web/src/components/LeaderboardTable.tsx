@@ -187,11 +187,13 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   activeSet?: Set<string>
 }) {
   const [open, setOpen] = useState(false)
+  const [expanded, setExpanded] = useState(false)
   const timer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const img = g.coverImage ?? g.screenshots?.[0]
   const podium = PODIUM_ROW[g.rank]
   const tier = getTier(g.rank, guildsLength, g.score)
   const fmt = formatLastModified(g.lastModified)
+  const transitionName = `${basePath.replace(/s$/, "")}-${g.slug}`
 
   const enter = () => {
     clearTimeout(timer.current)
@@ -202,15 +204,22 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
     timer.current = setTimeout(() => setOpen(false), 100)
   }
 
+  const handleRowClick = () => {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      setExpanded((e) => !e)
+      if (!expanded) window.umami?.track("guild_expand", { name: g.guildName || g.name, rank: g.rank, type: basePath })
+    } else {
+      window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
+      navigate(url(`/${basePath}/${g.slug}`))
+    }
+  }
+
   return (
     <HoverCard open={open} onOpenChange={() => {}} openDelay={0} closeDelay={0}>
       <TableRow
         key={g.slug}
         onMouseLeave={leave}
-        onClick={() => {
-          ;window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
-          navigate(url(`/${basePath}/${g.slug}`))
-        }}
+        onClick={handleRowClick}
         className={cn("cursor-pointer transition-colors", podium ?? (gi % 2 !== 0 ? "bg-muted/10 hover:bg-muted/20" : "hover:bg-muted/10"))}
       >
         {!isSolos && (
@@ -230,7 +239,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
                 className="w-8 h-8 rounded-md object-cover shrink-0"
                 loading="lazy"
                 onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
-                style={{ viewTransitionName: `${basePath.replace(/s$/, "")}-${g.slug}` }}
+                style={{ viewTransitionName: expanded ? undefined : transitionName }}
               />
             )}
             <HoverCardTrigger asChild>
@@ -263,6 +272,43 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
           {fmt ? <span title={fmt.full} className="cursor-default">{fmt.relative}</span> : <span>—</span>}
         </TableCell>
       </TableRow>
+      {expanded && (
+        <TableRow className="sm:hidden hover:bg-transparent">
+          <TableCell colSpan={99} className="p-0 pb-2">
+            <a
+              href={url(`/${basePath}/${g.slug}`)}
+              className="block mx-2 rounded-xl overflow-hidden ring-1 ring-border"
+              onClick={() => window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table_mobile", type: basePath })}
+            >
+              {img && (
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={thumbUrl(img, 400, 225)}
+                    alt={stripGuildShowcase(g.guildName || g.name)}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                    style={{ viewTransitionName: transitionName }}
+                  />
+                </div>
+              )}
+              <div className="px-3 py-2.5 flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="font-medium text-sm leading-tight truncate">{stripGuildShowcase(g.guildName || g.name)}</p>
+                  {g.builders && g.builders.length > 0 && (
+                    <p className="text-xs text-muted-foreground mt-0.5 truncate">by {g.builders.map(formatBuilderName).filter(Boolean).join(", ")}</p>
+                  )}
+                  {g.tags && g.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-1.5">
+                      {g.tags.slice(0, 4).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={(e) => { e.preventDefault(); toggleTag(tag) }} />)}
+                    </div>
+                  )}
+                </div>
+                <ChevronRight className="size-4 text-muted-foreground shrink-0" />
+              </div>
+            </a>
+          </TableCell>
+        </TableRow>
+      )}
       <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
         {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
         <div className="p-3">
