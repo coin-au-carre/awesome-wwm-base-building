@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "roof"]
 authors: ["SiMing司命"]
 date: 2026-04-24
 order: 6
-image: "https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a0f8386&is=6a0e3206&hm=9753e88ce20712d18139627d32feff3c1226cd8698bae006f0ca8283346c85bd&"
+image: "https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a102c46&is=6a0edac6&hm=13159bfcac7b2b9677a927f436dbb5c39bd8399a4fae45e812634228da0e7202&"
 featured: false
 ---
 
@@ -73,7 +73,7 @@ If done correctly, you can create a circular roof that won't be quite as compone
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a0f8386&is=6a0e3206&hm=9753e88ce20712d18139627d32feff3c1226cd8698bae006f0ca8283346c85bd&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a102c46&is=6a0edac6&hm=13159bfcac7b2b9677a927f436dbb5c39bd8399a4fae45e812634228da0e7202&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 (See arena in distance.)
 
