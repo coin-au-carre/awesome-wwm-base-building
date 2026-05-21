@@ -153,8 +153,8 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, s
           )
         })}
       </CarouselContent>
-      <CarouselPrevious className="-left-4 sm:-left-5" />
-      <CarouselNext className="-right-4 sm:-right-5" />
+      <CarouselPrevious className="size-12 -left-5 sm:-left-6" />
+      <CarouselNext className="size-12 -right-5 sm:-right-6" />
     </Carousel>
   )
 }
