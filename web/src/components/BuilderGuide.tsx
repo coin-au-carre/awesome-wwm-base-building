@@ -181,13 +181,13 @@ const tips: Tip[] = [
     icon: Layers,
     color: "text-blue-400",
     title: "Multiple guilds, one builder?",
-    body: "You can submit in as many threads as you want. One build = one thread.",
+    body: "You can submit in as many posts as you want. One build = one post.",
   },
   {
     icon: Layers,
     color: "text-blue-400",
     title: "One guild, multiple builds?",
-    body: <>Name your threads <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">GuildName - Build Title</code> and they'll be grouped automatically on the leaderboard. <a href={url("/tutorials/multiple-builds-per-guild")} className="underline underline-offset-2 hover:text-foreground transition-colors">Full guide ↗</a></>,
+    body: <>Name your posts <code className="rounded bg-muted px-1 py-0.5 font-mono text-xs">GuildName - Build Title</code> and they'll be grouped automatically on the leaderboard. <a href={url("/tutorials/multiple-builds-per-guild")} className="underline underline-offset-2 hover:text-foreground transition-colors">Full guide ↗</a></>,
   },
 ]
 
@@ -195,7 +195,7 @@ export default function BuilderGuide() {
   const [mode, setMode] = useState<Mode>(() => {
     if (typeof window !== "undefined") {
       const m = new URLSearchParams(window.location.search).get("mode")
-      if (m === "solo" || m === "blueprint") return m
+      if (m === "solo" || m === "blueprint") { return m }
     }
     return "guild"
   })
