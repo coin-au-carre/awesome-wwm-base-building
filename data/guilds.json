@@ -1,5 +1,19 @@
 [
 	{
+		"name": "TheMaidsCoffee",
+		"builders": [
+			"Haggato-Le-Chat"
+		],
+		"tags": [
+			"Maze/Parkour"
+		],
+		"discordThread": "",
+		"whatToVisit": "Maze\nBamboo path with lanterns",
+		"score": 0,
+		"lastModified": "May 21, 2026 at 09:01 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "DEITYz",
 		"builders": [
 			"AurumDRACONIS"
