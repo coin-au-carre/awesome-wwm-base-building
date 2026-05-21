@@ -1,5 +1,20 @@
 [
 	{
+		"name": "VeiledMoon",
+		"builders": [
+			"Lin 琳",
+			"Haochen 浩辰"
+		],
+		"tags": [
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "The Hole.\nThe paths.",
+		"score": 1,
+		"lastModified": "May 21, 2026 at 09:42 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "YakuzaPT",
 		"builders": [
 			"Trapko"
