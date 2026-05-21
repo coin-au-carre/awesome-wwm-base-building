@@ -18,6 +18,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@phosphor-icons/react": "^2.1.10",
+    "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.4",
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19.2.14",
