@@ -258,109 +258,113 @@ function isTiktokURL(rawURL: string): boolean {
 </div>
 
 <script>
-  const triggers = document.querySelectorAll<HTMLButtonElement>(".lightbox-trigger")
-  const lightbox = document.getElementById("lightbox")!
-  const img = document.getElementById("lightbox-img") as HTMLImageElement
-  const spinner = document.getElementById("lightbox-spinner")!
-  const btnClose = document.getElementById("lightbox-close")!
-  const btnPrev = document.getElementById("lightbox-prev") as HTMLButtonElement
-  const btnNext = document.getElementById("lightbox-next") as HTMLButtonElement
-  const counter = document.getElementById("lightbox-counter")!
+  document.addEventListener("astro:page-load", () => {
+    const triggers = document.querySelectorAll<HTMLButtonElement>(".lightbox-trigger")
+    const lightbox = document.getElementById("lightbox")
+    const img = document.getElementById("lightbox-img") as HTMLImageElement | null
+    const spinner = document.getElementById("lightbox-spinner")
+    const btnClose = document.getElementById("lightbox-close")
+    const btnPrev = document.getElementById("lightbox-prev") as HTMLButtonElement | null
+    const btnNext = document.getElementById("lightbox-next") as HTMLButtonElement | null
+    const counter = document.getElementById("lightbox-counter")
 
-  const srcs = Array.from(triggers).map((t) => t.dataset.src ?? "")
-  const thumbs = Array.from(triggers).map((t) => t.dataset.thumb ?? t.dataset.src ?? "")
-  let current = 0
-  const preloaded = new Set<string>()
+    if (!lightbox || !img || !spinner || !btnClose || !btnPrev || !btnNext || !counter) return
 
-  function preload(index: number) {
-    const src = srcs[index]
-    if (!src || preloaded.has(src)) return
-    preloaded.add(src)
-    const p = new Image()
-    p.src = src
-  }
+    const srcs = Array.from(triggers).map((t) => t.dataset.src ?? "")
+    const thumbs = Array.from(triggers).map((t) => t.dataset.thumb ?? t.dataset.src ?? "")
+    let current = 0
+    const preloaded = new Set<string>()
 
-  function show(index: number) {
-    const navigating = current !== index && lightbox.classList.contains("flex")
-    current = index
-    const src = srcs[current]
-    const thumb = thumbs[current]
-    counter.textContent = `${current + 1} / ${srcs.length}`
-    btnPrev.disabled = current === 0
-    btnNext.disabled = current === srcs.length - 1
-
-    // Show thumbnail immediately — already in browser cache from the grid
-    if (thumb && thumb !== img.src) {
-      img.style.opacity = navigating ? "0" : "1"
-      img.src = thumb
-      img.alt = `Screenshot ${current + 1}`
-      spinner.style.display = "none"
-      // Small fade-in when navigating between images
-      if (navigating) requestAnimationFrame(() => { img.style.opacity = "1" })
-    } else {
-      img.style.opacity = "0"
-      spinner.style.display = "flex"
-    }
-
-    // Load full-res in the background, swap silently when ready
-    if (src !== thumb) {
-      const captured = index
-      const full = new Image()
-      full.onload = () => {
-        if (current !== captured) return
-        img.src = src
-        spinner.style.display = "none"
-      }
-      full.onerror = () => { spinner.style.display = "none" }
-      full.src = src
+    function preload(index: number) {
+      const src = srcs[index]
+      if (!src || preloaded.has(src)) return
       preloaded.add(src)
+      const p = new Image()
+      p.src = src
     }
 
-    // Preload adjacent images in both directions
-    preload(current + 1)
-    preload(current - 1)
+    function show(index: number) {
+      const navigating = current !== index && lightbox!.classList.contains("flex")
+      current = index
+      const src = srcs[current]
+      const thumb = thumbs[current]
+      counter!.textContent = `${current + 1} / ${srcs.length}`
+      btnPrev!.disabled = current === 0
+      btnNext!.disabled = current === srcs.length - 1
 
-    lightbox.classList.remove("hidden")
-    lightbox.classList.add("flex")
-    document.body.style.overflow = "hidden"
-  }
+      // Show thumbnail immediately — already in browser cache from the grid
+      if (thumb && thumb !== img!.src) {
+        img!.style.opacity = navigating ? "0" : "1"
+        img!.src = thumb
+        img!.alt = `Screenshot ${current + 1}`
+        spinner!.style.display = "none"
+        // Small fade-in when navigating between images
+        if (navigating) requestAnimationFrame(() => { img!.style.opacity = "1" })
+      } else {
+        img!.style.opacity = "0"
+        spinner!.style.display = "flex"
+      }
 
-  function close() {
-    lightbox.classList.add("hidden")
-    lightbox.classList.remove("flex")
-    document.body.style.overflow = ""
-  }
+      // Load full-res in the background, swap silently when ready
+      if (src !== thumb) {
+        const captured = index
+        const full = new Image()
+        full.onload = () => {
+          if (current !== captured) return
+          img!.src = src
+          spinner!.style.display = "none"
+        }
+        full.onerror = () => { spinner!.style.display = "none" }
+        full.src = src
+        preloaded.add(src)
+      }
 
-  triggers.forEach((t) => {
-    t.addEventListener("click", () => {
-      const index = Number(t.dataset.index ?? 0)
-      ;(window as any).umami?.track("lightbox_open", { index })
-      show(index)
+      // Preload adjacent images in both directions
+      preload(current + 1)
+      preload(current - 1)
+
+      lightbox!.classList.remove("hidden")
+      lightbox!.classList.add("flex")
+      document.body.style.overflow = "hidden"
+    }
+
+    function close() {
+      lightbox!.classList.add("hidden")
+      lightbox!.classList.remove("flex")
+      document.body.style.overflow = ""
+    }
+
+    triggers.forEach((t) => {
+      t.addEventListener("click", () => {
+        const index = Number(t.dataset.index ?? 0)
+        ;(window as any).umami?.track("lightbox_open", { index })
+        show(index)
+      })
     })
+
+    btnClose.addEventListener("click", close)
+    btnPrev.addEventListener("click", () => current > 0 && show(current - 1))
+    btnNext.addEventListener("click", () => current < srcs.length - 1 && show(current + 1))
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) close()
+    })
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox!.classList.contains("hidden")) return
+      if (e.key === "Escape") close()
+      if (e.key === "ArrowLeft" && current > 0) show(current - 1)
+      if (e.key === "ArrowRight" && current < srcs.length - 1) show(current + 1)
+    })
+
+    // Swipe navigation
+    let touchStartX = 0
+    lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
+    lightbox.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX
+      if (Math.abs(dx) < 40) return
+      if (dx < 0 && current < srcs.length - 1) show(current + 1)
+      if (dx > 0 && current > 0) show(current - 1)
+    }, { passive: true })
   })
-
-  btnClose.addEventListener("click", close)
-  btnPrev.addEventListener("click", () => current > 0 && show(current - 1))
-  btnNext.addEventListener("click", () => current < srcs.length - 1 && show(current + 1))
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) close()
-  })
-
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.classList.contains("hidden")) return
-    if (e.key === "Escape") close()
-    if (e.key === "ArrowLeft" && current > 0) show(current - 1)
-    if (e.key === "ArrowRight" && current < srcs.length - 1) show(current + 1)
-  })
-
-  // Swipe navigation
-  let touchStartX = 0
-  lightbox.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX }, { passive: true })
-  lightbox.addEventListener("touchend", (e) => {
-    const dx = e.changedTouches[0].clientX - touchStartX
-    if (Math.abs(dx) < 40) return
-    if (dx < 0 && current < srcs.length - 1) show(current + 1)
-    if (dx > 0 && current > 0) show(current - 1)
-  }, { passive: true })
 </script>
