@@ -2,6 +2,10 @@ export function thumbUrl(src: string, width = 640, height = 360): string {
   try {
     const u = new URL(src)
     if (u.hostname === "cdn.discordapp.com" || u.hostname === "media.discordapp.net") {
+      // media.discordapp.net is Discord's media proxy — it actually resizes and converts.
+      // cdn.discordapp.com is a dumb file server that ignores width/height params.
+      u.hostname = "media.discordapp.net"
+      u.searchParams.set("format", "webp")
       u.searchParams.set("width", String(width))
       u.searchParams.set("height", String(height))
       return u.toString()
