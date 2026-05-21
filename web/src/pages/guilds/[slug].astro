@@ -298,10 +298,10 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
     )}
 
     <!-- Stats strip -->
-    <div class="flex flex-wrap gap-3">
-      <div class="rounded-xl border border-border bg-card px-4 py-2 min-w-35 flex-1">
-        <div class="text-xs text-muted-foreground mb-1">Builders</div>
-        <div class="text-sm font-medium">
+    <div class="flex items-center gap-2 sm:flex-wrap sm:gap-3">
+      <div class="rounded-xl border border-border bg-card px-3 py-1.5 sm:px-4 sm:py-2 sm:flex-1 flex items-center sm:block min-w-0">
+        <div class="hidden sm:block text-xs text-muted-foreground mb-1">Builders</div>
+        <div class="text-sm font-medium truncate">
           {g.builders?.map(formatBuilderName).filter(Boolean).length
             ? g.builders.map(formatBuilderName).filter(Boolean).map((name: string, i: number, arr: string[]) => (
                 <Fragment>
@@ -311,24 +311,24 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
             : "—"}
         </div>
       </div>
-      <div class="rounded-xl border border-border bg-card px-4 py-2">
-        <div class="flex gap-5">
+      <div class="sm:rounded-xl sm:border sm:border-border sm:bg-card sm:px-4 sm:py-2 flex items-center sm:block shrink-0">
+        <div class="flex gap-5 items-center sm:items-start">
           <div>
-            <div class="text-xs text-muted-foreground mb-1">Tier</div>
+            <div class="hidden sm:block text-xs text-muted-foreground mb-1">Tier</div>
             <span class={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs ${tier.badge}`} style={tier.badgeStyle}>
               <span class={`size-1.5 rounded-full shrink-0 ${tier.dot}`} />
               {tier.label}
             </span>
           </div>
-          <div class="border-l border-border pl-5">
+          <div class="hidden sm:block border-l border-border pl-5">
             <div class="text-xs text-muted-foreground mb-1">Score</div>
             <div class="text-sm font-mono tabular-nums text-muted-foreground">{g.score}</div>
           </div>
         </div>
       </div>
       {g.id && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2">
-          <div class="text-xs text-muted-foreground mb-1">Guild ID</div>
+        <div class="sm:rounded-xl sm:border sm:border-border sm:bg-card sm:px-4 sm:py-2 flex items-center sm:block shrink-0">
+          <div class="hidden sm:block text-xs text-muted-foreground mb-1">Guild ID</div>
           <div
             class="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1 text-sm text-muted-foreground font-mono ring-1 ring-inset ring-border/60 cursor-pointer select-none"
             style="transition: color 0.4s ease, border-color 0.4s ease, background-color 0.4s ease"
@@ -341,8 +341,8 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
         </div>
       )}
       {g.hostedAtGuildName && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2">
-          <div class="text-xs text-muted-foreground mb-1">Hosted at</div>
+        <div class="hidden sm:flex rounded-xl border border-border bg-card px-4 py-2 items-center">
+          <div class="hidden sm:block text-xs text-muted-foreground mb-1">Hosted at</div>
           <div class="text-sm font-medium">
             {g.hostedAtGuildName}
             {g.hostedAtGuildId && <span class="ml-1 text-xs text-muted-foreground font-mono">[{g.hostedAtGuildId}]</span>}
@@ -350,19 +350,19 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
         </div>
       )}
       {g.createdAt && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2">
+        <div class="hidden sm:block rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Created</div>
           <div class="text-sm text-muted-foreground">{formatDateYMD(g.createdAt)}</div>
         </div>
       )}
       {g.lastModified && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2">
+        <div class="hidden sm:block rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Updated</div>
           <div class="text-sm text-muted-foreground">{formatDateYMDHM(g.lastModified)}</div>
         </div>
       )}
       {g.discordThread && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2 flex flex-row items-center gap-2">
+        <div class="hidden sm:flex rounded-xl border border-border bg-card px-4 py-2 flex-row items-center gap-2">
           <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })} data-umami-event="discord_cta_click">
             Join server ↗
           </a>
