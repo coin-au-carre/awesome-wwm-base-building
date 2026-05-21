@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect, useCallback, useMemo } from "react"
 import { toPng } from "html-to-image"
-import QRCodeLib from "qrcode"
 import {
   Dialog,
   DialogContent,
@@ -40,8 +39,6 @@ function renderLore(text: string): string {
     .replace(/\n/g, "<br>")
 }
 
-// Orange filter matching the community flyer catalog/tutorial icons
-const ORANGE_FILTER = "brightness(0) saturate(100%) invert(60%) sepia(80%) saturate(600%) hue-rotate(340deg) drop-shadow(0 0 6px rgba(255,120,20,0.5))"
 
 function FlyerCanvas({
   guild,
@@ -49,9 +46,8 @@ function FlyerCanvas({
   displayName,
   buildersStr,
   siteBase,
-  qrDataUrl,
   images,
-}: Props & { qrDataUrl: string; images: string[] }) {
+}: Props & { images: string[] }) {
   const gridCols = images.length <= 2 ? (images.length || 1) : 3
   const gridRows = images.length <= 3 ? 1 : 2
   const tags = (guild.tags ?? []).slice(0, 4)
@@ -77,7 +73,7 @@ function FlyerCanvas({
           right: 0,
           top: 0,
           bottom: 0,
-          width: 640,
+          width: 720,
           display: "grid",
           gridTemplateColumns: `repeat(${gridCols}, 1fr)`,
           gridTemplateRows: `repeat(${gridRows}, 1fr)`,
@@ -104,8 +100,8 @@ function FlyerCanvas({
         style={{
           position: "absolute",
           right: 0, top: 0, bottom: 0,
-          width: 640,
-          background: "linear-gradient(to right, rgba(9,9,11,1) 0%, rgba(9,9,11,0.2) 20%, transparent 40%)",
+          width: 720,
+          background: "linear-gradient(to right, rgba(9,9,11,1) 0%, rgba(9,9,11,0.2) 22%, transparent 44%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -115,7 +111,7 @@ function FlyerCanvas({
         style={{
           position: "absolute",
           right: 0, top: 0, bottom: 0,
-          width: 640,
+          width: 720,
           background: "linear-gradient(to bottom, rgba(9,9,11,0.5) 0%, transparent 18%), linear-gradient(to top, rgba(9,9,11,0.5) 0%, transparent 18%)",
           zIndex: 2,
           pointerEvents: "none",
@@ -127,7 +123,7 @@ function FlyerCanvas({
         style={{
           position: "absolute",
           left: 0, top: 0, bottom: 0,
-          width: 620,
+          width: 680,
           zIndex: 10,
           display: "flex",
           flexDirection: "column",
@@ -177,9 +173,9 @@ function FlyerCanvas({
                     fontFamily: "'Cinzel', serif",
                     fontSize: 9,
                     letterSpacing: "1.5px",
-                    color: "rgba(255,255,255,0.22)",
+                    color: "rgba(255,255,255,0.45)",
                     padding: "2px 7px",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    border: "1px solid rgba(255,255,255,0.2)",
                     borderRadius: 4,
                   }}
                 >
@@ -228,7 +224,8 @@ function FlyerCanvas({
               WebkitLineClamp: hasBoth ? 4 : 6,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
-              marginBottom: 12,
+              marginTop: 20,
+              marginBottom: 20,
             }}
           />
         )}
@@ -266,106 +263,21 @@ function FlyerCanvas({
 
         <div style={{ flex: 1 }} />
 
-        {/* Divider */}
-        <div
-          style={{
-            width: "100%",
-            height: 1,
-            background: "linear-gradient(to right, rgba(255,255,255,0.12), transparent)",
-            marginBottom: 12,
-            flexShrink: 0,
-          }}
-        />
-
-        {/* ── Bottom row: feature grid left, QR code right ── */}
-        <div style={{ display: "flex", alignItems: "flex-end", gap: 16 }}>
-
-          {/* Left: label + 2×2 icon-only grid */}
-          <div style={{ flex: 1 }}>
-            <div
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: 9,
-                letterSpacing: "3px",
-                color: "rgba(255,255,255,0.28)",
-                textTransform: "uppercase",
-                marginBottom: 8,
-              }}
-            >
-              ✦ &nbsp; See more on wherebuildersmeet.com
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
-
-              {/* Guild Showcases */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <img src={`${siteBase}/images/logo_1.png`} crossOrigin="anonymous" alt="" style={{ width: 28, height: 28, objectFit: "contain", flexShrink: 0 }} />
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.2px" }}>Guilds</div>
-              </div>
-
-              {/* Solo Builds */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <img src={`${siteBase}/images/logo_mountain1.png`} crossOrigin="anonymous" alt="" style={{ width: 28, height: 28, objectFit: "contain", flexShrink: 0 }} />
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.2px" }}>Solos</div>
-              </div>
-
-              {/* Tutorials */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256" fill="rgba(255,255,255,0.85)" style={{ filter: ORANGE_FILTER, flexShrink: 0 }}>
-                  <path d="M208,24H72A32,32,0,0,0,40,56V224a8,8,0,0,0,8,8H192a8,8,0,0,0,0-16H56a16,16,0,0,1,16-16H208a8,8,0,0,0,8-8V32A8,8,0,0,0,208,24Zm-8,160H72a31.82,31.82,0,0,0-16,4.29V56A16,16,0,0,1,72,40H200Z" opacity={0.3} />
-                  <path d="M208,24H72A32,32,0,0,0,40,56V224a8,8,0,0,0,8,8H192a8,8,0,0,0,0-16H56a16,16,0,0,1,16-16H208a8,8,0,0,0,8-8V32A8,8,0,0,0,208,24Zm-8,160H72a31.82,31.82,0,0,0-16,4.29V56A16,16,0,0,1,72,40H200ZM96,88a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H104A8,8,0,0,1,96,88Zm0,32a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H104A8,8,0,0,1,96,120Z" />
-                </svg>
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.2px" }}>Tutorials</div>
-              </div>
-
-              {/* Construction Catalog */}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 10px", borderRadius: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 256 256" fill="rgba(255,255,255,0.85)" style={{ filter: ORANGE_FILTER, flexShrink: 0 }}>
-                  <path d="M216,48H40a8,8,0,0,0-8,8V200a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V56A8,8,0,0,0,216,48ZM112,192H48V160h64Zm0-48H48V112h64Zm0-48H48V64h64Zm96,96H128V160h80Zm0-48H128V112h80Zm0-48H128V64h80Z" opacity={0.3} />
-                  <path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM112,200H48V168h64Zm0-48H48V120h64Zm0-48H48V72h64Zm96,96H128V168h80Zm0-48H128V120h80Zm0-48H128V72h80Z" />
-                </svg>
-                <div style={{ fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.75)", letterSpacing: "0.2px" }}>Catalog</div>
-              </div>
-
-            </div>
+        {/* ── Bottom: URL ── */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <div
+            style={{
+              fontFamily: "'Cinzel', serif",
+              fontSize: 10,
+              letterSpacing: "3px",
+              color: "rgba(255,255,255,0.25)",
+              textTransform: "lowercase",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {urlLabel}
           </div>
-
-          {/* Right: QR code */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 5, flexShrink: 0 }}>
-            <div
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: 9,
-                letterSpacing: "2.5px",
-                color: "rgba(255,255,255,0.3)",
-                textTransform: "uppercase",
-              }}
-            >
-              View this guild
-            </div>
-            <div
-              style={{
-                background: "rgba(9,9,11,0.85)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                borderRadius: 8,
-                padding: 7,
-              }}
-            >
-              {qrDataUrl && (
-                <img src={qrDataUrl} alt="QR code" style={{ width: 84, height: 84, display: "block" }} />
-              )}
-            </div>
-            <div
-              style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: 9,
-                letterSpacing: "1.5px",
-                color: "rgba(255,255,255,0.35)",
-                textAlign: "center",
-              }}
-            >
-              {urlLabel}
-            </div>
-          </div>
+          <div style={{ flex: 1, height: 1, background: "linear-gradient(to right, rgba(255,255,255,0.08), transparent)" }} />
         </div>
       </div>
 
@@ -393,7 +305,6 @@ function FlyerCanvas({
 
 export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, siteBase }: Props) {
   const [open, setOpen] = useState(false)
-  const [qrDataUrl, setQrDataUrl] = useState("")
   const [downloading, setDownloading] = useState(false)
   const flyerRef = useRef<HTMLDivElement>(null)
   const previewContainerRef = useRef<HTMLDivElement>(null)
@@ -420,15 +331,6 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
     setImages(shuffleArray(allImages).slice(0, 6))
   }, [allImages])
 
-  useEffect(() => {
-    QRCodeLib.toDataURL(guildUrl, {
-      width: 168,
-      margin: 1,
-      color: { dark: "#ffffff", light: "#09090b" },
-      errorCorrectionLevel: "M",
-    }).then(setQrDataUrl)
-  }, [guildUrl])
-
   const handleDownload = useCallback(async () => {
     if (!flyerRef.current) { return }
     setDownloading(true)
@@ -447,7 +349,7 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
     }
   }, [guild.slug])
 
-  const flyerProps = { guild, guildUrl, displayName, buildersStr, siteBase, qrDataUrl, images }
+  const flyerProps = { guild, guildUrl, displayName, buildersStr, siteBase, images }
 
   return (
     <>
@@ -527,7 +429,7 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
               </button>
               <button
                 onClick={handleDownload}
-                disabled={downloading || !qrDataUrl}
+                disabled={downloading}
                 className="inline-flex items-center gap-2 rounded-md bg-white px-4 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
                 data-umami-event="guild_flyer_download"
                 data-umami-event-guild={guild.slug}
