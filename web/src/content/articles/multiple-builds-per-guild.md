@@ -1,6 +1,6 @@
 ---
 title: "How to showcase multiple builds for your guild"
-description: "Your guild rebuilt? Changed hands? Start fresh without losing your history — each build gets its own thread, votes, and page."
+description: "Your guild rebuilt? Changed hands? Start fresh without losing your history. Each build gets its own post, votes, and page."
 tags: ["website", "guild"]
 authors: ["Ahlyam"]
 date: 2026-05-03
@@ -10,7 +10,7 @@ featured: false
 image: "/tutorials/multiple-build-for-one-guild.jpg"
 ---
 
-Your guild can have multiple builds on the leaderboard. Each build is its own thread with its own score, screenshots, and page. They appear grouped under your guild name.
+Your guild can have multiple builds on the leaderboard. Each build has its own post with its own score, screenshots, and page. They appear grouped under your guild name.
 
 ---
 
@@ -52,6 +52,6 @@ Each build has its own independent score and leaderboard rank. The grouped entry
 
 ## Tips
 
-- **Don't delete old threads.** Old builds keep their votes and their page stays up.
+- **Don't delete old posts.** Old builds keep their votes and their page stays up.
 
 Any questions? Ask in Discord.
