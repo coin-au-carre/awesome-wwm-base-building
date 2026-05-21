@@ -58,9 +58,10 @@ interface Props {
   basePath?: string
   showDate?: boolean
   showRank?: boolean
+  nameScope?: string
 }
 
-export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, showRank = true }: Props) {
+export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, showRank = true, nameScope }: Props) {
   const plugin = React.useRef(
     Autoplay({ delay: 3500, stopOnInteraction: true })
   )
@@ -104,6 +105,7 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, s
                     decoding="async"
                     onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    style={nameScope ? { viewTransitionName: `${nameScope}-${g.slug}` } : undefined}
                   />
                 )}
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />

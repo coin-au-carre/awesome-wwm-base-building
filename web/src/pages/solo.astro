@@ -110,6 +110,7 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
                       loading="lazy"
                       onerror="this.style.display='none'"
                       class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      style={`view-transition-name: solo-${g.slug}`}
                     />
                   )}
                   <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
