@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { SoloWall } from "@/components/SoloWall"
-import { LeaderboardTable } from "@/components/LeaderboardTable"
+import { LeaderboardTable, type LeaderboardGuild } from "@/components/LeaderboardTable"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -24,6 +24,23 @@ const solosWithScreenshots = solos.filter((g) => (g.coverImage || (g.screenshots
 const ogImage = solos.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestSolos = getLatestSolosWithScreenshots(3)
 const isEmpty = !hasSolos()
+
+const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
+  slug: g.slug,
+  rank: g.rank,
+  name: g.name,
+  guildName: g.guildName,
+  builders: g.builders,
+  tags: g.tags,
+  score: g.score,
+  lastModified: g.lastModified,
+  coverImage: g.coverImage,
+  screenshots: g.screenshots?.[0] ? [g.screenshots[0]] : undefined,
+  buildTitle: g.buildTitle,
+  isCurrent: g.isCurrent,
+  posterDiscordId: g.posterDiscordId,
+  postedOnBehalfOf: g.postedOnBehalfOf,
+}))
 ---
 
 <Layout
@@ -53,7 +70,7 @@ const isEmpty = !hasSolos()
 
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><img src="/images/logo_2.png" alt="" aria-hidden="true" class="size-14 object-contain" /> Solo Construction</h1>
+        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><img src="/images/logo_2.webp" alt="" aria-hidden="true" class="size-14 object-contain" /> Solo Construction</h1>
         <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
         {!isEmpty && lastSync && (
           <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
@@ -134,8 +151,8 @@ const isEmpty = !hasSolos()
     {
       solos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.png" alt="" aria-hidden="true" class="size-10 object-contain" /> All Solo construction</h2>
-          <LeaderboardTable client:visible guilds={solos} allTags={allTags} basePath="solos" activeBuilderSlugs={[...activeBuilders]} />
+          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.webp" alt="" aria-hidden="true" class="size-10 object-contain" /> All Solo construction</h2>
+          <LeaderboardTable client:visible guilds={leanSolos} allTags={allTags} basePath="solos" activeBuilderSlugs={[...activeBuilders]} />
           <noscript>
             <ul class="mt-4 space-y-1 text-sm">
               {solos.map((g) => (

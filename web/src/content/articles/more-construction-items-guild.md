@@ -5,7 +5,7 @@ tags: ["beginner", "guild"]
 authors: ["OPM", "Ahlyam"]
 date: 2026-04-09
 order: 1
-image: "/tutorials/kaifeng-items-teleport.jpg"
+image: "/tutorials/kaifeng-items-teleport.webp"
 ---
 
 Thanks to **OPM** for originally sharing this in the Discord.
@@ -14,11 +14,11 @@ Some building items are only available through your solo world. You can unlock t
 
 For both options, start by taking the **Main South Gate** teleport in Kaifeng.
 
-<img src="/tutorials/kaifeng-items-teleport.jpg" alt="Main South Gate teleport in Kaifeng" style="border-radius: 0.75rem; width: 80%;" />
+<img src="/tutorials/kaifeng-items-teleport.webp" alt="Main South Gate teleport in Kaifeng" style="border-radius: 0.75rem; width: 80%;" />
 
 Then head to **Feng's Tradehall** and talk to **Feng Cheng**.
 
-<img src="/tutorials/kaifeng-items-options.jpg" alt="Feng Cheng dialogue options" style="border-radius: 0.75rem; width: 80%;" />
+<img src="/tutorials/kaifeng-items-options.webp" alt="Feng Cheng dialogue options" style="border-radius: 0.75rem; width: 80%;" />
 
 If you haven't done it before, start with Option 1 — it gives you furniture items for free and also increases your goods storage for commerce.
 
@@ -28,17 +28,17 @@ Select **"Are there any rooms for rent?"** and rent a house. Each of the 3 house
 
 Once inside, click the **Details** button in the top-right corner of the screen.
 
-<img src="/tutorials/kaifeng-items-residence-details.jpg" alt="Details button on residence screen" style="border-radius: 0.75rem; width: 40%;" />
+<img src="/tutorials/kaifeng-items-residence-details.webp" alt="Details button on residence screen" style="border-radius: 0.75rem; width: 40%;" />
 
 Then click **Return furniture** in the bottom-right. This retrieves all the items from the house and unlocks them in your guild base.
 
-<img src="/tutorials/kaifeng-items-return-furniture.jpg" alt="Return furniture button" style="border-radius: 0.75rem; width: 40%;" />
+<img src="/tutorials/kaifeng-items-return-furniture.webp" alt="Return furniture button" style="border-radius: 0.75rem; width: 40%;" />
 
 ## Option 2. Buy items directly
 
 This is the simplest option, but is more expensive. Select the items you want to purchase from Feng Cheng. Skip any you already obtained through Option 1.
 
-<img src="/tutorials/kaifeng-items-buy.jpg" alt="Buying items from Feng Cheng" style="border-radius: 0.75rem; width: 60%;" />
+<img src="/tutorials/kaifeng-items-buy.webp" alt="Buying items from Feng Cheng" style="border-radius: 0.75rem; width: 60%;" />
 
 **Note:** You do not need to build a diagram in your solo world and reproduce it in the guild base to unlock items — the methods above are sufficient.
 
