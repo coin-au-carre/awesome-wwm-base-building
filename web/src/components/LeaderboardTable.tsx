@@ -211,7 +211,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
               <img
                 src={thumbUrl(img, 120, 120)}
                 alt={stripGuildShowcase(g.guildName || g.name)}
-                className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block"
+                className="w-8 h-8 rounded-md object-cover shrink-0"
                 loading="lazy"
                 onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
               />
@@ -226,6 +226,11 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
                 </div>
                 {g.buildTitle && (
                   <p className="text-[11px] text-muted-foreground/60 leading-tight truncate">{g.buildTitle}{g.isCurrent && <span className="ml-1 text-emerald-500/80">●</span>}</p>
+                )}
+                {(g.builders ?? []).length > 0 && (
+                  <p className="text-[11px] text-muted-foreground/60 leading-tight truncate md:hidden mt-0.5">
+                    <BuilderNames builders={g.builders} activeSet={activeSet} />
+                  </p>
                 )}
               </div>
             </HoverCardTrigger>
@@ -292,7 +297,7 @@ function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, tog
         {!isSolos && <TableCell />}
         <TableCell onMouseEnter={enter} onMouseLeave={leave}>
           <div className="flex items-center gap-2.5 pl-4">
-            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default build"} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default build"} className="w-8 h-8 rounded-md object-cover shrink-0" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
             <HoverCardTrigger asChild>
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5 flex-wrap">
@@ -492,7 +497,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
                   {!isSolos && <TableCell><Skeleton className="h-6 w-16 rounded-full mx-auto" /></TableCell>}
                   <TableCell>
                     <div className="flex items-center gap-2.5">
-                      <Skeleton className="w-8 h-8 rounded-md shrink-0 hidden sm:block" />
+                      <Skeleton className="w-8 h-8 rounded-md shrink-0" />
                       <Skeleton className="h-4 w-32" />
                     </div>
                   </TableCell>
@@ -610,8 +615,9 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
       {totalPages > 1 && (
         <div className="flex items-center gap-1">
           <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>←</Button>
+          <span className="sm:hidden text-xs text-muted-foreground px-1">{page} / {totalPages}</span>
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-            <Button key={p} variant={p === page ? "default" : "outline"} size="xs" className="cursor-pointer" onClick={() => setPage(p)}>{p}</Button>
+            <Button key={p} variant={p === page ? "default" : "outline"} size="xs" className="cursor-pointer hidden sm:inline-flex" onClick={() => setPage(p)}>{p}</Button>
           ))}
           <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages}>→</Button>
         </div>
@@ -688,7 +694,7 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
                   {!isSolos && <TableCell className="text-center">{renderTierBadge(best)}</TableCell>}
                   <TableCell>
                     <div className="flex items-center gap-2.5">
-                      {bestImg && <img src={thumbUrl(bestImg, 120, 120)} alt={stripGuildShowcase(best.guildName || best.name)} className="w-8 h-8 rounded-md object-cover shrink-0 hidden sm:block" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+                      {bestImg && <img src={thumbUrl(bestImg, 120, 120)} alt={stripGuildShowcase(best.guildName || best.name)} className="w-8 h-8 rounded-md object-cover shrink-0" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="font-medium">{stripGuildShowcase(best.guildName || best.name)}</span>
@@ -697,6 +703,11 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
                             {builds.length} builds
                           </span>
                         </div>
+                        {(best.builders ?? []).length > 0 && (
+                          <p className="text-[11px] text-muted-foreground/60 leading-tight truncate md:hidden mt-0.5">
+                            <BuilderNames builders={best.builders} activeSet={activeSet} />
+                          </p>
+                        )}
                       </div>
                     </div>
                   </TableCell>
@@ -734,8 +745,9 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
         {totalPages > 1 ? (
           <div className="flex items-center gap-1">
             <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>←</Button>
+            <span className="sm:hidden text-xs text-muted-foreground px-1">{page} / {totalPages}</span>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-              <Button key={p} variant={p === page ? "default" : "outline"} size="xs" className="cursor-pointer" onClick={() => setPage(p)}>{p}</Button>
+              <Button key={p} variant={p === page ? "default" : "outline"} size="xs" className="cursor-pointer hidden sm:inline-flex" onClick={() => setPage(p)}>{p}</Button>
             ))}
             <Button variant="outline" size="xs" className="cursor-pointer" onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages}>→</Button>
           </div>
