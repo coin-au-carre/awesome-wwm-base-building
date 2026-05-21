@@ -196,6 +196,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   const transitionName = `${basePath.replace(/s$/, "")}-${g.slug}`
 
   const enter = () => {
+    if (window.matchMedia("(pointer: coarse)").matches) { return }
     clearTimeout(timer.current)
     timer.current = setTimeout(() => setOpen(true), 250)
   }
@@ -207,7 +208,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
   const handleRowClick = () => {
     if (window.matchMedia("(pointer: coarse)").matches) {
       setExpanded((e) => !e)
-      if (!expanded) window.umami?.track("guild_expand", { name: g.guildName || g.name, rank: g.rank, type: basePath })
+      if (!expanded) { window.umami?.track("guild_expand", { name: g.guildName || g.name, rank: g.rank, type: basePath }) }
     } else {
       window.umami?.track("guild_click", { name: g.guildName || g.name, rank: g.rank, source: "table", type: basePath })
       navigate(url(`/${basePath}/${g.slug}`))
@@ -299,7 +300,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
                   )}
                   {g.tags && g.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-1.5">
-                      {g.tags.slice(0, 4).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={(e) => { e.preventDefault(); toggleTag(tag) }} />)}
+                      {g.tags.slice(0, 4).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}
                     </div>
                   )}
                 </div>
@@ -309,14 +310,11 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
           </TableCell>
         </TableRow>
       )}
-      <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
-        {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
+      <HoverCardContent className="w-88 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
+        {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 600, 338)} alt={stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
         <div className="p-3">
           <p className="font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
           {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by <BuilderNames builders={g.builders} activeSet={activeSet} /></p>}
-          {g.tags && g.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
-          )}
         </div>
       </HoverCardContent>
     </HoverCard>
@@ -339,6 +337,7 @@ function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, tog
   const img = g.coverImage ?? g.screenshots?.[0]
 
   const enter = () => {
+    if (window.matchMedia("(pointer: coarse)").matches) { return }
     clearTimeout(timer.current)
     timer.current = setTimeout(() => setOpen(true), 250)
   }
@@ -387,14 +386,11 @@ function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, tog
         </TableCell>
         <TableCell className="hidden lg:table-cell text-[11px] text-muted-foreground/50">{renderLastUpdated(g)}</TableCell>
       </TableRow>
-      <HoverCardContent className="w-72 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
-        {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 400, 225)} alt={g.buildTitle || stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
+      <HoverCardContent className="w-88 p-0 overflow-hidden" side="right" align="start" onMouseEnter={enter} onMouseLeave={leave}>
+        {img && <div className="aspect-video w-full overflow-hidden"><img src={thumbUrl(img, 600, 338)} alt={g.buildTitle || stripGuildShowcase(g.guildName || g.name)} className="w-full h-full object-cover" /></div>}
         <div className="p-3">
           <p className="font-medium text-sm leading-tight">{g.buildTitle || stripGuildShowcase(g.guildName || g.name)}</p>
           {g.builders && g.builders.length > 0 && <p className="text-xs text-muted-foreground mt-0.5">by <BuilderNames builders={g.builders} activeSet={activeSet} /></p>}
-          {g.tags && g.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1 mt-2">{g.tags.slice(0, 5).map((tag) => <Tag key={tag} label={tag} active={activeTags.has(tag)} onClick={() => toggleTag(tag)} />)}</div>
-          )}
         </div>
       </HoverCardContent>
     </HoverCard>
