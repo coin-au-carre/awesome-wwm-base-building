@@ -230,6 +230,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
                 className="w-8 h-8 rounded-md object-cover shrink-0"
                 loading="lazy"
                 onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
+                style={{ viewTransitionName: `${basePath.replace(/s$/, "")}-${g.slug}` }}
               />
             )}
             <HoverCardTrigger asChild>
@@ -313,7 +314,7 @@ function MultiBuildRow({ g, bi, basePath, isSolos, guildsLength, activeTags, tog
         {!isSolos && <TableCell />}
         <TableCell onMouseEnter={enter} onMouseLeave={leave}>
           <div className="flex items-center gap-2.5 pl-4">
-            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default build"} className="w-8 h-8 rounded-md object-cover shrink-0" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} />}
+            {img && <img src={thumbUrl(img, 120, 120)} alt={g.buildTitle || "Default build"} className="w-8 h-8 rounded-md object-cover shrink-0" loading="lazy" onError={(e) => ((e.target as HTMLImageElement).style.display = "none")} style={{ viewTransitionName: `${basePath.replace(/s$/, "")}-${g.slug}` }} />}
             <HoverCardTrigger asChild>
               <div className="min-w-0">
                 <div className="flex items-center gap-1.5 flex-wrap">
