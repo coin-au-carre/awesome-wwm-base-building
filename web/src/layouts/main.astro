@@ -10,6 +10,7 @@ interface Props {
   description?: string
   image?: string
   preloadImage?: string
+  preloadImageSm?: string
 }
 
 const {
@@ -17,6 +18,7 @@ const {
   description = "Community hub for Where Winds Meet building and construction. Browse guild bases, solo builds, construction items, building guides, and blueprints.",
   image,
   preloadImage,
+  preloadImageSm,
 } = Astro.props
 
 const base = BASE
@@ -104,7 +106,10 @@ try {
     <link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon.png`} />
     <link rel="apple-touch-icon" sizes="180x180" href={`${base}/apple-touch-icon.png`} />
     <link rel="alternate" type="application/rss+xml" title="Where Builders Meet — New Submissions" href="/rss.xml" />
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {preloadImage && preloadImageSm
+      ? <link rel="preload" as="image" imagesrcset={`${preloadImageSm} 800w, ${preloadImage} 1400w`} imagesizes="100vw" fetchpriority="high" />
+      : preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    }
     <ClientRouter />
     <title>{title}</title>
     <!-- Cloudflare Web Analytics -->
