@@ -111,6 +111,7 @@ export type Tier = { label: string; dot: string; badge: string; badgeStyle?: Rec
 // Values are percentages of total guilds (0.10 = top 10%).
 // Silver is score-based, not rank-based.
 export const TIER_THRESHOLDS = {
+  grandmaster: 0.05,
   master: 0.15,
   diamond: 0.35,
   platinum: 0.42,
@@ -134,6 +135,14 @@ export function getTier(rank: number, total: number, score: number): Tier {
     }
   }
   const pct = rank / total
+  if (pct <= TIER_THRESHOLDS.grandmaster) {
+    return {
+      label: "Grandmaster",
+      dot: "bg-rose-500",
+      badge: "tier-grandmaster text-rose-800 dark:text-rose-200 font-bold ring-1 ring-inset ring-rose-500/50",
+      badgeStyle: { background: "linear-gradient(135deg, rgba(244,63,94,0.28) 0%, rgba(190,18,60,0.20) 100%)" },
+    }
+  }
   if (pct <= TIER_THRESHOLDS.master) {
     return {
       label: "Master",
