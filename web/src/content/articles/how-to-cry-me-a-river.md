@@ -6,7 +6,7 @@ authors: ["Crueliet", "KARIN", "Carnii"]
 date: 2026-05-06
 order: 9
 image: "/tutorials/how-to-cry-me-a-river.webp"
-featured: true
+featured: false
 ---
 
 ## The basic wall technique
