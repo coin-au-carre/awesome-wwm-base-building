@@ -2,7 +2,7 @@ import { readFileSync } from "fs"
 import { resolve } from "path"
 
 export type EventStatus = "scheduled" | "active" | "completed" | "canceled"
-export type EventType = "tour" | "pvp" | "marriage" | "dancing" | "fashion" | "contest" | "race" | "other"
+export type EventType = "tour" | "pvp" | "marriage" | "dancing" | "fashion" | "contest" | "race" | "streaming" | "other"
 
 export interface Event {
   id: string
@@ -27,8 +27,9 @@ export const EVENT_TYPE_LABELS: Record<EventType, string> = {
   dancing:  "Dancing",
   fashion:  "Fashion",
   contest:  "Contest",
-  race:     "Race",
-  other:    "Other",
+  race:      "Race",
+  streaming: "Streaming",
+  other:     "Other",
 }
 
 export const EVENT_TYPE_EMOJI: Record<EventType, string> = {
@@ -38,8 +39,9 @@ export const EVENT_TYPE_EMOJI: Record<EventType, string> = {
   dancing:  "💃",
   fashion:  "👗",
   contest:  "🏆",
-  race:     "🏁",
-  other:    "📅",
+  race:      "🏁",
+  streaming: "🎥",
+  other:     "📅",
 }
 
 function loadEvents(): Event[] {

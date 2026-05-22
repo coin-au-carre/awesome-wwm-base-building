@@ -36,7 +36,8 @@ const (
 	EventTypeDancing  EventType = "dancing"
 	EventTypeFashion  EventType = "fashion"
 	EventTypeContest  EventType = "contest"
-	EventTypeRace     EventType = "race"
+	EventTypeRace      EventType = "race"
+	EventTypeStreaming EventType = "streaming"
 	EventTypeOther    EventType = "other"
 )
 
@@ -47,8 +48,9 @@ var validEventTypes = map[string]EventType{
 	"dancing":  EventTypeDancing,
 	"fashion":  EventTypeFashion,
 	"contest":  EventTypeContest,
-	"race":     EventTypeRace,
-	"other":    EventTypeOther,
+	"race":      EventTypeRace,
+	"streaming": EventTypeStreaming,
+	"other":     EventTypeOther,
 }
 
 // Event is the serialisable form written to data/events.json.
