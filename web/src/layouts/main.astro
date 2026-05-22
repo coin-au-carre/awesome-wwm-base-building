@@ -4,6 +4,7 @@ import ClientRouter from "astro/components/ClientRouter.astro"
 import { buttonVariants } from "@/components/ui/button"
 import { BASE } from "@/lib/url"
 import { getAllEvents } from "@/lib/events"
+import { getDiscordMemberCount } from "@/lib/discord-members"
 
 interface Props {
   title?: string
@@ -53,14 +54,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
 const isCommunityActive = communityLinks.some((link) => currentPath.startsWith(link.href))
 const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(link.href))
 
-let discordMemberCount: number | null = null
-try {
-  const res = await fetch("https://discord.com/api/invites/Qygt9u26Bn?with_counts=true", { signal: AbortSignal.timeout(3000) })
-  if (res.ok) {
-    const data = await res.json()
-    discordMemberCount = data.approximate_member_count ?? null
-  }
-} catch {}
+const discordMemberCount = await getDiscordMemberCount()
 ---
 
 <!doctype html>
