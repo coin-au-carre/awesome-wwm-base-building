@@ -111,8 +111,8 @@ export function getRecentGuildsWithScreenshots(days: number): RankedGuild[] {
   return [...ALL_GUILDS]
     .reverse()
     .filter((g) => {
-      if (!g.screenshots || !g.screenshots.length || !isBuilderSubmission(g)) return false
-      if (!g.createdAt) return false
+      if (!g.screenshots || !g.screenshots.length || !isBuilderSubmission(g)) { return false }
+      if (!g.createdAt) { return false }
       const ms = new Date(g.createdAt.replace(" at ", " ")).getTime()
       return !isNaN(ms) && ms >= cutoff
     })
@@ -223,7 +223,7 @@ function computeRedirects(ranked: RankedGuild[]): GuildRedirect[] {
 
   for (const builds of groups.values()) {
     const current = builds.find((b) => b.isCurrent) ?? (builds.length === 1 ? builds[0] : undefined)
-    if (!current || !current.buildTitle) continue
+    if (!current || !current.buildTitle) { continue }
 
     // guildName slug (without buildTitle) → current build slug
     const baseSlug = slugify(current.guildName ?? current.name)

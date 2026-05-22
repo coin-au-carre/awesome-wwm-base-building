@@ -64,7 +64,8 @@ const heroCandidates = guilds
     }
   })
 const heroFirst = heroCandidates[0]
-const recentGuilds = getRecentGuildsWithScreenshots(4)
+const RECENT_GUILDS_DAYS = 7 // change this to widen or narrow the "recent" window
+const recentGuilds = getRecentGuildsWithScreenshots(RECENT_GUILDS_DAYS)
 const useCarousel = recentGuilds.length > 3
 const latestGuilds: CarouselGuild[] = (useCarousel ? recentGuilds : getLatestGuildsWithScreenshots(3)).map((g) => ({
   slug: g.slug, rank: g.rank, name: g.name, guildName: g.guildName,
