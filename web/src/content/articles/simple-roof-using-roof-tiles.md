@@ -9,7 +9,7 @@ image: "https://img.youtube.com/vi/8fYfFWvyOIA/maxresdefault.jpg"
 featured: true
 ---
 
-A step-by-step video walkthrough on how to build a simple roof using roof tiles.
+A step-by-step video walkthrough on how to build a simple roof using roof tiles. Turn on subtitles/CC for the full tutorial.
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.75rem; margin-bottom: 1.5rem;">
   <iframe

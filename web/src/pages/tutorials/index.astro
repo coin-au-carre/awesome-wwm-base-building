@@ -37,6 +37,20 @@ const guides = entries
     tags: e.data.tags ?? [],
     authors: e.data.authors ?? [],
     image: e.data.image ?? null,
+    date: e.data.date ?? null,
+  }))
+
+const latestGuides = [...entries]
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
+  .slice(0, 3)
+  .map((e) => ({
+    slug: e.id,
+    title: e.data.title,
+    description: e.data.description,
+    tags: e.data.tags ?? [],
+    authors: e.data.authors ?? [],
+    image: e.data.image ?? null,
+    date: e.data.date ?? null,
   }))
 
 ---
@@ -69,6 +83,6 @@ const guides = entries
       </p>
     </div>
 
-    <TutorialsFilter client:load guides={guides} newestSlug={newestSlug} TAG_CONFIG={TAG_CONFIG} />
+    <TutorialsFilter client:load guides={guides} latestGuides={latestGuides} newestSlug={newestSlug} TAG_CONFIG={TAG_CONFIG} />
   </div>
 </Layout>
