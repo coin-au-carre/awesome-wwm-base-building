@@ -217,3 +217,8 @@
   opacity: 0;
   animation: carouselFadeUp 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* Guild card hover glow — shared by carousel and grid cards */
+.card-glow:hover {
+  box-shadow: 0 0 22px 4px rgba(34, 211, 238, 0.15);
+}
