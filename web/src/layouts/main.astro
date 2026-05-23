@@ -318,7 +318,7 @@ const discordMemberCount = await getDiscordMemberCount()
         </div>
 
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-3 space-y-1 border-t border-border pt-3">
+        <div id="mobile-menu" class="hidden md:hidden pb-3 space-y-1 border-t border-border pt-3 overflow-y-auto max-h-[calc(100svh-5rem)]">
           {
             allNavLinks.map((link) => {
               const isActive =
@@ -470,9 +470,9 @@ const discordMemberCount = await getDiscordMemberCount()
             window.requestAnimationFrame(function () {
               var y = window.scrollY
               if (header) {
-                if (y > lastY && y > 400) {
+                if (!mobileOpen && y > lastY && y > 400) {
                   header.style.transform = "translateY(-100%)"
-                } else {
+                } else if (!mobileOpen) {
                   header.style.transform = ""
                 }
               }
@@ -507,6 +507,8 @@ const discordMemberCount = await getDiscordMemberCount()
             if (bar1) bar1.style.transform = mobileOpen ? "translateY(8px) rotate(45deg)" : ""
             if (bar2) bar2.style.opacity = mobileOpen ? "0" : "1"
             if (bar3) bar3.style.transform = mobileOpen ? "translateY(-8px) rotate(-45deg)" : ""
+            // Ensure header is visible when opening the menu
+            if (mobileOpen && header) header.style.transform = ""
           })
         }
 

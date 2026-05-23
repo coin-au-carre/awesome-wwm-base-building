@@ -71,9 +71,31 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, s
   if (!mounted) {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {[1, 2, 3].map((i) => (
-          <Skeleton key={i} className="aspect-video rounded-xl" />
-        ))}
+        {guilds.slice(0, 3).map((g, idx) => {
+          const shots = g.screenshots ?? []
+          const img = g.coverImage ?? shots[0]
+          return (
+            <a
+              key={g.slug}
+              href={url(`/${basePath}/${g.slug}`)}
+              className="group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted"
+            >
+              {img && (
+                <img
+                  src={thumbUrl(img, 640, 360)}
+                  alt={stripGuildShowcase(g.guildName || g.name)}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  style={nameScope ? { viewTransitionName: `${nameScope}-${g.slug}` } : undefined}
+                />
+              )}
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-3">
+                <p className="text-white font-medium text-sm leading-tight">{stripGuildShowcase(g.guildName || g.name)}</p>
+              </div>
+            </a>
+          )
+        })}
       </div>
     )
   }

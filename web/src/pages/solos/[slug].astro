@@ -197,10 +197,10 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
     </script>
 
     <!-- Stats strip -->
-    <div class="flex flex-wrap gap-3">
-      <div class="rounded-xl border border-border bg-card px-4 py-2 min-w-35 flex-1">
-        <div class="text-xs text-muted-foreground mb-1">Builder</div>
-        <div class="text-sm font-medium">
+    <div class="flex items-center gap-2 sm:flex-wrap sm:gap-3">
+      <div class="rounded-xl border border-border bg-card px-3 py-1.5 sm:px-4 sm:py-2 sm:flex-1 flex items-center sm:block min-w-0">
+        <div class="hidden sm:block text-xs text-muted-foreground mb-1">Builder</div>
+        <div class="text-sm font-medium truncate">
           {g.builders?.map(formatBuilderName).filter(Boolean).length
             ? g.builders.map(formatBuilderName).filter(Boolean).map((name: string, i: number, arr: string[]) => (
                 <Fragment>
@@ -211,19 +211,19 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
         </div>
       </div>
       {g.createdAt && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2">
+        <div class="hidden sm:block rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Created</div>
           <div class="text-sm text-muted-foreground">{formatDateYMD(g.createdAt)}</div>
         </div>
       )}
       {g.lastModified && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2">
+        <div class="hidden sm:block rounded-xl border border-border bg-card px-4 py-2">
           <div class="text-xs text-muted-foreground mb-1">Updated</div>
           <div class="text-sm text-muted-foreground">{formatDateYMDHM(g.lastModified)}</div>
         </div>
       )}
       {g.discordThread && (
-        <div class="rounded-xl border border-border bg-card px-4 py-2 flex flex-row items-center gap-2">
+        <div class="hidden sm:flex rounded-xl border border-border bg-card px-4 py-2 flex-row items-center gap-2">
           <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })} data-umami-event="discord_cta_click">
             Join server ↗
           </a>
