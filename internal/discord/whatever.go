@@ -62,6 +62,9 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 		if len(images) == 0 {
 			continue
 		}
+		if hasReaction(msg, "🚫") {
+			continue
+		}
 		reactions := sumReactions(msg)
 		if reactions == 0 {
 			continue
@@ -100,6 +103,15 @@ func sumReactions(msg *discordgo.Message) int {
 		n += r.Count
 	}
 	return n
+}
+
+func hasReaction(msg *discordgo.Message, emoji string) bool {
+	for _, r := range msg.Reactions {
+		if r.Emoji.Name == emoji {
+			return true
+		}
+	}
+	return false
 }
 
 func reactionDetails(msg *discordgo.Message) []ReactionDetail {
