@@ -1,5 +1,19 @@
 [
 	{
+		"name": "PACCBET",
+		"builders": [
+			"Elman"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Puzzle, Escape game, Maze",
+		"score": 0,
+		"lastModified": "May 23, 2026 at 01:36 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "FORCE",
 		"builders": [
 			"AHMAD'"
