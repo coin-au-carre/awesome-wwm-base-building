@@ -9,11 +9,11 @@ image: "https://img.youtube.com/vi/8fYfFWvyOIA/maxresdefault.jpg"
 featured: true
 ---
 
-A step-by-step video walkthrough on how to build a simple roof using roof tiles. Turn on subtitles/CC for the full tutorial.
+A step-by-step video walkthrough on how to build a simple roof using roof tiles. Ensure that subtitles/CC are enabled for explanations. 
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.75rem; margin-bottom: 1.5rem;">
   <iframe
-    src="https://www.youtube.com/embed/8fYfFWvyOIA"
+    src="https://www.youtube.com/embed/8fYfFWvyOIA?cc_load_policy=1"
     title="Simple roof using roof tiles by SiMing"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen

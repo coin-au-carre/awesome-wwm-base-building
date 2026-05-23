@@ -6,10 +6,11 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import BuilderLinks from "@/components/BuilderLinks.astro"
-import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots } from "@/lib/guilds"
-import { builderSlug } from "@/lib/format"
+import { getSolosSortedByScore, getAllSoloTags, hasSolos, getLastSyncDate, getLatestSolosWithScreenshots, formatBuilderName } from "@/lib/guilds"
+import { builderSlug, thumbUrl, stripGuildShowcase } from "@/lib/format"
 import { formatSyncDate } from "@/lib/dates"
 import { getActiveBuilderSlugs } from "@/lib/builders"
+import { isBuilderSubmission } from "@/lib/config"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
 import { ArrowsClockwiseIcon, WarningIcon, SparkleIcon } from "@phosphor-icons/react"
@@ -24,6 +25,22 @@ const solosWithScreenshots = solos.filter((g) => (g.coverImage || (g.screenshots
 const ogImage = solos.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestSolos = getLatestSolosWithScreenshots(3)
 const isEmpty = !hasSolos()
+
+const heroCandidates = solos
+  .filter((g) => isBuilderSubmission(g) && (g.coverImage ?? g.screenshots?.[0]))
+  .slice(0, 25)
+  .map((g) => {
+    const rawSrc = g.coverImage ?? g.screenshots![0]
+    return {
+      img: thumbUrl(rawSrc, 1400, 560),
+      imgSm: thumbUrl(rawSrc, 800, 380),
+      href: `${BASE}/solos/${g.slug}`,
+      name: g.name,
+      label: g.name,
+      builders: (g.builders ?? []).map(formatBuilderName).filter(Boolean).join(", "),
+    }
+  })
+const heroFirst = heroCandidates[0]
 
 const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
   slug: g.slug,
@@ -47,53 +64,112 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
   title="Where Builders Meet | Solo Builds & House Constructions in Where Winds Meet"
   description="Showcase of solo house builds and personal constructions in Where Winds Meet, ranked by community votes. Find solo base building ideas from the community."
   image={ogImage}
+  preloadImage={heroFirst?.img}
+  preloadImageSm={heroFirst?.imgSm}
 >
   <div class="space-y-6">
-    {
-      isEmpty && (
-        <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
-          <WarningIcon weight="duotone" className="size-5 shrink-0 text-amber-500" />
-          <div>
-            <p class="font-medium text-sm">Work in progress</p>
-            <p class="text-sm text-muted-foreground mt-0.5">
-              Solo base building is a new category. We're collecting submissions, check back
-              soon or{" "}
-              <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">
-                join the Discord
-              </a>{" "}
-              to be notified when it launches.
-            </p>
-          </div>
-        </div>
-      )
-    }
-
-    <div class="flex flex-col gap-3">
-      <div class="flex items-center gap-3 flex-wrap">
-        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2"><img src="/images/logo_2.webp" alt="" aria-hidden="true" class="size-14 object-contain" /> Solo Construction</h1>
-        <Badge variant="secondary">{solos.length} build{solos.length !== 1 ? "s" : ""}</Badge>
-        {!isEmpty && lastSync && (
-          <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
-            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> {formatSyncDate(lastSync)}
-          </Badge>
-        )}
+    <!-- Hero banner -->
+    <div class="-mx-4 -mt-8 rounded-2xl relative h-56 sm:h-72 overflow-hidden mb-2">
+      <div class="absolute inset-0 bg-muted" />
+      <img
+        id="solo-hero-img"
+        src={heroFirst?.img ?? ""}
+        srcset={heroFirst ? `${heroFirst.imgSm} 800w, ${heroFirst.img} 1400w` : ""}
+        sizes="100vw"
+        alt=""
+        fetchpriority="high"
+        loading="eager"
+        class={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300${heroFirst ? "" : " hidden"}`}
+        aria-hidden="true"
+      />
+      <div class="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-black/5 dark:from-black/85 dark:via-black/35 dark:to-black/10" />
+      <a
+        id="solo-hero-credit"
+        href={heroFirst?.href ?? "#"}
+        class={`absolute top-3 right-4 items-center gap-1.5 bg-black/40 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1 text-xs text-white/70 hover:text-white hover:bg-black/60 transition-all group${heroFirst ? " flex" : " hidden"}`}
+        title="View this build"
+        data-umami-event="solo_hero_credit_click"
+        data-umami-event-name={heroFirst?.name}
+      >
+        <span id="solo-hero-label" class="max-w-28 truncate">{heroFirst?.label}</span>
+        <span id="solo-hero-builders" class={`text-white/45 text-[11px] max-w-24 truncate shrink-0${heroFirst?.builders ? "" : " hidden"}`}>{heroFirst?.builders ? `by ${heroFirst.builders}` : ""}</span>
+        <svg class="size-3 shrink-0 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+      </a>
+      <script is:inline define:vars={{ heroCandidates }}>
+        if (heroCandidates.length > 1) {
+          var doSwap = function() {
+            var idx = Math.floor(Math.random() * heroCandidates.length)
+            var c = heroCandidates[idx]
+            if (idx !== 0 && c) {
+              var img = document.getElementById("solo-hero-img")
+              if (!img) return
+              img.style.opacity = "0"
+              img.onload = function() { img.style.opacity = "1" }
+              img.srcset = c.imgSm + ' 800w, ' + c.img + ' 1400w'
+              img.src = c.img
+              var credit = document.getElementById("solo-hero-credit")
+              credit.href = c.href
+              credit.dataset.umamiEventName = c.name
+              document.getElementById("solo-hero-label").textContent = c.label
+              var b = document.getElementById("solo-hero-builders")
+              if (c.builders) { b.textContent = "by " + c.builders; b.classList.remove("hidden") }
+              else { b.classList.add("hidden") }
+            }
+          }
+          if (typeof requestIdleCallback !== "undefined") {
+            requestIdleCallback(doSwap)
+          } else {
+            setTimeout(doSwap, 200)
+          }
+        }
+      </script>
+      <div class="absolute bottom-0 left-0 right-0 px-6 pb-6">
+        <h1 class="font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow mb-1.5 flex items-center gap-3 flex-wrap">
+          <span class="flex items-center gap-2"><img src="/images/logo_2.webp" alt="" aria-hidden="true" class="size-14 object-contain" /> Solo</span>
+          <span class="flex items-center gap-2 font-normal text-xs text-white/80">
+            <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
+              <img src="/images/logo_2.webp" alt="" aria-hidden="true" class="size-3 object-contain" /> {solos.length} build{solos.length !== 1 ? "s" : ""}
+            </span>
+            {lastSync && (
+              <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full px-2.5 py-1">
+                <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-400" />
+                {formatSyncDate(lastSync)}
+              </span>
+            )}
+          </span>
+        </h1>
+        <p class="text-white/65 text-sm">Awesome solo builds from Jiang Hu wanderers</p>
       </div>
-      <p class="text-muted-foreground text-sm">
-        Awesome solo builds from Jiang Hu wanderers. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">Discord ↗</a></span>
-      </p>
     </div>
+
+    {isEmpty && (
+      <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
+        <WarningIcon weight="duotone" className="size-5 shrink-0 text-amber-500" />
+        <div>
+          <p class="font-medium text-sm">Work in progress</p>
+          <p class="text-sm text-muted-foreground mt-0.5">
+            Solo base building is a new category. We're collecting submissions, check back
+            soon or{" "}
+            <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">
+              join the Discord
+            </a>{" "}
+            to be notified when it launches.
+          </p>
+        </div>
+      </div>
+    )}
 
     <!-- Recently added -->
     {
       latestSolos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
+          <h2 class="font-heading text-base font-semibold mb-4 flex items-center gap-2 pl-3 border-l-2 border-blue-500/60"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
           <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {latestSolos.map((g) => {
               const shots = g.screenshots ?? []
               const img = g.coverImage ?? shots[0]
               return (
-                <div class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all">
+                <div class="card-glow group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted transition-all">
                   <a
                     href={`${BASE}/solos/${g.slug}`}
                     class="absolute inset-0 z-10"
@@ -152,7 +228,7 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
     {
       solos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2"><img src="/images/logo_mountain1.webp" alt="" aria-hidden="true" class="size-10 object-contain" /> All Solo construction</h2>
+          <h2 class="font-heading text-base font-semibold mb-3 flex items-center gap-2 pl-3 border-l-2 border-amber-500/60"><img src="/images/logo_mountain1.webp" alt="" aria-hidden="true" class="size-10 object-contain" /> All Solo construction</h2>
           <LeaderboardTable client:visible guilds={leanSolos} allTags={allTags} basePath="solos" activeBuilderSlugs={[...activeBuilders]} />
           <noscript>
             <ul class="mt-4 space-y-1 text-sm">
