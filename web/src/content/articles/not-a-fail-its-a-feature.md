@@ -27,7 +27,7 @@ featured: false
 ## Guild base pool area
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a1270cb&is=6a111f4b&hm=1a0751fbea3009107b985da257445073ad66f0bea815cf59cf84158d7260fc34&" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a13198b&is=6a11c80b&hm=9e57bc6c6e789f38a546cee608c45c8d5b0033752a414e421c9f395fc865bf29&" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
