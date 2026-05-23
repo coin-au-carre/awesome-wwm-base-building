@@ -137,7 +137,7 @@ export function getTier(rank: number, total: number, score: number): Tier {
   const pct = rank / total
   if (pct <= TIER_THRESHOLDS.grandmaster) {
     return {
-      label: "Grandmaster",
+      label: "Mythic",
       dot: "bg-rose-500",
       badge: "tier-grandmaster text-rose-800 dark:text-rose-200 font-bold ring-1 ring-inset ring-rose-500/50",
       badgeStyle: { background: "linear-gradient(135deg, rgba(244,63,94,0.28) 0%, rgba(190,18,60,0.20) 100%)" },
