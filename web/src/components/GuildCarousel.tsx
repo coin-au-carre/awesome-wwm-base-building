@@ -92,7 +92,7 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, s
             <CarouselItem key={g.slug} className="basis-full sm:basis-1/2 lg:basis-1/3">
               <a
                 href={url(`/${basePath}/${g.slug}`)}
-                className="carousel-fade-up group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+                className="card-glow carousel-fade-up group relative block overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted transition-all"
                 style={{ animationDelay: `${idx * 40}ms` }}
                 onClick={() => window.umami?.track("guild_click", { name: g.name, rank: g.rank, source: "carousel", type: basePath })}
               >
