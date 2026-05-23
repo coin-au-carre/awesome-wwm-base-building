@@ -36,10 +36,10 @@
     "guildName": "PleasureSeekers",
     "guildId": "10057013",
     "type": "fashion",
-    "scheduledStart": "2026-05-23T10:30:00Z",
-    "scheduledEnd": "2026-05-23T12:00:00Z",
+    "scheduledStart": "2026-06-27T10:30:00Z",
+    "scheduledEnd": "2026-06-27T12:00:00Z",
     "location": "PleasureSeekers (10057013)",
-    "status": "active",
+    "status": "scheduled",
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
