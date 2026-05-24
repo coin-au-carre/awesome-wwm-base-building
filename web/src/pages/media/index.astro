@@ -337,48 +337,51 @@ await Promise.all(
 </Layout>
 
 <script>
-  const modal = document.getElementById("video-modal")!
-  const container = document.getElementById("video-modal-container")!
-  const inner = document.getElementById("video-modal-inner")!
-  const iframe = document.getElementById("video-modal-iframe") as HTMLIFrameElement
-  const closeBtn = document.getElementById("video-modal-close")!
+  function init() {
+    const modal = document.getElementById("video-modal")!
+    const container = document.getElementById("video-modal-container")!
+    const inner = document.getElementById("video-modal-inner")!
+    const iframe = document.getElementById("video-modal-iframe") as HTMLIFrameElement
+    const closeBtn = document.getElementById("video-modal-close")!
 
-  function openModal(embedUrl: string, title: string, type: string) {
-    iframe.src = embedUrl
-    iframe.title = title
-    if (type === "tiktok") {
-      container.className = "flex justify-center"
-      inner.className = "overflow-hidden rounded-2xl bg-black shadow-2xl"
-      inner.style.cssText = "height: min(85vh, 640px); aspect-ratio: 9/16; width: auto;"
-    } else {
-      container.className = "w-full max-w-3xl"
-      inner.className = "aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-2xl"
-      inner.style.cssText = ""
+    function openModal(embedUrl: string, title: string, type: string) {
+      iframe.src = embedUrl
+      iframe.title = title
+      if (type === "tiktok") {
+        container.className = "flex justify-center"
+        inner.className = "overflow-hidden rounded-2xl bg-black shadow-2xl"
+        inner.style.cssText = "height: min(85vh, 640px); aspect-ratio: 9/16; width: auto;"
+      } else {
+        container.className = "w-full max-w-3xl"
+        inner.className = "aspect-video w-full overflow-hidden rounded-2xl bg-black shadow-2xl"
+        inner.style.cssText = ""
+      }
+      modal.classList.remove("hidden")
+      modal.classList.add("flex")
+      document.body.style.overflow = "hidden"
     }
-    modal.classList.remove("hidden")
-    modal.classList.add("flex")
-    document.body.style.overflow = "hidden"
-  }
 
-  function closeModal() {
-    iframe.src = ""
-    modal.classList.add("hidden")
-    modal.classList.remove("flex")
-    document.body.style.overflow = ""
-  }
+    function closeModal() {
+      iframe.src = ""
+      modal.classList.add("hidden")
+      modal.classList.remove("flex")
+      document.body.style.overflow = ""
+    }
 
-  document.querySelectorAll<HTMLButtonElement>(".video-trigger").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const embedUrl = btn.dataset.embed
-      const title = btn.dataset.title ?? ""
-      const type = btn.dataset.type ?? "youtube"
-      if (embedUrl) openModal(embedUrl, title, type)
+    document.querySelectorAll<HTMLButtonElement>(".video-trigger").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const embedUrl = btn.dataset.embed
+        const title = btn.dataset.title ?? ""
+        const type = btn.dataset.type ?? "youtube"
+        if (embedUrl) openModal(embedUrl, title, type)
+      })
     })
-  })
 
-  closeBtn.addEventListener("click", closeModal)
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal() })
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal()
-  })
+    closeBtn.addEventListener("click", closeModal)
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal() })
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal()
+    })
+  }
+  document.addEventListener("astro:page-load", init)
 </script>

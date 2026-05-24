@@ -431,6 +431,7 @@ const catalogJson = JSON.stringify(
 <script is:inline type="application/json" id="catalog-data" set:html={catalogJson} />
 
 <script>
+  function init() {
   // ── types & data ─────────────────────────────────────────────────────────────
 
   type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; diagramRef: string; buyPlace: string; category: string; subCategory: string; img: string; variantsImg: string }
@@ -1331,16 +1332,7 @@ const catalogJson = JSON.stringify(
     }
   })()
 
-  // ── TODO progress toggle ──────────────────────────────────────────────────────
-
-  const todoToggle  = document.getElementById("todo-toggle") as HTMLButtonElement
-  const todoPanel   = document.getElementById("todo-panel") as HTMLDivElement
-  const todoChevron = document.getElementById("todo-chevron") as unknown as SVGElement
-
-  todoToggle.addEventListener("click", () => {
-    const open = todoPanel.style.display !== "none"
-    todoPanel.style.display = open ? "none" : ""
-    todoChevron.style.transform = open ? "" : "rotate(180deg)"
-  })
+  } // end init()
+  document.addEventListener("astro:page-load", init)
 </script>
 
