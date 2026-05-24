@@ -68,7 +68,7 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
 >
   <div class="space-y-6">
     <!-- Hero banner -->
-    <div class="-mx-4 -mt-8 rounded-2xl relative h-56 sm:h-72 overflow-hidden mb-2">
+    <div class="-mx-4 -mt-4 rounded-2xl relative h-56 sm:h-72 overflow-hidden mb-2">
       <div class="absolute inset-0 bg-muted" />
       <img
         id="solo-hero-img"
@@ -162,7 +162,7 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
     {
       latestSolos.length > 0 && (
         <section>
-          <h2 class="font-heading text-base font-semibold mb-4 flex items-center gap-2 pl-3 border-l-2 border-blue-500/60"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
+          <h2 class="font-heading text-base font-semibold mb-1 flex items-center gap-2 pl-3 border-l-2 border-blue-500/60"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
           <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {latestSolos.map((g) => {
               const shots = g.screenshots ?? []
