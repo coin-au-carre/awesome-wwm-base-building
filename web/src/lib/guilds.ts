@@ -23,6 +23,7 @@ export interface GameEvent {
   description?: string
   guildName?: string
   guildId?: string
+  type?: string
   scheduledStart: string
   scheduledEnd?: string
   location?: string

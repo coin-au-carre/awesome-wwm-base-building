@@ -336,10 +336,13 @@ export default function GuildFlyer({ guild, guildUrl, displayName, buildersStr, 
   const [previewScale, setPreviewScale] = useState(0.5)
 
   useEffect(() => {
+    if (!open) return
     const el = previewContainerRef.current
     if (!el) { return }
     const ro = new ResizeObserver(([entry]) => {
-      setPreviewScale(entry.contentRect.width / W)
+      if (entry.contentRect.width > 0) {
+        setPreviewScale(entry.contentRect.width / W)
+      }
     })
     ro.observe(el)
     return () => ro.disconnect()
