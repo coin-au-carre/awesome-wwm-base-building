@@ -53,6 +53,14 @@ var validEventTypes = map[string]EventType{
 	"other":     EventTypeOther,
 }
 
+// ChannelType classifies where a scheduled event takes place.
+type ChannelType string
+
+const (
+	ChannelTypeVoice ChannelType = "voice"
+	ChannelTypeStage ChannelType = "stage"
+)
+
 // Event is the serialisable form written to data/events.json.
 type Event struct {
 	ID              string      `json:"id"`
@@ -64,6 +72,8 @@ type Event struct {
 	ScheduledStart  time.Time   `json:"scheduledStart"`
 	ScheduledEnd    *time.Time  `json:"scheduledEnd,omitempty"`
 	Location        string      `json:"location,omitempty"`
+	ChannelType     ChannelType `json:"channelType,omitempty"`
+	ChannelName     string      `json:"channelName,omitempty"`
 	Status          EventStatus `json:"status"`
 	SubscriberCount int         `json:"subscriberCount"`
 	DiscordURL      string      `json:"discordUrl"`
@@ -296,6 +306,26 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 		return text
 	}
 
+	// Resolve voice/stage channel names (deduplicated).
+	channelNames := map[string]string{}
+	for _, e := range raw {
+		if e.ChannelID == "" {
+			continue
+		}
+		if e.EntityType != discordgo.GuildScheduledEventEntityTypeVoice &&
+			e.EntityType != discordgo.GuildScheduledEventEntityTypeStageInstance {
+			continue
+		}
+		if _, seen := channelNames[e.ChannelID]; seen {
+			continue
+		}
+		if ch, err := s.Channel(e.ChannelID); err == nil {
+			channelNames[e.ChannelID] = ch.Name
+		} else {
+			channelNames[e.ChannelID] = "" // mark as attempted
+		}
+	}
+
 	events := make([]Event, 0, len(raw))
 	for _, e := range raw {
 		location := e.EntityMetadata.Location
@@ -321,6 +351,14 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 			imageURL = fmt.Sprintf("https://cdn.discordapp.com/guild-events/%s/%s.png?size=512", e.ID, e.Image)
 		}
 
+		var chType ChannelType
+		switch e.EntityType {
+		case discordgo.GuildScheduledEventEntityTypeVoice:
+			chType = ChannelTypeVoice
+		case discordgo.GuildScheduledEventEntityTypeStageInstance:
+			chType = ChannelTypeStage
+		}
+
 		events = append(events, Event{
 			ID:              e.ID,
 			Name:            e.Name,
@@ -331,6 +369,8 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 			ScheduledStart:  e.ScheduledStartTime,
 			ScheduledEnd:    scheduledEnd,
 			Location:        location,
+			ChannelType:     chType,
+			ChannelName:     channelNames[e.ChannelID],
 			Status:          discordStatus(e.Status),
 			SubscriberCount: e.UserCount,
 			DiscordURL:      fmt.Sprintf("https://discord.com/events/%s/%s", guildID, e.ID),

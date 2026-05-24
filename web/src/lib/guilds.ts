@@ -26,6 +26,8 @@ export interface GameEvent {
   scheduledStart: string
   scheduledEnd?: string
   location?: string
+  channelType?: "voice" | "stage"
+  channelName?: string
   status: string
   subscriberCount?: number
   discordUrl: string

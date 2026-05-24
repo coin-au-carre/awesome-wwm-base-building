@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { Badge } from "@/components/ui/badge"
-import { CalendarIcon, MapPinIcon, UsersIcon, ArrowSquareOutIcon, CastleTurretIcon } from "@phosphor-icons/react"
+import { CalendarIcon, MapPinIcon, UsersIcon, ArrowSquareOutIcon, CastleTurretIcon, BroadcastIcon, MicrophoneStageIcon } from "@phosphor-icons/react"
 import { getUpcomingEvents, EVENT_TYPE_LABELS, EVENT_TYPE_EMOJI } from "@/lib/events"
 import type { EventType } from "@/lib/events"
 import { BASE } from "@/lib/url"
@@ -190,7 +190,19 @@ const TYPE_COLORS: Record<EventType, string> = {
                   {formatDate(event.scheduledStart)}
                   {event.scheduledEnd && ` → ${formatDate(event.scheduledEnd)}`}
                 </span>
-                {event.location && (
+                {event.channelType === "voice" && (
+                  <span class="flex items-center gap-1.5">
+                    <BroadcastIcon weight="duotone" className="size-4 shrink-0" />
+                    {event.channelName ?? "Voice channel"}
+                  </span>
+                )}
+                {event.channelType === "stage" && (
+                  <span class="flex items-center gap-1.5">
+                    <MicrophoneStageIcon weight="duotone" className="size-4 shrink-0" />
+                    {event.channelName ?? "Stage channel"}
+                  </span>
+                )}
+                {!event.channelType && event.location && (
                   <span class="flex items-center gap-1.5">
                     <MapPinIcon weight="duotone" className="size-4 shrink-0" />
                     {event.location}

@@ -3,6 +3,7 @@ import { resolve } from "path"
 
 export type EventStatus = "scheduled" | "active" | "completed" | "canceled"
 export type EventType = "tour" | "pvp" | "marriage" | "dancing" | "fashion" | "contest" | "race" | "streaming" | "other"
+export type ChannelType = "voice" | "stage"
 
 export interface Event {
   id: string
@@ -14,6 +15,8 @@ export interface Event {
   scheduledStart: string   // ISO 8601
   scheduledEnd?: string
   location?: string
+  channelType?: ChannelType
+  channelName?: string
   status: EventStatus
   subscriberCount: number
   discordUrl: string
