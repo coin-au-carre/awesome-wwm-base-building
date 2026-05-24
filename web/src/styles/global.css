@@ -206,8 +206,14 @@
 }
 .nav-dot { animation: navDotGlow 2s ease-in-out infinite; }
 
-::view-transition-old(root) { animation-duration: 60ms; }
-::view-transition-new(root) { animation-duration: 90ms; }
+@keyframes vt-fade-up {
+  from { opacity: 0; transform: translateY(7px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+::view-transition-old(root) { animation: none; }
+::view-transition-new(root) { animation: 220ms ease-out both vt-fade-up; }
+::view-transition-old(site-header),
+::view-transition-new(site-header) { animation: none; }
 
 @keyframes carouselFadeUp {
   from { opacity: 0; transform: translateY(10px); }
