@@ -198,15 +198,24 @@ function isTiktokURL(rawURL: string): boolean {
 <!-- Lightbox overlay -->
 <div
   id="lightbox"
-  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/90 backdrop-blur-sm"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+  style="display:none;opacity:0;transition:opacity 200ms ease"
   role="dialog"
   aria-modal="true"
   aria-label="Image viewer"
 >
-  <!-- Close -->
+  <!-- Image (behind the buttons in the DOM so buttons always paint on top) -->
+  <div id="lightbox-img-wrap" class="absolute inset-0">
+    <!-- Thumbnail: shows immediately (already cached from the grid), sits behind -->
+    <img id="lightbox-thumb" src="" alt="" class="absolute inset-0 w-full h-full object-contain p-6 select-none" style="opacity:0" />
+    <!-- Full-res: fades in on top once loaded -->
+    <img id="lightbox-img"   src="" alt="" class="absolute inset-0 w-full h-full object-contain p-6 select-none" style="opacity:0;transition:opacity 300ms ease-out" />
+  </div>
+
+  <!-- Close — z-10 so it paints above the image wrap -->
   <button
     id="lightbox-close"
-    class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+    class="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
     aria-label="Close"
   >
     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -217,7 +226,7 @@ function isTiktokURL(rawURL: string): boolean {
   <!-- Prev -->
   <button
     id="lightbox-prev"
-    class="absolute left-3 sm:left-6 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
+    class="absolute left-3 sm:left-6 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
     aria-label="Previous"
   >
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -225,27 +234,10 @@ function isTiktokURL(rawURL: string): boolean {
     </svg>
   </button>
 
-  <!-- Image -->
-  <div class="flex items-center justify-center w-full h-full p-2">
-    <div id="lightbox-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
-        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-      </svg>
-    </div>
-    <img
-      id="lightbox-img"
-      src=""
-      alt=""
-      class="max-h-full max-w-full rounded-xl object-contain shadow-2xl select-none transition-opacity duration-200"
-      style="opacity:0"
-    />
-  </div>
-
   <!-- Next -->
   <button
     id="lightbox-next"
-    class="absolute right-3 sm:right-6 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
+    class="absolute right-3 sm:right-6 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 disabled:opacity-20 disabled:cursor-not-allowed"
     aria-label="Next"
   >
     <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -254,84 +246,106 @@ function isTiktokURL(rawURL: string): boolean {
   </button>
 
   <!-- Counter -->
-  <div id="lightbox-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-sm tabular-nums"></div>
+  <div id="lightbox-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 text-white/50 text-sm tabular-nums"></div>
 </div>
+
+<style>
+  @keyframes lb-zoom-in  { from { transform: scale(0.88); } to { transform: scale(1); } }
+  @keyframes lb-zoom-out { from { transform: scale(1); }    to { transform: scale(0.88); } }
+</style>
 
 <script>
   document.addEventListener("astro:page-load", () => {
     const triggers = document.querySelectorAll<HTMLButtonElement>(".lightbox-trigger")
     const lightbox = document.getElementById("lightbox")
     const img = document.getElementById("lightbox-img") as HTMLImageElement | null
-    const spinner = document.getElementById("lightbox-spinner")
     const btnClose = document.getElementById("lightbox-close")
     const btnPrev = document.getElementById("lightbox-prev") as HTMLButtonElement | null
     const btnNext = document.getElementById("lightbox-next") as HTMLButtonElement | null
     const counter = document.getElementById("lightbox-counter")
 
-    if (!lightbox || !img || !spinner || !btnClose || !btnPrev || !btnNext || !counter) return
+    const thumbImg = document.getElementById("lightbox-thumb") as HTMLImageElement | null
+    const imgWrap  = document.getElementById("lightbox-img-wrap") as HTMLDivElement | null
 
-    const srcs = Array.from(triggers).map((t) => t.dataset.src ?? "")
+    if (!lightbox || !img || !thumbImg || !imgWrap || !btnClose || !btnPrev || !btnNext || !counter) return
+
+    const srcs   = Array.from(triggers).map((t) => t.dataset.src   ?? "")
     const thumbs = Array.from(triggers).map((t) => t.dataset.thumb ?? t.dataset.src ?? "")
     let current = 0
+    let closing = false
     const preloaded = new Set<string>()
 
     function preload(index: number) {
       const src = srcs[index]
       if (!src || preloaded.has(src)) return
       preloaded.add(src)
-      const p = new Image()
-      p.src = src
+      new Image().src = src
     }
 
     function show(index: number) {
-      const navigating = current !== index && lightbox!.classList.contains("flex")
+      closing = false
       current = index
-      const src = srcs[current]
+      const src   = srcs[current]
       const thumb = thumbs[current]
       counter!.textContent = `${current + 1} / ${srcs.length}`
       btnPrev!.disabled = current === 0
       btnNext!.disabled = current === srcs.length - 1
 
-      // Show thumbnail immediately — already in browser cache from the grid
-      if (thumb && thumb !== img!.src) {
-        img!.style.opacity = navigating ? "0" : "1"
-        img!.src = thumb
-        img!.alt = `Screenshot ${current + 1}`
-        spinner!.style.display = "none"
-        // Small fade-in when navigating between images
-        if (navigating) requestAnimationFrame(() => { img!.style.opacity = "1" })
-      } else {
-        img!.style.opacity = "0"
-        spinner!.style.display = "flex"
-      }
+      // 1. Show thumbnail immediately — already cached from the grid
+      thumbImg!.src = thumb
+      thumbImg!.alt = `Screenshot ${current + 1}`
+      thumbImg!.style.opacity = "1"
 
-      // Load full-res in the background, swap silently when ready
-      if (src !== thumb) {
+      // 2. Reset full-res layer (instant, no transition)
+      img!.style.transition = "none"
+      img!.style.opacity = "0"
+      img!.src = ""
+
+      // 3. Load full-res; fade it in on top once ready
+      if (src) {
         const captured = index
         const full = new Image()
         full.onload = () => {
-          if (current !== captured) return
+          if (current !== captured || closing) return
           img!.src = src
-          spinner!.style.display = "none"
+          img!.alt = `Screenshot ${current + 1}`
+          requestAnimationFrame(() => {
+            img!.style.transition = "opacity 300ms ease-out"
+            img!.style.opacity = "1"
+          })
         }
-        full.onerror = () => { spinner!.style.display = "none" }
         full.src = src
         preloaded.add(src)
       }
 
-      // Preload adjacent images in both directions
+      // Preload neighbours
       preload(current + 1)
       preload(current - 1)
 
-      lightbox!.classList.remove("hidden")
-      lightbox!.classList.add("flex")
+      // Open: fade overlay in + zoom image wrap in
+      lightbox!.style.display = "flex"
+      imgWrap!.style.animation = "lb-zoom-in 250ms ease-out both"
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        lightbox!.style.opacity = "1"
+      }))
       document.body.style.overflow = "hidden"
     }
 
     function close() {
-      lightbox!.classList.add("hidden")
-      lightbox!.classList.remove("flex")
-      document.body.style.overflow = ""
+      if (closing) return
+      closing = true
+      // Close: zoom out + fade overlay out, then hide
+      imgWrap!.style.animation = "lb-zoom-out 200ms ease-in both"
+      lightbox!.style.opacity = "0"
+      setTimeout(() => {
+        lightbox!.style.display = "none"
+        imgWrap!.style.animation = ""
+        thumbImg!.style.opacity = "0"
+        img!.style.opacity = "0"
+        img!.src = ""
+        document.body.style.overflow = ""
+        closing = false
+      }, 200)
     }
 
     triggers.forEach((t) => {
@@ -351,7 +365,7 @@ function isTiktokURL(rawURL: string): boolean {
     })
 
     document.addEventListener("keydown", (e) => {
-      if (lightbox!.classList.contains("hidden")) return
+      if (lightbox!.style.display === "none") return
       if (e.key === "Escape") close()
       if (e.key === "ArrowLeft" && current > 0) show(current - 1)
       if (e.key === "ArrowRight" && current < srcs.length - 1) show(current + 1)
