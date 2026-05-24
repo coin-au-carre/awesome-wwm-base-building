@@ -210,20 +210,23 @@ const TYPE_COLORS: Record<EventType, string> = {
 </Layout>
 
 <script>
-  const now = Date.now()
-  let visible = 0
-  document.querySelectorAll<HTMLElement>("[data-event]").forEach((el) => {
-    const end = el.dataset.end
-    if (end && new Date(end).getTime() <= now) {
-      el.remove()
-    } else {
-      visible++
+  function init() {
+    const now = Date.now()
+    let visible = 0
+    document.querySelectorAll<HTMLElement>("[data-event]").forEach((el) => {
+      const end = el.dataset.end
+      if (end && new Date(end).getTime() <= now) {
+        el.remove()
+      } else {
+        visible++
+      }
+    })
+    const badge = document.getElementById("events-count")
+    if (badge) badge.textContent = `${visible} upcoming`
+    if (visible === 0) {
+      document.getElementById("events-list")?.remove()
+      document.getElementById("events-empty")?.classList.remove("hidden")
     }
-  })
-  const badge = document.getElementById("events-count")
-  if (badge) badge.textContent = `${visible} upcoming`
-  if (visible === 0) {
-    document.getElementById("events-list")?.remove()
-    document.getElementById("events-empty")?.classList.remove("hidden")
   }
+  document.addEventListener("astro:page-load", init)
 </script>
