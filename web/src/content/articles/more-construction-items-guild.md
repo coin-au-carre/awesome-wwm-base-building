@@ -10,7 +10,7 @@ image: "/tutorials/kaifeng-items-teleport.webp"
 
 Thanks to **OPM** for originally sharing this in the Discord.
 
-Some building items are only available through your solo world. You can unlock them for guild use in two ways. Items that support this are marked with the `#solo` tag in the [catalog#solo](https://www.wherebuildersmeet.com/catalog/?q=%23solo) page.
+Some building items are only available through your solo world. You can unlock more for solo and guild use in two ways. Items that support this are marked with the `#solo` tag in the [catalog#solo](https://www.wherebuildersmeet.com/catalog/?q=%23solo) page.
 
 For both options, start by taking the **Main South Gate** teleport in Kaifeng.
 
@@ -33,6 +33,8 @@ Once inside, click the **Details** button in the top-right corner of the screen.
 Then click **Return furniture** in the bottom-right. This retrieves all the items from the house and unlocks them in your guild base.
 
 <img src="/tutorials/kaifeng-items-return-furniture.webp" alt="Return furniture button" style="border-radius: 0.75rem; width: 40%;" />
+
+**Note:** Some items can only be unlocked by purchasing them, even after renting all houses. For example, the [Carpet](https://www.wherebuildersmeet.com/catalog/?cat=Furniture+Decoration&sub=Accessory&item=Carpet) is only available through Option 2.
 
 ## Option 2. Buy items directly
 
