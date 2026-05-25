@@ -144,7 +144,7 @@ Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a14f046&is=6a139ec6&hm=f0645165eeb4d5367f5f58b861ff18000e85293aea48b0338af194aa1dd3eea6&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a159906&is=6a144786&hm=1df2b7d1acb558358d186e7b60c2072a8a5d427f0ae9bc84b6fff38646318777&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a14f15a&is=6a139fda&hm=5ed54981be376040d46c510353a64688dd5d1fa105862617b3a7637c6ba89195&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a159a1a&is=6a14489a&hm=660d65a3cca20bbdad9e1e2fd2e2ba013cf017abe5d8cbaf5366e61331230510&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a14f172&is=6a139ff2&hm=f3e4baee5e84cb5759db378d81bc6aee48f07ae6712a4a425bf53f67ad802484&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a159a32&is=6a1448b2&hm=a08ebff520c39356e9e3ee551e190d01fc00d5f025eeae0ca87b24dcde2442b8&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
@@ -180,7 +180,7 @@ With surging emotion, I seize the longsword. Ferrying the world, renown calls my
 
 ---
 
-<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a150500&is=6a13b380&hm=d32dac588ecb259f8f407fff2c5aa03c28796c855c9674f4079edde004f796b7&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://cdn.discordapp.com/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a15adc0&is=6a145c40&hm=d767774e8ed40b84b72ca2200e8fa23ea92df6d51304f8d9ffbd0e3952186965&" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
