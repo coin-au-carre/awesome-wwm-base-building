@@ -175,6 +175,55 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
     return counts
   }, [guilds, reactions, disabledBlacklist])
 
+  // Raw pts per voter, per thread (⭐ = cfg.starScore, 👍/🔥/❤️ = cfg.likeScore, thumbs skin-tones deduplicated).
+  // Mirrors the Go rawPointsPerUser logic in internal/discord/abuse.go.
+  // Returns totalRawPts (sum across threads) and maxPtsPerVoter (highest single-thread pts).
+  const { totalRawPts, maxPtsPerVoter } = useMemo(() => {
+    const THUMBS = new Set(["👍", "👍🏻", "👍🏼", "👍🏽", "👍🏾", "👍🏿"])
+    const byThread = new Map<string, Map<string, number>>() // uid → tid → pts
+    for (const g of guilds) {
+      const tid = threadID(g)
+      const emojiMap = reactions[tid] ?? {}
+      const threadPts = new Map<string, number>()
+      const thumbsVoters = new Set<string>()
+      for (const [emoji, voters] of Object.entries(emojiMap)) {
+        for (const v of voters) {
+          if (disabledBlacklist.has(v)) { continue }
+          if (emoji === "⭐") { threadPts.set(v, (threadPts.get(v) ?? 0) + cfg.starScore) }
+          else if (THUMBS.has(emoji)) { thumbsVoters.add(v) }
+          else if (emoji === "🔥" || emoji === "❤️") { threadPts.set(v, (threadPts.get(v) ?? 0) + cfg.likeScore) }
+        }
+      }
+      for (const v of thumbsVoters) { threadPts.set(v, (threadPts.get(v) ?? 0) + cfg.likeScore) }
+      for (const [uid, pts] of threadPts) {
+        if (!byThread.has(uid)) { byThread.set(uid, new Map()) }
+        byThread.get(uid)!.set(tid, pts)
+      }
+    }
+    const totalRawPts = new Map<string, number>()
+    const maxPtsPerVoter = new Map<string, number>()
+    for (const [uid, threadMap] of byThread) {
+      let total = 0, max = 0
+      for (const pts of threadMap.values()) { total += pts; if (pts > max) { max = pts } }
+      totalRawPts.set(uid, total)
+      maxPtsPerVoter.set(uid, max)
+    }
+    return { totalRawPts, maxPtsPerVoter }
+  }, [guilds, reactions, disabledBlacklist, cfg.starScore, cfg.likeScore])
+
+  // Avg pts/thread tiers — derived from cfg so they react to emoji weight changes.
+  // Thresholds: ≥ starScore×1.25 | ≥ starScore×0.75 | ≥ likeScore×0.75 | rest
+  const avgPtsTiers = useMemo(() => [
+    { min: cfg.starScore * 1.25, color: "text-emerald-400", label: "star-voter" },
+    { min: cfg.starScore * 0.85, color: "text-sky-400",     label: "engaged"    },
+    { min: cfg.likeScore * 1.4, color: "text-muted-foreground", label: "warning" },
+    { min: 0,                    color: "text-red-400",   label: "low-pt"     },
+  ], [cfg.starScore, cfg.likeScore])
+
+  function getAvgPtsColor(avg: number) {
+    return avgPtsTiers.find(t => avg >= t.min)?.color ?? "text-amber-400"
+  }
+
   const { weights, tiers } = useMemo(() => {
     const weights = new Map<string, number>()
     const tiers = new Map<string, number>()
@@ -191,12 +240,14 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
       uid,
       threads,
       reactions: totalReactions.get(uid) ?? 0,
+      rawPts: totalRawPts.get(uid) ?? 0,
+      maxPts: maxPtsPerVoter.get(uid) ?? 0,
       weight: weights.get(uid) ?? 0,
       tier: tiers.get(uid) ?? 0,
     }))
     all.sort((a, b) => b.threads - a.threads || b.reactions - a.reactions)
     return all
-  }, [voterCounts, totalReactions, weights, tiers])
+  }, [voterCounts, totalReactions, totalRawPts, maxPtsPerVoter, weights, tiers])
 
   const ranked = useMemo(() => {
     const withScore = guilds.map((g) => {
@@ -372,6 +423,16 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
         </button>
         {votersOpen && (
           <>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] text-muted-foreground">
+              <span className="font-medium shrink-0">Avg pts/thread:</span>
+              {avgPtsTiers.map((t, i) => (
+                <span key={i} className={cn("whitespace-nowrap", t.color)}>
+                  {i < avgPtsTiers.length - 1
+                    ? `≥ ${+t.min.toFixed(2)} ${t.label}`
+                    : `< ${+avgPtsTiers[avgPtsTiers.length - 2].min.toFixed(2)} ${t.label}`}
+                </span>
+              ))}
+            </div>
             <div className="overflow-x-auto">
               <table className="w-full text-xs">
                 <thead>
@@ -380,6 +441,9 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                     <th className="text-left py-1 pr-4 font-medium">Voter</th>
                     <th className="text-right py-1 pr-4 font-medium">Threads</th>
                     <th className="text-right py-1 pr-4 font-medium">Reactions</th>
+                    <th className="text-right py-1 pr-4 font-medium">Rxn/Thread</th>
+                    <th className="text-right py-1 pr-4 font-medium">Avg pts/thread</th>
+                    <th className="text-right py-1 pr-4 font-medium">Max pts</th>
                     <th className="text-left py-1 font-medium">Weight</th>
                   </tr>
                 </thead>
@@ -394,6 +458,17 @@ export function AdminLeaderboard({ guilds, reactions, users, voterBlacklist }: P
                       <td className="py-1 pr-4 font-medium">{displayName(v.uid, users)}</td>
                       <td className="py-1 pr-4 text-right font-mono">{v.threads}</td>
                       <td className="py-1 pr-4 text-right font-mono text-muted-foreground">{v.reactions}</td>
+                      <td className="py-1 pr-4 text-right font-mono text-muted-foreground/60">{v.threads > 0 ? (v.reactions / v.threads).toFixed(1) : "—"}</td>
+                      <td className="py-1 pr-4 text-right font-mono">
+                        {v.threads > 0
+                          ? (() => { const avg = v.rawPts / v.threads; return <span className={getAvgPtsColor(avg)}>{avg.toFixed(1)}</span> })()
+                          : <span className="text-muted-foreground/40">—</span>}
+                      </td>
+                      <td className="py-1 pr-4 text-right font-mono">
+                        <span className={v.maxPts >= cfg.starScore * 2 ? "text-rose-400" : v.maxPts >= cfg.starScore ? "text-amber-400" : "text-muted-foreground/60"}>
+                          {v.maxPts > 0 ? v.maxPts : "—"}
+                        </span>
+                      </td>
                       <td className="py-1">
                         <span className={cn("inline-flex items-center rounded-full px-1.5 py-0.5 text-[10px] font-medium", weightColor(v.tier))}>
                           {weightLabel(v.tier, v.weight)}
