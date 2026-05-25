@@ -2,7 +2,7 @@
 title: "How to Cry Me A River"
 description: "Use the courtyard landscape tool and wall trick to create a flowing water area by stitching multiple water features together."
 tags: ["advanced", "guild", "solo"]
-authors: ["Crueliet", "KARIN", "Carnii"]
+authors: ["Crueliet", "KARIN", "Carnii", "Ahlyam"]
 date: 2026-05-06
 order: 9
 image: "/tutorials/how-to-cry-me-a-river.webp"
@@ -39,3 +39,7 @@ The advantage over manual adjustment (going up and down until sections blend) is
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a1604e6&is=6a14b366&hm=5e89a24a2fe79de384794d161e91732fc70fedf1e8bfbeb0b0f341e24904bc23&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+
+**Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
+
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a160c6a&is=6a14baea&hm=b93c99b4be4918acfb71423b10bf7749403f484d69baf82694ed007899732a30&format=webp&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
