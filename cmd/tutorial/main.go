@@ -10,6 +10,7 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -27,7 +28,7 @@ var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 var reDiscordVideoMarker = regexp.MustCompile(`<!--\s*discord-video:(\d+)/(\d+)\s*-->`)
 var reVideoSrc = regexp.MustCompile(`(<video\s[^>]*src=)"[^"]*"`)
-var reDiscordCDN = regexp.MustCompile(`https://cdn\.discordapp\.com/attachments/[^\s"'<>]+`)
+var reDiscordCDN = regexp.MustCompile(`https://(?:cdn\.discordapp\.com|media\.discordapp\.net)/attachments/[^\s"'<>]+`)
 
 func slugify(s string) string {
 	return strings.Trim(reSlug.ReplaceAllString(strings.ToLower(s), "-"), "-")
@@ -357,6 +358,41 @@ func fetchSnapshotVideoURL(token, channelID, messageID string) string {
 	return ""
 }
 
+// toCDNForm normalizes any Discord attachment URL (cdn or media) to a plain
+// cdn.discordapp.com URL with only the auth params (ex/is/hm), suitable for
+// the Discord refresh-urls API which does not accept media.discordapp.net.
+func toCDNForm(rawURL string) (string, error) {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return "", err
+	}
+	u.Host = "cdn.discordapp.com"
+	q := u.Query()
+	newQ := make(url.Values)
+	for _, key := range []string{"ex", "is", "hm"} {
+		if v := q.Get(key); v != "" {
+			newQ.Set(key, v)
+		}
+	}
+	u.RawQuery = newQ.Encode()
+	return u.String(), nil
+}
+
+// toMediaForm converts a cdn.discordapp.com URL to media.discordapp.net with
+// WebP encoding, which is lighter and faster for browser display.
+func toMediaForm(cdnURL string) string {
+	u, err := url.Parse(cdnURL)
+	if err != nil {
+		return cdnURL
+	}
+	u.Host = "media.discordapp.net"
+	q := u.Query()
+	q.Set("format", "webp")
+	q.Set("quality", "lossless")
+	u.RawQuery = q.Encode()
+	return u.String()
+}
+
 // refreshAllCDNURLs scans all articles for Discord CDN URLs and refreshes their
 // tokens via the Discord refresh-urls API, without touching any other content.
 func refreshAllCDNURLs(token, articlesDir string) error {
@@ -375,20 +411,44 @@ func refreshAllCDNURLs(token, articlesDir string) error {
 			continue
 		}
 		content := string(data)
-		urls := reDiscordCDN.FindAllString(content, -1)
-		if len(urls) == 0 {
+		origURLs := reDiscordCDN.FindAllString(content, -1)
+		if len(origURLs) == 0 {
 			continue
 		}
-		refreshed, err := bulkRefreshDiscordURLs(token, urls)
+		// Normalize all URLs to cdn form for the API (media.discordapp.net not accepted).
+		// Build a deduped list and a mapping: cdn_form → original URL.
+		cdnForms := make(map[string]string) // cdn_form → first original that maps to it
+		var uniqueCDN []string
+		for _, orig := range origURLs {
+			cdn, err := toCDNForm(orig)
+			if err != nil {
+				continue
+			}
+			if _, seen := cdnForms[cdn]; !seen {
+				cdnForms[cdn] = orig
+				uniqueCDN = append(uniqueCDN, cdn)
+			}
+		}
+		refreshed, err := bulkRefreshDiscordURLs(token, uniqueCDN)
 		if err != nil {
 			slog.Warn("refreshing CDN URLs", "file", e.Name(), "err", err)
 			continue
 		}
+		// Replace each original URL with the refreshed media URL.
 		updated := content
 		changed := false
-		for orig, fresh := range refreshed {
-			if fresh != orig {
-				updated = strings.ReplaceAll(updated, orig, fresh)
+		for _, orig := range origURLs {
+			cdn, err := toCDNForm(orig)
+			if err != nil {
+				continue
+			}
+			newCDN, ok := refreshed[cdn]
+			if !ok {
+				continue
+			}
+			newMedia := toMediaForm(newCDN)
+			if newMedia != orig {
+				updated = strings.ReplaceAll(updated, orig, newMedia)
 				changed = true
 			}
 		}
