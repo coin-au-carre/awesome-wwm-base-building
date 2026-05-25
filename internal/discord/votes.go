@@ -134,12 +134,15 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	})
 
 	totalPts := 0
+	countByPts := make(map[int]int)
 	for _, e := range entries {
 		totalPts += e.pts
+		countByPts[e.pts]++
 	}
+	avgPts := float64(totalPts) / float64(len(entries))
 
 	var sb strings.Builder
-	fmt.Fprintf(&sb, "**Your votes** · %d guilds · %d pts\n\n", len(entries), totalPts)
+	fmt.Fprintf(&sb, "**Your votes** · %d guilds · %d pts · avg %.1f pts/guild\n\n", len(entries), totalPts, avgPts)
 
 	currentPts := -1
 	var currentNames []string
@@ -148,7 +151,8 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	for _, e := range entries {
 		if e.pts != currentPts {
 			if currentPts != -1 {
-				fmt.Fprintf(&sb, "+%d pts [%s] %s\n", currentPts, currentEmojis, strings.Join(currentNames, ", "))
+				pct := float64(countByPts[currentPts]) / float64(len(entries)) * 100
+				fmt.Fprintf(&sb, "+%d pts [%s] (%d%%) %s\n", currentPts, currentEmojis, int(pct+0.5), strings.Join(currentNames, ", "))
 				if sb.Len() > 1800 {
 					sb.WriteString("*... and more*")
 					break
@@ -163,7 +167,8 @@ func handleMyVotesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	}
 
 	if currentPts != -1 {
-		fmt.Fprintf(&sb, "+%d pts [%s] %s\n", currentPts, currentEmojis, strings.Join(currentNames, ", "))
+		pct := float64(countByPts[currentPts]) / float64(len(entries)) * 100
+		fmt.Fprintf(&sb, "+%d pts [%s] (%d%%) %s\n", currentPts, currentEmojis, int(pct+0.5), strings.Join(currentNames, ", "))
 	}
 
 	votedNames := make(map[string]bool)
