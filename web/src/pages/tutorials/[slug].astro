@@ -43,6 +43,7 @@ const ogImage = coverImage?.startsWith("http")
   : firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
 
 const datePublished = entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01"
+const dateModified = entry.data.updatedDate?.toISOString().slice(0, 10) ?? datePublished
 const keywords = (entry.data.tags ?? []).join(", ") || undefined
 const tutorialsUrl = `${Astro.url.origin}/tutorials`
 ---
@@ -69,7 +70,7 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
         "description": entry.data.description,
         "url": Astro.url.href,
         "datePublished": datePublished,
-        "dateModified": datePublished,
+        "dateModified": dateModified,
         ...(ogImage ? { "image": ogImage } : {}),
         "author": (entry.data.authors ?? []).map((name: string) => ({ "@type": "Person", "name": name })),
         ...(keywords ? { "keywords": keywords } : {}),
@@ -113,10 +114,17 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
               </div>
             )
           })}
-          {entry.data.date && (
-            <div class="flex items-center self-end pb-0.5 text-xs text-muted-foreground ml-1">
-              {entry.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-            </div>
+        </div>
+      )}
+      {entry.data.date && (
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+          <span>
+            Published: {entry.data.date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+          </span>
+          {entry.data.updatedDate && entry.data.updatedDate.toISOString().slice(0, 10) !== entry.data.date.toISOString().slice(0, 10) && (
+            <span class="text-foreground/60">
+              Updated: {entry.data.updatedDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+            </span>
           )}
         </div>
       )}

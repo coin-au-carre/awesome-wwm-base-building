@@ -4,6 +4,7 @@ description: "Get additional items from the solo world to unlock more guild buil
 tags: ["beginner", "guild"]
 authors: ["OPM", "Ahlyam"]
 date: 2026-04-09
+updatedDate: 2026-05-25
 order: 1
 image: "/tutorials/kaifeng-items-teleport.webp"
 ---
