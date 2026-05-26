@@ -21,7 +21,7 @@ function formatDate(d: Date) {
 }
 
 function renderDateLabel(date: Date | null, updatedDate: Date | null): { label: string; updated: boolean } | null {
-  if (!date) return null
+  if (!date) { return null }
   if (updatedDate && updatedDate.toISOString().slice(0, 10) !== date.toISOString().slice(0, 10)) {
     return { label: formatDate(updatedDate), updated: true }
   }
@@ -175,7 +175,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">All articles</p>
           <div className="flex items-center gap-1">
             {(["default", "updated", "newest"] as SortKey[]).map((key) => {
-              const labels: Record<SortKey, string> = { default: "Default", updated: "Recently updated", newest: "Newest" }
+              const labels: Record<SortKey, string> = { default: "Chronological", updated: "Recently updated", newest: "Newest" }
               const active = sortBy === key
               return (
                 <button
