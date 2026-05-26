@@ -92,18 +92,6 @@ const catalogJson = JSON.stringify(
       </ul>
     </div>
 
-    <script>
-      {
-        const toggle = document.getElementById("alpha-toggle")!
-        const features = document.getElementById("alpha-features")!
-        const chevron = document.getElementById("alpha-toggle-chevron")!
-        toggle.addEventListener("click", () => {
-          const open = features.style.display === "grid"
-          features.style.display = open ? "none" : "grid"
-          chevron.style.transform = open ? "" : "rotate(180deg)"
-        })
-      }
-    </script>
 
     <!-- Search + share -->
     <div class="flex items-center gap-2 min-w-0">
@@ -437,6 +425,18 @@ const catalogJson = JSON.stringify(
   type CatalogItem = { name: string; filename: string; tags: string[]; styles: string[]; hasVariants: boolean; components: string[]; diagramRef: string; buyPlace: string; category: string; subCategory: string; img: string; variantsImg: string }
   type CatalogSub  = { name: string; items: CatalogItem[] }
   type CatalogCat  = { name: string; subcategories: CatalogSub[] }
+
+  // ── "What's included" toggle ─────────────────────────────────────────────────
+  {
+    const toggle = document.getElementById("alpha-toggle")!
+    const features = document.getElementById("alpha-features")!
+    const chevron = document.getElementById("alpha-toggle-chevron")!
+    toggle.addEventListener("click", () => {
+      const open = features.style.display === "grid"
+      features.style.display = open ? "none" : "grid"
+      chevron.style.transform = open ? "" : "rotate(180deg)"
+    })
+  }
 
   const catalog: CatalogCat[] = JSON.parse(
     document.getElementById("catalog-data")!.textContent!
