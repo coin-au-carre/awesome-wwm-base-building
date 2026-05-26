@@ -1,5 +1,21 @@
 [
 	{
+		"name": "SoulSociety シ",
+		"builders": [
+			"Arkanka",
+			"Naoffi",
+			"oxu"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Dragon\nMountain",
+		"score": 0,
+		"lastModified": "May 26, 2026 at 12:54 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "GooseMayCry",
 		"builders": [
 			"AHMAD'",
