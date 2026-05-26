@@ -6,7 +6,7 @@ authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 updatedDate: 2026-05-26
 order: 10
-image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a165fc9&format=webp&hm=160bd387d0b9a2acd901821e3b4fd09394683e1207a94fad43550054bc64c1b8&is=6a150e49&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a170889&format=webp&hm=124351f07889c1cc508954b05d93df8c42e14b80431a57ab098ba5cfe5e54760&is=6a15b709&quality=lossless"
 featured: true
 ---
 
@@ -35,11 +35,11 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here are two approaches.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a165fc9&format=webp&hm=160bd387d0b9a2acd901821e3b4fd09394683e1207a94fad43550054bc64c1b8&is=6a150e49&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a170889&format=webp&hm=124351f07889c1cc508954b05d93df8c42e14b80431a57ab098ba5cfe5e54760&is=6a15b709&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 This second method blends in more naturally with the surroundings.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a1606ca&is=6a14b54a&hm=00c7d06fae5b4cdc4aca941c65ad93829b14db1eb14744b5592c1e8b221b7911&format=webp&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a16af8a&format=webp&hm=c36efa9e3a512bea21dcbd8ddcb6f44bb6685181da1e8327acf4a721bcfac300&is=6a155e0a&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -48,9 +48,9 @@ This second method blends in more naturally with the surroundings.
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a163bb7&format=webp&hm=9c6a1044435ae1d404d952c38cfd92455f8dbb8c3e3406f41c7e0c37f04e1501&is=6a14ea37&quality=lossless" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a16e477&format=webp&hm=9e72ad67d74e180e01cba401449d884b523c46a2b9e2210477478fbcddecdc86&is=6a1592f7&quality=lossless" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a163bb8&format=webp&hm=e2b96a2d77c1c387347eb2234d7c28d857295c6129761d973e1de63e014cee3f&is=6a14ea38&quality=lossless" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a16e478&format=webp&hm=a71b73631a31b422ede351f7b24ee0fa3b9f7195c139384947f416ade5a19a7e&is=6a1592f8&quality=lossless" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
