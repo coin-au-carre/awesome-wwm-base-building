@@ -28,6 +28,7 @@ var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 var reDiscordVideoMarker = regexp.MustCompile(`<!--\s*discord-video:(\d+)/(\d+)\s*-->`)
 var reVideoSrc = regexp.MustCompile(`(<video\s[^>]*src=)"[^"]*"`)
+var reVideoSrcURL = regexp.MustCompile(`<video\b[^>]*\bsrc="(https://[^"]+)"`)
 var reDiscordCDN = regexp.MustCompile(`https://(?:cdn\.discordapp\.com|media\.discordapp\.net)/attachments/[^\s"'<>]+`)
 
 func slugify(s string) string {
@@ -415,6 +416,12 @@ func refreshAllCDNURLs(token, articlesDir string) error {
 		if len(origURLs) == 0 {
 			continue
 		}
+		// Collect video src URLs — these must stay as cdn.discordapp.com and must
+		// not be converted to media.discordapp.net (videos aren't images).
+		videoURLs := make(map[string]bool)
+		for _, m := range reVideoSrcURL.FindAllStringSubmatch(content, -1) {
+			videoURLs[m[1]] = true
+		}
 		// Normalize all URLs to cdn form for the API (media.discordapp.net not accepted).
 		// Build a deduped list and a mapping: cdn_form → original URL.
 		cdnForms := make(map[string]string) // cdn_form → first original that maps to it
@@ -434,7 +441,8 @@ func refreshAllCDNURLs(token, articlesDir string) error {
 			slog.Warn("refreshing CDN URLs", "file", e.Name(), "err", err)
 			continue
 		}
-		// Replace each original URL with the refreshed media URL.
+		// Replace each original URL with the refreshed URL.
+		// Image URLs are converted to media.discordapp.net (WebP); video URLs stay as cdn.
 		updated := content
 		changed := false
 		for _, orig := range origURLs {
@@ -446,9 +454,14 @@ func refreshAllCDNURLs(token, articlesDir string) error {
 			if !ok {
 				continue
 			}
-			newMedia := toMediaForm(newCDN)
-			if newMedia != orig {
-				updated = strings.ReplaceAll(updated, orig, newMedia)
+			var newURL string
+			if videoURLs[orig] {
+				newURL = newCDN
+			} else {
+				newURL = toMediaForm(newCDN)
+			}
+			if newURL != orig {
+				updated = strings.ReplaceAll(updated, orig, newURL)
 				changed = true
 			}
 		}
