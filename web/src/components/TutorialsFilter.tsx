@@ -35,17 +35,31 @@ interface Props {
   TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string; ring: string }>
 }
 
+type SortKey = "default" | "updated" | "newest"
+
 export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_CONFIG }: Props) {
   const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(new Set())
+  const [sortBy, setSortBy] = useState<SortKey>("default")
 
   const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website"]
 
   const filteredGuides = useMemo(() => {
-    if (selectedTags.size === 0) { return guides }
-    return guides.filter((guide) =>
-      guide.tags.some((tag) => selectedTags.has(tag as TagKey))
-    )
-  }, [guides, selectedTags])
+    const filtered = selectedTags.size === 0
+      ? guides
+      : guides.filter((guide) => guide.tags.some((tag) => selectedTags.has(tag as TagKey)))
+
+    if (sortBy === "updated") {
+      return [...filtered].sort((a, b) => {
+        const ta = (a.updatedDate ?? a.date)?.getTime() ?? 0
+        const tb = (b.updatedDate ?? b.date)?.getTime() ?? 0
+        return tb - ta
+      })
+    }
+    if (sortBy === "newest") {
+      return [...filtered].sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0))
+    }
+    return filtered
+  }, [guides, selectedTags, sortBy])
 
   const tagCounts = useMemo(() => {
     const counts: Record<TagKey, number> = {
@@ -157,7 +171,28 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
       )}
 
       <div className="space-y-4 border-t border-border pt-6">
-        <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">All articles</p>
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">All articles</p>
+          <div className="flex items-center gap-1">
+            {(["default", "updated", "newest"] as SortKey[]).map((key) => {
+              const labels: Record<SortKey, string> = { default: "Default", updated: "Recently updated", newest: "Newest" }
+              const active = sortBy === key
+              return (
+                <button
+                  key={key}
+                  onClick={() => setSortBy(key)}
+                  className={`px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
+                    active
+                      ? "bg-foreground/10 text-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {labels[key]}
+                </button>
+              )
+            })}
+          </div>
+        </div>
         <div className="flex flex-wrap gap-2">
           {allTags.map((tag) => {
             const cfg = TAG_CONFIG[tag]
