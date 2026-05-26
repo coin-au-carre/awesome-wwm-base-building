@@ -4,6 +4,7 @@ description: "More community building tricks: stopping rain, removing grass, hid
 tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
+updatedDate: 2026-05-26
 order: 10
 image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a165fc9&format=webp&hm=160bd387d0b9a2acd901821e3b4fd09394683e1207a94fad43550054bc64c1b8&is=6a150e49&quality=lossless"
 featured: true
@@ -32,9 +33,13 @@ A collection of creative tricks shared by the community builders in the Discord 
 ## 3. Cover the Great Healer sign
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/siming-司命" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">SiMing 司命</a></p>
 
-The Great Healer NPC sign can be hidden with the right placement. Here is one clean approach.
+The Great Healer NPC sign can be hidden with the right placement. Here are two approaches.
 
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a165fc9&format=webp&hm=160bd387d0b9a2acd901821e3b4fd09394683e1207a94fad43550054bc64c1b8&is=6a150e49&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+
+This second method blends in more naturally with the surroundings.
+
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a1606ca&is=6a14b54a&hm=00c7d06fae5b4cdc4aca941c65ad93829b14db1eb14744b5592c1e8b221b7911&format=webp&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

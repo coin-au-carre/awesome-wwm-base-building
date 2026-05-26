@@ -13,6 +13,19 @@ interface Tutorial {
   authors: string[]
   image: string | null
   date: Date | null
+  updatedDate: Date | null
+}
+
+function formatDate(d: Date) {
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+}
+
+function renderDateLabel(date: Date | null, updatedDate: Date | null): { label: string; updated: boolean } | null {
+  if (!date) return null
+  if (updatedDate && updatedDate.toISOString().slice(0, 10) !== date.toISOString().slice(0, 10)) {
+    return { label: formatDate(updatedDate), updated: true }
+  }
+  return { label: formatDate(date), updated: false }
 }
 
 interface Props {
@@ -128,6 +141,14 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
                       </span>
                     )}
                   </div>
+                  {renderDateLabel(item.date, item.updatedDate) && (() => {
+                    const dl = renderDateLabel(item.date, item.updatedDate)!
+                    return (
+                      <p className="text-[11px] text-muted-foreground/60 pt-0.5">
+                        {dl.updated ? <span className="text-muted-foreground/80">Updated </span> : null}{dl.label}
+                      </p>
+                    )
+                  })()}
                 </div>
               </div>
             ))}
@@ -225,6 +246,14 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
                     </span>
                   )}
                 </div>
+                {renderDateLabel(item.date, item.updatedDate) && (() => {
+                  const dl = renderDateLabel(item.date, item.updatedDate)!
+                  return (
+                    <p className="text-[11px] text-muted-foreground/60 pt-0.5">
+                      {dl.updated ? <span className="text-muted-foreground/80">Updated </span> : null}{dl.label}
+                    </p>
+                  )
+                })()}
               </div>
             </div>
           ))}
