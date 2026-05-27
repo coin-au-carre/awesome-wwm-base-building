@@ -6,6 +6,7 @@ authors: []
 date: 2026-05-28
 updatedDate: 2026-05-28
 order: 14
+image: "/images/patch-notes.jpg"
 ---
 
 *Eastwind Pavilion will undergo live maintenance from 05:00 to 12:00 (UTC+8) on May 28, 2026.*
