@@ -3,7 +3,7 @@ import { BookOpenIcon } from "@phosphor-icons/react"
 import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes"
 
 interface Tutorial {
   slug: string
@@ -41,7 +41,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
   const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(new Set())
   const [sortBy, setSortBy] = useState<SortKey>("default")
 
-  const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website"]
+  const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes"]
 
   const filteredGuides = useMemo(() => {
     const filtered = selectedTags.size === 0
@@ -70,6 +70,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
       sightseeing: 0,
       cn: 0,
       website: 0,
+      "patch-notes": 0,
     }
     guides.forEach((guide) => {
       guide.tags.forEach((tag) => {
