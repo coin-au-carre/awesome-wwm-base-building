@@ -41,6 +41,7 @@ const firstImageSrc = coverImage?.startsWith("http")
 const ogImage = coverImage?.startsWith("http")
   ? coverImage
   : firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
+const showCoverImage = coverImage?.startsWith("/") && !entry.body?.includes(coverImage)
 
 const datePublished = entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01"
 const dateModified = entry.data.updatedDate?.toISOString().slice(0, 10) ?? datePublished
@@ -129,6 +130,12 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
         </div>
       )}
     </div>
+
+    {showCoverImage && (
+      <div class="mt-6 rounded-xl overflow-hidden border border-border">
+        <img src={coverImage!} alt="" aria-hidden="true" class="w-full object-cover max-h-80" />
+      </div>
+    )}
 
     <div class="prose prose-lg mt-8">
       <Content />
