@@ -6,7 +6,7 @@ authors: ["AegisNite", "Crueliet"]
 date: 2026-05-26
 updatedDate: 2026-05-26
 order: 11
-image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a16de82&format=webp&hm=02e8208a8eabf48115d41c2a44750f3a74740aa1f55a1aaef585f5a4098f7ec0&is=6a158d02&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a178742&format=webp&hm=155c8589c25f984c80975b4a62ecc82a38db5d89cbd5f38f6669b5a22994e68c&is=6a1635c2&quality=lossless"
 featured: true
 ---
 
@@ -19,9 +19,9 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Standard mode and lite mode don't share the same assets representation. Trees and vegetation can look different, and the textures and colors of certain wood and building materials also change between modes. Something that looks great in one mode can look noticeably different in the other.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a16de82&format=webp&hm=02e8208a8eabf48115d41c2a44750f3a74740aa1f55a1aaef585f5a4098f7ec0&is=6a158d02&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a178742&format=webp&hm=155c8589c25f984c80975b4a62ecc82a38db5d89cbd5f38f6669b5a22994e68c&is=6a1635c2&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a16de83&format=webp&hm=275f2eded373a86fa0f304fbcf72bf2020af42e25270ce99c09bd59cf73f3199&is=6a158d03&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a178743&format=webp&hm=2a01c02c0ad3b4a08bc0c2176fa66a5b74da651b61bd7f66e31add4879f600a3&is=6a1635c3&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
 
 > **Warning! Using ReShade on lite mode?** ReShade is a post-processing injector not officially supported by the game. Using it would likely get you banned. Stick to vanilla visuals.
 
