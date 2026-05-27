@@ -12,33 +12,33 @@ order: 14
 
 ---
 
-## Guild Building
+## Guild Building Optimization
 
-1. **Small Diagrams** — you can now create Small Diagrams based on specific areas of your base, upload them to the Gallery, and apply multiple Small Diagrams within a single Guild Base.
+1. Added the "Small Diagram" feature in "Guild Base - Build". You can now create Small Diagrams based on specific areas of the base, as well as upload and apply them to the Gallery. Additionally, multiple Small Diagrams can be applied within a Guild Base.
 
-2. **Clear Hologram** — a new button in Guild Base Build lets you quickly remove all currently unplaced Diagram Holograms.
+2. Added a "Clear Hologram" feature in "Guild Base - Build" to quickly remove currently unplaced Diagram Holograms.
 
-3. **Copyright detection improvement** — when over 70% of a Diagram's components were designed by your Guild account, you can now save and upload it to the Gallery.
+3. Optimized the copyright detection rules in "Guild Base - Build". When building components designed by your Guild account for over 70%, you can save the Diagram and upload it to the Gallery.
 
-4. **New housing and structural components** added to Guild Base Building Components.
+4. Added new housing and structural components to the "Guild Base - Building Components", enriching the visual effects of Guild Base construction.
 
-5. **Visibility settings** — you can now choose to hide your own Guild Base components or components from other Guilds.
+5. Added setting features for "Guild Base Construction". You can now choose to hide your own Guild Base components or components from other Guilds.
 
-6. **Violation reporting** now supports image uploads.
+6. Added an image upload feature for reporting building violations in the Guild Base.
 
 ---
 
-## Build Mode
+## Build
 
-1. Optimized controller interaction in Build Mode.
+1. Optimized the controller interaction experience in Build Mode.
 
-2. **Overhead Camera on Placement** setting — choose whether to automatically enter overhead view when placing large components or Diagrams.
+2. Added the "Build Settings - Overhead Camera on Placement" option. You can now choose whether to automatically enter the overhead camera view when placing large components or Diagrams.
 
-3. **Favorites tab** — the "Recently Used" tab in Build Inventory has been replaced with a Favorites tab. Press the "☆" in the Component Details pop-up to add a component to your Favorites.
+3. Added a component favorite feature in "Build - Inventory". The original "Recently Used" tab has been replaced with "Favorites". Press the "☆" in the top right corner of the Component Details pop-up to add it to your Favorites.
 
-4. **Component Search shortcut** — press `Y` on PC or `LT+X` on controller to open Component Search, which also retains previous results and supports Personal Components.
+4. Added shortcut keys for "Build - Component Search". Press Y on PC or LT+X on a controller to quickly open the component search interface and retain previous search results. It also supports searching Personal Components simultaneously.
 
-5. **Rotation fine-tuning** — in Edit Move Mode, you can now use a slider or type a value to precisely adjust the rotation angle.
+5. Optimized the operation experience in "Build - Component Edit". After entering "Edit - Move Mode", you can now use a slider or input values to finely adjust the rotation angle.
 
 ---
 
