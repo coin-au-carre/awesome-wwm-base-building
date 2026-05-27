@@ -105,7 +105,7 @@ For catalog item questions, mention the general category but do NOT list specifi
 
 CRITICAL — Response length: Keep your total reply under 1800 characters. For long lists, name each result briefly on one line. If the list would exceed that, summarise the remainder ("...and a few more like this~") and point to the website.`
 
-// promptGuild is the minimal shape needed from web/public/guilds.json.
+// promptGuild is the minimal shape needed for Ruby's guild search and directory.
 type promptGuild struct {
 	Name        string   `json:"name"`
 	Score       int      `json:"score"`
@@ -113,6 +113,7 @@ type promptGuild struct {
 	Builders    []string `json:"builders"`
 	Lore        string   `json:"lore"`
 	WhatToVisit string   `json:"whatToVisit"`
+	Note        string   `json:"note"`
 }
 
 type tutorialFrontmatter struct {
@@ -122,15 +123,27 @@ type tutorialFrontmatter struct {
 }
 
 func loadPromptGuilds(root string) []promptGuild {
-	data, err := os.ReadFile(filepath.Join(root, "web", "public", "guilds.json"))
+	guilds, err := guild.LoadFile(filepath.Join(root, "data", "guilds.json"))
 	if err != nil {
 		return nil
 	}
-	var guilds []promptGuild
-	if err := json.Unmarshal(data, &guilds); err != nil {
-		return nil
+	result := make([]promptGuild, len(guilds))
+	for i, g := range guilds {
+		var note string
+		if g.Note != nil {
+			note = g.Note.Text
+		}
+		result[i] = promptGuild{
+			Name:        g.Name,
+			Score:       g.Score,
+			Tags:        g.Tags,
+			Builders:    g.Builders,
+			Lore:        g.Lore,
+			WhatToVisit: g.WhatToVisit,
+			Note:        note,
+		}
 	}
-	return guilds
+	return result
 }
 
 func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
@@ -165,6 +178,11 @@ func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
 			if g.WhatToVisit != "" {
 				sb.WriteString("  visit: ")
 				sb.WriteString(g.WhatToVisit)
+				sb.WriteByte('\n')
+			}
+			if g.Note != "" {
+				sb.WriteString("  note: ")
+				sb.WriteString(g.Note)
 				sb.WriteByte('\n')
 			}
 		}
