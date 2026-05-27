@@ -1792,7 +1792,7 @@
 	},
 	{
 		"name": "Blacklisted",
-		"builders": [],
+		"builders": ["씰"],
 		"discordThread": "",
 		"score": 0
 	},

@@ -737,6 +737,34 @@ func isSupportedVideoURL(rawURL string) bool {
 
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
 
+// isIgnored reports whether a message should have its media skipped because it
+// carries a 🚫 reaction from Ahlyam or from one of the thread's allowed builders.
+// It only calls the Discord API when the reaction is actually present on the message.
+func isIgnored(s *discordgo.Session, channelID string, msg *discordgo.Message, allowedIDs map[string]bool) bool {
+	const ignoreEmoji = "🚫"
+	found := false
+	for _, r := range msg.Reactions {
+		if r.Emoji != nil && r.Emoji.Name == ignoreEmoji {
+			found = true
+			break
+		}
+	}
+	if !found {
+		return false
+	}
+	users, err := s.MessageReactions(channelID, msg.ID, ignoreEmoji, 100, "", "")
+	if err != nil {
+		slog.Warn("fetching 🚫 reactions", "channel", channelID, "message", msg.ID, "err", err)
+		return false
+	}
+	for _, u := range users {
+		if u.ID == AHLYAM_ID || allowedIDs[u.ID] {
+			return true
+		}
+	}
+	return false
+}
+
 func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string, lastContributorTime time.Time) {
 	// Fetch all messages (Discord returns newest-first), then reverse to process chronologically.
 	var allMsgs []*discordgo.Message
@@ -786,6 +814,10 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 				sections = append(sections, guild.ScreenshotSection{Label: label})
 				currentSection = &sections[len(sections)-1]
 			}
+		}
+		if isIgnored(s, threadID, msg, allowedIDs) {
+			slog.Info("screenshot ignored via 🚫 reaction", "thread", threadID, "message", msg.ID)
+			continue
 		}
 		for _, att := range msg.Attachments {
 			if seen[att.URL] {
