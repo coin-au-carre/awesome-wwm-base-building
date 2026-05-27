@@ -31,7 +31,7 @@ const heroCandidates = solos
   .map((g) => {
     const rawSrc = g.coverImage ?? g.screenshots![0]
     return {
-      img: thumbUrl(rawSrc, 1400, 560),
+      img: rawSrc,
       imgSm: thumbUrl(rawSrc, 800, 380),
       href: `${BASE}/solos/${g.slug}`,
       name: g.name,
