@@ -1,5 +1,17 @@
 [
 	{
+		"name": "NiChuYa",
+		"builders": [
+			"YEEIZ",
+			"Maljasz"
+		],
+		"discordThread": "",
+		"whatToVisit": "Bus\nHouse on mountain",
+		"score": 0,
+		"lastModified": "May 27, 2026 at 06:24 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Twin-Crescent",
 		"builders": [
 			"tugbarones"
