@@ -129,7 +129,7 @@ function isTiktokURL(rawURL: string): boolean {
                   <button
                     type="button"
                     class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
-                    data-src={thumbUrl(src, 1920, 1080)}
+                    data-src={src}
                     data-thumb={thumbUrl(src)}
                     data-index={index}
                   >
@@ -156,7 +156,7 @@ function isTiktokURL(rawURL: string): boolean {
                 <button
                   type="button"
                   class="lightbox-trigger group relative w-full overflow-hidden rounded-xl ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary"
-                  data-src={thumbUrl(src, 1920, 1080)}
+                  data-src={src}
                   data-thumb={thumbUrl(src)}
                   data-index={index}
                 >
@@ -292,6 +292,7 @@ function isTiktokURL(rawURL: string): boolean {
       btnNext!.disabled = current === srcs.length - 1
 
       // 1. Show thumbnail immediately — already cached from the grid
+      thumbImg!.style.transition = "none"
       thumbImg!.src = thumb
       thumbImg!.alt = `Screenshot ${current + 1}`
       thumbImg!.style.opacity = "1"
@@ -301,7 +302,7 @@ function isTiktokURL(rawURL: string): boolean {
       img!.style.opacity = "0"
       img!.src = ""
 
-      // 3. Load full-res; fade it in on top once ready
+      // 3. Load full-res; fade it in on top once ready, then hide thumbnail
       if (src) {
         const captured = index
         const full = new Image()
@@ -312,6 +313,8 @@ function isTiktokURL(rawURL: string): boolean {
           requestAnimationFrame(() => {
             img!.style.transition = "opacity 300ms ease-out"
             img!.style.opacity = "1"
+            thumbImg!.style.transition = "opacity 300ms ease-out 200ms"
+            thumbImg!.style.opacity = "0"
           })
         }
         full.src = src
