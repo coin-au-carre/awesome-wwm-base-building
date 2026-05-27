@@ -3,10 +3,10 @@
 		"name": "NiChuYa",
 		"builders": [
 			"YEEIZ",
-			"Maljasz"
+			"Malijasz"
 		],
 		"discordThread": "",
-		"whatToVisit": "Bus\nHouse on mountain",
+		"whatToVisit": "Bus\nHouse on mountain\nEntrance",
 		"score": 0,
 		"lastModified": "May 27, 2026 at 06:24 PM UTC",
 		"scoutedByDiscordId": "149790526076354561"
@@ -70,6 +70,9 @@
 		"name": "Nóir",
 		"builders": [
 			"lovelovelove"
+		],
+		"tags": [
+			"Mountain/Cave"
 		],
 		"discordThread": "",
 		"whatToVisit": "Impressive mountain",
@@ -421,6 +424,7 @@
 	},
 	{
 		"name": "人間失格",
+		"id": "10254553",
 		"builders": [
 			"悠然 [3012450702]"
 		],
