@@ -1,5 +1,20 @@
 [
 	{
+		"name": "VN-Glory",
+		"builders": [
+			"后悔一生"
+		],
+		"tags": [
+			"Architecture",
+			"Castle/Palace"
+		],
+		"discordThread": "",
+		"whatToVisit": "Palace",
+		"score": 0,
+		"lastModified": "May 27, 2026 at 05:17 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "AHBAP",
 		"builders": [
 			"YuNuKen"
