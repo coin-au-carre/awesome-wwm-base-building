@@ -1671,7 +1671,8 @@
 	{
 		"name": "UndyingEmbers",
 		"builders": [
-			"ELsiva"
+			"ELsiva",
+			"Baijuu"
 		],
 		"discordThread": "",
 		"score": 2,

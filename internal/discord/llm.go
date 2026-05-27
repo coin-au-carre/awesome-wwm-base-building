@@ -404,6 +404,9 @@ func matchBuild(g promptGuild, kw string) []string {
 	if strings.Contains(strings.ToLower(g.WhatToVisit), kw) {
 		snippets = append(snippets, fmt.Sprintf("visit: %q", matchSnippet(g.WhatToVisit, kw, 60)))
 	}
+	if strings.Contains(strings.ToLower(g.Note), kw) {
+		snippets = append(snippets, fmt.Sprintf("note: %q", matchSnippet(g.Note, kw, 60)))
+	}
 	return snippets
 }
 
