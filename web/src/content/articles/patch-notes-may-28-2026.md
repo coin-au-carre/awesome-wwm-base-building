@@ -1,7 +1,7 @@
 ---
 title: "May 28 patch notes: guild building & build mode updates"
 description: "Patch notes for May 28, 2026: Small Diagrams, Clear Hologram, new housing components, favorites in inventory, and more build mode improvements."
-tags: ["guild", "news"]
+tags: ["patch-notes"]
 authors: []
 date: 2026-05-28
 updatedDate: 2026-05-28
