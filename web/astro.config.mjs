@@ -13,6 +13,9 @@ import rehypeSlug from "rehype-slug"
 export default defineConfig({
   site: "https://www.wherebuildersmeet.com",
   output: "static",
+  build: {
+    inlineStylesheets: "always",
+  },
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "hover",
