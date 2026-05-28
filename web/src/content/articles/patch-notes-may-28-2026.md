@@ -27,11 +27,14 @@ This post will be updated regularly. Stay tuned!
 - 3 Different camera in build mode (classic, move freely, above view)
 - Can change guild base time (with the clock). Will apply to anyone in the guild.
 
+---
+
 ##  Critical bugs (all platforms and devices)
 
 - Cannot place full diagrams from Guild Construction > Diagrams. Error: "Diagram contains invalid components for this panel."
 - Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
 - Personal guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
+- Deleting a large component that clip into smaller ones can also delete smaller components surrounding it
 
 - ~~All interactive building components are missing from guild base, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.~~ (fixed thank you)
 - ~~Some non-interactive objects are also missing from guild base.~~  (fixed thank you)
@@ -40,13 +43,14 @@ This post will be updated regularly. Stay tuned!
 
 - Cannot edit component (rotate, move, replace) that have been placed from a diagram. Error: "Component is not available in the current panel"
 - Stone Platforms cannot cover grass as intended. Grass clips through the platform.
-- Cannot place more than 1 of each large building component in a diagram (e.g. the brown bridge).
+- Cannot place more than 1 of each large building component
 - "Theater Stage" Single Use component missing shadow figures
 
 ## Other bugs (mobile only)
 
 - Some new large components build can disappear when approaching them (e.g. Rainbow Resort Bridge with Pavilion II and Rainbow Resort Gate II)
 
+---
 
 ## Report on official discord
 
@@ -63,16 +67,12 @@ This post will be updated regularly. Stay tuned!
 Email: wherewindsmeet@global.netease.com 
 Subject: Bug Report - Construction/housing/building issues 
 
+Issue type: Bug
+Issue: Construction/housing/building issues
 UID: 
-Platform: (write which platform you're on)
-Issue: Describe the problems
+Platform: PC / Mobile
 
-- Cannot place full diagrams from Guild Construction > Diagrams. Error: "Diagram contains invalid components for this panel."
-- Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
-- Personal guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
-- Cannot edit component (rotate, move, replace) that have been placed from a diagram
-- Stone Platforms cannot cover grass as intended. Grass clips through the platform.
-- Cannot place more than 1 of each large building component in a diagram (e.g. the brown bridge).
+<COPY the above bugs here>
 ```
 
 <!-- preserve-start -->
