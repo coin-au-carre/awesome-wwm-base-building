@@ -24,7 +24,8 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)`)
+// Captures server/channel/message — prefers the third segment (thread ID) when present.
+var reURL = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)(?:/(\d+))?`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 var reDiscordVideoMarker = regexp.MustCompile(`<!--\s*discord-video:(\d+)/(\d+)\s*-->`)
 var reVideoSrc = regexp.MustCompile(`(<video\s[^>]*src=)"[^"]*"`)
@@ -60,6 +61,21 @@ func main() {
 		f.Close()
 	}
 	urls = append(urls, flag.Args()...)
+
+	// Also collect discordThread URLs from existing article frontmatters.
+	articlesDirEarly := filepath.Join(*root, "web", "src", "content", "articles")
+	urls = append(urls, collectFrontmatterThreadURLs(articlesDirEarly)...)
+
+	// Deduplicate URLs.
+	seen := make(map[string]bool, len(urls))
+	var deduped []string
+	for _, u := range urls {
+		if !seen[u] {
+			seen[u] = true
+			deduped = append(deduped, u)
+		}
+	}
+	urls = deduped
 
 	if len(urls) == 0 && !*refreshVideos && !*refreshImages {
 		fmt.Fprintln(os.Stderr, "usage: tutorial [-list <file>] [-refresh-videos] [-refresh-images] <discord-thread-url>...")
@@ -107,16 +123,27 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 	if m == nil {
 		return fmt.Errorf("invalid Discord thread URL: %s", rawURL)
 	}
-	threadID := m[1]
+	channelID := m[1]
+	messageID := m[2] // non-empty when URL points to a specific message
 
-	thread, err := s.Channel(threadID)
+	thread, err := s.Channel(channelID)
 	if err != nil {
 		return fmt.Errorf("fetching thread: %w", err)
 	}
 
-	allMsgs := fetchAllMessages(s, threadID)
+	var allMsgs []*discordgo.Message
+	if messageID != "" {
+		// URL points to a specific message — fetch only that message.
+		msg, err := s.ChannelMessage(channelID, messageID)
+		if err != nil {
+			return fmt.Errorf("fetching message: %w", err)
+		}
+		allMsgs = []*discordgo.Message{msg}
+	} else {
+		allMsgs = fetchAllMessages(s, channelID)
+	}
 	if len(allMsgs) == 0 {
-		return fmt.Errorf("no messages found in thread %s", threadID)
+		return fmt.Errorf("no messages found in channel %s", channelID)
 	}
 
 	authorID := allMsgs[0].Author.ID
@@ -125,13 +152,19 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 		authorName = mem.Nick
 	}
 
+	articlesDir := filepath.Join(root, "web", "src", "content", "articles")
 	slug := slugify(thread.Name)
 	var firstImageURL string
 	var parts []string
 
+	userMap, _ := guild.LoadUsers(root)
+
 	var groups [][]string
 	for _, msg := range allMsgs {
 		text := strings.TrimSpace(msg.Content)
+		if text != "" {
+			text = resolveDiscordMentions(s, userMap, text)
+		}
 		var group []string
 		for _, att := range msg.Attachments {
 			ext := mediaExt(att.URL)
@@ -165,21 +198,41 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 	}
 	parts = append(parts, strings.Join(groupStrs, "\n\n---\n\n"))
 
-	outPath := filepath.Join(root, "web", "src", "content", "articles", slug+".md")
+	lookupID := channelID
+	if messageID != "" {
+		lookupID = messageID
+	}
+	outPath := findArticleByThreadID(articlesDir, lookupID)
+	if outPath == "" {
+		outPath = filepath.Join(articlesDir, slug+".md")
+	}
 
 	var existingFrontmatter string
+	var preservedBlocks []string
 	if data, err := os.ReadFile(outPath); err == nil {
-		if fm := extractFrontmatter(string(data)); fm != "" {
+		s := string(data)
+		if fm := extractFrontmatter(s); fm != "" {
 			existingFrontmatter = fm
+		}
+		preservedBlocks = extractPreservedBlocks(s)
+		// Fall back to legacy preserve-below marker.
+		if len(preservedBlocks) == 0 {
+			if tail := extractPreservedTail(s); tail != "" {
+				preservedBlocks = []string{tail}
+			}
 		}
 	}
 
 	var content string
+	body := strings.Join(parts, "\n\n")
+	for _, block := range preservedBlocks {
+		body = body + "\n\n<!-- preserve-start -->\n\n" + block + "\n\n<!-- preserve-end -->"
+	}
 	if existingFrontmatter != "" {
 		fm := refreshFrontmatterImage(existingFrontmatter, firstImageURL)
-		content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, strings.Join(parts, "\n\n"))
+		content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, body)
 	} else {
-		content = buildMarkdown(thread.Name, authorName, firstImageURL, parts)
+		content = buildMarkdown(thread.Name, authorName, firstImageURL, []string{body})
 	}
 
 	if err := os.WriteFile(outPath, []byte(content), 0644); err != nil {
@@ -187,7 +240,6 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 	}
 
 	// Persist author's Discord ID to users.json so the credits page can display their name.
-	userMap, _ := guild.LoadUsers(root)
 	info := guild.UserInfo{
 		Username:   allMsgs[0].Author.Username,
 		GlobalName: allMsgs[0].Author.GlobalName,
@@ -238,6 +290,115 @@ func refreshFrontmatterImage(fm, imageURL string) string {
 		return reImageField.ReplaceAllString(fm, replacement)
 	}
 	return fm + replacement + "\n"
+}
+
+var reDiscordThreadField = regexp.MustCompile(`(?m)^discordThread:\s*"([^"]+)"`)
+var reChannelMention = regexp.MustCompile(`<#(\d+)>`)
+var reUserMention = regexp.MustCompile(`<@!?(\d+)>`)
+
+// resolveDiscordMentions replaces <#CHANNEL_ID> and <@USER_ID> with human-readable names.
+func resolveDiscordMentions(s *discordgo.Session, userMap map[string]guild.UserInfo, text string) string {
+	text = reChannelMention.ReplaceAllStringFunc(text, func(match string) string {
+		id := reChannelMention.FindStringSubmatch(match)[1]
+		if ch, err := s.Channel(id); err == nil {
+			return "#" + ch.Name
+		}
+		return match
+	})
+	text = reUserMention.ReplaceAllStringFunc(text, func(match string) string {
+		id := reUserMention.FindStringSubmatch(match)[1]
+		if info, ok := userMap[id]; ok {
+			if info.Nickname != "" {
+				return info.Nickname
+			}
+			if info.GlobalName != "" {
+				return info.GlobalName
+			}
+			if info.Username != "" {
+				return info.Username
+			}
+		}
+		return match
+	})
+	return text
+}
+
+// collectFrontmatterThreadURLs scans all articles for a discordThread frontmatter field
+// and returns the URLs so they are synced automatically without needing tutorial_threads.txt.
+func collectFrontmatterThreadURLs(articlesDir string) []string {
+	entries, _ := os.ReadDir(articlesDir)
+	var urls []string
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") {
+			continue
+		}
+		data, err := os.ReadFile(filepath.Join(articlesDir, e.Name()))
+		if err != nil {
+			continue
+		}
+		fm := extractFrontmatter(string(data))
+		if m := reDiscordThreadField.FindStringSubmatch(fm); m != nil {
+			urls = append(urls, m[1])
+		}
+	}
+	return urls
+}
+
+// findArticleByThreadID scans all articles for one whose frontmatter contains
+// discordThread: <threadID> and returns its path, or "" if not found.
+func findArticleByThreadID(articlesDir, threadID string) string {
+	entries, _ := os.ReadDir(articlesDir)
+	for _, e := range entries {
+		if e.IsDir() || !strings.HasSuffix(e.Name(), ".md") {
+			continue
+		}
+		path := filepath.Join(articlesDir, e.Name())
+		data, err := os.ReadFile(path)
+		if err != nil {
+			continue
+		}
+		fm := extractFrontmatter(string(data))
+		if strings.Contains(fm, threadID) {
+			return path
+		}
+	}
+	return ""
+}
+
+// extractPreservedBlocks returns all content between <!-- preserve-start --> and
+// <!-- preserve-end --> tags, in order, as separate strings.
+func extractPreservedBlocks(content string) []string {
+	const open = "<!-- preserve-start -->"
+	const close = "<!-- preserve-end -->"
+	var blocks []string
+	rest := content
+	for {
+		start := strings.Index(rest, open)
+		if start < 0 {
+			break
+		}
+		rest = rest[start+len(open):]
+		end := strings.Index(rest, close)
+		if end < 0 {
+			break
+		}
+		block := strings.TrimSpace(rest[:end])
+		if block != "" {
+			blocks = append(blocks, block)
+		}
+		rest = rest[end+len(close):]
+	}
+	return blocks
+}
+
+// extractPreservedTail is the legacy single-marker form; kept for back-compat.
+func extractPreservedTail(content string) string {
+	const marker = "<!-- preserve-below -->"
+	idx := strings.Index(content, marker)
+	if idx < 0 {
+		return ""
+	}
+	return strings.TrimSpace(content[idx+len(marker):])
 }
 
 func extractFrontmatter(content string) string {
