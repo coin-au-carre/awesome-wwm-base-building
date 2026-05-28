@@ -9,8 +9,6 @@ order: 14
 image: "/images/patch-notes.webp"
 ---
 
-*Eastwind Pavilion will undergo live maintenance from 05:00 to 12:00 (UTC+8) on May 28, 2026.*
-
 *This post will be updated regularly. Stay tuned.*
 
 ---
@@ -51,30 +49,37 @@ image: "/images/patch-notes.webp"
 
 The more reports the developers receive, the faster these get fixed.
 
-### Official Discord (upvote for visibility)
+### Official WWM Discord
 
-[Upvote the bug report post](https://discord.com/channels/1180042348755963924/1509408466131877898/1509455872047185950)
+- You can update the following [bug report post](https://discord.com/channels/1180042348755963924/1509408466131877898/1509455872047185950) to give more visibility
+- You can keep report the bugs above in a different post
 
-### Email
+### X/Twitter
 
-```
-Email: wherewindsmeet@global.netease.com
-Subject: Bug Report - Guild base issues
-
-UID:
-Platform: (your platform)
-Issue:
-
-- In Guild base, it is not possible to apply a guild diagram (error message says: Blueprint contains components that cannot be placed in the Open World)
-- All interactive building components are missing from guild base and building at present, which include all of the interactable chairs and furniture. They don't exist anymore and still count in items component cap.
-- Some objects (different than interactive building components) are also missing from guild base
-- Stone Platforms are not presently able to cover grass as it should be. Grass is clipping through.
-- Cannot put more than 1 of each large building component in diagram (e.g. brown bridge)
-```
+Report bugs on X by DM on `@WWMSupport`
 
 ### In-game
 
 Go to **Settings > Bug Report**.
+
+### Email
+
+```
+Email: wherewindsmeet@global.netease.com 
+Subject: Bug Report - Construction/housing/building issues 
+
+UID: 
+Platform: (write which platform you're on)
+Issue: Describe the problems
+
+- In Guild base, it is not possible to apply a guild diagram (error message says: Blueprint contains components that cannot be placed in the Open World)
+- All interactive building components are missing from guild base and building at present, which include all of the interactable chairs and furniture. They don't exist anymore and still count in items component cap.
+- Some objects (different than interactive building components) are also missing from guild base
+
+- Stone Platforms are not presently able to cover grass as it should be. Grass is clipping through.
+- Cannot put more than 1 of each large building component in diagram (e.g. brown bridge)
+```
+
 
 ---
 
