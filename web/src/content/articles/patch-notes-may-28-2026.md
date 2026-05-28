@@ -16,7 +16,7 @@ For the freshest news and updates, [join our Discord](https://discord.gg/Qygt9u2
 
 ## Read first
 
-**Do not guild base wipe!** Guild diagram does not seem to work correctly. See bugs below.
+**Do not guild base wipe and careful when removing components!** Some components (e.g. from guild construction diagrams) cannot be placed anymore leading to cause issues. See bugs below.
 
 ---
 
