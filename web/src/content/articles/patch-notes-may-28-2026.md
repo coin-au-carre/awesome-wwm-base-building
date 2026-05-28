@@ -62,7 +62,7 @@ The more reports the developers receive, the faster these get fixed.
 
 ### Official WWM Discord
 
-- You can update the following [bug report post](https://discord.com/channels/1180042348755963924/1509408466131877898/1509455872047185950) to give more visibility
+- You can update the following [bug report post](https://discord.com/channels/1180042348755963924/1509408466131877898/1509503901039329381) to give more visibility
 - You can keep report the bugs above in a different post
 
 ### X/Twitter
