@@ -9,7 +9,8 @@ order: 14
 image: "/images/patch-notes.webp"
 ---
 
-*This post will be updated regularly. Stay tuned.*
+*This post will be updated regularly. Stay tuned.*  
+For the freshest news and updates, [join our Discord](https://discord.gg/Qygt9u26Bn).
 
 ---
 
