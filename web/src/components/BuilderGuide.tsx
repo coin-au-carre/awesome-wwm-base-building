@@ -70,6 +70,17 @@ function BlueprintPostInstructions() {
         </div>
       </div>
       <div className="space-y-1.5">
+        <OptionLabel label="Optional — builder" />
+        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+          <p className="text-sm text-muted-foreground">
+            Add a line with the builder's in-game name so it appears on the site:
+          </p>
+          <code className="block rounded bg-muted px-3 py-2 font-mono text-xs text-foreground">
+            Builder: YourName
+          </code>
+        </div>
+      </div>
+      <div className="space-y-1.5">
         <OptionLabel label="Optional — price" />
         <div className="rounded-xl border px-4 py-3 space-y-1.5">
           <p className="text-sm text-muted-foreground">
