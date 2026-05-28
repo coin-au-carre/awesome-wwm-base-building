@@ -10,7 +10,7 @@ image: "/images/patch-notes.webp"
 discordThread: "https://discord.com/channels/1483447710617960508/1483447711499030631/1509459030215753728"
 ---
 
-@here Update is up! Find below all improvements / bugs that we currently have. Help us report bugs this is important for builders thanks. Improve the list with us in #💬chat .
+@here Update is up! Below you will find improvements / bugs that we have confirmed. Help us report bugs this is important for all us. Improve the list with us in #💬chat .
 This post will be updated regularly. Stay tuned!
 
 ## READ FIRST
@@ -38,9 +38,10 @@ This post will be updated regularly. Stay tuned!
 
 ## Other bugs (all platforms and devices)
 
-- Cannot edit component (rotate, move, replace) that have been placed from a diagram
+- Cannot edit component (rotate, move, replace) that have been placed from a diagram. Error: "Component is not available in the current panel"
 - Stone Platforms cannot cover grass as intended. Grass clips through the platform.
 - Cannot place more than 1 of each large building component in a diagram (e.g. the brown bridge).
+- "Theater Stage" Single Use component missing shadow figures
 
 ## Other bugs (mobile only)
 
@@ -69,8 +70,9 @@ Issue: Describe the problems
 - Cannot place full diagrams from Guild Construction > Diagrams. Error: "Diagram contains invalid components for this panel."
 - Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
 - Personal guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
-- Stone Platforms are not presently able to cover grass as it should be. Grass is clipping through.
-- Cannot put more than 1 of each large building component (e.g. brown bridge) whereas in CN you can put severals
+- Cannot edit component (rotate, move, replace) that have been placed from a diagram
+- Stone Platforms cannot cover grass as intended. Grass clips through the platform.
+- Cannot place more than 1 of each large building component in a diagram (e.g. the brown bridge).
 ```
 
 <!-- preserve-start -->
