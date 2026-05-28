@@ -1,6 +1,6 @@
 ---
-title: "May 28 patch notes: guild building & build mode updates"
-description: "Patch notes for May 28, 2026: Small Diagrams, Clear Hologram, new housing components, favorites in inventory, and more build mode improvements."
+title: "May 28 patch: new components, guild diagram bug & more"
+description: "May 28, 2026 update v1.7: do not base wipe guild, increased components limit, improvements and bugs"
 tags: ["patch-notes"]
 authors: []
 date: 2026-05-28
@@ -11,35 +11,91 @@ image: "/images/patch-notes.webp"
 
 *Eastwind Pavilion will undergo live maintenance from 05:00 to 12:00 (UTC+8) on May 28, 2026.*
 
----
-
-## Guild Building Optimization
-
-1. Added the "Small Diagram" feature in "Guild Base - Build". You can now create Small Diagrams based on specific areas of the base, as well as upload and apply them to the Gallery. Additionally, multiple Small Diagrams can be applied within a Guild Base.
-
-2. Added a "Clear Hologram" feature in "Guild Base - Build" to quickly remove currently unplaced Diagram Holograms.
-
-3. Optimized the copyright detection rules in "Guild Base - Build". When building components designed by your Guild account for over 70%, you can save the Diagram and upload it to the Gallery.
-
-4. Added new housing and structural components to the "Guild Base - Building Components", enriching the visual effects of Guild Base construction.
-
-5. Added setting features for "Guild Base Construction". You can now choose to hide your own Guild Base components or components from other Guilds.
-
-6. Added an image upload feature for reporting building violations in the Guild Base.
+*This post will be updated regularly. Stay tuned.*
 
 ---
 
-## Build
+## Read first
 
-1. Optimized the controller interaction experience in Build Mode.
+**Do not guild base wipe!** Guild diagram does not seem to work correctly. See bugs below.
 
-2. Added the "Build Settings - Overhead Camera on Placement" option. You can now choose whether to automatically enter the overhead camera view when placing large components or Diagrams.
+---
 
-3. Added a component favorite feature in "Build - Inventory". The original "Recently Used" tab has been replaced with "Favorites". Press the "☆" in the top right corner of the Component Details pop-up to add it to your Favorites.
+## Confirmed improvements
 
-4. Added shortcut keys for "Build - Component Search". Press Y on PC or LT+X on a controller to quickly open the component search interface and retain previous search results. It also supports searching Personal Components simultaneously.
+- New components: large components, pillars, stone stairs, and more
+- Global component cap in guild base increased to 10K
+- Density cap (local area) in guild base increased to 10K
+- Density cap in solo base has been lifted
+- Components can now be tagged as favorites in the favorites tab
+- Components can now be rotated
 
-5. Optimized the operation experience in "Build - Component Edit". After entering "Edit - Move Mode", you can now use a slider or input values to finely adjust the rotation angle.
+---
+
+## Known bugs (all platforms and devices)
+
+### Critical
+
+- **Guild diagram cannot be applied.** Error: "Blueprint contains components that cannot be placed in the Open World."
+- **All interactive building components are missing from guild base**, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.
+- **Some non-interactive objects are also missing** from guild base.
+
+### Other
+
+- Stone Platforms cannot cover grass as intended. Grass clips through the platform.
+- Cannot place more than 1 of each large building component in a diagram (e.g. the brown bridge).
+
+---
+
+## How to report bugs
+
+The more reports the developers receive, the faster these get fixed.
+
+### Official Discord (upvote for visibility)
+
+[Upvote the bug report post](https://discord.com/channels/1180042348755963924/1509408466131877898/1509455872047185950)
+
+### Email
+
+```
+Email: wherewindsmeet@global.netease.com
+Subject: Bug Report - Guild base issues
+
+UID:
+Platform: (your platform)
+Issue:
+
+- In Guild base, it is not possible to apply a guild diagram (error message says: Blueprint contains components that cannot be placed in the Open World)
+- All interactive building components are missing from guild base and building at present, which include all of the interactable chairs and furniture. They don't exist anymore and still count in items component cap.
+- Some objects (different than interactive building components) are also missing from guild base
+- Stone Platforms are not presently able to cover grass as it should be. Grass is clipping through.
+- Cannot put more than 1 of each large building component in diagram (e.g. brown bridge)
+```
+
+### In-game
+
+Go to **Settings > Bug Report**.
+
+---
+
+## Official patch notes
+
+### Guild building optimization
+
+1. Added "Small Diagram" in Guild Base Build. Create Small Diagrams from specific base areas, upload to the Gallery, and apply multiple per Guild Base.
+2. Added "Clear Hologram" to quickly remove unplaced Diagram Holograms.
+3. Optimized copyright detection: save and upload a Diagram when over 70% of components were designed by your Guild account.
+4. Added new housing and structural components to Guild Base Building Components.
+5. Added visibility settings: hide your own or other guilds' components.
+6. Added image upload support when reporting building violations.
+
+### Build
+
+1. Optimized controller interaction in Build Mode.
+2. Added "Overhead Camera on Placement" setting: choose whether to auto-enter overhead view when placing large components or Diagrams.
+3. Added component favorites in Build Inventory. The "Recently Used" tab is now "Favorites". Press ☆ in the Component Details pop-up to add to Favorites.
+4. Added shortcut keys for Component Search: Y on PC, LT+X on controller. Retains previous search and supports Personal Components.
+5. In Edit Move Mode, you can now use a slider or input values to finely adjust rotation angle.
 
 ---
 
