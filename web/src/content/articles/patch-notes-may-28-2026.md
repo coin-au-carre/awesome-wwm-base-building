@@ -23,6 +23,7 @@ This post will be updated regularly. Stay tuned!
 - Increase 10K density cap components (local area) in guild base
 - Lifted density cap components in solo base
 - Can tag components in favorite tab
+- Can rotate component before placing it on several axis
 - Can edit components in guild base (move, replace, rotate)
 - 3 Different camera in build mode (classic, move freely, above view)
 - Can change guild base time (with the clock). Will apply to anyone in the guild.
