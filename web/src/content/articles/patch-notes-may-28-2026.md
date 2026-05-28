@@ -27,7 +27,14 @@ For the freshest news and updates, [join our Discord](https://discord.gg/Qygt9u2
 - Density cap (local area) in guild base increased to 10K
 - Density cap in solo base has been lifted
 - Components can now be tagged as favorites in the favorites tab
-- Components can now be rotated
+- Can edit components in guild base (move, replace, rotate)
+- 3 Different camera in build mode (classic, move freely, above view)
+- Can change guild base time (with the clock)
+
+
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a195881&is=6a180701&hm=2292887983c5ac771ef52c1cd8409643001c741e354f8c5bf37a3a56f7f322b5&format=webp&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a195881&is=6a180701&hm=5390cb3c79118eeb948b4af464f3ff62f261d44bc7bfd88a90c90475901631a8&format=webp&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a195881&is=6a180701&hm=de460123156d5763dc24f8a66889b18da7b65664eed619aaa8a13ddc63881b4a&format=webp&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
 
 ---
 
@@ -35,12 +42,15 @@ For the freshest news and updates, [join our Discord](https://discord.gg/Qygt9u2
 
 ### Critical
 
-- **Guild diagram cannot be applied.** Error: "Blueprint contains components that cannot be placed in the Open World."
-- **All interactive building components are missing from guild base**, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.
-- **Some non-interactive objects are also missing** from guild base.
+- **Cannot place full diagrams from Guild Construction > Diagrams.** Error: "Diagram contains invalid components for this panel."
+- **Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base.** Error: "This component is not available in the current panel."
+- **Personal guild diagrams cannot be applied in certain conditions.** Error: "Blueprint contains components that cannot be placed in the Open World."
+- ~~**All interactive building components are missing from guild base**, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.~~ (fixed)
+- ~~**Some non-interactive objects are also missing** from guild base.~~ (fixed)
 
 ### Other
 
+- Cannot edit component (rotate, move, replace) that have been placed from a diagram
 - Stone Platforms cannot cover grass as intended. Grass clips through the platform.
 - Cannot place more than 1 of each large building component in a diagram (e.g. the brown bridge).
 
