@@ -77,8 +77,8 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
   function toggleTag(tag: string) {
     setActiveTags((prev) => {
       const next = new Set(prev)
-      if (next.has(tag)) next.delete(tag)
-      else next.add(tag)
+      if (next.has(tag)) { next.delete(tag) }
+      else { next.add(tag) }
       return next
     })
   }
@@ -330,7 +330,7 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                       src={img}
                       alt={bp.name}
                       loading="lazy"
-                      onerror="this.style.display='none'"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none" }}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   ) : (

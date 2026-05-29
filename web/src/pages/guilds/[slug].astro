@@ -10,7 +10,8 @@ import { formatDateYMD, formatDateYMDHM } from "@/lib/dates"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
 import { isBuilderSubmission } from "@/lib/config"
-import { BookOpen, MapPin, Images, Layers } from "lucide-react"
+import { getBuilderProfile } from "@/lib/builders"
+import { BookOpen, MapPin, Images, Layers, Compass } from "lucide-react"
 import GuildFlyer from "@/components/GuildFlyer"
 
 export async function getStaticPaths() {
@@ -37,10 +38,14 @@ const base = BASE
 const totalGuilds = getGuildsSortedByScore().length
 const tier = getTier(g.rank, totalGuilds, g.score)
 const ogImage = g.coverImage ?? g.screenshots?.[0]
+const hasScreenshots = !!(g.coverImage || g.screenshots?.length || g.screenshotSections?.some((s: any) => s.screenshots?.length))
 
 const users = getUsers()
 const scoutUser = g.scoutedByDiscordId ? users[g.scoutedByDiscordId] : undefined
 const scoutName = scoutUser?.nickname ?? scoutUser?.globalName ?? scoutUser?.username
+const scoutSlug = scoutName ? builderSlug(scoutName) : undefined
+const scoutProfile = scoutSlug ? getBuilderProfile(scoutSlug) : null
+const scoutFirstGuild = scoutProfile?.guilds.find((guild) => guild.slug !== g.slug)
 
 const allBuilds = getGuildBuilds(g.name)
 
@@ -149,14 +154,14 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
               )}
             </div>
             <div class="flex items-center gap-2 shrink-0">
-              <GuildFlyer
+              {hasScreenshots && <GuildFlyer
                 client:load
                 guild={g}
                 guildUrl={guildCanonicalUrl}
                 displayName={guildDisplayName}
                 buildersStr={buildersStr ?? ""}
                 siteBase={base}
-              />
+              />}
               <button
                 id="share-btn"
                 title="Copy link"
@@ -186,14 +191,14 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
           )}
         </div>
         <div class="flex items-center gap-2 shrink-0">
-          <GuildFlyer
+          {hasScreenshots && <GuildFlyer
             client:load
             guild={g}
             guildUrl={guildCanonicalUrl}
             displayName={guildDisplayName}
             buildersStr={buildersStr ?? ""}
             siteBase={base}
-          />
+          />}
           <button
             id="share-btn"
             title="Copy link"
@@ -373,6 +378,36 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
       )}
     </div>
 
+    <!-- Scouted by -->
+    {scoutName && (
+      <div class="rounded-xl border border-teal-500/20 bg-linear-to-r from-teal-500/8 to-transparent px-4 py-3.5 flex items-center gap-3.5">
+        <div class="shrink-0 size-9 rounded-full bg-teal-500/10 ring-1 ring-teal-500/20 flex items-center justify-center text-teal-500 dark:text-teal-400">
+          <Compass size={16} />
+        </div>
+        <div class="min-w-0">
+          <p class="text-[11px] font-semibold uppercase tracking-wider text-teal-600/70 dark:text-teal-400/60 mb-0.5">Guild Cartographer</p>
+          <p class="text-sm text-muted-foreground leading-snug">
+            {"Scouted by "}
+            {scoutProfile ? (
+              <a href={`${base}/builders/${scoutProfile.slug}`} class="font-semibold text-foreground hover:text-teal-600 dark:hover:text-teal-300 transition-colors" data-umami-event="scout_profile_click" data-umami-event-name={scoutName}>
+                {scoutName}
+              </a>
+            ) : (
+              <span class="font-semibold text-foreground">{scoutName}</span>
+            )}
+            {scoutFirstGuild && (
+              <Fragment>
+                {", builder of "}
+                <a href={`${base}/guilds/${scoutFirstGuild.slug}`} class="font-semibold text-foreground hover:text-teal-600 dark:hover:text-teal-300 transition-colors" data-umami-event="scout_guild_click" data-umami-event-name={scoutFirstGuild.name}>
+                  {stripGuildShowcase(scoutFirstGuild.guildName || scoutFirstGuild.name)}
+                </a>
+              </Fragment>
+            )}
+          </p>
+        </div>
+      </div>
+    )}
+
     <!-- Lore -->
     {g.lore && (
       <section class="space-y-3">
@@ -431,7 +466,7 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
         <CardContent className="space-y-2 text-sm">
           <p class="font-medium">Is this your guild?</p>
           <p class="text-muted-foreground">
-            This guild lacks more informations and was added by the WBM community{scoutName ? <>, scouted by <span class="font-medium text-foreground">{scoutName}</span></> : ""}. If you're a builder of {stripGuildShowcase(g.guildName || g.name)}, please help us.<br />See the
+            This guild lacks more informations and was added by the WBM community. If you're a builder of {stripGuildShowcase(g.guildName || g.name)}, please help us.<br />See the
             <a href={base + "/contribute"} class="underline hover:text-foreground transition-colors">contribute guide</a> to get started. <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })} data-umami-event="discord_cta_click">Post your base ↗</a>
           </p>
         </CardContent>
