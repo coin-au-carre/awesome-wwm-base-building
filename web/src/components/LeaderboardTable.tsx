@@ -240,7 +240,7 @@ function SingleGuildRow({ g, gi, guildsLength, basePath, isSolos, activeTags, to
                 className="w-8 h-8 rounded-md object-cover shrink-0"
                 loading="lazy"
                 onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
-                style={undefined}
+                style={!expanded ? { viewTransitionName: transitionName } : undefined}
               />
             )}
             <HoverCardTrigger asChild>
