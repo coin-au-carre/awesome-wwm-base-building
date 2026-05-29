@@ -16,15 +16,24 @@ function loadJSON(): Blueprint[] {
   }
 }
 
+const PINNED_LAST = new Set(["Beautiful stick"])
+
 function sortByScore(items: Blueprint[]): RankedBlueprint[] {
-  const sorted = [...items].sort((a, b) => b.score - a.score)
+  const main = [...items].filter((bp) => !PINNED_LAST.has(bp.name))
+  const pinned = [...items].filter((bp) => PINNED_LAST.has(bp.name))
+  const sorted = main.sort((a, b) => b.score - a.score)
   let rank = 1
-  return sorted.map((bp, i) => {
+  const ranked = sorted.map((bp, i) => {
     if (i > 0 && bp.score < sorted[i - 1].score) {
       rank = i + 1
     }
     return { ...bp, slug: slugify(bp.name), rank }
   })
+  const lastRank = ranked.length + 1
+  return [
+    ...ranked,
+    ...pinned.map((bp) => ({ ...bp, slug: slugify(bp.name), rank: lastRank })),
+  ]
 }
 
 function collectTags(items: Blueprint[]): string[] {
