@@ -27,6 +27,7 @@ This post will be updated regularly. Stay tuned!
 - Can edit components in guild base (move, replace, rotate)
 - 3 Different camera in build mode (classic, move freely, above view)
 - Can change guild base time (with the clock). Will apply to anyone in the guild.
+- Can search component by their name
 
 ---
 
@@ -36,9 +37,6 @@ This post will be updated regularly. Stay tuned!
 - Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
 - Personal guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
 - Deleting a large component that clip into smaller ones can also delete smaller components surrounding it
-
-- ~~All interactive building components are missing from guild base, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.~~ (fixed thank you)
-- ~~Some non-interactive objects are also missing from guild base.~~  (fixed thank you)
 
 ## Other bugs (all platforms and devices)
 
@@ -53,9 +51,16 @@ This post will be updated regularly. Stay tuned!
 
 ---
 
+## Bugs fixed thanks to your reports probably 😄
+
+- ~~All interactive building components are missing from guild base, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.~~
+- ~~Some non-interactive objects are also missing from guild base.~~  
+
+---
+
 ## Report on official discord
 
-- Please upvote the following post to give more visibility https://discord.com/channels/1180042348755963924/1509408466131877898/1509503901039329381 ([previous one](https://discord.com/channels/1180042348755963924/1509408466131877898/1509455872047185950) was upvoted and some bugs were fixed probably thanks to you!)
+- Please upvote the following post to give more visibility https://discord.com/channels/1180042348755963924/1509408466131877898/1509845097003618354 ([previous one](https://discord.com/channels/1180042348755963924/1509408466131877898/1509455872047185950) was upvoted and some bugs were fixed probably thanks to you!)
 - You can keep report the bugs above in a different post
 
 ## Report bugs on X by DM on @WWMSupport
@@ -78,9 +83,9 @@ Platform: PC / Mobile
 
 <!-- preserve-start -->
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1a0141&format=webp&hm=4cdc09cc220ba4b6e6a93ddd2399bdc9c254bd3defdd4eb106ebdaee1d9d9f6a&is=6a18afc1&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1a0141&format=webp&hm=b936d1e0edc19b7d8e10c12b062536c33693f65dc4458765d8962b605863330c&is=6a18afc1&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1a0141&format=webp&hm=31ad4f634988c01a390a33832a5b29bb7238e733e069c99a3e1da2d6a1ca2b5a&is=6a18afc1&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1aaa01&format=webp&hm=a1cdf769411888182658224f2d1be30988e388e38bcae521912aba49b0952f2b&is=6a195881&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1aaa01&format=webp&hm=df41deaddebc5b8c6ab3ae7c5ca6c2668294d9900dceb36da73f63d9cfc71d1d&is=6a195881&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1aaa01&format=webp&hm=cc20c8f4b393578d52ddd4cdf67dc9650ae04d659c2b4626ac5d217c9301342a&is=6a195881&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
 
 <!-- preserve-end -->
 
