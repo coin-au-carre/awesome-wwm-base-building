@@ -9,7 +9,8 @@ const posts = getWhateverPosts()
 const { totalImages, totalContributors } = getWhateverStats()
 const ogImage = posts.flatMap((p) => p.images).find(Boolean)
 
-// Flatten to one gallery item per image. Cap at 2 images for posts with more than 3.
+// One grid item per image. Cap at 2 images for posts with more than 3.
+// imgIdx === 0 = primary (shown first); extras go at the end so similar shots don't cluster.
 const items = posts.flatMap((p) => {
   const images = p.images.length > 3 ? p.images.slice(0, 2) : p.images
   return images.map((img, imgIdx) => ({
@@ -92,10 +93,10 @@ const items = posts.flatMap((p) => {
         </div>
 
         <!-- Gallery -->
-        <div id="gallery" class="columns-2 sm:columns-3 lg:columns-4 gap-2">
+        <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
           {items.map((item, i) => (
             <div
-              class="gallery-item break-inside-avoid mb-2 group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-border hover:ring-primary transition-all"
+              class="gallery-item group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-border hover:ring-primary transition-all"
               data-post-id={item.postId}
               data-img={item.img}
               data-thumb={thumbUrl(item.img)}
@@ -107,6 +108,7 @@ const items = posts.flatMap((p) => {
               data-reaction-details={JSON.stringify(item.reactionDetails)}
               data-message-url={item.messageUrl}
               data-posted-at={item.postedAt}
+              data-primary={item.imgIdx === 0 ? "1" : "0"}
             >
               <img
                 src={thumbUrl(item.img)}
@@ -327,8 +329,9 @@ const items = posts.flatMap((p) => {
     gallery.addEventListener("click", (e) => {
       const card = e.target.closest(".gallery-item")
       if (!card) return
+      const clickedImg = card.dataset.img
       const items = getItems()
-      openLightbox(items, items.indexOf(card), card.dataset.img)
+      openLightbox(items, items.indexOf(card), clickedImg)
     })
 
     lbClose.addEventListener("click", closeLightbox)
@@ -356,8 +359,11 @@ const items = posts.flatMap((p) => {
 
     function reorder(compareFn) {
       const items = getItems()
-      items.sort(compareFn)
-      items.forEach((el) => gallery.appendChild(el))
+      const primary = items.filter((el) => el.dataset.primary === "1")
+      const secondary = items.filter((el) => el.dataset.primary !== "1")
+      primary.sort(compareFn)
+      secondary.sort(compareFn)
+      ;[...primary, ...secondary].forEach((el) => gallery.appendChild(el))
     }
 
     function setActiveSort(active, inactive) {
@@ -367,10 +373,13 @@ const items = posts.flatMap((p) => {
       inactive.classList.add("hover:bg-muted")
     }
 
-    sortReactionsBtn.addEventListener("click", () => {
+    function sortByReactions() {
       reorder((a, b) => Number(b.dataset.reactions ?? 0) - Number(a.dataset.reactions ?? 0))
       setActiveSort(sortReactionsBtn, sortNewestBtn)
-    })
+    }
+
+    sortReactionsBtn.addEventListener("click", sortByReactions)
+    sortByReactions()
 
     sortNewestBtn.addEventListener("click", () => {
       reorder((a, b) => (b.dataset.postedAt ?? "").localeCompare(a.dataset.postedAt ?? ""))
