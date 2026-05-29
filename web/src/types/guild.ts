@@ -21,6 +21,7 @@ export interface Guild {
   screenshotSections?: ScreenshotSection[]
   videos?: string[]
   ignoredVideos?: string[]
+  formerNames?: string[]
   createdAt?: string
   lastModified?: string
   scoutedByDiscordId?: string

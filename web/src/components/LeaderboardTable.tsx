@@ -29,6 +29,7 @@ export interface LeaderboardGuild {
   isCurrent?: boolean
   posterDiscordId?: string
   postedOnBehalfOf?: string
+  formerNames?: string[]
 }
 import {
   Table,
@@ -487,7 +488,8 @@ export function LeaderboardTable({ guilds, allTags, basePath = "guilds", activeB
       result = result.filter((g) =>
         deaccent(g.guildName || g.name).includes(q) ||
         (g.buildTitle ? deaccent(g.buildTitle).includes(q) : false) ||
-        (g.builders ?? []).some((b) => deaccent(formatBuilderName(b)).includes(q))
+        (g.builders ?? []).some((b) => deaccent(formatBuilderName(b)).includes(q)) ||
+        (g.formerNames ?? []).some((n) => deaccent(n).includes(q))
       )
     }
 

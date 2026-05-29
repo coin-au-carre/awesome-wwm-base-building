@@ -139,6 +139,9 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
               {g.guildName && g.guildName !== g.name && (
                 <p class="text-white/80 text-sm mt-0.5">{stripGuildShowcase(g.name)}</p>
               )}
+              {g.formerNames && g.formerNames.length > 0 && (
+                <p class="text-white/50 text-xs mt-0.5">Formerly: {g.formerNames.map(stripGuildShowcase).join(", ")}</p>
+              )}
               {g.buildTitle && (
                 <p class="text-white/75 text-sm mt-1 italic flex items-center gap-2">
                   {g.buildTitle}
@@ -182,6 +185,9 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
           </h1>
           {g.guildName && g.guildName !== g.name && (
             <p class="text-foreground/60 text-sm mt-0.5">{stripGuildShowcase(g.name)}</p>
+          )}
+          {g.formerNames && g.formerNames.length > 0 && (
+            <p class="text-muted-foreground/60 text-xs mt-0.5">Formerly: {g.formerNames.map(stripGuildShowcase).join(", ")}</p>
           )}
           {g.buildTitle && (
             <p class="text-muted-foreground text-sm mt-1 italic flex items-center gap-2">
