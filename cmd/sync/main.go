@@ -457,6 +457,9 @@ func main() {
 				if syncSolo {
 					announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
 				}
+				if syncBlueprints && blueprintForumID != "" {
+					announceBlueprintsToGeneral(bot, generalChannelID, updatedBlueprints, blueprintStats)
+				}
 			}
 		}
 	}
@@ -532,6 +535,49 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 		msg := discord.FormatNewGuildMessage(g, isSolo)
 		if len(g.Screenshots) > 0 {
 			msg += "\n" + g.Screenshots[0]
+		}
+		bot.Send(channelID, msg)
+	}
+}
+
+func announceBlueprintsToGeneral(bot *discord.Bot, channelID string, blueprints []blueprint.Blueprint, stats discord.SyncStats) {
+	byName := make(map[string]blueprint.Blueprint, len(blueprints))
+	for _, bp := range blueprints {
+		byName[bp.Name] = bp
+	}
+	hasNewVideos := make(map[string]bool, len(stats.MoreVideoNames))
+	for _, name := range stats.MoreVideoNames {
+		hasNewVideos[name] = true
+	}
+	for _, name := range stats.MoreScreenshotNames {
+		if hasNewVideos[name] {
+			continue
+		}
+		bp, ok := byName[name]
+		if !ok {
+			continue
+		}
+		msg := discord.FormatMoreBlueprintScreenshotsMessage(bp)
+		if len(bp.Screenshots) > 0 {
+			msg += "\n" + bp.Screenshots[len(bp.Screenshots)-1]
+		}
+		bot.Send(channelID, msg)
+	}
+	for _, name := range stats.MoreVideoNames {
+		bp, ok := byName[name]
+		if !ok {
+			continue
+		}
+		bot.Send(channelID, discord.FormatMoreBlueprintVideosMessage(bp))
+	}
+	for _, name := range stats.NewNames {
+		bp, ok := byName[name]
+		if !ok {
+			continue
+		}
+		msg := discord.FormatNewBlueprintMessage(bp)
+		if len(bp.Screenshots) > 0 {
+			msg += "\n" + bp.Screenshots[0]
 		}
 		bot.Send(channelID, msg)
 	}
