@@ -26,7 +26,7 @@ This post will be updated regularly. Stay tuned!
 - Can rotate component before placing it on several axis (press control and scroll)
 - Can edit components in guild base (move, replace, rotate)
 - 3 Different camera in build mode (classic, move freely, above view)
-- Can change guild base time (with the clock). Will apply to anyone in the guild.
+- Can change guild base time (with the clock). Need high permission and will apply to anyone in the guild.
 - Can search component by their name
 
 ---
