@@ -50,6 +50,8 @@ func (t *StreamingTracker) HandleVoiceStateUpdate(s *discordgo.Session, e *disco
 	wasStreaming := e.BeforeUpdate != nil && e.BeforeUpdate.SelfStream
 	isStreaming := e.SelfStream
 
+	slog.Info("voice state update", "user", e.UserID, "channel", e.ChannelID, "self_stream", isStreaming, "was_stream", wasStreaming)
+
 	if isStreaming == wasStreaming {
 		return
 	}
