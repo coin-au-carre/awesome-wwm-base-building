@@ -275,17 +275,26 @@ func main() {
 				slog.Error("saving guilds", "err", err)
 				os.Exit(1)
 			}
+			if guildStats.New > 0 {
+				cmdutil.UpdateNavVersion(*root, "guilds")
+			}
 		}
 		if syncSolo && soloForumID != "" {
 			if err := guild.SaveFile(solosPath, updatedSolos); err != nil {
 				slog.Error("saving solos", "err", err)
 				os.Exit(1)
 			}
+			if soloStats.New > 0 {
+				cmdutil.UpdateNavVersion(*root, "solo")
+			}
 		}
 		if syncBlueprints && blueprintForumID != "" {
 			if err := blueprint.SaveFile(blueprintsPath, updatedBlueprints); err != nil {
 				slog.Error("saving blueprints", "err", err)
 				os.Exit(1)
+			}
+			if blueprintStats.New > 0 {
+				cmdutil.UpdateNavVersion(*root, "blueprints")
 			}
 		}
 
@@ -480,6 +489,7 @@ func main() {
 		}
 	}
 }
+
 
 const (
 	ahlyamID = "149790526076354561"
