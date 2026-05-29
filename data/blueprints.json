@@ -7,7 +7,7 @@
 		"isFree": true,
 		"isPayToBuild": true,
 		"description": "Beautiful wooden stick that would fit all your environments. It is versatile and strong. \nIt is made of wood of the highest quality. \nFree version is simple woodstick. The paid version adds an other superb stick on top of it.\n\nDon't miss out this blueprint !",
-		"score": 0,
+		"score": 11,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1502980266363322448/1502980266787082342/image.png?ex=6a1abb73\u0026is=6a1969f3\u0026hm=8bf5b852f085c0b0bed29fcf0bc7cf591c4d101b5f6e5f1c59422feccd957014\u0026",
 			"https://cdn.discordapp.com/attachments/1502980266363322448/1502980267370086530/image.png?ex=6a1abb73\u0026is=6a1969f3\u0026hm=f9a1e1a39a4a87dd704e5ecbb593c308ac2fad44dcf1406874052f173ac89f44\u0026"
@@ -21,7 +21,7 @@
 		"builderName": "Liiyaxi",
 		"isFree": true,
 		"description": "This home is meant to be nestled into a cliffside or any raised/sloped surface. First floor open area and second floor master bedroom.  I already laid out the kitchen and dining room. There was a space for a balcony elevator but that's extra. It's 300 comps with some decor. This was one of my first homes I ever built and I would love to place it in your world 🙏 feel free to lmk your thoughts on it or if you want one?\n\nIGN Liiyaxi",
-		"score": 0,
+		"score": 7,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1509671518442098848/1509671518727176262/19e5f7ef78690-screenshotUrl.jpg?ex=6a1aaf6a\u0026is=6a195dea\u0026hm=cced338cc956072806b34c6cd122ce3121e1904117a7dd0136fa7f175b528cc8\u0026",
 			"https://cdn.discordapp.com/attachments/1509671518442098848/1509671519159062679/19e5f596f3718-screenshotUrl.jpg?ex=6a1aaf6a\u0026is=6a195dea\u0026hm=a5e2dc95f93a4e74d558a3a6b7c7ff9df27b13a89aeadcc7a9eeb1a7b05a2099\u0026",
@@ -39,7 +39,7 @@
 		"builderName": "AegisNite Edge",
 		"isFree": true,
 		"description": "A house at crimson cliff with a nice view.\nIt has an outside dining place and even a training spot.\n!old diagram house !498 components !free !you need to provide materials.",
-		"score": 0,
+		"score": 6,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903033700712518/2026529204543.png?ex=6a1ade47\u0026is=6a198cc7\u0026hm=5dda23a9685c2aa77315747f7105db9f330d6d0905cb61eb92d0cf3f924d7184\u0026",
 			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903035252347091/2026529204633.png?ex=6a1ade48\u0026is=6a198cc8\u0026hm=524f2b9a2644df334b4a5b9853b057f41b76a84da66bf6de76fbab5f164dadae\u0026",
@@ -51,5 +51,55 @@
 		"discordThread": "https://discord.com/channels/1483447710617960508/1509903030974152916",
 		"createdAt": "May 29, 2026 at 12:55 PM UTC",
 		"lastModified": "May 29, 2026 at 01:22 PM UTC"
+	},
+	{
+		"name": "Mercyheart Monastery House",
+		"builderName": "AegisNite Edge",
+		"isFree": true,
+		"description": "Empty little house with curved stairs.\nYou decorate however you like it.\nWhat i like about this is the yellow leaves falling.\n\n!free !old diagram house !you need to provide materials !i will only place this in original position. !you decorate.",
+		"score": 6,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1509978019333275728/1509978019840790650/202633121111.png?ex=6a1b241d\u0026is=6a19d29d\u0026hm=f5932042aa83909645517b956c25d464df609571dfa27410757e4808553ec33b\u0026",
+			"https://cdn.discordapp.com/attachments/1509978019333275728/1509978020318810333/2026331211028.png?ex=6a1b241e\u0026is=6a19d29e\u0026hm=82ce71ff6b3a690cb2213ac34782513dac0d4a2964637b1d37f3d5c7f9960a69\u0026",
+			"https://cdn.discordapp.com/attachments/1509978019333275728/1509978020834836630/2026331211048.png?ex=6a1b241e\u0026is=6a19d29e\u0026hm=0a1a88cad04534cf683c57a68bb02ca37cf571c743622e013470311c1e4a261f\u0026",
+			"https://cdn.discordapp.com/attachments/1509978019333275728/1509978021367517184/2026331211110.png?ex=6a1b241e\u0026is=6a19d29e\u0026hm=265473991d3fd5f3f767ada89039df3c2a43b61c557e337d631cd5fc682ca864\u0026",
+			"https://cdn.discordapp.com/attachments/1509978019333275728/1509978021791010826/2026331211137.png?ex=6a1b241e\u0026is=6a19d29e\u0026hm=9fa8061c985f4f73131fb35916a6812e00a50ba3bd08b61629ee8e000cc7d951\u0026"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1509978019333275728",
+		"createdAt": "May 29, 2026 at 05:53 PM UTC",
+		"lastModified": "May 29, 2026 at 08:46 PM UTC"
+	},
+	{
+		"name": "Ugly Church",
+		"builderName": "KARIN",
+		"isFree": true,
+		"description": "Just an ugly building with new building style",
+		"score": 8,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1509977193755705365/1509977194557083880/2026529233310.png?ex=6a1b2359\u0026is=6a19d1d9\u0026hm=ce428d4a95d463804b0d5e47260c808f19d884a7f8a760726884780fdbde9d72\u0026",
+			"https://cdn.discordapp.com/attachments/1509977193755705365/1509977195173380106/2026529233249.png?ex=6a1b2359\u0026is=6a19d1d9\u0026hm=5cdea57df252897eaa145c4843ee3109130ba6041dc1a3281bbd0d60b8c7ffa9\u0026",
+			"https://cdn.discordapp.com/attachments/1509977193755705365/1509977195756519655/202653004519.png?ex=6a1b2359\u0026is=6a19d1d9\u0026hm=a39a1635fd989a5407162876be3a86d43c8756ce14a96b10143f47d82240343a\u0026",
+			"https://cdn.discordapp.com/attachments/1509977193755705365/1509977196259840050/2026529233323.png?ex=6a1b2359\u0026is=6a19d1d9\u0026hm=788818f0fb6025770c264e3059137c678ffea879360cac9eab8e812b7b622e1d\u0026"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1509977193755705365",
+		"createdAt": "May 29, 2026 at 05:50 PM UTC",
+		"lastModified": "May 29, 2026 at 08:46 PM UTC"
+	},
+	{
+		"name": "Floral Expanse Beyond House",
+		"builderName": "AegisNite Edge",
+		"isFree": true,
+		"description": "Just a little house 🙂\nThis was my first house and have been edit a bit over time.\nyou can redecorate to your liking.",
+		"score": 6,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1509976706230784010/1509976707409510540/20263312154.png?ex=6a1b22e5\u0026is=6a19d165\u0026hm=58c66a27a66e101f744b13405b86c67fee3a106a0672a0493d4e48160f297855\u0026",
+			"https://cdn.discordapp.com/attachments/1509976706230784010/1509976708365815998/202633121538.png?ex=6a1b22e5\u0026is=6a19d165\u0026hm=535ac41ee0430eb2f5d87bc520b56b76496e40de3fb16f4a06c7b1e4a6c1f5f5\u0026",
+			"https://cdn.discordapp.com/attachments/1509976706230784010/1509976709082910951/202633121613.png?ex=6a1b22e5\u0026is=6a19d165\u0026hm=dc511aa3d66eb37f93e7365f2aa0a208ac9d942db81b143ddffd40c25b3ec996\u0026",
+			"https://cdn.discordapp.com/attachments/1509976706230784010/1509976709838016532/202633121616.png?ex=6a1b22e5\u0026is=6a19d165\u0026hm=ca9363976cb0e258bf9c2799b121d19eaadffeebfa56d72667f6fbf508113cb4\u0026",
+			"https://cdn.discordapp.com/attachments/1509976706230784010/1509976710378950806/202633121638.png?ex=6a1b22e5\u0026is=6a19d165\u0026hm=e8540fd84335759bc1c6339cff70c9eb78718135aaa285ab1487554b52febb51\u0026"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1509976706230784010",
+		"createdAt": "May 29, 2026 at 05:48 PM UTC",
+		"lastModified": "May 29, 2026 at 08:46 PM UTC"
 	}
 ]
