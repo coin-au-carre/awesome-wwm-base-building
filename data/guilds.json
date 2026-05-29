@@ -1,4 +1,14 @@
 [
+  {
+    "name": "NHB",
+    "builders": ["HaiQing", "Hot-Lettuce"],
+    "whatToVisit": "Elevated wedding place, arena",
+    "discordThread": "",
+    "score": 0,
+		"tags": ["Military/Arena"],
+    "scoutedByDiscordId": "411339877574115338",
+    "createdAt": "May 29, 2026 at 12:00 PM UTC"
+  },
 	{
 		"name": "NPC",
 		"builders": [

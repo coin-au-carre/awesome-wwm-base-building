@@ -365,7 +365,7 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                         className="shrink-0 text-xs text-muted-foreground"
                         title={PINNED_LAST.has(bp.name) ? "Score granted exceptionally" : undefined}
                       >
-                        ⭐ {bp.score}{PINNED_LAST.has(bp.name) && <span className="ml-1 text-[10px] text-muted-foreground/60 italic">(exceptional)</span>}
+                        ⭐ {bp.score}{PINNED_LAST.has(bp.name)}
                       </span>
                     )}
                   </div>

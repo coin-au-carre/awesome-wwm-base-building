@@ -17,6 +17,7 @@ function loadJSON(): Blueprint[] {
 }
 
 const PINNED_LAST = new Set(["Beautiful stick"])
+const SCORE_OVERRIDES: Record<string, number> = { "Beautiful stick": 1 }
 
 function sortByScore(items: Blueprint[]): RankedBlueprint[] {
   const main = [...items].filter((bp) => !PINNED_LAST.has(bp.name))
@@ -32,7 +33,7 @@ function sortByScore(items: Blueprint[]): RankedBlueprint[] {
   const lastRank = ranked.length + 1
   return [
     ...ranked,
-    ...pinned.map((bp) => ({ ...bp, slug: slugify(bp.name), rank: lastRank })),
+    ...pinned.map((bp) => ({ ...bp, score: SCORE_OVERRIDES[bp.name] ?? bp.score, slug: slugify(bp.name), rank: lastRank })),
   ]
 }
 
