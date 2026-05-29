@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-05-29T20:45:10.945300393Z"
+  "streamers": [
+    {
+      "userID": "309699662015627275",
+      "username": "ZhugeLiang",
+      "channelID": "1494179491638149172",
+      "channelName": "Noise For Build Mode",
+      "startedAt": "2026-05-29T23:42:10.731905751Z"
+    }
+  ],
+  "updatedAt": "2026-05-29T23:42:15.736180315Z"
 }
