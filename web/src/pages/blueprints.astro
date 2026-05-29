@@ -47,26 +47,10 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
       <div class="space-y-1">
         <p class="font-medium text-sm">How blueprints work</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          A builder places a pre-made diagram in your world. You remove the outline on the diagram, then build on top of it to recreate the structure.
+          A builder places a pre-made diagram in your world. You remove the outline on the diagram, then build on top of it to recreate the structure. You generally provide the materials. 
         </p>
       </div>
     </div>
-    </div>
-
-    <!-- Share your blueprint CTA -->
-    <div class="rounded-xl border border-violet-500/30 bg-violet-500/5 px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-3">
-      <p class="text-sm flex-1 text-muted-foreground">
-        Have a blueprint to share? Post it in <span class="font-medium text-foreground">#blueprint-sharing</span> on the Discord server and it will appear here.
-      </p>
-      <a
-        href="https://discord.gg/Qygt9u26Bn"
-        target="_blank"
-        rel="noopener noreferrer"
-        class={`shrink-0 ${buttonVariants({ variant: "outline", size: "sm" })}`}
-        data-umami-event="discord_cta_click"
-      >
-        Share on Discord ↗
-      </a>
     </div>
 
     {
@@ -95,6 +79,22 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
         </section>
       )
     }
+
+    <!-- Share your blueprint CTA -->
+    <div class="rounded-xl border border-violet-500/30 bg-violet-500/5 px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-3">
+      <p class="text-sm flex-1 text-muted-foreground">
+        Have a blueprint to share? Post it in <span class="font-medium text-foreground">#blueprint-sharing</span> on the Discord server and it will appear here.
+      </p>
+      <a
+        href="https://discord.gg/Qygt9u26Bn"
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`shrink-0 ${buttonVariants({ variant: "outline", size: "sm" })}`}
+        data-umami-event="discord_cta_click"
+      >
+        Share on Discord ↗
+      </a>
+    </div>
 
     {
       isEmpty && (

@@ -258,6 +258,10 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 		}
 		if r.data.BuildTitle != "" {
 			bp.BuilderName = r.data.BuildTitle
+		} else if bp.BuilderName == "" && r.data.AuthorID != "" {
+			if u, ok := result.Users[r.data.AuthorID]; ok {
+				bp.BuilderName = u.DisplayName()
+			}
 		}
 		if r.data.ID != "" {
 			bp.BuilderID = r.data.ID

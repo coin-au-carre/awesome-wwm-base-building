@@ -309,6 +309,9 @@ func main() {
 		for k, v := range soloFetch.result.Users {
 			allUsers[k] = v
 		}
+		for k, v := range blueprintFetch.result.Users {
+			allUsers[k] = v
+		}
 
 		// Resolve scoutedByDiscordId values not already covered by voter/author resolution.
 		var scoutIDs []string
