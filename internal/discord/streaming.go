@@ -82,11 +82,9 @@ func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.
 		slog.Info("streaming detected on startup", "user", username, "channel", channelName)
 	}
 
-	if len(t.active) > 0 {
-		select {
-		case t.saveCh <- struct{}{}:
-		default:
-		}
+	select {
+	case t.saveCh <- struct{}{}:
+	default:
 	}
 }
 
