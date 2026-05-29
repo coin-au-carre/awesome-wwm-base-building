@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { SoloWall } from "@/components/SoloWall"
+import { GuildCarousel, type CarouselGuild } from "@/components/GuildCarousel"
 import { LeaderboardTable, type LeaderboardGuild } from "@/components/LeaderboardTable"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -23,6 +24,12 @@ const lastSync = getLastSyncDate()
 const solosWithScreenshots = solos.filter((g) => (g.coverImage || (g.screenshots && g.screenshots.length > 0)))
 const ogImage = solos.map((g) => g.coverImage ?? g.screenshots?.[0]).find(Boolean)
 const latestSolos = getLatestSolosWithScreenshots(3)
+const latestSolosCarousel: CarouselGuild[] = latestSolos.map((g) => ({
+  slug: g.slug, rank: g.rank, name: g.name, guildName: g.guildName,
+  builders: g.builders, tags: g.tags, coverImage: g.coverImage,
+  screenshots: g.screenshots?.[0] ? [g.screenshots[0]] : undefined,
+  buildTitle: g.buildTitle, createdAt: g.createdAt,
+}))
 const isEmpty = !hasSolos()
 
 const heroCandidates = solos
@@ -163,7 +170,11 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
       latestSolos.length > 0 && (
         <section>
           <h2 class="font-heading text-base font-semibold mb-1 flex items-center gap-2 pl-3 border-l-2 border-blue-500/60"><SparkleIcon weight="duotone" className="size-4 text-blue-500" /> Recently added</h2>
-          <div class="px-5"><div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="px-5">
+            <div class="sm:hidden">
+              <GuildCarousel client:idle guilds={latestSolosCarousel} basePath="solos" showDate={true} nameScope="solo" />
+            </div>
+            <div class="hidden sm:grid sm:grid-cols-3 gap-3">
             {latestSolos.map((g) => {
               const shots = g.screenshots ?? []
               const img = g.coverImage ?? shots[0]
@@ -209,7 +220,8 @@ const leanSolos: LeaderboardGuild[] = solos.map((g) => ({
                 </div>
               )
             })}
-          </div></div>
+            </div>
+          </div>
         </section>
       )
     }
