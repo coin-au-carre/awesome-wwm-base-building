@@ -1,0 +1,12 @@
+{
+  "streamers": [
+    {
+      "userID": "123456789",
+      "username": "TestStreamer",
+      "channelID": "987654321",
+      "channelName": "General Voice",
+      "startedAt": "2026-05-29T16:00:00Z"
+    }
+  ],
+  "updatedAt": "2026-05-29T16:40:00Z"
+}
