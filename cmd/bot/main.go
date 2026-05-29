@@ -72,20 +72,18 @@ func main() {
 	trustedEyeRoleID := os.Getenv("TRUSTED_EYE_ROLE_ID")
 	trustedMemberRoleID := os.Getenv("TRUSTED_MEMBER_ROLE_ID")
 	githubToken := os.Getenv("GITHUB_ACTIONS_TOKEN")
+	streamingTracker := discord.NewStreamingTracker(*root)
 	bot.Session.AddHandler(onReady(discordGuildID))
+	bot.Session.AddHandler(streamingTracker.HandleGuildCreate)
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, spotlightOnlyChannels, activeChannelID, rubyRoleID))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, botChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken, responder))
 	if *welcomeDM {
 		bot.Session.AddHandler(onGuildMemberAdd())
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
-
-	streamingTracker := discord.NewStreamingTracker(*root)
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
 	bot.Session.AddHandler(func(s *discordgo.Session, e *discordgo.Event) {
-		if e.Type == "VOICE_STATE_UPDATE" {
-			slog.Info("raw VOICE_STATE_UPDATE received", "data", string(e.RawData))
-		}
+		slog.Info("raw event", "type", e.Type)
 	})
 
 	if err := bot.Open(); err != nil {
@@ -110,20 +108,6 @@ func onReady(discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
 		slog.Info("bot connected", "user", r.User.Username)
 		discord.RegisterSubmitCommand(s, discordGuildID)
 		logRegisteredCommands(s, discordGuildID)
-		if discordGuildID != "" {
-			channels, err := s.GuildChannels(discordGuildID)
-			if err != nil {
-				slog.Warn("could not fetch guild channels", "err", err)
-			} else {
-				var voiceChannels []string
-				for _, ch := range channels {
-					if ch.Type == discordgo.ChannelTypeGuildVoice || ch.Type == discordgo.ChannelTypeGuildStageVoice {
-						voiceChannels = append(voiceChannels, ch.Name)
-					}
-				}
-				slog.Info("visible voice channels", "count", len(voiceChannels), "channels", voiceChannels)
-			}
-		}
 	}
 }
 
