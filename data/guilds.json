@@ -1,5 +1,17 @@
 [
 	{
+		"name": "NPC",
+		"builders": [
+			"Sanuxia",
+			"Tomfu"
+		],
+		"discordThread": "",
+		"whatToVisit": "Alley\nBoardgame\nVegetable Garden",
+		"score": 0,
+		"lastModified": "May 29, 2026 at 02:24 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "NiChuYa",
 		"builders": [
 			"YEEIZ",
