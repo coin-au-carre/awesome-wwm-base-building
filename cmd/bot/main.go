@@ -82,6 +82,11 @@ func main() {
 
 	streamingTracker := discord.NewStreamingTracker(*root)
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
+	bot.Session.AddHandler(func(s *discordgo.Session, e *discordgo.Event) {
+		if e.Type == "VOICE_STATE_UPDATE" {
+			slog.Info("raw VOICE_STATE_UPDATE received", "data", string(e.RawData))
+		}
+	})
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
@@ -105,6 +110,20 @@ func onReady(discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
 		slog.Info("bot connected", "user", r.User.Username)
 		discord.RegisterSubmitCommand(s, discordGuildID)
 		logRegisteredCommands(s, discordGuildID)
+		if discordGuildID != "" {
+			channels, err := s.GuildChannels(discordGuildID)
+			if err != nil {
+				slog.Warn("could not fetch guild channels", "err", err)
+			} else {
+				var voiceChannels []string
+				for _, ch := range channels {
+					if ch.Type == discordgo.ChannelTypeGuildVoice || ch.Type == discordgo.ChannelTypeGuildStageVoice {
+						voiceChannels = append(voiceChannels, ch.Name)
+					}
+				}
+				slog.Info("visible voice channels", "count", len(voiceChannels), "channels", voiceChannels)
+			}
+		}
 	}
 }
 
