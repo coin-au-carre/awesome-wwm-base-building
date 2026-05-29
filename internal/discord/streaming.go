@@ -46,6 +46,50 @@ func NewStreamingTracker(root string) *StreamingTracker {
 	return t
 }
 
+// HandleGuildCreate scans voice states from the GUILD_CREATE payload to catch anyone already streaming.
+func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.GuildCreate) {
+	t.mu.Lock()
+	defer t.mu.Unlock()
+
+	for _, vs := range e.VoiceStates {
+		if !vs.SelfStream {
+			continue
+		}
+		channelName := vs.ChannelID
+		if ch, err := s.State.Channel(vs.ChannelID); err == nil {
+			channelName = ch.Name
+		} else if ch, err := s.Channel(vs.ChannelID); err == nil {
+			channelName = ch.Name
+		}
+		username := vs.UserID
+		if m, err := s.GuildMember(e.ID, vs.UserID); err == nil {
+			switch {
+			case m.Nick != "":
+				username = m.Nick
+			case m.User.GlobalName != "":
+				username = m.User.GlobalName
+			default:
+				username = m.User.Username
+			}
+		}
+		t.active[vs.UserID] = &Streamer{
+			UserID:      vs.UserID,
+			Username:    username,
+			ChannelID:   vs.ChannelID,
+			ChannelName: channelName,
+			StartedAt:   time.Now().UTC(),
+		}
+		slog.Info("streaming detected on startup", "user", username, "channel", channelName)
+	}
+
+	if len(t.active) > 0 {
+		select {
+		case t.saveCh <- struct{}{}:
+		default:
+		}
+	}
+}
+
 func (t *StreamingTracker) HandleVoiceStateUpdate(s *discordgo.Session, e *discordgo.VoiceStateUpdate) {
 	wasStreaming := e.BeforeUpdate != nil && e.BeforeUpdate.SelfStream
 	isStreaming := e.SelfStream
