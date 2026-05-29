@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"strings"
 
+	"ruby/internal/blueprint"
 	"ruby/internal/guild"
 )
 
@@ -176,6 +177,77 @@ func FormatMoreVideosMessage(g guild.Guild, isSolo bool) string {
 	}
 	if g.DiscordThread != "" {
 		fmt.Fprintf(&sb, "🔗 %s · [Website](<%s>)", g.DiscordThread, url)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](<%s>)", url)
+	}
+	return sb.String()
+}
+
+func blueprintWebsiteURL(bp blueprint.Blueprint, campaign string) string {
+	return websiteURL("/blueprints/"+slugify(bp.Name), campaign)
+}
+
+func buildBlueprintMeta(bp blueprint.Blueprint) []string {
+	var meta []string
+	if bp.BuilderName != "" {
+		meta = append(meta, "🎨 "+bp.BuilderName)
+	}
+	if len(bp.Tags) > 0 {
+		meta = append(meta, "🏷️ "+strings.Join(bp.Tags, ", "))
+	}
+	if bp.IsFree {
+		meta = append(meta, "🆓 Free")
+	} else if bp.Price != "" {
+		meta = append(meta, "💰 "+bp.Price)
+	}
+	return meta
+}
+
+// FormatNewBlueprintMessage builds the Discord message announcing a newly discovered blueprint.
+func FormatNewBlueprintMessage(bp blueprint.Blueprint) string {
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "📐 New blueprint! Say hello to **%s**!\n", bp.Name)
+	meta := buildBlueprintMeta(bp)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	url := blueprintWebsiteURL(bp, "new_blueprint")
+	if bp.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [Website](%s)", bp.DiscordThread, url)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](%s)", url)
+	}
+	return sb.String()
+}
+
+// FormatMoreBlueprintScreenshotsMessage builds the Discord message announcing new screenshots on a blueprint.
+func FormatMoreBlueprintScreenshotsMessage(bp blueprint.Blueprint) string {
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "📸 **%s** just got new screenshots!\n", bp.Name)
+	meta := buildBlueprintMeta(bp)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	url := blueprintWebsiteURL(bp, "new_screenshots")
+	if bp.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [Website](<%s>)", bp.DiscordThread, url)
+	} else {
+		fmt.Fprintf(&sb, "🔗 [Website](<%s>)", url)
+	}
+	return sb.String()
+}
+
+// FormatMoreBlueprintVideosMessage builds the Discord message announcing new videos on a blueprint.
+func FormatMoreBlueprintVideosMessage(bp blueprint.Blueprint) string {
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "🎬 **%s** just got new videos!\n", bp.Name)
+	meta := buildBlueprintMeta(bp)
+	if len(meta) > 0 {
+		fmt.Fprintf(&sb, "%s\n", strings.Join(meta, " · "))
+	}
+	url := blueprintWebsiteURL(bp, "new_videos")
+	if bp.DiscordThread != "" {
+		fmt.Fprintf(&sb, "🔗 %s · [Website](<%s>)", bp.DiscordThread, url)
 	} else {
 		fmt.Fprintf(&sb, "🔗 [Website](<%s>)", url)
 	}
