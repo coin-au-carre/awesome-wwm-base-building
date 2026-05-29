@@ -32,5 +32,22 @@
 		"discordThread": "https://discord.com/channels/1483447710617960508/1509671518442098848",
 		"createdAt": "May 28, 2026 at 09:35 PM UTC",
 		"lastModified": "May 28, 2026 at 09:46 PM UTC"
+	},
+	{
+		"name": "Crimson Cliff House",
+		"isFree": true,
+		"description": "A house at crimson cliff with a nice view.\nIt has an outside dining place and even a training spot.\n!old diagram house !498 components !free !you need to provide materials.",
+		"score": 0,
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903033700712518/2026529204543.png?ex=6a1ade47\u0026is=6a198cc7\u0026hm=5dda23a9685c2aa77315747f7105db9f330d6d0905cb61eb92d0cf3f924d7184\u0026",
+			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903035252347091/2026529204633.png?ex=6a1ade48\u0026is=6a198cc8\u0026hm=524f2b9a2644df334b4a5b9853b057f41b76a84da66bf6de76fbab5f164dadae\u0026",
+			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903036921811005/2026529204648.png?ex=6a1ade48\u0026is=6a198cc8\u0026hm=b04f0578bd6b7db21a995db2622c89cab757f1593b002e52c580fe9db7f47b2d\u0026",
+			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903038377103561/202652920470.png?ex=6a1ade48\u0026is=6a198cc8\u0026hm=7efdb965003cc2edb8528079a5adb6caa5cd59667bf21ae2cf025da9c20df9fd\u0026",
+			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903039706955786/2026529204756.png?ex=6a1ade49\u0026is=6a198cc9\u0026hm=f35b7ed15def6e837c3ab910419db5488b8e20b148b8e824b3c9d3da884b1025\u0026",
+			"https://cdn.discordapp.com/attachments/1509903030974152916/1509903040960921691/2026529205245.png?ex=6a1ade49\u0026is=6a198cc9\u0026hm=6a63bc5933d5f5ef2fc70bef033f26b079586554543d0b447be0a7693c614d34\u0026"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1509903030974152916",
+		"createdAt": "May 29, 2026 at 12:55 PM UTC",
+		"lastModified": "May 29, 2026 at 01:22 PM UTC"
 	}
 ]

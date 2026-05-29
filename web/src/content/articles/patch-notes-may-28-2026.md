@@ -31,15 +31,17 @@ This post will be updated regularly. Stay tuned!
 
 ---
 
+Critical bugs may come from a common cause where diagrams from Guild Construction are set as deprecated. The problem is that most guilds and builders use those components in their work. We can lose all of our efforts in an instant because of this. 
+
 ##  Critical bugs (all platforms and devices)
 
 - Cannot place full diagrams from Guild Construction > Diagrams. Error: "Diagram contains invalid components for this panel."
 - Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
 - Personal guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
-- Deleting a large component that clip into smaller ones can also delete smaller components surrounding it
 
 ## Other bugs (all platforms and devices)
 
+- Deleting a large component that clip into smaller ones can also delete smaller components surrounding it
 - Cannot edit component (rotate, move, replace) that have been placed from a diagram. Error: "Component is not available in the current panel"
 - Stone Platforms cannot cover grass as intended. Grass clips through the platform.
 - Cannot place more than 1 of each large building component
@@ -69,17 +71,7 @@ This post will be updated regularly. Stay tuned!
 
 ## Template to report bug by email
 
-```
-Email: wherewindsmeet@global.netease.com 
-Subject: Bug Report - Construction/housing/building issues 
-
-Issue type: Bug
-Issue: Construction/housing/building issues
-UID: 
-Platform: PC / Mobile
-
-<COPY the above bugs here>
-```
+see https://discord.com/channels/1483447710617960508/1509461162520219688/1509903966195028128
 
 <!-- preserve-start -->
 
