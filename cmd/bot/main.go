@@ -82,9 +82,6 @@ func main() {
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
-	bot.Session.AddHandler(func(s *discordgo.Session, e *discordgo.Event) {
-		slog.Info("raw event", "type", e.Type)
-	})
 
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
