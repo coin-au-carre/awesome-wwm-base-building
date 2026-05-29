@@ -80,6 +80,9 @@ func main() {
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 
+	streamingTracker := discord.NewStreamingTracker(*root)
+	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
+
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
 		os.Exit(1)
