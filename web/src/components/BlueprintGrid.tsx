@@ -3,6 +3,7 @@ import * as React from "react"
 import type { RankedBlueprint } from "@/types/blueprint"
 import { url } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
+import { parseLastModified, relativeTime } from "@/lib/dates"
 import { cn } from "@/lib/utils"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -52,6 +53,14 @@ function Tag({ label, active, onClick }: { label: string; active: boolean; onCli
 }
 
 type PriceFilter = "all" | "free" | "paytobuild"
+type SortOrder = "score" | "updated" | "created"
+
+const PINNED_LAST = new Set(["Beautiful stick"])
+
+function blueprintDate(bp: RankedBlueprint, field: "updated" | "created"): number {
+  const s = field === "updated" ? (bp.lastModified ?? bp.createdAt) : bp.createdAt
+  return parseLastModified(s)
+}
 
 interface Props {
   blueprints: RankedBlueprint[]
@@ -62,6 +71,7 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
   const [search, setSearch] = useState("")
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
   const [priceFilter, setPriceFilter] = useState<PriceFilter>("all")
+  const [sortOrder, setSortOrder] = useState<SortOrder>("score")
   const [sheetOpen, setSheetOpen] = useState(false)
 
   function toggleTag(tag: string) {
@@ -92,10 +102,38 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
     } else if (priceFilter === "paytobuild") {
       result = result.filter((bp) => bp.isPayToBuild === true)
     }
-    return result
-  }, [blueprints, search, activeTags, priceFilter])
+    if (sortOrder === "score") {
+      return result
+    }
+    const main = result.filter((bp) => !PINNED_LAST.has(bp.name))
+    const pinned = result.filter((bp) => PINNED_LAST.has(bp.name))
+    main.sort((a, b) => blueprintDate(b, sortOrder) - blueprintDate(a, sortOrder))
+    return [...main, ...pinned]
+  }, [blueprints, search, activeTags, priceFilter, sortOrder])
 
   const activeFilterCount = activeTags.size + (priceFilter !== "all" ? 1 : 0)
+
+  const sortLabels: Record<SortOrder, string> = { score: "Score", updated: "Updated", created: "Created" }
+
+  const SortPills = (
+    <div className="flex flex-wrap gap-1">
+      {(["score", "updated", "created"] as SortOrder[]).map((s) => (
+        <button
+          key={s}
+          type="button"
+          onClick={() => setSortOrder(s)}
+          className={cn(
+            "rounded-full px-3 py-1 text-xs font-medium transition-colors border",
+            sortOrder === s
+              ? "bg-primary text-primary-foreground border-primary"
+              : "bg-transparent text-muted-foreground border-border hover:text-foreground"
+          )}
+        >
+          {sortLabels[s]}
+        </button>
+      ))}
+    </div>
+  )
 
   const TagFilters = (
     <div className="flex flex-wrap gap-2">
@@ -129,7 +167,8 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
         </div>
 
         {/* Price filter pills — desktop */}
-        <div className="hidden sm:flex gap-1">
+        <div className="hidden sm:flex items-center gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60 pr-0.5">Filter</span>
           {(["all", "free", "paytobuild"] as PriceFilter[]).map((f) => (
             <button
               key={f}
@@ -147,6 +186,26 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
           ))}
         </div>
 
+        {/* Sort pills — desktop */}
+        <div className="hidden sm:flex items-center gap-1.5 border-l border-border pl-3">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60 pr-0.5">Sort</span>
+          {(["score", "updated", "created"] as SortOrder[]).map((s) => (
+            <button
+              key={s}
+              type="button"
+              onClick={() => setSortOrder(s)}
+              className={cn(
+                "rounded-full px-3 py-1 text-xs font-medium transition-colors border",
+                sortOrder === s
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-transparent text-muted-foreground border-border hover:text-foreground"
+              )}
+            >
+              {sortLabels[s]}
+            </button>
+          ))}
+        </div>
+
         {/* Mobile: sheet */}
         <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
@@ -160,6 +219,10 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
               <SheetTitle>Filter blueprints</SheetTitle>
             </SheetHeader>
             <div className="space-y-5 pb-2">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Sort by</p>
+                {SortPills}
+              </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Price</p>
                 <div className="flex flex-wrap gap-2">
@@ -188,11 +251,11 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
               )}
             </div>
             <SheetFooter className="mt-4">
-              {activeFilterCount > 0 && (
+              {(activeFilterCount > 0 || sortOrder !== "score") && (
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => { setActiveTags(new Set()); setPriceFilter("all") }}
+                  onClick={() => { setActiveTags(new Set()); setPriceFilter("all"); setSortOrder("score") }}
                 >
                   Clear all
                 </Button>
@@ -298,7 +361,12 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                   <div className="flex items-start justify-between gap-2">
                     <p className="font-medium text-sm leading-tight">{bp.name}</p>
                     {bp.score > 0 && (
-                      <span className="shrink-0 text-xs text-muted-foreground">⭐ {bp.score}</span>
+                      <span
+                        className="shrink-0 text-xs text-muted-foreground"
+                        title={PINNED_LAST.has(bp.name) ? "Score granted exceptionally" : undefined}
+                      >
+                        ⭐ {bp.score}{PINNED_LAST.has(bp.name) && <span className="ml-1 text-[10px] text-muted-foreground/60 italic">(exceptional)</span>}
+                      </span>
                     )}
                   </div>
                   {bp.builderName && (
@@ -327,6 +395,16 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                       })}
                     </div>
                   )}
+                  {(bp.lastModified ?? bp.createdAt) && (() => {
+                    const dateStr = bp.lastModified ?? bp.createdAt
+                    const ms = parseLastModified(dateStr)
+                    const label = bp.lastModified ? "Updated" : "Added"
+                    return ms > 0 ? (
+                      <p className="text-[10px] text-muted-foreground/60 mt-auto pt-0.5">
+                        {label} {relativeTime(ms)}
+                      </p>
+                    ) : null
+                  })()}
                 </div>
               </a>
             )
