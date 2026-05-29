@@ -20,14 +20,12 @@ func NewBot(token, channelID string) (*Bot, error) {
 	if err != nil {
 		return nil, fmt.Errorf("creating session: %w", err)
 	}
-	intents := discordgo.IntentsGuilds |
+	s.Identify.Intents = discordgo.IntentsGuilds |
 		discordgo.IntentsGuildMessages |
 		discordgo.IntentsMessageContent |
 		discordgo.IntentsDirectMessages |
 		discordgo.IntentsGuildMembers |
 		discordgo.IntentsGuildVoiceStates
-	slog.Info("gateway intents", "bitmask", intents)
-	s.Identify.Intents = intents
 
 	return &Bot{Session: s, channelID: channelID}, nil
 }
