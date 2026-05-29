@@ -175,6 +175,7 @@ func (t *StreamingTracker) saveAndPush() {
 	for _, args := range [][]string{
 		{"git", "add", "data/streaming.json"},
 		{"git", "commit", "-m", "chore: live streaming update"},
+		{"git", "pull", "--rebase"},
 		{"git", "push"},
 	} {
 		cmd := exec.Command(args[0], args[1:]...)

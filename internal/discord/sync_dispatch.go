@@ -329,38 +329,29 @@ func workflowIsActive(token string) (bool, error) {
 func triggerGitHubWorkflow(token string) error {
 	dispatchURL := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/dispatches", githubRepo)
 
-	do := func(payload any) (int, error) {
-		body, _ := json.Marshal(payload)
-		req, err := githubRequest(http.MethodPost, dispatchURL, token, body)
-		if err != nil {
-			return 0, fmt.Errorf("build request: %w", err)
-		}
-		req.Header.Set("Content-Type", "application/json")
-		resp, err := http.DefaultClient.Do(req)
-		if err != nil {
-			return 0, fmt.Errorf("http: %w", err)
-		}
-		resp.Body.Close()
-		return resp.StatusCode, nil
-	}
-
-	status, err := do(map[string]any{
+	payload, _ := json.Marshal(map[string]any{
 		"ref":    "main",
 		"inputs": map[string]string{"discord_trigger": "true"},
 	})
+	req, err := githubRequest(http.MethodPost, dispatchURL, token, payload)
 	if err != nil {
-		return err
+		return fmt.Errorf("build request: %w", err)
 	}
-	if status == http.StatusUnprocessableEntity {
-		// Workflow on GitHub doesn't define discord_trigger yet — retry without inputs.
-		slog.Warn("workflow inputs not supported yet, retrying without inputs")
-		status, err = do(map[string]string{"ref": "main"})
-		if err != nil {
-			return err
+	req.Header.Set("Content-Type", "application/json")
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		return fmt.Errorf("http: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusNoContent {
+		var gh struct {
+			Message string `json:"message"`
 		}
-	}
-	if status != http.StatusNoContent {
-		return fmt.Errorf("unexpected status %d", status)
+		if jsonErr := json.NewDecoder(resp.Body).Decode(&gh); jsonErr == nil && gh.Message != "" {
+			return fmt.Errorf("status %d: %s", resp.StatusCode, gh.Message)
+		}
+		return fmt.Errorf("unexpected status %d", resp.StatusCode)
 	}
 	return nil
 }
