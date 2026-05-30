@@ -29,9 +29,11 @@ This post will be updated regularly. Stay tuned!
 - Can change guild base time (with the clock). Will apply to anyone in the guild. Need the **Management** permission.
 - Can search component by their name
 
+
 ---
 
 Critical bugs may come from a common cause where diagrams from Guild Construction are set as deprecated. The problem is that most guilds and builders use those components in their work. We can lose all of our efforts in an instant because of this. 
+*news*: it is confirmed that also CN server has this new limitation. Hopefully hoping the CN players will massively report this.
 
 ##  Critical bugs (all platforms and devices)
 
@@ -44,8 +46,8 @@ Critical bugs may come from a common cause where diagrams from Guild Constructio
 - Deleting a large component that clip into smaller ones can also delete smaller components surrounding it
 - Cannot edit component (rotate, move, replace) that have been placed from a diagram. Error: "Component is not available in the current panel"
 - Stone Platforms cannot cover grass as intended. Grass clips through the platform.
-- Cannot place more than 1 of each large building component
 - "Theater Stage" Single Use component missing shadow figures
+- ~~Cannot place more than 1 of each large building component~~ (CN server also confirmed: might not be a bug but a limitation)
 
 ## Other bugs (mobile only)
 
@@ -75,9 +77,9 @@ see https://discord.com/channels/1483447710617960508/1509461162520219688/1509903
 
 <!-- preserve-start -->
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1b52c1&format=webp&hm=ac35e43a64f05a4590c01d61eb65dbaa6b1e15de48370e8a5fb84ebee40e51d4&is=6a1a0141&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1b52c1&format=webp&hm=941078f3b16d06f890b5d37c6c76c27f2609d194f1a4bbe2c722b4f8aab0936f&is=6a1a0141&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1b52c1&format=webp&hm=b4a4a25d089461a40be86b9de55c736a015bce93a53c8af404dab524da6047e2&is=6a1a0141&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1bfb81&format=webp&hm=4f966318e4d22a5ebe1f9e5b97164cc3292b487a505f0a1e72c010b09e646f11&is=6a1aaa01&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1bfb81&format=webp&hm=29685c053a4591797b1c4d056cbee533ef401cc529a5f1f5094d97ff9dc903d6&is=6a1aaa01&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1bfb81&format=webp&hm=9392c3bff7ce8dd5339969dd9de3c402436a6aa11eb6ca588ed2e88d545365f3&is=6a1aaa01&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
 
 <!-- preserve-end -->
 
