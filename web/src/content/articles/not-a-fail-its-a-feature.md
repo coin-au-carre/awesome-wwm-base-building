@@ -27,7 +27,7 @@ featured: false
 ## Guild base pool area with sand
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a1bab4b&format=webp&hm=572cea1e4a4e18fbe254eb4aecc21876c9b63a37d998674144ee254db38577c9&is=6a1a59cb&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a1c540b&format=webp&hm=9958b50b2ee050299186417732dc25cd57dcca72c1ebdabce126169266860b0e&is=6a1b028b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
