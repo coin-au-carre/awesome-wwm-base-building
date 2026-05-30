@@ -39,8 +39,8 @@ The key steps: place a wall, then position a small flat ceiling above it. Simula
 The advantage over manual adjustment (going up and down until sections blend) is consistency: once the ceiling reference is set, every water unit snaps to the same height with no retries needed.
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a1bf3a6&hm=990680b54fe801bd5a6cb8a6ffc126f74895cb6d1be73d55409b1b62f055b3bc&is=6a1aa226&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a1c9c66&hm=b4053c0687710886c7e828bf8651d879775f1271a33fba32da0c23a4f1ea85a6&is=6a1b4ae6&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a1bfb2a&format=webp&hm=18913ea8a4adc603e9cb51147054161cacc4a748959c59aa051e512ea3d75e73&is=6a1aa9aa&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a1ca3ea&format=webp&hm=0ac660e2414e63026e777388801dad1b027990f7ebd1e042e72b1399bea0c006&is=6a1b526a&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
