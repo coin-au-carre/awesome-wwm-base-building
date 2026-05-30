@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a1b82e5&format=webp&hm=838975f32c03fdcc3a546e398a4288bca62ccc40e23a06b3fe5c476741aaaf42&is=6a1a3165&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a1c2ba5&format=webp&hm=36f96bf214b800480e9c2110ce32ce9b835160dd805dc5c448cf3ef55f55b8be&is=6a1ada25&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a1b8305&format=webp&hm=45b9f540a02871393451f0a391956cbe21769168304dcbc49f93f64e5db99b77&is=6a1a3185&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a1c2bc5&format=webp&hm=c73dda62c2913fbce27caa18a96056c8114357e75493c810ac0031cb8a29137c&is=6a1ada45&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a1b87c6&format=webp&hm=57e43567aae57800792f863eb1ef79039b15f3246b72248e396f62e764718969&is=6a1a3646&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a1c3086&format=webp&hm=f785ae5be98e4d7628fd4e18ed664cd1128e60ff57e530228bab0eafe7e832ae&is=6a1adf06&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a1b88da&format=webp&hm=04f2488cb1f22ec2a373e7c593bc5475e5738936297743b79ee7235584b55cf2&is=6a1a375a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a1c319a&format=webp&hm=5f9876ba4384d2847a8674cf04cce1726464007fd762df378500a074907bc661&is=6a1ae01a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a1b88f2&format=webp&hm=2954c30b166f4f41d2693fccdfae493f367275c0e189f8442f558351eb915cca&is=6a1a3772&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a1c31b2&format=webp&hm=d92f569fc53e7b0f621a7be706e3ce58764985452543b82af08118020655eee5&is=6a1ae032&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
