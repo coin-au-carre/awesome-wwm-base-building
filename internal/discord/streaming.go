@@ -30,17 +30,20 @@ type streamingFile struct {
 // StreamingTracker tracks active voice-channel streamers and persists state to
 // data/streaming.json, committing and pushing on each change.
 type StreamingTracker struct {
-	mu     sync.Mutex
-	root   string
-	active map[string]*Streamer // keyed by userID
-	saveCh chan struct{}
+	mu      sync.Mutex
+	root    string
+	session *discordgo.Session
+	guildID string
+	active  map[string]*Streamer // keyed by userID
+	saveCh  chan struct{}
 }
 
-func NewStreamingTracker(root string) *StreamingTracker {
+func NewStreamingTracker(root string, session *discordgo.Session) *StreamingTracker {
 	t := &StreamingTracker{
-		root:   root,
-		active: make(map[string]*Streamer),
-		saveCh: make(chan struct{}, 1),
+		root:    root,
+		session: session,
+		active:  make(map[string]*Streamer),
+		saveCh:  make(chan struct{}, 1),
 	}
 	go t.saveLoop()
 	return t
@@ -50,6 +53,10 @@ func NewStreamingTracker(root string) *StreamingTracker {
 func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.GuildCreate) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
+
+	if t.guildID == "" {
+		t.guildID = e.ID
+	}
 
 	for _, vs := range e.VoiceStates {
 		if !vs.SelfStream {
@@ -148,13 +155,42 @@ func (t *StreamingTracker) saveLoop() {
 	}
 }
 
+// activeEventChannelIDs returns the set of voice channel IDs currently hosting an active scheduled event.
+func (t *StreamingTracker) activeEventChannelIDs() map[string]bool {
+	if t.session == nil || t.guildID == "" {
+		return nil
+	}
+	events, err := t.session.GuildScheduledEvents(t.guildID, false)
+	if err != nil {
+		slog.Warn("fetching scheduled events for streaming filter", "err", err)
+		return nil
+	}
+	channels := map[string]bool{}
+	for _, e := range events {
+		if e.Status == discordgo.GuildScheduledEventStatusActive && e.ChannelID != "" {
+			channels[e.ChannelID] = true
+		}
+	}
+	return channels
+}
+
 func (t *StreamingTracker) saveAndPush() {
 	t.mu.Lock()
-	streamers := make([]Streamer, 0, len(t.active))
+	all := make([]Streamer, 0, len(t.active))
 	for _, s := range t.active {
-		streamers = append(streamers, *s)
+		all = append(all, *s)
 	}
 	t.mu.Unlock()
+
+	eventChannels := t.activeEventChannelIDs()
+	streamers := make([]Streamer, 0, len(all))
+	for _, s := range all {
+		if eventChannels[s.ChannelID] {
+			slog.Info("streaming excluded: channel has active event", "user", s.Username, "channel", s.ChannelName)
+			continue
+		}
+		streamers = append(streamers, s)
+	}
 
 	state := streamingFile{
 		Streamers: streamers,
