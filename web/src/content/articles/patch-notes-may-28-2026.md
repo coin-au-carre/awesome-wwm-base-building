@@ -15,7 +15,7 @@ This post will be updated regularly. Stay tuned!
 
 ## READ FIRST
 
-- **Do not guild base wipe and careful when removing components!** Some components (e.g. from guild construction diagrams) cannot be placed anymore leading to cause issues (send flowers to wavy波  for the sacrifice)
+- **Do not guild base wipe and careful when removing components!** Some components (e.g. from guild construction diagrams) cannot be placed as of now  leading to cause issues (send flowers to wavy波  for the sacrifice)
 
 ## Confirmed Improvements
 - Added new components (large components, structures...)
@@ -26,7 +26,7 @@ This post will be updated regularly. Stay tuned!
 - Can rotate component before placing it on several axis (press control and scroll)
 - Can edit components in guild base (move, replace, rotate)
 - 3 Different camera in build mode (classic, move freely, above view)
-- Can change guild base time (with the clock). Need high permission and will apply to anyone in the guild.
+- Can change guild base time (with the clock). Will apply to anyone in the guild. Need the **Management** permission.
 - Can search component by their name
 
 ---
@@ -37,7 +37,7 @@ Critical bugs may come from a common cause where diagrams from Guild Constructio
 
 - Cannot place full diagrams from Guild Construction > Diagrams. Error: "Diagram contains invalid components for this panel."
 - Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
-- Personal guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
+- Custom/Saved guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
 
 ## Other bugs (all platforms and devices)
 
