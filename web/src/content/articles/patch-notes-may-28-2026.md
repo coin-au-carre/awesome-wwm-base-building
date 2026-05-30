@@ -33,7 +33,7 @@ This post will be updated regularly. Stay tuned!
 ---
 
 Critical bugs may come from a common cause where diagrams from Guild Construction are set as deprecated. The problem is that most guilds and builders use those components in their work. We can lose all of our efforts in an instant because of this. 
-*news*: it is confirmed that also CN server has this new limitation. Hopefully hoping the CN players will massively report this.
+*news*: it is confirmed that also CN server has this new limitation. Hopefully CN players will massively report this.
 
 ##  Critical bugs (all platforms and devices)
 
