@@ -105,7 +105,8 @@
 	{
 		"name": "Chumimaru] paid blueprint",
 		"builderName": "Chumimaru",
-		"isFree": true,
+		"isFree": false,
+		"isPayToBuild": true,
 		"score": 10,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1510238897152462898/image.png?ex=6a1c1713\u0026is=6a1ac593\u0026hm=432871c6a9e1ab069b4f3ecc77383e2f23ce7ebdd57e4258501be3231cead882\u0026",

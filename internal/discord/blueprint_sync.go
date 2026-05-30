@@ -58,6 +58,24 @@ func BlueprintSyncFetch(b *Bot, blueprints []blueprint.Blueprint, cfg SyncConfig
 	var partialStats SyncStats
 	partialStats.NewThreadLinks = make(map[string]string)
 
+	// Deduplicate existing blueprints by discordThread — keep the last occurrence of each URL.
+	seen := make(map[string]int, len(blueprints))
+	deduped := blueprints[:0]
+	for _, bp := range blueprints {
+		if bp.DiscordThread == "" {
+			deduped = append(deduped, bp)
+			continue
+		}
+		if prev, dup := seen[bp.DiscordThread]; dup {
+			slog.Warn("duplicate blueprint discordThread removed", "url", bp.DiscordThread, "kept", blueprints[prev].Name, "removed", bp.Name)
+			deduped[prev] = bp // replace with later entry (more up-to-date)
+			continue
+		}
+		seen[bp.DiscordThread] = len(deduped)
+		deduped = append(deduped, bp)
+	}
+	blueprints = deduped
+
 	// Build URL → index map for existing blueprints.
 	threadURLToIdx := make(map[string]int, len(blueprints))
 	for i, bp := range blueprints {
@@ -69,8 +87,17 @@ func BlueprintSyncFetch(b *Bot, blueprints []blueprint.Blueprint, cfg SyncConfig
 
 	for _, thread := range threads {
 		threadURL := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
-		if _, exists := threadURLToIdx[threadURL]; exists {
-			continue // already known
+		if urlIdx, exists := threadURLToIdx[threadURL]; exists {
+			// Check for rename: same thread URL, different name.
+			storedName := blueprints[urlIdx].Name
+			newName := guild.ExtractName(thread.Name)
+			if !strings.EqualFold(storedName, newName) && newName != "" {
+				slog.Info("blueprint renamed", "old", storedName, "new", newName)
+				notice := fmt.Sprintf("ℹ️ **Blueprint renamed:** **%s** → **%s**\n%s", storedName, newName, threadURL)
+				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, notice)
+				blueprints[urlIdx].Name = newName
+			}
+			continue
 		}
 		name := guild.ExtractName(thread.Name)
 		idx := len(blueprints)
@@ -255,6 +282,14 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 		} else {
 			bp.IsFree = true // no price → free by default
 			bp.IsPayToBuild = false
+		}
+		// Thread title keywords override first-post price parsing.
+		titleLower := strings.ToLower(r.thread.Name)
+		if strings.Contains(titleLower, "free") {
+			bp.IsFree = true
+		}
+		if strings.Contains(titleLower, "paid") {
+			bp.IsPayToBuild = true
 		}
 		if r.data.BuildTitle != "" {
 			bp.BuilderName = r.data.BuildTitle
