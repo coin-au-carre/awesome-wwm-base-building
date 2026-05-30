@@ -1,12 +1,15 @@
 ---
 import Layout from "@/layouts/main.astro"
-import { BlueprintGrid } from "@/components/BlueprintGrid"
+import { BlueprintPageTabs } from "@/components/BlueprintPageTabs"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { getBlueprintsSortedByScore, getAllBlueprintTags, hasBlueprints } from "@/lib/blueprints"
+import { getBuilderProfile } from "@/lib/builders"
 import { getLastSyncDate } from "@/lib/guilds"
 import { formatSyncDate } from "@/lib/dates"
+import { thumbUrl, builderSlug, slugify } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, ArrowsClockwiseIcon, InfoIcon } from "@phosphor-icons/react"
 
@@ -15,6 +18,31 @@ const allTags = getAllBlueprintTags()
 const lastSync = getLastSyncDate()
 const isEmpty = !hasBlueprints()
 const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).find(Boolean)
+
+const builderSeen = new Set<string>()
+const builderCards = blueprints
+  .filter((bp) => bp.builderName)
+  .reduce<{ name: string; slug: string; blueprints: { name: string; slug: string; coverImage?: string; isFree?: boolean; isPayToBuild?: boolean; price?: string }[] }[]>((acc, bp) => {
+    const slug = resolveCanonical(builderSlug(bp.builderName!))
+    if (!slug) return acc
+    const profile = getBuilderProfile(slug)
+    if (builderSeen.has(slug)) return acc
+    builderSeen.add(slug)
+    const builderBlueprints = (profile?.blueprints ?? [bp]).map((b) => ({
+      name: b.name,
+      slug: b.slug ?? slugify(b.name),
+      coverImage: (b.coverImage ?? b.screenshots?.[0]) ? thumbUrl(b.coverImage ?? b.screenshots![0]) : undefined,
+      isFree: b.isFree,
+      isPayToBuild: b.isPayToBuild,
+      price: b.price,
+    }))
+    acc.push({
+      name: profile?.name ?? bp.builderName!,
+      slug,
+      blueprints: builderBlueprints,
+    })
+    return acc
+  }, [])
 ---
 
 <Layout
@@ -23,8 +51,6 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
   image={ogImage}
 >
   <div class="space-y-6">
-
-   
     <div class="flex flex-col gap-3">
       <div class="flex items-center gap-3 flex-wrap">
         <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2">
@@ -38,16 +64,13 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
           </Badge>
         )}
       </div>
-      <!-- <p class="text-muted-foreground text-sm">
-        Community-shared construction diagrams. <span class="whitespace-nowrap">Share yours on <a href="https://discord.gg/Qygt9u26Bn" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">Discord ↗</a></span>
-      </p> -->
        <!-- How it works banner -->
     <div class="rounded-xl border border-blue-500/30 bg-blue-500/5 px-5 py-4 flex items-start gap-3">
       <InfoIcon weight="duotone" className="size-5 shrink-0 text-blue-500 mt-0.5" />
       <div class="space-y-1">
         <p class="font-medium text-sm">How blueprints work</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          A builder places a pre-made diagram in your world. You remove the outline on the diagram, then build on top of it to recreate the structure. You generally provide the materials. 
+          A builder places a pre-made diagram in your world. You generally provide the materials and you build the components of the diagram yourself to recreate the structure.
         </p>
       </div>
     </div>
@@ -71,11 +94,11 @@ const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).fin
       )
     }
 
-    <!-- Grid with filters -->
+    <!-- Tabs: Blueprints | Builders -->
     {
-      blueprints.length > 0 && (
+      !isEmpty && (
         <section>
-          <BlueprintGrid client:load blueprints={blueprints} allTags={allTags} />
+          <BlueprintPageTabs client:load blueprints={blueprints} allTags={allTags} builders={builderCards} />
         </section>
       )
     }
