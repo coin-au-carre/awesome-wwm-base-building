@@ -1,4 +1,15 @@
 [
+  {
+    "id": "10210429",
+    "name": "Bakunawa",
+    "builders": ["NyxRize", "PhlyXia"],
+    "discordThread": "",
+    "score": 1,
+    "scoutedByDiscordId": "411339877574115338",
+    "createdAt": "May 2, 2026 at 12:00 PM UTC",
+    "lore": "Greek theme",
+    "whatToVisit": ""
+  },
 	{
 		"name": "BabyGhost",
 		"builders": [
