@@ -267,7 +267,11 @@ func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo
 		if name == "" {
 			name = m.User.Username
 		}
-		msg := fmt.Sprintf("👋 **%s** (`%s`) left the server.", name, m.User.Username)
+		guildName := m.GuildID
+		if g, err := s.Guild(m.GuildID); err == nil {
+			guildName = fmt.Sprintf("%s (%s)", g.Name, m.GuildID)
+		}
+		msg := fmt.Sprintf("👋 **%s** (`%s`) left **%s**.", name, m.User.Username, guildName)
 		if m.Member != nil && !m.Member.JoinedAt.IsZero() {
 			dur := time.Since(m.Member.JoinedAt)
 			days := int(dur.Hours() / 24)
@@ -281,7 +285,7 @@ func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo
 			}
 		}
 		bot.Send(logsChannelID, msg)
-		slog.Info("member left", "user", m.User.Username, "display_name", name)
+		slog.Info("member left", "user", m.User.Username, "display_name", name, "discord_server", guildName)
 	}
 }
 
