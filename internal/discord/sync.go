@@ -494,9 +494,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		// g.LastModified = data.LastContributorTime.UTC().Format(guild.ModifiedLayout)
 
 		isNew := result.newIndices[r.idx]
-		// if isNew && g.ID == "" && data.GuildName == "" && g.BuildTitle == "" {
-		// 	stats.MalformedNewThreadIDs = append(stats.MalformedNewThreadIDs, r.thread.ID)
-		// }
+		if isNew && len(g.Builders) == 0 {
+			stats.MalformedNewThreadIDs = append(stats.MalformedNewThreadIDs, r.thread.ID)
+		}
 		if !isNew && hasChanged(prev, g) {
 			stats.Updated++
 			stats.UpdatedNames = append(stats.UpdatedNames, g.Name)
