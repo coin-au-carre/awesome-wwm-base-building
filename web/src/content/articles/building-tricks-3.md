@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a1d1fdd&hm=25473c75546a86cb089cdca508d90e9114a0e434a2a94a860f68ce4bc381be8f&is=6a1bce5d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a1dc89d&hm=51d41cc6afc569d08fadac6ff74bc5acdb4fe1276e47b924d68d182b13cc5eed&is=6a1c771d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 ---
 
@@ -26,7 +26,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a1d1e5d&hm=351e8b6ae38e5683fefdf5e218e4f91f6b55ee728cb4b693390905ff32f395cd&is=6a1bccdd&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a1dc71d&hm=bf2b9f42c519c7e27afb6a899af4b1fc2e41c0301368c799b860dc84abb8fdfb&is=6a1c759d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 ---
 
