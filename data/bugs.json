@@ -43,7 +43,7 @@
     "media": [],
     "version": "v1.7",
     "date": "28/05/2026",
-    "notes": "Probable root cause:Cannot place Guild Construction\u003eDiagrams. If a diagram has some components from Guild construction \u003e Diagrams then this seems logical."
+    "notes": "Probable root cause:Cannot place Guild Construction\u003eDiagrams. Indeed, diagram can contain some components from Guild construction \u003e Diagrams"
   },
   {
     "severity": "normal",
@@ -60,22 +60,6 @@
     "version": "v1.7",
     "date": "28/05/2026",
     "notes": "Concern any component from any diagram"
-  },
-  {
-    "severity": "normal",
-    "title": "Unwanted deletions when deleting component",
-    "details": "Deleting a large component that clip into smaller ones can also delete smaller components surrounding it",
-    "guild": true,
-    "solo": false,
-    "pc": true,
-    "mobile": false,
-    "ps5": false,
-    "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509594993147514942/20260528-1630-29.8200206.mp4?ex=6a1d0b25\u0026hm=1608a478ca9f993578cedbfaf8eeae4fe508dc72e32ff85af164b3f9cab5ded5\u0026is=6a1bb9a5\u0026"
-    ],
-    "version": "v1.7",
-    "date": "28/05/2026",
-    "notes": "TODO: verify solo, mobile/ps5"
   },
   {
     "severity": "normal",
@@ -102,7 +86,10 @@
     "pc": false,
     "mobile": true,
     "ps5": false,
-    "media": [],
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510293873992143030/Screenshot_2026-05-30-20-11-36-98_26b3bcd00fcc38d7694fb6a0291e3b13.jpg?ex=6a1d9bc7\u0026hm=5a348c3390455ea907d6679e01839ef4094497e9cdaca41ecc12bf8b8af23df8\u0026is=6a1c4a47\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510293874420219975/Screenshot_2026-05-30-20-11-47-84_26b3bcd00fcc38d7694fb6a0291e3b13.jpg?ex=6a1d9bc7\u0026hm=8caf40404195c3cd104b2deddc690b586ef9dd08392fb56f9b3cb4b6d6fd93e6\u0026is=6a1c4a47\u0026"
+    ],
     "version": "v1.7",
     "date": "28/05/2026",
     "notes": "Does not happen on PC. TODO: verify solo, ps5"
