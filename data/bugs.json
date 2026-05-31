@@ -145,7 +145,7 @@
     "title": "Cannot rotate on 2nd axe on mobile \u0026 ps5",
     "details": "We can rotate now on PC but not on another platform",
     "guild": true,
-    "solo": false,
+    "solo": true,
     "pc": false,
     "mobile": true,
     "ps5": true,

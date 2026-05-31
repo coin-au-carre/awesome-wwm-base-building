@@ -40,10 +40,21 @@ const SEVERITY_STYLES: Record<string, string> = {
 const PLATFORM_STYLES: Record<string, string> = {
   guild:  "bg-violet-500/10 text-violet-700 dark:text-violet-300",
   solo:   "bg-sky-500/10 text-sky-700 dark:text-sky-300",
-  pc:     "bg-slate-500/10 text-slate-600 dark:text-slate-400",
+  pc:     "bg-orange-500/15 text-orange-700 dark:text-orange-300",
   mobile: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
   ps5:    "bg-blue-500/10 text-blue-700 dark:text-blue-300",
 }
+
+const PLATFORM_LABEL: Record<string, string> = {
+  guild: "Guild", solo: "Solo", pc: "PC", mobile: "Mobile", ps5: "PS5",
+}
+
+const MODE_PLATFORMS = ["guild", "solo"] as const
+const DEVICE_PLATFORMS = ["pc", "mobile", "ps5"] as const
+const PLATFORM_GROUPS = [
+  { label: "Mode",     platforms: MODE_PLATFORMS },
+  { label: "Platform", platforms: DEVICE_PLATFORMS },
+] as const
 
 const SEVERITY_ORDER: Record<string, number> = { high: 0, normal: 1, low: 2, fixed: 3 }
 
@@ -103,23 +114,28 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
             </button>
           ))}
         </div>
-        <div className="w-px h-4 bg-border" />
-        <div className="flex gap-1.5 flex-wrap">
-          {PLATFORMS.map((p) => (
-            <button
-              key={p}
-              onClick={() => togglePlatform(p)}
-              className={cn(
-                "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
-                platformFilter.has(p)
-                  ? cn(PLATFORM_STYLES[p], "border-current/30")
-                  : "text-muted-foreground border-border hover:border-foreground/40",
-              )}
-            >
-              {p === "ps5" ? "PS5" : p.charAt(0).toUpperCase() + p.slice(1)}
-            </button>
-          ))}
-        </div>
+        {PLATFORM_GROUPS.map(({ label, platforms }) => (
+          <React.Fragment key={label}>
+            <div className="w-px h-4 bg-border" />
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">{label}</span>
+              {platforms.map((p) => (
+                <button
+                  key={p}
+                  onClick={() => togglePlatform(p as Platform)}
+                  className={cn(
+                    "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+                    platformFilter.has(p as Platform)
+                      ? cn(PLATFORM_STYLES[p], "border-current/30")
+                      : "text-muted-foreground border-border hover:border-foreground/40",
+                  )}
+                >
+                  {PLATFORM_LABEL[p]}
+                </button>
+              ))}
+            </div>
+          </React.Fragment>
+        ))}
         <span className="text-xs text-muted-foreground ml-auto">
           {filtered.length} bug{filtered.length !== 1 ? "s" : ""}
         </span>
@@ -141,7 +157,8 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
                 </button>
               </TableHead>
               <TableHead>Bug</TableHead>
-              <TableHead className="w-28">Platforms</TableHead>
+              <TableHead className="w-20">Mode</TableHead>
+              <TableHead className="w-28">Platform</TableHead>
               <TableHead className="w-14">Version</TableHead>
               <TableHead className="w-20">Date</TableHead>
               <TableHead className="w-36">Media</TableHead>
@@ -150,13 +167,12 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
           <TableBody>
             {filtered.length === 0 && (
               <TableRow>
-                <TableCell colSpan={6} className="py-10 text-center text-muted-foreground whitespace-normal">
+                <TableCell colSpan={7} className="py-10 text-center text-muted-foreground whitespace-normal">
                   No bugs match the current filter.
                 </TableCell>
               </TableRow>
             )}
             {filtered.map((bug, i) => {
-              const platforms = PLATFORMS.filter((p) => bug[p])
               return (
                 <TableRow key={i} className="align-top">
                   <TableCell className="pt-3">
@@ -182,15 +198,18 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
                   </TableCell>
                   <TableCell className="pt-3">
                     <div className="flex flex-wrap gap-1">
-                      {platforms.map((p) => (
-                        <span
-                          key={p}
-                          className={cn(
-                            "inline-block rounded px-1.5 py-0.5 text-xs font-medium capitalize",
-                            PLATFORM_STYLES[p] ?? "bg-muted text-muted-foreground",
-                          )}
-                        >
-                          {p === "ps5" ? "PS5" : p}
+                      {MODE_PLATFORMS.filter((p) => bug[p]).map((p) => (
+                        <span key={p} className={cn("inline-block rounded px-1.5 py-0.5 text-xs font-medium", PLATFORM_STYLES[p])}>
+                          {PLATFORM_LABEL[p]}
+                        </span>
+                      ))}
+                    </div>
+                  </TableCell>
+                  <TableCell className="pt-3">
+                    <div className="flex flex-wrap gap-1">
+                      {DEVICE_PLATFORMS.filter((p) => bug[p]).map((p) => (
+                        <span key={p} className={cn("inline-block rounded px-1.5 py-0.5 text-xs font-medium", PLATFORM_STYLES[p])}>
+                          {PLATFORM_LABEL[p]}
                         </span>
                       ))}
                     </div>
@@ -254,13 +273,23 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
       </div>
 
       <Dialog open={lightboxSrc !== null} onOpenChange={(open) => { if (!open) setLightboxSrc(null) }}>
-        <DialogContent className="max-w-3xl p-2">
+        <DialogContent className="max-w-5xl p-2">
           <DialogTitle className="sr-only">Media</DialogTitle>
           {lightboxSrc && (
             isVideo(lightboxSrc) ? (
               <video src={lightboxSrc} className="w-full rounded" controls autoPlay />
             ) : (
-              <img src={lightboxSrc} alt="Screenshot" className="w-full rounded" />
+              <>
+                <img src={lightboxSrc} alt="Screenshot" className="w-full rounded" />
+                <a
+                  href={lightboxSrc}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-xs text-muted-foreground hover:text-foreground transition-colors pt-1"
+                >
+                  Open full size ↗
+                </a>
+              </>
             )
           )}
         </DialogContent>
