@@ -102,7 +102,15 @@ func main() {
 
 func onReady(discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
 	return func(s *discordgo.Session, r *discordgo.Ready) {
-		slog.Info("bot connected", "user", r.User.Username)
+		guilds := make([]string, 0, len(r.Guilds))
+		for _, g := range r.Guilds {
+			name := g.ID
+			if full, err := s.Guild(g.ID); err == nil {
+				name = full.Name + " (" + g.ID + ")"
+			}
+			guilds = append(guilds, name)
+		}
+		slog.Info("bot connected", "user", r.User.Username, "guilds", guilds)
 		discord.RegisterSubmitCommand(s, discordGuildID)
 		logRegisteredCommands(s, discordGuildID)
 	}

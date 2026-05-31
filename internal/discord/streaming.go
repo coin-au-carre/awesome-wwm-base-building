@@ -86,7 +86,7 @@ func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.
 			ChannelName: channelName,
 			StartedAt:   time.Now().UTC(),
 		}
-		slog.Info("streaming detected on startup", "user", username, "channel", channelName)
+		slog.Info("streaming detected on startup", "user", username, "userID", vs.UserID, "channel", channelName, "channelID", vs.ChannelID)
 	}
 
 	select {
@@ -99,7 +99,16 @@ func (t *StreamingTracker) HandleVoiceStateUpdate(s *discordgo.Session, e *disco
 	wasStreaming := e.BeforeUpdate != nil && e.BeforeUpdate.SelfStream
 	isStreaming := e.SelfStream
 
-if isStreaming == wasStreaming {
+	if isStreaming == wasStreaming {
+		return
+	}
+
+	t.mu.Lock()
+	guildID := t.guildID
+	t.mu.Unlock()
+
+	if guildID != "" && e.GuildID != guildID {
+		slog.Info("streaming event from foreign guild, ignoring", "guild", e.GuildID, "user", e.UserID)
 		return
 	}
 
@@ -133,10 +142,10 @@ if isStreaming == wasStreaming {
 			ChannelName: channelName,
 			StartedAt:   time.Now().UTC(),
 		}
-		slog.Info("streaming started", "user", username, "channel", channelName)
+		slog.Info("streaming started", "user", username, "userID", e.UserID, "channel", channelName, "channelID", e.ChannelID, "guild", e.GuildID)
 	} else {
 		if streamer, ok := t.active[e.UserID]; ok {
-			slog.Info("streaming stopped", "user", streamer.Username, "channel", streamer.ChannelName)
+			slog.Info("streaming stopped", "user", streamer.Username, "userID", streamer.UserID, "channel", streamer.ChannelName)
 		}
 		delete(t.active, e.UserID)
 	}

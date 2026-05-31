@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { BugsTable } from "@/components/BugsTable"
+import { BugReporter } from "@/components/BugReporter"
 import type { Bug } from "@/components/BugsTable"
 import { BugIcon } from "@phosphor-icons/react"
 import { readFileSync } from "fs"
@@ -49,5 +50,45 @@ const SHEET_URL =
       </p>
     </div>
     <BugsTable bugs={bugs} client:load />
+
+    <!-- How to report -->
+    <div class="border-t border-border pt-8 space-y-4">
+      <div>
+        <h2 class="font-heading text-lg font-semibold">How to report bugs</h2>
+        <p class="text-sm text-muted-foreground mt-1">Every report helps — the more players report, the faster issues get fixed.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="rounded-lg border border-border bg-card px-4 py-3 text-sm space-y-0.5">
+          <p class="font-medium">In-game</p>
+          <p class="text-muted-foreground text-xs">Settings → <span class="text-foreground">Bug Report</span></p>
+        </div>
+        <a
+          href="https://discord.com/channels/1180042348755963924/1440984503978954897"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-lg border border-border bg-card px-4 py-3 text-sm space-y-0.5 hover:border-primary/40 transition-colors group"
+          data-umami-event="bugs_report_discord_click"
+        >
+          <p class="font-medium flex items-center gap-1.5">Official Discord <span class="text-muted-foreground group-hover:text-primary transition-colors text-xs">↗</span></p>
+          <p class="text-muted-foreground text-xs">#known-issues-and-progress</p>
+        </a>
+        <a
+          href="https://x.com/WWMSupport"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-lg border border-border bg-card px-4 py-3 text-sm space-y-0.5 hover:border-primary/40 transition-colors group"
+          data-umami-event="bugs_report_x_click"
+        >
+          <p class="font-medium flex items-center gap-1.5">X / Twitter <span class="text-muted-foreground group-hover:text-primary transition-colors text-xs">↗</span></p>
+          <p class="text-muted-foreground text-xs">DM <span class="text-foreground font-mono">@WWMSupport</span></p>
+        </a>
+        <div class="rounded-lg border border-border bg-card px-4 py-3 text-sm space-y-0.5">
+          <p class="font-medium">Email</p>
+          <p class="text-muted-foreground text-xs font-mono">wherewindsmeet@global.netease.com</p>
+        </div>
+      </div>
+    </div>
+
+    <BugReporter bugs={bugs} client:load />
   </div>
 </Layout>

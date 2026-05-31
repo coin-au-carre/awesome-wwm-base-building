@@ -32,8 +32,8 @@ export interface Bug {
 
 const SEVERITY_STYLES: Record<string, string> = {
   high:   "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
-  normal: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
-  low:    "bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 border-yellow-500/20",
+  normal: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20",
+  low:    "bg-muted text-muted-foreground border-border",
   fixed:  "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20",
 }
 
