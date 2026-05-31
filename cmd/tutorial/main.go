@@ -3,7 +3,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -520,25 +519,8 @@ func fetchSnapshotVideoURL(token, channelID, messageID string) string {
 	return ""
 }
 
-// toCDNForm normalizes any Discord attachment URL (cdn or media) to a plain
-// cdn.discordapp.com URL with only the auth params (ex/is/hm), suitable for
-// the Discord refresh-urls API which does not accept media.discordapp.net.
-func toCDNForm(rawURL string) (string, error) {
-	u, err := url.Parse(rawURL)
-	if err != nil {
-		return "", err
-	}
-	u.Host = "cdn.discordapp.com"
-	q := u.Query()
-	newQ := make(url.Values)
-	for _, key := range []string{"ex", "is", "hm"} {
-		if v := q.Get(key); v != "" {
-			newQ.Set(key, v)
-		}
-	}
-	u.RawQuery = newQ.Encode()
-	return u.String(), nil
-}
+// toCDNForm is a local alias so callers don't need updating.
+func toCDNForm(rawURL string) (string, error) { return discord.ToCDNForm(rawURL) }
 
 // toMediaForm converts a cdn.discordapp.com URL to media.discordapp.net with
 // WebP encoding, which is lighter and faster for browser display.
@@ -639,39 +621,7 @@ func refreshAllCDNURLs(token, articlesDir string) error {
 }
 
 func bulkRefreshDiscordURLs(token string, urls []string) (map[string]string, error) {
-	body, err := json.Marshal(map[string]any{"attachment_urls": urls})
-	if err != nil {
-		return nil, err
-	}
-	req, err := http.NewRequest("POST", "https://discord.com/api/v10/attachments/refresh-urls", bytes.NewReader(body))
-	if err != nil {
-		return nil, err
-	}
-	req.Header.Set("Authorization", token)
-	req.Header.Set("Content-Type", "application/json")
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	defer resp.Body.Close()
-	if resp.StatusCode != http.StatusOK {
-		b, _ := io.ReadAll(resp.Body)
-		return nil, fmt.Errorf("discord API %d: %s", resp.StatusCode, b)
-	}
-	var result struct {
-		RefreshedURLs []struct {
-			Original  string `json:"original"`
-			Refreshed string `json:"refreshed"`
-		} `json:"refreshed_urls"`
-	}
-	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		return nil, fmt.Errorf("decode: %w", err)
-	}
-	m := make(map[string]string, len(result.RefreshedURLs))
-	for _, r := range result.RefreshedURLs {
-		m[r.Original] = r.Refreshed
-	}
-	return m, nil
+	return discord.BulkRefreshURLs(token, urls)
 }
 
 func replaceDiscordVideoSrcs(s *discordgo.Session, content string) (string, bool) {

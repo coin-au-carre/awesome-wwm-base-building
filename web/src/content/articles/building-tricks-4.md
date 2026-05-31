@@ -1,10 +1,10 @@
 ---
 title: "Building tips and tricks #4"
-description: "More community building tricks: standard vs lite mode differences, sinking the watchtower for a rustic pavilion, and bringing solo-only ironware items into guild mode via diagrams."
+description: "More community building tricks: standard vs lite mode differences, sinking the watchtower for a rustic pavilion, bringing solo-only ironware items into guild mode via diagrams, and extending a bar counter with a flat top cabinet."
 tags: ["beginner", "advanced", "guild", "solo"]
-authors: ["AegisNite", "Crueliet"]
+authors: ["AegisNite", "Crueliet", "Wyrdrake"]
 date: 2026-05-26
-updatedDate: 2026-05-26
+updatedDate: 2026-05-31
 order: 11
 image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a1ccd42&format=webp&hm=919b9ea4ac58e84cdc75bdae92c5da2bb497523febe1be7a88df145f9032ac3f&is=6a1b7bc2&quality=lossless"
 featured: true
@@ -46,3 +46,16 @@ This watchtower has a unique rustic-looking bell on top. While the full structur
 Some ironware items are currently available only in solo build mode. But you can save them into a diagram in solo mode and then place that diagram in guild build mode. So in the future, when we get more items like this, we’ll be able to use the same trick to bring solo items into the guild.
 
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a1d1e2a&format=webp&hm=6b1a15f600e71059d4bc3184019254a01cd2581d092bff3c20302bf7fd460a94&is=6a1bccaa&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+## 4. Extend a bar counter with a flat top cabinet
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/wyrdrake" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Wyrdrake</a></p>
+
+> **Q (Davidsu):** Is there something that looks the same that can be used to make the counter longer?
+
+Sink a flat top cabinetThis cabinet component has some that make it fit the bar counter
+
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a1d58dd&is=6a1c075d&hm=603e09186be3b39a1cd59bf474cd1822a3ba9f1843094531ed76f3e0ca40da94&format=webp" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a1d5965&is=6a1c07e5&hm=c9d22da6a9abbd456463177aa39aac71033fd871327de601067104c53a206984&format=webp" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />

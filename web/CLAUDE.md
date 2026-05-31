@@ -17,6 +17,7 @@
 - `src/components/AdminLeaderboard.tsx` — admin scoring explorer (reactions, voter weights, dynamic score)
 - `src/components/TopShowcase.astro` — accepts `basePath` prop
 - `src/components/MediaGallery.astro` — lightbox, YouTube embed, `onerror` fallback
+- `src/components/BugsTable.tsx` — `client:load` React island, renders bug report table from CSV data; accepts `bugs: Bug[]`
 
 ## Pages
 
@@ -35,6 +36,7 @@
 | `/catalog` | Items construction catalog |
 | `/events` | WWM events in guild bases |
 | `/ruby` | Ruby bot commands and examples |
+| `/bugs` | Bug reports — live CSV from Google Sheets |
 | `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials by one builder |
 
 ## Nav dot versioning

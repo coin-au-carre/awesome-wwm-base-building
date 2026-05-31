@@ -4,21 +4,27 @@ version: '3'
 tasks:
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
-    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON, sync tutorials
+    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON, sync tutorials, sync bugs
     cmds:
       - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
       - go run ./cmd/whatever-sync
+      - go run ./cmd/bugs-sync
 
   sync:nopull:
-    desc: crawl Discord threads → update guilds.json, generate public JSON, sync tutorials (no git pull)
+    desc: crawl Discord threads → update guilds.json, generate public JSON, sync tutorials, sync bugs (no git pull)
     cmds:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
       - go run ./cmd/whatever-sync
+      - go run ./cmd/bugs-sync
+
+  sync:bugs:
+    desc: fetch Google Sheets bugs CSV → data/bugs.json (with Discord CDN refresh)
+    cmd: go run ./cmd/bugs-sync {{.CLI_ARGS}}
 
   sync:guilds:
     desc: sync guild forum only (no git pull, no tutorial/whatever-sync)
@@ -219,6 +225,8 @@ tasks:
       - echo "        -- -threshold 0.7  concentration threshold (default 0.70)"
       - echo "        -- -min-threads 3  minimum guilds voted on before flagging (default 3)"
       - echo ""
+      - echo "  task sync:bugs           fetch bugs spreadsheet → data/bugs.json (+ Discord CDN refresh)"
+      - echo "        -- -dry-run        fetch and parse but skip writing JSON"
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
       - echo "        -- -dry-run        fetch events but skip writing JSON"
       - 'echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"'
