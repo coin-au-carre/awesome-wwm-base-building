@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a1cda5a&format=webp&hm=32186784947dd5e33d1354bb17406f7ba11dc3f7e834a9fd1cbb0dd08ad9370f&is=6a1b88da&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a1d831a&format=webp&hm=259b806b406bdcea268dde6026f7471f7ed7aeb4c7e8ebdd6509804a0a3126dc&is=6a1c319a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a1cda72&format=webp&hm=e0c3d3feb88eb0666eef50b8149d4134b6fb67f28b462fe18ee82363a0b049ee&is=6a1b88f2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a1d8332&format=webp&hm=d41e23c7b7ac4d587642a29af00292308909b154da7160e9b0045d409ccb2aed&is=6a1c31b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
@@ -180,7 +180,7 @@ With surging emotion, I seize the longsword. Ferrying the world, renown calls my
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a1cee00&format=webp&hm=e77a05f2929a7b3f2e9a042878aa5666401833f42975e893c61a04f63b1812df&is=6a1b9c80&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a1d96c0&format=webp&hm=a9917f363161811579542f65d5cc4cdb99d35bc882f8512b82deedc779d5b999&is=6a1c4540&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
