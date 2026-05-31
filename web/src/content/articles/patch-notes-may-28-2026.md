@@ -77,9 +77,9 @@ see https://discord.com/channels/1483447710617960508/1509461162520219688/1509903
 
 <!-- preserve-start -->
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1d4d01&format=webp&hm=60842f0d4af330768ad180e3d0a4b6fe0e96dba1a18b0836421eb0d945f594f1&is=6a1bfb81&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1d4d01&format=webp&hm=d1774f8bcf97e528db0623f926f24d0d02dcab629ce661fb2009800c4cc8f965&is=6a1bfb81&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1d4d01&format=webp&hm=cb9aac4875da2f3647a9c2d40ef16b11e474dc2945cd30458d0c0476a2db64f0&is=6a1bfb81&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1df5c1&format=webp&hm=a7541957ffa956485e8294a7d881fecde4e9caefe4084bd353d06d1361a8931b&is=6a1ca441&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1df5c1&format=webp&hm=4c2e167b289a672d3909ac6ca78e81038c4f7f46caf8d81dfc2f510fa717bbb3&is=6a1ca441&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1df5c1&format=webp&hm=ee21c380e7a3c59f9779d4c8cd36523c5f50cedf6a7dc43d6570f3f42f877e8e&is=6a1ca441&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
 
 <!-- preserve-end -->
 
