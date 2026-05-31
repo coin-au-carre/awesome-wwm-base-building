@@ -1,0 +1,171 @@
+[
+  {
+    "severity": "high",
+    "title": "Cannot place Guild Construction\u003eDiagrams",
+    "details": "Cannot place full diagrams. Error: \"Diagram contains invalid components for this panel.\"",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509600307947110580/image.png?ex=6a1d1018\u0026hm=63230cedb6cad0d5982fa736be8e51c7efb920ecb6ec9af856aa799b6c50dd7a\u0026is=6a1bbe98\u0026"
+    ],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "CN server receives also this update which is problematic. Many builders use those components in their work. It's critical because days of efforts are lost because of this."
+  },
+  {
+    "severity": "high",
+    "title": "Cannot place guild diagrams component",
+    "details": "Cannot place/copy any exclusive component from Guild Construction \u003e Diagrams in guild base. Error: \"This component is not available in the current panel.\"",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a1d5b62\u0026hm=c03ac9afa3902b13fe7c8f16f90e5e5df3f3a7263fec171d4094bb02294176e4\u0026is=6a1c09e2\u0026"
+    ],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "Probable root cause:Cannot place Guild Construction\u003eDiagrams"
+  },
+  {
+    "severity": "high",
+    "title": "Cannot apply some custom diagrams",
+    "details": "Custom/Saved guild diagrams cannot be applied in certain conditions. Error: \"Blueprint contains components that cannot be placed in the Open World.\"",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "Probable root cause:Cannot place Guild Construction\u003eDiagrams. If a diagram has some components from Guild construction \u003e Diagrams then this seems logical."
+  },
+  {
+    "severity": "normal",
+    "title": "Cannot post edit component from diagrams",
+    "details": "Unable to use edit: pick up, replace, move any components built from diagram. Error: \"Diagram component does not support this action\"",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a1d538c\u0026hm=f25a81234489908bcbaf95b663a1d851fa569efb5c085f4117682026d23ca5fd\u0026is=6a1c020c\u0026"
+    ],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "Concern any component from any diagram"
+  },
+  {
+    "severity": "normal",
+    "title": "Unwanted deletions when deleting component",
+    "details": "Deleting a large component that clip into smaller ones can also delete smaller components surrounding it",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509594993147514942/20260528-1630-29.8200206.mp4?ex=6a1d0b25\u0026hm=1608a478ca9f993578cedbfaf8eeae4fe508dc72e32ff85af164b3f9cab5ded5\u0026is=6a1bb9a5\u0026"
+    ],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "TODO: verify solo, mobile/ps5"
+  },
+  {
+    "severity": "normal",
+    "title": "Stone platforms do not cover grass",
+    "details": "Grass clips through the platform whereas platforms used to cover it before",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a1d4aeb\u0026hm=3cbe28c98e792e154c346d56b20b4f1c8ca50bdce2e884b88b698115091ed920\u0026is=6a1bf96b\u0026"
+    ],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "TODO: verify solo, mobile/ps5"
+  },
+  {
+    "severity": "normal",
+    "title": "Large component disappear when near them",
+    "details": "Approaching large build component make them disappear on mobile (e.g. Rainbow Resort Bridge with Pavilion II and Rainbow Resort Gate II).",
+    "guild": true,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "Does not happen on PC. TODO: verify solo, ps5"
+  },
+  {
+    "severity": "low",
+    "title": "Theater stage missing shadow figure",
+    "details": "\"Theater Stage\" Single Use component has no shadow as of now",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509593828435431535/image.png?ex=6a1d0a0f\u0026hm=3bbf344b179b28a964e0fef96c968de464230e69c0ce3cf65d70ef6cd4736aa6\u0026is=6a1bb88f\u0026"
+    ],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": "TODO: verify solo, mobile/ps5"
+  },
+  {
+    "severity": "low",
+    "title": "Guqin table cloth mat disappears when rotate",
+    "details": "Appearance is different when post rotating",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a1d320f\u0026hm=4fbfafafd885deed348839013554f502e55bf9c826105ae4529dc3ecd79c95d7\u0026is=6a1be08f\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a1d320f\u0026hm=bd034db59bb4e13db1d215dd773af0ada13b4bcc6283abf4f69a16ed7eeaf8c5\u0026is=6a1be08f\u0026"
+    ],
+    "version": "v1.7",
+    "date": "30/05/2026",
+    "notes": "Not tested on other platform and solo"
+  },
+  {
+    "severity": "normal",
+    "title": "Cannot rotate on 2nd axe on mobile \u0026 ps5",
+    "details": "We can rotate now on PC but not on another platform",
+    "guild": true,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "date": "30/05/2026",
+    "notes": ""
+  },
+  {
+    "severity": "fixed",
+    "title": "Interactive components missing from guilds",
+    "details": "All interactive building components are missing from guild base, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "date": "28/05/2026",
+    "notes": ""
+  }
+]

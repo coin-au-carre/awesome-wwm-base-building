@@ -1,0 +1,53 @@
+---
+import Layout from "@/layouts/main.astro"
+import { BugsTable } from "@/components/BugsTable"
+import type { Bug } from "@/components/BugsTable"
+import { BugIcon } from "@phosphor-icons/react"
+import { readFileSync } from "fs"
+import { resolve } from "path"
+
+let bugs: Bug[] = []
+try {
+  bugs = JSON.parse(readFileSync(resolve(process.cwd(), "..", "data/bugs.json"), "utf-8"))
+} catch {
+  // data/bugs.json not yet generated — page renders with empty table
+}
+
+const SHEET_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vQYRYkRj4HdlI1m7Sl4pfpyINlTW2GvwTtuUZJl2XnN0gbtR_S3OLg--Zk4a0td1NV8mz3ulUO8aU-4/pubhtml?gid=0&single=true"
+---
+
+<Layout
+  title="Where Builders Meet | Bug Reports"
+  description="Community-tracked bugs in Where Winds Meet building and guild base features. Filtered by severity and platform."
+>
+  <div class="max-w-5xl space-y-6">
+    <div class="flex flex-col gap-2">
+      <h1 class="font-heading text-2xl font-semibold flex items-center gap-2">
+        <BugIcon weight="duotone" className="size-6 text-primary" /> Bug Reports
+      </h1>
+      <p class="text-muted-foreground text-sm">
+        Community-tracked bugs in Where Winds Meet building features, updated from{" "}
+        <a
+          href={SHEET_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-foreground underline underline-offset-2 hover:text-primary transition-colors"
+          data-umami-event="bugs_sheet_open"
+        >
+          our shared spreadsheet ↗
+        </a>. Spot something missing? Report it in{" "}
+        <a
+          href="https://discord.gg/Qygt9u26Bn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-foreground underline underline-offset-2 hover:text-primary transition-colors"
+          data-umami-event="discord_cta_click"
+        >
+          Discord ↗
+        </a>.
+      </p>
+    </div>
+    <BugsTable bugs={bugs} client:load />
+  </div>
+</Layout>
