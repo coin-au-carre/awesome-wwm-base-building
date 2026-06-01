@@ -625,8 +625,8 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	parsed := guild.ParseFirstPost(msgs[0].Content)
 	authorID := msgs[0].Author.ID
 	authorUsername := msgs[0].Author.Username
-	if m, err := s.GuildMember(thread.GuildID, authorID); err == nil && m.Nick != "" {
-		authorUsername = m.Nick
+	if m, err := s.GuildMember(thread.GuildID, authorID); err == nil {
+		authorUsername = m.DisplayName()
 	}
 
 	if isSolo {
@@ -695,11 +695,7 @@ func resolveBuilders(s *discordgo.Session, guildID string, builders []string) []
 		if m := reMention.FindStringSubmatch(b); len(m) == 2 {
 			uid := m[1]
 			if mem, err := s.GuildMember(guildID, uid); err == nil {
-				name := mem.User.Username
-				if mem.Nick != "" {
-					name = mem.Nick
-				}
-				resolved = append(resolved, name)
+				resolved = append(resolved, mem.DisplayName())
 				continue
 			}
 		}

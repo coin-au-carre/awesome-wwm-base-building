@@ -17,7 +17,7 @@ var (
 	reAdditionalCredits  = regexp.MustCompile(`(?i)^additional\s+credits?\s+to\s+(.+)`)
 	reGuildName       = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}[\x{FE0E}\x{FE0F}]?\s*|\x{FE0F}\s*)*(?:[A-Za-z]+:\s*)?(.+?)\**\s*[\[(]\d{6,9}[\])]`)
 	reGuildNameEq     = regexp.MustCompile(`🏯[^=\n]*=\s*([^\n]+)`)
-	reLore            = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*(?:what|places)\s+to\s+visit\s*\*\*|\b(?:what|places)\s+to\s+visit\b|⚠️|^###|\z)`)
+	reLore            = regexp.MustCompile(`(?im)(?:^###[^\n]*lore|\*\*\s*lore\s*\*\*|^[^\S\n]*\blore\b)[^\n]*\n+([\s\S]*?)(?:\p{So}\s*)?(?:\*\*\s*(?:what|places)\s+to\s+visit\s*\*\*|\b(?:what|places)\s+to\s+visit\b|⚠️|^###|\z)`)
 	reLoreEq          = regexp.MustCompile(`(?im)\blore\b\s*=\s*([^\n]+)`)
 	reLoreInline      = regexp.MustCompile("(?im)^[^\\S\\n]*(?:\\p{So}[^\\S\\n]*)?\\blore\\b[^\\S\\n]*[`=:]?[^\\S\\n]*(\\S[^\\n]*)")
 	reWhatToVisit     = regexp.MustCompile(`(?im)(?:^###[^\n]*(?:what|places)\s+to\s+visit|\*\*\s*(?:what|places)\s+to\s+visit\s*\*\*|\b(?:what|places)\s+to\s+visit\b)[^\n]*\n+([\s\S]*?)(?:🗳|⚠️|^###|\z)`)

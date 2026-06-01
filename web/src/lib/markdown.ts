@@ -11,6 +11,14 @@ export function renderMarkdown(text: string): string {
   return paragraphs
     .map((block) => {
       const lines = block.split("\n").map((l) => l.trimEnd())
+      const isQuote = lines.every((l) => /^>\s?/.test(l.trim()) || l.trim() === "")
+      if (isQuote) {
+        const inner = lines
+          .map((l) => l.trim().replace(/^>\s?/, ""))
+          .join("\n")
+          .trim()
+        return `<blockquote>${renderMarkdown(inner)}</blockquote>`
+      }
       const isList = lines.every((l) => /^[-*]\s/.test(l.trim()) || l.trim() === "")
       if (isList) {
         const items = lines
