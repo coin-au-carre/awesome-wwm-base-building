@@ -62,3 +62,18 @@ export function getLatestBlueprintsWithScreenshots(n: number): RankedBlueprint[]
     .map((bp) => RANKED_BLUEPRINTS.find((r) => r.discordThread === bp.discordThread))
     .filter((bp): bp is RankedBlueprint => bp !== undefined)
 }
+
+export function getRecentBlueprintsWithScreenshots(days: number, max: number): RankedBlueprint[] {
+  const cutoff = Date.now() - days * 86400000
+  return [...ALL_BLUEPRINTS]
+    .reverse()
+    .filter((bp) => {
+      if (!bp.screenshots || !bp.screenshots.length) { return false }
+      if (!bp.createdAt) { return false }
+      const ms = new Date(bp.createdAt.replace(" at ", " ")).getTime()
+      return !isNaN(ms) && ms >= cutoff
+    })
+    .slice(0, max)
+    .map((bp) => RANKED_BLUEPRINTS.find((r) => r.discordThread === bp.discordThread))
+    .filter((bp): bp is RankedBlueprint => bp !== undefined)
+}

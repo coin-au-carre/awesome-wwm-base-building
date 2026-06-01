@@ -26,6 +26,13 @@ const items = posts.flatMap((p) => {
     postedAt: p.postedAt,
   }))
 })
+
+const FOUR_DAYS_MS = 4 * 24 * 60 * 60 * 1000
+const recentCutoff = Date.now() - FOUR_DAYS_MS
+const recentTopItems = items
+  .filter((item) => item.imgIdx === 0 && item.postedAt && new Date(item.postedAt).getTime() >= recentCutoff)
+  .sort((a, b) => b.reactions - a.reactions)
+  .slice(0, 8)
 ---
 
 <Layout
@@ -92,6 +99,44 @@ const items = posts.flatMap((p) => {
           </div>
         </div>
 
+        <!-- Recent top picks -->
+        {recentTopItems.length > 0 && (
+          <div class="space-y-1.5">
+            <h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+              <span class="inline-block size-1.5 rounded-full bg-primary animate-pulse" />
+              Fresh picks
+            </h2>
+            <div id="fresh-gallery" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {recentTopItems.map((item) => (
+                <div
+                  class="gallery-item group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-primary/40 hover:ring-primary transition-all"
+                  data-post-id={item.postId}
+                  data-img={item.img}
+                  data-thumb={thumbUrl(item.img)}
+                  data-all-imgs={JSON.stringify(item.allImgs)}
+                  data-all-thumbs={JSON.stringify(item.allImgs.map((s) => thumbUrl(s)))}
+                  data-display-name={item.displayName}
+                  data-builder-path={item.builderPath ?? ""}
+                  data-reactions={item.reactions}
+                  data-reaction-details={JSON.stringify(item.reactionDetails)}
+                  data-message-url={item.messageUrl}
+                  data-posted-at={item.postedAt}
+                  data-primary="1"
+                >
+                  <img
+                    src={thumbUrl(item.img)}
+                    alt={`Screenshot by ${item.displayName}`}
+                    loading="eager"
+                    decoding="async"
+                    onerror="this.closest('.gallery-item').style.display='none'"
+                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <!-- Gallery -->
         <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
           {items.map((item, i) => (
@@ -129,14 +174,21 @@ const items = posts.flatMap((p) => {
   <!-- Lightbox -->
   <div
     id="lightbox"
-    class="fixed inset-0 z-50 hidden flex-col bg-black/90 backdrop-blur-sm"
+    class="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm"
+    style="display:none;opacity:0;transition:opacity 200ms ease"
     role="dialog"
     aria-modal="true"
   >
+    <!-- Image layers (thumb shows instantly, full-res fades in on top) -->
+    <div id="lb-img-wrap" class="absolute inset-0 bottom-10">
+      <img id="lb-thumb" src="" alt="" class="absolute inset-0 w-full h-full object-contain p-2 select-none" style="opacity:0" />
+      <img id="lb-img"   src="" alt="" class="absolute inset-0 w-full h-full object-contain p-2 select-none" style="opacity:0;transition:opacity 300ms ease-out" />
+    </div>
+
     <!-- Close -->
     <button
       id="lb-close"
-      class="absolute top-4 right-4 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+      class="absolute top-4 right-4 z-10 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
       aria-label="Close"
     >
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -147,10 +199,10 @@ const items = posts.flatMap((p) => {
     <!-- Prev -->
     <button
       id="lb-prev"
-      class="absolute left-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+      class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-10 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
       aria-label="Previous"
     >
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
       </svg>
     </button>
@@ -158,33 +210,16 @@ const items = posts.flatMap((p) => {
     <!-- Next -->
     <button
       id="lb-next"
-      class="absolute right-14 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10"
+      class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-10 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
       aria-label="Next"
     >
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
       </svg>
     </button>
 
-    <!-- Image -->
-    <div class="flex-1 min-h-0 relative flex items-center justify-center p-2">
-      <div id="lb-spinner" class="absolute inset-0 flex items-center justify-center pointer-events-none" style="display:none!important">
-        <svg class="w-8 h-8 text-white/40 animate-spin" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
-        </svg>
-      </div>
-      <img
-        id="lb-img"
-        src=""
-        alt=""
-        class="max-h-full max-w-full rounded-xl object-contain shadow-2xl transition-opacity duration-200"
-        style="opacity:0"
-      />
-    </div>
-
     <!-- Caption -->
-    <div class="shrink-0 flex items-center justify-center gap-3 px-4 py-2.5 flex-wrap">
+    <div class="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-center gap-3 px-4 py-2.5 flex-wrap">
       <span id="lb-author-wrap" class="text-sm font-semibold text-white"></span>
       <span id="lb-reactions" class="text-white/50 text-xs"></span>
       <span id="lb-counter" class="text-white/40 text-xs"></span>
@@ -202,6 +237,11 @@ const items = posts.flatMap((p) => {
   </div>
 </Layout>
 
+<style>
+  @keyframes lb-zoom-in  { from { transform: scale(0.88); } to { transform: scale(1); } }
+  @keyframes lb-zoom-out { from { transform: scale(1); }    to { transform: scale(0.88); } }
+</style>
+
 <script is:inline define:vars={{ BASE }}>
   // Wrap in astro:page-load so the setup re-runs on every client-side navigation.
   // ClientRouter skips re-running identical inline scripts, so top-level setup would
@@ -211,8 +251,9 @@ const items = posts.flatMap((p) => {
     if (!gallery) return
 
     const lightbox = document.getElementById("lightbox")
+    const lbImgWrap = document.getElementById("lb-img-wrap")
+    const lbThumb = document.getElementById("lb-thumb")
     const lbImg = document.getElementById("lb-img")
-    const lbSpinner = document.getElementById("lb-spinner")
     const lbAuthorWrap = document.getElementById("lb-author-wrap")
     const lbReactions = document.getElementById("lb-reactions")
     const lbCounter = document.getElementById("lb-counter")
@@ -221,6 +262,7 @@ const items = posts.flatMap((p) => {
     const lbPrev = document.getElementById("lb-prev")
     const lbNext = document.getElementById("lb-next")
     const preloaded = new Set()
+    let closing = false
 
     function getItems() {
       return [...gallery.querySelectorAll(".gallery-item")]
@@ -231,23 +273,10 @@ const items = posts.flatMap((p) => {
     let subImages = []
     let subIndex = 0
 
-    function openLightbox(items, idx, imgSrc) {
-      currentItems = items
-      currentIndex = idx
-      const item = items[idx]
-      subImages = JSON.parse(item.dataset.allImgs ?? "[]")
-      subIndex = imgSrc ? Math.max(subImages.indexOf(imgSrc), 0) : 0
-      renderLightbox()
-      lightbox.classList.remove("hidden")
-      lightbox.classList.add("flex", "flex-col")
-      document.body.style.overflow = "hidden"
-    }
-
     function preloadFull(src) {
       if (!src || preloaded.has(src)) return
       preloaded.add(src)
-      const p = new Image()
-      p.src = src
+      new Image().src = src
     }
 
     function renderLightbox() {
@@ -257,33 +286,47 @@ const items = posts.flatMap((p) => {
       const fullSrc = subImages[subIndex] ?? item.dataset.img ?? ""
       const thumbSrc = subThumbs[subIndex] ?? item.dataset.thumb ?? fullSrc
 
-      if (thumbSrc && thumbSrc !== lbImg.src) {
-        lbImg.style.opacity = lbImg.src ? "0" : "1"
-        lbImg.src = thumbSrc
-        lbImg.alt = `Screenshot by ${item.dataset.displayName}`
-        lbSpinner.style.display = "none"
-        if (!lbImg.style.opacity || lbImg.style.opacity === "0") {
-          requestAnimationFrame(() => { lbImg.style.opacity = "1" })
-        }
-      }
+      // 1. Show thumb immediately — already cached from the grid
+      lbThumb.style.transition = "none"
+      lbThumb.src = thumbSrc
+      lbThumb.alt = `Screenshot by ${item.dataset.displayName}`
+      lbThumb.style.opacity = "1"
 
-      if (fullSrc !== thumbSrc) {
+      // 2. Reset full-res layer
+      lbImg.style.transition = "none"
+      lbImg.style.opacity = "0"
+      lbImg.src = ""
+
+      // 3. Load full-res, fade it in on top once ready
+      if (fullSrc && fullSrc !== thumbSrc) {
         const captured = { idx: currentIndex, sub: subIndex }
         const full = new Image()
         full.onload = () => {
-          if (currentIndex !== captured.idx || subIndex !== captured.sub) return
+          if (currentIndex !== captured.idx || subIndex !== captured.sub || closing) return
           lbImg.src = fullSrc
-          lbSpinner.style.display = "none"
+          lbImg.alt = `Screenshot by ${item.dataset.displayName}`
+          requestAnimationFrame(() => {
+            lbImg.style.transition = "opacity 300ms ease-out"
+            lbImg.style.opacity = "1"
+            lbThumb.style.transition = "opacity 300ms ease-out 200ms"
+            lbThumb.style.opacity = "0"
+          })
         }
         full.src = fullSrc
         preloaded.add(fullSrc)
       }
 
+      // Preload neighbours
       const nextSubFull = subImages[subIndex + 1]
       if (nextSubFull) preloadFull(nextSubFull)
       else {
         const nextItem = currentItems[(currentIndex + 1) % currentItems.length]
         if (nextItem) preloadFull(JSON.parse(nextItem.dataset.allImgs ?? "[]")[0] ?? nextItem.dataset.img)
+      }
+      const prevSubFull = subImages[subIndex - 1]
+      if (!prevSubFull && currentIndex > 0) {
+        const prevItem = currentItems[currentIndex - 1]
+        if (prevItem) preloadFull(JSON.parse(prevItem.dataset.allImgs ?? "[]")[0] ?? prevItem.dataset.img)
       }
 
       const name = item.dataset.displayName ?? ""
@@ -302,12 +345,35 @@ const items = posts.flatMap((p) => {
       lbLink.href = item.dataset.messageUrl ?? "#"
     }
 
+    function openLightbox(items, idx, imgSrc) {
+      currentItems = items
+      currentIndex = idx
+      closing = false
+      const item = items[idx]
+      subImages = JSON.parse(item.dataset.allImgs ?? "[]")
+      subIndex = imgSrc ? Math.max(subImages.indexOf(imgSrc), 0) : 0
+      renderLightbox()
+      lightbox.style.display = "flex"
+      lightbox.style.flexDirection = "column"
+      lbImgWrap.style.animation = "lb-zoom-in 250ms ease-out both"
+      requestAnimationFrame(() => requestAnimationFrame(() => { lightbox.style.opacity = "1" }))
+      document.body.style.overflow = "hidden"
+    }
+
     function closeLightbox() {
-      lightbox.classList.add("hidden")
-      lightbox.classList.remove("flex", "flex-col")
-      lbImg.src = ""
-      lbImg.style.opacity = "0"
-      document.body.style.overflow = ""
+      if (closing) return
+      closing = true
+      lbImgWrap.style.animation = "lb-zoom-out 200ms ease-in both"
+      lightbox.style.opacity = "0"
+      setTimeout(() => {
+        lightbox.style.display = "none"
+        lbImgWrap.style.animation = ""
+        lbThumb.style.opacity = "0"
+        lbImg.style.opacity = "0"
+        lbImg.src = ""
+        document.body.style.overflow = ""
+        closing = false
+      }, 200)
     }
 
     function prevItem() {
@@ -334,12 +400,24 @@ const items = posts.flatMap((p) => {
       openLightbox(items, items.indexOf(card), clickedImg)
     })
 
+    const freshGallery = document.getElementById("fresh-gallery")
+    if (freshGallery) {
+      freshGallery.addEventListener("click", (e) => {
+        const card = e.target.closest(".gallery-item")
+        if (!card) return
+        const postId = card.dataset.postId
+        const items = getItems()
+        const idx = items.findIndex((el) => el.dataset.postId === postId)
+        openLightbox(items, idx >= 0 ? idx : 0, card.dataset.img)
+      })
+    }
+
     lbClose.addEventListener("click", closeLightbox)
     lbPrev.addEventListener("click", prevItem)
     lbNext.addEventListener("click", nextItem)
-    lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox() })
+    lightbox.addEventListener("click", (e) => { if (e.target === lightbox || e.target === lbImgWrap) closeLightbox() })
     document.addEventListener("keydown", (e) => {
-      if (lightbox.classList.contains("hidden")) return
+      if (lightbox.style.display === "none") return
       if (e.key === "Escape") closeLightbox()
       if (e.key === "ArrowLeft") prevItem()
       if (e.key === "ArrowRight") nextItem()

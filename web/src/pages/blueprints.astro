@@ -19,6 +19,7 @@ const lastSync = getLastSyncDate()
 const isEmpty = !hasBlueprints()
 const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).find(Boolean)
 
+
 const builderSeen = new Set<string>()
 const builderCards = blueprints
   .filter((bp) => bp.builderName)
