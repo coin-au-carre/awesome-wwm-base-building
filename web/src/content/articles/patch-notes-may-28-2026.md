@@ -18,6 +18,9 @@ This post will be updated regularly. Stay tuned!
 - **Do not guild base wipe and careful when removing components!** Some components (e.g. from guild construction diagrams) cannot be placed as of now  leading to cause issues (send flowers to wavy波  for the sacrifice)
 
 ## Confirmed Improvements
+
+Check confirmed patch notes now on https://www.wherebuildersmeet.com/patches/
+
 - Added new components (large components, structures...)
 - Increase 10K global cap components in guild base
 - Increase 10K density cap components (local area) in guild base
