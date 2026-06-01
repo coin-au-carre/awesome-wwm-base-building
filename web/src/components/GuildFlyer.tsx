@@ -29,8 +29,19 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a
 }
 
+function extractFlyerLore(text: string): string {
+  // Prefer the blockquote section (the story) over preamble paragraphs.
+  const lines = text.split("\n")
+  const firstQuoteLine = lines.findIndex((l) => l.trimStart().startsWith(">"))
+  if (firstQuoteLine > 0) {
+    return lines.slice(firstQuoteLine).join("\n")
+  }
+  return text
+}
+
 function renderLore(text: string): string {
   return text
+    .replace(/^>\s?/gm, "")          // strip blockquote markers
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/~~(.+?)~~/g, "<del>$1</del>")
     .replace(/\*(.+?)\*/g, "<em>$1</em>")
@@ -50,6 +61,9 @@ function FlyerCanvas({
 }: Props & { images: string[] }) {
   const gridCols = images.length <= 2 ? (images.length || 1) : 3
   const gridRows = images.length <= 3 ? 1 : 2
+  const loreFontSize = guild.lore
+    ? guild.lore.length > 800 ? 12 : guild.lore.length > 500 ? 13 : 15
+    : 15
   const tags = (guild.tags ?? []).slice(0, 4)
   const urlLabel = guildUrl.replace("https://www.", "").replace(/\/$/, "")
   const hasBoth = !!(guild.lore && guild.whatToVisit)
@@ -213,16 +227,18 @@ function FlyerCanvas({
         {/* Lore */}
         {guild.lore && (
           <div
-            dangerouslySetInnerHTML={{ __html: renderLore(guild.lore) }}
+            dangerouslySetInnerHTML={{ __html: renderLore(extractFlyerLore(guild.lore)) }}
             style={{
-              fontSize: 15,
+              fontSize: loreFontSize,
               lineHeight: 1.65,
               color: "rgba(255,255,255,0.5)",
               fontStyle: "italic",
               fontFamily: "'Crimson Text', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif",
               maxWidth: 480,
               display: "-webkit-box",
-              WebkitLineClamp: hasBoth ? 4 : 6,
+              WebkitLineClamp: hasBoth
+                ? (loreFontSize <= 12 ? 9 : loreFontSize <= 13 ? 7 : 6)
+                : (loreFontSize <= 12 ? 22 : loreFontSize <= 13 ? 19 : 16),
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
               marginTop: 20,
