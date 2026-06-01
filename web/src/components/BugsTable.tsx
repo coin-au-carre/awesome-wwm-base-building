@@ -1,6 +1,5 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import * as React from "react"
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table"
@@ -55,6 +54,66 @@ const PLATFORM_GROUPS = [
   { label: "Mode",     platforms: MODE_PLATFORMS },
   { label: "Platform", platforms: DEVICE_PLATFORMS },
 ] as const
+
+function Lightbox({ src, onClose }: { src: string | null; onClose: () => void }) {
+  useEffect(() => {
+    if (!src) return
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
+    document.addEventListener("keydown", handler)
+    document.body.style.overflow = "hidden"
+    return () => {
+      document.removeEventListener("keydown", handler)
+      document.body.style.overflow = ""
+    }
+  }, [src, onClose])
+
+  if (!src) return null
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Media viewer"
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-10 text-white/70 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
+        aria-label="Close"
+      >
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div className="flex flex-col items-center gap-2 p-6" onClick={(e) => e.stopPropagation()}>
+        {isVideo(src) ? (
+          <video
+            src={src}
+            className="max-h-[90vh] max-w-[90vw] rounded"
+            controls
+            autoPlay
+          />
+        ) : (
+          <>
+            <img
+              src={src}
+              alt="Screenshot"
+              className="max-h-[90vh] max-w-[90vw] rounded object-contain"
+            />
+            <a
+              href={src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-white/40 hover:text-white/80 transition-colors"
+            >
+              Open full size ↗
+            </a>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
 
 const SEVERITY_ORDER: Record<string, number> = { high: 0, normal: 1, low: 2, fixed: 3 }
 
@@ -272,28 +331,7 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
         </Table>
       </div>
 
-      <Dialog open={lightboxSrc !== null} onOpenChange={(open) => { if (!open) setLightboxSrc(null) }}>
-        <DialogContent className="max-w-5xl p-2">
-          <DialogTitle className="sr-only">Media</DialogTitle>
-          {lightboxSrc && (
-            isVideo(lightboxSrc) ? (
-              <video src={lightboxSrc} className="w-full rounded" controls autoPlay />
-            ) : (
-              <>
-                <img src={lightboxSrc} alt="Screenshot" className="w-full rounded" />
-                <a
-                  href={lightboxSrc}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center text-xs text-muted-foreground hover:text-foreground transition-colors pt-1"
-                >
-                  Open full size ↗
-                </a>
-              </>
-            )
-          )}
-        </DialogContent>
-      </Dialog>
+      <Lightbox src={lightboxSrc} onClose={() => setLightboxSrc(null)} />
     </div>
   )
 }
