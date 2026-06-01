@@ -43,17 +43,5 @@
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
-  },
-  {
-    "id": "1511103406524203230",
-    "name": "Building copyright testing",
-    "description": "# HACKING COPYRIGHT BUILDING",
-    "type": "streaming",
-    "scheduledStart": "2026-06-01T22:15:00Z",
-    "channelType": "voice",
-    "channelName": "Building Unlimited",
-    "status": "scheduled",
-    "subscriberCount": 1,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1511103406524203230"
   }
 ]
