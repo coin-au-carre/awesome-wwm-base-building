@@ -72,7 +72,7 @@ func main() {
 	trustedEyeRoleID := os.Getenv("TRUSTED_EYE_ROLE_ID")
 	trustedMemberRoleID := os.Getenv("TRUSTED_MEMBER_ROLE_ID")
 	githubToken := os.Getenv("GITHUB_ACTIONS_TOKEN")
-	streamingTracker := discord.NewStreamingTracker(*root, bot.Session)
+	streamingTracker := discord.NewStreamingTracker(*root, bot.Session, discordGuildID)
 	bot.Session.AddHandler(onReady(discordGuildID))
 	bot.Session.AddHandler(streamingTracker.HandleGuildCreate)
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, spotlightOnlyChannels, activeChannelID, rubyRoleID))

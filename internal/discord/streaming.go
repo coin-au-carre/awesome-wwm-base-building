@@ -38,10 +38,11 @@ type StreamingTracker struct {
 	saveCh  chan struct{}
 }
 
-func NewStreamingTracker(root string, session *discordgo.Session) *StreamingTracker {
+func NewStreamingTracker(root string, session *discordgo.Session, guildID string) *StreamingTracker {
 	t := &StreamingTracker{
 		root:    root,
 		session: session,
+		guildID: guildID,
 		active:  make(map[string]*Streamer),
 		saveCh:  make(chan struct{}, 1),
 	}
@@ -51,12 +52,12 @@ func NewStreamingTracker(root string, session *discordgo.Session) *StreamingTrac
 
 // HandleGuildCreate scans voice states from the GUILD_CREATE payload to catch anyone already streaming.
 func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.GuildCreate) {
+	if t.guildID != "" && e.ID != t.guildID {
+		return
+	}
+
 	t.mu.Lock()
 	defer t.mu.Unlock()
-
-	if t.guildID == "" {
-		t.guildID = e.ID
-	}
 
 	for _, vs := range e.VoiceStates {
 		if !vs.SelfStream {
