@@ -13,6 +13,12 @@ export interface Channel {
   handle?: string
 }
 
+export interface TwitchStreamer {
+  name: string
+  url: string
+  login: string
+}
+
 export const tutorialVideos: TutorialVideo[] = [
   {
     title: "How to Start Building a House",
@@ -67,5 +73,17 @@ export const channels: Channel[] = [
     url: "https://www.youtube.com/@FoxiKate",
     handle: "@FoxiKate",
   },
-  
+]
+
+export const twitchStreamers: TwitchStreamer[] = [
+  {
+    name: "Darth Imperious",
+    url: "https://www.twitch.tv/darth_imperious01",
+    login: "darth_imperious01",
+  },
+  {
+    name: "mooonlightmage",
+    url: "https://www.twitch.tv/mooonlightmage",
+    login: "mooonlightmage",
+  },
 ]
