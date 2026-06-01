@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-01T21:29:04.905305175Z"
+  "streamers": [
+    {
+      "userID": "149790526076354561",
+      "username": "Ahlyam",
+      "channelID": "1496814821520441385",
+      "channelName": "Building Unlimited",
+      "startedAt": "2026-06-01T22:15:35.465245048Z"
+    }
+  ],
+  "updatedAt": "2026-06-01T22:15:40.709818581Z"
 }
