@@ -10,6 +10,7 @@ var (
 	reBuilder       = regexp.MustCompile(`(?im)^(?:builder\s*:[ \t]*)?([\p{L}\p{N}_.\- ]+?)\s*\[(\w+)\]\s*$`)
 	reBuilderSimple = regexp.MustCompile(`(?im)^builder\s*:[ \t]*([^\n\[]+?)\s*(?:\[(\w+)\])?\s*$`)
 	rePrice         = regexp.MustCompile(`(?im)^price\s*:[ \t]*([^\n]+)`)
+	rePriceTag      = regexp.MustCompile(`(?i)!price\s+([^!\n]+)`)
 	reMaterials     = regexp.MustCompile(`(?im)^materials?\s*:[ \t]*([^\n]+)`)
 
 	// strips structured field lines to isolate the freeform description body
@@ -45,6 +46,12 @@ func ParseFirstPost(content string) ParsedBlueprintPost {
 	}
 
 	if m := rePrice.FindStringSubmatch(content); len(m) > 1 {
+		raw := strings.TrimSpace(m[1])
+		p.Price = raw
+		lower := strings.ToLower(raw)
+		p.IsFree = strings.Contains(lower, "free")
+		p.IsPayToBuild = lower != "free" && lower != ""
+	} else if m := rePriceTag.FindStringSubmatch(content); len(m) > 1 {
 		raw := strings.TrimSpace(m[1])
 		p.Price = raw
 		lower := strings.ToLower(raw)
