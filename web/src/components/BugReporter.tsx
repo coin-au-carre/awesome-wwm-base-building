@@ -41,9 +41,9 @@ function buildTemplate(bugs: Bug[], selected: Set<number>, uid: string, platform
     lines.push("")
   }
 
-  addSection("Critical bugs (all platforms and devices)", high.filter((b) => !isMobileOnly(b)))
+  addSection("Critical bugs", high.filter((b) => !isMobileOnly(b)))
   addSection("Critical bugs (mobile only)", high.filter(isMobileOnly))
-  addSection("Other bugs (all platforms and devices)", others.filter((b) => !isMobileOnly(b)))
+  addSection("Other bugs", others.filter((b) => !isMobileOnly(b)))
   addSection("Other bugs (mobile only)", others.filter(isMobileOnly))
 
   return lines.join("\n").trimEnd()
@@ -78,10 +78,8 @@ export function BugReporter({ bugs }: { bugs: Bug[] }) {
     [reportable, selected, uid, platform]
   )
 
-  const fullTemplate = `To: ${EMAIL}\nSubject: ${SUBJECT}\n\n${template}`
-
   async function copy() {
-    await navigator.clipboard.writeText(fullTemplate)
+    await navigator.clipboard.writeText(template)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
     window.umami?.track("bugs_report_copy")
