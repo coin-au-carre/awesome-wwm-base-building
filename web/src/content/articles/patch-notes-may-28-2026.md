@@ -39,7 +39,7 @@ Check confirmed patch notes now on https://www.wherebuildersmeet.com/patches/
 
 Bugs are gathered here now https://www.wherebuildersmeet.com/bugs/
 
-Critical bugs may come from a common cause where diagrams from Guild Construction are set as deprecated. The problem is that most guilds and builders use those components in their work. We can lose all of our efforts in an instant because of this. 
+3 first critical bugs may come from a common cause where diagrams from Guild Construction are set as deprecated. The problem is that most guilds and builders use those components in their work. We can lose all of our efforts in an instant because of this. 
 *news*: it is confirmed that also CN server has this new limitation. Hopefully CN players will massively report this.
 
 ##  Critical bugs (all platforms and devices)
@@ -47,6 +47,7 @@ Critical bugs may come from a common cause where diagrams from Guild Constructio
 - Cannot place full diagrams from Guild Construction > Diagrams. Error: "Diagram contains invalid components for this panel."
 - Cannot place/copy any exclusive component from Guild Construction > Diagrams in guild base. Error: "This component is not available in the current panel."
 - Custom/Saved guild diagrams cannot be applied in certain conditions. Error: "Blueprint contains components that cannot be placed in the Open World."
+- Cannot save diagram if copyright more than 30%. This is too restrictive. Let's say 2 builders in a guild and the work repartition is 69% and 21%. Nobody can save the diagram.
 
 ## Other bugs (all platforms and devices)
 
@@ -54,20 +55,16 @@ Critical bugs may come from a common cause where diagrams from Guild Constructio
 - Cannot edit component (rotate, move, replace) that have been placed from a diagram. Error: "Component is not available in the current panel"
 - Stone Platforms cannot cover grass as intended. Grass clips through the platform.
 - "Theater Stage" Single Use component missing shadow figures
-- ~~Cannot place more than 1 of each large building component~~ (CN server also confirmed: might not be a bug but a limitation)
 
 ## Other bugs (mobile only)
 
 - Some new large components build can disappear when approaching them (e.g. Rainbow Resort Bridge with Pavilion II and Rainbow Resort Gate II)
-
----
 
 ## Bugs fixed thanks to your reports probably 😄
 
 - ~~All interactive building components are missing from guild base, including all interactable chairs and furniture. They no longer appear but still count toward the component cap.~~
 - ~~Some non-interactive objects are also missing from guild base.~~  
 
----
 
 ## Report on official discord
 
