@@ -32,6 +32,10 @@ This post will be updated regularly. Stay tuned!
 
 ---
 
+# Bugs
+
+Bugs are gathered here now https://www.wherebuildersmeet.com/bugs/
+
 Critical bugs may come from a common cause where diagrams from Guild Construction are set as deprecated. The problem is that most guilds and builders use those components in their work. We can lose all of our efforts in an instant because of this. 
 *news*: it is confirmed that also CN server has this new limitation. Hopefully CN players will massively report this.
 
@@ -77,9 +81,9 @@ see https://discord.com/channels/1483447710617960508/1509461162520219688/1509903
 
 <!-- preserve-start -->
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1df5c1&format=webp&hm=a7541957ffa956485e8294a7d881fecde4e9caefe4084bd353d06d1361a8931b&is=6a1ca441&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1df5c1&format=webp&hm=4c2e167b289a672d3909ac6ca78e81038c4f7f46caf8d81dfc2f510fa717bbb3&is=6a1ca441&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1df5c1&format=webp&hm=ee21c380e7a3c59f9779d4c8cd36523c5f50cedf6a7dc43d6570f3f42f877e8e&is=6a1ca441&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1e9e81&format=webp&hm=ac18d3bfe9c8c0fa24c73d62c66ddba4c5920f6b090128fbd74bfd267aef9118&is=6a1d4d01&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1e9e81&format=webp&hm=8acf7e7a90ca7f7f7db2320a42eb567c224253666f26b649086a56593c237021&is=6a1d4d01&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1e9e81&format=webp&hm=263b37410401f4c4499c1fb667513450823988c71ce0716962999041c6d9f716&is=6a1d4d01&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
 
 <!-- preserve-end -->
 
