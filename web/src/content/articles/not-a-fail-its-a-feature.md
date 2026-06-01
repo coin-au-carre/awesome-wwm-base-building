@@ -5,7 +5,7 @@ tags: ["solo", "sightseeing"]
 authors: ["alscend", "noxlamina", "Crueliet", "Ahlyam", "Skysnip"]
 date: 2026-05-17
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a1dabc4&format=webp&hm=bd70e9d2bc02009bd8c1a8754e975a3289753c36368eb2b88028f1e2b2bd9276&is=6a1c5a44&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a1e5484&format=webp&hm=def0aa48d6372a39e5bb21a35630964b2d16e4542a931bd3f65b827e4c9fc233&is=6a1d0304&quality=lossless"
 featured: false
 ---
 
@@ -13,7 +13,7 @@ featured: false
 ## Modern stairs
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a1dabc4&format=webp&hm=bd70e9d2bc02009bd8c1a8754e975a3289753c36368eb2b88028f1e2b2bd9276&is=6a1c5a44&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a1e5484&format=webp&hm=def0aa48d6372a39e5bb21a35630964b2d16e4542a931bd3f65b827e4c9fc233&is=6a1d0304&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -27,7 +27,7 @@ featured: false
 ## Guild base pool area with sand
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a1da58b&format=webp&hm=851043bc9c4c1cc89f18beafa47bb773c3d01d5695ed35501b344777aef4ccf1&is=6a1c540b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a1e4e4b&format=webp&hm=bb0df1181a797abaa1661750f2d22b413aea5be2015a792e2e691e48d8ec2169&is=6a1cfccb&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
