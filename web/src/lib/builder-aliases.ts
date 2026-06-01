@@ -4,7 +4,9 @@
 export const BUILDER_ALIASES: Record<string, string> = {
   "diana念": "ðìana",
   "siming-司命": "siming司命",
-  "aegisnite-edge": "aegisnite"
+  "aegisnite-edge": "aegisnite",
+  "ℭ𝔞𝔯𝔫𝔦": "carnii",
+  "kira": "kirakosma",
 }
 
 export function resolveCanonical(slug: string): string {
