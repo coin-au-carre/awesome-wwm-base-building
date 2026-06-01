@@ -1,5 +1,19 @@
 [
 	{
+		"name": "FENGHUANG",
+		"builders": [
+			"Jiang-Xïao"
+		],
+		"tags": [
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "Elevated builds\nZen theater on lake",
+		"score": 0,
+		"lastModified": "June 1, 2026 at 02:29 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10198341",
 		"name": "Eishin-Haiku",
 		"builders": [
