@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-01T15:18:38.419594099Z"
+  "streamers": [
+    {
+      "userID": "149790526076354561",
+      "username": "Ahlyam",
+      "channelID": "1498371478570274906",
+      "channelName": "Building Workshop",
+      "startedAt": "2026-06-01T15:20:06.089849337Z"
+    }
+  ],
+  "updatedAt": "2026-06-01T15:20:11.307835014Z"
 }
