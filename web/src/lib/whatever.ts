@@ -12,6 +12,7 @@ export interface WhateverPost {
   authorName: string
   authorId: string
   images: string[]
+  videos?: string[]
   reactions: number
   reactionDetails: ReactionDetail[]
   messageUrl: string
@@ -50,8 +51,9 @@ export function getWhateverPosts(): WhateverItem[] {
     })
 }
 
-export function getWhateverStats(): { totalImages: number; totalContributors: number } {
-  const images = ALL_POSTS.reduce((n, p) => n + p.images.length, 0)
+export function getWhateverStats(): { totalImages: number; totalVideos: number; totalContributors: number } {
+  const images = ALL_POSTS.reduce((n, p) => n + (p.images?.length ?? 0), 0)
+  const videos = ALL_POSTS.reduce((n, p) => n + (p.videos?.length ?? 0), 0)
   const contributors = new Set(ALL_POSTS.map((p) => p.authorId)).size
-  return { totalImages: images, totalContributors: contributors }
+  return { totalImages: images, totalVideos: videos, totalContributors: contributors }
 }

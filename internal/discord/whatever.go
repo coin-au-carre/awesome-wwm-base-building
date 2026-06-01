@@ -17,12 +17,13 @@ type ReactionDetail struct {
 	Count int    `json:"count"`
 }
 
-// WhateverPost represents a single message from #whatever-showcase with images.
+// WhateverPost represents a single message from #whatever-showcase with images or videos.
 type WhateverPost struct {
 	ID              string           `json:"id"`
 	AuthorName      string           `json:"authorName"`
 	AuthorID        string           `json:"authorId"`
 	Images          []string         `json:"images"`
+	Videos          []string         `json:"videos,omitempty"`
 	Reactions       int              `json:"reactions"`
 	ReactionDetails []ReactionDetail `json:"reactionDetails"`
 	MessageURL      string           `json:"messageUrl"`
@@ -59,7 +60,8 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 			continue
 		}
 		images := imagesFromMessage(msg)
-		if len(images) == 0 {
+		videos := videosFromMessage(msg)
+		if len(images) == 0 && len(videos) == 0 {
 			continue
 		}
 		if hasReaction(msg, "🚫") {
@@ -78,6 +80,7 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 			AuthorName:      name,
 			AuthorID:        msg.Author.ID,
 			Images:          images,
+			Videos:          videos,
 			Reactions:       reactions,
 			ReactionDetails: reactionDetails(msg),
 			MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, msg.ID),
@@ -88,9 +91,19 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 }
 
 func imagesFromMessage(msg *discordgo.Message) []string {
-	var urls []string
+	urls := []string{}
 	for _, att := range msg.Attachments {
 		if guild.IsImage(att.Filename) {
+			urls = append(urls, att.URL)
+		}
+	}
+	return urls
+}
+
+func videosFromMessage(msg *discordgo.Message) []string {
+	urls := []string{}
+	for _, att := range msg.Attachments {
+		if guild.IsVideo(att.Filename) {
 			urls = append(urls, att.URL)
 		}
 	}

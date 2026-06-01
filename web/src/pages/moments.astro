@@ -6,31 +6,48 @@ import { BASE } from "@/lib/url"
 import { thumbUrl } from "@/lib/format"
 
 const posts = getWhateverPosts()
-const { totalImages, totalContributors } = getWhateverStats()
-const ogImage = posts.flatMap((p) => p.images).find(Boolean)
+const { totalImages, totalVideos, totalContributors } = getWhateverStats()
+const ogImage = posts.flatMap((p) => p.images ?? []).find(Boolean) ?? undefined
 
-// One grid item per image. Cap at 2 images for posts with more than 3.
-// imgIdx === 0 = primary (shown first); extras go at the end so similar shots don't cluster.
+// One grid item per image or video. Cap at 2 images for posts with more than 3.
+// isPrimary = shown first; extras go at the end so similar shots don't cluster.
 const items = posts.flatMap((p) => {
-  const images = p.images.length > 3 ? p.images.slice(0, 2) : p.images
-  return images.map((img, imgIdx) => ({
+  const rawImages = p.images ?? []
+  const images = rawImages.length > 3 ? rawImages.slice(0, 2) : rawImages
+  const common = {
     postId: p.id,
-    img,
-    imgIdx,
-    allImgs: images,
     displayName: p.displayName,
     builderPath: p.builderPath,
     reactions: p.reactions,
     reactionDetails: p.reactionDetails ?? [],
     messageUrl: p.messageUrl,
     postedAt: p.postedAt,
+  }
+  const imgItems = images.map((img, imgIdx) => ({
+    ...common,
+    kind: "image" as const,
+    src: img,
+    thumb: thumbUrl(img),
+    allImgs: images,
+    allThumbs: images.map((s) => thumbUrl(s)),
+    isPrimary: imgIdx === 0,
   }))
+  const videoItems = (p.videos ?? []).map((vid) => ({
+    ...common,
+    kind: "video" as const,
+    src: vid,
+    thumb: "",
+    allImgs: [] as string[],
+    allThumbs: [] as string[],
+    isPrimary: true,
+  }))
+  return [...imgItems, ...videoItems]
 })
 
 const FOUR_DAYS_MS = 4 * 24 * 60 * 60 * 1000
 const recentCutoff = Date.now() - FOUR_DAYS_MS
 const recentTopItems = items
-  .filter((item) => item.imgIdx === 0 && item.postedAt && new Date(item.postedAt).getTime() >= recentCutoff)
+  .filter((item) => item.isPrimary && item.postedAt && new Date(item.postedAt).getTime() >= recentCutoff)
   .sort((a, b) => b.reactions - a.reactions)
   .slice(0, 8)
 ---
@@ -48,7 +65,7 @@ const recentTopItems = items
         <ImagesIcon weight="duotone" className="size-6 text-primary" /> Moments
       </h1>
       <p class="text-muted-foreground text-sm">
-        Screenshots shared in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">#whatever-showcase ↗</a> by community members.
+        Screenshots and videos shared in <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="discord_cta_click">#whatever-showcase ↗</a> by community members.
       </p>
     </div>
 
@@ -62,7 +79,7 @@ const recentTopItems = items
         <div class="flex items-center justify-between gap-3 flex-wrap">
           <div class="flex items-center gap-3 text-xs text-muted-foreground">
             <span class="inline-flex items-center gap-1.5 bg-muted rounded-full px-2.5 py-1">
-              <ImagesIcon weight="duotone" className="size-3" /> {totalImages} screenshots
+              <ImagesIcon weight="duotone" className="size-3" /> {totalImages} screenshots{totalVideos > 0 ? ` · ${totalVideos} videos` : ""}
             </span>
             <span class="inline-flex items-center gap-1.5 bg-muted rounded-full px-2.5 py-1">
               👥 {totalContributors} contributors
@@ -109,12 +126,13 @@ const recentTopItems = items
             <div id="fresh-gallery" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {recentTopItems.map((item) => (
                 <div
-                  class="gallery-item group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-primary/40 hover:ring-primary transition-all"
+                  class={`gallery-item group rounded-xl overflow-hidden bg-muted ring-1 ring-primary/40 hover:ring-primary transition-all ${item.kind === "video" ? "cursor-pointer" : "cursor-zoom-in"}`}
+                  data-kind={item.kind}
                   data-post-id={item.postId}
-                  data-img={item.img}
-                  data-thumb={thumbUrl(item.img)}
+                  data-img={item.src}
+                  data-thumb={item.thumb}
                   data-all-imgs={JSON.stringify(item.allImgs)}
-                  data-all-thumbs={JSON.stringify(item.allImgs.map((s) => thumbUrl(s)))}
+                  data-all-thumbs={JSON.stringify(item.allThumbs)}
                   data-display-name={item.displayName}
                   data-builder-path={item.builderPath ?? ""}
                   data-reactions={item.reactions}
@@ -123,14 +141,25 @@ const recentTopItems = items
                   data-posted-at={item.postedAt}
                   data-primary="1"
                 >
-                  <img
-                    src={thumbUrl(item.img)}
-                    alt={`Screenshot by ${item.displayName}`}
-                    loading="eager"
-                    decoding="async"
-                    onerror="this.closest('.gallery-item').style.display='none'"
-                    class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
-                  />
+                  {item.kind === "video" ? (
+                    <div class="aspect-video relative overflow-hidden">
+                      <video src={item.src} preload="metadata" muted playsinline class="w-full h-full object-cover pointer-events-none transition-transform duration-300 group-hover:scale-[1.03]" />
+                      <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                        <svg class="size-10 text-white/80 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  ) : (
+                    <img
+                      src={item.thumb}
+                      alt={`Screenshot by ${item.displayName}`}
+                      loading="eager"
+                      decoding="async"
+                      onerror="this.closest('.gallery-item').style.display='none'"
+                      class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  )}
                 </div>
               ))}
             </div>
@@ -141,29 +170,38 @@ const recentTopItems = items
         <div id="gallery" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
           {items.map((item, i) => (
             <div
-              class="gallery-item group rounded-xl overflow-hidden bg-muted cursor-zoom-in ring-1 ring-border hover:ring-primary transition-all"
+              class={`gallery-item group rounded-xl overflow-hidden bg-muted ring-1 ring-border hover:ring-primary transition-all ${item.kind === "video" ? "cursor-pointer" : "cursor-zoom-in"}`}
+              data-kind={item.kind}
               data-post-id={item.postId}
-              data-img={item.img}
-              data-thumb={thumbUrl(item.img)}
+              data-img={item.src}
+              data-thumb={item.thumb}
               data-all-imgs={JSON.stringify(item.allImgs)}
-              data-all-thumbs={JSON.stringify(item.allImgs.map((s) => thumbUrl(s)))}
+              data-all-thumbs={JSON.stringify(item.allThumbs)}
               data-display-name={item.displayName}
               data-builder-path={item.builderPath ?? ""}
               data-reactions={item.reactions}
               data-reaction-details={JSON.stringify(item.reactionDetails)}
               data-message-url={item.messageUrl}
               data-posted-at={item.postedAt}
-              data-primary={item.imgIdx === 0 ? "1" : "0"}
+              data-primary={item.isPrimary ? "1" : "0"}
             >
-              <img
-                src={thumbUrl(item.img)}
-                alt={`Screenshot by ${item.displayName}`}
-                loading={i < 6 ? "eager" : "lazy"}
-                decoding="async"
-                fetchpriority={i < 2 ? "high" : undefined}
-                onerror="this.closest('.gallery-item').style.display='none'"
-                class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
-              />
+              {item.kind === "video" ? (
+                <div class="aspect-video flex items-center justify-center relative">
+                  <svg class="size-10 text-muted-foreground/50 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              ) : (
+                <img
+                  src={item.thumb}
+                  alt={`Screenshot by ${item.displayName}`}
+                  loading={i < 6 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchpriority={i < 2 ? "high" : undefined}
+                  onerror="this.closest('.gallery-item').style.display='none'"
+                  class="w-full h-auto block transition-transform duration-300 group-hover:scale-[1.03]"
+                />
+              )}
             </div>
           ))}
         </div>
@@ -183,6 +221,8 @@ const recentTopItems = items
     <div id="lb-img-wrap" class="absolute inset-0 bottom-10">
       <img id="lb-thumb" src="" alt="" class="absolute inset-0 w-full h-full object-contain p-2 select-none" style="opacity:0" />
       <img id="lb-img"   src="" alt="" class="absolute inset-0 w-full h-full object-contain p-2 select-none" style="opacity:0;transition:opacity 300ms ease-out" />
+      <!-- Video layer -->
+      <video id="lb-video" src="" controls playsinline class="absolute inset-0 w-full h-full object-contain p-2" style="display:none" />
     </div>
 
     <!-- Close -->
@@ -254,6 +294,7 @@ const recentTopItems = items
     const lbImgWrap = document.getElementById("lb-img-wrap")
     const lbThumb = document.getElementById("lb-thumb")
     const lbImg = document.getElementById("lb-img")
+    const lbVideo = document.getElementById("lb-video")
     const lbAuthorWrap = document.getElementById("lb-author-wrap")
     const lbReactions = document.getElementById("lb-reactions")
     const lbCounter = document.getElementById("lb-counter")
@@ -281,52 +322,66 @@ const recentTopItems = items
 
     function renderLightbox() {
       const item = currentItems[currentIndex]
+      const isVideo = item.dataset.kind === "video"
       subImages = JSON.parse(item.dataset.allImgs ?? "[]")
       const subThumbs = JSON.parse(item.dataset.allThumbs ?? "[]")
-      const fullSrc = subImages[subIndex] ?? item.dataset.img ?? ""
-      const thumbSrc = subThumbs[subIndex] ?? item.dataset.thumb ?? fullSrc
 
-      // 1. Show thumb immediately — already cached from the grid
-      lbThumb.style.transition = "none"
-      lbThumb.src = thumbSrc
-      lbThumb.alt = `Screenshot by ${item.dataset.displayName}`
-      lbThumb.style.opacity = "1"
+      if (isVideo) {
+        lbThumb.style.opacity = "0"
+        lbImg.style.opacity = "0"
+        lbImg.src = ""
+        lbVideo.style.display = "block"
+        lbVideo.src = item.dataset.img ?? ""
+      } else {
+        lbVideo.style.display = "none"
+        lbVideo.pause()
+        lbVideo.src = ""
 
-      // 2. Reset full-res layer
-      lbImg.style.transition = "none"
-      lbImg.style.opacity = "0"
-      lbImg.src = ""
+        const fullSrc = subImages[subIndex] ?? item.dataset.img ?? ""
+        const thumbSrc = subThumbs[subIndex] ?? item.dataset.thumb ?? fullSrc
 
-      // 3. Load full-res, fade it in on top once ready
-      if (fullSrc && fullSrc !== thumbSrc) {
-        const captured = { idx: currentIndex, sub: subIndex }
-        const full = new Image()
-        full.onload = () => {
-          if (currentIndex !== captured.idx || subIndex !== captured.sub || closing) return
-          lbImg.src = fullSrc
-          lbImg.alt = `Screenshot by ${item.dataset.displayName}`
-          requestAnimationFrame(() => {
-            lbImg.style.transition = "opacity 300ms ease-out"
-            lbImg.style.opacity = "1"
-            lbThumb.style.transition = "opacity 300ms ease-out 200ms"
-            lbThumb.style.opacity = "0"
-          })
+        // 1. Show thumb immediately — already cached from the grid
+        lbThumb.style.transition = "none"
+        lbThumb.src = thumbSrc
+        lbThumb.alt = `Screenshot by ${item.dataset.displayName}`
+        lbThumb.style.opacity = "1"
+
+        // 2. Reset full-res layer
+        lbImg.style.transition = "none"
+        lbImg.style.opacity = "0"
+        lbImg.src = ""
+
+        // 3. Load full-res, fade it in on top once ready
+        if (fullSrc && fullSrc !== thumbSrc) {
+          const captured = { idx: currentIndex, sub: subIndex }
+          const full = new Image()
+          full.onload = () => {
+            if (currentIndex !== captured.idx || subIndex !== captured.sub || closing) return
+            lbImg.src = fullSrc
+            lbImg.alt = `Screenshot by ${item.dataset.displayName}`
+            requestAnimationFrame(() => {
+              lbImg.style.transition = "opacity 300ms ease-out"
+              lbImg.style.opacity = "1"
+              lbThumb.style.transition = "opacity 300ms ease-out 200ms"
+              lbThumb.style.opacity = "0"
+            })
+          }
+          full.src = fullSrc
+          preloaded.add(fullSrc)
         }
-        full.src = fullSrc
-        preloaded.add(fullSrc)
-      }
 
-      // Preload neighbours
-      const nextSubFull = subImages[subIndex + 1]
-      if (nextSubFull) preloadFull(nextSubFull)
-      else {
-        const nextItem = currentItems[(currentIndex + 1) % currentItems.length]
-        if (nextItem) preloadFull(JSON.parse(nextItem.dataset.allImgs ?? "[]")[0] ?? nextItem.dataset.img)
-      }
-      const prevSubFull = subImages[subIndex - 1]
-      if (!prevSubFull && currentIndex > 0) {
-        const prevItem = currentItems[currentIndex - 1]
-        if (prevItem) preloadFull(JSON.parse(prevItem.dataset.allImgs ?? "[]")[0] ?? prevItem.dataset.img)
+        // Preload neighbours (images only — skip video items)
+        const nextSubFull = subImages[subIndex + 1]
+        if (nextSubFull) preloadFull(nextSubFull)
+        else {
+          const nextItem = currentItems[(currentIndex + 1) % currentItems.length]
+          if (nextItem && nextItem.dataset.kind !== "video") preloadFull(JSON.parse(nextItem.dataset.allImgs ?? "[]")[0] ?? nextItem.dataset.img)
+        }
+        const prevSubFull = subImages[subIndex - 1]
+        if (!prevSubFull && currentIndex > 0) {
+          const prevItem = currentItems[currentIndex - 1]
+          if (prevItem && prevItem.dataset.kind !== "video") preloadFull(JSON.parse(prevItem.dataset.allImgs ?? "[]")[0] ?? prevItem.dataset.img)
+        }
       }
 
       const name = item.dataset.displayName ?? ""
@@ -371,6 +426,9 @@ const recentTopItems = items
         lbThumb.style.opacity = "0"
         lbImg.style.opacity = "0"
         lbImg.src = ""
+        lbVideo.pause()
+        lbVideo.src = ""
+        lbVideo.style.display = "none"
         document.body.style.overflow = ""
         closing = false
       }, 200)
