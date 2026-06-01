@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a1e9dca&format=webp&hm=81244da04704923a73e412b1bf0fb2d9471d2cf7940ca65b40167512c1acdfe8&is=6a1d4c4a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a1f468a&format=webp&hm=f0b9069f7d5842396a8cdb6180b2c19153ff7c091030832a1a073d8f6fe2067f&is=6a1df50a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 玉門關 - Jade Gate Pass
 

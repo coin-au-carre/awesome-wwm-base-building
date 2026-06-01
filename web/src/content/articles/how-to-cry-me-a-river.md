@@ -39,7 +39,7 @@ The key steps: place a wall, then position a small flat ceiling above it. Simula
 The advantage over manual adjustment (going up and down until sections blend) is consistency: once the ceiling reference is set, every water unit snaps to the same height with no retries needed.
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a1e96a6&hm=cd631eda1cdae1bbd81c8ee2d5414bf9351e5e9c060535158a21b29abbcdae82&is=6a1d4526&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a1f3f66&hm=e17d7847dc392f38b50abd30e27cd9609b125bc78c043c67e9252cf54ae79364&is=6a1dede6&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
 
