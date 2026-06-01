@@ -4,7 +4,7 @@ version: '3'
 tasks:
   # ── discord sync (one-shot) ─────────────────────────────────
   sync:
-    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON, sync tutorials, sync bugs
+    desc: git pull, crawl Discord threads → update guilds.json, generate public JSON, sync tutorials, sync bugs, sync patch notes
     cmds:
       - git pull
       - go run ./cmd/sync {{.CLI_ARGS}}
@@ -12,19 +12,25 @@ tasks:
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
       - go run ./cmd/whatever-sync
       - go run ./cmd/bugs-sync
+      - go run ./cmd/patches-sync
 
   sync:nopull:
-    desc: crawl Discord threads → update guilds.json, generate public JSON, sync tutorials, sync bugs (no git pull)
+    desc: crawl Discord threads → update guilds.json, generate public JSON, sync tutorials, sync bugs, sync patch notes (no git pull)
     cmds:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
       - go run ./cmd/whatever-sync
       - go run ./cmd/bugs-sync
+      - go run ./cmd/patches-sync
 
   sync:bugs:
     desc: fetch Google Sheets bugs CSV → data/bugs.json (with Discord CDN refresh)
     cmd: go run ./cmd/bugs-sync {{.CLI_ARGS}}
+
+  sync:patches:
+    desc: fetch Google Sheets patch notes CSV → data/patches.json (with Discord CDN refresh)
+    cmd: go run ./cmd/patches-sync {{.CLI_ARGS}}
 
   sync:guilds:
     desc: sync guild forum only (no git pull, no tutorial/whatever-sync)
@@ -232,6 +238,7 @@ tasks:
       - echo "        -- -min-threads 3  minimum guilds voted on before flagging (default 3)"
       - echo ""
       - echo "  task sync:bugs           fetch bugs spreadsheet → data/bugs.json (+ Discord CDN refresh)"
+      - echo "  task sync:patches        fetch patch notes spreadsheet → data/patches.json (+ Discord CDN refresh)"
       - echo "        -- -dry-run        fetch and parse but skip writing JSON"
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
       - echo "        -- -dry-run        fetch events but skip writing JSON"

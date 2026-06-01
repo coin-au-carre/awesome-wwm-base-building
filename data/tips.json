@@ -1,0 +1,121 @@
+[
+  {
+    "coolness": "high",
+    "title": "Rotate component on 2 axes",
+    "description": "You can rotate components with on 2 axes now before placement. Hold control and scroll before placing any component to activate 2nd axe.",
+    "guild": true,
+    "solo": true,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "high",
+    "title": "Guild base 10k global cap",
+    "description": "The total limit for components placed across all areas within the Guild Base is 10 000",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "high",
+    "title": "Guild base 10k density cap",
+    "description": "Increase 10K density cap components (local area) in guild base",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "high",
+    "title": "No density cap in solo",
+    "description": "Lifted density cap components in solo base",
+    "guild": false,
+    "solo": true,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "normal",
+    "title": "Change clock guild time",
+    "description": "Will apply to anyone in the guild. Need the Management permission.",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "normal",
+    "title": "Searchable component",
+    "description": "Can search component by their name",
+    "guild": true,
+    "solo": true,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "normal",
+    "title": "Favorite tab component",
+    "description": "vCan tag components in favorite tab",
+    "guild": true,
+    "solo": true,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "normal",
+    "title": "Pick up, replace, rotate component",
+    "description": "You can now move, replace, rotate components after placement",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": ""
+  },
+  {
+    "coolness": "high",
+    "title": "Other players can place diagram",
+    "description": "Any player with permission can place a diagram/blueprint where you can fill components in your solo world or base guild",
+    "guild": true,
+    "solo": true,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510954033106518107/image.png?ex=6a1eb119\u0026hm=d3b9197f0e31d4a642caabb665f18da32357bc628944ff5ca4451adb0bbafd08\u0026is=6a1d5f99\u0026"
+    ],
+    "version": "priori v1.7",
+    "notes": "Many people are not aware of shared blueprint functions"
+  }
+]
