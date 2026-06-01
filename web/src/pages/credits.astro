@@ -16,6 +16,17 @@ const users = getUsers()
 // Builders wall — getAllBuilderSlugs already deduplicates via canonical slug resolution
 const builderList = getAllBuilderSlugs().sort((a, b) => a.name.localeCompare(b.name))
 
+// Set of all known builder slugs for profile-link checks
+const knownBuilderSlugs = new Set(getAllBuilderSlugs().map((b) => b.slug))
+function profileSlug(name: string): string | undefined {
+  const s = resolveCanonical(builderSlug(name))
+  return s && knownBuilderSlugs.has(s) ? s : undefined
+}
+function isUnknownName(name: string): boolean {
+  // Raw Discord IDs (all digits) or deleted/unknown account patterns
+  return /^\d+$/.test(name) || /unknown|deleted user/i.test(name)
+}
+
 // Guild cartographers: scouters sorted by count desc, nickname > globalName > username
 const scoutCounts: Record<string, number> = {}
 for (const g of [...guilds, ...solos]) {
@@ -26,8 +37,10 @@ const cartographers = Object.entries(scoutCounts)
   .map(([id]) => {
     const user = users[id]
     const name = user?.nickname ?? user?.globalName ?? user?.username ?? id
-    return { name }
+    const slug = isUnknownName(name) ? undefined : profileSlug(name)
+    return { name, slug }
   })
+  .filter(({ name }) => !isUnknownName(name))
 
 // Tutorial authors → deduplicated by canonical slug
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
@@ -79,10 +92,11 @@ const critics = Object.entries(threadCountById)
   .filter(([, count]) => count >= CRITIC_THRESHOLD)
   .map(([id]) => {
     const user = users[id]
-    return user?.nickname ?? user?.globalName ?? user?.username ?? id
+    const name = user?.nickname ?? user?.globalName ?? user?.username ?? id
+    return { name, slug: profileSlug(name) }
   })
-  .filter((name) => name.replace(/\p{Z}|\p{C}/gu, "") !== "")
-  .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
+  .filter(({ name }) => name.replace(/\p{Z}|\p{C}/gu, "") !== "" && !isUnknownName(name))
+  .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
 
 const BUILDER_PALETTE = [
   "bg-violet-500/10 text-violet-700 dark:text-violet-300 ring-1 ring-inset ring-violet-500/25 dark:ring-violet-400/25",
@@ -258,7 +272,17 @@ function builderColor(name: string): string {
         People who scouted guild bases across Jiang Hu
       </p>
       <div class="flex flex-wrap gap-1.5">
-        {cartographers.map(({ name }) => (
+        {cartographers.map(({ name, slug }) => slug ? (
+          <a
+            href={`${BASE}/builders/${slug}`}
+            class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 dark:ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+            data-umami-event="credits_cartographer_click"
+            data-umami-event-name={name}
+          >
+            <MapTrifoldIcon weight="fill" className="size-3 shrink-0" client:load />
+            {name}
+          </a>
+        ) : (
           <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 dark:ring-emerald-400/25 px-2.5 py-0.5 text-xs font-medium">
             <MapTrifoldIcon weight="fill" className="size-3 shrink-0" client:load />
             {name}
@@ -277,7 +301,16 @@ function builderColor(name: string): string {
         Community members who took the time to vote across multiple guild bases.
       </p>
       <div class="flex flex-wrap gap-1.5">
-        {critics.map((name) => (
+        {critics.map(({ name, slug }) => slug ? (
+          <a
+            href={`${BASE}/builders/${slug}`}
+            class="inline-flex items-center rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-500/25 dark:ring-indigo-400/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+            data-umami-event="credits_critic_click"
+            data-umami-event-name={name}
+          >
+            {name}
+          </a>
+        ) : (
           <span class="inline-flex items-center rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-500/25 dark:ring-indigo-400/25 px-2.5 py-0.5 text-xs font-medium">
             {name}
           </span>
@@ -312,27 +345,37 @@ function builderColor(name: string): string {
     </section>
 
     <!-- Moderators (subdued) -->
-    <section class="space-y-3 border-t border-border pt-8">
-      <h2 class="text-xs font-medium text-muted-foreground/60 uppercase tracking-wide">Moderators</h2>
-      <div class="flex flex-wrap gap-3">
-
-        <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
-          <p class="text-sm font-medium text-foreground/80">Suisen</p>
-          <p class="text-xs text-muted-foreground/70">Moderator · Graphist</p>
-        </div>
-
-        <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
-          <p class="text-sm font-medium text-foreground/80">Alscend</p>
-          <p class="text-xs text-muted-foreground/70">Moderator</p>
-        </div>
-
-        <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
-          <p class="text-sm font-medium text-foreground/80">Ahlyam</p>
-          <p class="text-xs text-muted-foreground/70">Admin · Development</p>
-        </div>
-
-      </div>
-    </section>
+    {(() => {
+      const mods = [
+        { name: "Suisen", role: "Graphist" },
+        // { name: "Alscend", role: "Moderator" },
+        { name: "SiMing 司命", role: "Moderator" },
+        { name: "Ahlyam", role: "Admin · Development" },
+      ].map((m) => ({ ...m, slug: profileSlug(m.name) }))
+      return (
+        <section class="space-y-3 border-t border-border pt-8">
+          <h2 class="text-xs font-medium text-muted-foreground/60 uppercase tracking-wide">Mods</h2>
+          <div class="flex flex-wrap gap-3">
+            {mods.map(({ name, role, slug }) => slug ? (
+              <a
+                href={`${BASE}/builders/${slug}`}
+                class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5 hover:border-border transition-colors"
+                data-umami-event="credits_mod_click"
+                data-umami-event-name={name}
+              >
+                <p class="text-sm font-medium text-foreground/80">{name}</p>
+                <p class="text-xs text-muted-foreground/70">{role}</p>
+              </a>
+            ) : (
+              <div class="rounded-lg border border-border/60 bg-muted/30 px-4 py-2.5">
+                <p class="text-sm font-medium text-foreground/80">{name}</p>
+                <p class="text-xs text-muted-foreground/70">{role}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    })()}
 
     <p class="text-sm text-muted-foreground border-t border-border pt-6">
       Questions or corrections? <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">Find us on Discord.</a>

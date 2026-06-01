@@ -332,6 +332,7 @@ const recentTopItems = items
         lbImg.src = ""
         lbVideo.style.display = "block"
         lbVideo.src = item.dataset.img ?? ""
+        lbVideo.play().catch(() => {})
       } else {
         lbVideo.style.display = "none"
         lbVideo.pause()

@@ -5,7 +5,8 @@ import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
-import { BlueprintIcon, BookOpenIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
+import { BlueprintIcon, BookOpenIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
+import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -38,6 +39,21 @@ const tutorials = allArticles.filter((a) =>
 )
 
 const displayName = profile?.name ?? builderName
+
+// Find the Discord ID for this builder by matching their name slug against the users map
+const users = getUsers()
+const scoutDiscordId = Object.entries(users).find(([, u]) => {
+  const name = u.nickname ?? u.globalName ?? u.username
+  return name && resolveCanonical(builderSlug(name)) === canonical
+})?.[0]
+const scoutedGuilds = scoutDiscordId
+  ? getGuildsSortedByScore().filter((g) => g.scoutedByDiscordId === scoutDiscordId)
+  : []
+const scoutedSolos = scoutDiscordId
+  ? getSolosSortedByScore().filter((g) => g.scoutedByDiscordId === scoutDiscordId)
+  : []
+const scoutedCount = scoutedGuilds.length + scoutedSolos.length
+
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
 
 const tagCounts = new Map<string, number>()
@@ -128,6 +144,13 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
             <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-amber-500/10 text-amber-600 dark:text-amber-400 ring-1 ring-inset ring-amber-500/25">
               <MedalIcon weight="duotone" className="size-3.5 shrink-0" />
               Community Contributor
+            </span>
+          )}
+          {scoutedCount > 0 && (
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25">
+              <CompassIcon weight="duotone" className="size-3.5 shrink-0" />
+              Guild Cartographer
+              <span class="text-[10px] opacity-60 font-normal">· {scoutedCount}</span>
             </span>
           )}
         </div>
@@ -311,6 +334,28 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
               </a>
             )
           })}
+        </div>
+      </section>
+    )}
+
+    <!-- Scouted -->
+    {scoutedCount > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2">
+          <CompassIcon weight="duotone" className="size-4 text-emerald-500" />
+          Scouted
+        </h2>
+        <div class="flex flex-wrap gap-1.5">
+          {[...scoutedGuilds.map((g) => ({ g, base: "guilds" })), ...scoutedSolos.map((g) => ({ g, base: "solos" }))].map(({ g, base }) => (
+            <a
+              href={`${BASE}/${base}/${g.slug}`}
+              class="inline-flex items-center rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 ring-1 ring-inset ring-emerald-500/25 px-2.5 py-0.5 text-xs font-medium transition-opacity hover:opacity-70"
+              data-umami-event="builder_profile_scouted_click"
+              data-umami-event-name={g.name}
+            >
+              {stripGuildShowcase(g.name)}
+            </a>
+          ))}
         </div>
       </section>
     )}
