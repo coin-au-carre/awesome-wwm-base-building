@@ -9,7 +9,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509600307947110580/image.png?ex=6a1fb318\u0026hm=433485e21bf4515b7ccc85710535d697862ea61b94c4046388c8e657ad45f178\u0026is=6a1e6198\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509600307947110580/image.png?ex=6a205bd8\u0026hm=8677a5661e1663b5f2db79b8705a3e3477e74f7563545761fa8f2acbbf7dbda7\u0026is=6a1f0a58\u0026",
       "https://cdn.discordapp.com/attachments/1509461162520219688/1510928354830979173/Guild_Construction_Diagrams.mp4?ex=6a1feaaf\u0026hm=3e06a7c9ab10ecfab3c7e90d371537d00b8dc0958352afd3dbab02ea5a90af9b\u0026is=6a1e992f\u0026"
     ],
     "version": "v1.7",
@@ -107,7 +107,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509593828435431535/image.png?ex=6a1fad0f\u0026hm=658c4ad454a437a4c3dcd4e8b35d5350c36d393aac47448c3991a85233b3b0b1\u0026is=6a1e5b8f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509593828435431535/image.png?ex=6a2055cf\u0026hm=e5c3caddbd3d3154df3f325457ff38f287fd52f76efb384144b404f7a8eadb5b\u0026is=6a1f044f\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -168,7 +168,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a1fa051\u0026hm=636be8d5eaee0510e9be731494bdf03b459169a9dc15a6871872c8478635c77c\u0026is=6a1e4ed1\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a204911\u0026hm=06a21c77e6f0f789ce388399a81197cdcfb90135b6efebcb21a6eff394961607\u0026is=6a1ef791\u0026"
     ],
     "version": "v1.7",
     "date": "01/06/2026",
@@ -177,7 +177,7 @@
   {
     "severity": "high",
     "title": "Cannot save diagram if copyright more than 30%",
-    "details": "You need to be the builders of more than 70% components to be able to save the diagram",
+    "details": "After diagram placement you need to be the builder of more than 70% components to be able to save the diagram",
     "guild": true,
     "solo": true,
     "pc": true,
@@ -190,5 +190,19 @@
     "version": "v1.7",
     "date": "02/06/2026",
     "notes": "Considered as a bug. Let's say you are 2 builders in a guild and the work repartition is 69% and 21%. Nobody can save the diagram."
+  },
+  {
+    "severity": "normal",
+    "title": "Cannot rotate on 2nd axis for mobile and ps5",
+    "details": "There is no know button to be able to rotate on 2nd axis",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "date": "02/06/2026",
+    "notes": "PC has this feature so should other platforms"
   }
 ]
