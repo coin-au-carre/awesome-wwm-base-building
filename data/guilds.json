@@ -3944,35 +3944,6 @@
 		"lastModified": "March 19, 2026 at 06:44 PM UTC"
 	},
 	{
-		"name": "Melancolypse",
-		"builders": [
-			"Aïk",
-			"KimmiSenpai"
-		],
-		"tags": [
-			"Military/Arena",
-			"Fun"
-		],
-		"discordThread": "https://discord.com/channels/1483447710617960508/1484258514540167178",
-		"posterDiscordId": "149790526076354561",
-		"posterUsername": "Ahlyam",
-		"whatToVisit": "Colyseum",
-		"score": 50,
-		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=6a1f21f6\u0026is=6a1dd076\u0026hm=3b2f5bc11ef192b729918826c8b42580343175b0f88eb9741ae70e39436c706d\u0026"
-		],
-		"screenshotSections": [
-			{
-				"label": "🏯 Melancolypse []",
-				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1484258514540167178/1484258515345342474/202632023218.png?ex=6a1f21f6\u0026is=6a1dd076\u0026hm=3b2f5bc11ef192b729918826c8b42580343175b0f88eb9741ae70e39436c706d\u0026"
-				]
-			}
-		],
-		"createdAt": "March 19, 2026 at 06:33 PM UTC",
-		"lastModified": "March 19, 2026 at 06:33 PM UTC"
-	},
-	{
 		"name": "Comfy",
 		"builders": [
 			"MikeRize",
