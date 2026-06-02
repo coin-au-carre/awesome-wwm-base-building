@@ -21,17 +21,17 @@ This post will be updated regularly. Stay tuned!
 
 Check confirmed patch notes now on https://www.wherebuildersmeet.com/patches/
 
+
+- **Can rotate component before placing it on several axis (press control and scroll)**
+- **Increase 10K global cap components in guild base**
+- **Increase 10K density cap components (local area) in guild base**
+- **Lifted density cap components in solo base**
 - Added new components (large components, structures...)
-- Increase 10K global cap components in guild base
-- Increase 10K density cap components (local area) in guild base
-- Lifted density cap components in solo base
 - Can tag components in favorite tab
-- Can rotate component before placing it on several axis (press control and scroll)
 - Can edit components in guild base (move, replace, rotate)
 - 3 Different camera in build mode (classic, move freely, above view)
-- Can change guild base time (with the clock). Will apply to anyone in the guild. Need the **Management** permission.
+- **Can change guild base time** (with the clock). Will apply to anyone in the guild. Need the **Management** permission.
 - Can search component by their name
-
 
 ---
 
@@ -81,9 +81,9 @@ see https://discord.com/channels/1483447710617960508/1509461162520219688/1509903
 
 <!-- preserve-start -->
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1f4741&format=webp&hm=6a122356e37d20f88364541eb14ceb010463c3f87609dce3733291cefbaed896&is=6a1df5c1&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1f4741&format=webp&hm=923549140910bf42f45be4a622ec4000dfe3762dffd2fe20b6c3bb2620ee0ffc&is=6a1df5c1&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1f4741&format=webp&hm=38ddb696327532bfd140eac104cffb7f0f52186e78bf01e0b0d9f22d0a26e4a8&is=6a1df5c1&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484515502850078/image.png?ex=6a1ff001&format=webp&hm=21ab6525af74f161ff8ba9fa9bcf1eb737309558481cdb4865dbe3279d4ea7c7&is=6a1e9e81&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516207497236/image.png?ex=6a1ff001&format=webp&hm=e279bbb1b0cdba7cb5c5948d813a55b7edc276118971218f8d3c94a64703030d&is=6a1e9e81&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509484516752887859/image.png?ex=6a1ff001&format=webp&hm=2ef75c348a895768b057880957e7a93ad4a88c423bd8145a375f5243cc637932&is=6a1e9e81&quality=lossless" alt="New components" style="border-radius: 0.75rem; width: 100%; max-width: 360px;" />
 
 <!-- preserve-end -->
 
