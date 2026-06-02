@@ -38,7 +38,7 @@
 | `/events` | WWM events in guild bases |
 | `/ruby` | Ruby bot commands and examples |
 | `/bugs` | Bug reports — live CSV from Google Sheets |
-| `/patches` | Patch Notes — building features per version, curated from Google Sheets |
+| `/updates` | Updates — building features per version, curated from Google Sheets |
 | `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials by one builder |
 
 ## Nav dot versioning

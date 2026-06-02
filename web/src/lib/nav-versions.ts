@@ -18,13 +18,13 @@ interface NavVersions {
   ruby: string
   credits: string
   bugs: string
-  patches: string
+  updates: string
 }
 
 const FALLBACK: NavVersions = {
   guilds: "0", solo: "0", moments: "0", blueprints: "0", catalog: "0",
   tutorials: "0", media: "0", "how-it-works": "0", contribute: "0",
-  ruby: "0", credits: "0", bugs: "0", patches: "0",
+  ruby: "0", credits: "0", bugs: "0", updates: "0",
 }
 
 export function getNavVersions(): NavVersions {
