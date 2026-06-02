@@ -43,5 +43,18 @@
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
+  },
+  {
+    "id": "1511285126158487652",
+    "name": "Base Tour Panda #6",
+    "description": "## Visit guilds open to all \n\nYou can:\n- join the tour stream on #\"General\"\n- join in game request/DM on Ahlyam [2122662369]\n\n## Four recent builds to discover\n\n- [BANDRAKE](https://www.wherebuildersmeet.com/guilds/bandrake/) - [Discord thread](https://discord.com/channels/1483447710617960508/1498638728250265630) - Builder: @Wyrdrake \n- [AzureSeekers](https://www.wherebuildersmeet.com/guilds/azureseekers/) - [Discord thread](https://discord.com/channels/1483447710617960508/1506547446057009202) - Builder: @Born_Aya \n- [Whitefox](https://www.wherebuildersmeet.com/guilds/snejnaya-snowy-castle/) - [Discord thread](https://discord.com/channels/1483447710617960508/1507142074821251274) - Builder: \n@Diliria,  Schatttzieee, Iraya, HuangYueLi\n- [SHAMELESS](https://www.wherebuildersmeet.com/guilds/shameless/) - [Discord thread](https://discord.com/channels/1483447710617960508/1493649519651455106) -- Builder: @𝔎𝔢𝔦𝔰𝔥𝔞",
+    "type": "tour",
+    "scheduledStart": "2026-06-02T16:00:00.094Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 3,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1511285126158487652",
+    "image": "https://cdn.discordapp.com/guild-events/1511285126158487652/891e67b2c483078fde6b2c3d8a9083ac.png?size=512"
   }
 ]
