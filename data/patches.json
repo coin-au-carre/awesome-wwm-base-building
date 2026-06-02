@@ -113,9 +113,22 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510954033106518107/image.png?ex=6a1f59d9\u0026hm=3191e9ec7debb653d3f5b6cd420cb164a13e05c41073d3e52065c3fa60b40bf7\u0026is=6a1e0859\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510954033106518107/image.png?ex=6a200299\u0026hm=de53f88962c7e3ea16ec88db1a5ebe8194bf7f8f646ace39ff1a47f8f8ef6a99\u0026is=6a1eb119\u0026"
     ],
     "version": "pre v1.7",
     "notes": "Many people are not aware of shared blueprint functions"
+  },
+  {
+    "coolness": "high",
+    "title": "Copyright diagram claim is above 70%",
+    "description": "You need to be the owner of at least 70% components of the diagram",
+    "guild": true,
+    "solo": true,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": "This is considered as a bug for WBM see Bugs page"
   }
 ]

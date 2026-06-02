@@ -19,7 +19,7 @@ This post will be updated regularly. Stay tuned!
 
 ## Confirmed Improvements
 
-Check confirmed patch notes now on https://www.wherebuildersmeet.com/patches/
+Check confirmed patch notes now on https://www.wherebuildersmeet.com/updates/
 
 
 - **Can rotate component before placing it on several axis (press control and scroll)**
