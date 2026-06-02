@@ -190,5 +190,21 @@
     "version": "v1.7",
     "date": "02/06/2026",
     "notes": "Considered as a bug. Let's say you are 2 builders in a guild and the work repartition is 69% and 21%. Nobody can save the diagram."
+  },
+  {
+    "severity": "high",
+    "title": "Cannot save small diagram if guild diagram has been used",
+    "details": "The action fails if the entire base has previously been saved as a guild diagram no matter the builder",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511373156064170209/image.png?ex=6a203770\u0026hm=3e5f48522a013a83699c9850dbaaf1be0a6573d3d68ef0c711a90aa7597040ec\u0026is=6a1ee5f0\u0026"
+    ],
+    "version": "v1.7",
+    "date": "02/06/2026",
+    "notes": "The issue occurs even when the player is the only contributor to the build."
   }
 ]
