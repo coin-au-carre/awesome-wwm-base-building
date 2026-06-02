@@ -599,6 +599,9 @@ func collectThreads(s *discordgo.Session, forumChannelID, guildID string) ([]*di
 			return nil, fmt.Errorf("fetching archived threads: %w", err)
 		}
 		for _, t := range archived.Threads {
+			if t.ThreadMetadata != nil && t.ThreadMetadata.Locked {
+				continue
+			}
 			if !seen[t.ID] {
 				threads = append(threads, t)
 				seen[t.ID] = true
