@@ -271,16 +271,16 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
 
     <!-- Discord CTA banner -->
     {g.discordThread && (
-      <div class="rounded-2xl bg-muted/50 border border-border px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="rounded-xl bg-muted/50 border border-border px-4 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <p class="font-semibold">Like what you see?</p>
-          <p class="text-sm text-muted-foreground mt-0.5">Vote for this build on Discord or join the community.</p>
+          <p class="text-sm font-semibold">Like what you see?</p>
+          <p class="text-xs text-muted-foreground mt-0.5">Vote for this build on Discord or join the community.</p>
         </div>
         <div class="flex flex-wrap gap-2 shrink-0">
-          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary" })} data-umami-event="discord_cta_click">
+          <a href="https://discord.gg/Qygt9u26Bn" target="_blank" rel="noopener noreferrer" class={buttonVariants({ variant: "secondary", size: "sm" })} data-umami-event="discord_cta_click">
             Join server ↗
           </a>
-          <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({})} data-umami-event="discord_cta_click">
+          <a href={g.discordThread} target="_blank" rel="noopener noreferrer" class={buttonVariants({ size: "sm" })} data-umami-event="discord_cta_click">
             Vote ↗
           </a>
         </div>
