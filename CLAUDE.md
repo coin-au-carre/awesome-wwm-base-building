@@ -127,6 +127,8 @@ DEV_CHANNEL_ID                        # dev bot channel
 BASE_BUILDER_ROLE_ID                  # Discord role for builders
 BASE_CRITIC_ROLE_ID                   # Discord role for voters
 ANTHROPIC_API_KEY                     # Claude AI (bot feature)
+BUGS_CHANNEL_ID                       # #bugs channel ID for the digest message
+BUGS_MESSAGE_ID                       # pinned message ID to edit (empty = create new on first run, then save the logged ID)
 ```
 
 > **When adding a new env var that affects `task sync`:** you must do all three or Discord CDN URLs in the output file will expire and break images on the live site:

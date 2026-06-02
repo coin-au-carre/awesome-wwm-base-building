@@ -12,9 +12,12 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	"time"
 
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
+
+	"github.com/bwmarrin/discordgo"
 )
 
 var reDiscordMsgLink = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)/(\d+)`)
@@ -39,9 +42,18 @@ type Bug struct {
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	dryRun := flag.Bool("dry-run", false, "fetch and parse but skip writing JSON")
+	bugsChannelID := flag.String("bugs-channel-id", os.Getenv("BUGS_CHANNEL_ID"), "Discord channel ID for the bugs digest message")
+	bugsMessageID := flag.String("bugs-message-id", os.Getenv("BUGS_MESSAGE_ID"), "Discord message ID to edit (empty = create new)")
 	flag.Parse()
 
 	cmdutil.LoadEnv(*root)
+	// Re-read env after LoadEnv in case vars were in .env
+	if *bugsChannelID == "" {
+		*bugsChannelID = os.Getenv("BUGS_CHANNEL_ID")
+	}
+	if *bugsMessageID == "" {
+		*bugsMessageID = os.Getenv("BUGS_MESSAGE_ID")
+	}
 	token := "Bot " + cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
 	bugs, err := fetchBugs()
@@ -71,6 +83,151 @@ func main() {
 		os.Exit(1)
 	}
 	slog.Info("wrote bugs.json", "path", dest, "count", len(bugs))
+
+	if *bugsChannelID != "" {
+		postBugsDigest(token, *bugsChannelID, *bugsMessageID, bugs)
+	}
+}
+
+func postBugsDigest(token, channelID, messageID string, bugs []Bug) {
+	s, err := discordgo.New(token)
+	if err != nil {
+		slog.Error("creating Discord session for bugs digest", "err", err)
+		return
+	}
+
+	content := buildBugsContent(bugs, true)
+	if len(content) > 2000 {
+		content = buildBugsContent(bugs, false)
+	}
+
+	if messageID == "" {
+		msg, err := s.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
+			Content: content,
+			Flags:   discordgo.MessageFlagsSuppressEmbeds,
+		})
+		if err != nil {
+			slog.Error("posting bugs digest", "err", err)
+			return
+		}
+		slog.Info("posted bugs digest — add this to BUGS_MESSAGE_ID env var", "messageID", msg.ID)
+		return
+	}
+
+	_, err = s.ChannelMessageEdit(channelID, messageID, content)
+	if err != nil {
+		slog.Error("editing bugs digest", "err", err)
+		return
+	}
+	slog.Info("updated bugs digest", "messageID", messageID)
+}
+
+// buildBugsContent builds the full-width plain-text message.
+// withDetails controls whether per-bug detail/notes subtext lines are included.
+func buildBugsContent(bugs []Bug, withDetails bool) string {
+	order := []string{"high", "normal", "low"}
+	sectionLabel := map[string]string{
+		"high":   "🔴 **High**",
+		"normal": "🟡 **Normal**",
+		"low":    "🔵 **Low**",
+	}
+
+	grouped := make(map[string][]Bug)
+	for _, b := range bugs {
+		grouped[b.Severity] = append(grouped[b.Severity], b)
+	}
+
+	bugWord := "bugs"
+	if len(bugs) == 1 {
+		bugWord = "bug"
+	}
+
+	const (
+		spreadsheetURL = "https://docs.google.com/spreadsheets/d/1JuRIdk45EEIVU3kxcpqNuGKZ_0LIKUskiC5q6Tqwi_E/edit?usp=sharing"
+		websiteURL     = "https://www.wherebuildersmeet.com/bugs/"
+		maxMsg         = 1950
+	)
+
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "# 🐛 Bug Tracker — %d active %s\n", len(bugs), bugWord)
+	fmt.Fprintf(&sb, "More details on %s\n\n", websiteURL)
+	fmt.Fprintf(&sb, "You can report bugs in <#1483483683456286911>\n")
+	fmt.Fprintf(&sb, "[All come from Spreadsheet](%s) — if you wanna help and contribute, let us know!\n", spreadsheetURL)
+
+	for _, sev := range order {
+		sevBugs := grouped[sev]
+		if len(sevBugs) == 0 {
+			continue
+		}
+		fmt.Fprintf(&sb, "\n%s — %d\n", sectionLabel[sev], len(sevBugs))
+		shown := 0
+		for _, b := range sevBugs {
+			entry := bugEntry(b, withDetails)
+			if sb.Len()+len(entry) > maxMsg {
+				break
+			}
+			sb.WriteString(entry)
+			shown++
+		}
+		if shown < len(sevBugs) {
+			fmt.Fprintf(&sb, "-# …and %d more\n", len(sevBugs)-shown)
+		}
+	}
+
+	fmt.Fprintf(&sb, "\n-# Updated <t:%d:R>", time.Now().Unix())
+	return sb.String()
+}
+
+func bugEntry(b Bug, withDetails bool) string {
+	version := b.Version
+	if version == "" {
+		version = "?"
+	}
+	var platforms string
+	if p := bugPlatformTags(b); p != "" {
+		platforms = p
+	}
+	line := fmt.Sprintf("• **%s** (%s)%s\n", b.Title, version, platforms)
+
+	if withDetails {
+		var extra string
+		switch {
+		case b.Details != "" && b.Notes != "":
+			extra = truncateStr(b.Details, 90) + " — " + truncateStr(b.Notes, 70)
+		case b.Details != "":
+			extra = truncateStr(b.Details, 140)
+		case b.Notes != "":
+			extra = truncateStr(b.Notes, 140)
+		}
+		if extra != "" {
+			line += fmt.Sprintf("-# %s\n", extra)
+		}
+	}
+	return line
+}
+
+func bugPlatformTags(b Bug) string {
+	var parts []string
+	if b.PC {
+		parts = append(parts, "PC")
+	}
+	if b.Mobile {
+		parts = append(parts, "Mobile")
+	}
+	if b.PS5 {
+		parts = append(parts, "PS5")
+	}
+	if len(parts) == 0 {
+		return ""
+	}
+	return " · " + strings.Join(parts, " · ")
+}
+
+func truncateStr(s string, max int) string {
+	if len(s) <= max {
+		return s
+	}
+	return s[:max-1] + "…"
 }
 
 func fetchBugs() ([]Bug, error) {

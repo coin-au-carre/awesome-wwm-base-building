@@ -44,6 +44,8 @@ jobs:
           WHATEVER_SHOWCASE_CHANNEL_ID: ${{ secrets.WHATEVER_SHOWCASE_CHANNEL_ID }}
           DISCORD_GUILD_ID: ${{ secrets.DISCORD_GUILD_ID }}
           BLUEPRINT_CHANNEL_FORUM_ID: ${{ secrets.BLUEPRINT_CHANNEL_FORUM_ID }}
+          BUGS_CHANNEL_ID: ${{ secrets.BUGS_CHANNEL_ID }}
+          BUGS_MESSAGE_ID: ${{ secrets.BUGS_MESSAGE_ID }}
           DISCORD_TRIGGER: ${{ inputs.discord_trigger }}
         run: task sync
 
