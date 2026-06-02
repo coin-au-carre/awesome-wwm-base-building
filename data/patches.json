@@ -52,7 +52,7 @@
     "notes": ""
   },
   {
-    "coolness": "normal",
+    "coolness": "high",
     "title": "Change clock guild time",
     "description": "Will apply to anyone in the guild. Need the Management permission.",
     "guild": true,
@@ -80,7 +80,7 @@
   {
     "coolness": "normal",
     "title": "Favorite tab component",
-    "description": "vCan tag components in favorite tab",
+    "description": "Can tag components in favorite tab",
     "guild": true,
     "solo": true,
     "pc": true,
@@ -104,7 +104,7 @@
     "notes": ""
   },
   {
-    "coolness": "high",
+    "coolness": "normal",
     "title": "Other players can place diagram",
     "description": "Any player with permission can place a diagram/blueprint where you can fill components in your solo world or base guild",
     "guild": true,
