@@ -1,5 +1,23 @@
 [
 	{
+		"id": "10244117",
+		"name": "霜风序",
+		"builders": [
+			"鶴",
+			"梅花劍尊晴明",
+			"ka 窗欸"
+		],
+		"tags": [
+			"Architecture",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Palace view from afar\nTrap",
+		"score": 1,
+		"lastModified": "June 3, 2026 at 02:37 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "FENGHUANG",
 		"builders": [
 			"Jiang-Xïao"
