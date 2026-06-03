@@ -30,18 +30,33 @@ export interface Bug {
 }
 
 const SEVERITY_STYLES: Record<string, string> = {
-  high:   "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
-  normal: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20",
-  low:    "bg-muted text-muted-foreground border-border",
-  fixed:  "bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20",
+  high:   "bg-red-500/15 text-red-600 dark:text-red-400 border-red-500/30",
+  normal: "bg-yellow-500/15 text-yellow-600 dark:text-yellow-400 border-yellow-500/30",
+  low:    "bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/20",
+  fixed:  "bg-green-500/15 text-green-600 dark:text-green-400 border-green-500/30",
+}
+
+const SEVERITY_STYLES_INACTIVE: Record<string, string> = {
+  high:   "bg-red-500/5 text-red-600/60 dark:text-red-400/50 border-red-500/15 hover:bg-red-500/10 hover:text-red-600 dark:hover:text-red-400 hover:border-red-500/30",
+  normal: "bg-yellow-500/5 text-yellow-600/60 dark:text-yellow-400/50 border-yellow-500/15 hover:bg-yellow-500/10 hover:text-yellow-600 dark:hover:text-yellow-400 hover:border-yellow-500/30",
+  low:    "bg-slate-500/5 text-slate-600/60 dark:text-slate-400/50 border-slate-500/15 hover:bg-slate-500/10 hover:text-slate-600 dark:hover:text-slate-400 hover:border-slate-500/30",
+  fixed:  "bg-green-500/5 text-green-600/60 dark:text-green-400/50 border-green-500/15 hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 hover:border-green-500/30",
 }
 
 const PLATFORM_STYLES: Record<string, string> = {
-  guild:  "bg-violet-500/10 text-violet-700 dark:text-violet-300",
-  solo:   "bg-sky-500/10 text-sky-700 dark:text-sky-300",
+  guild:  "bg-violet-500/15 text-violet-700 dark:text-violet-300",
+  solo:   "bg-rose-500/15 text-rose-700 dark:text-rose-300",
   pc:     "bg-orange-500/15 text-orange-700 dark:text-orange-300",
-  mobile: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
-  ps5:    "bg-blue-500/10 text-blue-700 dark:text-blue-300",
+  mobile: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+  ps5:    "bg-blue-500/15 text-blue-700 dark:text-blue-300",
+}
+
+const PLATFORM_STYLES_INACTIVE: Record<string, string> = {
+  guild:  "bg-violet-500/5 text-violet-600/60 dark:text-violet-400/50 border-violet-500/20 hover:bg-violet-500/10 hover:text-violet-700 dark:hover:text-violet-300 hover:border-violet-500/35",
+  solo:   "bg-rose-500/5 text-rose-600/60 dark:text-rose-400/50 border-rose-500/20 hover:bg-rose-500/10 hover:text-rose-700 dark:hover:text-rose-300 hover:border-rose-500/35",
+  pc:     "bg-orange-500/5 text-orange-600/60 dark:text-orange-400/50 border-orange-500/20 hover:bg-orange-500/10 hover:text-orange-700 dark:hover:text-orange-300 hover:border-orange-500/35",
+  mobile: "bg-emerald-500/5 text-emerald-600/60 dark:text-emerald-400/50 border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-700 dark:hover:text-emerald-300 hover:border-emerald-500/35",
+  ps5:    "bg-blue-500/5 text-blue-600/60 dark:text-blue-400/50 border-blue-500/20 hover:bg-blue-500/10 hover:text-blue-700 dark:hover:text-blue-300 hover:border-blue-500/35",
 }
 
 const PLATFORM_LABEL: Record<string, string> = {
@@ -154,8 +169,9 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-2 items-center">
-        <div className="flex gap-1.5 flex-wrap">
+      <div className="flex flex-wrap gap-x-3 gap-y-2 items-center rounded-lg border border-border bg-muted/30 px-3 py-2.5">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mr-0.5">Severity</span>
           {(["all", "high", "normal", "low", "fixed"] as const).map((s) => (
             <button
               key={s}
@@ -165,8 +181,10 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
                 severityFilter === s
                   ? s === "all"
                     ? "bg-foreground text-background border-foreground"
-                    : cn(SEVERITY_STYLES[s], "opacity-100")
-                  : "text-muted-foreground border-border hover:border-foreground/40",
+                    : SEVERITY_STYLES[s]
+                  : s === "all"
+                    ? "bg-background text-muted-foreground border-border hover:text-foreground hover:border-foreground/40"
+                    : SEVERITY_STYLES_INACTIVE[s],
               )}
             >
               {s === "all" ? "All" : s}
@@ -177,7 +195,7 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
           <React.Fragment key={label}>
             <div className="w-px h-4 bg-border" />
             <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">{label}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mr-0.5">{label}</span>
               {platforms.map((p) => (
                 <button
                   key={p}
@@ -185,8 +203,8 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
                   className={cn(
                     "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
                     platformFilter.has(p as Platform)
-                      ? cn(PLATFORM_STYLES[p], "border-current/30")
-                      : "text-muted-foreground border-border hover:border-foreground/40",
+                      ? cn(PLATFORM_STYLES[p], "border-current/40")
+                      : PLATFORM_STYLES_INACTIVE[p],
                   )}
                 >
                   {PLATFORM_LABEL[p]}
