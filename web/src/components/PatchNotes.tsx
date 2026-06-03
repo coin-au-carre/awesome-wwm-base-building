@@ -164,33 +164,33 @@ function MediaThumb({ src, onClick }: { src: string; onClick: () => void }) {
   )
 }
 
-function PatchCard({ patch, onMedia }: { patch: Patch; onMedia: (src: string) => void }) {
+const COOLNESS_DOT: Record<string, string> = {
+  high:   "bg-amber-500",
+  normal: "bg-sky-500",
+}
+
+function PatchRow({ patch, onMedia }: { patch: Patch; onMedia: (src: string) => void }) {
   const platforms = [...MODE_PLATFORMS, ...DEVICE_PLATFORMS].filter((p) => patch[p])
 
   return (
-    <div className="flex flex-col gap-2 rounded-lg border border-border bg-card px-4 py-3">
-      <div className="flex items-start justify-between gap-2">
-        <p className="font-medium text-sm text-foreground leading-snug">{patch.title}</p>
-        {patch.coolness && (
-          <span className={cn(
-            "shrink-0 inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-medium whitespace-nowrap",
-            COOLNESS_STYLES[patch.coolness] ?? "bg-muted text-muted-foreground border-border",
-          )}>
-            {COOLNESS_LABEL[patch.coolness] ?? patch.coolness}
-          </span>
+    <div className="flex items-start gap-3 px-3 py-2.5 hover:bg-muted/30 transition-colors">
+      <div
+        title={COOLNESS_LABEL[patch.coolness] ?? ""}
+        className={cn("mt-1.75 shrink-0 size-2 rounded-full", COOLNESS_DOT[patch.coolness] ?? "bg-border/50")}
+      />
+
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-medium text-foreground leading-snug">{patch.title}</p>
+        {patch.description && (
+          <p className="text-xs text-muted-foreground leading-relaxed mt-0.5">{patch.description}</p>
+        )}
+        {patch.notes && (
+          <p className="text-xs text-amber-600 dark:text-amber-400 italic mt-0.5">{patch.notes}</p>
         )}
       </div>
 
-      {patch.description && (
-        <p className="text-xs text-muted-foreground leading-relaxed">{patch.description}</p>
-      )}
-
-      {patch.notes && (
-        <p className="text-xs text-amber-600 dark:text-amber-400 italic">{patch.notes}</p>
-      )}
-
-      <div className="flex items-end justify-between gap-2 mt-auto pt-1">
-        <div className="flex flex-wrap gap-1">
+      <div className="flex items-center gap-2 shrink-0 mt-0.5">
+        <div className="flex flex-wrap justify-end gap-1">
           {platforms.map((p) => (
             <span key={p} className={cn("inline-block rounded px-1.5 py-0.5 text-[10px] font-medium", PLATFORM_STYLES[p])}>
               {PLATFORM_LABEL[p]}
@@ -198,7 +198,7 @@ function PatchCard({ patch, onMedia }: { patch: Patch; onMedia: (src: string) =>
           ))}
         </div>
         {patch.media?.length > 0 && (
-          <div className="flex gap-1 shrink-0">
+          <div className="flex gap-1">
             {patch.media.map((src, i) => (
               <MediaThumb key={i} src={src} onClick={() => onMedia(src)} />
             ))}
@@ -334,10 +334,10 @@ export function PatchNotes({ patches }: { patches: Patch[] }) {
             <div className="flex-1 h-px bg-border" />
           </div>
 
-          {/* Cards grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {/* Patch list */}
+          <div className="rounded-lg border border-border overflow-hidden divide-y divide-border/60">
             {items.map((patch, i) => (
-              <PatchCard key={i} patch={patch} onMedia={setLightboxSrc} />
+              <PatchRow key={i} patch={patch} onMedia={setLightboxSrc} />
             ))}
           </div>
         </div>
