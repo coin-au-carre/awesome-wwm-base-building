@@ -22,12 +22,19 @@ const helpMessage = `**Ruby's commands**
 **Contribute**
 /scout-guild — scout a guild base and reference it for later
 /submit-guild — submit your guild base to showcase
-/submit-solo — submit your solo construction the showcase
+/submit-solo — submit your solo construction to the showcase
 
 **Personal**
 /my-votes — show the guild bases you have voted for (only you see the result)
 /warning-list — show the warning list (only you see the result)
-/commands — show this list (only you see the result)`
+/commands — show this list (only you see the result)
+
+**Staff**
+/sync-data — trigger data sync on guilds, solo, tutorials (elevated roles only)
+/sync-bugs — trigger bug list sync from the Super Sheet (elevated roles only)
+/sync-updates — trigger patch notes sync from the Super Sheet (elevated roles only)
+/sync-tags — sync forum channel tags to the canonical list (admins only)
+/welcome-test — preview the welcome message (admins only)`
 
 const (
 	warningListChannelID  = "1486701728551407796"
