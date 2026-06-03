@@ -162,7 +162,7 @@ func buildUpdatesContent(tips []Tip, withDetails bool) string {
 		if len(highTips) == 0 {
 			continue
 		}
-		fmt.Fprintf(&sb, "\n## %s\n", ver)
+		fmt.Fprintf(&sb, "## %s\n", ver)
 		shown := 0
 		for _, t := range highTips {
 			entry := tipEntry(t, withDetails)

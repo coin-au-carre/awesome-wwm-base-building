@@ -207,7 +207,7 @@
   },
   {
     "severity": "normal",
-    "title": "Some components cannot be placed a ground level",
+    "title": "Some components cannot be placed at ground level",
     "details": "Cannot be placed below ground",
     "guild": true,
     "solo": false,
