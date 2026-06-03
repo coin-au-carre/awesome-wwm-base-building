@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "roof"]
 authors: ["SiMing司命"]
 date: 2026-04-24
 order: 6
-image: "https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a1ffe46&format=webp&hm=caa5ea287e2cdb0bc0599b22aa6915db728bb3f870cf40c9f91465fefec9ae47&is=6a1eacc6&quality=lossless"
+image: "https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a20a706&format=webp&hm=35ad3ee92c59024b6f0f12f17344a9286cb040ebfe1142489a94ca0cb965efdf&is=6a1f5586&quality=lossless"
 featured: false
 ---
 
@@ -56,7 +56,7 @@ If using tie beams, you will need to snap those beams directly to the railing it
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=6a1ffdad&hm=f9ac49a199179e61f76b8469f00e8ba15586e652059e96d6c766d51560934de7&is=6a1eac2d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=6a20a66d&hm=8e895ba22f9d8be97f5685b72eb73a38eda1fffe9175dbfbb1228dac01153cfd&is=6a1f54ed&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 10**
 Select any large floor and manually place it at your desired height (either directly on top of the beam, or using the beam as a height guide to slide the floor piece in place.) This is a temporary surface that you will later delete.
@@ -73,7 +73,7 @@ If done correctly, you can create a circular roof that won't be quite as compone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a1ffe46&format=webp&hm=caa5ea287e2cdb0bc0599b22aa6915db728bb3f870cf40c9f91465fefec9ae47&is=6a1eacc6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a20a706&format=webp&hm=35ad3ee92c59024b6f0f12f17344a9286cb040ebfe1142489a94ca0cb965efdf&is=6a1f5586&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 (See arena in distance.)
 
