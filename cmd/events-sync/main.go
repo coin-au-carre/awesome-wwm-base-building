@@ -43,17 +43,36 @@ func main() {
 		return
 	}
 
+	dest := filepath.Join(*root, "data", "events.json")
+
+	// Check existing IDs before overwriting, so we can detect new events.
+	existingIDs := map[string]bool{}
+	if raw, err := os.ReadFile(dest); err == nil {
+		var existing []discord.Event
+		if json.Unmarshal(raw, &existing) == nil {
+			for _, e := range existing {
+				existingIDs[e.ID] = true
+			}
+		}
+	}
+
 	out, err := json.MarshalIndent(events, "", "  ")
 	if err != nil {
 		slog.Error("marshalling events", "err", err)
 		os.Exit(1)
 	}
 
-	dest := filepath.Join(*root, "data", "events.json")
-	if err := os.WriteFile(dest, out, 0o644); err != nil {
+	if err := os.WriteFile(dest, append(out, '\n'), 0o644); err != nil {
 		slog.Error("writing events.json", "err", err)
 		os.Exit(1)
 	}
 
 	slog.Info("wrote events.json", "path", dest)
+
+	for _, e := range events {
+		if !existingIDs[e.ID] {
+			cmdutil.UpdateNavVersion(*root, "events")
+			break
+		}
+	}
 }
