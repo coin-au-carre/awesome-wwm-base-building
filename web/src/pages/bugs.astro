@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import { BugsTable } from "@/components/BugsTable"
 import { BugReporter } from "@/components/BugReporter"
 import type { Bug } from "@/components/BugsTable"
-import { BugIcon, GameController, DiscordLogo, XLogo, EnvelopeSimple } from "@phosphor-icons/react"
+import { BugIcon, GameControllerIcon, DiscordLogoIcon, XLogoIcon, EnvelopeSimpleIcon } from "@phosphor-icons/react"
 import { readFileSync } from "fs"
 import { resolve } from "path"
 
@@ -62,14 +62,14 @@ const SHEET_URL =
       </div>
       <ul class="space-y-3 text-sm">
         <li class="flex items-start gap-3">
-          <GameController weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
+          <GameControllerIcon weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
           <div>
             <span class="font-medium">In-game</span>
             <span class="text-muted-foreground"> · Open Settings → Bug Report. Describe what happened and attach a screenshot if possible.</span>
           </div>
         </li>
         <li class="flex items-start gap-3">
-          <DiscordLogo weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
+          <DiscordLogoIcon weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
           <div>
             <span class="font-medium">Official Discord</span>
             <span class="text-muted-foreground"> · Post in </span>
@@ -84,7 +84,7 @@ const SHEET_URL =
           </div>
         </li>
         <li class="flex items-start gap-3">
-          <XLogo weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
+          <XLogoIcon weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
           <div>
             <span class="font-medium">X / Twitter</span>
             <span class="text-muted-foreground"> · DM </span>
@@ -99,7 +99,7 @@ const SHEET_URL =
           </div>
         </li>
         <li class="flex items-start gap-3">
-          <EnvelopeSimple weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
+          <EnvelopeSimpleIcon weight="duotone" className="size-4 mt-0.5 text-primary shrink-0" />
           <div>
             <span class="font-medium">Email</span>
             <span class="text-muted-foreground"> · Send to </span>
