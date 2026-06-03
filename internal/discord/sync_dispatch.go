@@ -21,28 +21,46 @@ const (
 	findRunLimit = 30 * time.Second
 )
 
+type syncState struct {
+	mu       sync.Mutex
+	lastTime time.Time
+}
+
 var (
-	syncMu       sync.Mutex
-	lastSyncTime time.Time
+	guildSync   syncState
+	bugsSync    syncState
+	updatesSync syncState
 )
 
 func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
+	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "sync.yml", "Guild data", &guildSync)
+}
+
+func handleSyncBugsCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
+	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "bugs-sync.yml", "Bug data", &bugsSync)
+}
+
+func handleSyncUpdatesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
+	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "patches-sync.yml", "Updates data", &updatesSync)
+}
+
+func handleSyncCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken, workflow, label string, state *syncState) {
 	if !memberHasAnyRole(i, allowedRoleIDs) {
 		respondEphemeral(s, i, "*(you need the Trusted Eye or Trusted Member role to trigger a sync.)*")
 		return
 	}
 
-	syncMu.Lock()
-	elapsed := time.Since(lastSyncTime)
+	state.mu.Lock()
+	elapsed := time.Since(state.lastTime)
 	if elapsed < syncCooldown {
 		remaining := syncCooldown - elapsed
-		syncMu.Unlock()
+		state.mu.Unlock()
 		respondEphemeral(s, i, fmt.Sprintf("*(a sync was just triggered — please wait %s before triggering another.)*", remaining.Round(time.Second)))
 		return
 	}
-	syncMu.Unlock()
+	state.mu.Unlock()
 
-	active, err := workflowIsActive(githubToken)
+	active, err := workflowIsActive(githubToken, workflow)
 	if err != nil {
 		slog.Warn("checking workflow status", "err", err)
 	}
@@ -52,36 +70,35 @@ func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 	}
 
 	triggerTime := time.Now()
-	if err := triggerGitHubWorkflow(githubToken); err != nil {
+	if err := triggerGitHubWorkflow(githubToken, workflow); err != nil {
 		slog.Error("triggering github workflow", "err", err)
 		respondEphemeral(s, i, "*(something went wrong triggering the sync. Ask Ahlyam.)*")
 		return
 	}
 
-	syncMu.Lock()
-	lastSyncTime = triggerTime
-	syncMu.Unlock()
+	state.mu.Lock()
+	state.lastTime = triggerTime
+	state.mu.Unlock()
 
 	name := memberDisplayName(i)
-	slog.Info("/sync-data triggered", "user", name)
+	slog.Info("sync triggered", "workflow", workflow, "user", name)
 	respondEphemeral(s, i, fmt.Sprintf("Sync triggered! Progress will appear in <#%s>.", notifyChannelID))
 
 	if notifyChannelID != "" {
-		msgID := bot.SendReturnID(notifyChannelID, fmt.Sprintf("🔄 Guild data sync manually triggered by **%s** — looking for run...", name))
+		header := fmt.Sprintf("🔄 %s sync manually triggered by **%s**", label, name)
+		msgID := bot.SendReturnID(notifyChannelID, header+" — looking for run...")
 		if msgID != "" {
-			go pollSyncProgress(bot, notifyChannelID, msgID, name, triggerTime, githubToken)
+			go pollSyncProgress(bot, notifyChannelID, msgID, header, triggerTime, githubToken, workflow)
 		}
 	}
 }
 
-func pollSyncProgress(bot *Bot, channelID, msgID, triggeredBy string, triggerTime time.Time, token string) {
-	header := fmt.Sprintf("🔄 Guild data sync manually triggered by **%s**", triggeredBy)
-
+func pollSyncProgress(bot *Bot, channelID, msgID, header string, triggerTime time.Time, token, workflow string) {
 	// Wait for the run to appear on GitHub.
 	var runID int64
 	deadline := time.Now().Add(findRunLimit)
 	for time.Now().Before(deadline) {
-		id, found, err := findWorkflowRun(token, triggerTime)
+		id, found, err := findWorkflowRun(token, triggerTime, workflow)
 		if err != nil {
 			slog.Warn("finding workflow run", "err", err)
 		}
@@ -127,8 +144,8 @@ func pollSyncProgress(bot *Bot, channelID, msgID, triggeredBy string, triggerTim
 				icon, label = "❌", "failed"
 			}
 			bot.EditMessage(channelID, msgID, fmt.Sprintf(
-				"%s Data sync manually triggered by **%s** — %s in %s\n%s 100%%",
-				icon, triggeredBy, label, elapsed, bar,
+				"%s %s — %s in %s\n%s 100%%",
+				icon, header[2:], label, elapsed, bar,
 			))
 			return
 		}
@@ -183,7 +200,7 @@ type runProgress struct {
 	conclusion  string
 }
 
-func findWorkflowRun(token string, after time.Time) (int64, bool, error) {
+func findWorkflowRun(token string, after time.Time, workflow string) (int64, bool, error) {
 	type run struct {
 		ID        int64  `json:"id"`
 		Status    string `json:"status"`
@@ -193,7 +210,7 @@ func findWorkflowRun(token string, after time.Time) (int64, bool, error) {
 		WorkflowRuns []run `json:"workflow_runs"`
 	}
 
-	url := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/runs?per_page=5&event=workflow_dispatch", githubRepo)
+	url := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/%s/runs?per_page=5&event=workflow_dispatch", githubRepo, workflow)
 	req, err := githubRequest(http.MethodGet, url, token, nil)
 	if err != nil {
 		return 0, false, err
@@ -298,13 +315,13 @@ func fetchRunProgress(token string, runID int64) (runProgress, error) {
 	return runProgress{pct: pct, currentStep: current}, nil
 }
 
-func workflowIsActive(token string) (bool, error) {
+func workflowIsActive(token, workflow string) (bool, error) {
 	type runsResponse struct {
 		TotalCount int `json:"total_count"`
 	}
 
 	for _, status := range []string{"in_progress", "queued", "requested"} {
-		url := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/runs?status=%s&per_page=1", githubRepo, status)
+		url := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/%s/runs?status=%s&per_page=1", githubRepo, workflow, status)
 		req, err := githubRequest(http.MethodGet, url, token, nil)
 		if err != nil {
 			return false, err
@@ -326,12 +343,11 @@ func workflowIsActive(token string) (bool, error) {
 	return false, nil
 }
 
-func triggerGitHubWorkflow(token string) error {
-	dispatchURL := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/sync.yml/dispatches", githubRepo)
+func triggerGitHubWorkflow(token, workflow string) error {
+	dispatchURL := fmt.Sprintf("https://api.github.com/repos/%s/actions/workflows/%s/dispatches", githubRepo, workflow)
 
 	payload, _ := json.Marshal(map[string]any{
-		"ref":    "main",
-		"inputs": map[string]string{"discord_trigger": "true"},
+		"ref": "main",
 	})
 	req, err := githubRequest(http.MethodPost, dispatchURL, token, payload)
 	if err != nil {

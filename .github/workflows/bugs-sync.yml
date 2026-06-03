@@ -1,0 +1,46 @@
+name: Sync Bugs
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: sync-bugs
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - uses: arduino/setup-task@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run bugs sync
+        env:
+          RUBY_BOT_TOKEN: ${{ secrets.RUBY_BOT_TOKEN }}
+          BUGS_CHANNEL_ID: ${{ secrets.BUGS_CHANNEL_ID }}
+          BUGS_MESSAGE_ID: ${{ secrets.BUGS_MESSAGE_ID }}
+        run: task sync:bugs
+
+      - name: Commit and push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git stash
+          git pull --rebase
+          git stash pop
+          git add data/bugs.json
+          git commit -m "bot: sync bugs $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "Nothing to commit"
+          git push
