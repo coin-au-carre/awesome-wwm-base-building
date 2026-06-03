@@ -32,8 +32,13 @@ export interface Patch {
 }
 
 const COOLNESS_STYLES: Record<string, string> = {
-  high:   "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-  normal: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20",
+  high:   "bg-purple-500/15 text-purple-700 dark:text-purple-300 border-purple-500/30",
+  normal: "bg-teal-500/15 text-teal-700 dark:text-teal-300 border-teal-500/30",
+}
+
+const COOLNESS_STYLES_INACTIVE: Record<string, string> = {
+  high:   "bg-purple-500/5 text-purple-600/60 dark:text-purple-400/50 border-purple-500/15 hover:bg-purple-500/10 hover:text-purple-700 dark:hover:text-purple-300 hover:border-purple-500/30",
+  normal: "bg-teal-500/5 text-teal-600/60 dark:text-teal-400/50 border-teal-500/15 hover:bg-teal-500/10 hover:text-teal-700 dark:hover:text-teal-300 hover:border-teal-500/30",
 }
 
 const COOLNESS_LABEL: Record<string, string> = {
@@ -42,11 +47,19 @@ const COOLNESS_LABEL: Record<string, string> = {
 }
 
 const PLATFORM_STYLES: Record<string, string> = {
-  guild:  "bg-violet-500/10 text-violet-700 dark:text-violet-300",
-  solo:   "bg-sky-500/10 text-sky-700 dark:text-sky-300",
+  guild:  "bg-violet-500/15 text-violet-700 dark:text-violet-300",
+  solo:   "bg-rose-500/15 text-rose-700 dark:text-rose-300",
   pc:     "bg-orange-500/15 text-orange-700 dark:text-orange-300",
-  mobile: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
-  ps5:    "bg-blue-500/10 text-blue-700 dark:text-blue-300",
+  mobile: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
+  ps5:    "bg-blue-500/15 text-blue-700 dark:text-blue-300",
+}
+
+const PLATFORM_STYLES_INACTIVE: Record<string, string> = {
+  guild:  "bg-violet-500/5 text-violet-600/60 dark:text-violet-400/50 border-violet-500/20 hover:bg-violet-500/10 hover:text-violet-700 dark:hover:text-violet-300 hover:border-violet-500/35",
+  solo:   "bg-rose-500/5 text-rose-600/60 dark:text-rose-400/50 border-rose-500/20 hover:bg-rose-500/10 hover:text-rose-700 dark:hover:text-rose-300 hover:border-rose-500/35",
+  pc:     "bg-orange-500/5 text-orange-600/60 dark:text-orange-400/50 border-orange-500/20 hover:bg-orange-500/10 hover:text-orange-700 dark:hover:text-orange-300 hover:border-orange-500/35",
+  mobile: "bg-emerald-500/5 text-emerald-600/60 dark:text-emerald-400/50 border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-700 dark:hover:text-emerald-300 hover:border-emerald-500/35",
+  ps5:    "bg-blue-500/5 text-blue-600/60 dark:text-blue-400/50 border-blue-500/20 hover:bg-blue-500/10 hover:text-blue-700 dark:hover:text-blue-300 hover:border-blue-500/35",
 }
 
 const PLATFORM_LABEL: Record<string, string> = {
@@ -165,8 +178,8 @@ function MediaThumb({ src, onClick }: { src: string; onClick: () => void }) {
 }
 
 const COOLNESS_DOT: Record<string, string> = {
-  high:   "bg-amber-500",
-  normal: "bg-sky-500",
+  high:   "bg-purple-500",
+  normal: "bg-teal-500",
 }
 
 function PatchRow({ patch, onMedia }: { patch: Patch; onMedia: (src: string) => void }) {
@@ -257,8 +270,9 @@ export function PatchNotes({ patches }: { patches: Patch[] }) {
   return (
     <div className="space-y-6">
       {/* Filter bar */}
-      <div className="flex flex-wrap gap-2 items-center">
-        <div className="flex gap-1.5 flex-wrap">
+      <div className="flex flex-wrap gap-x-3 gap-y-2 items-center rounded-lg border border-border bg-muted/30 px-3 py-2.5">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mr-0.5">Importance</span>
           {(["all", "high", "normal"] as const).map((c) => (
             <button
               key={c}
@@ -268,8 +282,10 @@ export function PatchNotes({ patches }: { patches: Patch[] }) {
                 coolnessFilter === c
                   ? c === "all"
                     ? "bg-foreground text-background border-foreground"
-                    : cn(COOLNESS_STYLES[c], "opacity-100")
-                  : "text-muted-foreground border-border hover:border-foreground/40",
+                    : COOLNESS_STYLES[c]
+                  : c === "all"
+                    ? "bg-background text-muted-foreground border-border hover:text-foreground hover:border-foreground/40"
+                    : COOLNESS_STYLES_INACTIVE[c],
               )}
             >
               {c === "all" ? "All" : COOLNESS_LABEL[c]}
@@ -280,7 +296,7 @@ export function PatchNotes({ patches }: { patches: Patch[] }) {
           <React.Fragment key={label}>
             <div className="w-px h-4 bg-border" />
             <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/50">{label}</span>
+              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mr-0.5">{label}</span>
               {platforms.map((p) => (
                 <button
                   key={p}
@@ -288,8 +304,8 @@ export function PatchNotes({ patches }: { patches: Patch[] }) {
                   className={cn(
                     "rounded-full border px-3 py-1 text-xs font-medium transition-colors",
                     platformFilter.has(p as Platform)
-                      ? cn(PLATFORM_STYLES[p], "border-current/30")
-                      : "text-muted-foreground border-border hover:border-foreground/40",
+                      ? cn(PLATFORM_STYLES[p], "border-current/40")
+                      : PLATFORM_STYLES_INACTIVE[p],
                   )}
                 >
                   {PLATFORM_LABEL[p]}
