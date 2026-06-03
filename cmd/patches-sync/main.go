@@ -12,9 +12,12 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	"time"
 
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
+
+	"github.com/bwmarrin/discordgo"
 )
 
 var reDiscordMsgLink = regexp.MustCompile(`discord\.com/channels/\d+/(\d+)/(\d+)`)
@@ -38,9 +41,18 @@ type Tip struct {
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
 	dryRun := flag.Bool("dry-run", false, "fetch and parse but skip writing JSON")
+	updatesChannelID := flag.String("updates-channel-id", os.Getenv("UPDATES_CHANNEL_ID"), "Discord channel ID for the updates digest message")
+	updatesMessageID := flag.String("updates-message-id", os.Getenv("UPDATES_MESSAGE_ID"), "Discord message ID to edit (empty = create new)")
 	flag.Parse()
 
 	cmdutil.LoadEnv(*root)
+	// Re-read env after LoadEnv in case vars were in .env
+	if *updatesChannelID == "" {
+		*updatesChannelID = os.Getenv("UPDATES_CHANNEL_ID")
+	}
+	if *updatesMessageID == "" {
+		*updatesMessageID = os.Getenv("UPDATES_MESSAGE_ID")
+	}
 	token := "Bot " + cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
 	tips, err := fetchTips()
@@ -70,6 +82,153 @@ func main() {
 		os.Exit(1)
 	}
 	slog.Info("wrote patches.json", "path", dest, "count", len(tips))
+
+	if *updatesChannelID != "" {
+		postUpdatesDigest(token, *updatesChannelID, *updatesMessageID, tips)
+	}
+}
+
+func postUpdatesDigest(token, channelID, messageID string, tips []Tip) {
+	s, err := discordgo.New(token)
+	if err != nil {
+		slog.Error("creating Discord session for updates digest", "err", err)
+		return
+	}
+
+	content := buildUpdatesContent(tips, true)
+	if len(content) > 2000 {
+		content = buildUpdatesContent(tips, false)
+	}
+
+	if messageID == "" {
+		msg, err := s.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
+			Content: content,
+			Flags:   discordgo.MessageFlagsSuppressEmbeds,
+		})
+		if err != nil {
+			slog.Error("posting updates digest", "err", err)
+			return
+		}
+		slog.Info("posted updates digest — add this to UPDATES_MESSAGE_ID env var", "messageID", msg.ID)
+		return
+	}
+
+	_, err = s.ChannelMessageEdit(channelID, messageID, content)
+	if err != nil {
+		slog.Error("editing updates digest", "err", err)
+		return
+	}
+	slog.Info("updated updates digest", "messageID", messageID)
+}
+
+// buildUpdatesContent builds the full-width plain-text message grouped by version.
+// withDetails controls whether per-tip description/notes subtext lines are included.
+func buildUpdatesContent(tips []Tip, withDetails bool) string {
+	const (
+		spreadsheetURL = "https://docs.google.com/spreadsheets/d/1JuRIdk45EEIVU3kxcpqNuGKZ_0LIKUskiC5q6Tqwi_E/edit?usp=sharing"
+		websiteURL     = "https://www.wherebuildersmeet.com/updates/"
+		maxMsg         = 1950
+	)
+
+	// Collect versions in order of first appearance.
+	seen := make(map[string]bool)
+	var versions []string
+	grouped := make(map[string][]Tip)
+	for _, t := range tips {
+		if !seen[t.Version] {
+			seen[t.Version] = true
+			versions = append(versions, t.Version)
+		}
+		grouped[t.Version] = append(grouped[t.Version], t)
+	}
+
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "# 📰 Construction WWM Updates\n")
+	fmt.Fprintf(&sb, "More on %s\n", websiteURL)
+	fmt.Fprintf(&sb, "[Spreadsheet available here](%s) — help us keep it up to date!\n", spreadsheetURL)
+
+	for _, ver := range versions {
+		verTips := grouped[ver]
+		highTips := make([]Tip, 0, len(verTips))
+		for _, t := range verTips {
+			if t.Coolness == "high" {
+				highTips = append(highTips, t)
+			}
+		}
+		if len(highTips) == 0 {
+			continue
+		}
+		fmt.Fprintf(&sb, "\n## %s\n", ver)
+		shown := 0
+		for _, t := range highTips {
+			entry := tipEntry(t, withDetails)
+			if sb.Len()+len(entry) > maxMsg {
+				break
+			}
+			sb.WriteString(entry)
+			shown++
+		}
+	}
+
+	fmt.Fprintf(&sb, "\n-# Updated <t:%d:R>", time.Now().Unix())
+	return sb.String()
+}
+
+func tipEntry(t Tip, withDetails bool) string {
+	coolnessEmoji := map[string]string{
+		"high":   "⭐",
+		"normal": "🔹",
+		"low":    "🔸",
+	}
+	emoji := coolnessEmoji[t.Coolness]
+	if emoji == "" {
+		emoji = "•"
+	}
+
+	line := fmt.Sprintf("%s **%s**%s\n", emoji, t.Title, tipPlatformTags(t))
+
+	if withDetails {
+		var extra string
+		switch {
+		case t.Description != "" && t.Notes != "":
+			extra = truncateStr(t.Description, 90) + " — " + truncateStr(t.Notes, 70)
+		case t.Description != "":
+			extra = truncateStr(t.Description, 140)
+		case t.Notes != "":
+			extra = truncateStr(t.Notes, 140)
+		}
+		if extra != "" {
+			line += fmt.Sprintf("-# %s\n", extra)
+		}
+	}
+	return line
+}
+
+func tipPlatformTags(t Tip) string {
+	if t.PC && t.Mobile && t.PS5 {
+		return ""
+	}
+	var parts []string
+	if t.PC {
+		parts = append(parts, "PC")
+	}
+	if t.Mobile {
+		parts = append(parts, "Mobile")
+	}
+	if t.PS5 {
+		parts = append(parts, "PS5")
+	}
+	if len(parts) == 0 {
+		return ""
+	}
+	return " · " + strings.Join(parts, " · ")
+}
+
+func truncateStr(s string, max int) string {
+	if len(s) <= max {
+		return s
+	}
+	return s[:max-1] + "…"
 }
 
 func fetchTips() ([]Tip, error) {
