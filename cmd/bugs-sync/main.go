@@ -151,8 +151,8 @@ func buildBugsContent(bugs []Bug, withDetails bool) string {
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "# 🐛 Bug Tracker — %d active %s\n", len(bugs), bugWord)
 	fmt.Fprintf(&sb, "More details on %s. Know how to report bugs on WWM [here](%s)\n", websiteURL, websiteURL+"#how-to-report")
-	fmt.Fprintf(&sb, "You can help us add bugs in <#1483483683456286911>\n")
-	fmt.Fprintf(&sb, "[Data comes from Super Sheet](%s) — if you wanna help and contribute, let us know!\n", spreadsheetURL)
+	fmt.Fprintf(&sb, "Discuss bugs and report in <#1483483683456286911>\n")
+	fmt.Fprintf(&sb, "[Data comes from Super Sheet](%s): if you wanna help and contribute, let us know!\n", spreadsheetURL)
 
 	for _, sev := range order {
 		sevBugs := grouped[sev]

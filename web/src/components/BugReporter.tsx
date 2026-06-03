@@ -12,13 +12,30 @@ const SEVERITY_STYLES: Record<string, string> = {
   low:    "bg-muted text-muted-foreground",
 }
 
+const PLATFORM_STYLES: Record<string, string> = {
+  pc:     "bg-orange-500/15 text-orange-700 dark:text-orange-300",
+  mobile: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+  ps5:    "bg-blue-500/10 text-blue-700 dark:text-blue-300",
+}
+
+const PLATFORM_LABEL: Record<string, string> = { pc: "PC", mobile: "Mobile", ps5: "PS5" }
+
 function isMobileOnly(bug: Bug) {
   return bug.mobile && !bug.pc && !bug.ps5
 }
 
+function matchesPlatform(bug: Bug, platform: string): boolean {
+  if (!platform || platform === "All platforms") { return true }
+  if (platform === "PC") { return bug.pc }
+  if (platform === "Mobile") { return bug.mobile }
+  if (platform === "PS5") { return bug.ps5 }
+  if (platform === "PC + Mobile") { return bug.pc || bug.mobile }
+  return true
+}
+
 function buildTemplate(bugs: Bug[], selected: Set<number>, uid: string, platform: string): string {
   const chosen = bugs.filter((_, i) => selected.has(i))
-  if (chosen.length === 0) return ""
+  if (chosen.length === 0) {return ""}
 
   const high = chosen.filter((b) => b.severity === "high")
   const others = chosen.filter((b) => b.severity !== "high")
@@ -32,7 +49,7 @@ function buildTemplate(bugs: Bug[], selected: Set<number>, uid: string, platform
   ]
 
   const addSection = (title: string, bugs: Bug[]) => {
-    if (bugs.length === 0) return
+    if (bugs.length === 0) {return} 
     lines.push(`## ${title}`, "")
     for (const b of bugs) {
       const detail = b.details ? ` ${b.details}` : ""
@@ -52,7 +69,9 @@ function buildTemplate(bugs: Bug[], selected: Set<number>, uid: string, platform
 export function BugReporter({ bugs }: { bugs: Bug[] }) {
   const reportable = useMemo(() => bugs.filter((b) => b.severity !== "fixed" && b.title), [bugs])
 
-  const [selected, setSelected] = useState<Set<number>>(() => new Set(reportable.map((_, i) => i)))
+  const [selected, setSelected] = useState<Set<number>>(
+    () => new Set(reportable.flatMap((b, i) => b.severity === "high" ? [i] : []))
+  )
   const [uid, setUid] = useState("")
   const [platform, setPlatform] = useState("")
   const [copied, setCopied] = useState(false)
@@ -61,8 +80,8 @@ export function BugReporter({ bugs }: { bugs: Bug[] }) {
   function toggleBug(i: number) {
     setSelected((prev) => {
       const next = new Set(prev)
-      if (next.has(i)) next.delete(i)
-      else next.add(i)
+      if (next.has(i)) { next.delete(i) }
+      else { next.add(i) }
       return next
     })
   }
@@ -71,6 +90,15 @@ export function BugReporter({ bugs }: { bugs: Bug[] }) {
     setSelected((prev) =>
       prev.size === reportable.length ? new Set() : new Set(reportable.map((_, i) => i))
     )
+  }
+
+  function handlePlatformChange(p: string) {
+    setPlatform(p)
+    if (p) {
+      setSelected(new Set(
+        reportable.flatMap((b, i) => b.severity === "high" && matchesPlatform(b, p) ? [i] : [])
+      ))
+    }
   }
 
   const template = useMemo(
@@ -134,10 +162,15 @@ export function BugReporter({ bugs }: { bugs: Bug[] }) {
                   <div className="min-w-0">
                     <span className="text-sm text-foreground leading-snug">{bug.title}</span>
                     {bug.severity && (
-                      <span className={cn("ml-2 inline-block rounded px-1.5 py-0.5 text-[10px] font-medium capitalize", SEVERITY_STYLES[bug.severity])}>
-                        {bug.severity}
+                      <span className={cn("ml-2 inline-block rounded px-1.5 py-0.5 text-[10px] font-medium", SEVERITY_STYLES[bug.severity])}>
+                        {bug.severity === "high" ? "Critical" : bug.severity}
                       </span>
                     )}
+                    {(["pc", "mobile", "ps5"] as const).filter((p) => bug[p]).map((p) => (
+                      <span key={p} className={cn("ml-1 inline-block rounded px-1.5 py-0.5 text-[10px] font-medium", PLATFORM_STYLES[p])}>
+                        {PLATFORM_LABEL[p]}
+                      </span>
+                    ))}
                     {bug.details && <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{bug.details}</p>}
                   </div>
                 </label>
@@ -161,7 +194,7 @@ export function BugReporter({ bugs }: { bugs: Bug[] }) {
               <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Your Platform</label>
               <select
                 value={platform}
-                onChange={(e) => setPlatform(e.target.value)}
+                onChange={(e) => handlePlatformChange(e.target.value)}
                 className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               >
                 <option value="">Select platform…</option>
