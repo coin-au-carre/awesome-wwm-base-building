@@ -152,7 +152,7 @@ func buildBugsContent(bugs []Bug, withDetails bool) string {
 	fmt.Fprintf(&sb, "# 🐛 Bug Tracker — %d active %s\n", len(bugs), bugWord)
 	fmt.Fprintf(&sb, "More details on %s\n\n", websiteURL)
 	fmt.Fprintf(&sb, "You can report bugs in <#1483483683456286911>\n")
-	fmt.Fprintf(&sb, "[All come from Spreadsheet](%s) — if you wanna help and contribute, let us know!\n", spreadsheetURL)
+	fmt.Fprintf(&sb, "[Data comes from Super Sheet](%s) — if you wanna help and contribute, let us know!\n", spreadsheetURL)
 
 	for _, sev := range order {
 		sevBugs := grouped[sev]
@@ -179,25 +179,25 @@ func buildBugsContent(bugs []Bug, withDetails bool) string {
 }
 
 func bugEntry(b Bug, withDetails bool) string {
-	version := b.Version
-	if version == "" {
-		version = "?"
+	var versionStr string
+	if v := b.Version; v != "" && v != "v1.7" {
+		versionStr = fmt.Sprintf(" (%s)", v)
 	}
 	var platforms string
 	if p := bugPlatformTags(b); p != "" {
 		platforms = p
 	}
-	line := fmt.Sprintf("• **%s** (%s)%s\n", b.Title, version, platforms)
+	line := fmt.Sprintf("• **%s**%s%s\n", b.Title, versionStr, platforms)
 
 	if withDetails {
 		var extra string
 		switch {
-		case b.Details != "" && b.Notes != "":
-			extra = truncateStr(b.Details, 90) + " — " + truncateStr(b.Notes, 70)
+		case b.Details != "":
+			extra = truncateStr(b.Details, 90)
 		case b.Details != "":
 			extra = truncateStr(b.Details, 140)
-		case b.Notes != "":
-			extra = truncateStr(b.Notes, 140)
+			// case b.Notes != "":
+			// 	extra = truncateStr(b.Notes, 140)
 		}
 		if extra != "" {
 			line += fmt.Sprintf("-# %s\n", extra)

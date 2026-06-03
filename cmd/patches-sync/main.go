@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 
@@ -145,9 +146,12 @@ func buildUpdatesContent(tips []Tip, withDetails bool) string {
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "# 📰 Construction WWM Updates\n")
 	fmt.Fprintf(&sb, "More on %s\n", websiteURL)
-	fmt.Fprintf(&sb, "[Spreadsheet available here](%s) — help us keep it up to date!\n", spreadsheetURL)
+	fmt.Fprintf(&sb, "[Data comes from Super Sheet](%s) — help us keep it up to date!\n", spreadsheetURL)
 
 	for _, ver := range versions {
+		if versionBefore(ver, 1, 7) {
+			continue
+		}
 		verTips := grouped[ver]
 		highTips := make([]Tip, 0, len(verTips))
 		for _, t := range verTips {
@@ -222,6 +226,21 @@ func tipPlatformTags(t Tip) string {
 		return ""
 	}
 	return " · " + strings.Join(parts, " · ")
+}
+
+// versionBefore reports whether ver (e.g. "v1.6", "1.6") is before major.minor.
+func versionBefore(ver string, major, minor int) bool {
+	s := strings.TrimPrefix(ver, "v")
+	parts := strings.SplitN(s, ".", 2)
+	if len(parts) != 2 {
+		return false
+	}
+	maj, err1 := strconv.Atoi(parts[0])
+	min, err2 := strconv.Atoi(parts[1])
+	if err1 != nil || err2 != nil {
+		return false
+	}
+	return maj < major || (maj == major && min < minor)
 }
 
 func truncateStr(s string, max int) string {

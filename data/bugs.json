@@ -204,5 +204,22 @@
     "version": "v1.7",
     "date": "02/06/2026",
     "notes": "PC has this feature so should other platforms"
+  },
+  {
+    "severity": "normal",
+    "title": "Some components cannot be placed a ground level",
+    "details": "Cannot be placed below ground",
+    "guild": true,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a20f010\u0026hm=85b90a87f28d6a02364732471ebeba4319f0df42e95bb017127cbdb3df1005e1\u0026is=6a1f9e90\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511584787406786580/SVID_20260603_111625_1.mp4?ex=6a20fc89\u0026hm=2b87812541611280f580f60bc63374ec1dd49f9ba0e46ab14c536d7742efe3b8\u0026is=6a1fab09\u0026"
+    ],
+    "version": "v1.7",
+    "date": "03/06/2026",
+    "notes": "For some users every component can be concerned. For others only few (e.g. lamps)"
   }
 ]
