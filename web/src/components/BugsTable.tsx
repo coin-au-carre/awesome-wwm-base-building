@@ -137,11 +137,19 @@ type Platform = (typeof PLATFORMS)[number]
 
 type SeverityFilter = "all" | "high" | "normal" | "low" | "fixed"
 type SortDir = "asc" | "desc"
+type SortKey = "severity" | "date"
+
+function parseBugDate(s: string): number {
+  if (!s) return 0
+  const d = new Date(s)
+  return isNaN(d.getTime()) ? 0 : d.getTime()
+}
 
 export function BugsTable({ bugs }: { bugs: Bug[] }) {
   const [severityFilter, setSeverityFilter] = useState<SeverityFilter>("all")
   const [platformFilter, setPlatformFilter] = useState<Set<Platform>>(new Set())
-  const [severitySort, setSeveritySort] = useState<SortDir>("asc")
+  const [sortKey, setSortKey] = useState<SortKey>("date")
+  const [sortDir, setSortDir] = useState<SortDir>("desc")
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
 
   function togglePlatform(p: Platform) {
@@ -153,6 +161,15 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
     })
   }
 
+  function handleSort(key: SortKey) {
+    if (sortKey === key) {
+      setSortDir((d) => d === "asc" ? "desc" : "asc")
+    } else {
+      setSortKey(key)
+      setSortDir(key === "date" ? "desc" : "asc")
+    }
+  }
+
   const filtered = useMemo(() => {
     const result = bugs.filter((bug) => {
       if (!bug.title) return false
@@ -161,11 +178,16 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
       return true
     })
     result.sort((a, b) => {
-      const diff = (SEVERITY_ORDER[a.severity] ?? 99) - (SEVERITY_ORDER[b.severity] ?? 99)
-      return severitySort === "asc" ? diff : -diff
+      let diff = 0
+      if (sortKey === "date") {
+        diff = parseBugDate(a.date) - parseBugDate(b.date)
+      } else {
+        diff = (SEVERITY_ORDER[a.severity] ?? 99) - (SEVERITY_ORDER[b.severity] ?? 99)
+      }
+      return sortDir === "asc" ? diff : -diff
     })
     return result
-  }, [bugs, severityFilter, platformFilter, severitySort])
+  }, [bugs, severityFilter, platformFilter, sortKey, sortDir])
 
   return (
     <div className="space-y-4">
@@ -224,12 +246,12 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
             <TableRow>
               <TableHead className="w-20">
                 <button
-                  onClick={() => setSeveritySort((d) => d === "asc" ? "desc" : "asc")}
+                  onClick={() => handleSort("severity")}
                   className="flex items-center gap-1 hover:text-foreground transition-colors"
                 >
                   Severity
                   <span className="text-muted-foreground/60 text-[10px] leading-none">
-                    {severitySort === "asc" ? "▲" : "▼"}
+                    {sortKey === "severity" ? (sortDir === "asc" ? "▲" : "▼") : ""}
                   </span>
                 </button>
               </TableHead>
@@ -237,7 +259,17 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
               <TableHead className="w-20">Mode</TableHead>
               <TableHead className="w-28">Platform</TableHead>
               <TableHead className="w-14">Version</TableHead>
-              <TableHead className="w-20">Date</TableHead>
+              <TableHead className="w-20">
+                <button
+                  onClick={() => handleSort("date")}
+                  className="flex items-center gap-1 hover:text-foreground transition-colors"
+                >
+                  Date
+                  <span className="text-muted-foreground/60 text-[10px] leading-none">
+                    {sortKey === "date" ? (sortDir === "asc" ? "▲" : "▼") : ""}
+                  </span>
+                </button>
+              </TableHead>
               <TableHead className="w-36">Media</TableHead>
             </TableRow>
           </TableHeader>
