@@ -27,7 +27,7 @@ body {
 .bg {
   position: absolute;
   inset: 0;
-  background-image: url('../../../web/public/events/beyond-the-wall/houses_on_hill.jpg');
+  background-image: url('../../../private/beyond the wall/june26/greenzen.png');
   background-size: cover;
   background-position: center 30%;
   filter: brightness(0.2) saturate(0.5);
@@ -37,7 +37,7 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(9,9,11,1) 0%, rgba(9,9,11,0.97) 45%, rgba(9,9,11,0.85) 62%, rgba(9,9,11,0.4) 80%, rgba(9,9,11,0.05) 100%),
+    linear-gradient(to right, rgba(9,9,11,1) 0%, rgba(9,9,11,0.97) 45%, rgba(9,9,11,0.92) 60%, rgba(9,9,11,0.7) 72%, rgba(9,9,11,0.2) 88%, rgba(9,9,11,0.05) 100%),
     linear-gradient(to top,   rgba(9,9,11,1)    0%, transparent 32%);
 }
 
@@ -57,6 +57,8 @@ body {
   object-fit: contain;
   object-position: bottom center;
   filter: drop-shadow(-16px 0 50px rgba(0,0,0,0.95));
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+  mask-image: linear-gradient(to right, transparent 0%, black 30%);
   z-index: 2;
 }
 
@@ -67,7 +69,7 @@ body {
   right: 0;
   bottom: 158px;
   height: 120px;
-  background: linear-gradient(to top, rgba(9,9,11,1) 40%, transparent 100%);
+  background: linear-gradient(to top, rgba(9,9,11,0.9) 0%, transparent 100%);
   z-index: 5;
 }
 
@@ -87,8 +89,8 @@ body {
 /* ── Main content ── */
 .content {
   position: absolute;
-  left: 62px;
-  top: 50px;
+  left: 36px;
+  top: 24px;
   width: 470px;
   z-index: 10;
 }
@@ -227,11 +229,12 @@ body {
 
 .qr-url {
   font-family: 'Cinzel', serif;
-  font-size: 10px;
-  letter-spacing: 1.5px;
+  font-size: 8.5px;
+  letter-spacing: 0.5px;
   color: rgba(255,255,255,0.4);
   text-align: center;
-  max-width: 130px;
+  max-width: 116px;
+  word-break: break-all;
 }
 
 /* ── Site watermark ── */
@@ -303,11 +306,6 @@ body {
   <div class="bg-gradient"></div>
   <div class="bg-glow"></div>
 
-  <div class="corner c-tl"></div>
-  <div class="corner c-tr"></div>
-  <div class="corner c-bl"></div>
-  <div class="corner c-br"></div>
-
   <!-- QR code top-right, above Carni's head -->
   <div class="qr-block">
     <div class="qr-label">Join the community</div>
@@ -317,11 +315,11 @@ body {
     <div class="qr-url">wherebuildersmeet.com/discord</div>
   </div>
 
-  <img class="carni" src="../../../web/public/events/beyond-the-wall/carni.jpg" alt="Carni">
+  <img class="carni" src="../../../private/beyond the wall/june26/greenzen.png" alt="Greenzen">
   <div class="carni-fade"></div>
 
   <div class="content">
-    <div class="event-tag">✦ WWM Event by Where Builders Meet ✦</div>
+    <div class="event-tag">✦ WhereBuildersMeet.com event✦</div>
     <div class="title">Beyond<br>the Wall</div>
     <div class="subtitle">with Carni</div>
 <div class="divider"></div>
@@ -330,21 +328,19 @@ body {
     </div>
 
     <div class="pills">
-      <div class="pill"><span class="icon">📅</span> Tuesday, May 19, 2026 · 15:00 UTC</div>
-      <div class="pill pill-voice"><span class="icon">🎙️</span> #General Voice</div>
+      <div class="pill"><span class="icon">📅</span> To be determined. Please vote!</div>
+      <div class="pill pill-voice"><span class="icon">🎙️</span> General Voice</div>
       <div class="pill"><span class="icon">👥</span> Open to everyone</div>
       <div class="pill pill-discord"><span class="icon">🔗</span> wherebuildersmeet.com/discord</div>
     </div>
   </div>
 
-  <div class="site-tag">wherebuildersmeet.com</div>
-
   <div class="thumb-line"></div>
   <div class="thumbnails">
-    <div class="thumb"><img src="../../../web/public/events/beyond-the-wall/dream_house.jpg" alt=""></div>
-    <div class="thumb"><img src="../../../web/public/events/beyond-the-wall/coffee.jpg" alt=""></div>
-    <div class="thumb"><img src="../../../web/public/events/beyond-the-wall/flower_house.jpg" alt=""></div>
-    <div class="thumb"><img src="../../../web/public/events/beyond-the-wall/cube_tree.jpg" alt=""></div>
+    <div class="thumb"><img src="../../../private/beyond the wall/june26/luminoushall.png" alt=""></div>
+    <div class="thumb"><img src="../../../private/beyond the wall/june26/palace.png" alt=""></div>
+    <div class="thumb"><img src="../../../private/beyond the wall/june26/waterbuilding.png" alt=""></div>
+    <div class="thumb"><img src="../../../private/beyond the wall/june26/wonderland.png" alt=""></div>
   </div>
 
 </div>
