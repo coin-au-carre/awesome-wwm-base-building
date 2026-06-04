@@ -14,7 +14,7 @@
     ],
     "version": "v1.7",
     "date": "28/05/2026",
-    "notes": "CN server receives also this update which is problematic. Many builders use those components in their work. It's critical because days of efforts are lost because of this."
+    "notes": "CN server also received this update which is problematic. Many builders use those components in their work. It's critical because days of efforts are lost because of this."
   },
   {
     "severity": "high",
@@ -133,7 +133,7 @@
   },
   {
     "severity": "normal",
-    "title": "Cannot rotate component on 2nd axe on mobile",
+    "title": "Cannot rotate component on 2nd axis on mobile",
     "details": "We can rotate now on PC but not on another platform",
     "guild": true,
     "solo": true,
@@ -161,7 +161,7 @@
   },
   {
     "severity": "low",
-    "title": "Cannot rotate diagram on 2nd axe",
+    "title": "Cannot rotate diagram on 2nd axis",
     "details": "You can rotate on first axis but not second one",
     "guild": true,
     "solo": true,
@@ -271,5 +271,37 @@
     "version": "v1.7",
     "date": "04/06/2026",
     "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+  },
+  {
+    "severity": "high",
+    "title": "Items cannot auto-snap",
+    "details": "Even when selecting auto-snap, items will not snap",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1512145505633829016/Screen_Recording_20260604_191503_Where_Winds_Meet.mp4?ex=6a2306be\u0026hm=fa6a78cd1a483c6366025b3c68aa2eff314b1e42d9c4476843bf97a343b0bc85\u0026is=6a21b53e\u0026"
+    ],
+    "version": "v1.7",
+    "date": "04/06/2026",
+    "notes": "Recent bug as of 4/6/2026. This was not an known issue prior to this date."
+  },
+  {
+    "severity": "high",
+    "title": "Cannot batch place or batch delete components",
+    "details": "When attempting to place or delete multiple components by clicking and dragging, the feature does not work",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1512145506665762906/Screen_Recording_20260604_192237_Where_Winds_Meet.mp4?ex=6a2306bf\u0026hm=cb9ea23b0ab21162b5f8da3d27c4b0981c99e81d27f3cb0f40b8c44f0ba71fa8\u0026is=6a21b53f\u0026"
+    ],
+    "version": "v1.7",
+    "date": "04/06/2026",
+    "notes": "Recent bug as of 4/6/2026. This was not an known issue prior to this date."
   }
 ]
