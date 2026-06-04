@@ -7,11 +7,10 @@ import { getGuildsSortedByScore, getAllTags, getLastSyncDate, getLatestGuildsWit
 import { stripGuildShowcase, thumbUrl, builderSlug } from "@/lib/format"
 import { formatSyncDate } from "@/lib/dates"
 import { getActiveBuilderSlugs } from "@/lib/builders"
-import { getRecentBlueprintsWithScreenshots } from "@/lib/blueprints"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { tagColor } from "@/lib/colors"
-import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, StackIcon, UsersIcon, BroadcastIcon, MicrophoneStageIcon, BlueprintIcon } from "@phosphor-icons/react"
+import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, StackIcon, UsersIcon, BroadcastIcon, MicrophoneStageIcon } from "@phosphor-icons/react"
 import { getCollection, type CollectionEntry } from "astro:content"
 function relativeDate(createdAt: string): string {
   const ms = Date.now() - new Date(createdAt.replace(" at ", " ")).getTime()
@@ -76,17 +75,6 @@ const latestGuilds: CarouselGuild[] = (useCarousel ? recentGuilds : getLatestGui
 }))
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
-const recentBlueprints = getRecentBlueprintsWithScreenshots(7, 5)
-const recentBlueprintCarousel: CarouselGuild[] = recentBlueprints.map((bp) => ({
-  slug: bp.slug,
-  rank: bp.rank,
-  name: bp.name,
-  builders: bp.builderName ? [bp.builderName] : [],
-  tags: bp.tags,
-  coverImage: bp.coverImage,
-  screenshots: bp.screenshots?.[0] ? [bp.screenshots[0]] : undefined,
-  createdAt: bp.createdAt,
-}))
 const now = Date.now()
 
 const leanGuilds: LeaderboardGuild[] = guilds.map((g) => ({
@@ -676,19 +664,6 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
             </>
           )}
           <p class="text-xs text-muted-foreground mt-3">Want to add your guild? <a href={`${BASE}/contribute`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors" data-umami-event="contribute_cta_click">Contribute ↗</a></p>
-        </div>
-      </section>
-    )}
-
-
-    <!-- Recently added blueprints -->
-    {recentBlueprintCarousel.length > 0 && (
-      <section>
-        <h2 class="font-heading text-base font-semibold mb-1 flex items-center gap-2 pl-3 border-l-2 border-blue-500/60">
-          <BlueprintIcon weight="duotone" className="size-4 text-blue-400" /> Recent blueprints
-        </h2>
-        <div class="px-5">
-          <GuildCarousel client:idle guilds={recentBlueprintCarousel} basePath="blueprints" showDate={true} showRank={false} />
         </div>
       </section>
     )}

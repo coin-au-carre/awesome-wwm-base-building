@@ -1,10 +1,11 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { GuildCarousel, type CarouselGuild } from "@/components/GuildCarousel"
 import { BlueprintPageTabs } from "@/components/BlueprintPageTabs"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { getBlueprintsSortedByScore, getAllBlueprintTags, hasBlueprints } from "@/lib/blueprints"
+import { getBlueprintsSortedByScore, getAllBlueprintTags, hasBlueprints, getRecentBlueprintsWithScreenshots } from "@/lib/blueprints"
 import { getBuilderProfile } from "@/lib/builders"
 import { getLastSyncDate } from "@/lib/guilds"
 import { formatSyncDate } from "@/lib/dates"
@@ -18,6 +19,25 @@ const allTags = getAllBlueprintTags()
 const lastSync = getLastSyncDate()
 const isEmpty = !hasBlueprints()
 const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).find(Boolean)
+
+const recentBlueprints = getRecentBlueprintsWithScreenshots(7, 5)
+function pricingTag(bp: { isFree?: boolean; isPayToBuild?: boolean }): string | null {
+  if (bp.isFree && bp.isPayToBuild) return "Free + Paid"
+  if (bp.isFree) return "Free"
+  if (bp.isPayToBuild) return "Paid"
+  return null
+}
+const recentBlueprintCarousel: CarouselGuild[] = recentBlueprints.map((bp) => ({
+  slug: bp.slug,
+  rank: bp.rank,
+  name: bp.name,
+  builders: bp.builderName ? [bp.builderName] : [],
+  tags: bp.tags,
+  coverImage: bp.coverImage,
+  screenshots: bp.screenshots?.[0] ? [bp.screenshots[0]] : undefined,
+  createdAt: bp.createdAt,
+  pricingLabel: pricingTag(bp) ?? undefined,
+}))
 
 
 const builderSeen = new Set<string>()
@@ -76,6 +96,17 @@ const builderCards = blueprints
       </div>
     </div>
     </div>
+
+    {recentBlueprintCarousel.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-semibold mb-1 flex items-center gap-2 pl-3 border-l-2 border-blue-500/60">
+          <BlueprintIcon weight="duotone" className="size-4 text-blue-400" /> Recent blueprints
+        </h2>
+        <div class="px-5">
+          <GuildCarousel client:idle guilds={recentBlueprintCarousel} basePath="blueprints" showDate={true} showRank={false} />
+        </div>
+      </section>
+    )}
 
     {
       isEmpty && (

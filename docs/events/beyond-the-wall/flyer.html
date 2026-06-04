@@ -76,7 +76,7 @@ body {
   position: absolute;
   width: 20px;
   height: 20px;
-  border-color: rgba(236,72,153,0.4);
+  border-color: rgba(255,255,255,0.15);
   border-style: solid;
 }
 .c-tl { top: 30px;     left: 30px;  border-width: 1.5px 0 0 1.5px; }
@@ -130,11 +130,11 @@ body {
   margin-bottom: 20px;
 }
 
-/* thin amber rule, like the site's dividers */
+/* thin rule, like the site's dividers */
 .divider {
   width: 80px;
   height: 1px;
-  background: linear-gradient(to right, rgba(236,72,153,0.7), transparent);
+  background: linear-gradient(to right, rgba(255,255,255,0.2), transparent);
   margin-bottom: 20px;
 }
 
@@ -208,14 +208,14 @@ body {
   font-family: 'Cinzel', serif;
   font-size: 8.5px;
   letter-spacing: 3px;
-  color: rgba(236,72,153,0.55);
+  color: rgba(255,255,255,0.3);
   text-transform: uppercase;
 }
 
 /* card shell: mirrors bg-card ring-1 ring-border from the site */
 .qr-card {
-  background: rgba(9,9,11,0.82);
-  border: 1px solid rgba(236,72,153,0.3);
+  background: rgba(9,9,11,0.85);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 10px;
   padding: 9px;
   backdrop-filter: blur(8px);
@@ -226,10 +226,10 @@ body {
 .qr-card canvas, .qr-card table { image-rendering: pixelated; }
 
 .qr-url {
-  font-style: italic;
-  font-size: 11px;
-  color: rgba(236,72,153,0.55);
-  letter-spacing: 0.2px;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.4);
   text-align: center;
   max-width: 130px;
 }
@@ -292,7 +292,7 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(236,72,153,0.25) 20%, rgba(236,72,153,0.25) 80%, transparent);
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.12) 20%, rgba(255,255,255,0.12) 80%, transparent);
 }
 </style>
 </head>
@@ -353,7 +353,7 @@ body {
     text: "https://www.wherebuildersmeet.com/discord",
     width: 116,
     height: 116,
-    colorDark: "#ec4899",
+    colorDark: "#ffffff",
     colorLight: "#09090b",
     correctLevel: QRCode.CorrectLevel.M
   });
