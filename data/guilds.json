@@ -1,5 +1,17 @@
 [
 	{
+		"id": "10067143",
+		"name": "极乐谷",
+		"builders": [
+			"月京梨島"
+		],
+		"discordThread": "",
+		"whatToVisit": "Amazing mini GvG map\nGuild party pool area",
+		"score": 0,
+		"lastModified": "June 4, 2026 at 10:04 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "貓與氣球",
 		"builders": [
 			"千冷雪"
