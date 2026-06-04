@@ -6,7 +6,7 @@ authors: ["AegisNite", "Crueliet", "Wyrdrake"]
 date: 2026-05-26
 updatedDate: 2026-05-31
 order: 11
-image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a221342&format=webp&hm=4547e3c3ce232ae6256707f98c7b2de1d550d97958f3c0e9e021e8daddaf51c3&is=6a20c1c2&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a22bc02&format=webp&hm=d36e0d6cea7eb7538b79b3d788ceffff108ca4ab8b6f244cd4646e9806e07eac&is=6a216a82&quality=lossless"
 featured: true
 ---
 
@@ -19,9 +19,9 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Standard mode and lite mode don't share the same assets representation. Trees and vegetation can look different, and the textures and colors of certain wood and building materials also change between modes. Something that looks great in one mode can look noticeably different in the other.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a221342&format=webp&hm=4547e3c3ce232ae6256707f98c7b2de1d550d97958f3c0e9e021e8daddaf51c3&is=6a20c1c2&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a22bc02&format=webp&hm=d36e0d6cea7eb7538b79b3d788ceffff108ca4ab8b6f244cd4646e9806e07eac&is=6a216a82&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a221343&format=webp&hm=47a30b9149b8488725750a77b2a96c3900c94241be5e93e228a540b600b60426&is=6a20c1c3&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a22bc03&format=webp&hm=8ce82bebe41219335787386d09ba4764e51680c1388ad106d52c51434c65e55f&is=6a216a83&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
 
 > **Warning! Using ReShade on lite mode?** ReShade is a post-processing injector not officially supported by the game. Using it would likely get you banned. Stick to vanilla visuals.
 
@@ -56,6 +56,6 @@ Some ironware items are currently available only in solo build mode. But you can
 
 Sink a flat top cabinetThis cabinet component has some that make it fit the bar counter
 
-<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a21f61d&format=webp&hm=a8494decdc2c53b0cb977e98895e384053b6cef1e29d49727410f4c03218cbaf&is=6a20a49d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a229edd&format=webp&hm=3000db719a07fd493ee896f0a5fd17cb3df39431c058713f2a96a27cd59641b5&is=6a214d5d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a21f6a5&format=webp&hm=8f17c4862815036d47b46730e29c9cb59ba9119c395eb174a46048566657532b&is=6a20a525&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a229f65&format=webp&hm=50d997576985204f09a74fe255ecc16d149666d445026e7a728b90bdca4163fd&is=6a214de5&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
