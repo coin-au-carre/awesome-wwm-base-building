@@ -175,7 +175,7 @@
     "notes": ""
   },
   {
-    "severity": "high",
+    "severity": "normal",
     "title": "Cannot save diagram if copyright more than 30%",
     "details": "After diagram placement you need to be the builder of more than 70% components to be able to save the diagram",
     "guild": true,
@@ -206,9 +206,9 @@
     "notes": "PC has this feature so should other platforms"
   },
   {
-    "severity": "normal",
+    "severity": "high",
     "title": "Some components cannot be placed at ground level",
-    "details": "Cannot be placed below ground",
+    "details": "The treshold to determine underground component seem too high",
     "guild": true,
     "solo": false,
     "pc": false,
@@ -216,11 +216,11 @@
     "ps5": false,
     "media": [
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a224190\u0026hm=adbbf48f2a22ee9414a434fc6e4002ac219aa050b7dcbd23377d62d1300fdf92\u0026is=6a20f010\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511584787406786580/SVID_20260603_111625_1.mp4?ex=6a224e09\u0026hm=7c8d347ac195df9b8720329aee5f23aa2157cd4c58772825ba3ff4f2441adcaa\u0026is=6a20fc89\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a224b89\u0026hm=5e4a00d5317591289e92902fd57ebd6f9122bb757de9dc9f7a735edeebe77be0\u0026is=6a20fa09\u0026"
     ],
     "version": "v1.7",
     "date": "03/06/2026",
-    "notes": "For some users every component can be concerned. For others only few (e.g. lamps)"
+    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
   },
   {
     "severity": "high",
@@ -237,6 +237,38 @@
     ],
     "version": "v1.7",
     "date": "03/06/2026",
-    "notes": ""
+    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+  },
+  {
+    "severity": "high",
+    "title": "Items disappear in construction mode",
+    "details": "Depending on camera movements items disappear while constructing",
+    "guild": true,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944440183521310/ScreenRecording_06-04-2026_12-03-39_1.mov?ex=6a224b7d\u0026hm=b0199d93206978b323151c59282680efdae4b8cc335e3397bb04736a035a42c5\u0026is=6a20f9fd\u0026"
+    ],
+    "version": "v1.7",
+    "date": "04/06/2026",
+    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+  },
+  {
+    "severity": "high",
+    "title": "Cannot pick up and place back components",
+    "details": "In edit mode picking up components is buggy",
+    "guild": true,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944464153706556/ScreenRecording_06-04-2026_12-04-33_1.mov?ex=6a224b82\u0026hm=b10aaeae643b0dde5a1f5afc6d987ee93f016db39deaf44b53d76e0644cc353a\u0026is=6a20fa02\u0026"
+    ],
+    "version": "v1.7",
+    "date": "04/06/2026",
+    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
   }
 ]
