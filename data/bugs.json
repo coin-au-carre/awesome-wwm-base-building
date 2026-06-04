@@ -26,7 +26,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a22a162\u0026hm=f9d17b5d94c9ef505ffa84c358355f98199a08f73fddf5e786fa96dc622ba92f\u0026is=6a214fe2\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a234a22\u0026hm=dc604dd45c9e9a9e375d007afb85c849e0ace95c3bff23178a5e50b895da471e\u0026is=6a21f8a2\u0026",
       "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a2336df\u0026hm=3e941b06da38a8cc3ecbc3dbf2ee9469d38dce3c093c53146de731bae91697a3\u0026is=6a21e55f\u0026"
     ],
     "version": "v1.7",
@@ -185,8 +185,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a22b59f\u0026hm=5d2d10839b865f1c45b7b6950ebfdd8661df5ab89ca4b567bba8dca4424627c0\u0026is=6a21641f\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a22b59f\u0026hm=651ab34a0ed1069623b984ff7c5529d7b3acb397fc6b6adea46af269b90fc443\u0026is=6a21641f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a235e5f\u0026hm=cfec7007e2e9db39dc99ad1488e2662c1e9dd1d984daffff85c9b4a84fffa255\u0026is=6a220cdf\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a235e5f\u0026hm=3de4d135d77e7bfe6a6a74d8039574a7d76af2c58b0d67b8df629bb0289b45a6\u0026is=6a220cdf\u0026"
     ],
     "version": "v1.7",
     "date": "02/06/2026",
@@ -303,5 +303,19 @@
     "version": "v1.7",
     "date": "04/06/2026",
     "notes": "Recent bug as of 4/6/2026. This was not an known issue prior to this date."
+  },
+  {
+    "severity": "normal",
+    "title": "Small diagrams placement is tedious",
+    "details": "The hitbox is too large we should be able to blend into already existing components not avoid them at all cost",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [],
+    "version": "",
+    "date": "05/06/2026",
+    "notes": ""
   }
 ]
