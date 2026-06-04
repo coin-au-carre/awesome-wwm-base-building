@@ -89,9 +89,9 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909201612935229/ScreenRecording_06-01-2026_17-06-42_1.mov?ex=6a21d319\u0026hm=9f65ec7bfa07d3d31e4a06d5c93e9958a716f071e04003682da22100f84ab6f8\u0026is=6a208199\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909242838745088/ScreenRecording_06-01-2026_16-35-08_1.mov?ex=6a21d322\u0026hm=c1188138d37afe8897391195b198514f52815530ba6cfbd3418e2e7c5c30ab40\u0026is=6a2081a2\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909424653303929/ScreenRecording_06-01-2026_16-52-00_1.mov?ex=6a21d34e\u0026hm=268de3a0efb6a4f388c473ad706718f84d5cf849282b6d86461e9d8b3b1c4f8a\u0026is=6a2081ce\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909201612935229/ScreenRecording_06-01-2026_17-06-42_1.mov?ex=6a227bd9\u0026hm=cc4e715c727192c4d934a53975eda09cd02ba9febe3e0c434e00a8609569cb7d\u0026is=6a212a59\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909242838745088/ScreenRecording_06-01-2026_16-35-08_1.mov?ex=6a227be2\u0026hm=6dd1bf1e848fdf0e6c3d081bb0ab3e92933aa6b02f3e51824ba2e14774197d20\u0026is=6a212a62\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909424653303929/ScreenRecording_06-01-2026_16-52-00_1.mov?ex=6a227c0e\u0026hm=ac90b091cc888c0c32724abfc83ba563ff889b80123635850e7a9785a11d1408\u0026is=6a212a8e\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -123,8 +123,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a21cf4f\u0026hm=07237077544bd433555d2346395dd194474a8f75034f622d1a06c5d7e9a05f3e\u0026is=6a207dcf\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a21cf4f\u0026hm=58435b3585694588c753012a3bedb62bb06eec58b5826206529f27b72136d867\u0026is=6a207dcf\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a22780f\u0026hm=a3da7061a1eed5c1fa0a26d36b6a5dc3593e9369cf14f7ff0aab0f2d4b749491\u0026is=6a21268f\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a22780f\u0026hm=d8c690fa8aa83c07bd426f411013339f63524688005a0f683631acc84b7ca97c\u0026is=6a21268f\u0026"
     ],
     "version": "v1.7",
     "date": "30/05/2026",
@@ -221,5 +221,22 @@
     "version": "v1.7",
     "date": "03/06/2026",
     "notes": "For some users every component can be concerned. For others only few (e.g. lamps)"
+  },
+  {
+    "severity": "high",
+    "title": "Components are passing through when placing",
+    "details": "Most components don't properly lean on other components, instead they phase through to the middle",
+    "guild": true,
+    "solo": false,
+    "pc": false,
+    "mobile": true,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1511771129021206629/Screen_Recording_20260603_183743_Where_Winds_Meet.mp4?ex=6a2252d4\u0026hm=d56ba9605a85973a01c0c867af566eb3464ba2ef19a1366f19c26184a7ddd614\u0026is=6a210154\u0026",
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1511732864369168474/Screenshot_20260603_160223_Where_Winds_Meet.jpg?ex=6a222f31\u0026hm=bd3a21bac8393a26e951222c4f4a2b180373769492bb2d3cf45bc4ce5e86cc5d\u0026is=6a20ddb1\u0026"
+    ],
+    "version": "v1.7",
+    "date": "03/06/2026",
+    "notes": ""
   }
 ]
