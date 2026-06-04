@@ -1,7 +1,7 @@
 [
   {
     "coolness": "high",
-    "title": "Rotate component on 2 axes",
+    "title": "Rotate component on 2 axis",
     "description": "You can rotate components with on 2 axes now before placement. Hold control and scroll before placing any component to activate 2nd axe.",
     "guild": true,
     "solo": true,
