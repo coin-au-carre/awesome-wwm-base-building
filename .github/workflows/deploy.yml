@@ -8,6 +8,8 @@ on:
       - 'data/solos.json'
       - 'data/events.json'
       - 'data/whatever.json'
+      - 'data/bugs.json'
+      - 'data/patches.json'
       - 'web/public/guilds.json'
       - 'web/**'
   workflow_run:
