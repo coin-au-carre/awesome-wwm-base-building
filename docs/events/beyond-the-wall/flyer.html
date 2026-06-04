@@ -125,11 +125,23 @@ body {
 }
 
 .subtitle {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   font-style: italic;
   font-size: 28px;
   color: rgba(236,72,153,0.85);
   letter-spacing: 0.4px;
   margin-bottom: 20px;
+}
+
+.edition {
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
 }
 
 /* thin rule, like the site's dividers */
@@ -157,41 +169,41 @@ body {
   align-items: center;
 }
 
-/* base pill: matches  bg-white/10 backdrop-blur border-white/15 from index.astro */
+/* base pill */
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 9999px;
-  padding: 5px 13px;
-  font-size: 13.5px;
-  color: rgba(255,255,255,0.65);
+  padding: 6px 15px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.6);
   white-space: nowrap;
 }
 
-.pill .icon { font-size: 13px; }
+.pill .icon { font-size: 12px; }
 
-/* voice channel pill — indigo, matches Discord's brand color */
+/* voice channel pill */
 .pill-voice {
-  background: rgba(99,102,241,0.12);
-  border-color: rgba(99,102,241,0.45);
+  background: rgba(99,102,241,0.1);
+  border-color: rgba(99,102,241,0.4);
   color: rgba(165,168,255,0.95);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 6px 16px;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-/* discord link pill — mirrors the amber banner ring-amber-500/35 style */
+/* discord link pill */
 .pill-discord {
   background: rgba(236,72,153,0.1);
-  border-color: rgba(236,72,153,0.4);
-  color: rgba(236,72,153,0.95);
-  font-weight: 600;
-  font-size: 14px;
-  padding: 6px 16px;
+  border-color: rgba(236,72,153,0.45);
+  color: rgba(249,168,212,0.95);
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(236,72,153,0.25), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 /* ── QR code block — top right ── */
@@ -321,7 +333,7 @@ body {
   <div class="content">
     <div class="event-tag">✦ WhereBuildersMeet.com event✦</div>
     <div class="title">Beyond<br>the Wall</div>
-    <div class="subtitle">with Carni</div>
+    <div class="subtitle">with Carni <span class="edition">June '26</span></div>
 <div class="divider"></div>
     <div class="description">
       Carni, one of the finest builders, streams CN content live on Discord! Watch her explore Chinese constructions across solo world and the islands of Family Business.
