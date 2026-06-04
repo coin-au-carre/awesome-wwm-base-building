@@ -6,7 +6,7 @@ authors: ["SiMing司命"]
 date: 2026-05-22
 order: 13
 image: "https://img.youtube.com/vi/8fYfFWvyOIA/maxresdefault.jpg"
-featured: true
+featured: false
 ---
 
 A step-by-step video walkthrough on how to build a simple roof using roof tiles. Ensure that subtitles/CC are enabled for explanations. 

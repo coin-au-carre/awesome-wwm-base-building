@@ -1,5 +1,5 @@
 ---
-title: "May 28 patch: new components, guild diagram bug & more"
+title: "May 28 patch: rotation, 10K components limits, bugs..."
 description: "May 28, 2026 update v1.7: do not base wipe guild, increased components limit, improvements and bugs"
 tags: ["patch-notes"]
 authors: []
