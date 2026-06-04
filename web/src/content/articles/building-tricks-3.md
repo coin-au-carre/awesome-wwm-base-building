@@ -7,7 +7,6 @@ date: 2026-05-12
 updatedDate: 2026-05-26
 order: 10
 image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a223d49&format=webp&hm=3020ab4f4f3b3374dee9ee07c0c39ca1c0d6fe571a867a6a7e5e8e5f053a5cb4&is=6a20ebc9&quality=lossless"
-featured: true
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` channel.
