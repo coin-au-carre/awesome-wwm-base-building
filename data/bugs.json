@@ -169,7 +169,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a2394d1\u0026hm=7148bd548e6fe33409f9d6c3d3513acbe61074b8510f756651b76437e670efae\u0026is=6a224351\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a243d91\u0026hm=eabd146b4d223a0e8d160ee22750e143def95854f4ff3eac04388f0200156890\u0026is=6a22ec11\u0026"
     ],
     "version": "v1.7",
     "date": "01/06/2026",
@@ -216,7 +216,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a239310\u0026hm=5ab789c5d56744bd050f776c0151f2ab0a80609f459643ac8793d877cb4b9400\u0026is=6a224190\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a243bd0\u0026hm=f2d217156a955e195c1b8cbe0465cf8e55fabf4a53b55181ab9bf5b576410434\u0026is=6a22ea50\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a239d09\u0026hm=36b151312f2a2cedf31a198259225047f4d2f4a4828bffe76b822e2c00d3630c\u0026is=6a224b89\u0026"
     ],
     "version": "v1.7",
@@ -234,7 +234,7 @@
     "ps5": false,
     "media": [
       "https://cdn.discordapp.com/attachments/1483483683456286911/1511771129021206629/Screen_Recording_20260603_183743_Where_Winds_Meet.mp4?ex=6a23a454\u0026hm=578e8fd716dc15700d7917fb7024e3df02774ee195b101a9e04a9e37d1def8d6\u0026is=6a2252d4\u0026",
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1511732864369168474/Screenshot_20260603_160223_Where_Winds_Meet.jpg?ex=6a2380b1\u0026hm=2ec2c78a631495ba5e19cf9c36d15bcdf278a90d730e5cfdd772ceb4fc27116c\u0026is=6a222f31\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1511732864369168474/Screenshot_20260603_160223_Where_Winds_Meet.jpg?ex=6a242971\u0026hm=82ff72b48be5a42cbddf08b874c866c049684d614b74cb1073ff1a51ebf11d4f\u0026is=6a22d7f1\u0026"
     ],
     "version": "v1.7",
     "date": "03/06/2026",
@@ -329,6 +329,22 @@
     "ps5": false,
     "media": [
       "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a23e930\u0026hm=769e02df498fd13d70b6229447ed4e582b2ba41e947ce0175e6a10b4b89a2561\u0026is=6a2297b0\u0026"
+    ],
+    "version": "v1.7",
+    "date": "05/06/2026",
+    "notes": ""
+  },
+  {
+    "severity": "low",
+    "title": "Cannot edit component from filled diagram",
+    "details": "Can't Pickup/Replace/Move component from a diagram. We should be able to once we have removed the outline.",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1512451859032444968/image.png?ex=6a24240f\u0026hm=7433f243abdea14abd9e5d0e3787936a23701573fb65a9b730827ab5ef00d9e0\u0026is=6a22d28f\u0026"
     ],
     "version": "v1.7",
     "date": "05/06/2026",
