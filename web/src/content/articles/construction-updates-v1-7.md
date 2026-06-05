@@ -25,7 +25,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 Note for mobile and PS5 players: there is no known method to rotate on a second axis as of now.
 
-Tip: With 2 axes, you can partially rotate on the 3rd axis. Stay tuned on our Discord for a dedicated tutorial.
+Tip: With 2 axes, you can partially rotate on the 3rd axis. You can check our Discord for a tutorial.
 
 ---
 
