@@ -26,7 +26,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a234a22\u0026hm=dc604dd45c9e9a9e375d007afb85c849e0ace95c3bff23178a5e50b895da471e\u0026is=6a21f8a2\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a23f2e2\u0026hm=0fb574e00de7b5f11ab0443b52548a127abcbf1d4ddfd68eada6de278fc98b23\u0026is=6a22a162\u0026",
       "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a23df9f\u0026hm=f88002a7b48ad57882c35d3d12c4f6904d5fbe7e4bade801ed282b857affdf18\u0026is=6a228e1f\u0026"
     ],
     "version": "v1.7",
@@ -57,7 +57,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a23424c\u0026hm=afeb55c34c8a41e34c6d48b2c3dbc2ef3820d4b20271db79ce5b23ac7feb8ef1\u0026is=6a21f0cc\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a23eb0c\u0026hm=9935dfd706465c2507d778c99a61f0977f43e4ea506ce6be64569662198f9370\u0026is=6a22998c\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -73,7 +73,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a2339ab\u0026hm=792a811ad3083947963d37edc93a1acc49bcb2d350170bbda39af3f45f56a00e\u0026is=6a21e82b\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a23e26b\u0026hm=fff48b9a9a611d3edcdc1e57429d8589d29f9c89e92889dacabe33dec848c90a\u0026is=6a2290eb\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -185,8 +185,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a235e5f\u0026hm=cfec7007e2e9db39dc99ad1488e2662c1e9dd1d984daffff85c9b4a84fffa255\u0026is=6a220cdf\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a235e5f\u0026hm=3de4d135d77e7bfe6a6a74d8039574a7d76af2c58b0d67b8df629bb0289b45a6\u0026is=6a220cdf\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a24071f\u0026hm=9c8fd2e66234d91892a516ad84a6bf0fdb6d9b00c03803ae969e9e5db7bb7131\u0026is=6a22b59f\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a24071f\u0026hm=4322d1137a563210b58d76863070508fe43bf69cf2ea869b44d4321bad221753\u0026is=6a22b59f\u0026"
     ],
     "version": "v1.7",
     "date": "02/06/2026",
@@ -314,7 +314,23 @@
     "mobile": false,
     "ps5": false,
     "media": [],
-    "version": "",
+    "version": "v1.7",
+    "date": "05/06/2026",
+    "notes": ""
+  },
+  {
+    "severity": "low",
+    "title": "Stuck after small diagram placement teleport",
+    "details": "Can't go out of build mode had to leave the guild base to unstuck",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a23e930\u0026hm=769e02df498fd13d70b6229447ed4e582b2ba41e947ce0175e6a10b4b89a2561\u0026is=6a2297b0\u0026"
+    ],
+    "version": "v1.7",
     "date": "05/06/2026",
     "notes": ""
   }

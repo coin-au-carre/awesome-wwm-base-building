@@ -50,7 +50,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://cdn.discordapp.com/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a23e61e&is=6a22949e&hm=2d97f3e788a5ee286735e4ad51cb821090de2e235b251cb36f3b631232fd40bf&" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a23e61e&format=webp&hm=2d97f3e788a5ee286735e4ad51cb821090de2e235b251cb36f3b631232fd40bf&is=6a22949e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -79,7 +79,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a23578b&format=webp&hm=f9643895b4b43fe2582449914ac1cbf94c60b4efa578a37b05eaef424dc3868d&is=6a22060b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a24004b&format=webp&hm=ee8b8820a74899338381dfc2c4467cac70029a7e3c68dd476e4c954a2cb02d74&is=6a22aecb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a23eb07&hm=02bbf3bd02be757c1711fc1f1b79ea70c7d0148b9fdbdb047e31b1ee2670c657&is=6a229987&" controls style="border-radius: 0.75rem; width: 100%;"></video>
@@ -94,9 +94,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a235f95&is=6a220e15&hm=4e46b82280a8155fb797d2a6dbcf5e0cccb6156bd9a891c8474f8557e2e04cfc&" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a240855&format=webp&hm=188c47207295aa4d6aa76b073de38042b147b48c078d7ede47b18a37320863b2&is=6a22b6d5&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a235f95&is=6a220e15&hm=fd39b67083fc1565508f8606588a1ae2c28021bdc8c6ccd5b25c5ad9a3f60b07&" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a240855&format=webp&hm=805b051076bb117c1ee728d92d86235356d92ce49f72a437ef24c7856b5d45ac&is=6a22b6d5&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
