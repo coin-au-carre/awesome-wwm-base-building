@@ -10,7 +10,7 @@
     "scheduledEnd": "2026-06-05T23:59:59.02Z",
     "location": "The Inner Ways Guild HQ",
     "status": "scheduled",
-    "subscriberCount": 9,
+    "subscriberCount": 10,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494698690072285285",
     "image": "https://cdn.discordapp.com/guild-events/1494698690072285285/1374bc03d71161233bb3e71a6a848cb1.png?size=512"
   },
@@ -53,8 +53,20 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 5,
+    "subscriberCount": 6,
     "discordUrl": "https://discord.com/events/1483447710617960508/1512075806778855574",
     "image": "https://cdn.discordapp.com/guild-events/1512075806778855574/5a6b8418027e1c22afeb5978140b4365.png?size=512"
+  },
+  {
+    "id": "1512435108987011244",
+    "name": "Dive in to Dragon City - Base tour dragons-Heirs (10111177)",
+    "description": "Dragons-Heirs base tour, you will dive in our dragon city, \ntour is with voice telling you about city and full of stories.",
+    "scheduledStart": "2026-06-06T13:00:00Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 2,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1512435108987011244",
+    "image": "https://cdn.discordapp.com/guild-events/1512435108987011244/36862f25edc891099bffb55ef4076c07.png?size=512"
   }
 ]
