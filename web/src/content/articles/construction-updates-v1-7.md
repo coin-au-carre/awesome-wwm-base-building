@@ -72,14 +72,14 @@ You can now use small diagrams, which are convenient for saving sections of your
 ### Tutorial video on how to create a diagram
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a23f0f3&hm=0cbfccf345fb95b36b85f9d50bf7e3ac7a3a6b5f39955b67404db10722f23820&is=6a229f73&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2499b3&hm=26934e62dc7e3995a55df749bc80a81d9cfde770816807e8cf2cdf6d816dff02&is=6a234833&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 
 ### Advanced Tip: Use Recommended Spot
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a24004b&format=webp&hm=ee8b8820a74899338381dfc2c4467cac70029a7e3c68dd476e4c954a2cb02d74&is=6a22aecb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a24a90b&format=webp&hm=1df40205a05b1b2e2f231a3f8546b22791ac92b1c43557b59b36f30743e0d220&is=6a23578b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2493c7&hm=49990b58e97ad19e69bedc797417ae5e157d671d24ef33b416d837ecc3f4249d&is=6a234247&" controls style="border-radius: 0.75rem; width: 100%;"></video>
@@ -94,9 +94,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a240855&format=webp&hm=188c47207295aa4d6aa76b073de38042b147b48c078d7ede47b18a37320863b2&is=6a22b6d5&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a24b115&format=webp&hm=3b3dfe122ddbee91ce7fa935077ebd021986ab0e42842e87fe835b3066c2b52c&is=6a235f95&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a240855&format=webp&hm=805b051076bb117c1ee728d92d86235356d92ce49f72a437ef24c7856b5d45ac&is=6a22b6d5&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a24b115&format=webp&hm=af50a785eb3d3b1c6044c1fd40c4915a42309475d25586fbf719648a0ecf1dea&is=6a235f95&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
