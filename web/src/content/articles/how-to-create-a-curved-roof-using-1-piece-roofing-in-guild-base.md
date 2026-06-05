@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "roof"]
 authors: ["SiMing司命"]
 date: 2026-04-24
 order: 6
-image: "https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a234a06&format=webp&hm=4a297e395f0a1400e670aa01ac7f05f51266a9b76ab4fefa3a3da2c39eb3d76f&is=6a21f886&quality=lossless"
+image: "https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a23f2c6&format=webp&hm=0a26813c422058d7804e37a549bfc569b65f8d62e898b8730457135730bf3aac&is=6a22a146&quality=lossless"
 featured: false
 ---
 
@@ -13,7 +13,7 @@ Curious on how to make a curved roof using single-piece pre-fabricated roof comp
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496992360016642109/circle_1.mp4?ex=6a234547&hm=fc5e2ef047d92f88328338bfe4c038ab4cb2a23d65479bc119bf1aab1c35320f&is=6a21f3c7&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496992360016642109/circle_1.mp4?ex=6a23ee07&hm=b13556b733a3dfbf3e66bdeab5d812f2ec3b2a9ab46f07f40745a18927fdeab9&is=6a229c87&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 1** 
 Make your initial circle which will act as your guide by selecting any **railing** that can snap. To make a perfect circle, you want to make sure that auto-snap is **on** and then begin by setting your railing in the center, then rotate exactly 1 click per segment. 
@@ -26,7 +26,7 @@ Snap 1 piece of roof to the center of each floor piece. This will act as your gu
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496993098390307007/circle_2.mp4?ex=6a2345f7&hm=8946c2dfbaef515cecf1b20bbd44afe26dac8259640c4a5a1e90c0cb598ca0d2&is=6a21f477&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496993098390307007/circle_2.mp4?ex=6a23eeb7&hm=bdf58a0a7c565c216e18ed864a62daa19e83411422731e23e4a69f668748fa02&is=6a229d37&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 4**
 **Disclaimer:** The creation of the outer circle can be a little tricky without precise placement. With precise placement, this next step is quite a bit easier, as you can simply  slide pieces in place, but this guide is for building within guild bases, where we do not yet have precise placement.
@@ -43,7 +43,7 @@ From that railing, you will then rotate 1 time and create a new railing which, i
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496995730169004154/circle_3.mp4?ex=6a23486a&hm=7b6927a93798602b2a333363ac245a7c82f54f32f8f5469c763fbf13a5b73150&is=6a21f6ea&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496995730169004154/circle_3.mp4?ex=6a23f12a&hm=9c8a2287816f754a6bbc006cd8a3a6a7968d5a2ad2bbceb6a1029fe0e1cefb56&is=6a229faa&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 7** 
 Place vertical pillars all around the entirety of your circles, ideally using the snap points as guides. While you *can* snap the pillars into place, it will cause the pillar to float above the ground, so I find it easier to manually move them into place. You can either use 1 railing or 2 railing segments for pillar placement here, it's really a question of aesthetics.
@@ -56,7 +56,7 @@ If using tie beams, you will need to snap those beams directly to the railing it
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=6a23496d&hm=0ad1be80428bb27e0a914f936b123ea300ed8ae68f743d6f59c9c6254a74f7c8&is=6a21f7ed&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496996813490618368/circle_4.mp4?ex=6a23f22d&hm=d09cdcb5b83a7e744416702bd7233e6aca77d8075b843443c780d7ea52838233&is=6a22a0ad&" controls style="border-radius: 0.75rem; width: 100%; max-width: 720px;"></video>
 
 **Step 10**
 Select any large floor and manually place it at your desired height (either directly on top of the beam, or using the beam as a height guide to slide the floor piece in place.) This is a temporary surface that you will later delete.
@@ -73,7 +73,7 @@ If done correctly, you can create a circular roof that won't be quite as compone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a234a06&format=webp&hm=4a297e395f0a1400e670aa01ac7f05f51266a9b76ab4fefa3a3da2c39eb3d76f&is=6a21f886&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1496991561542537216/1496997454594183269/202641874036.png?ex=6a23f2c6&format=webp&hm=0a26813c422058d7804e37a549bfc569b65f8d62e898b8730457135730bf3aac&is=6a22a146&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 (See arena in distance.)
 

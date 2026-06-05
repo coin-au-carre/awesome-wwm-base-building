@@ -5,7 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a233be4&format=webp&hm=244f09bc169b2b73b9dcd79e64b909a0dbd245272d8720bd93d57f795bf20ad7&is=6a21ea64&quality=lossless"
+image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a23e4a4&format=webp&hm=d031b3b8b15456590649287145504116847483d6a3a5118ef477d220202508b3&is=6a229324&quality=lossless"
 featured: false
 published: true
 ---
@@ -14,7 +14,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a233be4&format=webp&hm=244f09bc169b2b73b9dcd79e64b909a0dbd245272d8720bd93d57f795bf20ad7&is=6a21ea64&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a23e4a4&format=webp&hm=d031b3b8b15456590649287145504116847483d6a3a5118ef477d220202508b3&is=6a229324&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 寒 - winter / cold
 日 - day
@@ -22,7 +22,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a233dc9&format=webp&hm=771e885d746d62809f12243d6dfad635874ebd7e471f585fc702064eb8ff8301&is=6a21ec49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a23e689&format=webp&hm=395633d390758acc19e223143a305879c7d64f97507e82765587ab7e0a839c2a&is=6a229509&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 悬 - hang
 壶 - gourd
@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a234648&format=webp&hm=f103fbd26208e1907ef562370f6e3819ada474afca292a1bffb3acfa2991cc76&is=6a21f4c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a23ef08&format=webp&hm=33253c861b107b793c37647ae48d902586f37f4c021cca7b95dbfd65dfa83b0e&is=6a229d88&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a234684&format=webp&hm=d1ea06dcafb93f333e511e63008c153b8b60e24d4c258cade17bbdbd8c97eba8&is=6a21f504&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a23ef44&format=webp&hm=ddd2911d2f5a8d22fdd4c7d50d3c9ea0e4306f3f460fcabc081af6f2fb2dff10&is=6a229dc4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family
@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a233b0a&format=webp&hm=ba4338b208a797567efdce3941f3f2601632f4febd2be2a35b7e8cda883ba3c7&is=6a21e98a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a23e3ca&format=webp&hm=6586f0c6388800a86995163a970fcdc2b5a157c7656ab72fc0f59a48a369c5b3&is=6a22924a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 玉門關 - Jade Gate Pass
 
@@ -172,7 +172,7 @@ Can use this anywhere you want to name "Jade Gate Pass"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a234236&format=webp&hm=3ad551191401534c4b79cb6cddf4542158934dd975b1497b913ffcdc357708cd&is=6a21f0b6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a23eaf6&format=webp&hm=d94e5d94058f635575ab86dc7a000ceb88e8e8ee58d239ab1f1d25093146da8e&is=6a229976&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 
