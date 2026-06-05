@@ -449,6 +449,15 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 				g.GuildName = data.GuildName
 			}
 		}
+		// data.Builders is nil only when fetchThreadContent returned a zero-value (getMessages
+		// failed). A successful fetch always returns at least an empty non-nil slice from
+		// resolveBuilders. Skip updating this entry to avoid overwriting valid stored data
+		// with empty results from a transient API failure.
+		if data.Builders == nil {
+			slog.Warn("skipping update for guild due to empty fetch result (possible API failure)", "name", g.Name)
+			guilds[r.idx] = g
+			continue
+		}
 		prev := g
 		g.Builders = data.Builders
 		g.Tags = tags
