@@ -61,7 +61,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a23e663&format=webp&hm=dad0522b951d47ce4bfaa753c6ff3a003b5fee48e001ac188a61ec866fec1b2a&is=6a2294e3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a23e663&format=webp&hm=dad0522b951d47ce4bfaa753c6ff3a003b5fee48e001ac188a61ec866fec1b2a&is=6a2294e3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -83,6 +83,20 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a23eb07&hm=02bbf3bd02be757c1711fc1f1b79ea70c7d0148b9fdbdb047e31b1ee2670c657&is=6a229987&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+
+---
+
+## Understanding the Copyright system [Guild and Solo]
+
+*Thanks to [AegisNite Edge](/builders/aegisnite-edge) and [Crueliet](/builders/crueliet) for their help to assist me figuring this out.*
+
+To save a diagram in both guild and solo base, you need to own at least **70%** of the components in it, meaning you placed them yourself. If the Copyright Score is above **30%**, you cannot save the diagram.
+
+This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a235f95&is=6a220e15&hm=4e46b82280a8155fb797d2a6dbcf5e0cccb6156bd9a891c8474f8557e2e04cfc&" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a235f95&is=6a220e15&hm=fd39b67083fc1565508f8606588a1ae2c28021bdc8c6ccd5b25c5ad9a3f60b07&" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
