@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 const { solo: g, redirectTo } = Astro.props
 if (redirectTo) {
-  return Astro.redirect(`${BASE}/solos/${redirectTo}/`, 301)
+  return Astro.redirect(`${BASE}/solos/${encodeURIComponent(redirectTo)}/`, 301)
 }
 if (!g) {
   return Astro.redirect(`${BASE}/solo/`, 302)

@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 
 const { guild: g, redirectTo } = Astro.props
 if (redirectTo) {
-  return Astro.redirect(`${BASE}/guilds/${redirectTo}/`, 301)
+  return Astro.redirect(`${BASE}/guilds/${encodeURIComponent(redirectTo)}/`, 301)
 }
 if (!g) return Astro.redirect(`${BASE}/`, 302)
 const base = BASE
