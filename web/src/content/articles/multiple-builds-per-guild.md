@@ -16,7 +16,7 @@ Your guild can have multiple builds on the leaderboard. Each build has its own p
 
 ## How to add a build
 
-Create a new post in `#guild-base-showcase` named:
+Create a new post in `#guild-base-showcase` named (beware of the space before and after '-')
 
 ```
 GuildName - Build Title
