@@ -26,6 +26,7 @@ var (
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 	reCoverStrip      = regexp.MustCompile(`(?im)[\n\r]*[ \t]*cover:[ \t]*\d+[ \t]*$`)
 	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
+	reBuildTitleColon   = regexp.MustCompile(`\s*:\s*`) // "GuildName: Build Title" and spacing variants
 	reOnBehalf          = regexp.MustCompile(`(?i)on behalf of\s+@([\w.]+)`)
 	reOnBehalfSnowflake = regexp.MustCompile(`(?i)on behalf of\s+<@(\d+)>`)
 	reOnBehalfPresent   = regexp.MustCompile(`(?i)on behalf`)
@@ -150,14 +151,22 @@ func ParseFirstPost(content string) ParsedPost {
 
 // ExtractNameAndID strips decorators/suffixes from a Discord thread name and
 // extracts an optional numeric guild ID embedded as a trailing bracket token,
-// and an optional build title from the " - Subtitle" suffix.
+// and an optional build title from a separator suffix.
+// Preferred separator: "GuildName: Build Title" (colon, any spacing around it).
+// Legacy separator:    "GuildName - Build Title" (space-dash).
 // e.g. "WITCHERS [10248427" → ("WITCHERS", "10248427", "")
+// e.g. "🏯 Mutiny: Lost World" → ("Mutiny", "", "Lost World")
 // e.g. "🏯 Mutiny - Lost World" → ("Mutiny", "", "Lost World")
 func ExtractNameAndID(threadName string) (name, id, buildTitle string) {
-	parts := strings.SplitN(threadName, " -", 2)
-	raw := strings.TrimSpace(parts[0])
-	if len(parts) > 1 {
+	var raw string
+	if loc := reBuildTitleColon.FindStringIndex(threadName); loc != nil {
+		raw = strings.TrimSpace(threadName[:loc[0]])
+		buildTitle = strings.TrimSpace(threadName[loc[1]:])
+	} else if parts := strings.SplitN(threadName, " -", 2); len(parts) == 2 {
+		raw = strings.TrimSpace(parts[0])
 		buildTitle = strings.TrimSpace(parts[1])
+	} else {
+		raw = strings.TrimSpace(threadName)
 	}
 	raw = strings.TrimSpace(strings.TrimLeft(raw, "#🏯📍️"))
 	if m := reThreadID.FindStringSubmatch(raw); len(m) == 2 {

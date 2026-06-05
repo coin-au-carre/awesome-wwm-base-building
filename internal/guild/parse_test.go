@@ -266,25 +266,34 @@ Places to visit:
 
 func TestExtractNameAndID(t *testing.T) {
 	tests := []struct {
-		input    string
-		wantName string
-		wantID   string
+		input      string
+		wantName   string
+		wantID     string
+		wantTitle  string
 	}{
-		{"🏯 Iron Keep - Season 2", "Iron Keep", ""},
-		{"WITCHERS [10248427", "WITCHERS", "10248427"},
-		{"Dragon's Lair (87654321)", "Dragon's Lair", "87654321"},
-		{"  My Guild  ", "My Guild", ""},
+		{"🏯 Iron Keep - Season 2", "Iron Keep", "", "Season 2"},
+		{"WITCHERS [10248427", "WITCHERS", "10248427", ""},
+		{"Dragon's Lair (87654321)", "Dragon's Lair", "87654321", ""},
+		{"  My Guild  ", "My Guild", "", ""},
 		// Bare 8-digit number without brackets: stripped from name but not captured as ID
-		{"Guild 12345678", "Guild", ""},
+		{"Guild 12345678", "Guild", "", ""},
+		// Colon separator — preferred format
+		{"DrunkenFist: Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
+		{"DrunkenFist:Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
+		{"DrunkenFist : Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
+		{"🏯 DrunkenFist: Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
 	}
 
 	for _, tt := range tests {
-		name, id, _ := ExtractNameAndID(tt.input)
+		name, id, title := ExtractNameAndID(tt.input)
 		if name != tt.wantName {
 			t.Errorf("ExtractNameAndID(%q): name = %q, want %q", tt.input, name, tt.wantName)
 		}
 		if id != tt.wantID {
 			t.Errorf("ExtractNameAndID(%q): id = %q, want %q", tt.input, id, tt.wantID)
+		}
+		if title != tt.wantTitle {
+			t.Errorf("ExtractNameAndID(%q): buildTitle = %q, want %q", tt.input, title, tt.wantTitle)
 		}
 	}
 }

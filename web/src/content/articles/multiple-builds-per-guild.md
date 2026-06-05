@@ -16,15 +16,17 @@ Your guild can have multiple builds on the leaderboard. Each build has its own p
 
 ## How to add a build
 
-Create a new post in `#guild-base-showcase` named (beware of the space before and after '-')
+Create a new post in `#guild-base-showcase` named:
 
 ```
-GuildName - Build Title
+GuildName: Build Title
 ```
 
-Examples: `DrunkenFist - Winter Wonderland`, `DrunkenFist - Tropical Oasis`
+Examples: `DrunkenFist: Winter Wonderland`, `DrunkenFist: Tropical Oasis`
 
 You have to use the same guild name! The site picks up the grouping automatically.
+
+The older `GuildName - Build Title` format (with a dash) also works but beware of the space before and after `-`.
 
 ---
 
