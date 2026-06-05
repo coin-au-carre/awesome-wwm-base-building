@@ -1,6 +1,6 @@
 ---
-title: "All you need to know about Where Winds Meet v1.7 construction updates"
-description: "2-axis rotation, increased component caps, new Kaifeng components, guild base time control, small diagrams use, and more."
+title: "Where Winds Meet v1.7: 2-axis rotation, component caps & small diagrams"
+description: "WWM v1.7 builder tips: rotate components on 2 axes, increased component caps, new Kaifeng components, small diagrams, and more."
 tags: ["update", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-05
@@ -9,7 +9,7 @@ image: "https://media.discordapp.net/attachments/1483451090048520252/15121704929
 featured: true
 ---
 
-Builders, here is a compilation of all the cool stuff we can do with the new updates (bugs included...)
+WWM v1.7 brings major quality-of-life changes for builders. Here is a compilation of all the cool stuff (bugs included...).
 
 ---
 
@@ -50,7 +50,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385351170396264/image.png?ex=6a23e61e&format=webp&hm=f773c885da81a108e2ae8c532f49a9589312ee176da3b51ecca8dbf4e028c455&is=6a22949e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://cdn.discordapp.com/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a23e61e&is=6a22949e&hm=2d97f3e788a5ee286735e4ad51cb821090de2e235b251cb36f3b631232fd40bf&" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
