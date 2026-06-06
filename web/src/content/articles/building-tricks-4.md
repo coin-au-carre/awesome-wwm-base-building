@@ -32,11 +32,11 @@ Standard mode and lite mode don't share the same assets representation. Trees an
 
 This watchtower has a unique rustic-looking bell on top. While the full structure doesn't fit or blend well in many scenarios, sinking most of the tower into the ground leaves behind a clean platform — or no platform at all — and a lovely pavilion. Adding a couple of your favorite lanterns completes the look perfectly.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900565849608335/4.png?ex=6a25039e&format=webp&hm=233269537830b153e3f7da9e16bffb1d6674b1e183be575632c1e441116e8df2&is=6a23b21e&quality=lossless" alt="Watchtower with rustic bell — full structure above ground" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900565849608335/4.png?ex=6a25ac5e&format=webp&hm=69f4aac014715414f8efe550cfdd5131f42e08a28b125d8ca377af3f161b1237&is=6a245ade&quality=lossless" alt="Watchtower with rustic bell — full structure above ground" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900566634074313/5.png?ex=6a25039e&format=webp&hm=f0db43e157abdac1fc6155f585bd14f14e488cb050381b8e18df2b502f79a543&is=6a23b21e&quality=lossless" alt="Watchtower sunk into the ground — only the bell and platform remain visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900566634074313/5.png?ex=6a25ac5e&format=webp&hm=a77e6e9fd55d2f17f53a582aee310d77cd531870edaad6f08c0908e8f80784e2&is=6a245ade&quality=lossless" alt="Watchtower sunk into the ground — only the bell and platform remain visible" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900567422468166/6.png?ex=6a25039e&format=webp&hm=9211d0be5cba09ea087934ebd050921264ba54cee31898280c3fc0cb47287a57&is=6a23b21e&quality=lossless" alt="Finished pavilion with lanterns added around the sunken watchtower bell" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900567422468166/6.png?ex=6a25ac5e&format=webp&hm=0ea8bc22ad59c39f102c312dd68cd25d5c6e42d12419b22aa934ccb87212bf14&is=6a245ade&quality=lossless" alt="Finished pavilion with lanterns added around the sunken watchtower bell" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -67,7 +67,7 @@ Sink a flat top cabinetThis cabinet component has some that make it fit the bar 
 
 Place a diagram without filling in all of its component slots. The empty slots create a screen-like void, while the filled parts form the frame around it — resulting in a clean monitor shape. Wonpil was the first to demonstrate this idea in the Heavenly Sage guild to our knowledge.
 
-<img src="https://cdn.discordapp.com/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a254718&is=6a23f598&hm=671f2d665974305668ea0b395726a6b135a59f1347ff26b0a33ee29994d8faaa" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a254718&format=webp&hm=671f2d665974305668ea0b395726a6b135a59f1347ff26b0a33ee29994d8faaa&is=6a23f598&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a25522f&is=6a2400af&hm=38c5041d9f6688b6eb772e1d3ac8ab2648a6d04cf50d65915be1197f1775595c&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a25522f&hm=38c5041d9f6688b6eb772e1d3ac8ab2648a6d04cf50d65915be1197f1775595c&is=6a2400af&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>

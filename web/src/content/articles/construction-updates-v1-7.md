@@ -18,7 +18,7 @@ WWM v1.7 brings major quality-of-life changes for builders. Here is a compilatio
 Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis before placing it.
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
-<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a253f3c&is=6a23edbc&hm=f12c2906f29ab8ceffcb21ed750bc5fa76295e949c6a656575c948211dc2d572&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a253f3c&hm=f12c2906f29ab8ceffcb21ed750bc5fa76295e949c6a656575c948211dc2d572&is=6a23edbc&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a251844&format=webp&hm=e5cc1b86672629a39661a303461bca897196007ccd91c391d5a2e15f7d0047ac&is=6a23c6c4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
@@ -72,7 +72,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 ### Tutorial video on how to create a diagram
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a254273&is=6a23f0f3&hm=92ce957f2d1a26a4ded1bae5b99482ec17affb5f05daee142936d72bcb9fa889&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a254273&hm=92ce957f2d1a26a4ded1bae5b99482ec17affb5f05daee142936d72bcb9fa889&is=6a23f0f3&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 
 ### Advanced Tip: Use Recommended Spot
@@ -82,7 +82,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2551cb&format=webp&hm=3a6a1af806b8868b9a20f2a7f53ec8f21d2173094ee24baa373a41bdc3f8656b&is=6a24004b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a253c87&is=6a23eb07&hm=a705a82fb324536a309aa65e9eaed5c8af3c7dcfdd08d9633cb57c07d4138f2d&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a253c87&hm=a705a82fb324536a309aa65e9eaed5c8af3c7dcfdd08d9633cb57c07d4138f2d&is=6a23eb07&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 ---
 
