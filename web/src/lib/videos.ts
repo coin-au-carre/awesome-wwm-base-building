@@ -11,6 +11,7 @@ export interface Channel {
   name: string
   url: string
   handle?: string
+  platform?: "youtube" | "tiktok"
 }
 
 export interface TwitchStreamer {
@@ -72,6 +73,12 @@ export const channels: Channel[] = [
     name: "FoxiKate",
     url: "https://www.youtube.com/@FoxiKate",
     handle: "@FoxiKate",
+  },
+  {
+    name: "AegisNite",
+    url: "https://www.tiktok.com/@aegisnitewwm",
+    handle: "@aegisnitewwm",
+    platform: "tiktok",
   },
 ]
 
