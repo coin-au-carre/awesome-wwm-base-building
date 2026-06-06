@@ -169,7 +169,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a24e651\u0026hm=84f4f7236b0f1faa4d5df078b529c07db80c32d36cbb672fd1daddddfe1e3e0a\u0026is=6a2394d1\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a258f11\u0026hm=8adc87a13f09240fb2c41c48afdad66cb8039e4aef1df215cea174fcd33fb707\u0026is=6a243d91\u0026"
     ],
     "version": "v1.7",
     "date": "01/06/2026",
@@ -216,7 +216,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a24e490\u0026hm=31ec55223a1f5547121f0fab63da8e3ae7cc2450034f4a6714223952af0a62c1\u0026is=6a239310\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a258d50\u0026hm=ba7a400506b6f3d06d039e55a504c8cad5b5605fb3e113493721781d10cbc9af\u0026is=6a243bd0\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a24ee89\u0026hm=134addf25f2886a4acefa8194745419bcd12dca1d076adde375832d8b37b9182\u0026is=6a239d09\u0026"
     ],
     "version": "v1.7",
@@ -349,5 +349,21 @@
     "version": "v1.7",
     "date": "05/06/2026",
     "notes": ""
+  },
+  {
+    "severity": "normal",
+    "title": "Vegetation toggle not working.",
+    "details": "Vegetation is deleted even if the clear vegetation toggle is off.",
+    "guild": true,
+    "solo": true,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1512831912048328725/image.png?ex=6a258602\u0026hm=b27a0dcbb0f84d1fd400f8d6b940796e970d02be6eeb7a76ed9183dcd48bc782\u0026is=6a243482\u0026"
+    ],
+    "version": "v1.7",
+    "date": "06/06/2026",
+    "notes": "Ongoing bug as far as i remember since the beginning."
   }
 ]
