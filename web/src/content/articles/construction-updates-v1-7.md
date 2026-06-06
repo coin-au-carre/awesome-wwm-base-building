@@ -36,7 +36,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. You can check our Di
 - Global cap increased by **10,000 components**
 - Density cap (local area) increased by **10,000 components**
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a2537fd&format=webp&hm=bd41a6afb1c0942ed04195949ced85891748dfb4560aa3bb6995ec32755bea41&is=6a23e67d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a25e0bd&format=webp&hm=2c45359df6e0c3b7582073c837cae502983163cac383cd97e6508372bc665802&is=6a248f3d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -50,7 +50,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a25379e&format=webp&hm=2bfbcf8ed8fe7e39a6bd5eed5632df75413b2215af5d2d1bb8bcce6cd7431b9d&is=6a23e61e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a25e05e&format=webp&hm=069c7dee6a1a0275baa786aeb7e495cb41c6cac0f439d7be2611f50c60e63078&is=6a248ede&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -61,7 +61,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a2537e3&format=webp&hm=7cf9b6d8a7c19748f5fa93cb0ccfd21cec9a1da899b20638c911cece84e3e8b2&is=6a23e663&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a25e0a3&format=webp&hm=7f85c6beb74c29c779e35eec6572a49699306377b47b29a02e0b96b317e91965&is=6a248f23&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -82,7 +82,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2551cb&format=webp&hm=3a6a1af806b8868b9a20f2a7f53ec8f21d2173094ee24baa373a41bdc3f8656b&is=6a24004b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a253c87&hm=a705a82fb324536a309aa65e9eaed5c8af3c7dcfdd08d9633cb57c07d4138f2d&is=6a23eb07&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a25e547&hm=38ac1de1b62aee1d4acbc8ab8e7bfe8e341ea63f0f51c055a7ab92d1eae0777a&is=6a2493c7&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 ---
 
