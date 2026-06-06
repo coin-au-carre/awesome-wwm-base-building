@@ -287,14 +287,17 @@ await Promise.all(
               : `https://unavatar.io/youtube/${handleSlug}`
             : null
           return (
-            <a
-              href={ch.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-umami-event={isTikTok ? "tiktok_channel_click" : "youtube_channel_click"}
-              data-umami-event-channel={ch.handle ?? ch.name}
-              class={`group overflow-hidden rounded-2xl bg-card ring-1 ring-foreground/10 hover:shadow-md transition-all ${isTikTok ? "hover:ring-pink-500/40" : "hover:ring-red-500/40"}`}
-            >
+            <div class={`group relative overflow-hidden rounded-2xl bg-card ring-1 ring-foreground/10 hover:shadow-md transition-all ${isTikTok ? "hover:ring-pink-500/40" : "hover:ring-red-500/40"}`}>
+              {/* Stretched link covers the whole card for the channel */}
+              <a
+                href={ch.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event={isTikTok ? "tiktok_channel_click" : "youtube_channel_click"}
+                data-umami-event-channel={ch.handle ?? ch.name}
+                class="absolute inset-0 z-0"
+                aria-label={`${ch.name} on ${isTikTok ? "TikTok" : "YouTube"}`}
+              />
               <div class={`relative h-24 w-full overflow-hidden flex items-center justify-center ${isTikTok ? "bg-[#010101]" : "bg-[#0f0f0f]"}`}>
                 {thumbUrl ? (
                   <img
@@ -333,11 +336,22 @@ await Promise.all(
                   <p class={`text-sm font-medium transition-colors ${isTikTok ? "group-hover:text-pink-500" : "group-hover:text-red-500"}`}>{ch.name}</p>
                   {ch.handle && <p class="text-xs text-muted-foreground">{ch.handle}</p>}
                 </div>
-                <svg class={`size-3.5 shrink-0 text-muted-foreground/50 group-hover:translate-x-0.5 transition-all ${isTikTok ? "group-hover:text-pink-500" : "group-hover:text-red-500"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
+                {ch.builderSlug ? (
+                  <a
+                    href={`${BASE}/builders/${ch.builderSlug}`}
+                    class="relative z-10 shrink-0 text-xs text-primary hover:underline underline-offset-2 font-medium"
+                    data-umami-event="builder_profile_click"
+                    data-umami-event-builder={ch.builderSlug}
+                  >
+                    View builds
+                  </a>
+                ) : (
+                  <svg class={`size-3.5 shrink-0 text-muted-foreground/50 group-hover:translate-x-0.5 transition-all ${isTikTok ? "group-hover:text-pink-500" : "group-hover:text-red-500"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                )}
               </div>
-            </a>
+            </div>
           )
         })}
       </div>

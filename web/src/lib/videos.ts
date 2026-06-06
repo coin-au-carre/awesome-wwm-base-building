@@ -12,6 +12,7 @@ export interface Channel {
   url: string
   handle?: string
   platform?: "youtube" | "tiktok"
+  builderSlug?: string
 }
 
 export interface TwitchStreamer {
@@ -55,9 +56,18 @@ export const tutorialVideos: TutorialVideo[] = [
 
 export const channels: Channel[] = [
   {
-    name: "Marvelite",
-    url: "https://www.youtube.com/@Marvelite/videos",
-    handle: "@Marvelite",
+    name: "AegisNite",
+    url: "https://www.tiktok.com/@aegisnitewwm",
+    handle: "@aegisnitewwm",
+    platform: "tiktok",
+    builderSlug: "aegisnite",
+  },
+  {
+    name: "Anarky",
+    url: "https://www.tiktok.com/@anarky64",
+    handle: "@anarky64",
+    platform: "tiktok",
+    builderSlug: "anarky",
   },
   {
     name: "Azzel83",
@@ -68,6 +78,7 @@ export const channels: Channel[] = [
     name: "Carnii",
     url: "https://www.youtube.com/@heyu5152",
     handle: "@heyu5152",
+    builderSlug: "carnii",
   },
   {
     name: "FoxiKate",
@@ -75,16 +86,9 @@ export const channels: Channel[] = [
     handle: "@FoxiKate",
   },
   {
-    name: "AegisNite",
-    url: "https://www.tiktok.com/@aegisnitewwm",
-    handle: "@aegisnitewwm",
-    platform: "tiktok",
-  },
-  {
-    name: "Anarky",
-    url: "https://www.tiktok.com/@anarky64",
-    handle: "@anarky64",
-    platform: "tiktok",
+    name: "Marvelite",
+    url: "https://www.youtube.com/@Marvelite/videos",
+    handle: "@Marvelite",
   },
 ]
 
