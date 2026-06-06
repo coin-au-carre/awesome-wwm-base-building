@@ -6,7 +6,7 @@ authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 updatedDate: 2026-05-26
 order: 10
-image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a243789&format=webp&hm=a62a0f45d445ca0c7fa51bd43954e85bf369181a68893656a17397d7d4384777&is=6a22e609&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a24e049&format=webp&hm=4230894985ccbf873d3962da448c5c88787f922cdaff9e1114c2889a20174cc7&is=6a238ec9&quality=lossless"
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` channel.
@@ -34,7 +34,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here are two approaches.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a243789&format=webp&hm=a62a0f45d445ca0c7fa51bd43954e85bf369181a68893656a17397d7d4384777&is=6a22e609&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a24e049&format=webp&hm=4230894985ccbf873d3962da448c5c88787f922cdaff9e1114c2889a20174cc7&is=6a238ec9&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 This second method blends in more naturally with the surroundings.
 
@@ -47,9 +47,9 @@ This second method blends in more naturally with the surroundings.
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a241377&format=webp&hm=313372565c44648234bbe6e57f0c37e2300e8e1aac9f49335879539cffb08fc1&is=6a22c1f7&quality=lossless" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a24bc37&format=webp&hm=3910c2df81075360760127b213e4b2fc6faaf321d14186a091a0d13c01391556&is=6a236ab7&quality=lossless" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a241378&format=webp&hm=f829e00e9495aa82a0339fc19f9372fc927a81ca33d4e3d4d40294635764e94b&is=6a22c1f8&quality=lossless" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a24bc38&format=webp&hm=23529e2a8034f51f205c05217d05c1745eddf994123f9be9638827e092a3f02b&is=6a236ab8&quality=lossless" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -73,4 +73,4 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a244c0e&format=webp&hm=f9a422e2169bce18884cb984686989773ed6fba77e30636a0cb9b049d2848ebc&is=6a22fa8e&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a24f4ce&format=webp&hm=fe4bee286b834f772b635ef79b54af2fd16c21066e1faddb03ba85b02d8f8ff5&is=6a23a34e&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
