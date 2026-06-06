@@ -1,10 +1,10 @@
 ---
 title: "Building tips and tricks #4"
-description: "More community building tricks: standard vs lite mode differences, sinking the watchtower for a rustic pavilion, bringing solo-only ironware items into guild mode via diagrams, and extending a bar counter with a flat top cabinet."
+description: "More community building tricks: standard vs lite mode differences, sinking the watchtower for a rustic pavilion, bringing solo-only ironware items into guild mode via diagrams, extending a bar counter with a flat top cabinet, and creating a monitor using diagrams with empty slots."
 tags: ["beginner", "advanced", "guild", "solo"]
-authors: ["AegisNite", "Crueliet", "Wyrdrake"]
+authors: ["AegisNite", "Crueliet", "Wyrdrake", "KARIN", "Ahlyam"]
 date: 2026-05-26
-updatedDate: 2026-05-31
+updatedDate: 2026-06-06
 order: 11
 image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a255f02&format=webp&hm=eb718e07eba6da86b68c35e49a88b214d000fa2f2749446f74f2f7979c8f19c5&is=6a240d82&quality=lossless"
 featured: true
@@ -59,3 +59,15 @@ Sink a flat top cabinetThis cabinet component has some that make it fit the bar 
 <img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a2541dd&format=webp&hm=c75aedb2fc001a777b63b7d3625dae23183f44cafe086aff692acd6b97ec6373&is=6a23f05d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
 
 <img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a254265&format=webp&hm=00f7ca7854b19724b7c8a2eeeac862eee7dcb63f9e139435b0270d480c5e28c0&is=6a23f0e5&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+## 5. Create a monitor using diagrams
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/karin" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">KARIN</a></p>
+
+Place a diagram without filling in all of its component slots. The empty slots create a screen-like void, while the filled parts form the frame around it — resulting in a clean monitor shape. Wonpil was the first to demonstrate this idea in the Heavenly Sage guild to our knowledge.
+
+<img src="https://cdn.discordapp.com/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a254718&is=6a23f598&hm=671f2d665974305668ea0b395726a6b135a59f1347ff26b0a33ee29994d8faaa" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
+
+<!-- discord-video:1483447711499030634/1499730307018915970 -->
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a25522f&is=6a2400af&hm=38c5041d9f6688b6eb772e1d3ac8ab2648a6d04cf50d65915be1197f1775595c&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>

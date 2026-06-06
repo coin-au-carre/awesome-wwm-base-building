@@ -169,7 +169,7 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 			ext := mediaExt(att.URL)
 			if isVideo(ext) {
 				group = append(group, fmt.Sprintf(
-					`<video src="%s" controls style="border-radius: 0.75rem; width: 100%%; max-width: 720px;"></video>`,
+					`<video src="%s" controls style="border-radius: 0.75rem; width: 100%%; max-width: 1080px;"></video>`,
 					att.URL,
 				))
 				slog.Info("linked video (Discord CDN)", "url", att.URL)
@@ -659,4 +659,3 @@ func replaceDiscordVideoSrcs(s *discordgo.Session, content string) (string, bool
 	}
 	return strings.Join(lines, "\n"), changed
 }
-

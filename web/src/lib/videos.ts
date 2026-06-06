@@ -80,6 +80,12 @@ export const channels: Channel[] = [
     handle: "@aegisnitewwm",
     platform: "tiktok",
   },
+  {
+    name: "Anarky",
+    url: "https://www.tiktok.com/@anarky64",
+    handle: "@anarky64",
+    platform: "tiktok",
+  },
 ]
 
 export const twitchStreamers: TwitchStreamer[] = [

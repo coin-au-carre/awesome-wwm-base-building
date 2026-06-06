@@ -8,7 +8,7 @@ updatedDate: 2026-05-28
 order: 14
 image: "/images/patch-notes.webp"
 discordThread: "https://discord.com/channels/1483447710617960508/1483447711499030631/1509459030215753728"
-featured: true
+featured: false
 ---
 
 @here Update is up! Below you will find improvements / bugs that we have confirmed. Help us report bugs this is important for all us. Improve the list with us in #💬chat .
