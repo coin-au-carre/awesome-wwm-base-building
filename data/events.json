@@ -24,7 +24,7 @@
     "scheduledStart": "2026-06-06T21:30:00Z",
     "scheduledEnd": "2026-06-07T00:00:00Z",
     "location": "The Inner Ways Guild HQ",
-    "status": "scheduled",
+    "status": "active",
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
@@ -43,30 +43,5 @@
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
-  },
-  {
-    "id": "1512075806778855574",
-    "name": "Beyond The Wall with Carni",
-    "description": "@ℭ𝔞𝔯𝔫𝔦  is venturing deep into CN territory: solo world and Family Business islands, all live streaming on Discord!  Open to everyone!\nCome watch, explore alongside her, and chat in vocal in ⁠General.  Carni will be communicating through text.",
-    "type": "streaming",
-    "scheduledStart": "2026-06-06T20:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 12,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1512075806778855574",
-    "image": "https://cdn.discordapp.com/guild-events/1512075806778855574/5a6b8418027e1c22afeb5978140b4365.png?size=512"
-  },
-  {
-    "id": "1512435108987011244",
-    "name": "Dive in to Dragon City - Base tour dragons-Heirs (10111177)",
-    "description": "Dragons-Heirs base tour, you will dive in our dragon city, \ntour is with voice telling you about city and full of stories.",
-    "scheduledStart": "2026-06-06T13:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 5,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1512435108987011244",
-    "image": "https://cdn.discordapp.com/guild-events/1512435108987011244/36862f25edc891099bffb55ef4076c07.png?size=512"
   }
 ]
