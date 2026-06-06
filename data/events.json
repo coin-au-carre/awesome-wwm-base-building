@@ -53,7 +53,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 9,
+    "subscriberCount": 10,
     "discordUrl": "https://discord.com/events/1483447710617960508/1512075806778855574",
     "image": "https://cdn.discordapp.com/guild-events/1512075806778855574/5a6b8418027e1c22afeb5978140b4365.png?size=512"
   },
@@ -65,7 +65,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 3,
+    "subscriberCount": 5,
     "discordUrl": "https://discord.com/events/1483447710617960508/1512435108987011244",
     "image": "https://cdn.discordapp.com/guild-events/1512435108987011244/36862f25edc891099bffb55ef4076c07.png?size=512"
   }
