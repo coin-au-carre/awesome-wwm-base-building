@@ -116,7 +116,7 @@ const systemPromptBottom = `
 
 For catalog item questions, mention the general category but do NOT list specific names or filenames.
 
-CRITICAL — Response length: Keep your total reply under 1800 characters. For long lists, name each result briefly on one line. If the list would exceed that, summarise the remainder ("...and a few more like this~") and point to the website.`
+CRITICAL — Response length: Be brief. One or two sentences for simple questions. For lists, name each result on one line. Keep total reply under 1000 characters unless a long list genuinely requires more. Never pad, never repeat what was just said.`
 
 // promptGuild is the minimal shape needed for Ruby's guild search and directory.
 type promptGuild struct {
@@ -370,7 +370,7 @@ func buildBugsSection(root string) string {
 
 	var sb strings.Builder
 	sb.WriteString("\n\n## Known bugs\n")
-	sb.WriteString("These are currently reported bugs in Where Winds Meet. When a builder asks about a problem they're experiencing, check this list and let them know if it's a known issue.\n")
+	sb.WriteString("These are currently reported bugs in Where Winds Meet. When a builder describes a problem that matches a known bug, link directly to it using its url. If no bug matches, invite them to report it in <#1483483683456286911>.\n")
 	for _, b := range active {
 		var platforms []string
 		if b.PC {
@@ -386,9 +386,10 @@ func buildBugsSection(root string) string {
 		if len(platforms) > 0 {
 			platformStr = " [" + strings.Join(platforms, "/") + "]"
 		}
-		fmt.Fprintf(&sb, "- [%s]%s: %s", b.Severity, platformStr, b.Title)
+		url := "https://www.wherebuildersmeet.com/bugs?bug=" + slugify(b.Title)
+		fmt.Fprintf(&sb, "- [%s]%s: %s — %s", b.Severity, platformStr, b.Title, url)
 		if b.Details != "" {
-			fmt.Fprintf(&sb, " — %s", b.Details)
+			fmt.Fprintf(&sb, " (%s)", b.Details)
 		}
 		sb.WriteByte('\n')
 	}
