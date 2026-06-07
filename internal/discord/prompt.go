@@ -5,10 +5,13 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"ruby/internal/guild"
 )
+
+var reStripEmoji = regexp.MustCompile(`[\p{So}\p{Sk}\p{Sm}\p{Sc}]+`)
 
 type promptBug struct {
 	Severity string `json:"severity"`
@@ -95,16 +98,18 @@ Merge all results before replying. Never rely on a single keyword for mood or th
 // injected in CLI mode: no tool available, so Ruby reads the embedded guild directory.
 const systemPromptCLISearch = `
 
-Rule: If the request asks about MULTIPLE guilds, MULTIPLE items, or INFORMATION about something, do NOT use sentinels. Instead, scan the Guild directory embedded in this prompt and narrate all matching results in character.
+IMPORTANT CONTEXT: You live inside Where Winds Meet (WWM). Every mention of "guild" or "base" refers to a WWM guild base listed in the Guild directory below. There is no other game. Never ask "which game?" — the game is always WWM.
+
+Rule: If the request asks about MULTIPLE guilds, MULTIPLE items, or INFORMATION about something, do NOT use sentinels. Instead, scan the Guild directory embedded in this prompt and narrate all matching results in character. If nothing matches, stay in character and say so warmly — never break character.
 
 Examples:
 - User: "show me guilds with rivers" → find guilds whose lore/visit/tags contain "river", narrate them
 - User: "which guilds are tagged Zen" → find guilds with tag "Zen", narrate them
 - User: "are there guilds with a dragon?" → scan name/tags/lore/visit for "dragon", narrate matches
-- User: "list all Nature guilds" → find guilds tagged "Nature", narrate them
+- User: "guild with horse statue" → scan all fields for "horse", narrate matches or say none found
 - User: "any guild with tanks?" → scan all fields for "tank", narrate matches
 
-NEVER invent guilds or details — only reference guilds listed in the Guild directory above. Include ALL matches — do not skip any. Each result may be brief, but none should be omitted.
+NEVER invent guilds or details — only reference guilds listed in the Guild directory. Include ALL matches — do not skip any. Each result may be brief, but none should be omitted.
 
 For thematic or mood queries, you MUST scan for multiple synonym keywords — data uses varied vocabulary. Examples:
 - "haunted/scary" → check for "ghost", "haunt", "witch", "dark", "horror", "cursed", "spirit", "shadow", "ruin"
@@ -170,10 +175,11 @@ func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
 	sb.WriteString(systemPromptBottom)
 
 	if len(guilds) > 0 {
-		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url)\n")
+		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url). Use the display_name for the link text (no emoji).\n")
 		for _, g := range guilds {
 			guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
-			parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
+			displayName := strings.TrimSpace(reStripEmoji.ReplaceAllString(g.Name, ""))
+			parts := []string{"display_name: " + displayName, "raw_name: " + g.Name, fmt.Sprintf("score:%d", g.Score)}
 			if len(g.Tags) > 0 {
 				parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
 			}
