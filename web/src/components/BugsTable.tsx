@@ -1,9 +1,10 @@
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo, useEffect, useRef, useCallback } from "react"
 import * as React from "react"
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table"
 import { cn } from "@/lib/utils"
+import { slugify } from "@/lib/format"
 
 function isVideo(url: string) {
   const path = url.split("?")[0].toLowerCase()
@@ -151,6 +152,32 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
   const [sortKey, setSortKey] = useState<SortKey>("date")
   const [sortDir, setSortDir] = useState<SortDir>("desc")
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
+  const [highlightedSlug, setHighlightedSlug] = useState<string | null>(null)
+  const rowRefs = useRef<Map<string, HTMLTableRowElement>>(new Map())
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const slug = params.get("bug")
+    if (slug) setHighlightedSlug(slug)
+  }, [])
+
+  useEffect(() => {
+    if (!highlightedSlug) return
+    const el = rowRefs.current.get(highlightedSlug)
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" })
+  }, [highlightedSlug])
+
+  const setRowRef = useCallback((slug: string, el: HTMLTableRowElement | null) => {
+    if (el) rowRefs.current.set(slug, el)
+    else rowRefs.current.delete(slug)
+  }, [])
+
+  function handleRowClick(slug: string) {
+    setHighlightedSlug(slug)
+    const url = new URL(window.location.href)
+    url.searchParams.set("bug", slug)
+    history.replaceState(null, "", url.toString())
+  }
 
   function togglePlatform(p: Platform) {
     setPlatformFilter((prev) => {
@@ -282,8 +309,18 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
               </TableRow>
             )}
             {filtered.map((bug, i) => {
+              const bugSlug = slugify(bug.title)
+              const isHighlighted = highlightedSlug === bugSlug
               return (
-                <TableRow key={i} className="align-top">
+                <TableRow
+                  key={i}
+                  ref={(el) => setRowRef(bugSlug, el)}
+                  onClick={() => handleRowClick(bugSlug)}
+                  className={cn(
+                    "align-top cursor-pointer transition-colors",
+                    isHighlighted && "ring-2 ring-inset ring-primary/50 bg-primary/5",
+                  )}
+                >
                   <TableCell className="pt-3">
                     {bug.severity && (
                       <span
