@@ -126,7 +126,7 @@ const recentTopItems = items
             <div id="fresh-gallery" class="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {recentTopItems.map((item) => (
                 <div
-                  class={`gallery-item group rounded-xl overflow-hidden bg-muted ring-1 ring-primary/40 hover:ring-primary transition-all ${item.kind === "video" ? "cursor-pointer" : "cursor-zoom-in"}`}
+                  class={`gallery-item group relative rounded-xl overflow-hidden bg-muted ring-1 ring-primary/40 hover:ring-primary transition-all ${item.kind === "video" ? "cursor-pointer" : "cursor-zoom-in"}`}
                   data-kind={item.kind}
                   data-post-id={item.postId}
                   data-img={item.src}
@@ -141,6 +141,9 @@ const recentTopItems = items
                   data-posted-at={item.postedAt}
                   data-primary="1"
                 >
+                  <span class="absolute top-1.5 right-1.5 z-10 inline-flex items-center gap-1 rounded-full bg-primary/90 px-1.5 py-0.5 text-[10px] font-semibold text-primary-foreground backdrop-blur-sm shadow-sm pointer-events-none">
+                    ✦ New
+                  </span>
                   {item.kind === "video" ? (
                     <div class="aspect-video relative overflow-hidden">
                       <video src={item.src} preload="metadata" muted playsinline class="w-full h-full object-cover pointer-events-none transition-transform duration-300 group-hover:scale-[1.03]" />
