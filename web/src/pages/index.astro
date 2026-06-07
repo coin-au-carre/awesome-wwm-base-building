@@ -10,8 +10,20 @@ import { getActiveBuilderSlugs } from "@/lib/builders"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { tagColor } from "@/lib/colors"
+import { GuildWall } from "@/components/GuildWall"
 import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, StackIcon, UsersIcon, BroadcastIcon, MicrophoneStageIcon } from "@phosphor-icons/react"
 import { getCollection, type CollectionEntry } from "astro:content"
+
+// ─── Page toggles ────────────────────────────────────────────────────────────
+const SHOW_BEYOND_WALL_EVENT = false   // restore after the event
+const SHOW_PATCH_BANNER      = true    // v1.7 update banner
+const SHOW_TOUR_BANNER       = false   // auto-shows when a tour event is within 24h
+const SHOW_FEATURED_BANNERS  = false   // featured articles & events + catalog banner
+const SHOW_GUILD_WALL        = true    // "Discover Guild Bases" random wall
+const SHOW_TOP_RATED         = false    // "Top-rated Guild bases" carousel
+const SHOW_HIDDEN_GEMS       = false    // "Hidden Gems" section
+// ─────────────────────────────────────────────────────────────────────────────
+
 function relativeDate(createdAt: string): string {
   const ms = Date.now() - new Date(createdAt.replace(" at ", " ")).getTime()
   if (isNaN(ms) || ms < 0) return ""
@@ -73,6 +85,7 @@ const latestGuilds: CarouselGuild[] = (useCarousel ? recentGuilds : getLatestGui
   screenshots: g.screenshots?.[0] ? [g.screenshots[0]] : undefined,
   buildTitle: g.buildTitle, createdAt: g.createdAt,
 }))
+const guildsWithScreenshots = guilds.filter((g) => g.coverImage || (g.screenshots && g.screenshots.length > 0))
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
 const now = Date.now()
@@ -95,8 +108,6 @@ const leanGuilds: LeaderboardGuild[] = guilds.map((g) => ({
   formerNames: g.formerNames,
 }))
 
-// Toggle this to restore normal sections after the event
-const SHOW_BEYOND_WALL_EVENT = false
 const BTW_EVENT = {
   url:          "https://discord.com/events/1483447710617960508/1512075806778855574",
   startUnixSec: 1780776000,           // date -d "2026-06-06 20:00 UTC" +%s
@@ -111,13 +122,6 @@ const BTW_EVENT = {
   imgLeft:      "/events/beyond-the-wall/luminoushall.jpg",
   imgRight:     "/events/beyond-the-wall/palace.jpg",
 }
-// Set to true to show the patch notes banner (suppresses featured section + catalog banner)
-const SHOW_PATCH_BANNER = true
-// Set to false to suppress the auto tour banner (it normally auto-shows when a tour event is within 10h)
-const SHOW_TOUR_BANNER = false
-// Set to false to hide the featured articles & events banners (and catalog banner)
-const SHOW_FEATURED_BANNERS = false
-
 // Auto-show a tour banner when a tour event starts within 24 hours (or is live) and the big event is off
 const TOUR_BANNER_WINDOW_MS = 24 * 60 * 60 * 1000
 const upcomingTourEvent = SHOW_TOUR_BANNER && !SHOW_BEYOND_WALL_EVENT
@@ -885,23 +889,14 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
       <svg class="size-4 shrink-0 text-amber-400/55 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
     </a>}
 
-    <!-- Ranked table -->
-    <section>
-      <h2 class="font-heading text-base font-semibold mb-3 flex items-center gap-2 pl-3 border-l-2 border-amber-500/60"><img src="/images/logo_mountain1.webp" alt="" aria-hidden="true" class="size-10 object-contain" /> All Guild bases</h2>
-      <LeaderboardTable client:visible guilds={leanGuilds} allTags={allTags} activeBuilderSlugs={[...activeBuilders]} />
-      <noscript>
-        <ul class="mt-4 space-y-1 text-sm">
-          {guilds.map((g) => (
-            <li>
-              <a href={`${BASE}/guilds/${g.slug}`}>
-                #{g.rank} {g.guildName || g.name} — by {g.builders?.join(", ") || "—"} — Score: {g.score}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </noscript>
-      <p class="text-xs text-muted-foreground mt-3">Want to vote? <a href={`${BASE}/how-it-works`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Votes count more when you explore many guilds ↗</a></p>
-    </section>
+    <!-- Discover Guild Bases random wall -->
+    {
+      SHOW_GUILD_WALL && guildsWithScreenshots.length > 0 && (
+        <section>
+          <GuildWall client:visible guilds={guildsWithScreenshots} count={12} />
+        </section>
+      )
+    }
 
     <!-- Building requests banner -->
     <a
@@ -924,8 +919,26 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
       <svg class="size-4 shrink-0 text-indigo-400/55 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
     </a>
 
+    <!-- Ranked table -->
+    <section>
+      <h2 class="font-heading text-base font-semibold mb-3 flex items-center gap-2 pl-3 border-l-2 border-amber-500/60"><img src="/images/logo_mountain1.webp" alt="" aria-hidden="true" class="size-10 object-contain" /> All Guild bases</h2>
+      <LeaderboardTable client:visible guilds={leanGuilds} allTags={allTags} activeBuilderSlugs={[...activeBuilders]} />
+      <noscript>
+        <ul class="mt-4 space-y-1 text-sm">
+          {guilds.map((g) => (
+            <li>
+              <a href={`${BASE}/guilds/${g.slug}`}>
+                #{g.rank} {g.guildName || g.name} — by {g.builders?.join(", ") || "—"} — Score: {g.score}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </noscript>
+      <p class="text-xs text-muted-foreground mt-3">Want to vote? <a href={`${BASE}/how-it-works`} class="text-foreground underline underline-offset-2 hover:text-primary transition-colors">Votes count more when you explore many guilds ↗</a></p>
+    </section>
+
     <!-- Top rated carousel -->
-    {topGuilds.length > 0 && (
+    {SHOW_TOP_RATED && topGuilds.length > 0 && (
       <section>
         <h2 class="font-heading text-base font-semibold mb-1 flex items-center gap-2 pl-3 border-l-2 border-yellow-500/60"><TrophyIcon weight="duotone" className="size-4 text-yellow-400" /> Top-rated Guild bases</h2>
         <div class="px-5">
@@ -935,7 +948,7 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
     )}
 
     <!-- Hidden gems -->
-    {hiddenGems.length > 0 && (
+    {SHOW_HIDDEN_GEMS && hiddenGems.length > 0 && (
       <section>
         <h2 class="font-heading text-base font-semibold mb-1 flex items-center gap-2 pl-3 border-l-2 border-cyan-500/60"><DiamondIcon weight="duotone" className="size-4 text-cyan-400" /> Hidden Gems</h2>
         <div class="px-5">
@@ -1006,12 +1019,12 @@ const articlesToShow = featuredArticles.slice(0, Math.max(0, 4 - eventsToShow.le
               )
             })}
           </div>
-          <p class="mt-3 text-sm text-muted-foreground/70 italic px-1">
-            Tiers score don't tell the whole story. Plenty of hidden gems await even with a low score, but you will have to search to discover them yourself.{" "}
-            <a href={`${BASE}/how-it-works`} class="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
-          </p>
         </div>
       </section>
     )}
+    <p class="text-sm text-muted-foreground/70 italic px-1">
+      Tiers score don't tell the whole story. Plenty of hidden gems await even with a low score, but you will have to search to discover them yourself.{" "}
+      <a href={`${BASE}/how-it-works`} class="underline underline-offset-2 hover:text-foreground transition-colors not-italic">How scoring works ↗</a>
+    </p>
   </div>
 </Layout>
