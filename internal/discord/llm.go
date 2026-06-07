@@ -335,7 +335,7 @@ type cliResult struct {
 }
 
 func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliResult, error) {
-	args := []string{"--print", "--output-format", "json", "--allowedTools", "Read,Glob,Grep,WebFetch,WebSearch"}
+	args := []string{"--bare", "--print", "--output-format", "json", "--allowedTools", "Read,Glob,Grep,WebFetch,WebSearch"}
 	if sessionID != "" {
 		args = append(args, "--resume", sessionID)
 	} else if systemPrompt != "" {
