@@ -339,7 +339,17 @@ func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliRe
 	if sessionID != "" {
 		args = append(args, "--resume", sessionID)
 	} else if systemPrompt != "" {
-		args = append(args, "--system-prompt", systemPrompt)
+		f, err := os.CreateTemp("", "ruby-prompt-*.txt")
+		if err != nil {
+			return cliResult{}, fmt.Errorf("creating prompt tempfile: %w", err)
+		}
+		defer os.Remove(f.Name())
+		if _, err := f.WriteString(systemPrompt); err != nil {
+			f.Close()
+			return cliResult{}, fmt.Errorf("writing prompt tempfile: %w", err)
+		}
+		f.Close()
+		args = append(args, "--system-prompt-file", f.Name())
 	}
 	args = append(args, message)
 

@@ -10,6 +10,19 @@ import (
 	"ruby/internal/guild"
 )
 
+type promptBug struct {
+	Severity string `json:"severity"`
+	Title    string `json:"title"`
+	Details  string `json:"details"`
+	Guild    bool   `json:"guild"`
+	Solo     bool   `json:"solo"`
+	PC       bool   `json:"pc"`
+	Mobile   bool   `json:"mobile"`
+	PS5      bool   `json:"ps5"`
+	Version  string `json:"version"`
+	Notes    string `json:"notes"`
+}
+
 func loadPromptSolos(root string) []promptGuild {
 	solos, err := guild.LoadFile(filepath.Join(root, "data", "solos.json"))
 	if err != nil {
@@ -209,6 +222,9 @@ func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
 	if s := buildArticlesSection(root); s != "" {
 		sb.WriteString(s)
 	}
+	if s := buildBugsSection(root); s != "" {
+		sb.WriteString(s)
+	}
 
 	sb.WriteString("\n\n## Reminder\nYou are Ruby, an small girl of Jiang Hu — NOT an AI, NOT an assistant, NOT a Ruby programmer. Stay in character. Reply in Ruby's voice: warm, short, dreamy, delighted by builders and their creativity.")
 
@@ -328,6 +344,53 @@ func buildArticlesSection(root string) string {
 	for _, a := range articles {
 		url := "https://www.wherebuildersmeet.com/tutorials/" + a.Slug + "?utm_source=discord&utm_medium=bot&utm_campaign=ai_reply"
 		fmt.Fprintf(&sb, "- **%s**: %s — %s\n", a.Title, a.Description, url)
+	}
+	return sb.String()
+}
+
+func buildBugsSection(root string) string {
+	data, err := os.ReadFile(filepath.Join(root, "data", "bugs.json"))
+	if err != nil {
+		return ""
+	}
+	var bugs []promptBug
+	if err := json.Unmarshal(data, &bugs); err != nil {
+		return ""
+	}
+
+	var active []promptBug
+	for _, b := range bugs {
+		if b.Severity != "fixed" {
+			active = append(active, b)
+		}
+	}
+	if len(active) == 0 {
+		return ""
+	}
+
+	var sb strings.Builder
+	sb.WriteString("\n\n## Known bugs\n")
+	sb.WriteString("These are currently reported bugs in Where Winds Meet. When a builder asks about a problem they're experiencing, check this list and let them know if it's a known issue.\n")
+	for _, b := range active {
+		var platforms []string
+		if b.PC {
+			platforms = append(platforms, "PC")
+		}
+		if b.Mobile {
+			platforms = append(platforms, "Mobile")
+		}
+		if b.PS5 {
+			platforms = append(platforms, "PS5")
+		}
+		platformStr := ""
+		if len(platforms) > 0 {
+			platformStr = " [" + strings.Join(platforms, "/") + "]"
+		}
+		fmt.Fprintf(&sb, "- [%s]%s: %s", b.Severity, platformStr, b.Title)
+		if b.Details != "" {
+			fmt.Fprintf(&sb, " — %s", b.Details)
+		}
+		sb.WriteByte('\n')
 	}
 	return sb.String()
 }
