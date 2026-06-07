@@ -187,8 +187,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a26015f\u0026hm=223af69d34a9b4bba52f12413148df71feabc6dab7e5594b9e591a70b874d9b2\u0026is=6a24afdf\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a26015f\u0026hm=509fd1c79d1ab3ffa1984c267a268e59498aaf01bd73fbb8fb4093bf691da760\u0026is=6a24afdf\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a26aa1f\u0026hm=152a8739b39fdb841799b5d847a4f715bddf4556f8df31e21b7cca1b76e73a4a\u0026is=6a25589f\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a26aa1f\u0026hm=36010385ef63816500194c990fab2a497ace26cf9c3eac4e0c455a413d002d6e\u0026is=6a25589f\u0026"
     ],
     "version": "v1.7",
     "date": "02/06/2026",
@@ -210,8 +210,8 @@
   },
   {
     "severity": "high",
-    "title": "Some components cannot be placed at ground level",
-    "details": "The treshold to determine underground component seems too high",
+    "title": "Components cannot be placed at ground level",
+    "details": "The treshold to determine underground component seems too high for some components",
     "guild": true,
     "solo": false,
     "pc": false,
@@ -219,7 +219,8 @@
     "ps5": false,
     "media": [
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a263610\u0026hm=f157809ca8136b81f729908063835817549dea3e52c6c5c9066545682a9bb62b\u0026is=6a24e490\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a264009\u0026hm=9957ad0206a9b102f0cf57155458273eed94ef5017d3a6f17f5c3629b5089d57\u0026is=6a24ee89\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a264009\u0026hm=9957ad0206a9b102f0cf57155458273eed94ef5017d3a6f17f5c3629b5089d57\u0026is=6a24ee89\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513157083489632398/SVID_20260607_192226_1.mp4?ex=6a26b4d9\u0026hm=80fd2384cb19e15ba6d8c5951c9ea4b418337cf76107b9fdba0a2146249c9213\u0026is=6a256359\u0026"
     ],
     "version": "v1.7",
     "date": "03/06/2026",
