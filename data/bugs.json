@@ -10,7 +10,7 @@
     "ps5": true,
     "media": [
       "https://cdn.discordapp.com/attachments/1509461162520219688/1509600307947110580/image.png?ex=6a264a98\u0026hm=7d06c72295fd92021d9bbd6cd3a30fafd07dd1ca21de2aadfbba64824b40702f\u0026is=6a24f918\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928354830979173/Guild_Construction_Diagrams.mp4?ex=6a25d96f\u0026hm=11eae370f466c6937dfd8ee0d0af3a20d2eabfc80116d34df94d652909dc250b\u0026is=6a2487ef\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928354830979173/Guild_Construction_Diagrams.mp4?ex=6a26822f\u0026hm=a05edbea7998f5b253f065c98be6267c02f75299b94322bf7032c88524014753\u0026is=6a2530af\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -27,7 +27,7 @@
     "ps5": true,
     "media": [
       "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a25ed22\u0026hm=bb4efb26c2c1e53b91582438b807edd23dc5bd4228353cd724df6c0547c31348\u0026is=6a249ba2\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a25d9df\u0026hm=cddd94de720f30389b256eea1c8827cdf5af589237c51c4c983b778d84ddded2\u0026is=6a24885f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a26829f\u0026hm=4309c0eb4a30f2cd67bd66aadbcfb1d675cb1d4757c4fd11b3789f124500f290\u0026is=6a25311f\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -73,7 +73,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a25dcab\u0026hm=192bc78eba86d9ef57919a2e69417ec8c9514f2e500e6913274daf891862341a\u0026is=6a248b2b\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a26856b\u0026hm=111e2be207da04197131e33afd637bfc9adb4f03af716f46c04f179c0ce262b4\u0026is=6a2533eb\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -81,8 +81,8 @@
   },
   {
     "severity": "normal",
-    "title": "Components disappear when near them",
-    "details": "Approaching components make them disappear on mobile",
+    "title": "Components disappear",
+    "details": "Approaching components or moving camera can make them disappear on mobile",
     "guild": true,
     "solo": false,
     "pc": false,
@@ -91,8 +91,10 @@
     "media": [
       "https://cdn.discordapp.com/attachments/1483447711499030633/1510909201612935229/ScreenRecording_06-01-2026_17-06-42_1.mov?ex=6a267059\u0026hm=ec46c98ce29ceed2d6f04963b56f8d838061cc1a8a8f21bf8fbdff8bcd5f00f7\u0026is=6a251ed9\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1510909242838745088/ScreenRecording_06-01-2026_16-35-08_1.mov?ex=6a267062\u0026is=6a251ee2\u0026hm=aba744e94ecf8e9941830a17f5807e56dc7e81448c41ef8eeeb0ea0e56e8ac95\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1512014693735207013/ScreenRecording_06-04-2026_16-45-20_1.mov?ex=6a25d8aa\u0026hm=159412c21b05e0fb6b4965be67c3d2776972881a467ba5a91d7661e1eea05b4f\u0026is=6a24872a\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909424653303929/ScreenRecording_06-01-2026_16-52-00_1.mov?ex=6a26708e\u0026hm=334a50a3c5002399c21142fa77c9e91ba66fbce35f2363f3de7d9b3e6fc79031\u0026is=6a251f0e\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1512014693735207013/ScreenRecording_06-04-2026_16-45-20_1.mov?ex=6a26816a\u0026hm=90727a3895464f193e522819830e625c0d0b30b16085448f19f205288c586892\u0026is=6a252fea\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909424653303929/ScreenRecording_06-01-2026_16-52-00_1.mov?ex=6a26708e\u0026hm=334a50a3c5002399c21142fa77c9e91ba66fbce35f2363f3de7d9b3e6fc79031\u0026is=6a251f0e\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513109397256274000/ScreenRecording_06-07-2026_19-12-53_1.mov?ex=6a268870\u0026hm=3a5184c5090f830f2ff2495c9895b2e85e2eba2891fff3e88ff2a7ea9694b123\u0026is=6a2536f0\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513109398103261314/ScreenRecording_06-07-2026_19-11-58_1.mov?ex=6a268870\u0026hm=1ac61984db15d04acc6e4ee910492c9346bbba906e20ea70dc7885d8b2a695f0\u0026is=6a2536f0\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
