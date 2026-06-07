@@ -175,7 +175,7 @@ func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
 	sb.WriteString(systemPromptBottom)
 
 	if len(guilds) > 0 {
-		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url). Use the display_name for the link text (no emoji).\n")
+		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url). Use the display_name for the link text (no emoji). Never mention scores in your replies.\n")
 		for _, g := range guilds {
 			guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
 			displayName := strings.TrimSpace(reStripEmoji.ReplaceAllString(g.Name, ""))
