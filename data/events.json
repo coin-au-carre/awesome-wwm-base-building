@@ -21,10 +21,10 @@
     "guildName": "The Inner Ways",
     "guildId": "10183152",
     "type": "dancing",
-    "scheduledStart": "2026-06-06T21:30:00Z",
-    "scheduledEnd": "2026-06-07T00:00:00Z",
+    "scheduledStart": "2026-06-13T21:30:00Z",
+    "scheduledEnd": "2026-06-14T00:00:00Z",
     "location": "The Inner Ways Guild HQ",
-    "status": "active",
+    "status": "scheduled",
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
