@@ -9,7 +9,11 @@ featured: true
 image: "/tutorials/aegisnite-building-system-guide-v1-7.jpg"
 ---
 
+<!-- /tutorials/aegisnite-building-system-guide-v1-7.jpg -->
+
 Presentation of the Where Winds Meet building system by **AegisNite**, covering major mechanics and the changes introduced in v1.7.
+
+> **PC only** — some features shown (precision tool, 2-axis rotation) are not yet available on mobile or PS5.
 
 <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
   <iframe
