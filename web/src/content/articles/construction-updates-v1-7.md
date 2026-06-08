@@ -6,7 +6,7 @@ authors: ["Ahlyam"]
 date: 2026-06-05
 order: 15
 image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a27bb44&format=webp&hm=e10f38926cc4b49bb01627d1280ae3c0a66738bf1ca972024ef573d79a9380ba&is=6a2669c4&quality=lossless"
-featured: true
+featured: false
 ---
 
 WWM v1.7 brings major quality-of-life changes for builders. Here is a compilation of all the cool stuff (bugs included...).
