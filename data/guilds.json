@@ -1,5 +1,19 @@
 [
 	{
+		"name": "DivineTree",
+		"builders": [
+			"Shen-yueSun"
+		],
+		"tags": [
+			"Zen/Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Bamboo forest\nBe lost in the base",
+		"score": 1,
+		"lastModified": "June 8, 2026 at 01:03 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "醉仙樓",
 		"builders": [
 			"醉仙樓"
