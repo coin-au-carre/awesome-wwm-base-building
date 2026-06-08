@@ -56,9 +56,9 @@ Some ironware items are currently available only in solo build mode. But you can
 
 Sink a flat top cabinetThis cabinet component has some that make it fit the bar counter
 
-<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a273c1d&format=webp&hm=28ce72e39c5ebbcd4197842818af323e8fc49e407869f25dff4c568372a997b0&is=6a25ea9d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a27e4dd&format=webp&hm=1e6faca35bf270b87f7c3452e4c97d233e1b5b09e96dc2d7d7f1f59a3c7b568f&is=6a26935d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a273ca5&format=webp&hm=47ead8626f7035435d0d70b48d3c6ee99b18c6e86fea8ac7bbb183908b766b4b&is=6a25eb25&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a27e565&format=webp&hm=d47db3860572d7569cd7bc92b139b7f6fe5e482f3caf92bdd565487441ac1d0f&is=6a2693e5&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -67,7 +67,7 @@ Sink a flat top cabinetThis cabinet component has some that make it fit the bar 
 
 Place a diagram without filling in all of its component slots. The empty slots create a screen-like void, while the filled parts form the frame around it — resulting in a clean monitor shape. Wonpil was the first to demonstrate this idea in the Heavenly Sage guild to our knowledge.
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a274158&format=webp&hm=8374180003394ae3c5e67512bbe1aa1bc09fe64de45526ccaab547256cd88980&is=6a25efd8&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a27ea18&format=webp&hm=5eb2376642615908f9a54d0c10ff4b61f644bb23ee82f614eec65c6f63c26ba5&is=6a269898&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a274c6f&hm=3a5a198e870a10a57078caf073855d039996424091f219c4c469a70dc66ff384&is=6a25faef&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a27f52f&hm=41f2353d9be7a6e2fb0352bba2476a04a68de89f049b77bbf377125be7631e92&is=6a26a3af&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
