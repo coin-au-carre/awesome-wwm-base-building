@@ -224,7 +224,7 @@
   },
   {
     "severity": "high",
-    "title": "Items disappear in construction mode",
+    "title": "Items disappear (mobile only)",
     "details": "Approaching components or moving camera can make them disappear on mobile",
     "guild": true,
     "solo": false,
