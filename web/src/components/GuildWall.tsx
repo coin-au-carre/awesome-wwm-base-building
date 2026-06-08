@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowsClockwiseIcon, DiceFiveIcon } from "@phosphor-icons/react"
 import type { RankedGuild } from "@/types/guild"
 import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
+import { formatLastModified } from "@/lib/dates"
 import { url } from "@/lib/url"
 
 interface Props {
@@ -107,6 +108,17 @@ export function GuildWall({ guilds, count = 12 }: Props) {
                 />
               )}
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+              {tile.guild.lastModified && (() => {
+                const lm = formatLastModified(tile.guild.lastModified)
+                return lm ? (
+                  <div
+                    className="absolute top-2 left-2 z-20 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-white/60"
+                    title={lm.full}
+                  >
+                    {lm.relative}
+                  </div>
+                ) : null
+              })()}
               <div className="absolute bottom-0 left-0 right-0 p-2">
                 <p className="text-white font-medium text-xs leading-tight truncate">
                   {stripGuildShowcase(tile.guild.guildName || tile.guild.name)}
