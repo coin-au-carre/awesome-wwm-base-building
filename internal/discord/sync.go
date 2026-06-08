@@ -142,6 +142,13 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			threadURLToIdx[g.DiscordThread] = i
 		}
 	}
+	// Reverse map: guild numeric ID → guild index, used to detect same-ID/different-name conflicts.
+	guildIDToIdx := make(map[string]int, len(guilds))
+	for i, g := range guilds {
+		if g.ID != "" {
+			guildIDToIdx[g.ID] = i
+		}
+	}
 	newIndices := make(map[int]bool)
 	placeholderIndices := make(map[int]bool) // placeholder entries superseded by a real thread
 
@@ -149,6 +156,23 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		name, threadID, buildTitleFromThread := guild.ExtractNameAndID(thread.Name)
 		key := strings.ToLower(name)
 		newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+
+		// Same numeric ID, different name → two threads share the same guild ID tag.
+		if threadID != "" {
+			if idIdx, idMatch := guildIDToIdx[threadID]; idMatch {
+				existingName := guild.ExtractName(guilds[idIdx].Name)
+				if !strings.EqualFold(existingName, name) {
+					warning := fmt.Sprintf(
+						"⚠️ **Same guild ID, different names:** ID `%s`\n• **%s** → %s\n• **%s** → %s",
+						threadID, existingName, guilds[idIdx].DiscordThread, name, newThreadLink,
+					)
+					slog.Warn("same guild ID on different threads", "id", threadID, "existing", existingName, "new", name)
+					partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+				}
+			} else {
+				guildIDToIdx[threadID] = len(guilds) // will be the index of the entry we're about to append
+			}
+		}
 
 		// URL-first: if this thread is already tracked (any entry, any build), handle rename
 		// or skip. This prevents multi-build guilds from being re-appended on every sync,
