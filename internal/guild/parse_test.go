@@ -282,6 +282,8 @@ func TestExtractNameAndID(t *testing.T) {
 		{"DrunkenFist:Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
 		{"DrunkenFist : Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
 		{"🏯 DrunkenFist: Winter Wonderland", "DrunkenFist", "", "Winter Wonderland"},
+		// ID at end of build title (after " -" separator)
+		{"JadeHearth - The Gates Swing Open [10006818]", "JadeHearth", "10006818", "The Gates Swing Open"},
 	}
 
 	for _, tt := range tests {

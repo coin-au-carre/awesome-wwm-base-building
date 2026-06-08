@@ -172,6 +172,9 @@ func ExtractNameAndID(threadName string) (name, id, buildTitle string) {
 	if m := reThreadID.FindStringSubmatch(raw); len(m) == 2 {
 		id = m[1]
 		raw = reThreadID.ReplaceAllString(raw, "")
+	} else if m := reThreadID.FindStringSubmatch(buildTitle); len(m) == 2 {
+		id = m[1]
+		buildTitle = strings.TrimSpace(reThreadID.ReplaceAllString(buildTitle, ""))
 	}
 	name = strings.TrimSpace(strings.Trim(raw, "[] 🏯📍️"))
 	name = strings.TrimSpace(reEightDigitName.ReplaceAllString(name, ""))
