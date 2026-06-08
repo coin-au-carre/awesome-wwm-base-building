@@ -33,8 +33,8 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. You can check our Di
 
 ### For guild base
 
-- Global cap increased by **10,000 components**
-- Density cap (local area) increased by **10,000 components**
+- Global cap increased to **10,000 components** (previously 5,000)
+- Density cap (local area) increased to **10,000 components** (previously 5,000)
 
 <img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a27dafd&format=webp&hm=013edb75ce23df22aeb60b9bcb2088d6e295a6bfe04e085c3ce28b6b68b0f719&is=6a26897d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 

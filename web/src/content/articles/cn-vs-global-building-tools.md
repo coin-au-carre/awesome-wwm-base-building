@@ -70,4 +70,4 @@ Group objects together and move them as a single unit. On Global, this is curren
 
 The old cap of 5000 units per 50×50 m³ is gone. Build as much as you want.
 
-**Note**: the global cap of 5000 items in the whole base is increased by 10000 in the CN version.
+**Note**: the global cap of 5000 items in the whole base is increased to 10000 in the CN version.
