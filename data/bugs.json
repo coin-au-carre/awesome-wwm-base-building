@@ -10,7 +10,7 @@
     "ps5": true,
     "media": [
       "https://cdn.discordapp.com/attachments/1509461162520219688/1509600307947110580/image.png?ex=6a279c18\u0026hm=8b211ba0d13942b6a001cd70addab159cc76932e6dce810e30468730ad0d2391\u0026is=6a264a98\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928354830979173/Guild_Construction_Diagrams.mp4?ex=6a272aef\u0026hm=c3e7e8fca9edc0f27f694c34813f68903c7f4c8bb98258dad54cc214044a3c65\u0026is=6a25d96f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928354830979173/Guild_Construction_Diagrams.mp4?ex=6a27d3af\u0026hm=a7bb83bbe85e85d6c302d1feb0c5cc052bc35c70c1797d3237baff9a2fade525\u0026is=6a26822f\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -26,8 +26,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a273ea2\u0026hm=2ae0a839ef08c4f7e884e42289820e06ee00c2dc2a582c0f8ca34127e0ac7c44\u0026is=6a25ed22\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a272b5f\u0026hm=d5f7032ffb61135b27317d46ef965c188662a47b6ba0fd70594355dea1e6a793\u0026is=6a25d9df\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a27e762\u0026hm=37c205da8bc6d9d2a703c6d83031d6df07d6eb1f22cfb71a88b1c558472fa7c5\u0026is=6a2695e2\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a27d41f\u0026hm=e378b902b1ea78b04b696e0f6412ab38648521efaf2297005b6a5253972158cd\u0026is=6a26829f\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -57,7 +57,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a2736cc\u0026hm=53e76581a7f73218a56231f8c0644bea676db2b7c4eb0b5cb03c8582c956f372\u0026is=6a25e54c\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a27df8c\u0026hm=aa69702000363d91ab14eab14567f71f23bba51295aa1a6c3333f74f5451afe8\u0026is=6a268e0c\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -73,32 +73,11 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a272e2b\u0026hm=7dfe0b9cb72a076cea3fb6816fdac69d595f2c632ce76ee42dd52c1e2a0a111f\u0026is=6a25dcab\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509844662192705596/1780043090_PJkxdw7S.png?ex=6a27d6eb\u0026hm=45d61fbdba8af251ae6f6efb160d399a0b7118e42d7832ce826fb3443bcc7241\u0026is=6a26856b\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
     "notes": "TODO: verify solo, mobile/ps5"
-  },
-  {
-    "severity": "normal",
-    "title": "Components disappear",
-    "details": "Approaching components or moving camera can make them disappear on mobile",
-    "guild": true,
-    "solo": false,
-    "pc": false,
-    "mobile": true,
-    "ps5": false,
-    "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909201612935229/ScreenRecording_06-01-2026_17-06-42_1.mov?ex=6a271919\u0026hm=04fc9dc4505abc61505cd2d4b2c07ab2608ee5fbf2ade9146fbb50b9a2f1cbc9\u0026is=6a25c799\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909242838745088/ScreenRecording_06-01-2026_16-35-08_1.mov?ex=6a271922\u0026is=6a25c7a2\u0026hm=20c618f8bc21efc801448cca2ccde08d87bc639a3b8bb5203732436eaa29f600\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1512014693735207013/ScreenRecording_06-04-2026_16-45-20_1.mov?ex=6a272a2a\u0026hm=b463b7faa4c2c6b26704782c73500b39a4cda8dd91494ea88fe78948a8a69bfe\u0026is=6a25d8aa\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909424653303929/ScreenRecording_06-01-2026_16-52-00_1.mov?ex=6a27194e\u0026hm=4230c324a68ca0e815c3fcb467e0052ab768fd92ac56c069a44ca80fc9414901\u0026is=6a25c7ce\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1513109397256274000/ScreenRecording_06-07-2026_19-12-53_1.mov?ex=6a273130\u0026hm=e76d8ac71b6903101d8ddad578cda6cdb6c461261ec6e5652705a687999b795c\u0026is=6a25dfb0\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1513109398103261314/ScreenRecording_06-07-2026_19-11-58_1.mov?ex=6a273130\u0026hm=59055be8081a5f1e5bcd41831972f8ec823081610498148bb2d94136627f5375\u0026is=6a25dfb0\u0026"
-    ],
-    "version": "v1.7",
-    "date": "28/05/2026",
-    "notes": "Does not happen on PC. TODO: verify solo, ps5"
   },
   {
     "severity": "low",
@@ -126,8 +105,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a27154f\u0026hm=73e99a988c2e87e8c691ba353afe282ac67a4d32f129e61e9990922441d353e8\u0026is=6a25c3cf\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a27154f\u0026hm=adf1a9cd8542db131d5baa0004eb8b63b972856ab56b65e527d50b9dbe71cc9c\u0026is=6a25c3cf\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a27be0f\u0026hm=3d8de5fbcecf2459ab1554c9131651b0dbe3d231d65f8c460a3701203cbad55c\u0026is=6a266c8f\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a27be0f\u0026hm=10999ed98f4e3577a989d28049a253298cb15a7addeff8272aacc88bb067f33b\u0026is=6a266c8f\u0026"
     ],
     "version": "v1.7",
     "date": "30/05/2026",
@@ -224,7 +203,7 @@
     ],
     "version": "v1.7",
     "date": "03/06/2026",
-    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+    "notes": "Recent bug as of 4/6/2026. It has not been noticed in first days of v1.7"
   },
   {
     "severity": "high",
@@ -241,23 +220,29 @@
     ],
     "version": "v1.7",
     "date": "03/06/2026",
-    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+    "notes": "Recent bug as of 4/6/2026. It has not been noticed in first days of v1.7"
   },
   {
     "severity": "high",
     "title": "Items disappear in construction mode",
-    "details": "Depending on camera movements items disappear while constructing",
+    "details": "Approaching components or moving camera can make them disappear on mobile",
     "guild": true,
     "solo": false,
     "pc": false,
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944440183521310/ScreenRecording_06-04-2026_12-03-39_1.mov?ex=6a27917d\u0026hm=f7abfbc0fde3d03e30deb9758732ffa07dd6cad68dbeb7583591132042e56b59\u0026is=6a263ffd\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944440183521310/ScreenRecording_06-04-2026_12-03-39_1.mov?ex=6a27917d\u0026hm=f7abfbc0fde3d03e30deb9758732ffa07dd6cad68dbeb7583591132042e56b59\u0026is=6a263ffd\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909201612935229/ScreenRecording_06-01-2026_17-06-42_1.mov?ex=6a27c1d9\u0026hm=56623d136ecd4aa02b2d2fc14c9e7ffc767b771c54cd233b66d9894224e9d70a\u0026is=6a267059\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909242838745088/ScreenRecording_06-01-2026_16-35-08_1.mov?ex=6a27c1e2\u0026is=6a267062\u0026hm=ee80c05f8a82be4cfe93a6e885110ade23df105f02dd966c928238390e26abf5\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1512014693735207013/ScreenRecording_06-04-2026_16-45-20_1.mov?ex=6a27d2ea\u0026hm=dab55adba5780e6dd4543f51c42c3c7ae9ad2b08763ba65d397684d9e39bcac1\u0026is=6a26816a\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510909424653303929/ScreenRecording_06-01-2026_16-52-00_1.mov?ex=6a27c20e\u0026hm=28ed62cc6872498f2658fd4ffef5d5b75cd37d246ff5a20e6259b4ef96e84e68\u0026is=6a26708e\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513109397256274000/ScreenRecording_06-07-2026_19-12-53_1.mov?ex=6a27d9f0\u0026hm=bdcec4281101dff57d10751f69ca2f9333881793131e777288ac2ed70a78bcff\u0026is=6a268870\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513109398103261314/ScreenRecording_06-07-2026_19-11-58_1.mov?ex=6a27d9f0\u0026hm=fdbe06ee54d39073de8878e1ff4386d9d8cbb7afae0084940bb47a503b85e582\u0026is=6a268870\u0026"
     ],
     "version": "v1.7",
     "date": "04/06/2026",
-    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+    "notes": "Before only large components items disappear now all items as of 4/6/2026"
   },
   {
     "severity": "high",
@@ -273,7 +258,7 @@
     ],
     "version": "v1.7",
     "date": "04/06/2026",
-    "notes": "Bug arised recently and has not been noticed in first days of v1.7"
+    "notes": "Recent bug as of 4/6/2026. It has not been noticed in first days of v1.7"
   },
   {
     "severity": "high",
@@ -331,7 +316,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a2734f0\u0026hm=f3bac3c05ec1c5623dd04f2ef6d48a67da9263fa585edac92c1f4ba89dbcb1f3\u0026is=6a25e370\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a27ddb0\u0026hm=3d1226d946e1a89cbe79cc644bd9d83c3a3069a5ae1b3920ec3732df151fafed\u0026is=6a268c30\u0026"
     ],
     "version": "v1.7",
     "date": "05/06/2026",
