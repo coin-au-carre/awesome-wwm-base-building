@@ -50,7 +50,7 @@ Example #1: How to lean the fish to its side
 
 <img src="https://cdn.discordapp.com/attachments/1513232496383365121/1513538694412505201/image.png?ex=6a281840&is=6a26c6c0&hm=855b41f4f81c2bcedae6d6af0399ccff15ff1f51afbfd647d0c2b8d1fb890f45&" alt="Ctrl+scroll rotation around the X axis (teal arrow)" style="border-radius: 0.75rem; width: 100%;" />
 
-**STEP 3:** Lay the fish down with Ctrl+Up/Down. Now one fish is laying on its left side and the other is laying on its right side.
+**STEP 3:** Lay the fish down with Ctrl+Up/Down. 
 
 ---
 
