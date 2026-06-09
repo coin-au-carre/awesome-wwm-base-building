@@ -45,18 +45,6 @@
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
   },
   {
-    "id": "1513800702491889704",
-    "name": "Base tour Dragons-Heirs (10111177)",
-    "description": "another tour around our beautiful Dragon city. Full of stories and jokes. dive in our cool guild base",
-    "scheduledStart": "2026-06-13T14:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 1,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1513800702491889704",
-    "image": "https://cdn.discordapp.com/guild-events/1513800702491889704/49efb26404c458d69ae5ce1d9d1782f7.png?size=512"
-  },
-  {
     "id": "1513817055961550938",
     "name": "Panda Base Tour #7",
     "description": "**Visit 4 Guilds Bases with us (anyone welcome)**\n\nSubscribe to the event!\nYou can either or both:\n- join the tour stream on \u003c#1483447711499030636\u003e \n- join in game request/DM on Ahlyam [2122662369]\n\n## Four recent builds to discover\n\n- [AMP](https://www.wherebuildersmeet.com/guilds/amp/) - [Discord thread](https://discord.com/channels/1483447710617960508/1504310265812877322)\n- [ShaCrow](https://www.wherebuildersmeet.com/guilds/shacrow/) - [Discord thread](https://discord.com/channels/1483447710617960508/1504012515858972682) \n- [Mythralis](https://www.wherebuildersmeet.com/guilds/mythralis/) - [Discord thread](https://discord.com/channels/1483447710617960508/1507452810550313080)\n- [連燈](https://www.wherebuildersmeet.com/guilds/連燈) - [Discord thread](https://discord.com/channels/1483447710617960508/1487633315878932510)",
@@ -65,7 +53,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 8,
+    "subscriberCount": 10,
     "discordUrl": "https://discord.com/events/1483447710617960508/1513817055961550938",
     "image": "https://cdn.discordapp.com/guild-events/1513817055961550938/027e518d3504bfee1c01aca13ad5aea1.png?size=512"
   }
