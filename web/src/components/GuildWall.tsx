@@ -54,9 +54,9 @@ export function GuildWall({ guilds, count = 12 }: Props) {
 
   if (!mounted) {
     return (
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="flex overflow-x-auto sm:grid sm:overflow-visible gap-2 pb-2 sm:pb-0 sm:grid-cols-3 lg:grid-cols-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
         {Array.from({ length: count }).map((_, i) => (
-          <div key={i} className="aspect-video rounded-xl bg-muted animate-pulse" />
+          <div key={i} className="aspect-video rounded-xl bg-muted animate-pulse shrink-0 w-[calc(50vw-20px)] sm:w-auto" />
         ))}
       </div>
     )
@@ -74,6 +74,7 @@ export function GuildWall({ guilds, count = 12 }: Props) {
           Shuffle
         </Button>
       </div>
+      <div className="relative">
       <AnimatePresence mode="wait">
         <motion.div
           key={tiles.map((t) => t.key).join(",")}
@@ -81,7 +82,7 @@ export function GuildWall({ guilds, count = 12 }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2"
+          className="flex overflow-x-auto sm:grid sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-2 pb-2 sm:pb-0 sm:grid-cols-3 lg:grid-cols-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]"
         >
           {tiles.map((tile, idx) => (
             <motion.a
@@ -90,7 +91,7 @@ export function GuildWall({ guilds, count = 12 }: Props) {
               initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.025, duration: 0.3, ease: "easeOut" }}
-              className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
+              className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all shrink-0 w-[calc(50vw-20px)] sm:w-auto snap-start"
               onClick={() =>
                 window.umami?.track("guild_click", {
                   name: tile.guild.name,
@@ -133,6 +134,10 @@ export function GuildWall({ guilds, count = 12 }: Props) {
           ))}
         </motion.div>
       </AnimatePresence>
+      {/* right-edge fade — signals more cards to swipe on mobile */}
+      <div className="absolute right-0 top-0 bottom-2 w-10 bg-linear-to-l from-background to-transparent pointer-events-none sm:hidden" />
+      </div>
+      <p className="text-[11px] text-muted-foreground/45 sm:hidden mt-0.5 text-right pr-1">swipe to explore →</p>
     </div>
   )
 }
