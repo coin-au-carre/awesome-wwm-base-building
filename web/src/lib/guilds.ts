@@ -161,12 +161,14 @@ export function getBuilderSearchPath(name: string): string | null {
   return null
 }
 
+export const UPCOMING_EVENTS_WINDOW_MS = 48 * 60 * 60 * 1000
+
 export function getUpcomingEvents(): GameEvent[] {
   try {
     const raw = readFileSync(repoFile("data/events.json"), "utf-8")
     const events: GameEvent[] = JSON.parse(raw)
     const now = Date.now()
-    const cutoff = now + 24 * 60 * 60 * 1000
+    const cutoff = now + UPCOMING_EVENTS_WINDOW_MS
     return events
       .filter((e) => {
         const start = new Date(e.scheduledStart).getTime()
