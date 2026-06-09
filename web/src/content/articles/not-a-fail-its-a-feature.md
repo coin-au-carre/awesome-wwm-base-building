@@ -20,14 +20,14 @@ featured: false
 ## The build is fine, the screenshot is just from a bad angle
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/noxlamina" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">noxlamina</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a28c3be&format=webp&hm=580b9b0bb8b30fdbeb285a0e21d41808c595f5ed6d3e19756ba937cbada19381&is=6a27723e&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a296c7e&format=webp&hm=ff4a4a67242f190049a48022d31d338bd16e5cb1b6dff9704e4e3ae1beed54f8&is=6a281afe&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
 ## Guild base pool area with sand
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a28da4b&format=webp&hm=2cdd0c77d5fb500e641d9aabc4c6f1d214c13f60bf9c1c8566be085606092a85&is=6a2788cb&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a29830b&format=webp&hm=a61e76ba9fccd9513c7d8683eba0edfc8568f32f0632231baf1ef479af7c30e8&is=6a28318b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
