@@ -116,10 +116,10 @@ export function getNotableBuilders(
   return [...bySlug.values()]
     .filter((e) => e.typeCount >= 2)
     .sort((a, b) => {
-      // 1. most diverse contributors first
-      if (b.typeCount !== a.typeCount) return b.typeCount - a.typeCount
-      // 2. tutorial authors surface before pure builders
+      // 1. tutorial authors first
       if (b.tutorialCount !== a.tutorialCount) return b.tutorialCount - a.tutorialCount
+      // 2. most diverse contributors next
+      if (b.typeCount !== a.typeCount) return b.typeCount - a.typeCount
       // 3. total contributions as tiebreaker
       return (b.guildCount + b.soloCount + b.blueprintCount) - (a.guildCount + a.soloCount + a.blueprintCount)
     })

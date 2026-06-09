@@ -71,8 +71,8 @@ for (const name of videoCreatorsWithBuilds) {
   if (!creatorsByCanonical.has(canonical)) creatorsByCanonical.set(canonical, name)
 }
 const contentCreators = [...creatorsByCanonical.entries()]
-  .map(([slug, name]) => ({ slug, name }))
-  .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
+  .map(([slug, name]) => ({ slug, name, tutorialCount: tutorialCountBySlug.get(slug) ?? 0 }))
+  .sort((a, b) => b.tutorialCount - a.tutorialCount || a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
 
 // Critics: users who voted on 4+ unique threads (weight1Threshold)
 const CRITIC_THRESHOLD = 4
@@ -140,7 +140,7 @@ function builderColor(name: string): string {
           <span class="text-muted-foreground/50 font-normal normal-case tracking-normal">{notableBuilders.length}</span>
         </h2>
         <p class="text-sm text-muted-foreground leading-relaxed max-w-2xl">
-          Builders who contributed across multiple content types: guild bases, solo builds, blueprints, and tutorials.
+          Builders who contributed across multiple content types: tutorials, guild bases, solo builds, blueprints.
         </p>
         <div class="relative">
           <div id="nb-scroll" class="flex gap-3 overflow-x-auto pb-1 snap-x snap-mandatory" style="scrollbar-width: none; -webkit-overflow-scrolling: touch">
