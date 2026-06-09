@@ -1,5 +1,20 @@
 [
 	{
+		"id": "10240321",
+		"name": "Shadow",
+		"builders": [
+			"Xianrei"
+		],
+		"tags": [
+			"Zen/Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "Entrance area, the pond/festival location, mountain path, coliseum and the small Buddhist shrine",
+		"score": 0,
+		"lastModified": "June 9, 2026 at 09:57 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10278977",
 		"name": "OnlyBums",
 		"builders": [
