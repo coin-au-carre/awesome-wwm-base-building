@@ -56,5 +56,16 @@
     "subscriberCount": 11,
     "discordUrl": "https://discord.com/events/1483447710617960508/1513817055961550938",
     "image": "https://cdn.discordapp.com/guild-events/1513817055961550938/027e518d3504bfee1c01aca13ad5aea1.png?size=512"
+  },
+  {
+    "id": "1514262926892994700",
+    "name": "JadeHearth District Tour",
+    "guildName": "https://discord.com/channels/1483447710617960508/1498355095841148948",
+    "scheduledStart": "2026-06-12T15:00:00Z",
+    "scheduledEnd": "2026-06-12T16:00:00Z",
+    "location": "https://discord.com/channels/1483447710617960508/1498355095841148948",
+    "status": "scheduled",
+    "subscriberCount": 1,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1514262926892994700"
   }
 ]
