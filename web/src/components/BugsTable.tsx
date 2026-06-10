@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react"
 import * as React from "react"
+import { LinkSimpleIcon, CheckIcon } from "@phosphor-icons/react"
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table"
@@ -147,11 +148,29 @@ function parseBugDate(s: string): number {
 }
 
 export function BugsTable({ bugs }: { bugs: Bug[] }) {
-  const [severityFilter, setSeverityFilter] = useState<SeverityFilter>("all")
-  const [platformFilter, setPlatformFilter] = useState<Set<Platform>>(new Set())
+  const [severityFilter, setSeverityFilter] = useState<SeverityFilter>(() => {
+    if (typeof window === "undefined") return "all"
+    const sev = new URLSearchParams(window.location.search).get("severity")
+    return (sev && (["high", "normal", "low", "fixed"] as string[]).includes(sev))
+      ? (sev as SeverityFilter)
+      : "all"
+  })
+  const [platformFilter, setPlatformFilter] = useState<Set<Platform>>(() => {
+    if (typeof window === "undefined") return new Set()
+    const params = new URLSearchParams(window.location.search)
+    const set = new Set<Platform>()
+    params.get("mode")?.split(",").forEach((p) => {
+      if ((MODE_PLATFORMS as readonly string[]).includes(p)) set.add(p as Platform)
+    })
+    params.get("platform")?.split(",").forEach((p) => {
+      if ((DEVICE_PLATFORMS as readonly string[]).includes(p)) set.add(p as Platform)
+    })
+    return set
+  })
   const [sortKey, setSortKey] = useState<SortKey>("date")
   const [sortDir, setSortDir] = useState<SortDir>("desc")
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
   const [highlightedSlug, setHighlightedSlug] = useState<string | null>(null)
   const rowRefs = useRef<Map<string, HTMLTableRowElement>>(new Map())
 
@@ -167,16 +186,34 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" })
   }, [highlightedSlug])
 
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (severityFilter === "all") url.searchParams.delete("severity")
+    else url.searchParams.set("severity", severityFilter)
+    const modes = [...platformFilter].filter((p) => (MODE_PLATFORMS as readonly string[]).includes(p))
+    const devices = [...platformFilter].filter((p) => (DEVICE_PLATFORMS as readonly string[]).includes(p))
+    if (modes.length > 0) url.searchParams.set("mode", modes.join(","))
+    else url.searchParams.delete("mode")
+    if (devices.length > 0) url.searchParams.set("platform", devices.join(","))
+    else url.searchParams.delete("platform")
+    if (highlightedSlug) url.searchParams.set("bug", highlightedSlug)
+    else url.searchParams.delete("bug")
+    history.replaceState(null, "", url.toString())
+  }, [severityFilter, platformFilter, highlightedSlug])
+
   const setRowRef = useCallback((slug: string, el: HTMLTableRowElement | null) => {
     if (el) rowRefs.current.set(slug, el)
     else rowRefs.current.delete(slug)
   }, [])
 
+  function handleShare() {
+    navigator.clipboard.writeText(window.location.href)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
   function handleRowClick(slug: string) {
     setHighlightedSlug(slug)
-    const url = new URL(window.location.href)
-    url.searchParams.set("bug", slug)
-    history.replaceState(null, "", url.toString())
   }
 
   function togglePlatform(p: Platform) {
@@ -186,6 +223,7 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
       else next.add(p)
       return next
     })
+    setHighlightedSlug(null)
   }
 
   function handleSort(key: SortKey) {
@@ -224,7 +262,7 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
           {(["all", "high", "normal", "low", "fixed"] as const).map((s) => (
             <button
               key={s}
-              onClick={() => setSeverityFilter(s)}
+              onClick={() => { setSeverityFilter(s); setHighlightedSlug(null) }}
               className={cn(
                 "rounded-full border px-3 py-1 text-xs font-medium transition-colors capitalize",
                 severityFilter === s
@@ -262,9 +300,22 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
             </div>
           </React.Fragment>
         ))}
-        <span className="text-xs text-muted-foreground ml-auto">
-          {filtered.length} bug{filtered.length !== 1 ? "s" : ""}
-        </span>
+        <div className="ml-auto flex items-center gap-2">
+          <span className="text-xs text-muted-foreground">
+            {filtered.length} bug{filtered.length !== 1 ? "s" : ""}
+          </span>
+          <button
+            onClick={handleShare}
+            title="Copy link"
+            data-umami-event="bugs_share_link"
+            className="cursor-pointer rounded p-1 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {copied
+              ? <CheckIcon weight="bold" className="size-3.5 text-green-500" />
+              : <LinkSimpleIcon weight="bold" className="size-3.5" />
+            }
+          </button>
+        </div>
       </div>
 
       <div className="rounded-lg border border-border overflow-hidden">
