@@ -154,14 +154,14 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 
 	for _, thread := range threads {
 		name, threadID, buildTitleFromThread := guild.ExtractNameAndID(thread.Name)
-		key := strings.ToLower(name)
+		key := name
 		newThreadLink := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
 
 		// Same numeric ID, different name → two threads share the same guild ID tag.
 		if threadID != "" {
 			if idIdx, idMatch := guildIDToIdx[threadID]; idMatch {
 				existingName := guild.ExtractName(guilds[idIdx].Name)
-				if !strings.EqualFold(existingName, name) {
+				if existingName != name {
 					warning := fmt.Sprintf(
 						"⚠️ **Same guild ID, different names:** ID `%s`\n• **%s** → %s\n• **%s** → %s",
 						threadID, existingName, guilds[idIdx].DiscordThread, name, newThreadLink,
@@ -179,7 +179,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		// which happened because guildMap only stored the last build for a given guild name.
 		if urlIdx, urlMatch := threadURLToIdx[newThreadLink]; urlMatch {
 			storedName := guild.ExtractName(guilds[urlIdx].Name)
-			if !strings.EqualFold(storedName, name) {
+			if storedName != name {
 				// Guild was renamed in Discord — update in place, preserve all other fields.
 				slog.Info("guild renamed", "old", storedName, "new", name)
 				warning := fmt.Sprintf(
@@ -187,7 +187,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 					storedName, name, newThreadLink,
 				)
 				partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
-				delete(guildMap, strings.ToLower(storedName))
+				delete(guildMap, storedName)
 				guilds[urlIdx].FormerNames = append(guilds[urlIdx].FormerNames, guilds[urlIdx].Name)
 				guilds[urlIdx].Name = name
 				guildMap[key] = urlIdx
@@ -467,7 +467,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 			}
 		}
 		if data.GuildName != "" {
-			if strings.EqualFold(data.GuildName, g.Name) {
+			if data.GuildName == g.Name {
 				g.GuildName = ""
 			} else {
 				g.GuildName = data.GuildName
@@ -558,9 +558,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 	phByName := make(map[string]int)
 	for i, g := range guilds {
 		if g.DiscordThread == "" {
-			key := strings.ToLower(g.Name)
+			key := g.Name
 			if g.GuildName != "" {
-				key = strings.ToLower(g.GuildName)
+				key = g.GuildName
 			}
 			phByName[key] = i
 		}
@@ -574,7 +574,7 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 			if n == "" {
 				continue
 			}
-			if pidx, ok := phByName[strings.ToLower(n)]; ok && pidx != r.idx {
+			if pidx, ok := phByName[n]; ok && pidx != r.idx {
 				toRemove[pidx] = true
 				slog.Info("removing placeholder superseded by real thread", "placeholder", guilds[pidx].Name, "thread", guilds[r.idx].Name)
 			}
@@ -968,7 +968,7 @@ func totalReactions(reactions map[string][]string) int {
 func buildGuildMap(guilds []guild.Guild) map[string]int {
 	m := make(map[string]int, len(guilds))
 	for i, g := range guilds {
-		m[strings.ToLower(guild.ExtractName(g.Name))] = i
+		m[guild.ExtractName(g.Name)] = i
 	}
 	return m
 }

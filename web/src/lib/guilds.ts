@@ -59,11 +59,16 @@ function guildSlug(g: Guild): string {
 function sortByScore(items: Guild[]): RankedGuild[] {
   const sorted = [...items].sort((a, b) => b.score - a.score)
   let rank = 1
+  const seen = new Map<string, number>()
   return sorted.map((g, i) => {
     if (i > 0 && g.score < sorted[i - 1].score) {
       rank = i + 1
     }
-    return { ...g, slug: guildSlug(g), rank }
+    const base = guildSlug(g)
+    const n = seen.get(base) ?? 0
+    seen.set(base, n + 1)
+    const slug = n === 0 ? base : `${base}-${n + 1}`
+    return { ...g, slug, rank }
   })
 }
 
