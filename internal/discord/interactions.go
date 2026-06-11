@@ -1,6 +1,7 @@
 package discord
 
 import (
+	"fmt"
 	"log/slog"
 	"strings"
 	"sync"
@@ -32,6 +33,28 @@ const (
 )
 
 var submitMu sync.Mutex
+
+func logCommandUsage(bot *Bot, i *discordgo.InteractionCreate, devChannelID string) {
+	if devChannelID == "" {
+		return
+	}
+	name := i.ApplicationCommandData().Name
+	var user string
+	if i.Member != nil {
+		user = i.Member.DisplayName()
+	} else if i.User != nil {
+		user = i.User.Username
+	}
+	var opts []string
+	for _, o := range i.ApplicationCommandData().Options {
+		opts = append(opts, o.Name+":"+fmt.Sprint(o.Value))
+	}
+	msg := fmt.Sprintf("`/%s` used by **%s**", name, user)
+	if len(opts) > 0 {
+		msg += " — " + strings.Join(opts, ", ")
+	}
+	bot.Send(devChannelID, msg)
+}
 
 func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	adminPerm := int64(discordgo.PermissionAdministrator)
@@ -141,6 +164,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSoloLinkAutocomplete(s, i, root)
 			}
 		case discordgo.InteractionApplicationCommand:
+			logCommandUsage(bot, i, devChannelID)
 			switch i.ApplicationCommandData().Name {
 			case submitCommandName:
 				handleSubmitCommand(s, i, root)
