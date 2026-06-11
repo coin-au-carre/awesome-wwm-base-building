@@ -96,6 +96,7 @@ task sync:nopull       # crawl only (no git pull)
 task sync -- -dry-run      # crawl without writing JSON
 task sync -- -no-notify    # skip Discord notification
 task sync -- -force-role   # reassign roles to all authors
+task sync:guilds -- -guild "Name" # sync only one guild (skips tutorial/bugs/patches/whatever syncs)
 
 task events-sync       # fetch Discord Scheduled Events → data/events.json
 

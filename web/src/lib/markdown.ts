@@ -16,6 +16,7 @@ const spoilerExtension = {
 }
 
 const instance = new Marked({
+  breaks: true,
   extensions: [spoilerExtension],
   renderer: {
     link(token) {
