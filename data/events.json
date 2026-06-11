@@ -47,6 +47,8 @@
   {
     "id": "1514285263298367698",
     "name": "JadeHearth District Tour",
+    "guildSlug": "jadehearth-the-gates-swing-open-the-gates-swing-open",
+    "type": "tour",
     "scheduledStart": "2026-06-12T16:00:00Z",
     "scheduledEnd": "2026-06-13T02:00:00Z",
     "status": "scheduled",

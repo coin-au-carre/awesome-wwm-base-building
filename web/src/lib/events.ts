@@ -10,6 +10,7 @@ export interface Event {
   name: string
   description?: string
   guildName?: string
+  guildSlug?: string
   guildId?: string
   type?: EventType
   scheduledStart: string   // ISO 8601

@@ -14,6 +14,7 @@ var (
 	reLocSpaceID     = regexp.MustCompile(`^(.*?)\s+(\d+)\s*$`)
 	reDiscordMention = regexp.MustCompile(`<@(\d+)>`)
 	rePlainMention   = regexp.MustCompile(`@(\w+)`)
+	reWBMGuildSlug   = regexp.MustCompile(`wherebuildersmeet\.com/guilds/([^/?#]+)`)
 )
 
 // EventStatus mirrors Discord scheduled event status values.
@@ -67,6 +68,7 @@ type Event struct {
 	Name            string      `json:"name"`
 	Description     string      `json:"description,omitempty"`
 	GuildName       string      `json:"guildName,omitempty"`
+	GuildSlug       string      `json:"guildSlug,omitempty"`
 	GuildID         string      `json:"guildId,omitempty"`
 	Type            EventType   `json:"type,omitempty"`
 	ScheduledStart  time.Time   `json:"scheduledStart"`
@@ -338,14 +340,29 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 
 		parsed := parseDescription(resolveMentions(e.Description))
 
-		if parsed.guildName == "" && location != "" && !strings.HasPrefix(location, "http://") && !strings.HasPrefix(location, "https://") {
-			locName, locID := parseLocation(location)
-			parsed.guildName = locName
-			if parsed.guildID == "" {
-				parsed.guildID = locID
+		if parsed.eventType == "" {
+			lower := strings.ToLower(e.Name)
+			for keyword, et := range validEventTypes {
+				if strings.Contains(lower, keyword) {
+					parsed.eventType = et
+					break
+				}
 			}
 		}
-		if strings.HasPrefix(location, "http://") || strings.HasPrefix(location, "https://") {
+
+		var guildSlug string
+		if m := reWBMGuildSlug.FindStringSubmatch(location); len(m) == 2 {
+			guildSlug = strings.TrimSuffix(m[1], "/")
+			location = ""
+		} else if location != "" && !strings.HasPrefix(location, "http://") && !strings.HasPrefix(location, "https://") {
+			if parsed.guildName == "" {
+				locName, locID := parseLocation(location)
+				parsed.guildName = locName
+				if parsed.guildID == "" {
+					parsed.guildID = locID
+				}
+			}
+		} else if strings.HasPrefix(location, "http://") || strings.HasPrefix(location, "https://") {
 			location = ""
 		}
 
@@ -367,6 +384,7 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 			Name:            e.Name,
 			Description:     parsed.description,
 			GuildName:       parsed.guildName,
+			GuildSlug:       guildSlug,
 			GuildID:         parsed.guildID,
 			Type:            parsed.eventType,
 			ScheduledStart:  e.ScheduledStartTime,

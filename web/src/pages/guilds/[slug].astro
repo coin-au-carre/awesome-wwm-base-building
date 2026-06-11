@@ -50,6 +50,7 @@ const scoutFirstGuild = scoutProfile?.guilds.find((guild) => guild.slug !== g.sl
 
 const allBuilds = getGuildBuilds(g.name)
 
+const resolvedLore = g.lore ? resolveMentions(g.lore, users, base) : undefined
 const resolvedWhatToVisit = g.whatToVisit ? resolveMentions(g.whatToVisit, users, base) : undefined
 
 const guildDisplayName = stripGuildShowcase(g.guildName || g.name)
@@ -418,13 +419,13 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
     )}
 
     <!-- Lore -->
-    {g.lore && (
+    {resolvedLore && (
       <section class="space-y-3">
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><BookOpen size={13} />Lore</h2>
         <div class="border-l-2 border-border pl-4">
           <div
-            class="text-sm text-muted-foreground leading-relaxed space-y-2 [&_strong]:text-foreground [&_strong]:font-medium [&_blockquote]:border-l-2 [&_blockquote]:border-border [&_blockquote]:pl-4 [&_blockquote]:space-y-2 [&_blockquote]:italic"
-            set:html={renderMarkdown(g.lore)}
+            class="text-sm text-muted-foreground leading-relaxed space-y-2 [&_strong]:text-foreground [&_strong]:font-medium [&_blockquote]:border-l-2 [&_blockquote]:border-border [&_blockquote]:pl-4 [&_blockquote]:space-y-2 [&_blockquote]:italic [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-foreground"
+            set:html={renderMarkdown(resolvedLore)}
           />
         </div>
       </section>

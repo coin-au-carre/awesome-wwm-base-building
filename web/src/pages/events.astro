@@ -5,28 +5,21 @@ import { CalendarIcon, MapPinIcon, UsersIcon, ArrowSquareOutIcon, CastleTurretIc
 import { getUpcomingEvents, EVENT_TYPE_LABELS, EVENT_TYPE_EMOJI } from "@/lib/events"
 import type { EventType } from "@/lib/events"
 import { BASE } from "@/lib/url"
-import { getGuildsSortedByScore } from "@/lib/guilds"
-import { readFileSync } from "fs"
-import { resolve } from "path"
+import { getGuildsSortedByScore, getUsers } from "@/lib/guilds"
 
 const events = getUpcomingEvents()
 
 const _allGuilds = getGuildsSortedByScore()
 const guildSlugById = new Map(_allGuilds.filter((g) => g.id).map((g) => [g.id!, g.slug]))
 const guildSlugByName = new Map(_allGuilds.map((g) => [(g.guildName ?? g.name).toLowerCase(), g.slug]))
+const guildNameBySlug = new Map(_allGuilds.map((g) => [g.slug, g.guildName ?? g.name]))
 
-const _usersRaw: Record<string, { username: string; globalName?: string; nickname?: string }> = JSON.parse(
-  readFileSync(resolve(process.cwd(), "..", "data/users.json"), "utf-8")
-)
-const discordIdToUsername = new Map(
-  Object.entries(_usersRaw).map(([id, u]) => [id, u.nickname ?? u.globalName ?? u.username])
-)
+const _users = getUsers()
 
-function formatDescription(text: string, idToUser: Map<string, string>): string {
-  // Replace <@ID> Discord mentions with @username before HTML-escaping
+function formatDescription(text: string): string {
   const resolved = text.replace(/<@(\d+)>/g, (_, id) => {
-    const name = idToUser.get(id)
-    return name ? `@${name}` : `<@${id}>`
+    const u = _users[id]
+    return u ? `@${u.nickname ?? u.globalName ?? u.username}` : `<@${id}>`
   })
   const escaped = resolved
     .replace(/&/g, "&amp;")
@@ -142,20 +135,24 @@ const TYPE_COLORS: Record<EventType, string> = {
               </div>
 
               <!-- Tags row: guild + type -->
-              {(event.type || event.guildName || event.guildId) && (
+              {(event.type || event.guildName || event.guildSlug || event.guildId) && (
                 <div class="flex items-center gap-2 flex-wrap">
-                  {event.guildName && (() => {
-                    const slug = (event.guildId ? guildSlugById.get(event.guildId) : undefined)
-                      ?? guildSlugByName.get(event.guildName.toLowerCase())
+                  {(event.guildName || event.guildSlug) && (() => {
+                    const slug = event.guildSlug
+                      ?? (event.guildId ? guildSlugById.get(event.guildId) : undefined)
+                      ?? (event.guildName ? guildSlugByName.get(event.guildName.toLowerCase()) : undefined)
+                    const displayName = event.guildName
+                      ?? (event.guildSlug ? guildNameBySlug.get(event.guildSlug) : undefined)
+                      ?? event.guildSlug
                     return (
                       <span class="inline-flex items-center gap-1.5 rounded-full border border-violet-500/20 bg-violet-500/10 px-3 py-1 text-sm text-violet-700 dark:text-violet-300 font-medium ring-1 ring-inset ring-violet-400/20">
                         <CastleTurretIcon weight="duotone" className="size-3.5 shrink-0" />
                         {slug ? (
                           <a href={`${BASE}/guilds/${slug}`} class="hover:text-violet-900 dark:hover:text-violet-100 transition-colors">
-                            {event.guildName}
+                            {displayName}
                           </a>
                         ) : (
-                          event.guildName
+                          displayName
                         )}
                       </span>
                     )
@@ -180,7 +177,7 @@ const TYPE_COLORS: Record<EventType, string> = {
               )}
 
               {event.description && (
-                <p class="text-sm text-muted-foreground leading-relaxed" set:html={formatDescription(event.description, discordIdToUsername)} />
+                <p class="text-sm text-muted-foreground leading-relaxed" set:html={formatDescription(event.description)} />
               )}
 
               <!-- Meta row: date, location, attendees -->
