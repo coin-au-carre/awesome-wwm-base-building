@@ -16,8 +16,15 @@ func loadSolos(root string) ([]guild.Guild, error) {
 	return guild.LoadFile(root + "/data/solos.json")
 }
 
+func guildSlug(g *guild.Guild) string {
+	if g.GuildName != "" {
+		return slugify(g.GuildName)
+	}
+	return slugify(g.Name)
+}
+
 func guildLinkContent(g *guild.Guild) string {
-	siteURL := websiteURL("/guilds/"+slugify(g.Name), "guild_cmd")
+	siteURL := websiteURL("/guilds/"+guildSlug(g), "guild_cmd")
 	if g.DiscordThread != "" {
 		return fmt.Sprintf("**%s** · %s · [WBM page](%s)", g.Name, g.DiscordThread, siteURL)
 	}
@@ -25,7 +32,7 @@ func guildLinkContent(g *guild.Guild) string {
 }
 
 func soloLinkContent(g *guild.Guild) string {
-	siteURL := websiteURL("/solos/"+slugify(g.Name), "solo_cmd")
+	siteURL := websiteURL("/solos/"+guildSlug(g), "solo_cmd")
 	if g.DiscordThread != "" {
 		return fmt.Sprintf("**%s** · %s · [WBM page](%s)", g.Name, g.DiscordThread, siteURL)
 	}

@@ -126,6 +126,7 @@ CRITICAL — Response length: Be brief. One or two sentences for simple question
 // promptGuild is the minimal shape needed for Ruby's guild search and directory.
 type promptGuild struct {
 	Name        string   `json:"name"`
+	GuildName   string   `json:"guildName,omitempty"`
 	Score       int      `json:"score"`
 	Tags        []string `json:"tags"`
 	Builders    []string `json:"builders"`
@@ -153,6 +154,7 @@ func loadPromptGuilds(root string) []promptGuild {
 		}
 		result[i] = promptGuild{
 			Name:        g.Name,
+			GuildName:   g.GuildName,
 			Score:       g.Score,
 			Tags:        g.Tags,
 			Builders:    g.Builders,
@@ -175,11 +177,15 @@ func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
 	sb.WriteString(systemPromptBottom)
 
 	if len(guilds) > 0 {
-		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url). Use the display_name for the link text (no emoji). Never mention scores in your replies.\n")
+		sb.WriteString("\n\n## Guild directory\nWhen mentioning a guild, always include a markdown link like [GuildName](url). Never mention scores in your replies.\n")
 		for _, g := range guilds {
-			guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
+			slugBase := g.GuildName
+			if slugBase == "" {
+				slugBase = g.Name
+			}
+			guildURL := "https://www.wherebuildersmeet.com/guilds/" + slugify(slugBase) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
 			displayName := strings.TrimSpace(reStripEmoji.ReplaceAllString(g.Name, ""))
-			parts := []string{"display_name: " + displayName, "raw_name: " + g.Name, fmt.Sprintf("score:%d", g.Score)}
+			parts := []string{"name: " + displayName, fmt.Sprintf("score:%d", g.Score)}
 			if len(g.Tags) > 0 {
 				parts = append(parts, "tags:"+strings.Join(g.Tags, ","))
 			}
