@@ -335,10 +335,11 @@ type cliResult struct {
 }
 
 func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliResult, error) {
-	args := []string{"--bare", "--print", "--output-format", "json", "--allowedTools", "Read,Glob,Grep,WebFetch,WebSearch"}
+	args := []string{"--print", "--output-format", "json", "--allowedTools", "Read,Glob,Grep,WebFetch,WebSearch"}
 	if sessionID != "" {
 		args = append(args, "--resume", sessionID)
-	} else if systemPrompt != "" {
+	}
+	if systemPrompt != "" {
 		f, err := os.CreateTemp("", "ruby-prompt-*.txt")
 		if err != nil {
 			return cliResult{}, fmt.Errorf("creating prompt tempfile: %w", err)
@@ -355,8 +356,17 @@ func runCLI(ctx context.Context, systemPrompt, sessionID, message string) (cliRe
 
 	cmd := exec.CommandContext(ctx, "claude", args...)
 	cmd.Dir = os.TempDir() // run outside the project so CLAUDE.md is not loaded
+	var stderr strings.Builder
+	cmd.Stderr = &stderr
 	out, err := cmd.Output()
 	if err != nil {
+		details := strings.TrimSpace(stderr.String())
+		if stdout := strings.TrimSpace(string(out)); stdout != "" {
+			details = stdout
+		}
+		if details != "" {
+			return cliResult{}, fmt.Errorf("%w: %s", err, details)
+		}
 		return cliResult{}, err
 	}
 
