@@ -18,7 +18,7 @@ WWM v1.7 brings major quality-of-life changes for builders. Here is a compilatio
 Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis before placing it.
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
-<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a2b2dfc&hm=1286d27dc1bca5a737a9e345f82f6cb7d2dd48695cb26846a44e193347cd9817&is=6a29dc7c&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a2bd6bc&hm=f1f92ac863ad94328e32e546d86592a557e275f88fbd180538f2dfe326f6f28e&is=6a2a853c&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a2bafc4&format=webp&hm=30ec296962ca93437237e45a18bfebc53976e4e0234de52c4ce9c2b34c34b256&is=6a2a5e44&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
@@ -36,7 +36,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a2b26bd&format=webp&hm=bd0e729d242fe7c5dc2b42859c688a483d3c94775a71917a2d0043a2472ad590&is=6a29d53d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a2bcf7d&format=webp&hm=1d050438b15cd330e13f6d8a479a83d51e7137ac8f96486f6dcf7c65d4214b6b&is=6a2a7dfd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -50,7 +50,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a2b265e&format=webp&hm=a8180cf5ee13d96b27d5784ba6682bd1e96ce72b9a352cab29c9eed237781e20&is=6a29d4de&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a2bcf1e&format=webp&hm=678aa986afaf765d40eec64cd7c0572295fd88ba40f4768a752629f6f08e8a8e&is=6a2a7d9e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -61,7 +61,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a2b26a3&format=webp&hm=fd7d701ee2ac55f7fa4de0b230e82112a64297885abbda9f9eb91111a9a14506&is=6a29d523&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a2bcf63&format=webp&hm=2a6f3cc6559371cdda10b6929c405be391a5bd245885279e37838ac4daa570f8&is=6a2a7de3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -72,17 +72,17 @@ You can now use small diagrams, which are convenient for saving sections of your
 ### Tutorial video on how to create a diagram
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2b3133&hm=01bdff6edbdeee65a020ffbd2f46c29bf09ee3fc4b9f5dc4a3947a1c5cd770ed&is=6a29dfb3&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2bd9f3&hm=fd473f581d888174e06b341735072048f56895448cc89f5b656fb39fd56d8d45&is=6a2a8873&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 
 ### Advanced Tip: Use Recommended Spot
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2b408b&format=webp&hm=a2670553a547b8b4973157facb235afcbe26f27556c9ee5c15cbff8da8f3f3ec&is=6a29ef0b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2be94b&format=webp&hm=5f44fcf2805a2ee33342ac73f0ae137420a690b1c253bc28b3728d422476263d&is=6a2a97cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2b2b47&hm=a92f8ba09d63ea2d0b2dba08859503fbd20fdbf8facab1cfcb5e29e43043cd79&is=6a29d9c7&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2bd407&hm=165a0c542848283b869b4f87f7bd672658a93b040477bfb1b3712a41db0d67e4&is=6a2a8287&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 ---
 
@@ -94,9 +94,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a2b4895&format=webp&hm=1ed2d26c84f5f7cb1e2342c6d41120e2ebf98cfe9e191985579d82c8ec2d692f&is=6a29f715&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a2bf155&format=webp&hm=05b0044d1db9d9d3d8f883b14a4c796feb6bef2bc4aa40c0acde4774dcaaf366&is=6a2a9fd5&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a2b4895&format=webp&hm=3d8e1505769d436c56d6a87eb6b45066e03650ac93bef1f8af972a7faa5e41e2&is=6a29f715&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a2bf155&format=webp&hm=2c2bf9d7ea2367a94fbd629d422e03f854e280b471670c43b8e9afa747108aa5&is=6a2a9fd5&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
