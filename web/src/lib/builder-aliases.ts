@@ -8,6 +8,7 @@ export const BUILDER_ALIASES: Record<string, string> = {
   "ℭ𝔞𝔯𝔫𝔦": "carnii",
   "𝕯𝖎𝖆𝖓𝖆": "ðìana",
   "kira": "kirakosma",
+  "raiden": "raiden-zongli"
 }
 
 export function resolveCanonical(slug: string): string {
