@@ -20,7 +20,7 @@ const lastSync = getLastSyncDate()
 const isEmpty = !hasBlueprints()
 const ogImage = blueprints.map((bp) => bp.coverImage ?? bp.screenshots?.[0]).find(Boolean)
 
-const recentBlueprints = getRecentBlueprintsWithScreenshots(7, 5)
+const recentBlueprints = getRecentBlueprintsWithScreenshots(10, 5) // 10 days max 5
 function pricingTag(bp: { isFree?: boolean; isPayToBuild?: boolean }): string | null {
   if (bp.isFree && bp.isPayToBuild) return "Free + Paid"
   if (bp.isFree) return "Free"
