@@ -338,12 +338,15 @@ func FetchEvents(s *discordgo.Session, guildID string) ([]Event, error) {
 
 		parsed := parseDescription(resolveMentions(e.Description))
 
-		if parsed.guildName == "" && location != "" {
+		if parsed.guildName == "" && location != "" && !strings.HasPrefix(location, "http://") && !strings.HasPrefix(location, "https://") {
 			locName, locID := parseLocation(location)
 			parsed.guildName = locName
 			if parsed.guildID == "" {
 				parsed.guildID = locID
 			}
+		}
+		if strings.HasPrefix(location, "http://") || strings.HasPrefix(location, "https://") {
+			location = ""
 		}
 
 		var imageURL string

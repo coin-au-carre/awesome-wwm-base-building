@@ -313,7 +313,10 @@ func main() {
 			}
 		}
 
-		allUsers := make(guild.UserMap)
+		allUsers, _ := guild.LoadUsers(*root)
+		if allUsers == nil {
+			allUsers = make(guild.UserMap)
+		}
 		for k, v := range guildFetch.result.Users {
 			allUsers[k] = v
 		}

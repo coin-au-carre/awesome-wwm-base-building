@@ -11,6 +11,7 @@ import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
 import { isBuilderSubmission } from "@/lib/config"
 import { getBuilderProfile } from "@/lib/builders"
+import { resolveMentions } from "@/lib/mentions"
 import { BookOpen, MapPin, Images, Layers, Compass } from "lucide-react"
 import GuildFlyer from "@/components/GuildFlyer"
 
@@ -48,6 +49,8 @@ const scoutProfile = scoutSlug ? getBuilderProfile(scoutSlug) : null
 const scoutFirstGuild = scoutProfile?.guilds.find((guild) => guild.slug !== g.slug)
 
 const allBuilds = getGuildBuilds(g.name)
+
+const resolvedWhatToVisit = g.whatToVisit ? resolveMentions(g.whatToVisit, users, base) : undefined
 
 const guildDisplayName = stripGuildShowcase(g.guildName || g.name)
 const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
@@ -428,13 +431,13 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
     )}
 
     <!-- What to Visit -->
-    {g.whatToVisit && (
+    {resolvedWhatToVisit && (
       <section class="space-y-3">
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><MapPin size={13} />What to Visit</h2>
         <div class="rounded-xl bg-muted/40 border border-border px-5 py-4">
           <div
-            class="text-sm leading-relaxed space-y-3 [&_ul]:space-y-1.5 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground [&_strong]:font-semibold"
-            set:html={renderMarkdown(g.whatToVisit)}
+            class="text-sm leading-relaxed space-y-3 [&_ul]:space-y-1.5 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground [&_strong]:font-semibold [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-foreground"
+            set:html={renderMarkdown(resolvedWhatToVisit)}
           />
         </div>
       </section>

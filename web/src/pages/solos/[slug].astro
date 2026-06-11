@@ -3,11 +3,12 @@ import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
-import { getSolosSortedByScore, getSoloRedirects, formatBuilderName } from "@/lib/guilds"
+import { getSolosSortedByScore, getSoloRedirects, formatBuilderName, getUsers } from "@/lib/guilds"
 import { builderSlug } from "@/lib/format"
 import { formatDateYMD, formatDateYMDHM } from "@/lib/dates"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
+import { resolveMentions } from "@/lib/mentions"
 import { BookOpen, MapPin, Images } from "lucide-react"
 import GuildFlyer from "@/components/GuildFlyer"
 
@@ -34,6 +35,8 @@ if (!g) {
   return Astro.redirect(`${BASE}/solo/`, 302)
 }
 const base = BASE
+const users = getUsers()
+const resolvedWhatToVisit = g.whatToVisit ? resolveMentions(g.whatToVisit, users, base) : undefined
 const ogImage = g.coverImage ?? g.screenshots?.[0]
 const hasScreenshots = !!(g.coverImage || g.screenshots?.length || g.screenshotSections?.some((s: any) => s.screenshots?.length))
 const buildersStr = g.builders?.map(formatBuilderName).filter(Boolean).join(", ")
@@ -249,13 +252,13 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
     )}
 
     <!-- What to Visit -->
-    {g.whatToVisit && (
+    {resolvedWhatToVisit && (
       <section class="space-y-3">
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><MapPin size={13} />What to Visit</h2>
         <div class="rounded-xl bg-muted/40 border border-border px-5 py-4">
           <div
-            class="text-sm leading-relaxed space-y-3 [&_ul]:space-y-1.5 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground [&_strong]:font-semibold"
-            set:html={renderMarkdown(g.whatToVisit)}
+            class="text-sm leading-relaxed space-y-3 [&_ul]:space-y-1.5 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground [&_strong]:font-semibold [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-foreground"
+            set:html={renderMarkdown(resolvedWhatToVisit)}
           />
         </div>
       </section>
