@@ -126,6 +126,7 @@ const BTW_EVENT = {
 const upcomingTourEvent = SHOW_TOUR_BANNER
   ? (upcomingEvents.find(e => {
       if (e.type !== "tour") return false
+      if (!e.name.toLowerCase().includes("panda base tour")) return false
       const startMs = new Date(e.scheduledStart).getTime()
       const endMs = e.scheduledEnd ? new Date(e.scheduledEnd).getTime() : startMs
       const isLive = e.status === "active" || (startMs <= now && endMs >= now)
@@ -188,7 +189,11 @@ const upcomingEventsDisplay = upcomingEvents.map((event) => {
     : minsUntil <= 1440
     ? m > 0 ? `in ${h}h${m}m` : `in ${h}h`
     : `in ${Math.round(minsUntil / 1440)}d`
-  return { ...event, live, urgent, timeLabel, startMs }
+  const guildImage = !event.image && event.guildSlug
+    ? guilds.find(g => g.slug === event.guildSlug)?.coverImage
+      ?? guilds.find(g => g.slug === event.guildSlug)?.screenshots?.[0]
+    : undefined
+  return { ...event, image: event.image ?? guildImage, live, urgent, timeLabel, startMs }
 }).sort((a, b) => a.startMs - b.startMs)
 const eventsToShow = upcomingEventsDisplay
   .filter(e => !(upcomingTourEvent && e.id === upcomingTourEvent.id))

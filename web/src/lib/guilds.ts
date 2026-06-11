@@ -33,6 +33,7 @@ export interface GameEvent {
   subscriberCount?: number
   discordUrl: string
   image?: string
+  guildSlug?: string
 }
 
 export { formatBuilderName }
