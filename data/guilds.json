@@ -1,5 +1,21 @@
 [
 	{
+		"id": "10136569",
+		"name": "LaRuina",
+		"builders": [
+			"Alëtariel"
+		],
+		"tags": [
+			"Zen/Nature",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Restaurant\nMarket\nWaterfall",
+		"score": 1,
+		"lastModified": "June 11, 2026 at 06:58 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10275437",
 		"name": "乂VENDETTA",
 		"builders": [
