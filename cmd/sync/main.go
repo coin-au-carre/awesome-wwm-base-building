@@ -231,7 +231,9 @@ func main() {
 	if syncBlueprints && blueprintForumID != "" {
 		blueprintFetch = <-blueprintCh
 		if blueprintFetch.err != nil {
-			bot.NotifyIf(!*noNotify, "💥 **Blueprints failed to synchronize!** — "+blueprintFetch.err.Error())
+			if !*noNotify && devChannelID != "" {
+				bot.Send(devChannelID, "💥 **Blueprints failed to synchronize!** — "+blueprintFetch.err.Error())
+			}
 			slog.Error("blueprint fetch failed", "err", blueprintFetch.err)
 			os.Exit(1)
 		}
