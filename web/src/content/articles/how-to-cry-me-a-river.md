@@ -39,8 +39,8 @@ The key steps: place a wall, then position a small flat ceiling above it. Simula
 The advantage over manual adjustment (going up and down until sections blend) is consistency: once the ceiling reference is set, every water unit snaps to the same height with no retries needed.
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a2c6e66&hm=2a8c60c902be88668c55932ca454e0e1fe50e85f29b802826fefbb793e065d89&is=6a2b1ce6&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a2d1726&hm=8f49497bba0e64fcb347dc9e472e4adb9bba434a1eafae63445913dbf5811aa3&is=6a2bc5a6&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 **Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a2c75ea&format=webp&hm=3dcc8900eb6526e2b69682ff672527fe1b2666409c5c40b5474bdb3324a653e3&is=6a2b246a&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a2d1eaa&format=webp&hm=36059be1ce09f27f8b111f79d658226a4933b63d8cd9ffda062e9fcf1136dfb4&is=6a2bcd2a&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
