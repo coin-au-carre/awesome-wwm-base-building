@@ -18,7 +18,7 @@ WWM v1.7 brings major quality-of-life changes for builders. Here is a compilatio
 Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis before placing it.
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
-<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a2d283c&hm=81a7a1e58d775d0a75929339477087277ab6f214b71bdda844da82395a7f91e5&is=6a2bd6bc&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a2dd0fc&hm=7d597f04fb07feea7c3cce0963596fee321af40d1b63f60bb7e8b0bdee47fc54&is=6a2c7f7c&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a2daa04&format=webp&hm=4d90893dda25e7d700c82448034683ad3adee8752c97581f612e273bc5525246&is=6a2c5884&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
@@ -36,7 +36,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a2d20fd&format=webp&hm=82a90cb4cd7ad4a4827f3b9b9ec8eabfb03bfa54932e4d890efb06a73d6c7af7&is=6a2bcf7d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a2dc9bd&format=webp&hm=ac7d88f871a4a12cfcfcda1b89941c9f0a9ba7df00a6906d73a0bfca6fb9d09a&is=6a2c783d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -50,7 +50,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a2d209e&format=webp&hm=cc79715263423dd013bcd3f2dc040cd8852249fc08554325aca34c89acf66128&is=6a2bcf1e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a2dc95e&format=webp&hm=e416ffe1ebf0649bdfc8c2c7b0b4e06cce8e41a13649ee5bd78ec75831afa365&is=6a2c77de&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -61,7 +61,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a2d20e3&format=webp&hm=9131052e9c98c72a5b63916e60f1b7754a2df227bcd6b1db7cc8da050e9f95e3&is=6a2bcf63&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a2dc9a3&format=webp&hm=0231db43247550fc00432e37c838cf14f08bb2f30ae062aeec591b945a8fbe2e&is=6a2c7823&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -72,7 +72,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 ### Tutorial video on how to create a diagram
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2d2b73&hm=074887729aefa8677ceac1d24fdeeb96b6c95493f93a818f933f10ad4dd30829&is=6a2bd9f3&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2dd433&hm=9110b10aa7a00946590d5f6123e63d1d8c9733680a5d55d3ccaa7df09ea19925&is=6a2c82b3&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 
 ### Advanced Tip: Use Recommended Spot
@@ -82,7 +82,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2d3acb&format=webp&hm=5ac305a60d85c0de07459ca89211ea910f6a85299b06b9e783841084a7686f2a&is=6a2be94b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2d2587&hm=a7e0a1dbc3155735c6a7aaf08d93cfbf0ef8df9b41af7023b41514a9cad86f56&is=6a2bd407&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2dce47&hm=dda14f4cb13b69fb171d0d0c45c3f68c0c3ab30f7cf28ec191cca4d8e08d0d64&is=6a2c7cc7&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 ---
 
