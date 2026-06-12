@@ -161,11 +161,8 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 			return
 		}
 
-		// Ignore messages outside allowed channels.
-		spotlightOnly := spotlightOnlyChannels[m.ChannelID]
-		if !allowedChannels[m.ChannelID] && !spotlightOnly {
-			return
-		}
+		// Determine channel mode.
+		liteMode := !allowedChannels[m.ChannelID]
 
 		mentioned := false
 		for _, u := range m.Mentions {
@@ -200,10 +197,9 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 			}
 		}
 
-		// General channel only handles spotlight keywords.
-		if spotlightOnly {
-			bot.Reply(m.ChannelID, m.ID, "*(psst... come find me in <#"+rubyChannelID+"> to chat~)*")
-			return
+		// Outside #ruby/#dev: tutorial/technique questions only, short replies, redirect searches.
+		if liteMode {
+			text = "[You are replying in a public channel outside #ruby. Answer only building technique or tutorial questions, and keep your reply brief. For guild searches, spotlights, or image requests, invite the user to ask in <#" + rubyChannelID + "> instead.]\n\n" + text
 		}
 
 		if responder == nil {
