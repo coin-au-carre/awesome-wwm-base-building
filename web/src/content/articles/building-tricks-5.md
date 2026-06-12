@@ -38,13 +38,13 @@ Floor pieces often become invisible when viewed from below, which can look odd i
 
 With improved axis rotation now available, the giant painting can be laid flat and used as a solid floor texture. Previously, beds were the go-to for this kind of surface. The painting gives a more distinctive look and works especially well for decorative floor sections.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959251314479264/image.png?ex=6a2cebad&format=webp&hm=eb0a77b3c3dc452772efe79f75a543d83862ad9e66ca9480d2261c348ba8c95f&is=6a2b9a2d&quality=lossless" alt="Giant painting rotated flat and used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959251314479264/image.png?ex=6a2d946d&format=webp&hm=8da4bb2776bfb219e62d6c96096acf7bf66ab7c5a53291d0be585c62c5c92f31&is=6a2c42ed&quality=lossless" alt="Giant painting rotated flat and used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
 
 Before and after examples by Crueliet:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962974878892082/before1.png?ex=6a2cef25&format=webp&hm=61e1ba7f2597925df8e746a94c1c8b4bd69239e0cd6164306b0a124a5c49794d&is=6a2b9da5&quality=lossless" alt="Before — floor section without the giant painting" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962974878892082/before1.png?ex=6a2d97e5&format=webp&hm=6b19efe6d718ec39b57ce004408eb21dc738e8e8e4e882b1118ec748072499a6&is=6a2c4665&quality=lossless" alt="Before — floor section without the giant painting" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962975369887824/After1.png?ex=6a2cef25&format=webp&hm=95eb36ab08eb82cf274cd567b566042deb285aed9ce602fed5efb549344f2151&is=6a2b9da5&quality=lossless" alt="After — the same area with the giant painting used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962975369887824/After1.png?ex=6a2d97e5&format=webp&hm=82d72ef43c7d6266e9407549bcf376b2681e5c3300e3e83bd807218455b4134e&is=6a2c4665&quality=lossless" alt="After — the same area with the giant painting used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -57,7 +57,7 @@ A building flipped on its side can double as a crane arm or support structure. H
 
 An example by Crueliet using the same idea:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959552070979694/image.png?ex=6a2cebf5&format=webp&hm=8f2805c5e2b06826fa7f1da12368348c9e85bb5d1e3df7a640919efb7c3d55b0&is=6a2b9a75&quality=lossless" alt="Crane-like structure built using a sideways-flipped building piece" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959552070979694/image.png?ex=6a2d94b5&format=webp&hm=ffbe71c2a868cfc49418069f7e68dda6a836fe821e8d6f51c5915e4511fdbd18&is=6a2c4335&quality=lossless" alt="Crane-like structure built using a sideways-flipped building piece" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
