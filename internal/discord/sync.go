@@ -483,7 +483,9 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 			continue
 		}
 		prev := g
-		g.Builders = data.Builders
+		if len(data.Builders) > 0 || len(g.Builders) == 0 {
+			g.Builders = data.Builders
+		}
 		g.Tags = tags
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
 		g.Score = data.Score

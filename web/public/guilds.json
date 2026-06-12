@@ -6342,11 +6342,13 @@
 	{
 		"id": "10136569",
 		"name": "LaRuina",
-		"builders": [],
+		"builders": [
+			"Aletariel [1045049323]"
+		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1514900413051175012",
 		"lore": "120 hours of building, designed and crafted entirely by me.\n\nMy goal was to create a guild base that feels alive, like a place that could naturally exist within the world of the game itself. Every area was built with careful planning and attention to detail, from the overall layout down to the smallest decorative touches. I wanted each space to have its own purpose, atmosphere, and story while still feeling connected as part of a living community.",
 		"whatToVisit": "Arena\nPiano Bar\nSecret Garden\nLake House\nRestaurant\nCourtyard\nChapel\nMountain Retreat\nWaterfall\nMarket Square",
-		"score": 22,
+		"score": 2,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1514900413051175012/1514900414888149093/2026612154130.png?ex=6a2d0c74\u0026is=6a2bbaf4\u0026hm=48d09ff733a657294fbd8e5bea587a814e063ddac2854f9faa8f911b3feb2092\u0026",
 			"https://cdn.discordapp.com/attachments/1514900413051175012/1514900415550984243/2026612154231.png?ex=6a2d0c74\u0026is=6a2bbaf4\u0026hm=3e8dbbdc3fca555d63d514419b3d8989880f7e3756f0eecbf34e34044949ff16\u0026",

@@ -53,7 +53,7 @@ Before and after examples by Crueliet:
 
 A building flipped on its side can double as a crane arm or support structure. Hide the rest of the piece inside rocks or terrain to leave only the jutting section visible — the result reads as a convincing industrial support.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a2cc43b&format=webp&hm=c481cb4563817d6e072e9ae419d7d3aedcddbefa550be5714ff65cbaf72450ee&is=6a2b72bb&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a2d6cfb&format=webp&hm=3d2d9fae19749972476aa24566d52922a39abda4cfbdcc9e26d7ea3e732e95e5&is=6a2c1b7b&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
 
 An example by Crueliet using the same idea:
 
