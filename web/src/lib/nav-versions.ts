@@ -10,6 +10,7 @@ interface NavVersions {
   solo: string
   moments: string
   blueprints: string
+  interiors: string
   catalog: string
   tutorials: string
   media: string
@@ -22,7 +23,7 @@ interface NavVersions {
 }
 
 const FALLBACK: NavVersions = {
-  guilds: "0", solo: "0", moments: "0", blueprints: "0", catalog: "0",
+  guilds: "0", solo: "0", moments: "0", blueprints: "0", interiors: "0", catalog: "0",
   tutorials: "0", media: "0", "how-it-works": "0", contribute: "0",
   ruby: "0", credits: "0", bugs: "0", updates: "0",
 }

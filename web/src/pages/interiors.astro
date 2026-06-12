@@ -1,0 +1,90 @@
+---
+import Layout from "@/layouts/main.astro"
+import { InteriorGrid } from "@/components/InteriorGrid"
+import { buttonVariants } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { getInteriorsSortedByDate, hasInteriors } from "@/lib/interiors"
+import { getLastSyncDate } from "@/lib/guilds"
+import { formatSyncDate } from "@/lib/dates"
+import { ArrowsClockwiseIcon, InfoIcon } from "@phosphor-icons/react"
+
+const interiors = getInteriorsSortedByDate()
+const lastSync = getLastSyncDate()
+const isEmpty = !hasInteriors()
+const ogImage = interiors[0]?.screenshots?.[0]
+---
+
+<Layout
+  title="Interior Designs | Where Builders Meet"
+  description="Get inspired by interior designs shared by Where Winds Meet builders. See what others have created and find ideas to start decorating your own space."
+  image={ogImage}
+>
+  <div class="space-y-6">
+    <div class="flex flex-col gap-3">
+      <div class="flex items-center gap-3 flex-wrap">
+        <h1 class="font-heading text-2xl font-semibold mb-1 flex items-center gap-2">
+          🛋️ Interior Designs
+        </h1>
+        <Badge variant="secondary">{interiors.length} design{interiors.length !== 1 ? "s" : ""}</Badge>
+        {!isEmpty && lastSync && (
+          <Badge variant="outline" className="font-normal text-muted-foreground gap-1.5">
+            <ArrowsClockwiseIcon weight="fill" className="size-3 text-green-500" /> {formatSyncDate(lastSync)}
+          </Badge>
+        )}
+      </div>
+
+      <!-- What is this banner -->
+      <div class="rounded-xl border border-violet-500/30 bg-violet-500/5 px-5 py-4 flex items-start gap-3">
+        <InfoIcon weight="duotone" className="size-5 shrink-0 text-violet-500 mt-0.5" />
+        <div class="space-y-1">
+          <p class="font-medium text-sm">A place for inspiration</p>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            Builders share their interior creations so others can see what is possible, learn from it, and get ideas to recreate it or start something of their own.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {
+      isEmpty && (
+        <div class="rounded-xl border border-dashed border-amber-500/50 bg-amber-500/5 px-6 py-4 flex items-start gap-3">
+          <InfoIcon weight="duotone" className="size-5 shrink-0 text-amber-500" />
+          <div>
+            <p class="font-medium text-sm">Work in progress</p>
+            <p class="text-sm text-muted-foreground mt-0.5">
+              We're collecting interior design submissions — check back soon or{" "}
+              <a href="https://discord.gg/Qygt9u26Bn" class="underline hover:text-foreground transition-colors" data-umami-event="discord_cta_click">
+                join the Discord
+              </a>{" "}
+              to be notified.
+            </p>
+          </div>
+        </div>
+      )
+    }
+
+    {
+      !isEmpty && (
+        <section>
+          <InteriorGrid client:load interiors={interiors} />
+        </section>
+      )
+    }
+
+    <!-- Share your design CTA -->
+    <div class="rounded-xl border border-violet-500/30 bg-violet-500/5 px-5 py-4 flex flex-col sm:flex-row sm:items-center gap-3">
+      <p class="text-sm flex-1 text-muted-foreground">
+        Created something you are proud of? Share it in <span class="font-medium text-foreground">#interior-design</span> on Discord and help others get inspired.
+      </p>
+      <a
+        href="https://discord.gg/Qygt9u26Bn"
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`shrink-0 ${buttonVariants({ variant: "outline", size: "sm" })}`}
+        data-umami-event="discord_cta_click"
+      >
+        Share on Discord ↗
+      </a>
+    </div>
+  </div>
+</Layout>

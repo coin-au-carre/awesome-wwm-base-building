@@ -50,6 +50,12 @@ tasks:
       - go run ./cmd/sync -only blueprints {{.CLI_ARGS}}
       - go run ./cmd/genjson
 
+  sync:interiors:
+    desc: sync interior design forum only (no git pull, no tutorial/whatever-sync)
+    cmds:
+      - go run ./cmd/sync -only interiors {{.CLI_ARGS}}
+      - go run ./cmd/genjson
+
   # ── bot (long-running) ──────────────────────────────────────
   bot:
     desc: run the bot (responds on RUBY_CHANNEL_ID and DEV_CHANNEL_ID)
@@ -191,6 +197,7 @@ tasks:
       - echo "  task sync:guilds         guild forum only + genjson (no pull, no tutorials/bugs/patches)"
       - echo "  task sync:solo           solo forum only  + genjson (no pull, no tutorials)"
       - echo "  task sync:blueprints     blueprint forum only + genjson (no pull, no tutorials)"
+      - echo "  task sync:interiors      interior design forum only + genjson (no pull, no tutorials)"
       - echo "        -- -dry-run        crawl only, skip writing JSON files"
       - echo "        -- -no-notify      skip Discord notification"
       - echo "        -- -force-role     reassign roles to all authors"

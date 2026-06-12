@@ -831,7 +831,7 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 			slog.Warn("guild has reached max screenshots", "numScreenshots", len(screenshots), "threadID", threadID, "latestAuthorMsg", msg.Author.Username)
 			break
 		}
-		if msg.Author == nil || !allowedIDs[msg.Author.ID] {
+		if msg.Author == nil || (allowedIDs != nil && !allowedIDs[msg.Author.ID]) {
 			continue
 		}
 		if msg.Timestamp.After(lastContributorTime) {
@@ -851,29 +851,37 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 			slog.Info("screenshot ignored via 🚫 reaction", "thread", threadID, "message", msg.ID)
 			continue
 		}
-		for _, att := range msg.Attachments {
-			if seen[att.URL] {
-				continue
+		collectAttachmentsAndEmbeds := func(atts []*discordgo.MessageAttachment, embeds []*discordgo.MessageEmbed) {
+			for _, att := range atts {
+				if seen[att.URL] {
+					continue
+				}
+				seen[att.URL] = true
+				if guild.IsImage(att.Filename) {
+					addImage(att.URL)
+					slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
+				} else if guild.IsVideo(att.Filename) {
+					videos = append(videos, att.URL)
+					slog.Debug("video found", "thread", threadID, "url", att.URL)
+				}
 			}
-			seen[att.URL] = true
-			if guild.IsImage(att.Filename) {
-				addImage(att.URL)
-				slog.Debug("screenshot found", "thread", threadID, "url", att.URL)
-			} else if guild.IsVideo(att.Filename) {
-				videos = append(videos, att.URL)
-				slog.Debug("video found", "thread", threadID, "url", att.URL)
+			for _, embed := range embeds {
+				isVideo := embed.Type == discordgo.EmbedTypeVideo || isSupportedVideoURL(embed.URL)
+				if isVideo && embed.URL != "" && !seen[embed.URL] {
+					seen[embed.URL] = true
+					videos = append(videos, embed.URL)
+					slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
+				} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
+					seen[embed.Image.URL] = true
+					addImage(embed.Image.URL)
+					slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
+				}
 			}
 		}
-		for _, embed := range msg.Embeds {
-			isVideo := embed.Type == discordgo.EmbedTypeVideo || isSupportedVideoURL(embed.URL)
-			if isVideo && embed.URL != "" && !seen[embed.URL] {
-				seen[embed.URL] = true
-				videos = append(videos, embed.URL)
-				slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
-			} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
-				seen[embed.Image.URL] = true
-				addImage(embed.Image.URL)
-				slog.Debug("embed image found", "thread", threadID, "url", embed.Image.URL)
+		collectAttachmentsAndEmbeds(msg.Attachments, msg.Embeds)
+		for _, snap := range msg.MessageSnapshots {
+			if snap.Message != nil {
+				collectAttachmentsAndEmbeds(snap.Message.Attachments, snap.Message.Embeds)
 			}
 		}
 	}

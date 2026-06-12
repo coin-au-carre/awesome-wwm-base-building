@@ -15,6 +15,7 @@ import (
 	"ruby/internal/cmdutil"
 	"ruby/internal/discord"
 	"ruby/internal/guild"
+	"ruby/internal/interior"
 )
 
 func main() {
@@ -29,8 +30,9 @@ func main() {
 	syncGuilds := true
 	syncSolo := true
 	syncBlueprints := true
+	syncInteriors := true
 	if *only != "" {
-		syncGuilds, syncSolo, syncBlueprints = false, false, false
+		syncGuilds, syncSolo, syncBlueprints, syncInteriors = false, false, false, false
 		for _, ch := range strings.Split(*only, ",") {
 			switch strings.TrimSpace(strings.ToLower(ch)) {
 			case "guilds", "guild":
@@ -39,6 +41,8 @@ func main() {
 				syncSolo = true
 			case "blueprints", "blueprint":
 				syncBlueprints = true
+			case "interiors", "interior":
+				syncInteriors = true
 			}
 		}
 	}
@@ -51,15 +55,18 @@ func main() {
 	}
 	soloForumID := os.Getenv("SOLO_BUILD_SHOWCASE_CHANNEL_FORUM_ID")
 	blueprintForumID := os.Getenv("BLUEPRINT_CHANNEL_FORUM_ID")
+	interiorForumID := os.Getenv("INTERIOR_DESIGN_CHANNEL_FORUM_ID")
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	devChannelID := os.Getenv("DEV_CHANNEL_ID")
 	generalChannelID := os.Getenv("GENERAL_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
+	soloBuilderRoleID := os.Getenv("SOLO_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
 
 	guildsPath := filepath.Join(*root, "data", "guilds.json")
 	solosPath := filepath.Join(*root, "data", "solos.json")
 	blueprintsPath := filepath.Join(*root, "data", "blueprints.json")
+	interiorsPath := filepath.Join(*root, "data", "interior.json")
 	roleCachePath := filepath.Join(*root, "data", "role_assignments.json")
 	blacklistPath := filepath.Join(*root, "data", "voter_blacklist.json")
 	whitelistPath := filepath.Join(*root, "data", "voter_whitelist.json")
@@ -112,6 +119,15 @@ func main() {
 		}
 	}
 
+	var interiors []interior.Interior
+	if syncInteriors && interiorForumID != "" {
+		interiors, err = interior.LoadFile(interiorsPath)
+		if err != nil {
+			slog.Warn("could not load interiors, starting fresh", "err", err)
+			interiors = []interior.Interior{}
+		}
+	}
+
 	blacklist, err := guild.LoadVoterBlacklist(blacklistPath)
 	if err != nil {
 		slog.Error("loading voter blacklist", "err", err)
@@ -135,10 +151,15 @@ func main() {
 		result discord.BlueprintSyncFetchResult
 		err    error
 	}
+	type interiorFetchOutcome struct {
+		result discord.InteriorSyncFetchResult
+		err    error
+	}
 
 	guildCh := make(chan fetchOutcome, 1)
 	soloCh := make(chan fetchOutcome, 1)
 	blueprintCh := make(chan blueprintFetchOutcome, 1)
+	interiorCh := make(chan interiorFetchOutcome, 1)
 
 	makeProgressFn := func(label string) func(done, total int) {
 		lastPct := -1
@@ -199,10 +220,24 @@ func main() {
 		}()
 	}
 
+	if syncInteriors && interiorForumID != "" {
+		fetchWg.Add(1)
+		go func() {
+			defer fetchWg.Done()
+			r, err := discord.InteriorSyncFetch(bot, interiors, discord.SyncConfig{
+				ForumChannelID: interiorForumID,
+				GuildFilter:    *guildFilter,
+				OnProgress:     makeProgressFn("interior design"),
+			})
+			interiorCh <- interiorFetchOutcome{r, err}
+		}()
+	}
+
 	fetchWg.Wait()
 	close(guildCh)
 	close(soloCh)
 	close(blueprintCh)
+	close(interiorCh)
 	if progressMsgID != "" {
 		bot.EditMessage(botChannelID, progressMsgID, "🔄 *(counting stars and sealing the scrolls...)*")
 	}
@@ -239,6 +274,18 @@ func main() {
 		}
 	}
 
+	var interiorFetch interiorFetchOutcome
+	if syncInteriors && interiorForumID != "" {
+		interiorFetch = <-interiorCh
+		if interiorFetch.err != nil {
+			if !*noNotify && devChannelID != "" {
+				bot.Send(devChannelID, "💥 **Interiors failed to synchronize!** — "+interiorFetch.err.Error())
+			}
+			slog.Error("interior fetch failed", "err", interiorFetch.err)
+			os.Exit(1)
+		}
+	}
+
 	// ── Finalize (score) ─────────────────────────────────────────────────────
 
 	var updatedGuilds []guild.Guild
@@ -265,6 +312,12 @@ func main() {
 		bpWeights := discord.ComputeVoterWeights(blueprintFetch.result.VoterCounts)
 		slog.Info("blueprint voter weights", "voters", len(bpWeights))
 		updatedBlueprints, blueprintStats = discord.BlueprintSyncFinalize(blueprintFetch.result, bpWeights, blacklist)
+	}
+
+	var updatedInteriors []interior.Interior
+	var interiorStats discord.SyncStats
+	if syncInteriors && interiorForumID != "" {
+		updatedInteriors, interiorStats = discord.InteriorSyncFinalize(interiorFetch.result)
 	}
 
 	// ── Save ──────────────────────────────────────────────────────────────────
@@ -299,6 +352,15 @@ func main() {
 				cmdutil.UpdateNavVersion(*root, "blueprints")
 			}
 		}
+		if syncInteriors && interiorForumID != "" {
+			if err := interior.SaveFile(interiorsPath, updatedInteriors); err != nil {
+				slog.Error("saving interiors", "err", err)
+				os.Exit(1)
+			}
+			if interiorStats.New > 0 {
+				cmdutil.UpdateNavVersion(*root, "interiors")
+			}
+		}
 
 		allReactions := make(guild.ReactionMap)
 		for k, v := range guildReactions {
@@ -324,6 +386,9 @@ func main() {
 			allUsers[k] = v
 		}
 		for k, v := range blueprintFetch.result.Users {
+			allUsers[k] = v
+		}
+		for k, v := range interiorFetch.result.Users {
 			allUsers[k] = v
 		}
 
@@ -405,8 +470,14 @@ func main() {
 			discordGuildID := forumCh.GuildID
 			if baseBuilderRoleID != "" {
 				discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedGuilds, 0, nil, roleCache)
-				if syncSolo && soloForumID != "" {
-					discord.AssignRoleByScore(bot.Session, discordGuildID, baseBuilderRoleID, updatedSolos, 0, nil, roleCache)
+			}
+			if syncSolo && soloForumID != "" {
+				soloRole := soloBuilderRoleID
+				if soloRole == "" {
+					soloRole = baseBuilderRoleID
+				}
+				if soloRole != "" {
+					discord.AssignRoleByScore(bot.Session, discordGuildID, soloRole, updatedSolos, 0, nil, roleCache)
 				}
 			}
 			if baseCriticRoleID != "" {
@@ -428,6 +499,9 @@ func main() {
 	if syncBlueprints && blueprintForumID != "" && (blueprintStats.New > 0 || blueprintStats.Updated > 0) {
 		summary += fmt.Sprintf("\n📐 **%d** blueprints — %d new, %d updated", blueprintStats.Total, blueprintStats.New, blueprintStats.Updated)
 	}
+	if syncInteriors && interiorForumID != "" && (interiorStats.New > 0 || interiorStats.Updated > 0) {
+		summary += fmt.Sprintf("\n🛋️ **%d** interiors — %d new, %d updated", interiorStats.Total, interiorStats.New, interiorStats.Updated)
+	}
 	if progressMsgID != "" {
 		bot.EditMessage(botChannelID, progressMsgID, summary)
 	} else {
@@ -441,6 +515,9 @@ func main() {
 	}
 	if syncBlueprints {
 		slog.Info("blueprint sync complete", "total", blueprintStats.Total, "new", blueprintStats.New, "updated", blueprintStats.Updated)
+	}
+	if syncInteriors {
+		slog.Info("interior sync complete", "total", interiorStats.Total, "new", interiorStats.New, "updated", interiorStats.Updated)
 	}
 
 	if !*dryRun {

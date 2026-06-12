@@ -125,7 +125,8 @@ BLUEPRINT_CHANNEL_FORUM_ID           # optional — blueprint forum channel ID
 BOT_CHANNEL_ID                        # optional — bot notification channel
 RUBY_CHANNEL_ID                       # production bot channel
 DEV_CHANNEL_ID                        # dev bot channel
-BASE_BUILDER_ROLE_ID                  # Discord role for builders
+BASE_BUILDER_ROLE_ID                  # Discord role for guild builders
+SOLO_BUILDER_ROLE_ID                  # Discord role for solo builders (falls back to BASE_BUILDER_ROLE_ID if unset)
 BASE_CRITIC_ROLE_ID                   # Discord role for voters
 ANTHROPIC_API_KEY                     # Claude AI (bot feature)
 BUGS_CHANNEL_ID                       # #bugs channel ID for the digest message
