@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["LyYan", "Raiden-Zongli", "Mothisto", "Crueliet"]
 date: 2026-06-11
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2bdb51&format=webp&hm=a8489ac99fae95a11d01d990128183e735ac694eae321c80a16f990f4f526940&is=6a2a89d1&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2c8411&format=webp&hm=64de14db68630dffe6f4f5646df446c904e71729152e7600ee4c70f3a9c1f65f&is=6a2b3291&quality=lossless"
 featured: true
 ---
 
@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Rotating objects by 5-degree increments lets you arrange them in a smooth circular pattern. The small angle gives enough resolution to approximate a circle without visible gaps or jagged edges.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2bdb51&format=webp&hm=a8489ac99fae95a11d01d990128183e735ac694eae321c80a16f990f4f526940&is=6a2a89d1&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2c8411&format=webp&hm=64de14db68630dffe6f4f5646df446c904e71729152e7600ee4c70f3a9c1f65f&is=6a2b3291&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -92,4 +92,4 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 The qupin item can be used to simulate hanging strings or thin rope-like details. Its shape and scale make it a natural fit for adding fine texture to lanterns, banners, or any structure that calls for delicate hanging elements.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a2bdab3&format=webp&hm=4185c967262e4f79dedb0226f092b88b3096bf9e8fc612d258b93156ff5cc7a9&is=6a2a8933&quality=lossless" alt="Qupin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a2c8373&format=webp&hm=30b0c45e3de07c55cbf16b0f9ad51de028e5c6dab8f1b7aa34369e38beca7989&is=6a2b31f3&quality=lossless" alt="Qupin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />

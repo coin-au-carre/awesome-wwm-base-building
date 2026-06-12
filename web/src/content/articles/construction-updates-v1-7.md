@@ -18,7 +18,7 @@ WWM v1.7 brings major quality-of-life changes for builders. Here is a compilatio
 Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis before placing it.
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
-<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a2bd6bc&hm=f1f92ac863ad94328e32e546d86592a557e275f88fbd180538f2dfe326f6f28e&is=6a2a853c&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a2c7f7c&hm=dc2e3909692d6258eb8d7c4d904ef841069050f661a6cd1a0b74957946a79114&is=6a2b2dfc&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a2c5884&format=webp&hm=05f15e7670b58635a50006d46f71b4aacdd980b222366a4b8d35be962558c0fe&is=6a2b0704&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
@@ -72,17 +72,17 @@ You can now use small diagrams, which are convenient for saving sections of your
 ### Tutorial video on how to create a diagram
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2bd9f3&hm=fd473f581d888174e06b341735072048f56895448cc89f5b656fb39fd56d8d45&is=6a2a8873&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a2c82b3&hm=57e088405df3b749cc96030e2ded970ee12063f43a8eb28f54e23792a4d39d53&is=6a2b3133&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 
 ### Advanced Tip: Use Recommended Spot
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2be94b&format=webp&hm=5f44fcf2805a2ee33342ac73f0ae137420a690b1c253bc28b3728d422476263d&is=6a2a97cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2c920b&format=webp&hm=1b8d513a383b1deca28a4ae9a61d07ce0e55f613e13235a712aebcf217ad314d&is=6a2b408b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2bd407&hm=165a0c542848283b869b4f87f7bd672658a93b040477bfb1b3712a41db0d67e4&is=6a2a8287&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2c7cc7&hm=d51e858faed28bc97d3fab4b6af3e51364cc8bc896aa746d57b181f8118f92b6&is=6a2b2b47&" controls style="border-radius: 0.75rem; width: 100%;"></video>
 
 ---
 
@@ -94,9 +94,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a2bf155&format=webp&hm=05b0044d1db9d9d3d8f883b14a4c796feb6bef2bc4aa40c0acde4774dcaaf366&is=6a2a9fd5&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a2c9a15&format=webp&hm=985c1444bd6f2ec434f94737c6497910773d36c5711e08afae80f7790ee286ab&is=6a2b4895&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a2bf155&format=webp&hm=2c2bf9d7ea2367a94fbd629d422e03f854e280b471670c43b8e9afa747108aa5&is=6a2a9fd5&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a2c9a15&format=webp&hm=f571c49eb6cd5a428c5e5987b132c212e5203f5b35d4d9cd33927dfc22a7dfbf&is=6a2b4895&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
