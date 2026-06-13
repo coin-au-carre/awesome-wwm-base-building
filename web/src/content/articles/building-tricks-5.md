@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["LyYan", "Raiden-Zongli", "Mothisto", "Crueliet", "Wyrdrake"]
 date: 2026-06-11
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2dd591&format=webp&hm=7f7da5368a5656b88cbb795bf2340c82565b59c964932fe362aeb2b29f1d59c3&is=6a2c8411&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2e7e51&format=webp&hm=059e5f02c06596b8ef5a7b793564a19ab9eca0f1d6bc62e3d50c3f2126a8a57a&is=6a2d2cd1&quality=lossless"
 featured: true
 ---
 
@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Rotating objects by 5-degree increments lets you arrange them in a smooth circular pattern. The small angle gives enough resolution to approximate a circle without visible gaps or jagged edges.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2dd591&format=webp&hm=7f7da5368a5656b88cbb795bf2340c82565b59c964932fe362aeb2b29f1d59c3&is=6a2c8411&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a2e7e51&format=webp&hm=059e5f02c06596b8ef5a7b793564a19ab9eca0f1d6bc62e3d50c3f2126a8a57a&is=6a2d2cd1&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -70,7 +70,7 @@ A wooden torch shape assembled from standard building components:
 
 The top section of a golden fire pillar:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a2da4af&format=webp&hm=92b3807c651300a1c5f94e662701384024f8aeb3ebf8464c1e4f2d327b8c4a53&is=6a2c532f&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a2e4d6f&format=webp&hm=4d2593d2066bb07f2e79d5ef8bfd4a70ac669c6b562c5879d1fe28d91abb84f3&is=6a2cfbef&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
 
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a2e4972&format=webp&hm=0630acd9cff680ea29e159b99f8cd5d546628f10da3fa4157e8c274603cb5052&is=6a2cf7f2&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
 
@@ -81,9 +81,9 @@ The top section of a golden fire pillar:
 
 Flipping the Plot piece upside down exposes its flat dirt underside, giving you a clean ground texture without any grass. Useful for building on bare earth aesthetics or hiding the default grassy surface.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a2daf8b&format=webp&hm=8901ee80ddb4e19bc772a04eb6d9e77756200e171ffe2649c744934b9f21e53f&is=6a2c5e0b&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a2e584b&format=webp&hm=e5a9096b967e318a6a2efc5b31876076d38a1b9670778f8d6009e9d8eccf24ce&is=6a2d06cb&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a2db070&format=webp&hm=deda25ebc63cbce4f077cef5fcd8414222a43f2766d6d6dfa45b4eedaefb8450&is=6a2c5ef0&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a2e5930&format=webp&hm=c8ea15723a0158fdd8429371ea42efa94d84725f7fe7869a1a3b343dc77a7bea&is=6a2d07b0&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
 
 **Good use by [Wyrdrake](/builders/wyrdrake):** Planting on a cemented area made more realistic by inverting the plot. No more plants growing awkwardly out of cement.
 
@@ -98,4 +98,4 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 The Guqin item can be used to simulate hanging strings or thin rope-like details. Its shape and scale make it a natural fit for adding fine texture to lanterns, banners, or any structure that calls for delicate hanging elements.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a2dd4f3&format=webp&hm=a6f39c11ec1dd3e15040313d0ac157f7de2b6af13fff658907679a8239e2e17d&is=6a2c8373&quality=lossless" alt="Guqin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a2e7db3&format=webp&hm=458f2479ec4b23ba7e3711fa3d70968f24556e88c585c347dbb24c03944d88e5&is=6a2d2c33&quality=lossless" alt="Guqin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />
