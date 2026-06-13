@@ -6,7 +6,7 @@ authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 updatedDate: 2026-05-26
 order: 10
-image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a2d7209&format=webp&hm=8c6351caaf512a01a151eef0b988639c444292874145063124cfea29f1d6ddc8&is=6a2c2089&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a2e1ac9&format=webp&hm=5c13a5f2d7438ea2c84e70addf4d77cbc85598b43c8f55aa29c36d7791c898c8&is=6a2cc949&quality=lossless"
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` channel.
@@ -17,7 +17,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a2d9a9d&hm=92868264b0c8a71e64c825133b0ea4b759bd36225c7ed805746a788077cd20dd&is=6a2c491d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a2e435d&hm=8031bc2a33e6725f27cd9cc317543e8f9d1c2629a6734d6158d61458f055e432&is=6a2cf1dd&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 ---
 
@@ -25,7 +25,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a2d991d&hm=3dc881bc611c0aca88e7d05fc04c47f49fb892b4b1ec377925169640ffb1da14&is=6a2c479d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a2e41dd&hm=7429fd743342c8304e5bbc549ab19d5f09d90ed0f21094c6e8284c715f1f2ba3&is=6a2cf05d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 ---
 
@@ -34,7 +34,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here are two approaches.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a2d7209&format=webp&hm=8c6351caaf512a01a151eef0b988639c444292874145063124cfea29f1d6ddc8&is=6a2c2089&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a2e1ac9&format=webp&hm=5c13a5f2d7438ea2c84e70addf4d77cbc85598b43c8f55aa29c36d7791c898c8&is=6a2cc949&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 This second method blends in more naturally with the surroundings.
 
@@ -58,13 +58,13 @@ The guild party area has an open gate that leads directly into the guild wall, w
 
 By sinking the wooden bridge into the ground, you can create parallel fences and more. This greatly reduces component costs and looks fantastic.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a2d8851&format=webp&hm=bcb5622448a77dcec30131777f49249e575d7d84ea6a418d2fc043d07c7528ef&is=6a2c36d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a2e3111&format=webp&hm=3a8508e17ece6c930b8c4e660d5a90f09d8724f05962c8e7f6a4ee3d55ea52c2&is=6a2cdf91&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a2d8851&format=webp&hm=9299ded0c10aa28d48564457f911468be26fa48d0776ab30090135c9abe82d1b&is=6a2c36d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a2e3111&format=webp&hm=73ab449302cbb45c0dd2780386af56cecd807a548a69a5b741297573c1b7a377&is=6a2cdf91&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a2d8851&format=webp&hm=7a4ffd11b1a181613aea8cf00562bcbe29e89ff5f9ad2c36713e29b47fda0e00&is=6a2c36d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a2e3111&format=webp&hm=6c4c448f41973d01d41568c605e3d3b0f18cbd5530b2766e2c8d754aec9970ba&is=6a2cdf91&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a2d8851&format=webp&hm=0c4a8b9c0561c0b8ccec69a7f2b14440300d1de7731ccbbd582a42f53251518f&is=6a2c36d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a2e3111&format=webp&hm=811defe819d57855c1e96914b4b3e59b553943817f58711b60ccc095ed91dabd&is=6a2cdf91&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -73,4 +73,4 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a2d868e&format=webp&hm=b12511af3a4e230a44f8566082dd2158c9c109ac38d4c9a492cfcbcc32a1ce0c&is=6a2c350e&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a2e2f4e&format=webp&hm=bb352c1d78d8f897bbcce9432f78f2e5810ef1acf494b188b009937adae90167&is=6a2cddce&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
