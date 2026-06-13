@@ -270,7 +270,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1512145505633829016/Screen_Recording_20260604_191503_Where_Winds_Meet.mp4?ex=6a2e3b7e\u0026hm=5de036f61e715a51917c1c20f4bc74b9767c0f757483cfb365a9cd034622c046\u0026is=6a2ce9fe\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1512145505633829016/Screen_Recording_20260604_191503_Where_Winds_Meet.mp4?ex=6a2ee43e\u0026hm=f6f9e77138660978fb4c34f49ee3af8db3ea8644c5374ed02f564b9907beb7b4\u0026is=6a2d92be\u0026"
     ],
     "version": "v1.7",
     "date": "04/06/2026",
@@ -286,7 +286,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1512145506665762906/Screen_Recording_20260604_192237_Where_Winds_Meet.mp4?ex=6a2e3b7f\u0026hm=b9c133412edf613ab2906d3f28d054ced22e162096c4c64373d06a41541e5abf\u0026is=6a2ce9ff\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1512145506665762906/Screen_Recording_20260604_192237_Where_Winds_Meet.mp4?ex=6a2ee43f\u0026hm=ffeec1d2846e784f96b2d44c8cb3eb5bf13a5f552b01fd8f88cb5629c5e509c7\u0026is=6a2d92bf\u0026"
     ],
     "version": "v1.7",
     "date": "04/06/2026",
@@ -369,5 +369,19 @@
     "version": "v1.7",
     "date": "11/06/2026",
     "notes": ""
+  },
+  {
+    "severity": "low",
+    "title": "Interactive components do not work after guild diagram",
+    "details": "If there are still ghost components and guild diagram outline is not removed then chairs do not work",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "pre v1.7",
+    "date": "13/06/2026",
+    "notes": "Annoying bug where you cannot really \"save\" ghosts in the guild diagram you have to recreate them"
   }
 ]
