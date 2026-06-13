@@ -6,7 +6,7 @@ authors: ["AegisNite", "Crueliet", "Wyrdrake", "KARIN", "Ahlyam"]
 date: 2026-05-26
 updatedDate: 2026-06-06
 order: 11
-image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a2df0c2&format=webp&hm=b240d3452c8dd63265bfc1070eb7e64414780c68dc8a10941fef2b6dce86b89c&is=6a2c9f42&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a2e9982&format=webp&hm=9586130cf22d62e1f674870ffc25014dcfe39acf2ea7e1be17b2e4170f871dad&is=6a2d4802&quality=lossless"
 featured: false
 ---
 
@@ -19,9 +19,9 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Standard mode and lite mode don't share the same assets representation. Trees and vegetation can look different, and the textures and colors of certain wood and building materials also change between modes. Something that looks great in one mode can look noticeably different in the other.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a2df0c2&format=webp&hm=b240d3452c8dd63265bfc1070eb7e64414780c68dc8a10941fef2b6dce86b89c&is=6a2c9f42&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a2e9982&format=webp&hm=9586130cf22d62e1f674870ffc25014dcfe39acf2ea7e1be17b2e4170f871dad&is=6a2d4802&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a2df0c3&format=webp&hm=2cd3d7258dd62290a958f36efecc530b249e59c3e7918a058907760d580f9865&is=6a2c9f43&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a2e9983&format=webp&hm=1924a4084d096132bae40ad56f06b1ab4f24902dd821227d4d2a9b69fa1e4194&is=6a2d4803&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
 
 > **Warning! Using ReShade on lite mode?** ReShade is a post-processing injector not officially supported by the game. Using it would likely get you banned. Stick to vanilla visuals.
 
@@ -67,7 +67,7 @@ Sink a flat top cabinetThis cabinet component has some that make it fit the bar 
 
 Place a diagram without filling in all of its component slots. The empty slots create a screen-like void, while the filled parts form the frame around it — resulting in a clean monitor shape. Wonpil was the first to demonstrate this idea in the Heavenly Sage guild to our knowledge.
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a2dd8d8&format=webp&hm=e289b6f208913e3558bc625ba520fd8a4698e7a1d1b60423452570cbbadaeed4&is=6a2c8758&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a2e8198&format=webp&hm=dad1e902cb5ff2688155fffa5a42cb62cf0e9e07a213a4940164f88c66772466&is=6a2d3018&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a2de3ef&hm=90c6b6d63331abf911fccd0b181f32ea867c369068194009d816d03dbe4f2bee&is=6a2c926f&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a2e8caf&hm=d70db7eae426efe91c19d2055f5f80ee8adbff7c645712a5af7cc8faa1458aa5&is=6a2d3b2f&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
