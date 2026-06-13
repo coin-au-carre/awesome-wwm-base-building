@@ -79,7 +79,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2d3acb&format=webp&hm=5ac305a60d85c0de07459ca89211ea910f6a85299b06b9e783841084a7686f2a&is=6a2be94b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a2de38b&format=webp&hm=df40b64ba2bcff55173bbce3f8af7f9254373fd85904770c33dce8a199d8d3c0&is=6a2c920b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a2dce47&hm=dda14f4cb13b69fb171d0d0c45c3f68c0c3ab30f7cf28ec191cca4d8e08d0d64&is=6a2c7cc7&" controls style="border-radius: 0.75rem; width: 100%;"></video>
@@ -94,9 +94,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a2d42d5&format=webp&hm=4f0ef54ec7bfbf755d58fd687d25cf6f4c9662926c093a50dce59b382f4ca468&is=6a2bf155&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a2deb95&format=webp&hm=24e6cfbe7ad07a5f424af407661e4797f9c3bbe52bc4ebf0d7831aa0a37a5e78&is=6a2c9a15&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a2d42d5&format=webp&hm=ed17f850530ab07422ecd31a7aa59ca14ff5763e5d2886aa34ec769890be3f69&is=6a2bf155&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a2deb95&format=webp&hm=1acda22c641ee8546486f64d99cc73cf126b5417c1898ef500b1f12fd916cef9&is=6a2c9a15&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
