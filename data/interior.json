@@ -42,9 +42,9 @@
 		"builderId": "793671066161381416",
 		"description": "Made of the biggest cabinet in solo mode",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614280694009968/Screenshot_Where_Winds_Meet_20260611_124323.jpg?ex=6a2dfc38\u0026is=6a2caab8\u0026hm=fece913fe7156c2e1117aeb97a7182884fecb242bf32361d96bfd3a67a7da79f\u0026",
-			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614281759621322/Screenshot_Where_Winds_Meet_20260611_124255.jpg?ex=6a2dfc38\u0026is=6a2caab8\u0026hm=316274f58613c6793e243b476438ea4274284d574ad05b1988b0e15d71b7d5a2\u0026",
-			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614282438971443/image_20260611_11_07_13.jpg?ex=6a2dfc39\u0026is=6a2caab9\u0026hm=7b90b169d4ad7ab24ac0ea06e07fd7c4455fae11fdab094965378bb97c2133e9\u0026",
+			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614280694009968/Screenshot_Where_Winds_Meet_20260611_124323.jpg?ex=6a2ea4f8\u0026is=6a2d5378\u0026hm=b937cd6b4c76f9eaa78aa95943da0e1f724141e279a12ab6bfa8e54df854d306\u0026",
+			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614281759621322/Screenshot_Where_Winds_Meet_20260611_124255.jpg?ex=6a2ea4f8\u0026is=6a2d5378\u0026hm=0440f2f8bab476d5819386ae099b8ab657e7d1c9af1447326888d06d9017a3ed\u0026",
+			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614282438971443/image_20260611_11_07_13.jpg?ex=6a2ea4f9\u0026is=6a2d5379\u0026hm=ec6701da988b37202dc53ca7e1c196e787e503b9e31172462b06822b2ece2528\u0026",
 			"https://cdn.discordapp.com/attachments/1514614279716868249/1514773858660651088/Screenshot_Where_Winds_Meet_20260611_124323.jpg?ex=6a2e90d7\u0026is=6a2d3f57\u0026hm=b7974eb40c59e1b9c359f25c6a342a9af001d30bafa5a8f3eba5e3cfb00496e4\u0026",
 			"https://cdn.discordapp.com/attachments/1514614279716868249/1514773858979283185/Screenshot_Where_Winds_Meet_20260611_124255.jpg?ex=6a2e90d7\u0026is=6a2d3f57\u0026hm=865a24b11a80a66e0b71440ad50b2c99a1d86be6d9a9f2aba6dd4bc4e563c3ea\u0026",
 			"https://cdn.discordapp.com/attachments/1514614279716868249/1514773859453243402/image_20260611_11_07_13.jpg?ex=6a2e90d7\u0026is=6a2d3f57\u0026hm=a685e354090497bee2f5b7536a75199ebb7a6365ffef45ab6f1ed91e4dad3f03\u0026"
@@ -164,5 +164,18 @@
 		"discordThread": "https://discord.com/channels/1483447710617960508/1514918091753001011",
 		"createdAt": "June 12, 2026 at 09:03 AM UTC",
 		"lastModified": "June 12, 2026 at 11:02 AM UTC"
+	},
+	{
+		"name": "Simple Chandelier",
+		"builderName": "Crueliet",
+		"builderId": "411339877574115338",
+		"description": "Made with a chain, a wheel, an incense burner, and bunch of lamps. I tried various configurations and found out that this looks best and low cost. A larger version with more light can be made. Adding wooden lanterns or lamps complicates this setup and made it looks bad because of the mix in materials - wood, paper, and metal. Keeping it simple like this - mostly metal - is best.",
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1515362584138879037/1515362584746918038/image.png?ex=6a2ebae2\u0026is=6a2d6962\u0026hm=6a930fd2af7f07e85487cf627f937592ff73049f4a87dbc632fb4d2ebd27753e\u0026",
+			"https://cdn.discordapp.com/attachments/1515362584138879037/1515362585258491904/2026613222450.png?ex=6a2ebae2\u0026is=6a2d6962\u0026hm=778f7ef1b2ef4f3e44ef6091b2003314528ba016df08eb7b88aa100258e4aa20\u0026"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1515362584138879037",
+		"createdAt": "June 13, 2026 at 02:29 PM UTC",
+		"lastModified": "June 13, 2026 at 02:40 PM UTC"
 	}
 ]
