@@ -1,5 +1,23 @@
 [
 	{
+		"name": "Thix-Theven",
+		"builders": [
+			"杨宴",
+			"MaxIne",
+			"khunnn"
+		],
+		"tags": [
+			"Zen/Nature",
+			"Architecture",
+			"Party Area"
+		],
+		"discordThread": "",
+		"whatToVisit": "Manoir at end of the road\nOpen Wedding place\nGuild party area/pool remade",
+		"score": 1,
+		"lastModified": "June 14, 2026 at 09:16 PM UTC",
+		"scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"name": "The-Royal-Rose",
 		"builders": [
 			"YoungGunz"
