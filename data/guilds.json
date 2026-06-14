@@ -1,5 +1,20 @@
 [
 	{
+		"name": "OnlyFam",
+		"builders": [
+			"IYaeMikoI",
+			"Darkx"
+		],
+		"tags": [
+			"Snow"
+		],
+		"discordThread": "",
+		"whatToVisit": "Wedding Hall, Restaurant",
+		"score": 1,
+		"lastModified": "June 14, 2026 at 02:55 PM UTC",
+		"scoutedByDiscordId": "721510597958828183"
+	},
+	{
 		"name": "Christ-is-King",
 		"builders": [
 			"Kirto"
