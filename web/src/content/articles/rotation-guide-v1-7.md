@@ -50,7 +50,7 @@ Version 1.7 introduces a way to rotate objects around the X axis (Teal arrow, YZ
 
 <img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694932463687/image.png?ex=6a2f5881&format=webp&hm=7efadfd509250b3965cd3e92d73fa02a396cd060c753a084266a1100a49e94e7&is=6a2e0701&quality=lossless" alt="Fish in starting position to lean to its side" style="border-radius: 0.75rem; width: 100%;" />
 
-Now one fish is laying on its left side and the other is laying on its right side.
+Now one fish is lying on its left side and the other is lying on its right side.
 
 ---
 
@@ -90,7 +90,7 @@ Ctrl+Up/Down rotates the fish by 45° per scroll, but we do not want that. In th
 
 ## Example 3: Push and lean a pillar
 
-How to push this pillar away from us by 22.5°, then lean it to the left by 22.5°, while maintaining its front facing (the side we are looking directly at in the picture) toward East.
+How to push this pillar away from us by 22.5°, then lean it to the left by 22.5°, while maintaining its front facing (the side we are looking directly at in the picture) toward West.
 
 ---
 
@@ -118,7 +118,7 @@ How to push this pillar away from us by 22.5°, then lean it to the left by 22.5
 
 To lean the same pillar to our left by 22.5°, we continue.
 
-**STEP 4:** Rotate it 90° (Up ×8). Its front facing changes from East to South.
+**STEP 4:** Rotate it 90° (Up ×8). Its front facing changes from West to South.
 
 ---
 
