@@ -133,7 +133,13 @@ func handleSubmitCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, root, submissionChannelID, discoveriesChannelID, devChannelID string) {
 	fields := modalFields(i.ModalSubmitData().Components)
 
-	name, guildID := parseLocation(fields["name"])
+	nameRaw := fields["name"]
+	scouterNick := ""
+	if idx := strings.Index(nameRaw, "|"); idx >= 0 {
+		scouterNick = strings.TrimSpace(nameRaw[idx+1:])
+		nameRaw = nameRaw[:idx]
+	}
+	name, guildID := parseLocation(nameRaw)
 	whatToVisit := fields["what_to_visit"]
 	tags := filterTags(splitCSV(fields["tags"]), loadKnownTags(root))
 	builders := splitCSV(fields["builders_proposed"])
@@ -155,7 +161,12 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	}
 
 	scoutedByID := ""
-	if i.Member != nil && i.Member.User != nil {
+	if scouterNick != "" {
+		if users, err := guild.LoadUsers(root); err == nil {
+			scoutedByID = lookupUserByNick(users, scouterNick)
+		}
+	}
+	if scoutedByID == "" && i.Member != nil && i.Member.User != nil {
 		scoutedByID = i.Member.User.ID
 	}
 
@@ -202,7 +213,9 @@ func handleSubmitModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	})
 
 	submitter := "unknown"
-	if i.Member != nil {
+	if scouterNick != "" {
+		submitter = scouterNick
+	} else if i.Member != nil {
 		submitter = i.Member.DisplayName()
 	}
 

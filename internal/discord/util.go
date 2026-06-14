@@ -3,6 +3,8 @@ package discord
 import (
 	"strings"
 
+	"ruby/internal/guild"
+
 	"github.com/bwmarrin/discordgo"
 )
 
@@ -58,4 +60,18 @@ func splitCSV(s string) []string {
 		}
 	}
 	return out
+}
+
+// lookupUserByNick returns the Discord user ID whose nickname, global name, or
+// username matches nick (case-insensitive). Returns "" if not found.
+func lookupUserByNick(users guild.UserMap, nick string) string {
+	nick = strings.ToLower(nick)
+	for id, u := range users {
+		if strings.ToLower(u.Nickname) == nick ||
+			strings.ToLower(u.GlobalName) == nick ||
+			strings.ToLower(u.Username) == nick {
+			return id
+		}
+	}
+	return ""
 }
