@@ -92,6 +92,10 @@ tasks:
     desc: fetch #whatever-showcase messages → data/whatever.json
     cmd: go run ./cmd/whatever-sync {{.CLI_ARGS}}
 
+  cn-news-sync:
+    desc: scrape CN server news & announcements from yysls.cn → data/cn_news.json
+    cmd: go run ./cmd/cn-news-sync {{.CLI_ARGS}}
+
   flyer:update:
     desc: refresh Discord CDN tokens in docs/events/community-flyer.html from local data files
     cmd: python3 docs/events/update-flyer-urls.py
@@ -251,6 +255,9 @@ tasks:
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
       - echo "        -- -dry-run        fetch events but skip writing JSON"
       - 'echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"'
+      - 'echo "  task cn-news-sync        scrape CN server news & announcements from yysls.cn → data/cn_news.json"'
+      - 'echo "        -- -limit N        max items per category (default 20)"'
+      - 'echo "        -- -channel-id ID  post digest to Discord channel (or set CN_NEWS_CHANNEL_ID)"'
       - echo "  task flyer:update        refresh Discord CDN tokens in community-flyer.html"
       - echo ""
       - echo "  task web                 start Astro dev server"
