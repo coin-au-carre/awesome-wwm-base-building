@@ -194,11 +194,11 @@ function builderColor(name: string): string {
               </a>
             ))}
           </div>
-          <button id="nb-prev" aria-label="Previous" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 size-7 rounded-full bg-background border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-all opacity-0 pointer-events-none">
-            <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+          <button id="nb-prev" aria-label="Previous" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 size-9 rounded-full bg-background border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-all opacity-0 pointer-events-none">
+            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
           </button>
-          <button id="nb-next" aria-label="Next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 size-7 rounded-full bg-background border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-all">
-            <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          <button id="nb-next" aria-label="Next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 size-9 rounded-full bg-background border border-border shadow-sm flex items-center justify-center text-muted-foreground hover:text-foreground transition-all">
+            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
           </button>
         </div>
         <script is:inline>
@@ -349,12 +349,14 @@ function builderColor(name: string): string {
       const mods = [
         { name: "Suisen", role: "Graphist" },
         // { name: "Alscend", role: "Moderator" },
+        { name: "Crueliet", role: "Moderator" },
         { name: "SiMing 司命", role: "Moderator" },
+        { name: "AegisNite Edge", role: "Moderator" },
         { name: "Ahlyam", role: "Admin · Development" },
       ].map((m) => ({ ...m, slug: profileSlug(m.name) }))
       return (
         <section class="space-y-3 border-t border-border pt-8">
-          <h2 class="text-xs font-medium text-muted-foreground/60 uppercase tracking-wide">Mods</h2>
+          <h2 class="text-xs font-medium text-muted-foreground/60 uppercase tracking-wide">Staff</h2>
           <div class="flex flex-wrap gap-3">
             {mods.map(({ name, role, slug }) => slug ? (
               <a
