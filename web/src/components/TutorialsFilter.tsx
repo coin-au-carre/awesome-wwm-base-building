@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react"
-import { BookOpenIcon } from "@phosphor-icons/react"
+import { BookOpenIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
 import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
+import { Input } from "@/components/ui/input"
 
 type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes"
 
@@ -38,15 +39,19 @@ interface Props {
 type SortKey = "default" | "updated" | "newest"
 
 export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_CONFIG }: Props) {
+  const [searchQuery, setSearchQuery] = useState("")
   const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(new Set())
   const [sortBy, setSortBy] = useState<SortKey>("default")
 
   const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes"]
 
   const filteredGuides = useMemo(() => {
-    const filtered = selectedTags.size === 0
-      ? guides
-      : guides.filter((guide) => guide.tags.some((tag) => selectedTags.has(tag as TagKey)))
+    const q = searchQuery.trim().toLowerCase()
+    const filtered = guides.filter((guide) => {
+      if (selectedTags.size > 0 && !guide.tags.some((tag) => selectedTags.has(tag as TagKey))) return false
+      if (q && !guide.title.toLowerCase().includes(q) && !(guide.description ?? "").toLowerCase().includes(q)) return false
+      return true
+    })
 
     if (sortBy === "updated") {
       return [...filtered].sort((a, b) => {
@@ -59,7 +64,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
       return [...filtered].sort((a, b) => (b.date?.getTime() ?? 0) - (a.date?.getTime() ?? 0))
     }
     return filtered
-  }, [guides, selectedTags, sortBy])
+  }, [guides, selectedTags, sortBy, searchQuery])
 
   const tagCounts = useMemo(() => {
     const counts: Record<TagKey, number> = {
@@ -172,6 +177,17 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
       )}
 
       <div className="space-y-4 border-t border-border pt-6">
+        <div className="relative">
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
+          <Input
+            type="search"
+            placeholder="Search tutorials..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-9"
+            data-umami-event="tutorials_search"
+          />
+        </div>
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">All articles</p>
           <div className="flex items-center gap-1">
@@ -220,7 +236,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
 
       {filteredGuides.length === 0 ? (
         <div className="rounded-2xl bg-card ring-1 ring-foreground/10 p-8 text-center">
-          <p className="text-muted-foreground">No tutorials match the selected tags.</p>
+          <p className="text-muted-foreground">No tutorials match your search.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
