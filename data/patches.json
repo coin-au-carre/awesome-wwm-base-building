@@ -143,5 +143,18 @@
     "media": [],
     "version": "v1.7",
     "notes": "Not sure about the exact amount but going up to 5.5 million should be safe"
+  },
+  {
+    "coolness": "normal",
+    "title": "Can build much further from your charcter",
+    "description": "In construction mode",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": false,
+    "ps5": false,
+    "media": [],
+    "version": "",
+    "notes": ""
   }
 ]
