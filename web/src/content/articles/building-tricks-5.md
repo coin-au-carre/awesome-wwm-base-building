@@ -27,9 +27,9 @@ Rotating objects by 5-degree increments lets you arrange them in a smooth circul
 
 Floor pieces often become invisible when viewed from below, which can look odd in elevated structures. Instead of spending extra components on additional flooring, simply flip a second floor piece upside down and overlap it with the first. The flipped face covers the invisible underside.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a2f61ed&format=webp&hm=23cfb42c307136947907734360a84dd5cc856c2a8aabb95f190da56ee5e5ab51&is=6a2e106d&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a300aad&format=webp&hm=b07fcb7ea64acb24c8ee144ad873c022cf68e6d091c43962d08422ad79488244&is=6a2eb92d&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a2f61ed&format=webp&hm=cb83b93bcf1a1aef80cf72dd459966ab044ca993df8403ea29d2f6d8466b8201&is=6a2e106d&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a300aad&format=webp&hm=d6cab8d01662a897024d119da91f17c6cdbf8e92b387dba99b90a2d37a2be219&is=6a2eb92d&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -53,7 +53,7 @@ Before and after examples by Crueliet:
 
 A building flipped on its side can double as a crane arm or support structure. Hide the rest of the piece inside rocks or terrain to leave only the jutting section visible — the result reads as a convincing industrial support.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a2f673b&format=webp&hm=5ca5da54c236ad8f45091a2bc820b60c899e55b0d68a25c32331a0d15f8c3a62&is=6a2e15bb&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a300ffb&format=webp&hm=76171982acaf32f69a1bfd3cfb28b5c13863496f6d3a53652fd9142bdd7257b1&is=6a2ebe7b&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
 
 An example by Crueliet using the same idea:
 
