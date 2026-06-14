@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-12T15:09:43.993283103Z"
+  "streamers": [
+    {
+      "userID": "1441135320480350410",
+      "username": "Parzival",
+      "channelID": "1498370143019995266",
+      "channelName": "Building 101",
+      "startedAt": "2026-06-14T13:54:03.830728338Z"
+    }
+  ],
+  "updatedAt": "2026-06-14T13:54:09.136801945Z"
 }
