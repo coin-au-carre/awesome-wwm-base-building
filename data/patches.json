@@ -113,7 +113,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510954033106518107/image.png?ex=6a2f2bd9\u0026hm=f52d35f70e64f2586648f01744fc117ee8341641190b9bb945dab87615842dce\u0026is=6a2dda59\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510954033106518107/image.png?ex=6a2fd499\u0026hm=d3d40b80a9d59f11c3568357e884cec06ce574c29d5db555c1ef7354ad7f335b\u0026is=6a2e8319\u0026"
     ],
     "version": "pre v1.7",
     "notes": "Many people are not aware of shared blueprint functions"
@@ -130,5 +130,18 @@
     "media": [],
     "version": "v1.7",
     "notes": "This is considered as a bug for WBM see Bugs page"
+  },
+  {
+    "coolness": "normal",
+    "title": "Increased guild fund cap when going over the budget",
+    "description": "Before we lost money when erasing the guild base and reputing a guild diagram back",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": true,
+    "ps5": true,
+    "media": [],
+    "version": "v1.7",
+    "notes": "Not sure about the exact amount but going up to 5.5 million should be safe"
   }
 ]
