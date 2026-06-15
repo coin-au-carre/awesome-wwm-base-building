@@ -13,17 +13,36 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-func loadKnownTags(root string) map[string]bool {
+func loadKnownTags(root string) []string {
 	cfg, err := loadTagsConfig(root)
 	if err != nil {
 		slog.Warn("could not load tags config, tag filtering disabled", "err", err)
 		return nil
 	}
-	m := make(map[string]bool, len(cfg.Guild))
-	for _, t := range cfg.Guild {
-		m[t] = true
+	return cfg.Guild
+}
+
+// resolveTag matches a raw user input to a canonical tag using case-insensitive
+// exact match first, then case-insensitive substring match against each tag's parts.
+// For example "mountain" resolves to "Mountain/Cave", "parkour" to "Maze/Parkour".
+func resolveTag(raw string, known []string) (string, bool) {
+	lower := strings.ToLower(raw)
+	// Exact match (case-insensitive)
+	for _, t := range known {
+		if strings.ToLower(t) == lower {
+			return t, true
+		}
 	}
-	return m
+	// Substring match against slash-separated parts
+	for _, t := range known {
+		parts := strings.Split(t, "/")
+		for _, p := range parts {
+			if strings.ToLower(p) == lower {
+				return t, true
+			}
+		}
+	}
+	return "", false
 }
 
 // buildTagsPlaceholder returns a comma-joined tag list truncated to Discord's
@@ -529,12 +548,19 @@ func handleWelcomeTestCommand(s *discordgo.Session, i *discordgo.InteractionCrea
 	}
 }
 
-func filterTags(tags []string, known map[string]bool) []string {
+func filterTags(tags []string, known []string) []string {
 	var out []string
 	for _, t := range tags {
 		t = strings.TrimSpace(t)
-		if known == nil || known[t] {
+		if t == "" {
+			continue
+		}
+		if known == nil {
 			out = append(out, t)
+			continue
+		}
+		if resolved, ok := resolveTag(t, known); ok {
+			out = append(out, resolved)
 		}
 	}
 	if out == nil {
