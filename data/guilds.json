@@ -3,18 +3,20 @@
 		"name": "NightWitches",
 		"builders": [
 			"Drasyl",
-			"Gabite"
+			"Gabite",
+			"WafflelordV"
 		],
 		"tags": [
 			"Snow",
 			"Zen/Nature",
-			"Creative"
+			"Creative",
+			"Mountain/Cave"
 		],
 		"discordThread": "",
 		"whatToVisit": "Mountain Village\nMountain Cave\nGiant sword\nElevated platforms",
 		"score": 2,
 		"lastModified": "June 15, 2026 at 05:59 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
+		"scoutedByDiscordId": "411339877574115338"
 	},
 	{
 		"name": "HeavenlyPillar",
