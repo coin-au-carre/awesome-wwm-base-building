@@ -70,9 +70,9 @@ A wooden torch shape assembled from standard building components:
 
 The top section of a golden fire pillar:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a30f06f&format=webp&hm=ed64257be6231b7b51e0307bcc82998724bc03ffe9ef5e740007abe2d01d1f19&is=6a2f9eef&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a31992f&format=webp&hm=eb36e0018394315a61e6b080083565d553e4a0a3106a640526c75e2716248538&is=6a3047af&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a30ec72&format=webp&hm=76cbeb0db66b383a944f94e82f30f479d1d5db6f179f8de8c1944be000bf7e3a&is=6a2f9af2&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a319532&format=webp&hm=5f6a16c7c5f4aaf1920f9c6d6fa6be5bb4896e9fa08420d73bcdcba83b3c612e&is=6a3043b2&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -81,7 +81,7 @@ The top section of a golden fire pillar:
 
 Flipping the Plot piece upside down exposes its flat dirt underside, giving you a clean ground texture without any grass. Useful for building on bare earth aesthetics or hiding the default grassy surface.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a30fb4b&format=webp&hm=3d7aea382397afe97d26dae64689d955c3b0764bd5e610144f28b7dd9f9b8efc&is=6a2fa9cb&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a31a40b&format=webp&hm=c792c1126848134c2fe5eea60a4ee7ebb91a0dfe8783466e7b79f7990d22a327&is=6a30528b&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
 
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a30fc30&format=webp&hm=338fbeb70ec28fdf2884a3c7bfafb57eea52ec34ab94d276420ca682ea0b40dd&is=6a2faab0&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
 
