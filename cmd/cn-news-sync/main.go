@@ -8,6 +8,7 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -47,9 +48,9 @@ type NewsItem struct {
 
 func main() {
 	root := flag.String("root", cmdutil.RootDir(), "root directory")
-	dryRun := flag.Bool("dry-run", false, "fetch and parse but skip writing JSON")
+	dryRun := flag.Bool("dry-run", false, "fetch and parse but skip writing JSON or posting")
 	limit := flag.Int("limit", 20, "max items per category to fetch")
-	channelID := flag.String("channel-id", "", "Discord channel ID to post digest (leave empty to skip)")
+	channelID := flag.String("channel-id", "", "Discord channel ID for new-item alerts (or CN_NEWS_CHANNEL_ID env)")
 	flag.Parse()
 
 	cmdutil.LoadEnv(*root)
@@ -57,67 +58,98 @@ func main() {
 	if *channelID == "" {
 		*channelID = os.Getenv("CN_NEWS_CHANNEL_ID")
 	}
+	if *channelID == "" {
+		*channelID = os.Getenv("RUBY_CHANNEL_ID")
+	}
 
-	fetchedAt := time.Now().UTC().Format(time.RFC3339)
+	dest := filepath.Join(*root, "data", "cn_news.json")
+	existing := loadExisting(dest)
+	seenURLs := make(map[string]bool, len(existing))
+	for _, item := range existing {
+		seenURLs[item.URL] = true
+	}
+	slog.Info("loaded existing", "count", len(existing))
 
 	news, err := scrape(newsURL, *limit)
 	if err != nil {
 		slog.Error("scraping news", "err", err)
 		os.Exit(1)
 	}
-	slog.Info("scraped news", "count", len(news))
-
 	announcements, err := scrape(announcementURL, *limit)
 	if err != nil {
 		slog.Error("scraping announcements", "err", err)
 		os.Exit(1)
 	}
-	slog.Info("scraped announcements", "count", len(announcements))
 
 	all := merge(news, announcements)
+
+	// Find items not previously seen, in chronological order (newest first).
+	fetchedAt := time.Now().UTC().Format(time.RFC3339)
+	var fresh []NewsItem
 	for i := range all {
-		all[i].FetchedAt = fetchedAt
+		if !seenURLs[all[i].URL] {
+			all[i].FetchedAt = fetchedAt
+			fresh = append(fresh, all[i])
+		}
 	}
+	slog.Info("new items", "count", len(fresh))
 
 	if *dryRun {
-		for _, item := range all {
-			slog.Info("item", "category", item.Category, "date", item.Date, "title", item.Title, "url", item.URL)
+		for _, item := range fresh {
+			slog.Info("new", "category", item.Category, "date", item.Date, "title", item.Title)
 		}
-		slog.Info("dry-run: skipping write")
+		slog.Info("dry-run: skipping write and post")
 		return
 	}
 
-	out, err := json.MarshalIndent(all, "", "  ")
+	if len(fresh) == 0 {
+		slog.Info("nothing new — skipping write and post")
+		return
+	}
+
+	// Merge new items at the front, preserve existing.
+	merged := append(fresh, existing...)
+
+	out, err := json.MarshalIndent(merged, "", "  ")
 	if err != nil {
 		slog.Error("marshalling cn_news", "err", err)
 		os.Exit(1)
 	}
-
-	dest := filepath.Join(*root, "data", "cn_news.json")
 	if err := os.WriteFile(dest, out, 0o644); err != nil {
 		slog.Error("writing cn_news.json", "err", err)
 		os.Exit(1)
 	}
-	slog.Info("wrote cn_news.json", "path", dest, "count", len(all))
+	slog.Info("wrote cn_news.json", "path", dest, "new", len(fresh), "total", len(merged))
 
 	if *channelID != "" {
 		token := "Bot " + cmdutil.RequireEnv("RUBY_BOT_TOKEN")
-		postDigest(token, *channelID, all)
+		postNewItems(token, *channelID, fresh)
 	}
 }
 
-func scrape(url string, limit int) ([]NewsItem, error) {
-	resp, err := http.Get(url)
+func loadExisting(path string) []NewsItem {
+	data, err := os.ReadFile(path)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", url, err)
+		return nil
+	}
+	var items []NewsItem
+	if err := json.Unmarshal(data, &items); err != nil {
+		slog.Warn("parsing existing cn_news.json", "err", err)
+		return nil
+	}
+	return items
+}
+
+func scrape(pageURL string, limit int) ([]NewsItem, error) {
+	resp, err := http.Get(pageURL)
+	if err != nil {
+		return nil, fmt.Errorf("fetch %s: %w", pageURL, err)
 	}
 	defer resp.Body.Close()
-
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, fmt.Errorf("read body: %w", err)
 	}
-
 	return parseItems(string(body), limit), nil
 }
 
@@ -126,7 +158,6 @@ func parseItems(html string, limit int) []NewsItem {
 	var items []NewsItem
 	for _, m := range matches {
 		block := m[1]
-
 		href := extract(reHref, block, 1)
 		label := extract(reLabel, block, 1)
 		title := strings.TrimSpace(extract(reTitle, block, 1))
@@ -135,16 +166,13 @@ func parseItems(html string, limit int) []NewsItem {
 
 		date := ""
 		if dm := reDateURL.FindStringSubmatch(href); dm != nil {
-			raw := dm[1] // e.g. "20260612"
-			if len(raw) == 8 {
+			if raw := dm[1]; len(raw) == 8 {
 				date = raw[:4] + "-" + raw[4:6] + "-" + raw[6:]
 			}
 		}
-
 		if title == "" || href == "" {
 			continue
 		}
-
 		items = append(items, NewsItem{
 			Category: label,
 			Title:    title,
@@ -153,7 +181,6 @@ func parseItems(html string, limit int) []NewsItem {
 			Date:     date,
 			ImageURL: imageURL,
 		})
-
 		if limit > 0 && len(items) >= limit {
 			break
 		}
@@ -161,15 +188,6 @@ func parseItems(html string, limit int) []NewsItem {
 	return items
 }
 
-func extract(re *regexp.Regexp, s string, group int) string {
-	m := re.FindStringSubmatch(s)
-	if m == nil || group >= len(m) {
-		return ""
-	}
-	return m[group]
-}
-
-// merge combines news and announcements sorted by date descending.
 func merge(news, announcements []NewsItem) []NewsItem {
 	all := append(news, announcements...)
 	slices.SortStableFunc(all, func(a, b NewsItem) int {
@@ -184,52 +202,75 @@ func merge(news, announcements []NewsItem) []NewsItem {
 	return all
 }
 
-func postDigest(token, channelID string, items []NewsItem) {
+func googleTranslateURL(articleURL string) string {
+	return "https://translate.google.com/translate?sl=zh-CN&tl=en&u=" + url.QueryEscape(articleURL)
+}
+
+func postNewItems(token, channelID string, items []NewsItem) {
 	s, err := discordgo.New(token)
 	if err != nil {
 		slog.Error("creating discord session", "err", err)
 		return
 	}
 
-	content := buildDigest(items)
-	_, err = s.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
-		Content: content,
-		Flags:   discordgo.MessageFlagsSuppressEmbeds,
-	})
-	if err != nil {
-		slog.Error("posting CN news digest", "err", err)
-		return
-	}
-	slog.Info("posted CN news digest", "channel", channelID, "items", len(items))
-}
-
-func buildDigest(items []NewsItem) string {
-	const maxMsg = 1950
 	categoryEmoji := map[string]string{
 		"新闻": "📰",
 		"公告": "📢",
 	}
+	categoryLabel := map[string]string{
+		"新闻": "News",
+		"公告": "Announcement",
+	}
 
 	var sb strings.Builder
-	fmt.Fprintf(&sb, "# 🇨🇳 CN Server News — yysls.cn\n")
-	fmt.Fprintf(&sb, "-# <t:%d:R>\n", time.Now().Unix())
+	fmt.Fprintf(&sb, "## 🇨🇳 New CN server content spotted!\n")
 
 	for _, item := range items {
 		emoji := categoryEmoji[item.Category]
 		if emoji == "" {
 			emoji = "•"
 		}
-		line := fmt.Sprintf("%s **[%s](%s)**\n", emoji, item.Title, item.URL)
-		if item.Summary != "" && item.Summary != item.Title {
-			line += fmt.Sprintf("-# %s\n", truncate(item.Summary, 100))
+		label := categoryLabel[item.Category]
+		if label == "" {
+			label = item.Category
 		}
-		if sb.Len()+len(line) > maxMsg {
-			break
+		gtURL := googleTranslateURL(item.URL)
+
+		line := fmt.Sprintf("%s **[%s](%s)**\n", emoji, item.Title, item.URL)
+		line += fmt.Sprintf("-# %s · %s · [Read via Google Translate ↗](%s)\n", label, item.Date, gtURL)
+		if item.Summary != "" && item.Summary != item.Title {
+			line += fmt.Sprintf("-# _%s_\n", truncate(item.Summary, 120))
+		}
+
+		if sb.Len()+len(line) > 1950 {
+			send(s, channelID, sb.String())
+			sb.Reset()
 		}
 		sb.WriteString(line)
 	}
 
-	return sb.String()
+	if sb.Len() > 0 {
+		send(s, channelID, sb.String())
+	}
+	slog.Info("posted CN news alert", "channel", channelID, "items", len(items))
+}
+
+func send(s *discordgo.Session, channelID, content string) {
+	_, err := s.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
+		Content: content,
+		Flags:   discordgo.MessageFlagsSuppressEmbeds,
+	})
+	if err != nil {
+		slog.Error("posting message", "err", err)
+	}
+}
+
+func extract(re *regexp.Regexp, s string, group int) string {
+	m := re.FindStringSubmatch(s)
+	if m == nil || group >= len(m) {
+		return ""
+	}
+	return m[group]
 }
 
 func truncate(s string, max int) string {
