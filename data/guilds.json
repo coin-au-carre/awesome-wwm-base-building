@@ -1,5 +1,20 @@
 [
 	{
+		"name": "夢 搖紅之夢",
+		"builders": [
+			"暴走"
+		],
+		"tags": [
+			"Creative",
+			"Party Area"
+		],
+		"discordThread": "",
+		"whatToVisit": "Transformed guild area\nUnique GvG mini map",
+		"score": 0,
+		"lastModified": "June 15, 2026 at 10:28 PM UTC",
+		"scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"id": "10007193",
 		"name": "Crashout",
 		"builders": [
