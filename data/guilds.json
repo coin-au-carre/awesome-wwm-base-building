@@ -1,5 +1,23 @@
 [
 	{
+		"name": "HeavenlyPillar",
+		"builders": [
+			"Panhua",
+			"Ralpx",
+			"greatjussy",
+			"Xiongbao"
+		],
+		"tags": [
+			"Zen/Nature",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Coffee/Tea shop\nMountain with waterfalls\nDiagrams usage",
+		"score": 0,
+		"lastModified": "June 15, 2026 at 12:51 PM UTC",
+		"scoutedByDiscordId": "481445193241985024"
+	},
+	{
 		"name": "Thix-Theven",
 		"builders": [
 			"杨宴",
