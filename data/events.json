@@ -51,7 +51,7 @@
     "scheduledStart": "2026-06-15T13:00:00.911Z",
     "channelType": "voice",
     "channelName": "General",
-    "status": "scheduled",
+    "status": "active",
     "subscriberCount": 1,
     "discordUrl": "https://discord.com/events/1483447710617960508/1516043704215801986"
   }
