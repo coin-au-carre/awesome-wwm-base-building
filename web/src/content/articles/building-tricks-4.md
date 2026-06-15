@@ -56,7 +56,7 @@ Some ironware items are currently available only in solo build mode. But you can
 
 Sink a flat top cabinetThis cabinet component has some that make it fit the bar counter
 
-<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a311f5d&format=webp&hm=79e92fefb5dc0f15d8a62278d896934be91f714ff702ab53071ae3f1776d1b75&is=6a2fcddd&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a31c81d&format=webp&hm=234284cd9114033df796db8f2303725325081fcd022c14599dcc87fb6390ee54&is=6a30769d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
 
 <img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a311fe5&format=webp&hm=ae39dec27dd97fd42665e234775f930275c23c768f21ce01cf0aa068aa59e462&is=6a2fce65&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
 

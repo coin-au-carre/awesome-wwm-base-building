@@ -83,7 +83,7 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a31a40b&format=webp&hm=c792c1126848134c2fe5eea60a4ee7ebb91a0dfe8783466e7b79f7990d22a327&is=6a30528b&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a30fc30&format=webp&hm=338fbeb70ec28fdf2884a3c7bfafb57eea52ec34ab94d276420ca682ea0b40dd&is=6a2faab0&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a31a4f0&format=webp&hm=3a329b503290b1f7fb75497b8f5cab70a9be155f67a55159da6fcd5086d38a75&is=6a305370&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
 
 **Good use by [Wyrdrake](/builders/wyrdrake):** Planting on a cemented area made more realistic by inverting the plot. No more plants growing awkwardly out of cement.
 
