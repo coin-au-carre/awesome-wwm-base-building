@@ -14,7 +14,7 @@ const BTW_EVENT = {
   dateLabel: "June 6, 2026 · 20:00 UTC",
   title:     "Beyond the Wall",
   accent:    "with Carni",
-  desc:      "Carni, one of the finest builders, streams CN content live — guild base reviews, tips, and community.",
+  desc:      "Carni streams CN content live: solo world, family business...",
   bg:        "/events/beyond-the-wall/greenzen.jpg",
   thumb:     "/events/beyond-the-wall/luminoushall.jpg",
   status:    "past" as const,
@@ -27,7 +27,7 @@ const FAIRYTOPIA_EVENT = {
   dateLabel: "Coming soon",
   title:     "Fairytopia Tour",
   accent:    "",
-  desc:      "A curated tour of the most magical and enchanted guild bases in Where Winds Meet.",
+  desc:      "Complementary Tour to Visit Solo World & Guild!",
   bg:        "/events/beyond-the-wall/flower_house.jpg",
   thumb:     "",
   status:    "soon" as const,
@@ -38,7 +38,7 @@ const FAIRYTOPIA_EVENT = {
 const _allGuilds = getGuildsSortedByScore()
 
 const pandaTourEvent = events.find(
-  (e) => e.type === "tour" && e.name.toLowerCase().includes("panda base tour")
+  (e) => e.type === "tour" && e.name.toLowerCase().includes("panda guild tour")
 )
 const pandaTourSlugs: string[] = pandaTourEvent?.description
   ? [...pandaTourEvent.description.matchAll(/wherebuildersmeet\.com\/guilds\/([a-z0-9-]+)/g)].map((m) => m[1])
@@ -169,10 +169,10 @@ const TYPE_COLORS: Record<EventType, string> = {
               </span>
             </div>
             <p class="text-sm font-bold text-white leading-tight drop-shadow">
-              🗺️ Panda Base Tour
+              🗺️ Panda Guild Tour
             </p>
             <p class="text-xs text-white/60 leading-snug line-clamp-2">
-              {pandaTourEvent?.description?.split("\n")[0] ?? "Community tour of the finest guild bases in Where Winds Meet."}
+              {pandaTourEvent?.description?.split("\n")[0] ?? "Community tour of fresh registered guild bases in Where Winds Meet."}
             </p>
             <span class="mt-1 self-start inline-flex items-center gap-1 bg-amber-500/20 ring-1 ring-amber-500/50 rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-amber-200 group-hover:bg-amber-500/35 transition-colors">
               Register ↗

@@ -126,7 +126,7 @@ const BTW_EVENT = {
 const upcomingTourEvent = SHOW_TOUR_BANNER
   ? (upcomingEvents.find(e => {
       if (e.type !== "tour") return false
-      if (!e.name.toLowerCase().includes("panda base tour")) return false
+      if (!e.name.toLowerCase().includes("panda guild tour")) return false
       const startMs = new Date(e.scheduledStart).getTime()
       const endMs = e.scheduledEnd ? new Date(e.scheduledEnd).getTime() : startMs
       const isLive = e.status === "active" || (startMs <= now && endMs >= now)
