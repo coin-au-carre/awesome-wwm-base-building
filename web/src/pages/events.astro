@@ -24,7 +24,7 @@ const BTW_EVENT = {
 
 const FAIRYTOPIA_EVENT = {
   url:       "https://discord.gg/Qygt9u26Bn",
-  dateLabel: "Every monday",
+  dateLabel: "Every monday at 1PM UTC",
   title:     "Fairytopia Tour",
   accent:    "",
   desc:      "Community tour to visit solo world & guilds from WBM!",
@@ -165,7 +165,7 @@ const TYPE_COLORS: Record<EventType, string> = {
             <div class="flex items-center gap-1.5">
               <span class="size-1.5 rounded-full shrink-0 bg-amber-400 animate-pulse" />
               <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-400">
-                {pandaTourEvent ? (pandaTourEvent.status === "active" ? "🟢 Live now" : "Upcoming") : "Upcoming"}
+                {pandaTourEvent ? (pandaTourEvent.status === "active" ? "🟢 Live now" : "Upcoming") : "Wednesday or Thursday"}
               </span>
             </div>
             <p class="text-sm font-bold text-white leading-tight drop-shadow">
@@ -229,7 +229,7 @@ const TYPE_COLORS: Record<EventType, string> = {
             <div class="flex items-center gap-1.5">
               <span class="size-1.5 rounded-full shrink-0 bg-purple-400 animate-pulse" />
               <span class="text-[10px] font-semibold uppercase tracking-widest text-purple-400">
-                Coming soon
+                Every Monday 1PM UTC
               </span>
             </div>
             <p class="text-sm font-bold text-white leading-tight drop-shadow">
