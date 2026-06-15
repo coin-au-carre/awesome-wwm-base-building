@@ -11,6 +11,7 @@ export interface WhateverPost {
   id: string
   authorName: string
   authorId: string
+  content?: string
   images: string[]
   videos?: string[]
   reactions: number

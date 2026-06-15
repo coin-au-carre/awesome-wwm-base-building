@@ -2,8 +2,26 @@
 import Layout from "@/layouts/main.astro"
 import { ImagesIcon, ArrowSquareOutIcon, ShuffleIcon, SortAscendingIcon } from "@phosphor-icons/react"
 import { getWhateverPosts, getWhateverStats } from "@/lib/whatever"
+import { getUsers } from "@/lib/guilds"
 import { BASE } from "@/lib/url"
 import { thumbUrl } from "@/lib/format"
+
+const users = getUsers()
+
+function resolveContent(raw: string): string {
+  if (!raw) return ""
+  return raw
+    .replace(/<@!?(\d+)>/g, (_, id) => {
+      const u = users[id]
+      if (!u) return ""
+      const name = u.nickname ?? u.globalName ?? u.username ?? ""
+      return name ? `@${name}` : ""
+    })
+    .replace(/<a?:([^:>]+):\d+>/g, "")  // strip custom emoji entirely
+    .replace(/<[#@&]\d+>/g, "")          // strip channel/role mentions
+    .replace(/\s{2,}/g, " ")
+    .trim()
+}
 
 const posts = getWhateverPosts()
 const { totalImages, totalVideos, totalContributors } = getWhateverStats()
@@ -18,6 +36,7 @@ const items = posts.flatMap((p) => {
     postId: p.id,
     displayName: p.displayName,
     builderPath: p.builderPath,
+    content: resolveContent(p.content ?? ""),
     reactions: p.reactions,
     reactionDetails: p.reactionDetails ?? [],
     messageUrl: p.messageUrl,
@@ -135,6 +154,7 @@ const recentTopItems = items
                   data-all-thumbs={JSON.stringify(item.allThumbs)}
                   data-display-name={item.displayName}
                   data-builder-path={item.builderPath ?? ""}
+                  data-content={item.content}
                   data-reactions={item.reactions}
                   data-reaction-details={JSON.stringify(item.reactionDetails)}
                   data-message-url={item.messageUrl}
@@ -182,6 +202,7 @@ const recentTopItems = items
               data-all-thumbs={JSON.stringify(item.allThumbs)}
               data-display-name={item.displayName}
               data-builder-path={item.builderPath ?? ""}
+              data-content={item.content}
               data-reactions={item.reactions}
               data-reaction-details={JSON.stringify(item.reactionDetails)}
               data-message-url={item.messageUrl}
@@ -227,6 +248,9 @@ const recentTopItems = items
       <!-- Video layer -->
       <video id="lb-video" src="" controls playsinline class="absolute inset-0 w-full h-full object-contain p-2" style="display:none" />
     </div>
+
+    <!-- Speech bubble -->
+    <div id="lb-bubble" class="lb-bubble" style="display:none" aria-live="polite"></div>
 
     <!-- Close -->
     <button
@@ -283,6 +307,35 @@ const recentTopItems = items
 <style>
   @keyframes lb-zoom-in  { from { transform: scale(0.88); } to { transform: scale(1); } }
   @keyframes lb-zoom-out { from { transform: scale(1); }    to { transform: scale(0.88); } }
+
+  .lb-bubble {
+    position: absolute;
+    bottom: 56px;
+    left: 24px;
+    z-index: 10;
+    max-width: min(320px, calc(100vw - 48px));
+    background: rgba(15, 15, 15, 0.82);
+    color: #f0f0f0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    padding: 10px 14px;
+    border-radius: 14px 14px 14px 4px;
+    backdrop-filter: blur(6px);
+    white-space: pre-wrap;
+    word-break: break-word;
+    pointer-events: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  .lb-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 14px;
+    border: 8px solid transparent;
+    border-top-color: rgba(15, 15, 15, 0.82);
+    border-bottom: 0;
+  }
 </style>
 
 <script is:inline define:vars={{ BASE }}>
@@ -305,6 +358,7 @@ const recentTopItems = items
     const lbClose = document.getElementById("lb-close")
     const lbPrev = document.getElementById("lb-prev")
     const lbNext = document.getElementById("lb-next")
+    const lbBubble = document.getElementById("lb-bubble")
     const preloaded = new Set()
     let closing = false
 
@@ -386,6 +440,14 @@ const recentTopItems = items
           const prevItem = currentItems[currentIndex - 1]
           if (prevItem && prevItem.dataset.kind !== "video") preloadFull(JSON.parse(prevItem.dataset.allImgs ?? "[]")[0] ?? prevItem.dataset.img)
         }
+      }
+
+      const content = item.dataset.content ?? ""
+      if (content) {
+        lbBubble.textContent = content
+        lbBubble.style.display = "block"
+      } else {
+        lbBubble.style.display = "none"
       }
 
       const name = item.dataset.displayName ?? ""

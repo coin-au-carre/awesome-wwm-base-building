@@ -114,12 +114,21 @@ func postUpdatesDigest(token, channelID, messageID string, tips []Tip) {
 		return
 	}
 
+	existing, err := s.ChannelMessage(channelID, messageID)
+	if err != nil {
+		slog.Warn("fetching existing updates digest to compare", "err", err)
+	}
+
 	_, err = s.ChannelMessageEdit(channelID, messageID, content)
 	if err != nil {
 		slog.Error("editing updates digest", "err", err)
 		return
 	}
 	slog.Info("updated updates digest", "messageID", messageID)
+
+	if existing != nil && stripTimestamp(existing.Content) != stripTimestamp(content) {
+		bumpChannel(s, channelID)
+	}
 }
 
 // buildUpdatesContent builds the full-width plain-text message grouped by version.
@@ -241,6 +250,24 @@ func versionBefore(ver string, major, minor int) bool {
 		return false
 	}
 	return maj < major || (maj == major && min < minor)
+}
+
+func stripTimestamp(s string) string {
+	if i := strings.LastIndex(s, "\n-# Updated <t:"); i >= 0 {
+		return s[:i]
+	}
+	return s
+}
+
+func bumpChannel(s *discordgo.Session, channelID string) {
+	msg, err := s.ChannelMessageSend(channelID, "-# 📋 Digest updated")
+	if err != nil {
+		slog.Warn("sending bump message", "err", err)
+		return
+	}
+	if err := s.ChannelMessageDelete(channelID, msg.ID); err != nil {
+		slog.Warn("deleting bump message", "err", err)
+	}
 }
 
 func truncateStr(s string, max int) string {

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log/slog"
 	"slices"
+	"strings"
 	"time"
 
 	"ruby/internal/guild"
@@ -22,6 +23,7 @@ type WhateverPost struct {
 	ID              string           `json:"id"`
 	AuthorName      string           `json:"authorName"`
 	AuthorID        string           `json:"authorId"`
+	Content         string           `json:"content,omitempty"`
 	Images          []string         `json:"images"`
 	Videos          []string         `json:"videos,omitempty"`
 	Reactions       int              `json:"reactions"`
@@ -79,6 +81,7 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 			ID:              msg.ID,
 			AuthorName:      name,
 			AuthorID:        msg.Author.ID,
+			Content:         strings.TrimSpace(msg.Content),
 			Images:          images,
 			Videos:          videos,
 			Reactions:       reactions,
