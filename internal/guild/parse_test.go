@@ -217,6 +217,33 @@ Forged not by war, but by friendship, laughter, and countless battles fought sid
 			wantLore: "Building is probably one of my favorite things to do in the game. I enjoy working on projects of all sizes, from small corners to entire environments... But more than anything, I love giving them a purpose and a story that feels connected to the game's lore. So today, I'd like to humbly share one of my favorite creations, along with the story behind it. ♥️\n\n(I also prepared a shortened English version of the original story with a little help from ChatGPT, so it wouldn't turn into an endless wall of text. 😄)\n\n> Deep within the Sparkling Abyss, long before their names became forgotten legends, Li Zuo and Liu Qingyi lived a simple and happy life. Everything changed when the physician Sun Buqi subjected Qingyi to forbidden experiments. She survived, but at the cost of a poisoned immortality that slowly eroded her soul while leaving her body untouched.\n>\n> Knowing that she would eventually lose the very qualities that made her human, Qingyi wished to accept her fate and leave the world before she became incapable of love or compassion. Unable to let her go, Li Zuo chose another path. Deep within the Abyss, he built a refuge for her: lanterns hanging like stars, pavilions filled with paintings and books, floating gardens, and research halls, all created in the hope of giving her one final spring and perhaps a cure.\n>\n> For years, they studied the curse together. Li Zuo traveled the world to bring her its wonders, while Qingyi fought to preserve what remained of her humanity. Yet some wounds cannot be healed.\n>\n> When Qingyi realized that her soul was truly beginning to fade, she chose to depart while she could still love the world. On the night of her passing, the lanterns of the Abyss burned until dawn, and it is said that a white deer appeared to guide her spirit beyond the mortal realm.\n>\n> After her death, Li Zuo abandoned both hope and research. He built his own tomb in the depths of the Abyss and entrusted its protection to the King of Nothingness. Little by little, he turned away from the world of the living, consumed by a grief so profound that it left no room for light.\n>\n> Yet even now, on certain nights, lanterns still drift around a stone flower standing amid the dark waters. The elders claim that a lone figure can sometimes be seen dancing among the floating lights, as though the memories of Liu Qingyi refuse to fade away.",
 		},
 		{
+			// ✍️ is U+270D + U+FE0F (variation selector); the FE0F was causing reLore to fail to match
+			name: "emoji with variation selector (FE0F) before lore and what to visit",
+			content: `🏯 SHAMELESS [10008244]
+👷‍♀️ Builder: Keishalily
+
+ ✍️ Lore:
+**Garden of Eden Resort**
+
+A beautiful paradise awaits you at SHAMELESS.
+
+💕   What to Visit:
+
+Visits are HIGHLY encouraged!
+🎋 Domed Library
+⚔️ Tree suites
+
+🗳️ Vote with Reactions!
+
+Cover: 43`,
+			wantID:       "10008244",
+			wantGuild:    "SHAMELESS",
+			wantBuilders: []string{"Keishalily"},
+			wantLore:     "**Garden of Eden Resort**\n\nA beautiful paradise awaits you at SHAMELESS.",
+			wantVisit:    "Visits are HIGHLY encouraged!\n🎋 Domed Library\n⚔️ Tree suites",
+			wantCover:    43,
+		},
+		{
 			name: "places to visit alias",
 			content: `🏯 SNEJNAYA (10269444)
 
