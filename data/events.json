@@ -43,5 +43,30 @@
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
+  },
+  {
+    "id": "1516363161111105556",
+    "name": "Panda Guild Tour #8 - All Welcome",
+    "description": "# 4 Guild bases to visit\n\nSubscribe to the event: TODO\nYou can either or both:\n- join the tour stream on \u003c#1483447711499030636\u003e \n- join in game request/DM on Ahlyam [2122662369] or keishalily\n\n## Four recent builds to discover\n\n- [JadeHearth: The Gates Swing Open](https://www.wherebuildersmeet.com/guilds/jadehearth-the-gates-swing-open-the-gates-swing-open/) - [Discord thread](https://discord.com/channels/1483447710617960508/1510649202714214481)\n- [VN-HoàngKim: VN-HoàngKim](https://www.wherebuildersmeet.com/guilds/vn-ho%C3%A0ngkim-sect-town-hq/) - [Discord thread](https://discord.com/channels/1483447710617960508/1510947953492365382)\n- [BabooTea](https://www.wherebuildersmeet.com/guilds/babbootea/) - [Discord thread](https://discord.com/channels/1483447710617960508/1511986792877002783)\n- [WITCHERS](https://www.wherebuildersmeet.com/guilds/witchers-sword-tomb/) - [Discord thread](https://discord.com/channels/1483447710617960508/1514396530579341542)",
+    "type": "tour",
+    "scheduledStart": "2026-06-17T17:00:00Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 6,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1516363161111105556",
+    "image": "https://cdn.discordapp.com/guild-events/1516363161111105556/acf1feb8df229a2babba423a485113cd.png?size=512"
+  },
+  {
+    "id": "1516372255657951364",
+    "name": "Fairytopia Tour Season 2",
+    "type": "tour",
+    "scheduledStart": "2026-06-22T13:00:00Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 2,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1516372255657951364",
+    "image": "https://cdn.discordapp.com/guild-events/1516372255657951364/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
   }
 ]
