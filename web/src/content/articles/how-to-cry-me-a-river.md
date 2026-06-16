@@ -25,7 +25,7 @@ Hiding the middle part below ground is optional, depending on how far above grou
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/karin" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">KARIN</a></p>
 
 <!-- discord-video:1483483683456286911/1500737049140002816 -->
-<video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a323648&hm=243e00accce83fa413ba43dc124f8ebdfab0d9492d0ba5e3980a2f8a86b00d7e&is=6a30e4c8&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a32df08&hm=76e21c63efcdf1fde55060c51179af0b1dcfc86d9ae35f831421875bcc9a6d29&is=6a318d88&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 ---
 
@@ -39,7 +39,7 @@ The key steps: place a wall, then position a small flat ceiling above it. Simula
 The advantage over manual adjustment (going up and down until sections blend) is consistency: once the ceiling reference is set, every water unit snaps to the same height with no retries needed.
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a325d26&hm=840ebc8343b6e15a25250f0b9d13dea497484e52a72af9fdcbe77a3f10e0c842&is=6a310ba6&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a3305e6&hm=b3cd25b069b6ce35a3080c1d3013472933d0004d33cb1f28bc78e7bbcb80491f&is=6a31b466&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 **Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
 

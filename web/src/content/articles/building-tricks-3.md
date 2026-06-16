@@ -17,7 +17,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a3237dd&hm=7b1498a7bf326a48e54d0c88719c6a672d06d2a93b5c12bef25bd1457ce433a1&is=6a30e65d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a32e09d&hm=c2d268ccba48bd53f687302c4a2358b98c20c5cbe252d26c8fb35b9d291c155b&is=6a318f1d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 ---
 
@@ -25,7 +25,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carnii</a></p>
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a32365d&hm=e9c63527fb8a4655288434b02b2b7f92bd8817c05021e83040d167965380cd9e&is=6a30e4dd&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a32df1d&hm=2efc1d1dc4b60e960f667fb77da9d40f2b5357cf80757c5158293134d1928096&is=6a318d9d&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 ---
 
@@ -38,7 +38,7 @@ The Great Healer NPC sign can be hidden with the right placement. Here are two a
 
 This second method blends in more naturally with the surroundings.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a325f0a&format=webp&hm=19bdc47d4c55d67293093eb26c496069b55bb497866033e74e6486431f462ff4&is=6a310d8a&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a3307ca&format=webp&hm=8151cef21fdadb2da819114adb3b30b3aa0ce2e964827ef0ae23a34bde766762&is=6a31b64a&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
