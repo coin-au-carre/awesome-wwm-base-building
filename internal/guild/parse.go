@@ -176,7 +176,13 @@ func ExtractNameAndID(threadName string) (name, id, buildTitle string) {
 		id = m[1]
 		buildTitle = strings.TrimSpace(reThreadID.ReplaceAllString(buildTitle, ""))
 	}
-	name = strings.TrimSpace(strings.Trim(raw, "[] 🏯📍️"))
+	name = strings.TrimSpace(strings.Trim(raw, " 🏯📍️"))
+	// Only strip a leading "[" / trailing "]" when they wrap the whole name as a
+	// matched pair (e.g. a stray ID bracket leftover); a single bracket on just
+	// one side is part of the name's actual content (e.g. "[Tag] rest of name").
+	if strings.HasPrefix(name, "[") && strings.HasSuffix(name, "]") {
+		name = strings.TrimSpace(name[1 : len(name)-1])
+	}
 	name = strings.TrimSpace(reEightDigitName.ReplaceAllString(name, ""))
 	return
 }
