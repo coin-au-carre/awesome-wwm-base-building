@@ -59,7 +59,7 @@ These diagrams save a **section** of your guild base, useful for replicating par
 ## How to save a diagram
 
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a33f654&is=6a32a4d4&hm=2011c2b332d82e93e7a7f67f133dfbcb123eaf949d71b542b0578b35e7f3b249&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a33f654&hm=2011c2b332d82e93e7a7f67f133dfbcb123eaf949d71b542b0578b35e7f3b249&is=6a32a4d4&" controls></video>
 </div>
 
 The save process is the same for all diagram types:
@@ -94,7 +94,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a33bd07&hm=9d30436c140cc8fdb38d624781a2f27a4a858453748e3289b6cb97a0d0379add&is=6a326b87&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3465c7&hm=fad80fb8169d14144ddbd7bcf96ef17d88ba4da89b295df69970878275600a03&is=6a331447&" controls></video>
 </div>
 
 
