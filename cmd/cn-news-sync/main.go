@@ -36,6 +36,11 @@ var (
 	reDateURL = regexp.MustCompile(`/(\d{8})/`)
 )
 
+type updatedItem struct {
+	old NewsItem
+	new NewsItem
+}
+
 type NewsItem struct {
 	Category  string `json:"category"`
 	Title     string `json:"title"`
@@ -64,9 +69,9 @@ func main() {
 
 	dest := filepath.Join(*root, "data", "cn_news.json")
 	existing := loadExisting(dest)
-	seenURLs := make(map[string]bool, len(existing))
-	for _, item := range existing {
-		seenURLs[item.URL] = true
+	seenByURL := make(map[string]int, len(existing)) // URL → index in existing
+	for i, item := range existing {
+		seenByURL[item.URL] = i
 	}
 	slog.Info("loaded existing", "count", len(existing))
 
@@ -83,31 +88,44 @@ func main() {
 
 	all := merge(news, announcements)
 
-	// Find items not previously seen, in chronological order (newest first).
+	// Separate new items from updated ones (title or summary changed).
 	fetchedAt := time.Now().UTC().Format(time.RFC3339)
 	var fresh []NewsItem
+	var updated []updatedItem
 	for i := range all {
-		if !seenURLs[all[i].URL] {
+		idx, seen := seenByURL[all[i].URL]
+		if !seen {
 			all[i].FetchedAt = fetchedAt
 			fresh = append(fresh, all[i])
+			continue
+		}
+		old := existing[idx]
+		if all[i].Title != old.Title || all[i].Summary != old.Summary {
+			updated = append(updated, updatedItem{old: old, new: all[i]})
+			existing[idx].Title = all[i].Title
+			existing[idx].Summary = all[i].Summary
 		}
 	}
 	slog.Info("new items", "count", len(fresh))
+	slog.Info("updated items", "count", len(updated))
 
 	if *dryRun {
 		for _, item := range fresh {
 			slog.Info("new", "category", item.Category, "date", item.Date, "title", item.Title)
 		}
+		for _, u := range updated {
+			slog.Info("updated", "url", u.new.URL, "old_title", u.old.Title, "new_title", u.new.Title)
+		}
 		slog.Info("dry-run: skipping write and post")
 		return
 	}
 
-	if len(fresh) == 0 {
+	if len(fresh) == 0 && len(updated) == 0 {
 		slog.Info("nothing new — skipping write and post")
 		return
 	}
 
-	// Merge new items at the front, preserve existing.
+	// Merge new items at the front, preserve existing (with any title/summary patches applied).
 	merged := append(fresh, existing...)
 
 	out, err := json.MarshalIndent(merged, "", "  ")
@@ -119,11 +137,16 @@ func main() {
 		slog.Error("writing cn_news.json", "err", err)
 		os.Exit(1)
 	}
-	slog.Info("wrote cn_news.json", "path", dest, "new", len(fresh), "total", len(merged))
+	slog.Info("wrote cn_news.json", "path", dest, "new", len(fresh), "updated", len(updated), "total", len(merged))
 
 	if *channelID != "" {
 		token := "Bot " + cmdutil.RequireEnv("RUBY_BOT_TOKEN")
-		postNewItems(token, *channelID, fresh)
+		if len(fresh) > 0 {
+			postNewItems(token, *channelID, fresh)
+		}
+		if len(updated) > 0 {
+			postUpdatedItems(token, *channelID, updated)
+		}
 	}
 }
 
@@ -253,6 +276,34 @@ func postNewItems(token, channelID string, items []NewsItem) {
 		send(s, channelID, sb.String())
 	}
 	slog.Info("posted CN news alert", "channel", channelID, "items", len(items))
+}
+
+func postUpdatedItems(token, channelID string, items []updatedItem) {
+	s, err := discordgo.New(token)
+	if err != nil {
+		slog.Error("creating discord session", "err", err)
+		return
+	}
+
+	var sb strings.Builder
+	fmt.Fprintf(&sb, "## 🇨🇳 CN server article updated!\n")
+
+	for _, u := range items {
+		gtURL := googleTranslateURL(u.new.URL)
+		line := fmt.Sprintf("✏️ **[%s](%s)**\n", u.new.Title, u.new.URL)
+		line += fmt.Sprintf("-# was: _%s_ · [Read via Google Translate ↗](%s)\n", u.old.Title, gtURL)
+
+		if sb.Len()+len(line) > 1950 {
+			send(s, channelID, sb.String())
+			sb.Reset()
+		}
+		sb.WriteString(line)
+	}
+
+	if sb.Len() > 0 {
+		send(s, channelID, sb.String())
+	}
+	slog.Info("posted CN news update alert", "channel", channelID, "items", len(items))
 }
 
 func send(s *discordgo.Session, channelID, content string) {
