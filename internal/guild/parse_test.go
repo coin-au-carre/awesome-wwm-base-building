@@ -244,6 +244,47 @@ Cover: 43`,
 			wantCover:    43,
 		},
 		{
+			name: "youtube URLs appended after whatToVisit are stripped",
+			content: `🏯 GuildName [12345678]
+👷 Builders: Someone
+
+Lore
+Some lore text here.
+
+What to visit
+The great hall.
+
+ok
+https://www.youtube.com/watch?v=JMnGugU9K5E
+https://www.youtube.com/watch?v=cT4Bep-1oIE`,
+			wantID:       "12345678",
+			wantGuild:    "GuildName",
+			wantBuilders: []string{"Someone"},
+			wantLore:     "Some lore text here.",
+			wantVisit:    "The great hall.",
+		},
+		{
+			name:    "post with only ok + youtube URLs produces no lore",
+			content: "ok\nhttps://www.youtube.com/watch?v=JMnGugU9K5E \nhttps://www.youtube.com/watch?v=cT4Bep-1oIE",
+			wantLore:  "",
+			wantVisit: "",
+		},
+		{
+			name: "bare youtube URLs directly after whatToVisit are stripped",
+			content: `🏯 Keep [11223344]
+👷 Builders: Dev
+
+What to visit
+The courtyard.
+
+https://youtu.be/abc123
+https://youtu.be/def456`,
+			wantID:       "11223344",
+			wantGuild:    "Keep",
+			wantBuilders: []string{"Dev"},
+			wantVisit:    "The courtyard.",
+		},
+		{
 			name: "places to visit alias",
 			content: `🏯 SNEJNAYA (10269444)
 

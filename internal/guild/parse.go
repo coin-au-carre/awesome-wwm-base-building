@@ -26,6 +26,7 @@ var (
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 	reCoverStrip      = regexp.MustCompile(`(?im)[\n\r]*[ \t]*cover:[ \t]*\d+[ \t]*$`)
 	reTrailingStars   = regexp.MustCompile(`(?:\s*\n\s*\*+)+\s*$`)
+	reBareLinkLine    = regexp.MustCompile(`^https?://\S`)
 	reBuildTitleColon   = regexp.MustCompile(`\s*:\s*`) // "GuildName: Build Title" and spacing variants
 	reOnBehalf          = regexp.MustCompile(`(?i)on behalf of\s+@([\w.]+)`)
 	reOnBehalfSnowflake = regexp.MustCompile(`(?i)on behalf of\s+<@(\d+)>`)
@@ -240,6 +241,7 @@ func CleanSection(s string) string {
 	s = strings.TrimSpace(s)
 	s = reCoverStrip.ReplaceAllString(s, "")
 	s = reTrailingStars.ReplaceAllString(s, "")
+	s = stripTrailingURLBlocks(s)
 	s = strings.TrimSpace(s)
 	if len(s) < 3 {
 		return ""
@@ -251,5 +253,40 @@ func CleanSection(s string) string {
 		}
 	}
 	return s
+}
+
+// stripTrailingURLBlocks removes trailing paragraphs (separated by blank lines)
+// whose lines are all either bare URLs or short connector words (≤25 chars), with
+// at least one URL line present. This prevents video links appended at the end of
+// a post from leaking into the lore/whatToVisit fields.
+func stripTrailingURLBlocks(s string) string {
+	paragraphs := strings.Split(strings.TrimRight(s, "\n \t"), "\n\n")
+	for len(paragraphs) > 1 {
+		last := strings.TrimSpace(paragraphs[len(paragraphs)-1])
+		if isURLOnlyBlock(last) {
+			paragraphs = paragraphs[:len(paragraphs)-1]
+		} else {
+			break
+		}
+	}
+	return strings.Join(paragraphs, "\n\n")
+}
+
+// isURLOnlyBlock returns true when every non-empty line in the paragraph is either
+// a bare URL or a short word (≤25 runes), and at least one line is a bare URL.
+func isURLOnlyBlock(para string) bool {
+	hasURL := false
+	for _, line := range strings.Split(para, "\n") {
+		line = strings.TrimSpace(line)
+		if line == "" {
+			continue
+		}
+		if reBareLinkLine.MatchString(line) {
+			hasURL = true
+		} else if len([]rune(line)) > 25 {
+			return false
+		}
+	}
+	return hasURL
 }
 

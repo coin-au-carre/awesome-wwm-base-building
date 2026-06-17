@@ -29,6 +29,10 @@ const instance = new Marked({
   },
 })
 
+// Normalize Discord-style loose bold markers: ** text ** → **text**
+const reLooseBold = /\*\* ?(.+?) ?\*\*/g
+
 export function renderMarkdown(text: string): string {
-  return instance.parse(text, { async: false }) as string
+  const normalized = text.replace(reLooseBold, "**$1**")
+  return instance.parse(normalized, { async: false }) as string
 }
