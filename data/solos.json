@@ -243,10 +243,12 @@
 			"https://cdn.discordapp.com/attachments/1490456838305747035/1490456843456221307/o8.png?ex=6a330b9a\u0026is=6a31ba1a\u0026hm=3364ebce28bfe278b4fa63e02db7860aa69a09130ea6f4c70d93442397c7fe20\u0026"
 		],
 		"videos": [
-			"https://www.youtube.com/watch?v=bRrlkWKEtOY"
+			"https://www.youtube.com/watch?v=bRrlkWKEtOY",
+			"https://youtu.be/bRrlkWKEtOY"
 		],
 		"createdAt": "April 5, 2026 at 09:03 PM UTC",
-		"lastModified": "April 5, 2026 at 09:10 PM UTC"
+		"lastModified": "June 17, 2026 at 07:37 AM UTC",
+		"lastVideoNotifiedAt": "June 17, 2026 at 07:37 AM UTC"
 	},
 	{
 		"name": "Luxury Boat",
@@ -316,14 +318,15 @@
 			"https://cdn.discordapp.com/attachments/1491956955420295292/1491956963460780173/image.png?ex=6a333ab3\u0026is=6a31e933\u0026hm=5a70fa861377c6abc7dbe96b4b285a402b519614ed48213a37764d062db96654\u0026"
 		],
 		"videos": [
-			"https://vt.tiktok.com/ZSHxU9Mwn/"
+			"https://vt.tiktok.com/ZSHxU9Mwn/",
+			"https://www.youtube.com/watch?v=Yi46R6FjFmU\u0026t=113sm"
 		],
 		"ignoredVideos": [
 			"https://www.youtube.com/watch?v=Yi46R6FjFmU"
 		],
 		"createdAt": "April 10, 2026 at 12:24 AM UTC",
-		"lastModified": "May 2, 2026 at 03:25 PM UTC",
-		"lastVideoNotifiedAt": "May 2, 2026 at 03:25 PM UTC"
+		"lastModified": "June 17, 2026 at 07:37 AM UTC",
+		"lastVideoNotifiedAt": "June 17, 2026 at 07:37 AM UTC"
 	},
 	{
 		"name": "WINDXP Bridge",
@@ -472,13 +475,14 @@
 			"https://cdn.discordapp.com/attachments/1495811193716215989/1507639980669931561/Screenshot_20260522_231640_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a339825\u0026is=6a3246a5\u0026hm=e713ecfd53a19a680d9c8573fcccbe9503920f7b2904a1b2968a8dc74f84fd89\u0026"
 		],
 		"videos": [
+			"https://vt.tiktok.com/ZS9jB9jpA/",
 			"https://vt.tiktok.com/ZS9rQQ8Lj/",
 			"https://vt.tiktok.com/ZS9B6eGhm/"
 		],
 		"createdAt": "April 20, 2026 at 03:39 PM UTC",
-		"lastModified": "May 23, 2026 at 07:16 AM UTC",
+		"lastModified": "June 17, 2026 at 07:37 AM UTC",
 		"lastScreenshotNotifiedAt": "May 23, 2026 at 07:16 AM UTC",
-		"lastVideoNotifiedAt": "May 2, 2026 at 03:09 PM UTC"
+		"lastVideoNotifiedAt": "June 17, 2026 at 07:37 AM UTC"
 	},
 	{
 		"id": "1015241962",
@@ -727,7 +731,7 @@
 		"whatToVisit": "Hot spring coffee shop with Cats.  Second floor is a moon viewing/gazing platform another restaurant and a barbeque place\nA tavern/Club",
 		"score": 52,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1503657584589013123/1503657585805627392/image.png?ex=6a32f301\u0026is=6a31a181\u0026hm=03f6364f6473b6cc6c0fdc239290e95aa023a973edfab6589632cab846d47099\u0026",
+			"https://cdn.discordapp.com/attachments/1503657584589013123/1503657585805627392/image.png?ex=6a339bc1\u0026is=6a324a41\u0026hm=84a7e037529c98bfbaef305b121c68f9bdc10136a674e76f21b8360188910b53\u0026",
 			"https://cdn.discordapp.com/attachments/1503657584589013123/1503778944770379857/image.png?ex=6a336407\u0026is=6a321287\u0026hm=1a65f09f9cce1a23dcb9c12901a7e71c0277dee0b4e8dae76193cb75c2fad019\u0026",
 			"https://cdn.discordapp.com/attachments/1503657584589013123/1503778945278152837/image.png?ex=6a336407\u0026is=6a321287\u0026hm=bea692dcf8c731dc2aa581d9ca992115657925c706ef5ebc0be966fcec4305e6\u0026",
 			"https://cdn.discordapp.com/attachments/1503657584589013123/1503778946037055669/image.png?ex=6a336407\u0026is=6a321287\u0026hm=935ffb8f7072b2e9092bcf69f51d3effcd2638e47cab31dfcc8b2703725e7102\u0026",
@@ -747,7 +751,7 @@
 			{
 				"label": "🏠 Hotspring Cafe",
 				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1503657584589013123/1503657585805627392/image.png?ex=6a32f301\u0026is=6a31a181\u0026hm=03f6364f6473b6cc6c0fdc239290e95aa023a973edfab6589632cab846d47099\u0026",
+					"https://cdn.discordapp.com/attachments/1503657584589013123/1503657585805627392/image.png?ex=6a339bc1\u0026is=6a324a41\u0026hm=84a7e037529c98bfbaef305b121c68f9bdc10136a674e76f21b8360188910b53\u0026",
 					"https://cdn.discordapp.com/attachments/1503657584589013123/1503778944770379857/image.png?ex=6a336407\u0026is=6a321287\u0026hm=1a65f09f9cce1a23dcb9c12901a7e71c0277dee0b4e8dae76193cb75c2fad019\u0026",
 					"https://cdn.discordapp.com/attachments/1503657584589013123/1503778945278152837/image.png?ex=6a336407\u0026is=6a321287\u0026hm=bea692dcf8c731dc2aa581d9ca992115657925c706ef5ebc0be966fcec4305e6\u0026",
 					"https://cdn.discordapp.com/attachments/1503657584589013123/1503778946037055669/image.png?ex=6a336407\u0026is=6a321287\u0026hm=935ffb8f7072b2e9092bcf69f51d3effcd2638e47cab31dfcc8b2703725e7102\u0026",
@@ -850,9 +854,13 @@
 			"https://cdn.discordapp.com/attachments/1507968979111772181/1507969382213746698/20265961123.png?ex=6a33796d\u0026is=6a3227ed\u0026hm=6d30eb2a6719c2946c19183a0aeef071b83328afa85586519e5990744096d9a2\u0026",
 			"https://cdn.discordapp.com/attachments/1507968979111772181/1516094408406339765/image.png?ex=6a335eb2\u0026is=6a320d32\u0026hm=f2c6a27d4cfcf8d7babf225982569f31959931e95dcce28c5700e72006783b23\u0026"
 		],
+		"videos": [
+			"https://vt.tiktok.com/ZSxa4Eufd/"
+		],
 		"createdAt": "May 24, 2026 at 04:50 AM UTC",
-		"lastModified": "June 15, 2026 at 03:30 PM UTC",
-		"lastScreenshotNotifiedAt": "June 15, 2026 at 03:30 PM UTC"
+		"lastModified": "June 17, 2026 at 07:37 AM UTC",
+		"lastScreenshotNotifiedAt": "June 15, 2026 at 03:30 PM UTC",
+		"lastVideoNotifiedAt": "June 17, 2026 at 07:37 AM UTC"
 	},
 	{
 		"name": "My build😂",
