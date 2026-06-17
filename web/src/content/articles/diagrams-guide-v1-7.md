@@ -27,7 +27,9 @@ These diagrams can only be **created in Solo World**, but can be applied in both
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a33e9fb&format=webp&hm=1f1e42b445afa74adbf2501997a8efb146d08b753fc4e8fb5bc2efc9d929f125&is=6a32987b&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
 
-<video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a33ecbe&hm=ae0fbbf59dcf7f38fe857696009baf8891c6cf61d26b4ce9b0e32f1b221d0e23&is=6a329b3e&" controls style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;"></video>
+<div class="video-embed" style="width: 80%;">
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a33ecbe&hm=ae0fbbf59dcf7f38fe857696009baf8891c6cf61d26b4ce9b0e32f1b221d0e23&is=6a329b3e&" controls></video>
+</div>
 
 ---
 
@@ -85,7 +87,9 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a33d24b&format=webp&hm=5f732321efb824984a55ae690809a5d9736228881f8952bf8e327b5ddf90b986&is=6a3280cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a33bd07&hm=9d30436c140cc8fdb38d624781a2f27a4a858453748e3289b6cb97a0d0379add&is=6a326b87&" controls style="border-radius: 0.75rem; width: 100%;"></video>
+<div class="video-embed">
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a33bd07&hm=9d30436c140cc8fdb38d624781a2f27a4a858453748e3289b6cb97a0d0379add&is=6a326b87&" controls></video>
+</div>
 
 
 ---

@@ -228,3 +228,31 @@
 .card-glow:hover {
   box-shadow: 0 0 22px 4px rgba(34, 211, 238, 0.15);
 }
+
+/* Tutorial article video wrapper — adds a ▶ Video badge automatically */
+.video-embed {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+.video-embed::before {
+  content: "▶ Video";
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.video-embed video {
+  border-radius: 0.75rem;
+  width: 100%;
+  display: block;
+}

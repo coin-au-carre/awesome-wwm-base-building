@@ -70,4 +70,6 @@ Place a diagram without filling in all of its component slots. The empty slots c
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a33c798&format=webp&hm=4ed3d74605896505e6bc4750579da19c30033368d4b6fddc778465f05a1d6b58&is=6a327618&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
-<video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a33d2af&hm=cb5752f94862c6ff11ce658d21bba35d722d12427aaada807570eca5f5b606da&is=6a32812f&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<div class="video-embed">
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a33d2af&hm=cb5752f94862c6ff11ce658d21bba35d722d12427aaada807570eca5f5b606da&is=6a32812f&" controls></video>
+</div>
