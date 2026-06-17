@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a3280e6&format=webp&hm=cfe7892382efbf031d41fbf5872ddeeb11f207514c9eb54e45e1fa444bce5f86&is=6a312f66&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a3329a6&format=webp&hm=0db0b1d27414fc318f133e3f9eba3545e4fe65b6627f441156397ae0e85f97f2&is=6a31d826&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a3281d1&format=webp&hm=db8723ffe2d31899de2f76d34ab0f92513207ec29865e3cb7d5551e84fddd141&is=6a313051&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a332a91&format=webp&hm=d6c3e9430d05297e49d200e5bb1358f2a1e1fbc8d8ce2622d6408dfc196076f9&is=6a31d911&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -81,7 +81,7 @@ Roughly translated, it means "one's character does not leave the pine (tree); it
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a3282b7&format=webp&hm=6604293acb5df1b33a86a709c69e321be4d1020269f66a9e13f788896197eba4&is=6a313137&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a332b77&format=webp&hm=b320613204d952cc89e12c43679ea84acfc6447544d661ef404350df55e08a58&is=6a31d9f7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驿 - postal (relay station)
 
@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a3283e1&format=webp&hm=05840ca45ebd78c6b21d3f9a8b69bfda1f6a3e6e5c8c29e2e4737b8cc914d390&is=6a313261&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a332ca1&format=webp&hm=9cef3704e7855a842a8c48814f5d807c4978b5e72214cdaa69131be8532475f7&is=6a31db21&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 天 Heaven
 石 Stone
@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a32863c&format=webp&hm=db5cdb99b2ec5fb95cad498224d229fde159317dd4e3d09d73266ce48a61b982&is=6a3134bc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a332efc&format=webp&hm=54469455820e4d0dfe7cbfd1a6b657e7a79d1e24fc174967eff4163f4af32197&is=6a31dd7c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 驛 - traditional version of "postal relay station" 
 
@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a328746&format=webp&hm=34a43979d672a019f32c081c0ce2078bfe3abd026fd17f22ba17fb73d385ff9d&is=6a3135c6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a333006&format=webp&hm=739d8d68847361f5c666697865b7d43a5292daf49fb288ee94f3890faed9b8f3&is=6a31de86&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a3288af&format=webp&hm=9865e222a81cbe075f8be5a6f124f80b89c4cae75c18f27f6e4785598e27c163&is=6a31372f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a33316f&format=webp&hm=e4ffc8e4cd8ae398c01b6b770a8c63fd05cc9c1af9386eab753f46a6c10c7816&is=6a31dfef&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a329525&format=webp&hm=883235137fce46c626842d02784472e30e9da8e2b189504ce435cc654c4f257e&is=6a3143a5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a333de5&format=webp&hm=70c2d0459df848283dee83811dfd689d72754ac1e41bd79f5204752f73d54c87&is=6a31ec65&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a329545&format=webp&hm=c5ba36e244ad8e89326c707804069c6501f01b2ad7d0d946375feb48f6f09d7c&is=6a3143c5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a333e05&format=webp&hm=f083c1f49c22881bbed6642f927a528de0c8a67afa07b8e8c3fcd109eb84bf68&is=6a31ec85&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a329a06&format=webp&hm=80a38da5483edb0581d5a191d63b69a5c511ecbd6fe5fb5732e86f670dc79ae5&is=6a314886&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a3342c6&format=webp&hm=60d7529166b9ff88f4a3e5d3703faf77b535bbe91757b968e53825d04763f904&is=6a31f146&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a329b1a&format=webp&hm=7772e314ff6beeca442a63dcd3a608a87b2d6cf384dfa893634b7c0637fdfbbf&is=6a31499a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a3343da&format=webp&hm=be4dc853c10688d38de249a552a7d6b062ced656d2157ae9849f5f39c972df7c&is=6a31f25a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a329b32&format=webp&hm=9f0ab855489148fb8da952d85b0285f59cd7d0eed92eb32f20619f7f57bc369c&is=6a3149b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a3343f2&format=webp&hm=97caf0321460565ad837fb56787ea60824165c76483f11cfc1686c48ac92a9f2&is=6a31f272&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 手 - Hand
 
