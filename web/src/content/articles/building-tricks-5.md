@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["LyYan", "Raiden-Zongli", "Mothisto", "Crueliet", "Wyrdrake"]
 date: 2026-06-11
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a331b91&format=webp&hm=3d714acfb3d20a09194b779419c1c694ba7ad1fcb981894fe064cba16ac55739&is=6a31ca11&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a33c451&format=webp&hm=c4870efa7f5baaa1883edde36e224a2468579a19ee09a7e7926d430a01ea1391&is=6a3272d1&quality=lossless"
 featured: true
 ---
 
@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Rotating objects by 5-degree increments lets you arrange them in a smooth circular pattern. The small angle gives enough resolution to approximate a circle without visible gaps or jagged edges.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a331b91&format=webp&hm=3d714acfb3d20a09194b779419c1c694ba7ad1fcb981894fe064cba16ac55739&is=6a31ca11&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a33c451&format=webp&hm=c4870efa7f5baaa1883edde36e224a2468579a19ee09a7e7926d430a01ea1391&is=6a3272d1&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -98,4 +98,4 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 The Guqin item can be used to simulate hanging strings or thin rope-like details. Its shape and scale make it a natural fit for adding fine texture to lanterns, banners, or any structure that calls for delicate hanging elements.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a331af3&format=webp&hm=1917d89033458054397d87257bee3c88b7cf87409899c3c117ef37a71b1e30ab&is=6a31c973&quality=lossless" alt="Guqin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a33c3b3&format=webp&hm=c1b1a2804cb80c3174994ca4bc0b381617f7d3d43604d0d11c0fc5e0d90f1007&is=6a327233&quality=lossless" alt="Guqin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />
