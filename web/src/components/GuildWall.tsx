@@ -2,40 +2,44 @@ import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { ArrowsClockwiseIcon, DiceFiveIcon } from "@phosphor-icons/react"
-import type { RankedGuild } from "@/types/guild"
 import { formatBuilderName, stripGuildShowcase } from "@/lib/format"
 import { formatLastModified } from "@/lib/dates"
 import { url } from "@/lib/url"
 
+export interface WallGuild {
+  slug: string
+  name: string
+  guildName?: string
+  builders: string[]
+  lastModified?: string
+  img: string
+}
+
 interface Props {
-  guilds: RankedGuild[]
+  guilds: WallGuild[]
   count?: number
 }
 
 function pickRandom<T>(arr: T[], n: number): T[] {
   const copy = [...arr]
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
+  const end = Math.min(n, copy.length)
+  for (let i = 0; i < end; i++) {
+    const j = i + Math.floor(Math.random() * (copy.length - i))
     ;[copy[i], copy[j]] = [copy[j], copy[i]]
   }
-  return copy.slice(0, n)
+  return copy.slice(0, end)
 }
 
 interface Tile {
-  guild: RankedGuild
-  img: string
+  guild: WallGuild
   key: string
 }
 
-function buildTiles(guilds: RankedGuild[], count: number): Tile[] {
-  return pickRandom(guilds, count).map((guild) => {
-    const shots = [
-      ...(guild.coverImage ? [guild.coverImage] : []),
-      ...(guild.screenshots ?? []),
-    ]
-    const img = shots[Math.floor(Math.random() * shots.length)]
-    return { guild, img, key: `${guild.slug}-${img}-${Math.random()}` }
-  })
+function buildTiles(guilds: WallGuild[], count: number): Tile[] {
+  return pickRandom(guilds, count).map((guild) => ({
+    guild,
+    key: `${guild.slug}-${Math.random()}`,
+  }))
 }
 
 export function GuildWall({ guilds, count = 12 }: Props) {
@@ -75,7 +79,7 @@ export function GuildWall({ guilds, count = 12 }: Props) {
         </Button>
       </div>
       <div className="relative">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         <motion.div
           key={tiles.map((t) => t.key).join(",")}
           initial={{ opacity: 0 }}
@@ -99,15 +103,13 @@ export function GuildWall({ guilds, count = 12 }: Props) {
                 })
               }
             >
-              {tile.img && (
-                <img
-                  src={tile.img}
-                  alt={stripGuildShowcase(tile.guild.guildName || tile.guild.name)}
-                  loading="lazy"
-                  onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              )}
+              <img
+                src={tile.guild.img}
+                alt={stripGuildShowcase(tile.guild.guildName || tile.guild.name)}
+                loading="lazy"
+                onError={(e) => ((e.target as HTMLImageElement).style.display = "none")}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
               {tile.guild.lastModified && (() => {
                 const lm = formatLastModified(tile.guild.lastModified)

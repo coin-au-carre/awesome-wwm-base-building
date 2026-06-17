@@ -10,7 +10,7 @@ import { getActiveBuilderSlugs } from "@/lib/builders"
 import { isBuilderSubmission } from "@/lib/config"
 import { BASE } from "@/lib/url"
 import { tagColor } from "@/lib/colors"
-import { GuildWall } from "@/components/GuildWall"
+import { GuildWall, type WallGuild } from "@/components/GuildWall"
 import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon, CalendarDotIcon, StackIcon, UsersIcon, BroadcastIcon, MicrophoneStageIcon } from "@phosphor-icons/react"
 import { getCollection, type CollectionEntry } from "astro:content"
 
@@ -85,7 +85,20 @@ const latestGuilds: CarouselGuild[] = (useCarousel ? recentGuilds : getLatestGui
   screenshots: g.screenshots?.[0] ? [g.screenshots[0]] : undefined,
   buildTitle: g.buildTitle, createdAt: g.createdAt,
 }))
-const guildsWithScreenshots = guilds.filter((g) => g.coverImage || (g.screenshots && g.screenshots.length > 0))
+const guildsWithScreenshots: WallGuild[] = guilds
+  .filter((g) => g.coverImage || (g.screenshots && g.screenshots.length > 0))
+  .map((g) => {
+    const shots = [...(g.coverImage ? [g.coverImage] : []), ...(g.screenshots ?? [])]
+    const raw = shots[Math.floor(Math.random() * shots.length)]
+    return {
+      slug: g.slug,
+      name: g.name,
+      guildName: g.guildName,
+      builders: g.builders,
+      lastModified: g.lastModified,
+      img: thumbUrl(raw, 640, 360),
+    }
+  })
 const hiddenGems = getHiddenGems()
 const upcomingEvents = getUpcomingEvents()
 const now = Date.now()
