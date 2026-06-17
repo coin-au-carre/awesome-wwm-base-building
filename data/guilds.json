@@ -1,5 +1,23 @@
 [
 	{
+		"id": "10134754",
+		"name": "Infinite",
+		"builders": [
+			"小梅Mei [1066500240]"
+		],
+		"tags": [
+			"Architecture",
+			"City",
+			"River/Canal",
+			"Zen/Nature"
+		],
+		"discordThread": "",
+		"whatToVisit": "water towns, floating temples, exquisite landscapes",
+		"score": 2,
+		"lastModified": "June 17, 2026 at 05:44 AM UTC",
+		"scoutedByDiscordId": "736268653812645964"
+	},
+	{
 		"name": "Divinité",
 		"builders": [
 			"Divinité"
