@@ -21,15 +21,17 @@ Open **Construction mode** (press **F4** on PC), then enter **Build mode** (pres
 
 ## Solo Small Diagrams [Guild + Solo]
 
+<div class="video-embed" style="width: 80%;">
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a33ecbe&hm=ae0fbbf59dcf7f38fe857696009baf8891c6cf61d26b4ce9b0e32f1b221d0e23&is=6a329b3e&" controls></video>
+</div>
+
+
 Found under the **"Small Diagram"** category in the Diagram tab.
 
 These diagrams can only be **created in Solo World**, but can be applied in both solo world and guild bases. → [How to save a diagram](#how-to-save-a-diagram)
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a33e9fb&format=webp&hm=1f1e42b445afa74adbf2501997a8efb146d08b753fc4e8fb5bc2efc9d929f125&is=6a32987b&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
 
-<div class="video-embed" style="width: 80%;">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a33ecbe&hm=ae0fbbf59dcf7f38fe857696009baf8891c6cf61d26b4ce9b0e32f1b221d0e23&is=6a329b3e&" controls></video>
-</div>
 
 ---
 
@@ -55,6 +57,10 @@ These diagrams save a **section** of your guild base, useful for replicating par
 ---
 
 ## How to save a diagram
+
+<div class="video-embed">
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a33f654&is=6a32a4d4&hm=2011c2b332d82e93e7a7f67f133dfbcb123eaf949d71b542b0578b35e7f3b249&" controls></video>
+</div>
 
 The save process is the same for all diagram types:
 
