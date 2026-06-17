@@ -761,12 +761,19 @@ func filterVideos(videos, ignored []string) []string {
 	return out
 }
 
+var reVideoURL = regexp.MustCompile(`https?://(?:www\.)?(?:youtube\.com/watch\S+|youtu\.be/\S+|tiktok\.com/\S+|vt\.tiktok\.com/\S+)`)
+
 func isSupportedVideoURL(rawURL string) bool {
 	u, err := url.Parse(rawURL)
 	if err != nil {
 		return false
 	}
-	return u.Hostname() == "www.tiktok.com" || u.Hostname() == "tiktok.com" || u.Hostname() == "vt.tiktok.com"
+	switch u.Hostname() {
+	case "www.youtube.com", "youtube.com", "youtu.be",
+		"www.tiktok.com", "tiktok.com", "vt.tiktok.com":
+		return true
+	}
+	return false
 }
 
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
@@ -884,6 +891,15 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 		for _, snap := range msg.MessageSnapshots {
 			if snap.Message != nil {
 				collectAttachmentsAndEmbeds(snap.Message.Attachments, snap.Message.Embeds)
+			}
+		}
+		// Fallback: scan message content for video URLs that Discord didn't embed.
+		for _, raw := range reVideoURL.FindAllString(msg.Content, -1) {
+			raw = strings.TrimRight(raw, ">)")
+			if !seen[raw] {
+				seen[raw] = true
+				videos = append(videos, raw)
+				slog.Debug("content video found", "thread", threadID, "url", raw)
 			}
 		}
 	}
