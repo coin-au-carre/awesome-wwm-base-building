@@ -210,10 +210,13 @@ const recentTopItems = items
               data-primary={item.isPrimary ? "1" : "0"}
             >
               {item.kind === "video" ? (
-                <div class="aspect-video flex items-center justify-center relative">
-                  <svg class="size-10 text-muted-foreground/50 group-hover:text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+                <div class="aspect-video relative overflow-hidden">
+                  <video src={item.src} preload="metadata" muted playsinline class="w-full h-full object-cover pointer-events-none transition-transform duration-300 group-hover:scale-[1.03]" />
+                  <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                    <svg class="size-10 text-white/80 drop-shadow" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
               ) : (
                 <img
