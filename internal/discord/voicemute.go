@@ -27,7 +27,8 @@ func HandleHexiPartyMute(s *discordgo.Session, e *discordgo.VoiceStateUpdate) {
 		return
 	}
 
-	if wasInChannel {
+	// Only unmute when moving to another channel; Discord clears the mute automatically on full disconnect.
+	if wasInChannel && e.ChannelID != "" {
 		if err := s.GuildMemberMute(e.GuildID, e.UserID, false); err != nil {
 			slog.Warn("hexi party: failed to unmute", "user", e.UserID, "err", err)
 		} else {
