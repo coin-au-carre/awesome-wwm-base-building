@@ -22,7 +22,7 @@ func handleDotifyCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
-			Content: result,
+			Content: "```\n" + result + "\n```",
 			Flags:   discordgo.MessageFlagsEphemeral,
 		},
 	})
