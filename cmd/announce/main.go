@@ -8,6 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
+	"strings"
+
 	"ruby/internal/cmdutil"
 	idiscord "ruby/internal/discord"
 	"ruby/internal/guild"
@@ -15,6 +17,7 @@ import (
 
 func main() {
 	guildName := flag.String("guild", "", "guild/solo name to announce (substring match, required)")
+	threadID := flag.String("thread", "", "Discord thread ID substring to disambiguate when multiple guilds share a name")
 	channelID := flag.String("channel", "", "Discord channel ID to post in (default: BOT_CHANNEL_ID)")
 	isSolo := flag.Bool("solo", false, "search in solos instead of guilds")
 	screenshots := flag.Bool("screenshots", false, "use the 'new screenshots' message format instead of 'new entry'")
@@ -50,9 +53,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	pick, _, ok := idiscord.PickGuildByName(entries, *guildName)
+	pick, ok := findGuild(entries, *guildName, *threadID)
 	if !ok {
-		slog.Error("no entry matching name", "name", *guildName)
+		slog.Error("no entry matching name", "name", *guildName, "thread", *threadID)
 		os.Exit(1)
 	}
 
@@ -78,4 +81,23 @@ func main() {
 	}
 	bot.Send(target, msg)
 	slog.Info("announced", "guild", pick.Name, "channel", target)
+}
+
+func findGuild(entries []guild.Guild, name, thread string) (guild.Guild, bool) {
+	lower := strings.ToLower(name)
+	var matches []guild.Guild
+	for _, g := range entries {
+		if strings.Contains(strings.ToLower(g.Name), lower) {
+			if thread == "" || strings.Contains(g.DiscordThread, thread) {
+				matches = append(matches, g)
+			}
+		}
+	}
+	if len(matches) == 0 {
+		return guild.Guild{}, false
+	}
+	if len(matches) > 1 {
+		slog.Warn("multiple matches, using first — add -thread to disambiguate", "count", len(matches), "name", name)
+	}
+	return matches[0], true
 }
