@@ -13,6 +13,7 @@ Diagrams let you save and reuse constructions. v1.7 introduces three types depen
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Accessing the Diagram tab](#accessing-the-diagram-tab)
 - [Solo Small Diagrams \[Guild + Solo\]](#solo-small-diagrams-guild--solo)
 - [Large Guild Diagrams \[Guild only\]](#large-guild-diagrams-guild-only)
@@ -92,10 +93,12 @@ The save process is the same for all diagram types:
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505638637662/image.png?ex=6a349a25&format=webp&hm=f84466eaddd5d0d15801b42956419978edaaa21dfac9cac9bf45fbb2355f97a7&is=6a3348a5&quality=lossless" alt="Large Guild Diagram — diagram edit mode" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 
-**4.** Click **"Save & Exit"** to confirm. The choice between "Save & Exit" and "Leave directly" from the final modal makes no difference.
+**4.** Click **"Save & Exit"** to confirm. 
 
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506259656804/image.png?ex=6a349a25&format=webp&hm=4ebab8586c27fa8f9899a60dfb16d8b4377ce176e494ae2862b559badb1b21e6&is=6a3348a5&quality=lossless" alt="Large Guild Diagram — save panel" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+
+The choice between "Save & Exit" and "Leave directly" from the final modal makes no difference.
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506678825071/image.png?ex=6a349a25&format=webp&hm=49979726f8ebe49082f46e6278095bf1986cc1fca9c23e7b213079baa4108763&is=6a3348a5&quality=lossless" alt="Large Guild Diagram — saved result" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
