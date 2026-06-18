@@ -33,6 +33,8 @@ There are 3 types of diagrams:
 - [Large Guild Diagrams](#large-guild-diagrams-guild-only) — full guild base snapshot
 - [Small Guild Diagrams](#small-guild-diagrams-guild-only) — partial section of a guild base
 
+> **All diagrams are tied to your character, not your guild.** If you leave or join a different guild, your diagrams remain available.
+
 ---
 
 ## Solo Small Diagrams [Guild + Solo]
@@ -67,6 +69,7 @@ These diagrams save your **entire guild base**. Use them as full base backups or
 Found under the **"Small Diagram - Mine"** category in the Diagram tab.
 
 These diagrams save a **section** of your guild base, useful for replicating parts of a construction. The maximum is **1,000 components**.
+
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a349d51&format=webp&hm=b243e85a384cfc66d0a0cc8b81c2ffe05c9496eb5e8fe66f7a9edbe0aead7b93&is=6a334bd1&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
