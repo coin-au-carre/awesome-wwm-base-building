@@ -1,5 +1,20 @@
 [
 	{
+		"name": "Lui-TH",
+		"builders": [
+			"CHillCHill",
+			"jadlnw"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Scouters\nBus\nSculptures",
+		"score": 0,
+		"lastModified": "June 18, 2026 at 09:31 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "TenguSlayers",
 		"builders": [
 			"Ha-JiWon"
