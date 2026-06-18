@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log/slog"
 	"os"
@@ -10,7 +11,12 @@ import (
 	"ruby/internal/cmdutil"
 )
 
+const protectedGuildID = "1483447710617960508" // Where Builders Meet
+
 func main() {
+	leaveID := flag.String("leave", "", "leave the Discord server with this ID")
+	flag.Parse()
+
 	cmdutil.LoadEnv(cmdutil.RootDir())
 	token := cmdutil.RequireEnv("RUBY_BOT_TOKEN")
 
@@ -18,6 +24,19 @@ func main() {
 	if err != nil {
 		slog.Error("creating session", "err", err)
 		os.Exit(1)
+	}
+
+	if *leaveID != "" {
+		if *leaveID == protectedGuildID {
+			slog.Error("refusing to leave protected server", "id", *leaveID)
+			os.Exit(1)
+		}
+		if err := s.GuildLeave(*leaveID); err != nil {
+			slog.Error("leaving server", "id", *leaveID, "err", err)
+			os.Exit(1)
+		}
+		slog.Info("left server", "id", *leaveID)
+		return
 	}
 
 	guilds, err := s.UserGuilds(200, "", "", false)

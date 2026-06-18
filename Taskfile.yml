@@ -136,6 +136,10 @@ tasks:
     desc: list all Discord servers the bot is in, with invite links
     cmd: go run ./cmd/discord-servers
 
+  discord:leave:
+    desc: make Ruby leave a server by ID (task discord:leave -- -leave <server_id>)
+    cmd: go run ./cmd/discord-servers {{.CLI_ARGS}}
+
   # ── assign-roles (force-assign builder role to all forum authors) ──
   assign-roles:
     desc: "force-assign the builder role to all forum authors, ignoring role cache"

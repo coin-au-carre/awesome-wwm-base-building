@@ -59,7 +59,9 @@ func logCommandUsage(bot *Bot, i *discordgo.InteractionCreate, devChannelID stri
 
 func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 	adminPerm := int64(discordgo.PermissionAdministrator)
-	_, err := s.ApplicationCommandBulkOverwrite(s.State.User.ID, discordGuildID, []*discordgo.ApplicationCommand{
+
+	// Global commands — visible on Ruby's profile card, propagate within ~1 hour.
+	_, err := s.ApplicationCommandBulkOverwrite(s.State.User.ID, "", []*discordgo.ApplicationCommand{
 		{
 			Name:        submitCommandName,
 			Description: "Scout a guild base and reference it for later",
@@ -71,11 +73,6 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 		{
 			Name:        soloCommandName,
 			Description: "Submit your solo construction to showcase",
-		},
-		{
-			Name:                     welcomeTestCommandName,
-			Description:              "Preview the welcome message (admins only)",
-			DefaultMemberPermissions: &adminPerm,
 		},
 		{
 			Name:        guildLinkCommandName,
@@ -128,6 +125,30 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			},
 		},
 		{
+			Name:        dotifyCommandName,
+			Description: "Replace dots in a URL with ｡ so it can be shared in Where Builders Meet",
+			Options: []*discordgo.ApplicationCommandOption{
+				{
+					Type:        discordgo.ApplicationCommandOptionString,
+					Name:        "url",
+					Description: "URL to transform",
+					Required:    true,
+				},
+			},
+		},
+	})
+	if err != nil {
+		slog.Error("registering global commands", "err", err)
+	}
+
+	// Guild-only commands — mod/admin tools, instant propagation.
+	_, err = s.ApplicationCommandBulkOverwrite(s.State.User.ID, discordGuildID, []*discordgo.ApplicationCommand{
+		{
+			Name:                     welcomeTestCommandName,
+			Description:              "Preview the welcome message (admins only)",
+			DefaultMemberPermissions: &adminPerm,
+		},
+		{
 			Name:        warningListCommandName,
 			Description: "Show the warning list (only you see the result)",
 		},
@@ -148,21 +169,9 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Description:              "Sync forum channel tags to the canonical list in config/tags.json (admins only)",
 			DefaultMemberPermissions: &adminPerm,
 		},
-		{
-			Name:        dotifyCommandName,
-			Description: "Replace dots in a URL with ｡ so it can be shared in Where Builders Meet",
-			Options: []*discordgo.ApplicationCommandOption{
-				{
-					Type:        discordgo.ApplicationCommandOptionString,
-					Name:        "url",
-					Description: "URL to transform",
-					Required:    true,
-				},
-			},
-		},
 	})
 	if err != nil {
-		slog.Error("registering commands", "err", err)
+		slog.Error("registering guild commands", "err", err)
 	}
 }
 
