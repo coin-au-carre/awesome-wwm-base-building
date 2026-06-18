@@ -5,7 +5,7 @@ tags: ["update", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-05
 order: 15
-image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a344184&format=webp&hm=13d1e299876524490157a66614c2088843be1e8af410d0e42a9d419803636c36&is=6a32f004&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a34ea44&format=webp&hm=70df992ab18e641e61d82f5ed2fd57ab7d81f570c123e0530fc6ca0b2f500c8a&is=6a3398c4&quality=lossless"
 featured: false
 ---
 
@@ -19,10 +19,10 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a34687c&hm=10995e5bedb45d5aff3f692647d980857cb1b49d30d7b2fabf630d3605dd14a9&is=6a3316fc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a35113c&hm=f5530d206049b320a22333fda7b5e77cd162456f1e7d775b4c265ee9da481a52&is=6a33bfbc&" controls></video>
 </div>
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a344184&format=webp&hm=13d1e299876524490157a66614c2088843be1e8af410d0e42a9d419803636c36&is=6a32f004&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a34ea44&format=webp&hm=70df992ab18e641e61d82f5ed2fd57ab7d81f570c123e0530fc6ca0b2f500c8a&is=6a3398c4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Note for mobile and PS5 players: there is no known method to rotate on a second axis as of now.
@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a34613d&format=webp&hm=7d01aa00de358c0ba4af17917f07f7de9c97f7a684a0bd616cc367e1400b865c&is=6a330fbd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a3509fd&format=webp&hm=d0dd81a95bbf60f35743f2bb95d1bbf18659b3c516e3eb2c65e7ae78d2069878&is=6a33b87d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a3460de&format=webp&hm=a56f8ed7747af14838b9e3ff701c1671ab413d1779d0ebc615ade1a89d2b02d9&is=6a330f5e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a35099e&format=webp&hm=d4701ab2dc897bda0c6c42fa05b1a1f219f4ef8922f7406b3d90554c18fb4274&is=6a33b81e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a346123&format=webp&hm=7266b61a813ce8b0c3ee0a865e3305c98c8c4a26f8f7d8f70c7e2bf7a41b31c7&is=6a330fa3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a3509e3&format=webp&hm=648a15c264ed09c92a6bb44e0c68670b677ff625274f2d67c2791e5fc6f679d6&is=6a33b863&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -87,7 +87,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3465c7&hm=fad80fb8169d14144ddbd7bcf96ef17d88ba4da89b295df69970878275600a03&is=6a331447&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a350e87&hm=59aee7963983ce833857aad88c09866c47ef541c8a325d4a55d57f7aa19615fb&is=6a33bd07&" controls></video>
 </div>
 
 ---

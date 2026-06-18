@@ -13,7 +13,7 @@ Curious on how to make a curved roof using single-piece pre-fabricated roof comp
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496992360016642109/circle_1.mp4?ex=6a3468c7&hm=d9a9d1539b4151fb3ccabe3c6e6a88f47c2a655c6ba5773e7ae828547b541fe7&is=6a331747&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496992360016642109/circle_1.mp4?ex=6a351187&hm=52db0f1e8eaa24825eb39b2812354f6f7f7eee0bdd19de6a9dc2d915c283030b&is=6a33c007&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 **Step 1** 
 Make your initial circle which will act as your guide by selecting any **railing** that can snap. To make a perfect circle, you want to make sure that auto-snap is **on** and then begin by setting your railing in the center, then rotate exactly 1 click per segment. 
@@ -26,7 +26,7 @@ Snap 1 piece of roof to the center of each floor piece. This will act as your gu
 
 ---
 
-<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496993098390307007/circle_2.mp4?ex=6a346977&hm=0476daa9b5ad685fae5097c91c6d8d47d14b20356777881e502b9f94cd2f249a&is=6a3317f7&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
+<video src="https://cdn.discordapp.com/attachments/1496991561542537216/1496993098390307007/circle_2.mp4?ex=6a351237&hm=1dbc82b55e5a2b59831b8a14c1868db641933e2094e2919d95726ae64405c300&is=6a33c0b7&" controls style="border-radius: 0.75rem; width: 100%; max-width: 1080px;"></video>
 
 **Step 4**
 **Disclaimer:** The creation of the outer circle can be a little tricky without precise placement. With precise placement, this next step is quite a bit easier, as you can simply  slide pieces in place, but this guide is for building within guild bases, where we do not yet have precise placement.
