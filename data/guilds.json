@@ -1,5 +1,19 @@
 [
 	{
+		"name": "PvX",
+		"builders": [
+			"Cataleya"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Waterfalls\nMajestuous design",
+		"score": 1,
+		"lastModified": "June 18, 2026 at 10:15 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Lui-TH",
 		"builders": [
 			"CHillCHill",
