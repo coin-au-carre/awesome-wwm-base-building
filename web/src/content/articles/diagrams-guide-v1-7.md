@@ -18,6 +18,7 @@ Diagrams let you save and reuse constructions. v1.7 introduces three types depen
 - [Large Guild Diagrams \[Guild only\]](#large-guild-diagrams-guild-only)
 - [Small Guild Diagrams \[Guild only\]](#small-guild-diagrams-guild-only)
 - [How to save a diagram](#how-to-save-a-diagram)
+- [Understanding the Copyright system](#understanding-the-copyright-system)
 - [Advanced Tip for small diagram: Use Recommended Spot](#advanced-tip-for-small-diagram-use-recommended-spot)
 - [Fix interactive components after applying a large guild diagram](#fix-interactive-components-after-applying-a-large-guild-diagram)
 
@@ -100,6 +101,22 @@ The save process is the same for all diagram types:
 The choice between "Save & Exit" and "Leave directly" from the final modal makes no difference.
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506678825071/image.png?ex=6a349a25&format=webp&hm=49979726f8ebe49082f46e6278095bf1986cc1fca9c23e7b213079baa4108763&is=6a3348a5&quality=lossless" alt="Large Guild Diagram — saved result" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+
+---
+
+## Understanding the Copyright system
+
+*Thanks to [AegisNite Edge](/builders/aegisnite-edge) and [Crueliet](/builders/crueliet) for their help figuring this out.*
+
+To save a diagram in both guild and solo base, you need to own at least **70%** of the components in it, meaning you placed them yourself. If the Copyright Score is above **30%**, you cannot save the diagram.
+
+This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
+
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a352bd5&format=webp&hm=cdaeb98483ca0d29e6f3ffb3ec82669c931a7779d68189705eaead7656979865&is=6a33da55&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a352bd5&format=webp&hm=89facc7b1ad0c32ed53d9a0fb19482ebfee56d5f092f2afe48bd6a58702d517d&is=6a33da55&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+
+There is a workaround: add components you own directly inside the diagram area to raise your ownership percentage above the 70% threshold.
 
 ---
 
