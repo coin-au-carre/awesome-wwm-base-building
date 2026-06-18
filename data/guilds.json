@@ -1,5 +1,21 @@
 [
 	{
+		"id": "10270165",
+		"name": "Mischief",
+		"builders": [
+			"Geleita",
+			"Rou-si"
+		],
+		"tags": [
+			"Mountain/Cave"
+		],
+		"discordThread": "",
+		"whatToVisit": "Mountain/Cave with river\nGuid Party area revisited",
+		"score": 0,
+		"lastModified": "June 18, 2026 at 11:28 PM UTC",
+		"scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"name": "Moonlakes",
 		"builders": [
 			"Yué"
