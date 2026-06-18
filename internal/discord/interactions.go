@@ -30,6 +30,7 @@ const (
 	syncTagsCommandName    = "sync-tags"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
+	dotifyCommandName      = "dotify"
 )
 
 var submitMu sync.Mutex
@@ -147,6 +148,18 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Description:              "Sync forum channel tags to the canonical list in config/tags.json (admins only)",
 			DefaultMemberPermissions: &adminPerm,
 		},
+		{
+			Name:        dotifyCommandName,
+			Description: "Replace dots in a URL with ｡ so it can be shared in Where Builders Meet",
+			Options: []*discordgo.ApplicationCommandOption{
+				{
+					Type:        discordgo.ApplicationCommandOptionString,
+					Name:        "url",
+					Description: "URL to transform",
+					Required:    true,
+				},
+			},
+		},
 	})
 	if err != nil {
 		slog.Error("registering commands", "err", err)
@@ -196,6 +209,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSyncUpdatesCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			case syncTagsCommandName:
 				handleSyncTagsCommand(s, i, root, guildForumChannelID, soloForumChannelID)
+			case dotifyCommandName:
+				handleDotifyCommand(s, i)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID
