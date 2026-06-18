@@ -11,9 +11,8 @@ image: "https://media.discordapp.net/attachments/1516786716009304184/15167955050
 
 Diagrams let you save and reuse constructions. v1.7 introduces three types depending on your context.
 
-## Table of Contents
+### Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Accessing the Diagram tab](#accessing-the-diagram-tab)
 - [Solo Small Diagrams \[Guild + Solo\]](#solo-small-diagrams-guild--solo)
 - [Large Guild Diagrams \[Guild only\]](#large-guild-diagrams-guild-only)
