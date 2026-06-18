@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a346a04&format=webp&hm=f1a2741783be43919bbdfa8fae52475bb3108a9a036cdabe5607759fdbddd9c0&is=6a331884&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a3512c4&format=webp&hm=0fe5d9072502f38a14e66c542a7136a8dec599b6014ab8a09320a2b4a38bee09&is=6a33c144&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 萬 ten thousand
 家 family

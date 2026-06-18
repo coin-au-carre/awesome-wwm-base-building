@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a346bb3&hm=6d94ac8f958a013bcd4a531ebcaa9421971736dabcdc91004119b3970ac95841&is=6a331a33&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a351473&hm=e291a6e843fce049f0fc9681fa81f350fc52efe37fabe0a75bf87ec73db548f1&is=6a33c2f3&" controls></video>
 </div>
 
 
