@@ -224,7 +224,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case postModalID:
 				handlePostModal(s, i, bot, devChannelID, guildForumChannelID)
 			case soloModalID:
-				handleSoloModal(s, i, bot, submissionChannelID, soloForumChannelID)
+				handleSoloModal(s, i, bot, submissionChannelID, soloForumChannelID, devChannelID)
 			}
 		}
 	}

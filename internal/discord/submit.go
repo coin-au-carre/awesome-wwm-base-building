@@ -374,32 +374,64 @@ func handlePostModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 		channelMention = "**#guild-base-showcase**"
 	}
 
+	dm := fmt.Sprintf(
+		"## 🏯 %s\n\n"+
+			"🌐 **Future page on the website:** <%s>\n"+
+			"*(may take a little while to appear once everything syncs)*\n\n"+
+			"Here's your formatted post, ready to copy!\n\n"+
+			"**1.** Go to %s\n"+
+			"**2.** Create a new post titled: `%s`\n"+
+			"**3.** Paste the text below as your message\n"+
+			"**4.** Add your screenshots 📸\n\n"+
+			"```\n%s\n```",
+		name, guildURL, channelMention, threadTitle, strings.TrimSpace(content.String()),
+	)
+
+	var replyContent string
+	if len(dm) > 2000 {
+		slog.Warn("submit-guild: post too long for DM", "user", memberDisplayName(i), "len", len(dm))
+		skeleton := fmt.Sprintf("## 🏯 %s\n\n", threadTitle)
+		if builders != "" {
+			skeleton += fmt.Sprintf("👷 Builders: %s\n\n", builders)
+		}
+		skeleton += "### 📝 Lore\n(paste your lore here)\n\n### 🧙 What to visit\n(paste your what to visit here)"
+		skeletonMsg := fmt.Sprintf(
+			"⚠️ Your lore or \"What to Visit\" is too long for Ruby to send automatically. Please fill in the template below manually and post it in %s:\n\n```\n%s\n```",
+			channelMention, skeleton,
+		)
+		if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
+			_, _ = s.ChannelMessageSend(ch.ID, skeletonMsg)
+		}
+		bot.Send(submissionChannelID, fmt.Sprintf("⚠️ **submit-guild**: post from %s (**%s**) was too long to DM (%d chars), sent skeleton template instead.", memberDisplayName(i), threadTitle, len(dm)))
+		replyContent = "Check your DMs — your lore or \"What to Visit\" was too long to format automatically, so I sent you a template to fill in manually. 📬"
+	} else {
+		dmSent := false
+		if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
+			if _, err := s.ChannelMessageSend(ch.ID, dm); err == nil {
+				dmSent = true
+			} else {
+				slog.Warn("submit-guild: failed to send DM", "user", memberDisplayName(i), "err", err)
+			}
+		} else {
+			slog.Warn("submit-guild: failed to open DM channel", "user", memberDisplayName(i), "err", err)
+		}
+		if dmSent {
+			replyContent = fmt.Sprintf("Check your DMs — I sent you your formatted post to copy into %s! 📬", channelMention)
+		} else {
+			replyContent = dm
+		}
+	}
+
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
-			Content: fmt.Sprintf("Check your DMs — I sent you your formatted post to copy into %s! 📬", channelMention),
+			Content: replyContent,
 			Flags:   discordgo.MessageFlagsEphemeral,
 		},
 	})
 
 	if submissionChannelID != "" {
 		bot.Send(submissionChannelID, fmt.Sprintf("**/submit-guild filled ** by %s: **%s**", i.Member.DisplayName(), threadTitle))
-	}
-
-	if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
-		dm := fmt.Sprintf(
-			"## 🏯 %s\n\n"+
-				"Here's your formatted post, ready to copy!\n\n"+
-				"**1.** Go to %s\n"+
-				"**2.** Create a new post titled: `%s`\n"+
-				"**3.** Paste the text below as your message\n"+
-				"**4.** Add your screenshots 📸\n\n"+
-				"```\n%s\n```\n\n"+
-				"🌐 **Future page on the website:** <%s>\n"+
-				"*(may take a little while to appear once everything syncs)*",
-			name, channelMention, threadTitle, strings.TrimSpace(content.String()), guildURL,
-		)
-		_, _ = s.ChannelMessageSend(ch.ID, dm)
 	}
 }
 
@@ -461,7 +493,7 @@ func handleSoloCommand(s *discordgo.Session, i *discordgo.InteractionCreate) {
 	}
 }
 
-func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, submissionChannelID, soloForumChannelID string) {
+func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, submissionChannelID, soloForumChannelID, devChannelID string) {
 	fields := modalFields(i.ModalSubmitData().Components)
 	name, buildID := parseLocation(fields["name"])
 	builders := fields["builders"]
@@ -492,33 +524,65 @@ func handleSoloModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *
 		channelMention = "**#solo-building-showcase**"
 	}
 
+	soloURL := websiteBase + "/solos/" + slugify(name)
+	dm := fmt.Sprintf(
+		"## 🏠 %s\n\n"+
+			"🌐 **Future page on the website:** <%s>\n"+
+			"*(may take a little while to appear once everything syncs)*\n\n"+
+			"Here's your formatted post, ready to copy!\n\n"+
+			"**1.** Go to %s\n"+
+			"**2.** Create a new post titled: `%s`\n"+
+			"**3.** Paste the text below as your message\n"+
+			"**4.** Add your screenshots 📸\n\n"+
+			"```\n%s\n```",
+		name, soloURL, channelMention, threadTitle, strings.TrimSpace(content.String()),
+	)
+
+	var replyContent string
+	if len(dm) > 2000 {
+		slog.Warn("submit-solo: post too long for DM", "user", memberDisplayName(i), "len", len(dm))
+		skeleton := fmt.Sprintf("## 🏠 %s\n\n", threadTitle)
+		if builders != "" {
+			skeleton += fmt.Sprintf("👷 Builders: %s\n\n", builders)
+		}
+		skeleton += "### 📝 Lore\n(paste your lore here)\n\n### 🧙 What to visit\n(paste your what to visit here)"
+		skeletonMsg := fmt.Sprintf(
+			"⚠️ Your lore or \"What to Visit\" is too long for Ruby to send automatically. Please fill in the template below manually and post it in %s:\n\n```\n%s\n```",
+			channelMention, skeleton,
+		)
+		if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
+			_, _ = s.ChannelMessageSend(ch.ID, skeletonMsg)
+		}
+		bot.Send(devChannelID, fmt.Sprintf("⚠️ **submit-solo**: post from %s (**%s**) was too long to DM (%d chars), sent skeleton template instead.", memberDisplayName(i), threadTitle, len(dm)))
+		replyContent = "Check your DMs — your lore or \"What to Visit\" was too long to format automatically, so I sent you a template to fill in manually. 📬"
+	} else {
+		dmSent := false
+		if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
+			if _, err := s.ChannelMessageSend(ch.ID, dm); err == nil {
+				dmSent = true
+			} else {
+				slog.Warn("submit-solo: failed to send DM", "user", memberDisplayName(i), "err", err)
+			}
+		} else {
+			slog.Warn("submit-solo: failed to open DM channel", "user", memberDisplayName(i), "err", err)
+		}
+		if dmSent {
+			replyContent = fmt.Sprintf("Check your DMs — I sent you your formatted post to copy into %s! 📬", channelMention)
+		} else {
+			replyContent = dm
+		}
+	}
+
 	_ = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
-			Content: fmt.Sprintf("Check your DMs — I sent you your formatted post to copy into %s! 📬", channelMention),
+			Content: replyContent,
 			Flags:   discordgo.MessageFlagsEphemeral,
 		},
 	})
 
 	if submissionChannelID != "" {
 		bot.Send(submissionChannelID, fmt.Sprintf("**New solo submission** by %s: **%s**", i.Member.DisplayName(), threadTitle))
-	}
-
-	soloURL := websiteBase + "/solos/" + slugify(name)
-	if ch, err := s.UserChannelCreate(i.Member.User.ID); err == nil {
-		dm := fmt.Sprintf(
-			"## 🏠 %s\n\n"+
-				"Here's your formatted post, ready to copy!\n\n"+
-				"**1.** Go to %s\n"+
-				"**2.** Create a new post titled: `%s`\n"+
-				"**3.** Paste the text below as your message\n"+
-				"**4.** Add your screenshots 📸\n\n"+
-				"```\n%s\n```\n\n"+
-				"🌐 **Future page on the website:** <%s>\n"+
-				"*(may take a little while to appear once everything syncs)*",
-			name, channelMention, threadTitle, strings.TrimSpace(content.String()), soloURL,
-		)
-		_, _ = s.ChannelMessageSend(ch.ID, dm)
 	}
 }
 
