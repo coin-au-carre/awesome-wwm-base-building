@@ -7194,38 +7194,6 @@
 		"postedOnBehalfOf": "1147431374194745406"
 	},
 	{
-		"name": "Jenova",
-		"builders": [
-			"Ahlyam",
-			"Aihan"
-		],
-		"tags": [
-			"Zen/Nature"
-		],
-		"discordThread": "https://discord.com/channels/1483447710617960508/1500276695159017632",
-		"posterDiscordId": "149790526076354561",
-		"posterUsername": "Ahlyam",
-		"lore": "Showcase of how multiple builds could work. Check https://www.wherebuildersmeet.com/tutorials/multiple-builds-per-guild/.\nIt used to be our old and first guild base build.",
-		"whatToVisit": "- The eternal arena gradins\n- Hidden room\n- Zen garden",
-		"score": 28,
-		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1500276695159017632/1500276696325292102/2026317232952.png?ex=6a33d54e\u0026is=6a3283ce\u0026hm=d0aa1f1dc266412d42458ff3de98239393fac4145c68b32b8990a6b7ee8a8249\u0026",
-			"https://cdn.discordapp.com/attachments/1500276695159017632/1500276697310691472/202631244846.png?ex=6a33d54e\u0026is=6a3283ce\u0026hm=d951e2b778357300d7019c2a672f97639267a7c888715a3be701111876b5c53e\u0026"
-		],
-		"screenshotSections": [
-			{
-				"label": "🏯 Jenova",
-				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1500276695159017632/1500276696325292102/2026317232952.png?ex=6a33d54e\u0026is=6a3283ce\u0026hm=d0aa1f1dc266412d42458ff3de98239393fac4145c68b32b8990a6b7ee8a8249\u0026",
-					"https://cdn.discordapp.com/attachments/1500276695159017632/1500276697310691472/202631244846.png?ex=6a33d54e\u0026is=6a3283ce\u0026hm=d951e2b778357300d7019c2a672f97639267a7c888715a3be701111876b5c53e\u0026"
-				]
-			}
-		],
-		"createdAt": "May 2, 2026 at 11:23 PM UTC",
-		"lastModified": "May 2, 2026 at 11:24 PM UTC",
-		"buildTitle": "First Build"
-	},
-	{
 		"id": "10105285",
 		"name": "幽 Night Jade 玉",
 		"builders": [
