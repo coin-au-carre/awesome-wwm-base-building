@@ -983,6 +983,78 @@ func resolveUsers(s *discordgo.Session, discordGuildID string, userThreads map[s
 	return cache
 }
 
+// fetchAllContent runs a concurrent worker pool to fetch thread content and reactions.
+// fetch is called once per thread to retrieve its parsed data.
+func fetchAllContent(b *Bot, threads []*discordgo.Channel, threadURLToIdx map[string]int, fetch func(*discordgo.Session, *discordgo.Channel) threadData, label string) ([]fetchedThread, map[string]map[string]bool) {
+	type work struct {
+		thread *discordgo.Channel
+		idx    int
+	}
+	type result struct {
+		idx       int
+		thread    *discordgo.Channel
+		data      threadData
+		reactions map[string][]string
+	}
+
+	jobs := make(chan work, len(threads))
+	results := make(chan result, len(threads))
+
+	var wg sync.WaitGroup
+	for range numWorkers {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for j := range jobs {
+				var (
+					data      threadData
+					reactions map[string][]string
+					wg2       sync.WaitGroup
+				)
+				wg2.Add(2)
+				go func() { defer wg2.Done(); data = fetch(b.Session, j.thread) }()
+				go func() { defer wg2.Done(); reactions = fetchThreadReactions(b.Session, j.thread.ID) }()
+				wg2.Wait()
+				results <- result{idx: j.idx, thread: j.thread, data: data, reactions: reactions}
+			}
+		}()
+	}
+
+	for _, thread := range threads {
+		link := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+		idx, ok := threadURLToIdx[link]
+		if !ok {
+			continue
+		}
+		jobs <- work{thread: thread, idx: idx}
+	}
+	close(jobs)
+	go func() { wg.Wait(); close(results) }()
+
+	t0 := time.Now()
+	var fetched []fetchedThread
+	userThreads := make(map[string]map[string]bool)
+	for r := range results {
+		fetched = append(fetched, fetchedThread{idx: r.idx, thread: r.thread, data: r.data, reactions: r.reactions})
+		if r.data.AuthorID != "" {
+			if userThreads[r.data.AuthorID] == nil {
+				userThreads[r.data.AuthorID] = make(map[string]bool)
+			}
+			userThreads[r.data.AuthorID][r.thread.ID] = true
+		}
+		for _, users := range r.reactions {
+			for _, uid := range users {
+				if userThreads[uid] == nil {
+					userThreads[uid] = make(map[string]bool)
+				}
+				userThreads[uid][r.thread.ID] = true
+			}
+		}
+	}
+	slog.Info(label+" content and reactions fetched", "threads", len(fetched), "elapsed", time.Since(t0).Round(time.Millisecond))
+	return fetched, userThreads
+}
+
 func totalReactions(reactions map[string][]string) int {
 	n := 0
 	for _, users := range reactions {

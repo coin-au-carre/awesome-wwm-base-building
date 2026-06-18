@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log/slog"
 	"strings"
-	"sync"
 	"time"
 
 	"ruby/internal/blueprint"
@@ -114,92 +113,7 @@ func BlueprintSyncFetch(b *Bot, blueprints []blueprint.Blueprint, cfg SyncConfig
 		}
 	}
 
-	type contentWork struct {
-		thread *discordgo.Channel
-		idx    int
-	}
-	type contentResult struct {
-		idx       int
-		thread    *discordgo.Channel
-		data      threadData
-		reactions map[string][]string
-	}
-
-	contentJobs := make(chan contentWork, len(threads))
-	contentResults := make(chan contentResult, len(threads))
-
-	var wg sync.WaitGroup
-	for range numWorkers {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for j := range contentJobs {
-				var (
-					data      threadData
-					reactions map[string][]string
-					wg2       sync.WaitGroup
-				)
-				wg2.Add(2)
-				go func() {
-					defer wg2.Done()
-					data = fetchBlueprintContent(b.Session, j.thread)
-				}()
-				go func() {
-					defer wg2.Done()
-					reactions = fetchThreadReactions(b.Session, j.thread.ID)
-				}()
-				wg2.Wait()
-				contentResults <- contentResult{
-					idx:       j.idx,
-					thread:    j.thread,
-					data:      data,
-					reactions: reactions,
-				}
-			}
-		}()
-	}
-
-	for _, thread := range threads {
-		link := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
-		idx, ok := threadURLToIdx[link]
-		if !ok {
-			continue
-		}
-		contentJobs <- contentWork{thread: thread, idx: idx}
-	}
-	close(contentJobs)
-
-	go func() {
-		wg.Wait()
-		close(contentResults)
-	}()
-
-	tFetch := time.Now()
-	var fetched []fetchedThread
-	userThreads := make(map[string]map[string]bool)
-	for r := range contentResults {
-		fetched = append(fetched, fetchedThread{
-			idx:       r.idx,
-			thread:    r.thread,
-			data:      r.data,
-			reactions: r.reactions,
-		})
-		if r.data.AuthorID != "" {
-			if userThreads[r.data.AuthorID] == nil {
-				userThreads[r.data.AuthorID] = make(map[string]bool)
-			}
-			userThreads[r.data.AuthorID][r.thread.ID] = true
-		}
-		for _, users := range r.reactions {
-			for _, uid := range users {
-				if userThreads[uid] == nil {
-					userThreads[uid] = make(map[string]bool)
-				}
-				userThreads[uid][r.thread.ID] = true
-			}
-		}
-	}
-	slog.Info("blueprint content and reactions fetched", "threads", len(fetched), "elapsed", time.Since(tFetch).Round(time.Millisecond))
+	fetched, userThreads := fetchAllContent(b, threads, threadURLToIdx, fetchBlueprintContent, "blueprint")
 
 	voterCounts := make(map[string]int, len(userThreads))
 	for uid, threadSet := range userThreads {
