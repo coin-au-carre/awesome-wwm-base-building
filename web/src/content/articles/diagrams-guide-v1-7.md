@@ -45,7 +45,7 @@ Found under the **"Small Diagram"** category in the Diagram tab.
 
 These diagrams can only be **created in Solo World**, but can be applied in both solo world and guild bases. → [How to save a diagram](#how-to-save-a-diagram)
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a3492bb&format=webp&hm=ab205d954c52674b72f55cc0a335b14390aba6ba2f5b0eae64037f5ff1cda2d1&is=6a33413b&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a353b7b&format=webp&hm=f0c5cbccfa98911c7cb70d4fbd5f1213c67656d2d0ce4be93c4a7064b40a07af&is=6a33e9fb&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
 
 
 ---

@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a348f65&format=webp&hm=972888e7a6523c3041469386e4c0e0957e8d13349a3582793e037d80d83623e8&is=6a333de5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a353825&format=webp&hm=066d8871aa4faa664ccbf07f6b42b453e833329b6879d46f5b97570e123d6bcc&is=6a33e6a5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a348f85&format=webp&hm=0e22ddd819c48ebcabe926d6114f11d27cdc766f96671c2a1a67de71f59fd50f&is=6a333e05&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a353845&format=webp&hm=a8d16b8e187131f2b8a3cae3c62a7b552771e346988452d803a917c464494cb2&is=6a33e6c5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a349446&format=webp&hm=a18316eb0ccdff4c79971eef03a99903d745886f4ddd94b0ca44892dac27167b&is=6a3342c6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a353d06&format=webp&hm=c3c6d287e3a6765b5510cc85c4c94b3eb15bf26571a5ab2996c5f21b270f4f50&is=6a33eb86&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%; max-width: 480px;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
