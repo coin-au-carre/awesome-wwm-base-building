@@ -1,5 +1,19 @@
 [
 	{
+		"name": "Moonlakes",
+		"builders": [
+			"Yué"
+		],
+		"tags": [
+			"Party Area"
+		],
+		"discordThread": "",
+		"whatToVisit": "Guild party area revisited\nLong path in cave",
+		"score": 0,
+		"lastModified": "June 18, 2026 at 11:21 PM UTC",
+		"scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"name": "PvX",
 		"builders": [
 			"Cataleya"
