@@ -23,8 +23,8 @@ const instance = new Marked({
       const isExternal = token.href?.startsWith("http")
       return `<a href="${token.href ?? ""}"${isExternal ? ` target="_blank" rel="noopener noreferrer"` : ""} class="underline hover:opacity-75 transition-opacity">${token.text}</a>`
     },
-    listitem(token) {
-      return `<li><span>${token.text}</span></li>\n`
+    checkbox({ checked }: { checked: boolean }) {
+      return `<input type="checkbox"${checked ? ' checked=""' : ""}> `
     },
   },
 })

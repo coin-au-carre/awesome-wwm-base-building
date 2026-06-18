@@ -245,7 +245,7 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><BookOpen size={13} />Lore</h2>
         <div class="border-l-2 border-border pl-4">
           <div
-            class="text-sm text-muted-foreground leading-relaxed space-y-2 [&_strong]:text-foreground [&_strong]:font-medium [&_blockquote]:border-l-2 [&_blockquote]:border-border [&_blockquote]:pl-4 [&_blockquote]:space-y-2 [&_blockquote]:italic [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-foreground"
+            class="prose prose-sm max-w-none"
             set:html={renderMarkdown(resolvedLore)}
           />
         </div>
@@ -258,7 +258,7 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><MapPin size={13} />What to Visit</h2>
         <div class="rounded-xl bg-muted/40 border border-border px-5 py-4">
           <div
-            class="text-sm leading-relaxed space-y-3 [&_ul]:space-y-1.5 [&_li]:flex [&_li]:gap-2 [&_li]:before:content-['·'] [&_li]:before:text-muted-foreground [&_strong]:font-semibold [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-foreground"
+            class="prose prose-sm max-w-none"
             set:html={renderMarkdown(resolvedWhatToVisit)}
           />
         </div>
