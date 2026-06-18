@@ -119,6 +119,11 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	}
 	slog.Info("threads collected", "count", len(threads), "elapsed", time.Since(t0).Round(time.Millisecond))
 
+	seenThreadURLs := make(map[string]bool, len(threads))
+	for _, t := range threads {
+		seenThreadURLs[fmt.Sprintf("https://discord.com/channels/%s/%s", t.GuildID, t.ID)] = true
+	}
+
 	if cfg.GuildFilter != "" {
 		filter := strings.ToLower(cfg.GuildFilter)
 		filtered := threads[:0]
@@ -151,6 +156,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 	}
 	newIndices := make(map[int]bool)
 	placeholderIndices := make(map[int]bool) // placeholder entries superseded by a real thread
+	originalGuildCount := len(guilds)
 
 	for _, thread := range threads {
 		name, threadID, buildTitleFromThread := guild.ExtractNameAndID(thread.Name)
@@ -286,6 +292,21 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			}
 		}
 		threadURLToIdx = remappedURLToIdx
+	}
+
+	// Warn about stored guilds whose thread was not seen in the crawl (deleted/locked threads).
+	if cfg.GuildFilter == "" {
+		for i, g := range guilds[:originalGuildCount] {
+			if g.DiscordThread == "" || seenThreadURLs[g.DiscordThread] || placeholderIndices[i] {
+				continue
+			}
+			warning := fmt.Sprintf(
+				"⚠️ **Orphaned guild entry:** **%s** — thread not found in Discord (deleted or locked?).\nConsider removing it from guilds.json: %s",
+				guild.ExtractName(g.Name), g.DiscordThread,
+			)
+			slog.Warn("orphaned guild entry", "name", g.Name, "thread", g.DiscordThread)
+			partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
+		}
 	}
 
 	type contentWork struct {

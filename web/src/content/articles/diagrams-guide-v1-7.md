@@ -11,11 +11,26 @@ image: "https://media.discordapp.net/attachments/1516786716009304184/15167955050
 
 Diagrams let you save and reuse constructions. v1.7 introduces three types depending on your context.
 
+## Table of Contents
+
+- [Accessing the Diagram tab](#accessing-the-diagram-tab)
+- [Solo Small Diagrams \[Guild + Solo\]](#solo-small-diagrams-guild--solo)
+- [Large Guild Diagrams \[Guild only\]](#large-guild-diagrams-guild-only)
+- [Small Guild Diagrams \[Guild only\]](#small-guild-diagrams-guild-only)
+- [How to save a diagram](#how-to-save-a-diagram)
+- [Advanced Tip for small diagram: Use Recommended Spot](#advanced-tip-for-small-diagram-use-recommended-spot)
+- [Fix interactive components after applying a large guild diagram](#fix-interactive-components-after-applying-a-large-guild-diagram)
+
 ---
 
 ## Accessing the Diagram tab
 
 Open **Construction mode** (press **F4** on PC), then enter **Build mode** (press **B**). The **Diagram** tab appears below the "Personal" tab.
+
+There are 3 types of diagrams:
+- [Solo Small Diagrams](#solo-small-diagrams-guild--solo) — created in solo world, usable in guild bases too
+- [Large Guild Diagrams](#large-guild-diagrams-guild-only) — full guild base snapshot
+- [Small Guild Diagrams](#small-guild-diagrams-guild-only) — partial section of a guild base
 
 ---
 
