@@ -90,7 +90,7 @@ The save process is the same for all diagram types:
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place. We consider this as a bug <https://www.wherebuildersmeet.com/bugs/?bug=small-diagrams-placement-is-tedious>. One solution is to use "Recommended Spot". 
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a33d24b&format=webp&hm=5f732321efb824984a55ae690809a5d9736228881f8952bf8e327b5ddf90b986&is=6a3280cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a347b0b&format=webp&hm=ff82f662b3f4ffde265d761bb1aa3283e7a4f8db75bc41416835f87c8efb75bd&is=6a33298b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
