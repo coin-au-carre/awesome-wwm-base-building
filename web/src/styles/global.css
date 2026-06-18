@@ -161,6 +161,23 @@
   gap: 0.5rem;
 }
 
+.prose h2 { font-size: 1.25rem; }
+.prose h3 { font-size: 1.05rem; }
+
+.prose img {
+  cursor: zoom-in;
+  transition: opacity 0.15s;
+}
+.prose img:hover { opacity: 0.88; }
+
+.prose figcaption {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  margin-top: -0.5rem;
+  opacity: 0.7;
+}
+
 /* Heading anchor links injected by Astro — keep them unstyled */
 .prose :is(h2, h3, h4) > a {
   color: inherit;
