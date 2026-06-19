@@ -125,16 +125,27 @@ func onReady(discordGuildID string) func(*discordgo.Session, *discordgo.Ready) {
 }
 
 func logRegisteredCommands(s *discordgo.Session, discordGuildID string) {
-	cmds, err := s.ApplicationCommands(s.State.User.ID, discordGuildID)
+	globalCmds, err := s.ApplicationCommands(s.State.User.ID, "")
 	if err != nil {
-		slog.Warn("could not list registered commands", "err", err)
+		slog.Warn("could not list global commands", "err", err)
+	} else {
+		names := make([]string, 0, len(globalCmds))
+		for _, c := range globalCmds {
+			names = append(names, "/"+c.Name)
+		}
+		slog.Info("registered global commands", "commands", names)
+	}
+
+	guildCmds, err := s.ApplicationCommands(s.State.User.ID, discordGuildID)
+	if err != nil {
+		slog.Warn("could not list guild commands", "err", err)
 		return
 	}
-	names := make([]string, 0, len(cmds))
-	for _, c := range cmds {
+	names := make([]string, 0, len(guildCmds))
+	for _, c := range guildCmds {
 		names = append(names, "/"+c.Name)
 	}
-	slog.Info("registered commands", "commands", names)
+	slog.Info("registered guild commands", "commands", names)
 }
 
 var reMention = regexp.MustCompile(`<@[!&]?\d+>`)

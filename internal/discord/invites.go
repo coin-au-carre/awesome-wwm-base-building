@@ -1,8 +1,10 @@
 package discord
 
 import (
+	"encoding/json"
 	"fmt"
 	"log/slog"
+	"net/http"
 	"sync"
 
 	"github.com/bwmarrin/discordgo"
@@ -11,7 +13,7 @@ import (
 // InviteTracker caches invite use-counts so we can detect which invite a new member used.
 type InviteTracker struct {
 	mu      sync.Mutex
-	uses    map[string]int             // code -> use count
+	uses    map[string]int              // code -> use count
 	invites map[string]*discordgo.Invite // code -> full invite (for inviter info)
 	guildID string
 	logCh   string
@@ -26,11 +28,37 @@ func NewInviteTracker(guildID, logChannelID string) *InviteTracker {
 	}
 }
 
+// guildVanityInvite fetches the guild vanity URL as an Invite.
+// discordgo v0.29.0 has no built-in method for this endpoint.
+func guildVanityInvite(s *discordgo.Session, guildID string) (*discordgo.Invite, error) {
+	body, err := s.Request(http.MethodGet, discordgo.EndpointGuilds+guildID+"/vanity-url", nil)
+	if err != nil {
+		return nil, err
+	}
+	var inv discordgo.Invite
+	if err := json.Unmarshal(body, &inv); err != nil {
+		return nil, err
+	}
+	return &inv, nil
+}
+
+func (t *InviteTracker) fetchAll(s *discordgo.Session) ([]*discordgo.Invite, error) {
+	invites, err := s.GuildInvites(t.guildID)
+	if err != nil {
+		return nil, err
+	}
+	// GuildInvites omits the vanity URL; fetch it separately.
+	if vanity, err := guildVanityInvite(s, t.guildID); err == nil && vanity != nil && vanity.Code != "" {
+		invites = append(invites, vanity)
+	}
+	return invites, nil
+}
+
 func (t *InviteTracker) OnReady(s *discordgo.Session, _ *discordgo.Ready) {
 	if t.guildID == "" {
 		return
 	}
-	invites, err := s.GuildInvites(t.guildID)
+	invites, err := t.fetchAll(s)
 	if err != nil {
 		slog.Warn("invite tracker: failed to fetch invites", "err", err)
 		return
@@ -64,7 +92,7 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 			return
 		}
 
-		current, err := s.GuildInvites(t.guildID)
+		current, err := t.fetchAll(s)
 		if err != nil {
 			slog.Warn("invite tracker: failed to fetch invites on join", "err", err)
 			return
@@ -114,11 +142,11 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 			if inviter == "" {
 				inviter = used.Inviter.Username
 			}
-			msg = fmt.Sprintf("👋 **%s** (`%s`) joined via invite from **%s** (code: `%s`).", name, m.User.Username, inviter, used.Code)
+			msg = fmt.Sprintf("📥 **%s** (`%s`) joined · invited by **%s** (`%s`)", name, m.User.Username, inviter, used.Code)
 		case used != nil:
-			msg = fmt.Sprintf("👋 **%s** (`%s`) joined via invite code `%s`.", name, m.User.Username, used.Code)
+			msg = fmt.Sprintf("📥 **%s** (`%s`) joined · invite `%s`", name, m.User.Username, used.Code)
 		default:
-			msg = fmt.Sprintf("👋 **%s** (`%s`) joined (invite unknown).", name, m.User.Username)
+			msg = fmt.Sprintf("📥 **%s** (`%s`) joined · invite unknown", name, m.User.Username)
 		}
 
 		bot.Send(t.logCh, msg)

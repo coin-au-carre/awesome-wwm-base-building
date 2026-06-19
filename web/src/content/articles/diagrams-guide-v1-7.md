@@ -14,15 +14,19 @@ Diagrams let you save and reuse constructions. v1.7 introduces three types depen
 ### Table of Contents
 
 - [Accessing the Diagram tab](#accessing-the-diagram-tab)
-- [Solo Small Diagrams \[Guild + Solo\]](#solo-small-diagrams-guild--solo)
-- [Large Guild Diagrams \[Guild only\]](#large-guild-diagrams-guild-only)
-- [Small Guild Diagrams \[Guild only\]](#small-guild-diagrams-guild-only)
-- [How to save a diagram](#how-to-save-a-diagram)
+- [Place and fill any small diagram \[Solo + Guild\]](#place-and-fill-any-small-diagram-solo--guild)
+- [Create and use Solo Small Diagrams \[Guild + Solo\]](#create-and-use-solo-small-diagrams-guild--solo)
+- [Create and use Large Guild Diagrams \[Guild only\]](#create-and-use-large-guild-diagrams-guild-only)
+- [Create and use Small Guild Diagrams \[Guild only\]](#create-and-use-small-guild-diagrams-guild-only)
+- [How to save any diagram](#how-to-save-any-diagram)
 - [Understanding the Copyright system](#understanding-the-copyright-system)
 - [Advanced Tip for small diagram: Use Recommended Spot](#advanced-tip-for-small-diagram-use-recommended-spot)
 - [Fix interactive components after applying a large guild diagram](#fix-interactive-components-after-applying-a-large-guild-diagram)
 
 ---
+
+
+
 
 ## Accessing the Diagram tab
 
@@ -37,7 +41,32 @@ There are 3 types of diagrams:
 
 ---
 
-## Solo Small Diagrams [Guild + Solo]
+
+## Place and fill any small diagram [Solo + Guild]
+
+1. Select your diagram and choose **Place**.
+
+<img src="https://cdn.discordapp.com/attachments/1516786716009304184/1517501004306845767/image.png?ex=6a368271&is=6a3530f1&hm=529199241c9b382c8d158fdd74db600560fb53e2c1d9f68e82f269059898bd7c&" alt="Selecting and placing a diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+
+2. Once placed, move your character close to or inside the placed diagram. A popup will appear with your diagram name.
+
+<img src="https://cdn.discordapp.com/attachments/1516786716009304184/1517501005221073117/image.png?ex=6a368271&is=6a3530f1&hm=35f46b0eeda4c8dc8d20fdbae00a48b60719066adb6f12aa7edfc15760273fc0&" alt="Diagram popup appearing near the placed diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+
+3. Select your diagram name, then choose **Auto Completion > Completion**.
+
+<img src="https://cdn.discordapp.com/attachments/1516786716009304184/1517501005976043591/image.png?ex=6a368271&is=6a3530f1&hm=350b440f96f67afead9032622648d61535ba3da21a05adec70f57de6c377c47f&" alt="Auto Completion option in the diagram popup" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+
+4. The diagram fills automatically if you have enough components (solo) or guild funds (guild)
+5. The diagram outline can stay as-is, but removing any component from it will produce a blue ghost component. To get rid of the outline entirely, select **Remove Diagram > Remove only diagram outline**.
+
+<img src="https://cdn.discordapp.com/attachments/1516786716009304184/1517501006789873780/image.png?ex=6a368271&is=6a3530f1&hm=4888a49e082f6388a58d302df300856c580d33738648563e0b8214ac7b88caa6&" alt="Remove Diagram option" style="border-radius: 0.75rem; width: 80%;" />
+
+<img src="https://cdn.discordapp.com/attachments/1516786716009304184/1517501007452442674/image.png?ex=6a368271&is=6a3530f1&hm=a3568ef65d3a07a1e1d1f032e1f49820e09d39aa04f4370ab7d8423d49e4dd54&" alt="Remove only diagram outline option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+
+
+---
+
+## Create and use Solo Small Diagrams [Guild + Solo]
 
 <div class="video-embed" style="width: 80%;">
   <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a35e6fe&hm=e40f08ace03888ff3198d01118471e19b0ca3980242432c2ff3878d5e9b4eeb3&is=6a34957e&" controls></video>
@@ -53,7 +82,7 @@ These diagrams can only be **created in Solo World**, but can be applied in both
 
 ---
 
-## Large Guild Diagrams [Guild only]
+## Create and use Large Guild Diagrams [Guild only]
 
 Found under the **"Mine"** category in the Diagram tab.
 
@@ -64,7 +93,7 @@ These diagrams save your **entire guild base**. Use them as full base backups or
 
 ---
 
-## Small Guild Diagrams [Guild only]
+## Create and use Small Guild Diagrams [Guild only]
 
 Found under the **"Small Diagram - Mine"** category in the Diagram tab.
 
@@ -75,7 +104,7 @@ These diagrams save a **section** of your guild base, useful for replicating par
 
 ---
 
-## How to save a diagram
+## How to save any diagram
 
 <div class="video-embed">
   <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a35f094&hm=3483fb79218d3dd725ac3727c58c3ef644e1c27c3592f6108577143e313a9172&is=6a349f14&" controls></video>
