@@ -42,6 +42,7 @@ const items = posts.flatMap((p) => {
     messageUrl: p.messageUrl,
     postedAt: p.postedAt,
   }
+  const hasVideo = (p.videos ?? []).length > 0
   const imgItems = images.map((img, imgIdx) => ({
     ...common,
     kind: "image" as const,
@@ -49,7 +50,7 @@ const items = posts.flatMap((p) => {
     thumb: thumbUrl(img),
     allImgs: images,
     allThumbs: images.map((s) => thumbUrl(s)),
-    isPrimary: imgIdx === 0,
+    isPrimary: imgIdx === 0 && !hasVideo,
   }))
   const videoItems = (p.videos ?? []).map((vid) => ({
     ...common,
@@ -60,7 +61,7 @@ const items = posts.flatMap((p) => {
     allThumbs: [] as string[],
     isPrimary: true,
   }))
-  return [...imgItems, ...videoItems]
+  return [...videoItems, ...imgItems]
 })
 
 const FOUR_DAYS_MS = 4 * 24 * 60 * 60 * 1000
