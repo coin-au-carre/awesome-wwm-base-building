@@ -73,10 +73,15 @@ func main() {
 	trustedMemberRoleID := os.Getenv("TRUSTED_MEMBER_ROLE_ID")
 	githubToken := os.Getenv("GITHUB_ACTIONS_TOKEN")
 	streamingTracker := discord.NewStreamingTracker(*root, bot.Session, discordGuildID)
+	inviteTracker := discord.NewInviteTracker(discordGuildID, logsChannelID)
 	bot.Session.AddHandler(onReady(discordGuildID))
+	bot.Session.AddHandler(inviteTracker.OnReady)
 	bot.Session.AddHandler(streamingTracker.HandleGuildCreate)
 	bot.Session.AddHandler(onMessageCreate(bot, responder, *root, allowedChannels, spotlightOnlyChannels, activeChannelID, rubyRoleID))
 	bot.Session.AddHandler(discord.OnInteractionCreate(bot, *root, submissionChannelID, discoveriesChannelID, guildForumID, soloForumID, devChannelID, botChannelID, trustedEyeRoleID, trustedMemberRoleID, githubToken, responder))
+	bot.Session.AddHandler(inviteTracker.OnMemberAdd(bot))
+	bot.Session.AddHandler(inviteTracker.OnInviteCreate)
+	bot.Session.AddHandler(inviteTracker.OnInviteDelete)
 	if *welcomeDM {
 		bot.Session.AddHandler(onGuildMemberAdd())
 	}
