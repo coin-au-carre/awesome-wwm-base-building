@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-19T16:25:43.389587962Z"
+  "streamers": [
+    {
+      "userID": "126791095731486722",
+      "username": "AegisNite Edge",
+      "channelID": "1516821438114304162",
+      "channelName": "Hexi Party",
+      "startedAt": "2026-06-19T19:42:54.095890629Z"
+    }
+  ],
+  "updatedAt": "2026-06-19T19:42:59.44181444Z"
 }
