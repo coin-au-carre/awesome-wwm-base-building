@@ -5,13 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-<<<<<<< HEAD
 image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a370264&format=webp&hm=3e8a41f8bc004611e3931d5321d9ce14a966baa422c648bf8bf06da8b25ec6a7&is=6a35b0e4&quality=lossless"
-||||||| parent of 8e7851b5 (web: new article qinghe edition)
-image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a370264&format=webp&hm=3e8a41f8bc004611e3931d5321d9ce14a966baa422c648bf8bf06da8b25ec6a7&is=6a35b0e4&quality=lossless"
-=======
-image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a370264&format=webp&hm=3e8a41f8bc004611e3931d5321d9ce14a966baa422c648bf8bf06da8b25ec6a7&is=6a35b0e4&quality=lossless"
->>>>>>> 8e7851b5 (web: new article qinghe edition)
 featured: false
 published: true
 ---
