@@ -5,8 +5,8 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["LyYan", "Raiden-Zongli", "Mothisto", "Crueliet", "Wyrdrake"]
 date: 2026-06-11
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a371011&format=webp&hm=37ca45c5b3e40f567d0143b1df02e9c9d962b08917298369abcefcbedec5c9a3&is=6a35be91&quality=lossless"
-featured: true
+image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a366751&format=webp&hm=2ab066dacb5eb4dd217cf06452fb1f145d8b32a1ca28bfc7b7a03e3c2cc069ea&is=6a3515d1&quality=lossless"
+featured: false
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` channel.
