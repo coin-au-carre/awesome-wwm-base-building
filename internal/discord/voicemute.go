@@ -7,6 +7,7 @@ import (
 )
 
 const hexiPartyChannelID = "1516821438114304162"
+const minereaBotID = "365594481594204161"
 
 // HandleHexiPartyMute server-mutes anyone who joins the Hexi Party voice channel,
 // and unmutes them when they leave.
@@ -19,6 +20,9 @@ func HandleHexiPartyMute(s *discordgo.Session, e *discordgo.VoiceStateUpdate) {
 	}
 
 	if isInChannel {
+		if e.UserID == minereaBotID {
+			return
+		}
 		if err := s.GuildMemberMute(e.GuildID, e.UserID, true); err != nil {
 			slog.Warn("hexi party: failed to mute", "user", e.UserID, "err", err)
 		} else {
