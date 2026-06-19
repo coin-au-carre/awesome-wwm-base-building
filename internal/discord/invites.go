@@ -13,7 +13,7 @@ import (
 // InviteTracker caches invite use-counts so we can detect which invite a new member used.
 type InviteTracker struct {
 	mu      sync.Mutex
-	uses    map[string]int              // code -> use count
+	uses    map[string]int               // code -> use count
 	invites map[string]*discordgo.Invite // code -> full invite (for inviter info)
 	guildID string
 	logCh   string
@@ -157,7 +157,7 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 				return "unknown"
 			}
 			if inv.Code == "Qygt9u26Bn" {
-				return "website"
+				return "from Website"
 			}
 			if inv.Inviter != nil {
 				n := inv.Inviter.GlobalName
