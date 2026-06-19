@@ -152,19 +152,23 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 			name = m.User.Username
 		}
 
-		var msg string
-		switch {
-		case used != nil && used.Inviter != nil:
-			inviter := used.Inviter.GlobalName
-			if inviter == "" {
-				inviter = used.Inviter.Username
+		inviteLabel := func(inv *discordgo.Invite) string {
+			if inv == nil {
+				return "unknown"
 			}
-			msg = fmt.Sprintf("📥 **%s** (`%s`) joined · invited by **%s** (`%s`)", name, m.User.Username, inviter, used.Code)
-		case used != nil:
-			msg = fmt.Sprintf("📥 **%s** (`%s`) joined · invite `%s`", name, m.User.Username, used.Code)
-		default:
-			msg = fmt.Sprintf("📥 **%s** (`%s`) joined · invite unknown", name, m.User.Username)
+			if inv.Code == "Qygt9u26Bn" {
+				return "website"
+			}
+			if inv.Inviter != nil {
+				n := inv.Inviter.GlobalName
+				if n == "" {
+					n = inv.Inviter.Username
+				}
+				return fmt.Sprintf("invited by **%s** (`%s`)", n, inv.Code)
+			}
+			return fmt.Sprintf("`%s`", inv.Code)
 		}
+		msg := fmt.Sprintf("📥 **%s** (`%s`) joined · %s", name, m.User.Username, inviteLabel(used))
 
 		bot.Send(t.logCh, msg)
 
