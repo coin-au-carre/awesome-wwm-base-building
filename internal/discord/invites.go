@@ -56,11 +56,12 @@ func (t *InviteTracker) fetchAll(s *discordgo.Session) ([]*discordgo.Invite, err
 
 func (t *InviteTracker) OnReady(s *discordgo.Session, _ *discordgo.Ready) {
 	if t.guildID == "" {
+		slog.Warn("invite tracker: no guildID set, tracking disabled")
 		return
 	}
 	invites, err := t.fetchAll(s)
 	if err != nil {
-		slog.Warn("invite tracker: failed to fetch invites", "err", err)
+		slog.Warn("invite tracker: failed to fetch invites on ready — joins will show invite unknown", "err", err)
 		return
 	}
 	t.mu.Lock()
@@ -100,6 +101,8 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 
 		t.mu.Lock()
 
+		cacheWasCold := len(t.uses) == 0
+
 		currentCodes := make(map[string]bool, len(current))
 		for _, inv := range current {
 			currentCodes[inv.Code] = true
@@ -109,7 +112,8 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 
 		// Find invite whose use count increased.
 		for _, inv := range current {
-			if prev, ok := t.uses[inv.Code]; ok && inv.Uses > prev {
+			prev := t.uses[inv.Code] // zero if unseen; ok to compare unless cache is cold
+			if !cacheWasCold && inv.Uses > prev {
 				used = inv
 			}
 			t.uses[inv.Code] = inv.Uses
@@ -117,7 +121,7 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 		}
 
 		// Single-use invite disappears after use — detect by absence.
-		if used == nil {
+		if used == nil && !cacheWasCold {
 			for code, inv := range t.invites {
 				if !currentCodes[code] {
 					used = inv
@@ -127,6 +131,19 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 				}
 			}
 		}
+
+		slog.Info("invite tracker: member join detection",
+			"user", m.User.Username,
+			"cache_was_cold", cacheWasCold,
+			"cached_codes", len(t.uses),
+			"current_codes", len(current),
+			"detected_code", func() string {
+				if used != nil {
+					return used.Code
+				}
+				return ""
+			}(),
+		)
 
 		t.mu.Unlock()
 
