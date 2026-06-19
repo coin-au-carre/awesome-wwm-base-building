@@ -178,13 +178,13 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
 
       <div className="space-y-4 border-t border-border pt-6">
         <div className="relative">
-          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground pointer-events-none" />
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-muted-foreground pointer-events-none" />
           <Input
             type="search"
             placeholder="Search tutorials..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-9"
+            className="pl-10 h-12 text-base"
             data-umami-event="tutorials_search"
           />
         </div>

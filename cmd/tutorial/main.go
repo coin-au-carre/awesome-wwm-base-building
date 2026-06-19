@@ -175,14 +175,15 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 				slog.Info("linked video (Discord CDN)", "url", att.URL)
 				continue
 			}
+			imgURL := toMediaForm(att.URL)
 			if firstImageURL == "" {
-				firstImageURL = att.URL
+				firstImageURL = imgURL
 			}
 			group = append(group, fmt.Sprintf(
 				`<img src="%s" alt="" style="border-radius: 0.75rem; width: 100%%; max-width: 480px;" />`,
-				att.URL,
+				imgURL,
 			))
-			slog.Info("linked image (Discord CDN)", "url", att.URL)
+			slog.Info("linked image (media CDN, webp)", "url", imgURL)
 		}
 		if text != "" {
 			group = append(group, text)
