@@ -41,7 +41,7 @@ featured: false
 ## Kaifeng mystery geometry
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a36628c&format=webp&hm=203aa656b4a06dc929e358398a8b6ee0c081b4ee25709185e015a7a0524b3785&is=6a35110c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a370b4c&format=webp&hm=7e3de9c41ef6ba9d79f1c912959fea51289d89568a2e6c277cf0a0849673a1b5&is=6a35b9cc&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
