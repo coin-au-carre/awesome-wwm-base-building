@@ -40,7 +40,7 @@
     "scheduledEnd": "2026-06-27T12:00:00Z",
     "location": "Schizophrenics (10277785)",
     "status": "scheduled",
-    "subscriberCount": 3,
+    "subscriberCount": 4,
     "discordUrl": "https://discord.com/events/1483447710617960508/1495302902074310656",
     "image": "https://cdn.discordapp.com/guild-events/1495302902074310656/06e4e1444f98f358a0b12c4076329b7b.png?size=512"
   },
@@ -65,7 +65,7 @@
     "channelType": "voice",
     "channelName": "Hexi Party",
     "status": "scheduled",
-    "subscriberCount": 2,
+    "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1517555981071028285",
     "image": "https://cdn.discordapp.com/guild-events/1517555981071028285/ba7e083b217db7cc5689877286a92976.png?size=512"
   }
