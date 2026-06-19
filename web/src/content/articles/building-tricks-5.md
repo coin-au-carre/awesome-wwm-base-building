@@ -70,9 +70,9 @@ A wooden torch shape assembled from standard building components:
 
 The top section of a golden fire pillar:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a358daf&format=webp&hm=02074a34aed40dc00fda8e2fc67f87d4cdc3a74f77fd8377eb90c0652904b56e&is=6a343c2f&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a36366f&format=webp&hm=4c32efbd6cdc83e4b6b41bf9923e843c10d91f90196ffe0170e0060d87746c52&is=6a34e4ef&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a3589b2&format=webp&hm=435cddcf797a796f847b85e1a40a20448617992a5391f996566530ca3db96544&is=6a343832&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a363272&format=webp&hm=b07ebb16e5701615c06e2ff424eaf827679c372376a6f9bd779a5577820a9f88&is=6a34e0f2&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
