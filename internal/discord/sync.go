@@ -916,7 +916,7 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 		}
 		// Fallback: scan message content for video URLs that Discord didn't embed.
 		for _, raw := range reVideoURL.FindAllString(msg.Content, -1) {
-			raw = strings.TrimRight(raw, ">)")
+			raw = strings.TrimRight(raw, ">)\\")
 			if !seen[raw] {
 				seen[raw] = true
 				videos = append(videos, raw)
