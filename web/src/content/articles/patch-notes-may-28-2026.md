@@ -11,7 +11,7 @@ discordThread: "https://discord.com/channels/1483447710617960508/148344771149903
 featured: false
 ---
 
-@here Update is up! Below you will find improvements / bugs that we have confirmed. Help us report bugs this is important for all us. Improve the list with us in #💬chat .
+@here Update is up! Below you will find improvements / bugs that we have confirmed. Help us report bugs this is important for all us. Improve the list with us in #💬chat-wwm .
 This post will be updated regularly. Stay tuned!
 
 ## READ FIRST
