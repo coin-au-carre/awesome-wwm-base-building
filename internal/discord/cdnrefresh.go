@@ -11,7 +11,23 @@ import (
 
 // BulkRefreshURLs calls the Discord refresh-urls API to extend the expiry of
 // the given cdn.discordapp.com attachment URLs. Returns original → refreshed.
+// Batches automatically at 50 URLs (the API maximum).
 func BulkRefreshURLs(token string, urls []string) (map[string]string, error) {
+	m := make(map[string]string, len(urls))
+	for i := 0; i < len(urls); i += 50 {
+		batch := urls[i:min(i+50, len(urls))]
+		bm, err := refreshBatch(token, batch)
+		if err != nil {
+			return nil, err
+		}
+		for k, v := range bm {
+			m[k] = v
+		}
+	}
+	return m, nil
+}
+
+func refreshBatch(token string, urls []string) (map[string]string, error) {
 	body, err := json.Marshal(map[string]any{"attachment_urls": urls})
 	if err != nil {
 		return nil, err
