@@ -69,9 +69,14 @@ func ParseFirstPost(content string) ParsedPost {
 	}
 
 	if m := reGuildName.FindStringSubmatch(content); len(m) > 1 {
-		p.GuildName = strings.TrimSpace(m[1])
-	} else if m := reGuildNameEq.FindStringSubmatch(content); len(m) > 1 {
-		p.GuildName = strings.TrimSpace(m[1])
+		if name := strings.TrimSpace(m[1]); len(name) <= 60 {
+			p.GuildName = name
+		}
+	}
+	if p.GuildName == "" {
+		if m := reGuildNameEq.FindStringSubmatch(content); len(m) > 1 {
+			p.GuildName = strings.TrimSpace(m[1])
+		}
 	}
 
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
