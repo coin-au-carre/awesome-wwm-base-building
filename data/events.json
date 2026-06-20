@@ -6,10 +6,10 @@
     "guildName": "The Inner Ways",
     "guildId": "10183152",
     "type": "dancing",
-    "scheduledStart": "2026-06-19T21:30:00Z",
-    "scheduledEnd": "2026-06-19T23:59:59.02Z",
+    "scheduledStart": "2026-06-26T21:30:00Z",
+    "scheduledEnd": "2026-06-26T23:59:59.02Z",
     "location": "The Inner Ways Guild HQ",
-    "status": "active",
+    "status": "scheduled",
     "subscriberCount": 11,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494698690072285285",
     "image": "https://cdn.discordapp.com/guild-events/1494698690072285285/1374bc03d71161233bb3e71a6a848cb1.png?size=512"
@@ -55,18 +55,5 @@
     "subscriberCount": 6,
     "discordUrl": "https://discord.com/events/1483447710617960508/1516372255657951364",
     "image": "https://cdn.discordapp.com/guild-events/1516372255657951364/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
-  },
-  {
-    "id": "1517555981071028285",
-    "name": "Hexi Party DJ AegisNite",
-    "description": "Join the party!\nRequest Co-op on AegisNite[2039308500] or just join the Discord voice chat!",
-    "type": "dancing",
-    "scheduledStart": "2026-06-19T20:00:00.469Z",
-    "channelType": "voice",
-    "channelName": "Hexi Party",
-    "status": "scheduled",
-    "subscriberCount": 3,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1517555981071028285",
-    "image": "https://cdn.discordapp.com/guild-events/1517555981071028285/ba7e083b217db7cc5689877286a92976.png?size=512"
   }
 ]
