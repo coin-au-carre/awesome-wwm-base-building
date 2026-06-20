@@ -59,6 +59,8 @@ func main() {
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	devChannelID := os.Getenv("DEV_CHANNEL_ID")
 	generalChannelID := os.Getenv("GENERAL_CHANNEL_ID")
+	guildAnnounceChannelID := os.Getenv("GUILD_ANNOUNCE_CHANNEL_ID")
+	soloAnnounceChannelID := os.Getenv("SOLO_ANNOUNCE_CHANNEL_ID")
 	baseBuilderRoleID := os.Getenv("BASE_BUILDER_ROLE_ID")
 	soloBuilderRoleID := os.Getenv("SOLO_BUILDER_ROLE_ID")
 	baseCriticRoleID := os.Getenv("BASE_CRITIC_ROLE_ID")
@@ -544,14 +546,14 @@ func main() {
 			if syncSolo && !*noNotify && soloStats.New > 0 {
 				notifyNewEntries(bot, updatedSolos, soloStats, true)
 			}
-			if !*noNotify && generalChannelID != "" {
-				if syncGuilds {
-					announceToGeneral(bot, generalChannelID, updatedGuilds, guildStats, false)
+			if !*noNotify {
+				if syncGuilds && guildAnnounceChannelID != "" {
+					announceToGeneral(bot, guildAnnounceChannelID, updatedGuilds, guildStats, false)
 				}
-				if syncSolo {
-					announceToGeneral(bot, generalChannelID, updatedSolos, soloStats, true)
+				if syncSolo && soloAnnounceChannelID != "" {
+					announceToGeneral(bot, soloAnnounceChannelID, updatedSolos, soloStats, true)
 				}
-				if syncBlueprints && blueprintForumID != "" {
+				if syncBlueprints && blueprintForumID != "" && generalChannelID != "" {
 					announceBlueprintsToGeneral(bot, generalChannelID, updatedBlueprints, blueprintStats)
 				}
 			}
