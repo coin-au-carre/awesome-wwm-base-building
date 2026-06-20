@@ -194,8 +194,14 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 			bp.IsFree = strings.Contains(lower, "free")
 			bp.IsPayToBuild = lower != "free" && lower != ""
 		} else {
-			bp.IsFree = true // no price → free by default
-			bp.IsPayToBuild = false
+			descLower := strings.ToLower(bp.Description)
+			if blueprint.RePayInProse.MatchString(bp.Description) {
+				bp.IsPayToBuild = true
+			} else if strings.Contains(descLower, "free") {
+				bp.IsFree = true
+			} else {
+				bp.IsPayToBuild = true // no "free" anywhere → paid by default
+			}
 		}
 		// Thread title keywords override first-post price parsing.
 		titleLower := strings.ToLower(r.thread.Name)

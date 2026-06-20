@@ -47,6 +47,13 @@ function tiktokID(url: string): string {
   return ""
 }
 
+function getAuthorPath(author: string): string | null {
+  const norm = (s: string) => s.toLowerCase()
+  const ch = channels.find((c) => norm(c.name) === norm(author))
+  if (ch?.builderSlug) return `/builders/${ch.builderSlug}`
+  return getBuilderSearchPath(author)
+}
+
 const tiktokThumbs: Record<string, string> = {}
 await Promise.all(
   tutorialVideos
@@ -84,8 +91,14 @@ await Promise.all(
     {videos.some((v) => v.featured) && (() => {
       const featured = videos.find((v) => v.featured)!
       const ytID = youtubeID(featured.url)
-      const embedUrl = ytID ? `https://www.youtube.com/embed/${ytID}?autoplay=1` : null
-      const thumbUrl = ytID ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg` : null
+      const ttID = tiktokID(featured.url)
+      const embedUrl = ytID
+        ? `https://www.youtube.com/embed/${ytID}?autoplay=1`
+        : ttID ? `https://www.tiktok.com/embed/v2/${ttID}` : null
+      const thumbUrl = ytID
+        ? `https://img.youtube.com/vi/${ytID}/hqdefault.jpg`
+        : tiktokThumbs[featured.url] ?? null
+      const platform = ttID ? "tiktok" : "youtube"
       return (
         <section class="space-y-4">
           <div class="flex items-center gap-2">
@@ -99,7 +112,7 @@ await Promise.all(
                 class="video-trigger group relative w-full sm:w-80 shrink-0 aspect-video sm:aspect-auto sm:h-48 overflow-hidden cursor-pointer"
                 data-embed={embedUrl}
                 data-title={featured.title}
-                data-type="youtube"
+                data-type={platform}
               >
                 {thumbUrl && (
                   <img
@@ -109,7 +122,7 @@ await Promise.all(
                   />
                 )}
                 <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/30 transition-colors">
-                  <div class="flex items-center justify-center rounded-xl bg-red-600 shadow-lg px-5 py-3 scale-90 group-hover:scale-100 transition-transform">
+                  <div class={`flex items-center justify-center rounded-xl shadow-lg px-5 py-3 scale-90 group-hover:scale-100 transition-transform ${ttID ? "bg-[#ff0050]" : "bg-red-600"}`}>
                     <svg class="size-6 text-white" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
                   </div>
                 </div>
@@ -131,7 +144,7 @@ await Promise.all(
                     )
                   })}
                   {featured.author && (() => {
-                    const sp = getBuilderSearchPath(featured.author)
+                    const sp = getAuthorPath(featured.author)
                     return sp
                       ? <span class="text-xs text-muted-foreground/70">by <a href={`${BASE}${sp}`} class="hover:text-foreground underline underline-offset-2 transition-colors">{featured.author}</a></span>
                       : <span class="text-xs text-muted-foreground/70">by {featured.author}</span>
@@ -202,7 +215,7 @@ await Promise.all(
                         )
                       })}
                       {item.author && (() => {
-                        const sp = getBuilderSearchPath(item.author)
+                        const sp = getAuthorPath(item.author)
                         return sp
                           ? <span class="text-xs text-muted-foreground/70">by <a href={`${BASE}${sp}`} class="hover:text-foreground underline underline-offset-2 transition-colors">{item.author}</a></span>
                           : <span class="text-xs text-muted-foreground/70">by {item.author}</span>

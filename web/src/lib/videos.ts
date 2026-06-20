@@ -45,12 +45,13 @@ export const tutorialVideos: TutorialVideo[] = [
     url: "https://youtu.be/HqqSh6cTbdU",
     author: "carnii",
     tags: ["cn", "guild"],
-    featured: true,
   },
   {
-    title: "Exploring the Most Creative Guild Bases in Global",
-    url: "https://www.youtube.com/watch?v=vdASMSKfVL8",
-    tags: ["sightseeing", "guild"],
+    title: "AegisNite Building System Guide with v1.7 Changes",
+    url: "https://www.tiktok.com/@aegisnitewwm/video/7648377225657486624",
+    author: "AegisNite",
+    tags: ["beginner", "solo", "guild"],
+    featured: true,
   },
 ]
 

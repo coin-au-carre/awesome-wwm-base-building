@@ -13,6 +13,8 @@ var (
 	rePriceTag        = regexp.MustCompile(`(?i)!price\s+([^!\n]+)`)
 	rePriceEchoPearls = regexp.MustCompile(`(?im)^\s*(\d[\d\s,]*\s*echo\s+pearls?)\s*$`)
 	reMaterials       = regexp.MustCompile(`(?im)^materials?\s*:[ \t]*([^\n]+)`)
+	// matches payment mentions in prose: "60 pearls", "180 echo beads", "$5", "30 dollars"
+	RePayInProse = regexp.MustCompile(`(?i)\d+\s*(?:echo\s+)?(?:pearl|bead|dollar)s?|\$\s*\d`)
 
 	// strips structured field lines to isolate the freeform description body
 	reStripFields = regexp.MustCompile(`(?im)^(?:builder\s*:[ \t]*[^\n]*|price\s*:[ \t]*[^\n]*|materials?\s*:[ \t]*[^\n]*|[\p{L}\p{N}_.\- ]+\s*\[\w+\])\n?`)
@@ -63,7 +65,14 @@ func ParseFirstPost(content string) ParsedBlueprintPost {
 		p.Price = raw
 		p.IsPayToBuild = true
 	} else {
-		p.IsFree = true // no price field → free by default
+		lower := strings.ToLower(content)
+		if RePayInProse.MatchString(content) {
+			p.IsPayToBuild = true
+		} else if strings.Contains(lower, "free") {
+			p.IsFree = true
+		} else {
+			p.IsPayToBuild = true // no "free" and no structured price → paid by default
+		}
 	}
 
 	if m := reMaterials.FindStringSubmatch(content); len(m) > 1 {
