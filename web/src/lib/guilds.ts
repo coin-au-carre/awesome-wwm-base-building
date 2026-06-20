@@ -167,7 +167,7 @@ export function getBuilderSearchPath(name: string): string | null {
   return null
 }
 
-export const UPCOMING_EVENTS_WINDOW_MS = 48 * 60 * 60 * 1000
+export const UPCOMING_EVENTS_WINDOW_MS = 7 * 24 * 60 * 60 * 1000 //  controls which events appear on the events page (/events) 
 export const FEATURED_EVENTS_WINDOW_MS = 16 * 60 * 60 * 1000
 
 export function getUpcomingEvents(): GameEvent[] {
