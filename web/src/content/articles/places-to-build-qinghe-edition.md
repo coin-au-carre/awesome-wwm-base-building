@@ -1,6 +1,6 @@
 ---
-title: "Nicest places for housing/building - Qinghe edition"
-description: "AegisNite Edge presents you the nicest places to build"
+title: "Nicest places for housing - Qinghe edition"
+description: "AegisNite Edge presents you the nicest places to build your perfect home! Elevate your constructions naer Flower Expanse, Deer Ponds or Bamboo Abode..."
 tags: ["beginner", "solo"]
 authors: ["AegisNite"]
 date: 2026-06-20
