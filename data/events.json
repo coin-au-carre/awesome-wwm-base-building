@@ -55,5 +55,18 @@
     "subscriberCount": 6,
     "discordUrl": "https://discord.com/events/1483447710617960508/1516372255657951364",
     "image": "https://cdn.discordapp.com/guild-events/1516372255657951364/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
+  },
+  {
+    "id": "1518022025615245362",
+    "name": "Panda Guild Tour #9",
+    "description": "You can either or both:\n- join the tour stream on \u003c#1483447711499030636\u003e \n- join in game request/DM on Ahlyam [2122662369] \n\n## 4 fresh builds to discover. React on their discord threads!\n\n- [WildGoose](https://www.wherebuildersmeet.com/guilds/wildgoose/) - [Discord thread](https://discord.com/channels/1483447710617960508/1516271483125628959)\n- [Camellia](https://www.wherebuildersmeet.com/guilds/camellia/) - [Discord thread](https://discord.com/channels/1483447710617960508/1516252220528791673) \n- [LaRuina](https://www.wherebuildersmeet.com/guilds/laruina-10136569/) - [Discord thread](https://discord.com/channels/1483447710617960508/1514900413051175012)\n- [GuangDong](https://www.wherebuildersmeet.com/guilds/guangdong/) - [Discord thread](https://discord.com/channels/1483447710617960508/1513668437820575844)",
+    "type": "tour",
+    "scheduledStart": "2026-06-24T17:00:00Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 1,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1518022025615245362",
+    "image": "https://cdn.discordapp.com/guild-events/1518022025615245362/bf4f91153ea1360920d1ae9acc8d4699.png?size=512"
   }
 ]
