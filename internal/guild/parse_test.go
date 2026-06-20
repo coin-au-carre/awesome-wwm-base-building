@@ -285,6 +285,12 @@ https://youtu.be/def456`,
 			wantVisit:    "The courtyard.",
 		},
 		{
+			name:      "sentence-as-guild-name is rejected",
+			content:   "I had so much fun building a Japanese-inspired Shrine/Temple for the guild BlackVow (10247998)",
+			wantID:    "10247998",
+			wantGuild: "",
+		},
+		{
 			name: "places to visit alias",
 			content: `🏯 SNEJNAYA (10269444)
 
