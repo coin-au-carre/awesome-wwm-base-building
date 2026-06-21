@@ -27,7 +27,7 @@ const FAIRYTOPIA_EVENT = {
   dateLabel: "Every monday at 1PM UTC",
   title:     "Fairytopia Tour",
   accent:    "",
-  desc:      "Community tour to visit solo world & guilds from WBM!",
+  desc:      "Smaller community tour (~10 people) to visit solo world & guilds",
   bg:        "/events/beyond-the-wall/flower_house.jpg",
   thumb:     "",
   status:    "soon" as const,
@@ -35,18 +35,20 @@ const FAIRYTOPIA_EVENT = {
   icon:      "✨",
 }
 
-const _allGuilds = getGuildsSortedByScore()
+const PANDA_TOUR_EVENT = {
+  url:       "https://discord.gg/Qygt9u26Bn",
+  dateLabel: "Every Wednesday at 5 PM UTC",
+  title:     "Panda Guild Tour",
+  accent:    "",
+  desc:      "Community guild tours of fresh builds!",
+  bg:        "/events/beyond-the-wall/palace.jpg",
+  thumb:     "",
+  status:    "soon" as const,
+  color:     "amber" as const,
+  icon:      "🗺️",
+}
 
-const pandaTourEvent = events.find(
-  (e) => e.type === "tour" && e.name.toLowerCase().includes("panda guild tour")
-)
-const pandaTourSlugs: string[] = pandaTourEvent?.description
-  ? [...pandaTourEvent.description.matchAll(/wherebuildersmeet\.com\/guilds\/([a-z0-9-]+)/g)].map((m) => m[1])
-  : []
-const pandaTourThumb = pandaTourSlugs
-  .map((slug) => _allGuilds.find((g) => g.slug === slug))
-  .map((g) => g?.coverImage ?? g?.screenshots?.[0])
-  .find(Boolean)
+const _allGuilds = getGuildsSortedByScore()
 const guildSlugById = new Map(_allGuilds.filter((g) => g.id).map((g) => [g.id!, g.slug]))
 const guildSlugByName = new Map(_allGuilds.map((g) => [(g.guildName ?? g.name).toLowerCase(), g.slug]))
 const guildNameBySlug = new Map(_allGuilds.map((g) => [g.slug, g.guildName ?? g.name]))
@@ -147,39 +149,6 @@ const TYPE_COLORS: Record<EventType, string> = {
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
 
-        <!-- Panda Base Tour -->
-        <a
-          href={pandaTourEvent ? pandaTourEvent.discordUrl : "https://discord.gg/Qygt9u26Bn"}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group relative flex flex-col justify-end rounded-xl overflow-hidden ring-1 ring-amber-500/40 hover:ring-amber-500/70 hover:shadow-lg transition-all h-36"
-          data-umami-event="wbm_event_card_click"
-          data-umami-event-name="panda_base_tour"
-        >
-          <div
-            class="absolute inset-0 bg-cover bg-center"
-            style={`background-image: url('${pandaTourThumb ?? pandaTourEvent?.image ?? "/events/beyond-the-wall/palace.jpg"}'); filter: brightness(0.4) saturate(0.7);`}
-          />
-          <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/10" />
-          <div class="relative z-10 flex flex-col gap-1 px-4 pb-4 pt-3">
-            <div class="flex items-center gap-1.5">
-              <span class="size-1.5 rounded-full shrink-0 bg-amber-400 animate-pulse" />
-              <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-400">
-                {pandaTourEvent ? (pandaTourEvent.status === "active" ? "🟢 Live now" : "Upcoming") : "Wednesday or Thursday"}
-              </span>
-            </div>
-            <p class="text-sm font-bold text-white leading-tight drop-shadow">
-              🗺️ Panda Guild Tour
-            </p>
-            <p class="text-xs text-white/60 leading-snug line-clamp-2">
-              {pandaTourEvent?.description?.split("\n")[0] ?? "Community tour of fresh registered guild bases in Where Winds Meet."}
-            </p>
-            <span class="mt-1 self-start inline-flex items-center gap-1 bg-amber-500/20 ring-1 ring-amber-500/50 rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-amber-200 group-hover:bg-amber-500/35 transition-colors">
-              Register ↗
-            </span>
-          </div>
-        </a>
-
         <!-- Beyond the Wall -->
         <a
           href={BTW_EVENT.url}
@@ -207,6 +176,37 @@ const TYPE_COLORS: Record<EventType, string> = {
             <p class="text-xs text-white/55 leading-snug line-clamp-2">{BTW_EVENT.desc}</p>
             <span class="mt-1 self-start inline-flex items-center gap-1 bg-pink-500/15 ring-1 ring-pink-500/30 rounded-full px-2.5 py-0.5 text-[11px] text-pink-300/80">
               View on Discord ↗
+            </span>
+          </div>
+        </a>
+
+        <!-- Panda Guild Tour -->
+        <a
+          href={PANDA_TOUR_EVENT.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group relative flex flex-col justify-end rounded-xl overflow-hidden ring-1 ring-amber-500/40 hover:ring-amber-500/70 hover:shadow-lg transition-all h-36"
+          data-umami-event="wbm_event_card_click"
+          data-umami-event-name="panda_guild_tour"
+        >
+          <div
+            class="absolute inset-0 bg-cover bg-center"
+            style={`background-image: url('${PANDA_TOUR_EVENT.bg}'); filter: brightness(0.4) saturate(0.7);`}
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/10" />
+          <div class="relative z-10 flex flex-col gap-1 px-4 pb-4 pt-3">
+            <div class="flex items-center gap-1.5">
+              <span class="size-1.5 rounded-full shrink-0 bg-amber-400 animate-pulse" />
+              <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-400">
+                {PANDA_TOUR_EVENT.dateLabel}
+              </span>
+            </div>
+            <p class="text-sm font-bold text-white leading-tight drop-shadow">
+              {PANDA_TOUR_EVENT.icon} {PANDA_TOUR_EVENT.title}
+            </p>
+            <p class="text-xs text-white/60 leading-snug line-clamp-2">{PANDA_TOUR_EVENT.desc}</p>
+            <span class="mt-1 self-start inline-flex items-center gap-1 bg-amber-500/20 ring-1 ring-amber-500/50 rounded-full px-2.5 py-0.5 text-[11px] font-semibold text-amber-200 group-hover:bg-amber-500/35 transition-colors">
+              Follow on Discord ↗
             </span>
           </div>
         </a>
