@@ -158,9 +158,9 @@ featured: true
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/mothisto" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Mothisto</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a38ea07&format=webp&hm=bcad95f50f68665b6bb4b7f39e51ffc1d1038bd1dfb6b15bdcd7f07fb996193e&is=6a379887&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a3992c7&format=webp&hm=ebad9535d19b3d6abe35ef48ad5c6f60475a57358eefed7cb7d65879da9ec4ab&is=6a384147&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a38ea07&format=webp&hm=b2464efc6b6cb1badea06064e9f9f7a71c7a625af1991ebdf4d2aaefdc943361&is=6a379887&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a3992c7&format=webp&hm=6626a901a58fb62815c4307dab0bd1ef12d44a7b943b01b5bed57906b23e0950&is=6a384147&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
