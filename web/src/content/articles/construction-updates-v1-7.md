@@ -5,7 +5,7 @@ tags: ["update", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-05
 order: 15
-image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a383604&format=webp&hm=9ebc6148fa79a3f11af0f5c716a2b907d33f3c511ad1f5448dd32c3462505f2a&is=6a36e484&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a38dec4&format=webp&hm=86ed6c14a28f5e9adf6fcfc153bbd477a2cc52c21562f222ced0a4e64304028f&is=6a378d44&quality=lossless"
 featured: false
 ---
 
@@ -22,7 +22,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
   <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a385cfc&hm=98b8d5ed238f1be3774b3af5a529853e5f6def326b4199f305e3da67d74c3dd7&is=6a370b7c&" controls></video>
 </div>
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a383604&format=webp&hm=9ebc6148fa79a3f11af0f5c716a2b907d33f3c511ad1f5448dd32c3462505f2a&is=6a36e484&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a38dec4&format=webp&hm=86ed6c14a28f5e9adf6fcfc153bbd477a2cc52c21562f222ced0a4e64304028f&is=6a378d44&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Note for mobile and PS5 players: there is no known method to rotate on a second axis as of now.
@@ -110,7 +110,7 @@ This can be a harsh limitation in collaborative builds. For example, if two buil
 
 You can now block up to **30 players** and **3 guilds** from visiting your guild base.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a3827d0&format=webp&hm=b552ee227e554d9ea7225c9e334e5ba62f4c3af67a8c45d9d058ab90dd94c315&is=6a36d650&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a38d090&format=webp&hm=6ce7c7ed67168705358096c39c045376433f7c641f4354fadaafe70279f3e8e4&is=6a377f10&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
 
 ---
 
