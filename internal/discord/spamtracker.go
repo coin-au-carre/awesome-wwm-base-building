@@ -23,23 +23,23 @@ type spamEntry struct {
 
 // SpamTracker flags users who post in many distinct channels in a short window.
 type SpamTracker struct {
-	mu       sync.Mutex
-	history  map[string][]spamEntry // userID → recent posts
-	alerted  map[string]time.Time   // userID → last alert time
-	logCh    string
+	mu      sync.Mutex
+	history map[string][]spamEntry // userID → recent posts
+	alerted map[string]time.Time   // userID → last alert time
+	alertCh string
 }
 
-func NewSpamTracker(logChannelID string) *SpamTracker {
+func NewSpamTracker(alertChannelID string) *SpamTracker {
 	return &SpamTracker{
 		history: make(map[string][]spamEntry),
 		alerted: make(map[string]time.Time),
-		logCh:   logChannelID,
+		alertCh: alertChannelID,
 	}
 }
 
 func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
-		if t.logCh == "" || m.Author == nil || m.Author.Bot || m.GuildID == "" {
+		if t.alertCh == "" || m.Author == nil || m.Author.Bot || m.GuildID == "" {
 			return
 		}
 
@@ -91,7 +91,7 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 		msg := fmt.Sprintf("⚠️ **%s** (`%s`) posted in %d channels within 30s: %s",
 			name, m.Author.Username, distinct, strings.Join(channels, ", "))
 
-		bot.Send(t.logCh, msg)
+		bot.Send(t.alertCh, msg)
 		slog.Info("spam alert", "user", m.Author.Username, "distinct_channels", distinct)
 	}
 }

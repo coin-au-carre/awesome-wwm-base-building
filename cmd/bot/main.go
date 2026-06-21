@@ -68,12 +68,16 @@ func main() {
 	submissionChannelID := os.Getenv("GUILD_SUBMISSION_CHANNEL_ID")
 	discoveriesChannelID := os.Getenv("GUILD_DISCOVERIES_CHANNEL_ID")
 	logsChannelID := os.Getenv("LOGS_CHANNEL_ID")
+	moderationChannelID := os.Getenv("MODERATION_CHANNEL_ID")
+	if moderationChannelID == "" {
+		moderationChannelID = logsChannelID
+	}
 	botChannelID := os.Getenv("BOT_CHANNEL_ID")
 	trustedEyeRoleID := os.Getenv("TRUSTED_EYE_ROLE_ID")
 	trustedMemberRoleID := os.Getenv("TRUSTED_MEMBER_ROLE_ID")
 	githubToken := os.Getenv("GITHUB_ACTIONS_TOKEN")
 	streamingTracker := discord.NewStreamingTracker(*root, bot.Session, discordGuildID)
-	spamTracker := discord.NewSpamTracker(logsChannelID)
+	spamTracker := discord.NewSpamTracker(moderationChannelID)
 	inviteTracker := discord.NewInviteTracker(discordGuildID, logsChannelID)
 	bot.Session.AddHandler(onReady(discordGuildID))
 	bot.Session.AddHandler(inviteTracker.OnReady)
