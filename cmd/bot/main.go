@@ -290,7 +290,7 @@ func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo
 		if g, err := s.Guild(m.GuildID); err == nil {
 			guildName = fmt.Sprintf("%s (%s)", g.Name, m.GuildID)
 		}
-		msg := fmt.Sprintf("👋 **%s** (`%s`) left **%s**.", name, m.User.Username, guildName)
+		msg := fmt.Sprintf("🥀 **%s** (`%s`) left **%s**.", name, m.User.Username, guildName)
 		if m.Member != nil && !m.Member.JoinedAt.IsZero() {
 			dur := time.Since(m.Member.JoinedAt)
 			days := int(dur.Hours() / 24)
