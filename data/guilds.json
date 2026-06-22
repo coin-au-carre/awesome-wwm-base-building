@@ -1,5 +1,19 @@
 [
 	{
+		"name": "KillSwitch",
+		"builders": [
+			"QuessLord-龍風"
+		],
+		"tags": [
+			"Architecture"
+		],
+		"discordThread": "",
+		"whatToVisit": "Gundam\nClimbing Mountain at end of road\nThrone room\nPalace",
+		"score": 2,
+		"lastModified": "June 22, 2026 at 08:22 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Luthadel",
 		"builders": [
 			"筑梦家园设计",
