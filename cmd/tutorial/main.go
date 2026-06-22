@@ -180,7 +180,7 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 				firstImageURL = imgURL
 			}
 			group = append(group, fmt.Sprintf(
-				`<img src="%s" alt="" style="border-radius: 0.75rem; width: 100%%; max-width: 480px;" />`,
+				`<img src="%s" alt="" style="border-radius: 0.75rem; width: 100%%;" />`,
 				imgURL,
 			))
 			slog.Info("linked image (media CDN, webp)", "url", imgURL)
