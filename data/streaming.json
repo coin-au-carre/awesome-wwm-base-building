@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-20T22:47:43.110408752Z"
+  "streamers": [
+    {
+      "userID": "997247599880978603",
+      "username": "carnii",
+      "channelID": "1496814821520441385",
+      "channelName": "Building Unlimited",
+      "startedAt": "2026-06-22T12:31:55.971741161Z"
+    }
+  ],
+  "updatedAt": "2026-06-22T12:32:01.308975673Z"
 }
