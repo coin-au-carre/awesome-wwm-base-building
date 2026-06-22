@@ -167,9 +167,9 @@ featured: true
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663747068399656/202662065054.png?ex=6a391442&format=webp&hm=33e77b7187941ccd4d7cc94dcddf95349418d19fb2f19a531ccd7f736ca59819&is=6a37c2c2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663747068399656/202662065054.png?ex=6a39bd02&format=webp&hm=18b6e289f0c63e5f340fb5cc9221cc9b0b78dc84b50907debb18c9c48c0f58a1&is=6a386b82&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748138205366/202662065130.png?ex=6a391442&format=webp&hm=7c62c9809044cabd98389283d0ce8a7f6772aa8f110e14a093e1a27bb17af46b&is=6a37c2c2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748138205366/202662065130.png?ex=6a39bd02&format=webp&hm=05d84761945629fcbd2fcdf038c48153eaea68ebdc49cb92221dab40e8135df0&is=6a386b82&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748821614754/image.png?ex=6a391442&format=webp&hm=fc3cd5ece5f62a855238512ccf8117b38d662271f4388adc859b73130f72122e&is=6a37c2c2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748821614754/image.png?ex=6a39bd02&format=webp&hm=ee2f9986ea7b095e8c125d9adcca97b5321e3c812062fbfa2e5528ba03d6dfc3&is=6a386b82&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 

@@ -20,7 +20,7 @@ featured: false
 ## The build is fine, the screenshot is just from a bad angle
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/noxlamina" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">noxlamina</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a393e7e&format=webp&hm=92e56487f7dfda115af46313d6e016672fc4194d641d47a937738dbd7d737635&is=6a37ecfe&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a39e73e&format=webp&hm=002e991b2c7aaecd21677b2f9696c123632b521f3d7e5efbbcc1f2881c5ca726&is=6a3895be&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -49,7 +49,7 @@ featured: false
 ## Near a certain musician in Kaifeng Palace
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/vehs" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">vehs</a></p>
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a39c7d0&is=6a387650&hm=818ad6ccceb70748545da0d18308ef59a4ec90a741c6e4a89d73cc8badd4b16f&" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a39c7d0&format=webp&hm=818ad6ccceb70748545da0d18308ef59a4ec90a741c6e4a89d73cc8badd4b16f&is=6a387650&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
