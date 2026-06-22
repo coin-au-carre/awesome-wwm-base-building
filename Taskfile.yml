@@ -259,6 +259,11 @@ tasks:
       - echo "        -- -dry-run        fetch and parse but skip writing JSON"
       - echo "  task events-sync         fetch Discord Scheduled Events → data/events.json"
       - echo "        -- -dry-run        fetch events but skip writing JSON"
+      - echo "  task tutorial            generate/refresh markdown tutorials from Discord threads"
+      - echo "        -- <url>...         one or more Discord thread URLs to add/refresh"
+      - echo "        -- -refresh-videos  re-fetch video embeds"
+      - echo "        -- -refresh-images  re-download images"
+      - echo ""
       - 'echo "  task whatever-sync       fetch #whatever-showcase posts → data/whatever.json"'
       - 'echo "  task cn-news-sync        scrape CN server news & announcements from yysls.cn → data/cn_news.json"'
       - 'echo "        -- -dry-run        show new items without writing or posting"'

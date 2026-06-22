@@ -2,3 +2,4 @@
 # Each URL will be fetched and written to web/src/content/articles/ during task sync.
 https://discord.com/channels/1483447710617960508/1496991561542537216
 https://discord.com/channels/1483447710617960508/1498068132097556530
+https://discord.com/channels/1483447710617960508/1518138757063114823
