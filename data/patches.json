@@ -133,8 +133,8 @@
   },
   {
     "coolness": "normal",
-    "title": "Increased guild fund cap when going over the budget",
-    "description": "Before we lost money when erasing the guild base and reputing a guild diagram back",
+    "title": "Increased guild fund overcap to 5500K when going over budget",
+    "description": "Before we lost money when erasing the guild base and reputing a guild diagram back. Now we can go up to 5500K",
     "guild": true,
     "solo": false,
     "pc": true,
