@@ -1,7 +1,7 @@
 ---
 title: "Places to Build: Liangzhou Edition"
 description: "A curated guide to the best building locations in Liangzhou, from Chalice Peak to Snowblossom Ridge."
-tags: ["guild", "solo", "sightseeing"]
+tags: ["solo", "Beginner"]
 authors: ["AegisNite"]
 date: 2026-06-23
 order: 21
