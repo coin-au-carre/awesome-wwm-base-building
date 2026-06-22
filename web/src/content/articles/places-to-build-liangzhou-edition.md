@@ -1,17 +1,17 @@
 ---
-title: "Places to build Liangzhou edition"
-description: ""
-tags: []
-authors: ["aegisniteedge"]
+title: "Places to Build: Liangzhou Edition"
+description: "A curated guide to the best building locations in Liangzhou, from Chalice Peak to Snowblossom Ridge."
+tags: ["guild", "solo", "sightseeing"]
+authors: ["AegisNite"]
 date: 2026-06-23
 order: 21
 image: "https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3ad9cd&format=webp&hm=f60cf3f8683733b48438ef71fc8ffa2759ef2c84c821acaf2ba6a2b7923e4124&is=6a39884d&quality=lossless"
 ---
 
-Hello again!!!<:pandablush:1509227846432718920>  Here's the Liangzhou edition.<a:pandasick:1509225284233334864> 
+Hello again!!!  Here's the Liangzhou edition. 
 
 While exploring this map, I found it a bit difficult to find locations that I personally liked for building. These are the spots that stood out to me.
-If you've found any great building locations in Liangzhou that aren't shown here, feel free to share them!<a:pandawave:1509225581319946431>
+If you've found any great building locations in Liangzhou that aren't shown here, feel free to share them!
 
 ---
 

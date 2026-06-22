@@ -295,9 +295,11 @@ func refreshFrontmatterImage(fm, imageURL string) string {
 var reDiscordThreadField = regexp.MustCompile(`(?m)^discordThread:\s*"([^"]+)"`)
 var reChannelMention = regexp.MustCompile(`<#(\d+)>`)
 var reUserMention = regexp.MustCompile(`<@!?(\d+)>`)
+var reCustomEmoji = regexp.MustCompile(`<a?:\w+:\d+>`)
 
 // resolveDiscordMentions replaces <#CHANNEL_ID> and <@USER_ID> with human-readable names.
 func resolveDiscordMentions(s *discordgo.Session, userMap map[string]guild.UserInfo, text string) string {
+	text = reCustomEmoji.ReplaceAllString(text, "")
 	text = reChannelMention.ReplaceAllStringFunc(text, func(match string) string {
 		id := reChannelMention.FindStringSubmatch(match)[1]
 		if ch, err := s.Channel(id); err == nil {
