@@ -144,9 +144,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a3a71d5&format=webp&hm=28f6bd2ab9df529fe76098a38a2c9665105cc8476f93b0ca8d4fe55680c26e5a&is=6a392055&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a3b1a95&format=webp&hm=9db31359273c6ded7d009944fe21adc389400dd858c50ed985d1191588d6f395&is=6a39c915&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a3a71d5&format=webp&hm=029e648942fea88284c6b6f87cfd7c6f024ae8898bf7c289f61953c48a60401d&is=6a392055&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a3b1a95&format=webp&hm=8afd1c78508f2d5be3ccc464786ed5b6b4a25d6e5147c74039c5db2c61470655&is=6a39c915&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 There is a workaround: add components you own directly inside the diagram area to raise your ownership percentage above the 70% threshold.
 
@@ -156,11 +156,11 @@ There is a workaround: add components you own directly inside the diagram area t
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place. We consider this as a bug <https://www.wherebuildersmeet.com/bugs/?bug=small-diagrams-placement-is-tedious>. One solution is to use "Recommended Spot". 
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a3a69cb&format=webp&hm=5b9800f738465fa8ac506d5fa42e0a59cf19cdbbbd5252fadfc246d290a9d5d8&is=6a39184b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a3b128b&format=webp&hm=35cec41808ebe08203683bd950495107447a375b9df31b5806b58cbf92b40795&is=6a39c10b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3a5487&hm=b177350a845a58c45dacbf093eb2bf5d865350daa21a52fb8604bd39503a8efa&is=6a390307&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3afd47&hm=30d3053939bbbab49a2723a66995b2692c0c0d8593edd7246b7678b7122c1a3c&is=6a39abc7&" controls></video>
 </div>
 
 

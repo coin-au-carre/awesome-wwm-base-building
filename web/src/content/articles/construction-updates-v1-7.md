@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a3a573c&hm=fcfb9c380e3b9f9798c8e70ca1e2c875c2e6478de864759205f8c8040486984f&is=6a3905bc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a3afffc&hm=9ae421c4721065f0e02f538fdbe34879d362f4669e1f093ba72bd834f7b26297&is=6a39ae7c&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3ad904&format=webp&hm=706d20581da241dc289c6f85e9c1c7be3fba5ac37f588be5f17314c5d0a4f88d&is=6a398784&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a3a5a73&hm=4d08b67e29acfb5eb2b203eaf3171df42deb168485f3ee0e0f2468f1de3c5eff&is=6a3908f3&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a3b0333&hm=151bff2bb32e5108ff6c572183ec1e56dabe96a30790059b5aee47e16a2e511d&is=6a39b1b3&" controls></video>
 </div>
 
 
@@ -83,11 +83,11 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a3a69cb&format=webp&hm=5b9800f738465fa8ac506d5fa42e0a59cf19cdbbbd5252fadfc246d290a9d5d8&is=6a39184b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a3b128b&format=webp&hm=35cec41808ebe08203683bd950495107447a375b9df31b5806b58cbf92b40795&is=6a39c10b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3a5487&hm=b177350a845a58c45dacbf093eb2bf5d865350daa21a52fb8604bd39503a8efa&is=6a390307&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3afd47&hm=30d3053939bbbab49a2723a66995b2692c0c0d8593edd7246b7678b7122c1a3c&is=6a39abc7&" controls></video>
 </div>
 
 ---
@@ -100,9 +100,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a3a71d5&format=webp&hm=28f6bd2ab9df529fe76098a38a2c9665105cc8476f93b0ca8d4fe55680c26e5a&is=6a392055&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a3b1a95&format=webp&hm=9db31359273c6ded7d009944fe21adc389400dd858c50ed985d1191588d6f395&is=6a39c915&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a3a71d5&format=webp&hm=029e648942fea88284c6b6f87cfd7c6f024ae8898bf7c289f61953c48a60401d&is=6a392055&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a3b1a95&format=webp&hm=8afd1c78508f2d5be3ccc464786ed5b6b4a25d6e5147c74039c5db2c61470655&is=6a39c915&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
