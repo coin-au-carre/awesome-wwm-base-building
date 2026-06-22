@@ -1,7 +1,7 @@
 ---
-title: "Unfamiliar Items - What they are and how to use"
-description: ""
-tags: []
+title: "Unfamiliar Items: What They Are and How to Use Them"
+description: "A guide to the real-world purpose and proper placement of commonly misunderstood items in Where Winds Meet, from steamers and stone mills to bamboo, duckweed, and courtyard landscapes."
+tags: ["beginner", "guild", "solo"]
 authors: ["Crueliet"]
 date: 2026-06-23
 order: 20
