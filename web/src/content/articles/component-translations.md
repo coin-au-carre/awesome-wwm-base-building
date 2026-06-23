@@ -5,7 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a3af6e4&format=webp&hm=a022dddf70dc8c89c2cfb7d8d37323fc1ac7e3327c55112d28d7f442b4add396&is=6a39a564&quality=lossless"
+image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a3b9fa4&format=webp&hm=bd18beb9162c17447095cad52da70c40e77027f200eba95c2a5003c071433db8&is=6a3a4e24&quality=lossless"
 featured: false
 published: true
 ---
@@ -14,7 +14,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a3af6e4&format=webp&hm=a022dddf70dc8c89c2cfb7d8d37323fc1ac7e3327c55112d28d7f442b4add396&is=6a39a564&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a3b9fa4&format=webp&hm=bd18beb9162c17447095cad52da70c40e77027f200eba95c2a5003c071433db8&is=6a3a4e24&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 寒 - winter / cold
 日 - day
@@ -22,7 +22,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a3af8c9&format=webp&hm=73089a559be02aa075dc4429958c1e6bd2b78ccc616bfb5fee515debe5d742d2&is=6a39a749&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a3ba189&format=webp&hm=333324708cd3f1960b5306e6f961be835fda37e4ce85a75b52315369a5e72a7f&is=6a3a5009&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 悬 - hang
 壶 - gourd
@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a3b0148&format=webp&hm=a5b070947807e08cd8b84e40a2072b788d25cec1f01da95c7f4438c89db85560&is=6a39afc8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a3baa08&format=webp&hm=3ef10b6bf8b3d5c0a9ba673f1e1a25ebb66e4b420f67a62c60c90ba970f71635&is=6a3a5888&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a3b0184&format=webp&hm=df7f309879705a81caf60ae9770dc559e330b811ecc3c26986a1165938dfc8ce&is=6a39b004&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a3baa44&format=webp&hm=28b55e86ea1facd426ac6e02a07ee2f3424d0ccdcd9cf70accd5c29c657a756a&is=6a3a58c4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 萬 ten thousand
 家 family
@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a3b12a6&format=webp&hm=3785997734932e35a12121adb931c782e2eb5b964f2c88ac9a9b79cf1e025dc7&is=6a39c126&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a3bbb66&format=webp&hm=ab9d8c0d39972b4234707e491ad60e4d37967ed691607539f9e890782e725d50&is=6a3a69e6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a3b1391&format=webp&hm=5df9862a42a0a8f7dbeab06efe98b37e4efe7ac7f30ffd47d7aa86e0eb3a4223&is=6a39c211&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a3bbc51&format=webp&hm=5c356bfef2498d5a89986db7160806cafa5fc73d9b69ebfc4cead56050474a65&is=6a3a6ad1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -81,7 +81,7 @@ Roughly translated, it means "one's character does not leave the pine (tree); it
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a3b1477&format=webp&hm=b4272d242014e92c043a60da7404129b4c838f48beb10e1c05de6a1c507e9347&is=6a39c2f7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a3bbd37&format=webp&hm=f72c8a7a5acd0510a528b008ece48b20a72a8d21ab989594dc52eef412ca391b&is=6a3a6bb7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驿 - postal (relay station)
 
@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a3b15a1&format=webp&hm=4e3743b8b5f1fb061ac3a0c68f3503a58ec0598d21df4bdaf3ba8b9461d86407&is=6a39c421&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a3bbe61&format=webp&hm=59bb7da2ce3d18fc6f833de4e278019b68d73f092edfadc387cf6ed9fa2937b9&is=6a3a6ce1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 天 Heaven
 石 Stone
@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a3b17fc&format=webp&hm=4c790ac2c111492858644f7e4fcfb0a394ac6dc6bf562c491a503a37765d4e90&is=6a39c67c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a3bc0bc&format=webp&hm=f60211a5df74738e8671a1e246d749dc423777930e36713e4653c651fb05d615&is=6a3a6f3c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驛 - traditional version of "postal relay station" 
 
@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a3b1906&format=webp&hm=054e9eaf829972972431bb248f8af346ebb9dfd96e2625362d72eecc2bd21057&is=6a39c786&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a3bc1c6&format=webp&hm=91b800ccb55ad5d5125929db598035448afc936bc8d37639f5c022e66fb6120f&is=6a3a7046&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a3b1a6f&format=webp&hm=55ed618bf395628c96d43ee01fc6a5629fbe28d40449407d9d290b7ea2fbe07b&is=6a39c8ef&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a3bc32f&format=webp&hm=e83808e1342079b70690af6c518fabe3d2d71d4b06205953a26e1c7600d77240&is=6a3a71af&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a3af60a&format=webp&hm=a359c3f378266f59abd59c039df4adb9730e1207e10150794ee9cb6d1f8a66ee&is=6a39a48a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a3b9eca&format=webp&hm=f399da506328b78b2293c9343cb3b89163a7bd159716e8c7b5fd56c16c4d751c&is=6a3a4d4a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 玉門關 - Jade Gate Pass
 
@@ -172,7 +172,7 @@ Can use this anywhere you want to name "Jade Gate Pass"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a3afd36&format=webp&hm=5d883cfe0f721ba8c881c755dda7ee4a3a236198d38e2c3e69c48eb44e4a52b9&is=6a39abb6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a3ba5f6&format=webp&hm=82684c3923bf877d676d3ef7dc1999a07efb816e8ac298dca439e68f5bd1c9ec&is=6a3a5476&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 
