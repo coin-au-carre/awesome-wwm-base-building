@@ -1,5 +1,5 @@
 ---
-title: "Introduction Guide of Homestead System"
+title: "Pre-introduction Guide of Homestead System"
 description: "A first look at the Homestead system: currencies (melons, logs, green drops, wheat), how to hire and level up workers, setting up a tavern and production chain, and what you need to reach the max level 10."
 tags: ["solo","cn"]
 authors: ["carnii"]
