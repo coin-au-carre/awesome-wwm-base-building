@@ -9,6 +9,12 @@ image: "https://media.discordapp.net/attachments/1517573730992132127/15175738224
 featured: true
 ---
 
+<!-- preserve-start -->
+
+Also exploring **Liangzhou**? Check out the [Liangzhou edition](/tutorials/places-to-build-liangzhou-edition) of this guide.
+
+<!-- preserve-end -->
+
 
 <img src="https://media.discordapp.net/attachments/1517573730992132127/1517573822411178085/202661941052.png?ex=6a3c0c42&format=webp&hm=c3275325a77dc08305910f19b5545ebe8c70d4b497b0b0200d2cfe0a39c19081&is=6a3abac2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 

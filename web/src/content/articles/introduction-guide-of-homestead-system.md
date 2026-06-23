@@ -17,7 +17,7 @@ In the future, we will also receive an extension of this system for the Invisibl
 ---
 
 ------------
-# 🔰 Types of currency for which you can purchase building materials and how to obtain them:
+## 🔰 Types of currency for which you can purchase building materials and how to obtain them:
 
 ---
 
@@ -127,7 +127,7 @@ _
 ---
 
 ------------
-# 🔰What kind of workers are they and what are they for?
+## 🔰What kind of workers are they and what are they for?
 
 ---
 
@@ -156,7 +156,7 @@ You also get them for weekly quests/homestead activities.
 ---
 
 ------------
-# 🔰 How do I get more workers?
+## 🔰 How do I get more workers?
 
 ---
 
@@ -173,7 +173,7 @@ You need to go to the workers menu, find the "+" and click on it, then select th
 ---
 
 ------------
-# 🔰 How to set up a business?
+## 🔰 How to set up a business?
 
 ---
 
@@ -228,7 +228,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-# 🔰 In order to upgrade the homestead system level, you need to:
+## 🔰 In order to upgrade the homestead system level, you need to:
 
 - increase the level of production elements (pottery, kitchen, etc.)
 - increase the level of prosperity (build buildings or place furniture on the island or in places where this system is available)

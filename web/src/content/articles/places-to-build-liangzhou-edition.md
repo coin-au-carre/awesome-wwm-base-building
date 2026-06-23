@@ -6,6 +6,7 @@ authors: ["AegisNite"]
 date: 2026-06-23
 order: 21
 image: "https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3c2b4d&format=webp&hm=2476149e5516e5823e1201bbc54f639558f90163b7b63d7b0724177e7614ab8d&is=6a3ad9cd&quality=lossless"
+featured: true
 ---
 
 Hello again!!!  Here's the Liangzhou edition. 
@@ -116,3 +117,9 @@ If you've found any great building locations in Liangzhou that aren't shown here
 ---
 
 Places to build Liangzhou edition
+
+<!-- preserve-start -->
+
+Also exploring **Qinghe**? Check out the [Qinghe edition](/tutorials/places-to-build-qinghe-edition) of this guide.
+
+<!-- preserve-end -->

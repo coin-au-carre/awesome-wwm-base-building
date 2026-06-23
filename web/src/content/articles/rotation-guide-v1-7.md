@@ -6,7 +6,7 @@ authors: ["Crueliet"]
 date: 2026-06-08
 order: 17
 image: "https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a3bdec0&format=webp&hm=8dba7a2dd579801434b02c40e99a5ff94f0f8f8c88f86311abe6bc0d0b6abdbc&is=6a3a8d40&quality=lossless"
-featured: true
+featured: false
 ---
 
 
