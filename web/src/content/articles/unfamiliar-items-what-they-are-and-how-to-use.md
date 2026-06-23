@@ -105,7 +105,7 @@ Put near water. Can be partially submerged
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139548473757766/image.png?ex=6a3b7822&format=webp&hm=f7694490ab0539f7cb83f80c8f4026d7790bcd682a0d5c107e860887bae81389&is=6a3a26a2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139548473757766/image.png?ex=6a3c20e2&format=webp&hm=4b0ba45debbe3f041f8c78bf7e0835593858e5491d2356028a1877bb80741fcc&is=6a3acf62&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -117,7 +117,7 @@ Proper usage: Unlike lucky bamboo (mini indoor bamboo). True bamboo cannot survi
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139642183024721/image.png?ex=6a3b7838&format=webp&hm=5d91cb7ee82c35cd52d39437d821ad704c6ea1a04a1c0fcdb265d2e4f81fb700&is=6a3a26b8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139642183024721/image.png?ex=6a3c20f8&format=webp&hm=5201731de8b84de17e83d0721e8fb447481f3955ce50835efe8c19d320dda1d9&is=6a3acf78&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -125,7 +125,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139684830707752/image.png?ex=6a3b7842&format=webp&hm=2ea53313b17b48e3be3973e9ff90c69dc8a709489aa845347a6c0ad6c5af258c&is=6a3a26c2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139684830707752/image.png?ex=6a3c2102&format=webp&hm=877bccfa6d85be3ce1d11e54ad4801b021f12bb441151767144fc41c239e640f&is=6a3acf82&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -137,7 +137,7 @@ Unlike the lotus next to it. Duckweed leaves must touch the surface of the water
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139753000865842/image.png?ex=6a3b7852&format=webp&hm=e3697001ea108008e7c6b3cbf56b2fb44e0d16df450b89d94e553c235f01191f&is=6a3a26d2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139753000865842/image.png?ex=6a3c2112&format=webp&hm=f3ee38edde313db68bb98623350da53b4f3f358300d57fa7e3401a5f6c4baced&is=6a3acf92&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -149,7 +149,7 @@ Proper usage: This is a high-heat furnace, not a stove or an oven for baking or 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139855098347590/image.png?ex=6a3b786b&format=webp&hm=fe86250e6529a489c50670cbfc44d803a5649e35d52d58602090de839dd67995&is=6a3a26eb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139855098347590/image.png?ex=6a3c212b&format=webp&hm=1ca663f88ea69d0e14cd6253ce0fcafaf11d0f572dbdab0bca211c8468386d48&is=6a3acfab&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
