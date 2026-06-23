@@ -1,5 +1,20 @@
 [
 	{
+		"name": "GoldenMirage",
+		"builders": [
+			"Laogai",
+			"Taîls"
+		],
+		"tags": [
+			"Military/Arena"
+		],
+		"discordThread": "",
+		"whatToVisit": "Cafe area\nWater arena",
+		"score": 0,
+		"lastModified": "June 23, 2026 at 10:17 AM UTC",
+		"scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"name": "KillSwitch",
 		"builders": [
 			"QuessLord-龍風"
