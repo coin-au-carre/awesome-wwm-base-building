@@ -5,7 +5,7 @@ tags: ["solo", "Beginner"]
 authors: ["AegisNite"]
 date: 2026-06-23
 order: 21
-image: "https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3cd40d&format=webp&hm=1ae3c25b0b0626c9f0aceeda15de694639c8eb7ba1642ba3af769557622c09be&is=6a3b828d&quality=lossless"
+image: "https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3d7ccd&format=webp&hm=553ff7a2808070d1066c19095f3d13383fea77166081629818c479f2fca54f24&is=6a3c2b4d&quality=lossless"
 featured: false
 ---
 
@@ -16,103 +16,103 @@ If you've found any great building locations in Liangzhou that aren't shown here
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3cd40d&format=webp&hm=1ae3c25b0b0626c9f0aceeda15de694639c8eb7ba1642ba3af769557622c09be&is=6a3b828d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3d7ccd&format=webp&hm=553ff7a2808070d1066c19095f3d13383fea77166081629818c479f2fca54f24&is=6a3c2b4d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331931568115732/Chalice_Peak.jpg?ex=6a3cd40d&format=webp&hm=205cd7edc36739eb00f19b1f1e8426b4bc10386c3974e7c574b75483abb40579&is=6a3b828d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
----
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331965319938158/202662101529.png?ex=6a3cd415&format=webp&hm=6bebc77118716e711daeb66efa7df20ef4194b78d9e383fe547e5b4a7903ad77&is=6a3b8295&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331966796337316/202662101546.png?ex=6a3cd416&format=webp&hm=beb32dbff21e2a297a116804470896272bb4bf1559c2137800a39ceb50bc4b26&is=6a3b8296&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331967844782181/202662101620.png?ex=6a3cd416&format=webp&hm=cdc94d61c83af293fdf1c780c39a30e6eb1729a8bbf25e261c4ab87c1a7cbd3a&is=6a3b8296&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331968197230713/Governors_Residence.jpg?ex=6a3cd416&format=webp&hm=0eb783203865b87fe076ffb2e0968ff8eafceb7b7347481b6e779d977fa58541&is=6a3b8296&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331931568115732/Chalice_Peak.jpg?ex=6a3d7ccd&format=webp&hm=837f3649108bd9a7c9449148791570cacf3ecb7ab59c0562b6917fcb1eeccbe9&is=6a3c2b4d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332010303590601/202662102423.png?ex=6a3cd420&format=webp&hm=a81f75c72631d9c4e97e07ada9aeec3f63de9cfea6986ab8499aa0929bd2e36d&is=6a3b82a0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331965319938158/202662101529.png?ex=6a3d7cd5&format=webp&hm=72428e5488c150f7088c28168b5d9e74af430cf56add22f48704af3d23a015c4&is=6a3c2b55&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332011499094016/202662102444.png?ex=6a3cd420&format=webp&hm=b5eb053d39501e64ae7bd5db1a3c770858ca161c5523627e8b51eee4797e8714&is=6a3b82a0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331966796337316/202662101546.png?ex=6a3d7cd6&format=webp&hm=d4228ea2ea3f17093c4a8c1385746e38e85d11d0934cef149d8d9daac60ceade&is=6a3c2b56&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332011800952842/Governors_Residence.jpg?ex=6a3cd420&format=webp&hm=fea98f68a64827f0b98b50827cfedd5c431eeb5a8d5f60d77e8ff43cb39d1cb7&is=6a3b82a0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331967844782181/202662101620.png?ex=6a3d7cd6&format=webp&hm=1a55293bf1b4700cfde56cd2592f4cf276850e69dba8611f3f44c29c7812eb3d&is=6a3c2b56&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
----
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332042671161446/202662102735.png?ex=6a3cd428&format=webp&hm=4d6024089d79feaf00ee45e2ffdb7a5477b171e55309e21fc600df227f1492c9&is=6a3b82a8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332043065294878/Governors_Residence_Pt_3.jpg?ex=6a3cd428&format=webp&hm=d0ddd87b85652565fbc71d2d7c133d66f9ce46e08dfc5ff49b2cc897ae942a9c&is=6a3b82a8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331968197230713/Governors_Residence.jpg?ex=6a3d7cd6&format=webp&hm=a648c172ab7b99bd4e0f763593cf871c543a974df5b6a360075482c46b9343fe&is=6a3c2b56&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332071980826659/2026620212231.png?ex=6a3cd42f&format=webp&hm=84b6d645bd84fe1f2a8b372ec2671ff9049db5439a5af805dc6915246e182cf4&is=6a3b82af&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332010303590601/202662102423.png?ex=6a3d7ce0&format=webp&hm=b7ed027cc682b21df89198a091995e2edb0a847fa9876b88dd71b8646c190466&is=6a3c2b60&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332073407152339/2026620212252.png?ex=6a3cd42f&format=webp&hm=25a9e587378415f3fe5d754ca929568ba8524699149e9684f6ddcdd279688408&is=6a3b82af&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332011499094016/202662102444.png?ex=6a3d7ce0&format=webp&hm=ea06d651061eecd17a00b66b8017ab018ad070ea3a71053eb06d1ffb67e6c2d8&is=6a3c2b60&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332073801154630/Jiuquan.jpg?ex=6a3cd42f&format=webp&hm=b9ce56bdc51379df6244c9804615952065546ea72e28b0d9c2e627c36a159a92&is=6a3b82af&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
----
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332097704624250/2026620205555.png?ex=6a3cd435&format=webp&hm=8a2b1d79c59ee717fe20cd680dbeed2d3ce0d2a0a2a81b5a24e91c09d721b269&is=6a3b82b5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332097998094526/Kingvine_Village.jpg?ex=6a3cd435&format=webp&hm=18a367769f37b5a88119dcac53fe5350200824c775665a97986c3547640ca82b&is=6a3b82b5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332011800952842/Governors_Residence.jpg?ex=6a3d7ce0&format=webp&hm=ad1d94296ce2c657e4ac6dda4378f887c6d2eb1ecc9cc452b42cb993388adf2d&is=6a3c2b60&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332121398120629/202662021111.png?ex=6a3cd43a&format=webp&hm=afe3ba643d01dff9bc0998419b82e294bc66b2ab8012229ff9d66799f3d906d2&is=6a3b82ba&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332042671161446/202662102735.png?ex=6a3d7ce8&format=webp&hm=2aeaf770d803a9309c787cac6141eb832ddf87c26457cadff7e5752ffabbfe09&is=6a3c2b68&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332121767350473/Kingvine_Village_Pt_2.jpg?ex=6a3cd43b&format=webp&hm=93d84e6015ff89d7040a9db0b87f3500b0e45759cd27449627cdc5c52e2901b2&is=6a3b82bb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
----
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332153929142465/202662021539.png?ex=6a3cd442&format=webp&hm=bb5c421841805102ca6c0f4a7f9dc0753c5bc65bc9fc2de371f7b3b552280a30&is=6a3b82c2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332155149815979/202662021618.png?ex=6a3cd443&format=webp&hm=4f18e711055a778af8ea4fd05818b3a8c56eccc01a91700447925c3206c197de&is=6a3b82c3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332155548270712/Kingvine_Village_Pt_3.jpg?ex=6a3cd443&format=webp&hm=1ab4b780d6a0bdb0321179528d5c6f294e010168a7bb71c08124f56f8f3ef1b7&is=6a3b82c3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332043065294878/Governors_Residence_Pt_3.jpg?ex=6a3d7ce8&format=webp&hm=3f838f4064dc588cbd33d98fef60d20853d5c5271fcf0887b7821701bb3cc1f8&is=6a3c2b68&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332177958309888/2026620232931.png?ex=6a3cd448&format=webp&hm=87bbf417e0b574ed4807adec02f677c72df73ea10a4cff3abb40dc8419c9c3eb&is=6a3b82c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332071980826659/2026620212231.png?ex=6a3d7cef&format=webp&hm=2a76ca6c9c163b0bb7e0887c4f23cf65c19540c365582a872cbf36fb8f7eb6fc&is=6a3c2b6f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332178310893719/Snowblossom_Ridge.jpg?ex=6a3cd448&format=webp&hm=d8691b811aa3dae1eb13beabfdfc3eaee3ea08764f3581989f9b0cf319c20985&is=6a3b82c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332073407152339/2026620212252.png?ex=6a3d7cef&format=webp&hm=0997e658961ed25a0247b0cf1e505db7cdcb281f31e3037754dcaa00a0b77b86&is=6a3c2b6f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
----
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332208191115394/2026620233214.png?ex=6a3cd44f&format=webp&hm=8a9c058e055ef5aabf709e92d0c672c8e552f003e2f0a7776927070eb46e0c4c&is=6a3b82cf&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332209411522630/2026620233242.png?ex=6a3cd44f&format=webp&hm=0b069f3bc3a07bafd0be8d5831734f20513ec0c018e44522c894d1b07c3a2c0b&is=6a3b82cf&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332209759519021/Snowblossom_Ridge_Pt_2.jpg?ex=6a3cd450&format=webp&hm=38e97d07b218fc0ad210305a8e61548bebbc020cd1ab1577a286b4e80268ca71&is=6a3b82d0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332073801154630/Jiuquan.jpg?ex=6a3d7cef&format=webp&hm=cf39dafe658d2cfa7a1df77a5435ca35159d1414af7be4fac3f78e8e579c5f51&is=6a3c2b6f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332238662471903/202662023378.png?ex=6a3cd456&format=webp&hm=4980294cbcf70646fb3b16c51d55f3dbcc5f24146272acd76ff036c051465cd1&is=6a3b82d6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332097704624250/2026620205555.png?ex=6a3d7cf5&format=webp&hm=d5e535ac23fa38680e3622dfd85439a1d636d71261c37a6c816a949d6d622326&is=6a3c2b75&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332239614841003/202662023389.png?ex=6a3cd457&format=webp&hm=99dc13c8837e9d39f06259fea20a1de232989beff26d52509525d79b93a40f91&is=6a3b82d7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332240151449722/Snowblossom_Ridge_Part_3.jpg?ex=6a3cd457&format=webp&hm=5ccb51e052de5f445efde4e358aee166dbc5e83fbf96bedacd291ba8b3a3ec85&is=6a3b82d7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332097998094526/Kingvine_Village.jpg?ex=6a3d7cf5&format=webp&hm=6331888d550809113392ea0b4e6db9791b62b82cd61a8ac7cc0c064a1d29a2ee&is=6a3c2b75&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332282765836348/2026620201152.png?ex=6a3cd461&format=webp&hm=3fc7018414815fef0f77ac16b1aa2f5c2043ce4963817c34bfa9c68fd5ddfa46&is=6a3b82e1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332121398120629/202662021111.png?ex=6a3d7cfa&format=webp&hm=1ac619fd384c29e65ecba94d95b1885616cecd4fd7d3e1a295413a9dbae8cf42&is=6a3c2b7a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332283076087929/Sparrow_Sutra.jpg?ex=6a3cd461&format=webp&hm=6ae54554ffe94294aa0ae78adee04ede99f226b1a174d026578c39c46da82e11&is=6a3b82e1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
----
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332308342702090/2026620195316.png?ex=6a3cd467&format=webp&hm=234d8ac42b3b0b2b9bbb77d699b7f187243218478570f0a72ffcd401180fa57c&is=6a3b82e7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332308770259015/Steeds_Pass.jpg?ex=6a3cd467&format=webp&hm=5b0b95abce59d36fd1c032a411b9f9ad5c8a9564d830f388bd86492f6ae652cc&is=6a3b82e7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332121767350473/Kingvine_Village_Pt_2.jpg?ex=6a3d7cfb&format=webp&hm=038528b77ce9fcb9b35a17eb8b97b4b67491d27857b7924c2a14d36ca4f571e2&is=6a3c2b7b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332333512458302/2026620195757.png?ex=6a3cd46d&format=webp&hm=eb7dbe7117d45c03eabc62fba1170cc4660075237dc51b99b92dce36b59394e2&is=6a3b82ed&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332153929142465/202662021539.png?ex=6a3d7d02&format=webp&hm=15a8885c84fde082cf1f179e504fb2c9d0a0a3d93a4a943fcea966db01398e19&is=6a3c2b82&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332334666158200/2026620195815.png?ex=6a3cd46d&format=webp&hm=21ae31853cec4c6bd64ba098b64bcaf86175c4e0b9e5237957c746fb5956d033&is=6a3b82ed&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332155149815979/202662021618.png?ex=6a3d7d03&format=webp&hm=58a848bd4d3dd0934df0caf114df9068cedd97eca41d7ba70d133954304ecce6&is=6a3c2b83&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332335144173808/Steeds_Pass_Pt_2.jpg?ex=6a3cd46d&format=webp&hm=5d11c3888ce34973b171664624959a4177d12847f856d65cbf5be6e2d636d640&is=6a3b82ed&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332155548270712/Kingvine_Village_Pt_3.jpg?ex=6a3d7d03&format=webp&hm=7ecb8679e000053ef3588095b20f62e329e853f4b74127995e63d40c3760acce&is=6a3c2b83&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332177958309888/2026620232931.png?ex=6a3d7d08&format=webp&hm=7beb4d015737003813880924c716af9963167c698ded8c2b1b245fedef5eda4b&is=6a3c2b88&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332178310893719/Snowblossom_Ridge.jpg?ex=6a3d7d08&format=webp&hm=381c484758952188ba8094c0d8fb1130d82cdd14c794216e61ed1d761df65a9b&is=6a3c2b88&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332208191115394/2026620233214.png?ex=6a3d7d0f&format=webp&hm=4823449890d1de0802b16b505aaf476f3271389c33fe443dc5954dc9260f1542&is=6a3c2b8f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332209411522630/2026620233242.png?ex=6a3d7d0f&format=webp&hm=5106b15d940238261679495468e0f7462b10065a970d85c3c3c200bc397fb044&is=6a3c2b8f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332209759519021/Snowblossom_Ridge_Pt_2.jpg?ex=6a3d7d10&format=webp&hm=481ab6c1139c7387eafcf86c661ff73f2c9d6b8e9be33743ab975339420629cc&is=6a3c2b90&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332238662471903/202662023378.png?ex=6a3d7d16&format=webp&hm=aca9906cbc22465584c0d74df6ed6e70b245e17f41de3af5c6cf2cb017bf01e2&is=6a3c2b96&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332239614841003/202662023389.png?ex=6a3d7d17&format=webp&hm=8e5076a35cadc71810484a5ee29b205bf66a5abeef15b716d4d591d97ed1ef91&is=6a3c2b97&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332240151449722/Snowblossom_Ridge_Part_3.jpg?ex=6a3d7d17&format=webp&hm=736e2d7f5a46538101fbe1c89522e6575270232ed6d873e6ccd2342307827fa5&is=6a3c2b97&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332282765836348/2026620201152.png?ex=6a3d7d21&format=webp&hm=452a6081aac9b89a7f6ca2d2091ae7e38323b1c6821b6e48c2fc71833533a68a&is=6a3c2ba1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332283076087929/Sparrow_Sutra.jpg?ex=6a3d7d21&format=webp&hm=f7838ba9f0bc6313a71fece17b02c57a5b67a4488d5414ea96e26f8c75b20560&is=6a3c2ba1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332308342702090/2026620195316.png?ex=6a3d7d27&format=webp&hm=aa7411447daef47664c8282b1fdd1c2ad5d5cb140d85afeb7b0fc191d6e130f3&is=6a3c2ba7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332308770259015/Steeds_Pass.jpg?ex=6a3d7d27&format=webp&hm=04010e8f6b227fcde669df61e42f0e4338de4b9611de5745dd89e67b07b5f0db&is=6a3c2ba7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332333512458302/2026620195757.png?ex=6a3d7d2d&format=webp&hm=1eb3d61600ad2d6c5fc0332875e912c102e8b27b3d4b817aac860b9d9aa1a498&is=6a3c2bad&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332334666158200/2026620195815.png?ex=6a3d7d2d&format=webp&hm=e01befcc0bbb03ae82f5623b16c67596b0f076465b5494eae738b5e57a95d4e5&is=6a3c2bad&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+
+<img src="https://media.discordapp.net/attachments/1518331856175628359/1518332335144173808/Steeds_Pass_Pt_2.jpg?ex=6a3d7d2d&format=webp&hm=238d996d5c82d3064914a803508c381610048d7ce76ac2c5a689fb9709682d1c&is=6a3c2bad&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
