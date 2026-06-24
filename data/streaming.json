@@ -1,28 +1,12 @@
 {
-<<<<<<< HEAD
   "streamers": [
     {
       "userID": "814547014565888050",
       "username": "KARIN",
       "channelID": "1496814821520441385",
       "channelName": "Building Unlimited",
-      "startedAt": "2026-06-24T22:00:23.03450382Z"
+      "startedAt": "2026-06-24T21:42:50.73150879Z"
     }
   ],
-  "updatedAt": "2026-06-24T22:00:28.659951645Z"
-||||||| parent of a9a3d3a5 (chore: live streaming update)
-  "streamers": [],
-  "updatedAt": "2026-06-24T00:28:33.830969075Z"
-=======
-  "streamers": [
-    {
-      "userID": "814547014565888050",
-      "username": "KARIN",
-      "channelID": "1496814821520441385",
-      "channelName": "Building Unlimited",
-      "startedAt": "2026-06-24T21:39:09.340841229Z"
-    }
-  ],
-  "updatedAt": "2026-06-24T21:39:14.89681379Z"
->>>>>>> a9a3d3a5 (chore: live streaming update)
+  "updatedAt": "2026-06-24T21:42:56.111041347Z"
 }
