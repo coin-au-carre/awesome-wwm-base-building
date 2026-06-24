@@ -5,7 +5,7 @@ tags: ["update", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-05
 order: 15
-image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3c2a84&format=webp&hm=aca14576729b9942f08ea8ebb610bc6d21dda9dd3b610b25802917064cd6659f&is=6a3ad904&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3cd344&format=webp&hm=e16a400cefd00194b19e1f59c6f0c80e8ae64caf1a654028a0d289a6a129eb62&is=6a3b81c4&quality=lossless"
 featured: false
 ---
 
@@ -19,10 +19,10 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a3c517c&hm=0fa56e5acd318cc49a9ee6e2e52a6234a2d8f8f049a4f1498076281d73d035f6&is=6a3afffc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a3cfa3c&hm=7ba66ad1ef4c971f5e15065abf8c95697a73225a9be319d83981b704a49e4c9f&is=6a3ba8bc&" controls></video>
 </div>
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3c2a84&format=webp&hm=aca14576729b9942f08ea8ebb610bc6d21dda9dd3b610b25802917064cd6659f&is=6a3ad904&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3cd344&format=webp&hm=e16a400cefd00194b19e1f59c6f0c80e8ae64caf1a654028a0d289a6a129eb62&is=6a3b81c4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Note for mobile and PS5 players: there is no known method to rotate on a second axis as of now.
@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a3c4a3d&format=webp&hm=303d251e024cae926ba79875eb8dcfeffc81d1238552afc886f981f3aa7f378a&is=6a3af8bd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a3cf2fd&format=webp&hm=174db3ee0d862a474a1a734bea7800463905e8de2d5a58124b9e27d04e19831e&is=6a3ba17d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a3c49de&format=webp&hm=7dc08c29ecb3939d78ddc64fb884626148abf5172ad57f661600346b3225d287&is=6a3af85e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a3cf29e&format=webp&hm=c0220f30bbff6784eed47a820feb926c28c4519316706b856a3d93e81b10c35d&is=6a3ba11e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a3c4a23&format=webp&hm=7025a932f21946a3d2a717454a8a8449524904087fae829e738abc86f9e975d9&is=6a3af8a3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a3cf2e3&format=webp&hm=79a7f7d74b7128fb74106d4d8e6786232dd6c1fc5fefbed8bd0ccd44708ef109&is=6a3ba163&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -87,7 +87,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3c4ec7&hm=991d82e80112fb1e98140e4f4bd530ec29b1395dbf48652a4984e2345dc02bf3&is=6a3afd47&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3cf787&hm=7194d71107480d49529512de67f904d4dc8d7a942d45f3de6ce16abb437e1ec2&is=6a3ba607&" controls></video>
 </div>
 
 ---
@@ -110,7 +110,7 @@ This can be a harsh limitation in collaborative builds. For example, if two buil
 
 You can now block up to **30 players** and **3 guilds** from visiting your guild base.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a3c1c50&format=webp&hm=b88da69ab4193a42e573eee3a88568ce87fad5e858c570ea226c688a7ffb447f&is=6a3acad0&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a3cc510&format=webp&hm=50662f8127f52e0eb2aeab83c3bc44e80e64217977b0f48d5889b3dc24f628fb&is=6a3b7390&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
 
 ---
 
