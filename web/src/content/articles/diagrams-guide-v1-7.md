@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "diagram", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-17
 order: 18
-featured: true
+featured: false
 image: "https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a3c8325&format=webp&hm=c18e7aff1966e453fe1c4b0c7869b0fee196d00567df98795cfae8e68d5e4921&is=6a3b31a5&quality=lossless"
 ---
 

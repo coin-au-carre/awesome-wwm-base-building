@@ -6,7 +6,7 @@ authors: ["AegisNite"]
 date: 2026-06-23
 order: 21
 image: "https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a3cd40d&format=webp&hm=1ae3c25b0b0626c9f0aceeda15de694639c8eb7ba1642ba3af769557622c09be&is=6a3b828d&quality=lossless"
-featured: true
+featured: false
 ---
 
 Hello again!!!  Here's the Liangzhou edition. 

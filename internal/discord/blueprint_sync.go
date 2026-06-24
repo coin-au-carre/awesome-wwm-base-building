@@ -279,6 +279,7 @@ func fetchBlueprintContent(s *discordgo.Session, thread *discordgo.Channel) thre
 		Lore:                parsed.Materials,     // repurposed
 		WhatToVisit:         parsed.Price,         // repurposed
 		BuildTitle:          parsed.BuilderName,   // repurposed
+		CoverIdx:            parsed.CoverIdx,
 		FirstPostTime:       firstPostMsg,
 		LastContributorTime: lastContributorTime,
 	}

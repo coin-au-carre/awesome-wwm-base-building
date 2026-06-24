@@ -94,6 +94,20 @@ function BlueprintPostInstructions() {
           </p>
         </div>
       </div>
+      <div className="space-y-1.5">
+        <OptionLabel label="Optional — cover image" />
+        <div className="rounded-xl border px-4 py-3 space-y-1.5">
+          <p className="text-sm text-muted-foreground">
+            Pin a specific screenshot as the cover by adding a line in your first post:
+          </p>
+          <code className="block rounded bg-muted px-3 py-2 font-mono text-xs text-foreground">
+            Cover: 3
+          </code>
+          <p className="text-sm text-muted-foreground">
+            This picks your third screenshot as the cover image shown in the catalog.
+          </p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,7 @@
 package blueprint
 
 import (
+	"fmt"
 	"regexp"
 	"strings"
 )
@@ -13,6 +14,7 @@ var (
 	rePriceTag        = regexp.MustCompile(`(?i)!price\s+([^!\n]+)`)
 	rePriceEchoPearls = regexp.MustCompile(`(?im)^\s*(\d[\d\s,]*\s*echo\s+pearls?)\s*$`)
 	reMaterials       = regexp.MustCompile(`(?im)^materials?\s*:[ \t]*([^\n]+)`)
+	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
 	// matches payment mentions in prose: "60 pearls", "180 echo beads", "$5", "30 dollars"
 	RePayInProse = regexp.MustCompile(`(?i)\d+\s*(?:echo\s+)?(?:pearl|bead|dollar)s?|\$\s*\d`)
 
@@ -29,6 +31,7 @@ type ParsedBlueprintPost struct {
 	IsPayToBuild bool
 	Materials    string
 	Description  string
+	CoverIdx     int // 1-based; 0 means not specified
 }
 
 // ParseFirstPost extracts optional structured fields from a blueprint thread's first post.
@@ -77,6 +80,10 @@ func ParseFirstPost(content string) ParsedBlueprintPost {
 
 	if m := reMaterials.FindStringSubmatch(content); len(m) > 1 {
 		p.Materials = strings.TrimSpace(m[1])
+	}
+
+	if m := reCover.FindStringSubmatch(content); len(m) > 1 {
+		fmt.Sscan(m[1], &p.CoverIdx)
 	}
 
 	// Description: everything left after stripping structured field lines
