@@ -94,6 +94,13 @@ export const channels: Channel[] = [
     handle: "@FoxiKate",
   },
   {
+    name: "imwokay",
+    url: "https://www.tiktok.com/@imwokay",
+    handle: "@imwokay",
+    platform: "tiktok",
+    builderSlug: "你wokay吗",
+  },
+  {
     name: "Marvelite",
     url: "https://www.youtube.com/@Marvelite/videos",
     handle: "@Marvelite",
