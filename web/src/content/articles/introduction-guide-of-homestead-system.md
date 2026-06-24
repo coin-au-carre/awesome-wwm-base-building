@@ -14,8 +14,6 @@ The first city to receive this system will be Qinghe
 
 In the future, we will also receive an extension of this system for the Invisible Mountain location.
 
-*By [carnii](/builders/carnii)*
-
 ---
 
 ------------
@@ -31,8 +29,7 @@ In the future, we will also receive an extension of this system for the Invisibl
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a3c4ac7&format=webp&hm=f87fde9db5b056b0b864d8c41f6f0d6907a16824098c9d915b668f6a227e4858&is=6a3af947&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-_
-### ⭐ One of the most important currencies, 🍈**melons**, for them you can buy a large number of various furniture in the store, as well as seeds, buildings and books to upgrade your workers.
+### 🍈 One of the most important currencies, **melons**, for them you can buy a large number of various furniture in the store, as well as seeds, buildings and books to upgrade your workers.
 
 ---
 
@@ -44,7 +41,6 @@ There are several ways, here are the main ones that will be available to you and
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519092975567634593/image.png?ex=6a3c4d14&format=webp&hm=a975977d7fe58727f88a0a4be70e0046e5f10a7a28035705c712aeb00fc703e1&is=6a3afb94&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-_
 🍈  Weekly cargo tasks in which you give away the collected resources and cooked meals
 
 ---
@@ -71,8 +67,7 @@ _
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519097126582485155/image.png?ex=6a3c50f2&format=webp&hm=70509da26fcc90aec2928489929e0ede40fcc080f268fa44c66d7a3165c0096c&is=6a3aff72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-_
-### ⭐ The next currency is ordinary 🪵**logs**, for which you can buy structural units (they are already available for construction in the guild)
+### 🪵 The next currency is ordinary **logs**, for which you can buy structural units (they are already available for construction in the guild)
 
 ---
 
@@ -90,8 +85,7 @@ _
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519098498627403817/image.png?ex=6a3c5239&format=webp&hm=f1331b1503a1d851382960d21abf6fdc7343238ede2a9fc636dcb8f7b6e0a691&is=6a3b00b9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-_
-### ⭐   💚 **Green drops** that are used to purchase unique items
+###  💚 **Green drops** that are used to purchase unique items
 
 ---
 
@@ -105,8 +99,7 @@ _
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519100040621068429/image.png?ex=6a3c53a9&format=webp&hm=f07b1d6360a1316977b0775a682e420c0974482eff6dca375c5739052f32590c&is=6a3b0229&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-_
-### ⭐ Another currency that is used in homestead is 🌾**wheat**
+### 🌾 Another currency that is used in homestead is **wheat**
 
 ---
 
@@ -183,7 +176,7 @@ You need to go to the workers menu, find the "+" and click on it, then select th
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a3c5b08&format=webp&hm=436121e79327ae2aa5dd16e7f4caa87072ce8f42dffa5a65408be1900ba63085&is=6a3b0988&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-To begin with, I suggest that you allocate a place on your island (it will probably be more convenient to place new stoves or stoves with tables, because everything will be in one place, then you may need to place production in other locations, but I'm not sure about this information, since I did everything only on the island and that was enough for my needs). 
+To begin with, I suggest that you allocate a place on your island (*it will probably be more convenient to place new stoves or stoves with tables, because everything will be in one place, then you may need to place production in other locations, but I'm not sure about this information, since I did everything only on the island and that was enough for my needs*). 
 Don't forget to put up beds for your employees, because without them you won't be able to hire new ones.
 
 ---
