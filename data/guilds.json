@@ -1,5 +1,22 @@
 [
 	{
+		"name": "Moonbeam",
+		"builders": [
+			"Ërìs",
+			"ZenoStar"
+		],
+		"tags": [
+			"Zen/Nature",
+			"Military/Arena",
+			"River/Canal"
+		],
+		"discordThread": "",
+		"whatToVisit": "Water arena\nClimbing path\nCozy places",
+		"score": 1,
+		"lastModified": "June 24, 2026 at 08:28 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "SAKEJU",
 		"builders": [
 			"你Wokay吗"
