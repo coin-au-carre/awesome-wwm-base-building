@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a3cc3dd&hm=bb46f368f52776b0d195026dcf951a2245763338af071527eb4a8d74df18f2f8&is=6a3b725d&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a3d6c9d&hm=37c66a76da8833a5d4f2f210d356694920cb7d0f59b12e23e14d2225b083de10&is=6a3c1b1d&" controls></video>
 </div>
 
 ---
@@ -28,7 +28,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a3cc25d&hm=7f5d7eefe3677c00b98d8c48345d09ce2f7936750202cd7e61d9a141b15d8a9f&is=6a3b70dd&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a3d6b1d&hm=017fcc105989ed50016f2e9ca2791d08b97ac45baf8c8305c47c153913be41b4&is=6a3c199d&" controls></video>
 </div>
 
 ---
@@ -62,13 +62,13 @@ The guild party area has an open gate that leads directly into the guild wall, w
 
 By sinking the wooden bridge into the ground, you can create parallel fences and more. This greatly reduces component costs and looks fantastic.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a3cb191&format=webp&hm=ecb35bd6d76554a70b4f6de1fbd78c494c9c20d2b0b165842d98b62d9a54579a&is=6a3b6011&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194156556339/1.png?ex=6a3d5a51&format=webp&hm=a07b9011d2aeff0b5c2dda18bc1aa46829c80fd398527dfd6c2ee32d9eee08d3&is=6a3c08d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 1" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a3cb191&format=webp&hm=e1176960123771bfa094c0dc337307bfbb8981572e3f2cef8790532c84da8da6&is=6a3b6011&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618194752012308/2.png?ex=6a3d5a51&format=webp&hm=99e140d739bda8a0266099ac2de2ff5d04a1aac3a0be7b35a794f473f38ccbcc&is=6a3c08d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 2" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a3cb191&format=webp&hm=6c4b87a387681cd66986971fb6fdbc35bb0f6bc7dd3a83a5acbe45644d53f2fe&is=6a3b6011&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195368710194/3.png?ex=6a3d5a51&format=webp&hm=6cc2e6f46e5ccabb380cb31a29d3207f0b07fd236930f526374ee2095ea1ea9d&is=6a3c08d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 3" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a3cb191&format=webp&hm=34a71047b9ca318e35df7d95a60289de564edfd1fa3be1a6c83e6fb2041d3441&is=6a3b6011&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503618195968360498/4.png?ex=6a3d5a51&format=webp&hm=ed43a494d47cd042d6252bda172a3349dd5f54d46852973c14514ac955d7a2d2&is=6a3c08d1&quality=lossless" alt="Wooden bridge sunk into the ground creating parallel fences — step 4" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -77,4 +77,4 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a3cafce&format=webp&hm=78eb239794d29ec6ff98ec29da01296b4572f085b64b03d2d6dcb488744562d8&is=6a3b5e4e&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a3d588e&format=webp&hm=2746eb8ac1bc7aa7e64523e1eb66793179bce51b8cc1c5b6ea751bd5570018d4&is=6a3c070e&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
