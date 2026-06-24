@@ -797,6 +797,26 @@ func isSupportedVideoURL(rawURL string) bool {
 	return false
 }
 
+// canonicalVideoURL normalizes YouTube short/long URLs to a single form so
+// duplicate links with different formats are deduplicated correctly.
+func canonicalVideoURL(rawURL string) string {
+	u, err := url.Parse(rawURL)
+	if err != nil {
+		return rawURL
+	}
+	switch u.Hostname() {
+	case "www.youtube.com", "youtube.com":
+		if v := u.Query().Get("v"); v != "" {
+			return "https://www.youtube.com/watch?v=" + v
+		}
+	case "youtu.be":
+		if id := strings.TrimPrefix(u.Path, "/"); id != "" {
+			return "https://www.youtube.com/watch?v=" + id
+		}
+	}
+	return rawURL
+}
+
 var reSectionHeader = regexp.MustCompile(`^(#{1,3})\s+(.+)`)
 
 // isIgnored reports whether a message should have its media skipped because it
@@ -897,9 +917,13 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 			}
 			for _, embed := range embeds {
 				isVideo := embed.Type == discordgo.EmbedTypeVideo || isSupportedVideoURL(embed.URL)
-				if isVideo && embed.URL != "" && !seen[embed.URL] {
-					seen[embed.URL] = true
-					videos = append(videos, embed.URL)
+				if isVideo && embed.URL != "" {
+					canonical := canonicalVideoURL(embed.URL)
+					if seen[canonical] {
+						continue
+					}
+					seen[canonical] = true
+					videos = append(videos, canonical)
 					slog.Debug("embed video found", "thread", threadID, "url", embed.URL)
 				} else if embed.Image != nil && embed.Image.URL != "" && !seen[embed.Image.URL] {
 					seen[embed.Image.URL] = true
@@ -917,9 +941,10 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 		// Fallback: scan message content for video URLs that Discord didn't embed.
 		for _, raw := range reVideoURL.FindAllString(msg.Content, -1) {
 			raw = strings.TrimRight(raw, ">)\\")
-			if !seen[raw] {
-				seen[raw] = true
-				videos = append(videos, raw)
+			canonical := canonicalVideoURL(raw)
+			if !seen[canonical] {
+				seen[canonical] = true
+				videos = append(videos, canonical)
 				slog.Debug("content video found", "thread", threadID, "url", raw)
 			}
 		}
