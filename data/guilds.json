@@ -1,5 +1,20 @@
 [
 	{
+		"name": "SAKEJU",
+		"builders": [
+			"你Wokay吗"
+		],
+		"tags": [
+			"Creative",
+			"Fun"
+		],
+		"discordThread": "",
+		"whatToVisit": "Sculpture\nPegasus\nPiano, tank,  unique creations",
+		"score": 1,
+		"lastModified": "June 24, 2026 at 08:19 AM UTC",
+		"scoutedByDiscordId": "814547014565888050"
+	},
+	{
 		"name": "古 Ruins",
 		"builders": [
 			"秋sin [2039322781]",
