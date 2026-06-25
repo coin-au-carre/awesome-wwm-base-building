@@ -694,7 +694,7 @@ const articlesToShow = featuredArticles.slice(0, 3)
     <!-- Featured Articles -->
     {SHOW_FEATURED_BANNERS && articlesToShow.length > 0 && (
       <section>
-        <h2 class="font-heading text-base font-semibold mb-3 flex items-center gap-2 pl-3 border-l-2 border-pink-500/60">
+        <h2 class="font-heading text-sm font-semibold mb-2 sm:mb-3 flex items-center gap-2 pl-3 border-l-2 border-pink-500/60">
           <svg class="size-4 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           Featured articles
         </h2>
@@ -702,11 +702,11 @@ const articlesToShow = featuredArticles.slice(0, 3)
           {articlesToShow.map((fa) => (
             <a
               href={`${BASE}/tutorials/${fa.article.id}`}
-              class="group relative rounded-xl ring-1 ring-pink-500/20 bg-card hover:ring-pink-500/45 hover:shadow-md overflow-hidden transition-all"
+              class="group relative rounded-xl ring-1 ring-pink-500/20 bg-card hover:ring-pink-500/45 hover:shadow-md overflow-hidden transition-all flex sm:flex-col"
               data-umami-event="featured_article_click"
               data-umami-event-title={fa.article.data.title}
             >
-              <div class="relative aspect-video w-full overflow-hidden bg-muted">
+              <div class="relative w-24 shrink-0 sm:w-full sm:aspect-video overflow-hidden bg-muted">
                 {fa.thumb ? (
                   <img
                     src={fa.thumb}
@@ -750,10 +750,10 @@ const articlesToShow = featuredArticles.slice(0, 3)
         <UsersIcon weight="duotone" className="size-5 text-indigo-400 transition-transform group-hover:scale-110" />
       </div>
       <div class="flex-1 min-w-0">
-        <p class="text-sm font-semibold flex items-center gap-2">
-          Want this in your base?
-          <span class="text-sm font-normal text-muted-foreground hidden sm:inline"> Find your match on Discord <span class="text-indigo-400">#looking-for-a-builder</span></span>
-        </p>
+        <p class="text-sm font-semibold hidden sm:block">Want this in your base?</p>
+        <p class="text-sm font-semibold sm:hidden">Find your builder on Discord</p>
+        <p class="text-xs text-muted-foreground hidden sm:block">Find your match on Discord <span class="text-indigo-400">#looking-for-a-builder</span></p>
+        <p class="text-xs text-indigo-400 sm:hidden">#looking-for-a-builder</p>
       </div>
       <svg class="size-4 shrink-0 text-indigo-400/55 group-hover:text-indigo-400 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
     </a>
