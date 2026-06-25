@@ -105,8 +105,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a3e278f\u0026hm=fe0c36ec2b3d5096d5fe683fb145c0ecfe13a39d7985904e49184a930de2c9d3\u0026is=6a3cd60f\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a3e278f\u0026hm=3cf3af95e7e9d23a1d4cf84e56ee06494b02c4984e60d20109202c21565d9b52\u0026is=6a3cd60f\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180358753226763/image.png?ex=6a3ed04f\u0026hm=e19cf8ace894a6b4e0e9db8a1d907ae699ed413f4802d956d158a93b6922eded\u0026is=6a3d7ecf\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1510180359411859613/image.png?ex=6a3ed04f\u0026hm=69a7f5f8dc6334022ea0d3c72c811dd1e6e331609e709945698f1079b7e24e8d\u0026is=6a3d7ecf\u0026"
     ],
     "version": "v1.7",
     "date": "30/05/2026",
@@ -428,5 +428,19 @@
     "version": "v1.7",
     "date": "19/06/2026",
     "notes": "TAKY had this bug the first day of v1.7"
+  },
+  {
+    "severity": "low",
+    "title": "Cannot change the picture of a small guild diagram",
+    "details": "Have an error message related to the text description length",
+    "guild": true,
+    "solo": false,
+    "pc": true,
+    "mobile": false,
+    "ps5": false,
+    "media": [],
+    "version": "v1.8",
+    "date": "25/06/2026",
+    "notes": ""
   }
 ]
