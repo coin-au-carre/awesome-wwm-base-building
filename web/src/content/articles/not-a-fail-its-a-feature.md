@@ -54,4 +54,10 @@ featured: false
 
 ---
 
+## Greenery sticking naturally to the stones
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a3ee538&is=6a3d93b8&hm=a40d3aeabeaccc80357e1c75bc0dda3affd2fb1a88c9da7d1f10dca1e24904df&" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
 If you find other gems, [let us know](https://discord.gg/Qygt9u26Bn) :)
