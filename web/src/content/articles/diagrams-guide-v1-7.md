@@ -160,7 +160,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3e4907&hm=199b55e4807326f83df55b7defd9c360771a36e17fa1545e15850d4e7ca3d8fb&is=6a3cf787&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a3ef1c7&hm=3a651d2c23990d5499615d38c720640580dcd5558de79bf3f21fbf4c19817913&is=6a3da047&" controls></video>
 </div>
 
 
