@@ -5,7 +5,7 @@ tags: ["update", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-05
 order: 15
-image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3f7644&format=webp&hm=cb546cd240c95859665402d31a0b45236c6f5a3e5f54d5bdef56fff43f9d8584&is=6a3e24c4&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a401f04&format=webp&hm=d5600a089fcc444a338100d0cae285ca54a6bd4dff5982052941fcc1ce173c30&is=6a3ecd84&quality=lossless"
 featured: false
 ---
 
@@ -22,7 +22,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
   <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a3f9d3c&hm=b5af2a1c851776897c0d05e64334f748e0a87d650c1d6fbd940af258df9e880e&is=6a3e4bbc&" controls></video>
 </div>
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a3f7644&format=webp&hm=cb546cd240c95859665402d31a0b45236c6f5a3e5f54d5bdef56fff43f9d8584&is=6a3e24c4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a401f04&format=webp&hm=d5600a089fcc444a338100d0cae285ca54a6bd4dff5982052941fcc1ce173c30&is=6a3ecd84&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Note for mobile and PS5 players: there is no known method to rotate on a second axis as of now.
