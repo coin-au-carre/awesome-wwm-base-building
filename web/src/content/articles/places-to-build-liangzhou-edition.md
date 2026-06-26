@@ -9,6 +9,12 @@ image: "https://media.discordapp.net/attachments/1518331856175628359/15183319312
 featured: false
 ---
 
+<!-- preserve-start -->
+
+Also exploring **Qinghe**? Check out the [Qinghe edition](/tutorials/places-to-build-qinghe-edition) of this guide.
+
+<!-- preserve-end -->
+
 Hello again!!!  Here's the Liangzhou edition. 
 
 While exploring this map, I found it a bit difficult to find locations that I personally liked for building. These are the spots that stood out to me.
@@ -117,9 +123,3 @@ If you've found any great building locations in Liangzhou that aren't shown here
 ---
 
 Places to build Liangzhou edition
-
-<!-- preserve-start -->
-
-Also exploring **Qinghe**? Check out the [Qinghe edition](/tutorials/places-to-build-qinghe-edition) of this guide.
-
-<!-- preserve-end -->

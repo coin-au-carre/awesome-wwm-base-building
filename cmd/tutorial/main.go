@@ -208,7 +208,7 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 	}
 
 	var existingFrontmatter string
-	var preservedBlocks []string
+	var preservedBlocks []preservedBlock
 	if data, err := os.ReadFile(outPath); err == nil {
 		s := string(data)
 		if fm := extractFrontmatter(s); fm != "" {
@@ -218,15 +218,24 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 		// Fall back to legacy preserve-below marker.
 		if len(preservedBlocks) == 0 {
 			if tail := extractPreservedTail(s); tail != "" {
-				preservedBlocks = []string{tail}
+				preservedBlocks = []preservedBlock{{content: tail, isTop: false}}
 			}
 		}
 	}
 
 	var content string
 	body := strings.Join(parts, "\n\n")
+	var topParts []string
 	for _, block := range preservedBlocks {
-		body = body + "\n\n<!-- preserve-start -->\n\n" + block + "\n\n<!-- preserve-end -->"
+		wrapped := "<!-- preserve-start -->\n\n" + block.content + "\n\n<!-- preserve-end -->"
+		if block.isTop {
+			topParts = append(topParts, wrapped)
+		} else {
+			body = body + "\n\n" + wrapped
+		}
+	}
+	if len(topParts) > 0 {
+		body = strings.Join(topParts, "\n\n") + "\n\n" + body
 	}
 	if existingFrontmatter != "" {
 		fm := refreshFrontmatterImage(existingFrontmatter, firstImageURL)
@@ -367,28 +376,57 @@ func findArticleByThreadID(articlesDir, threadID string) string {
 	return ""
 }
 
+type preservedBlock struct {
+	content string
+	isTop   bool // true if the block appeared before any Discord-generated body content
+}
+
 // extractPreservedBlocks returns all content between <!-- preserve-start --> and
-// <!-- preserve-end --> tags, in order, as separate strings.
-func extractPreservedBlocks(content string) []string {
+// <!-- preserve-end --> tags, in order, tagged with whether they appeared before
+// the first Discord-generated content (image or section separator).
+func extractPreservedBlocks(content string) []preservedBlock {
 	const open = "<!-- preserve-start -->"
 	const close = "<!-- preserve-end -->"
-	var blocks []string
-	rest := content
+
+	// Find where the post-frontmatter body starts.
+	bodyStart := 0
+	if strings.HasPrefix(content, "---") {
+		parts := strings.SplitN(content, "---", 3)
+		if len(parts) >= 3 {
+			bodyStart = len(parts[0]) + 3 + len(parts[1]) + 3
+		}
+	}
+	body := content[bodyStart:]
+
+	// First Discord-generated content: an <img tag or a \n---\n separator.
+	firstDiscord := len(body)
+	for _, marker := range []string{"<img ", "\n---\n"} {
+		if i := strings.Index(body, marker); i >= 0 && i < firstDiscord {
+			firstDiscord = i
+		}
+	}
+
+	var blocks []preservedBlock
+	rest := body
+	offset := 0
 	for {
 		start := strings.Index(rest, open)
 		if start < 0 {
 			break
 		}
+		blockOffset := offset + start
 		rest = rest[start+len(open):]
+		offset += start + len(open)
 		end := strings.Index(rest, close)
 		if end < 0 {
 			break
 		}
-		block := strings.TrimSpace(rest[:end])
-		if block != "" {
-			blocks = append(blocks, block)
+		text := strings.TrimSpace(rest[:end])
+		if text != "" {
+			blocks = append(blocks, preservedBlock{content: text, isTop: blockOffset < firstDiscord})
 		}
 		rest = rest[end+len(close):]
+		offset += end + len(close)
 	}
 	return blocks
 }
