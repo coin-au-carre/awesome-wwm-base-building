@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-25T06:07:33.178707482Z"
+  "streamers": [
+    {
+      "userID": "997247599880978603",
+      "username": "carnii",
+      "channelID": "1483447711499030636",
+      "channelName": "General",
+      "startedAt": "2026-06-26T11:43:16.510509503Z"
+    }
+  ],
+  "updatedAt": "2026-06-26T11:43:21.791116643Z"
 }
