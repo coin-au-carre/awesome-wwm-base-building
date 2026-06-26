@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-26T14:30:25.31409548Z"
+  "streamers": [
+    {
+      "userID": "814547014565888050",
+      "username": "KARIN",
+      "channelID": "1496814821520441385",
+      "channelName": "Building Unlimited",
+      "startedAt": "2026-06-26T23:42:19.172815276Z"
+    }
+  ],
+  "updatedAt": "2026-06-26T23:42:24.422738046Z"
 }
