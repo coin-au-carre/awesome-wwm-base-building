@@ -55,6 +55,18 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
 - **Astro 6 + shadcn/ui + Tailwind 4** — static website (`web/`)
 - **GitHub Actions** — `sync.yml` (data) + `deploy.yml` (site)
 
+## Content Sources
+
+| Content type | Source of truth | Sync command | Output |
+|---|---|---|---|
+| Guild/solo builds | Discord forum (crawled) | `task sync` | `data/guilds.json`, `data/solos.json` |
+| Tutorials | Discord threads in `data/tutorial_threads.txt` | `task tutorial` | `web/src/content/articles/*.md` |
+| Bugs | Google Sheets (CSV export) | `task sync:bugs` | `data/bugs.json` |
+| Patch notes | Google Sheets (CSV export) | `task sync:patches` | `data/patches.json` |
+| Events | Discord Scheduled Events API | `task events-sync` | `data/events.json` |
+
+Tutorials are fetched from Discord threads listed one-per-line in `data/tutorial_threads.txt` and written as Markdown to `web/src/content/articles/`. Bugs and patch notes are managed in a shared Google Spreadsheet and exported as CSV at sync time.
+
 ### Sync thread-matching rules (`internal/discord/sync.go SyncFetch`)
 
 | Situation | Result |
