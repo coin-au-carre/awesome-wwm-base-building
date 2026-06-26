@@ -143,7 +143,9 @@ type SortKey = "severity" | "date"
 
 function parseBugDate(s: string): number {
   if (!s) return 0
-  const d = new Date(s)
+  // date is DD/MM/YYYY from the spreadsheet
+  const [dd, mm, yyyy] = s.split("/")
+  const d = new Date(`${yyyy}-${mm}-${dd}`)
   return isNaN(d.getTime()) ? 0 : d.getTime()
 }
 
