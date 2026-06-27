@@ -11,7 +11,7 @@ image: "https://media.discordapp.net/attachments/1519088863446831145/15190893804
 
 Homestead Update v1.8
 
-By Where Builders Meet. Contributors: Ahlyam, Crueliet, DõtS, OracleOfXata, SiMing
+By Where Builders Meet contributors: Ahlyam, Crueliet, DõtS, OracleOfXata, SiMing
 
 # Homestead related content
 
@@ -55,7 +55,7 @@ Trade profit is equal across all crops regardless of cost, growth time, or level
 
 <!--THE END-->
 
-<img src="/tutorials/homestead-related-content/img-5.webp" width="50%" /><img src="/tutorials/homestead-related-content/img-6.webp" width="50%" />
+![](/tutorials/homestead-related-content/img-5.webp)![](/tutorials/homestead-related-content/img-6.webp)
 
 - Reset skills retrieve back books for retainers. Careful, it does remove earned exp though, so the longer the retainer has been working the more is lost :(
 
