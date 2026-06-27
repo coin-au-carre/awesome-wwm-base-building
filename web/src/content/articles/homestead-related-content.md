@@ -47,7 +47,7 @@ Note: normal building does not contribute to prosperity. only the materials that
 
 <!--THE END-->
 
-<img src="/tutorials/homestead-related-content/img-4.png" width="50%" /><img src="/tutorials/homestead-related-content/img-5.png" width="50%" />
+![](/tutorials/homestead-related-content/img-4.png)![](/tutorials/homestead-related-content/img-5.png)
 
 - Reset skills retrieve back books for retainers. Careful, it does remove earned exp though, so the longer the retainer has been working the more is lost :(
 
