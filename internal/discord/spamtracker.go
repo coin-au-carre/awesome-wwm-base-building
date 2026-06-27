@@ -11,13 +11,22 @@ import (
 )
 
 const (
-	spamWindow        = 30 * time.Second
-	spamChannelLimit  = 3               // distinct channels within the window to trigger
-	spamCooldown      = 5 * time.Minute // min time between alerts for the same user
+	spamWindow       = 20 * time.Second
+	spamChannelLimit = 3               // distinct channels within the window to trigger
+	spamCooldown     = 5 * time.Minute // min time between alerts for the same user
+	spamTimeoutDur   = 24 * time.Hour
 )
+
+var spamModIDs = map[string]bool{
+	AHLYAM_ID: true,
+	WINDXP_ID: true,
+	BABE_ID:   true,
+}
 
 type spamEntry struct {
 	channelID string
+	messageID string
+	content   string
 	at        time.Time
 }
 
@@ -42,14 +51,16 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 		if t.alertCh == "" || m.Author == nil || m.Author.Bot || m.GuildID == "" {
 			return
 		}
+		if spamModIDs[m.Author.ID] {
+			return
+		}
 
 		now := time.Now()
 		uid := m.Author.ID
 
 		t.mu.Lock()
 
-		// Append and prune old entries.
-		entries := append(t.history[uid], spamEntry{m.ChannelID, now})
+		entries := append(t.history[uid], spamEntry{m.ChannelID, m.ID, m.Content, now})
 		cutoff := now.Add(-spamWindow)
 		start := 0
 		for start < len(entries) && entries[start].at.Before(cutoff) {
@@ -72,6 +83,10 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 			t.alerted[uid] = now
 		}
 
+		// Snapshot entries for action outside the lock.
+		snapshot := make([]spamEntry, len(entries))
+		copy(snapshot, entries)
+
 		t.mu.Unlock()
 
 		if !shouldAlert {
@@ -88,10 +103,44 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 		if name == "" {
 			name = m.Author.Username
 		}
-		msg := fmt.Sprintf("⚠️ **%s** (`%s`) posted in %d channels within 30s: %s",
-			name, m.Author.Username, distinct, strings.Join(channels, ", "))
 
-		bot.Send(t.alertCh, msg)
-		slog.Info("spam alert", "user", m.Author.Username, "distinct_channels", distinct)
+		// Check if all messages in the window are identical.
+		sameContent := snapshot[0].content
+		isIdentical := true
+		for _, e := range snapshot[1:] {
+			if e.content != sameContent {
+				isIdentical = false
+				break
+			}
+		}
+
+		if isIdentical && sameContent != "" {
+			// Timeout the user for 24h.
+			until := now.Add(spamTimeoutDur)
+			if err := s.GuildMemberTimeout(m.GuildID, uid, &until); err != nil {
+				slog.Warn("spam timeout failed", "user", m.Author.Username, "err", err)
+			}
+			// Delete all spammed messages.
+			for _, e := range snapshot {
+				if err := s.ChannelMessageDelete(e.channelID, e.messageID); err != nil {
+					slog.Warn("spam delete failed", "channel", e.channelID, "msg", e.messageID, "err", err)
+				}
+			}
+			preview := sameContent
+			if len(preview) > 200 {
+				preview = preview[:200] + "…"
+			}
+			bot.Send(t.alertCh, fmt.Sprintf(
+				"🚫 **%s** (`%s`) timed out 24h for identical spam in %d channels within 20s: %s\n> %s",
+				name, m.Author.Username, distinct, strings.Join(channels, ", "), preview,
+			))
+			slog.Info("spam action: timeout + delete", "user", m.Author.Username, "distinct_channels", distinct)
+		} else {
+			bot.Send(t.alertCh, fmt.Sprintf(
+				"⚠️ **%s** (`%s`) posted in %d channels within 20s: %s",
+				name, m.Author.Username, distinct, strings.Join(channels, ", "),
+			))
+			slog.Info("spam alert", "user", m.Author.Username, "distinct_channels", distinct)
+		}
 	}
 }

@@ -3,9 +3,13 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/base64"
 	"flag"
 	"fmt"
+	"image"
+	_ "image/jpeg"
+	_ "image/png"
 	"io"
 	"log/slog"
 	"net/http"
@@ -18,8 +22,8 @@ import (
 	"ruby/internal/cmdutil"
 
 	htmltomarkdown "github.com/JohannesKaufmann/html-to-markdown/v2"
+	"github.com/chai2010/webp"
 )
-
 
 var reDocID = regexp.MustCompile(`/document/d/([a-zA-Z0-9_-]+)`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
@@ -61,7 +65,7 @@ func main() {
 	// Also pick up docs already tracked in article frontmatters.
 	articlesDir := filepath.Join(*root, "web", "src", "content", "articles")
 	docURLs = append(docURLs, collectFrontmatterGdocURLs(articlesDir)...)
-	docURLs = dedup(docURLs)
+	docURLs = dedupByDocID(docURLs)
 
 	if len(docURLs) == 0 {
 		fmt.Fprintln(os.Stderr, "usage: tutorial-gdoc [-list <file>] <google-doc-url>...")
@@ -101,24 +105,38 @@ func syncDoc(root, docURL string) error {
 	if title == "" {
 		title = docID
 	}
-	slug := slugify(title)
 
 	articlesDir := filepath.Join(root, "web", "src", "content", "articles")
-	imagesDir := filepath.Join(root, "web", "public", "tutorials", slug)
 
-	// Decode base64 data URI images → local files, rewrite src to public path.
+	// Use existing article filename as slug so image paths stay stable across title changes.
+	outPath := findArticleByGdocID(articlesDir, docID)
+	var slug string
+	if outPath != "" {
+		slug = strings.TrimSuffix(filepath.Base(outPath), ".md")
+	} else {
+		slug = slugify(title)
+		outPath = filepath.Join(articlesDir, slug+".md")
+	}
+
+	imagesDir := filepath.Join(root, "web", "public", "tutorials", slug)
 	counter := 0
 	htmlStr = reDataURI.ReplaceAllStringFunc(htmlStr, func(match string) string {
 		sub := reDataURI.FindStringSubmatch(match)
-		ext, data := sub[1], sub[2]
+		_, data := sub[1], sub[2]
 		decoded, err := base64.StdEncoding.DecodeString(data)
 		if err != nil {
 			return match
 		}
 		counter++
-		filename := fmt.Sprintf("img-%d.%s", counter, ext)
+		filename := fmt.Sprintf("img-%d.webp", counter)
 		if err := os.MkdirAll(imagesDir, 0755); err == nil {
-			_ = os.WriteFile(filepath.Join(imagesDir, filename), decoded, 0644)
+			if webpBytes, err := toWebP(decoded); err == nil {
+				_ = os.WriteFile(filepath.Join(imagesDir, filename), webpBytes, 0644)
+			} else {
+				slog.Warn("webp encode failed, skipping image", "err", err)
+				counter--
+				return match
+			}
 		}
 		return fmt.Sprintf(`src="/tutorials/%s/%s"`, slug, filename)
 	})
@@ -142,14 +160,8 @@ func syncDoc(root, docURL string) error {
 	}
 	markdown = strings.TrimSpace(markdown)
 
-	outPath := findArticleByGdocID(articlesDir, docID)
-	if outPath == "" {
-		outPath = filepath.Join(articlesDir, slug+".md")
-	}
-
 	var content string
 	if existing, err := os.ReadFile(outPath); err == nil {
-		// Preserve any image customizations (size, style) from the existing file.
 		markdown = preserveImageCustomizations(markdown, string(existing), slug)
 		if fm := extractFrontmatter(string(existing)); fm != "" {
 			content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, markdown)
@@ -171,25 +183,10 @@ func syncDoc(root, docURL string) error {
 	return nil
 }
 
-
-func extractTitle(htmlStr string) string {
-	// Try <title> first, fall back to first <h1>.
-	if m := reTitleTag.FindStringSubmatch(htmlStr); m != nil {
-		if t := strings.TrimSpace(m[1]); t != "" {
-			return t
-		}
-	}
-	if m := reFirstH1.FindStringSubmatch(htmlStr); m != nil {
-		return strings.TrimSpace(stripTags(m[1]))
-	}
-	return ""
-}
-
-var reTagStrip = regexp.MustCompile(`<[^>]+>`)
 var reNewMDImg = regexp.MustCompile(`!\[[^\]]*\]\(/tutorials/[^/]+/([^)]+)\)`)
 
-// preserveImageCustomizations replaces auto-generated ![](/tutorials/slug/img-N.ext) in newMD
-// with whatever representation exists in oldContent for that filename (e.g. <img width="500">).
+// preserveImageCustomizations keeps custom img markup (e.g. <img width="50%">) from the
+// existing article instead of the plain ![](…) that the sync would regenerate.
 func preserveImageCustomizations(newMD, oldContent, slug string) string {
 	q := regexp.QuoteMeta(slug)
 	reOldMD := regexp.MustCompile(`!\[[^\]]*\]\(/tutorials/` + q + `/([^)]+)\)`)
@@ -213,6 +210,33 @@ func preserveImageCustomizations(newMD, oldContent, slug string) string {
 		return match
 	})
 }
+
+func extractTitle(htmlStr string) string {
+	// Try <title> first, fall back to first <h1>.
+	if m := reTitleTag.FindStringSubmatch(htmlStr); m != nil {
+		if t := strings.TrimSpace(m[1]); t != "" {
+			return t
+		}
+	}
+	if m := reFirstH1.FindStringSubmatch(htmlStr); m != nil {
+		return strings.TrimSpace(stripTags(m[1]))
+	}
+	return ""
+}
+
+func toWebP(raw []byte) ([]byte, error) {
+	img, _, err := image.Decode(bytes.NewReader(raw))
+	if err != nil {
+		return nil, err
+	}
+	var buf bytes.Buffer
+	if err := webp.Encode(&buf, img, &webp.Options{Lossless: false, Quality: 80}); err != nil {
+		return nil, err
+	}
+	return buf.Bytes(), nil
+}
+
+var reTagStrip = regexp.MustCompile(`<[^>]+>`)
 
 func stripTags(s string) string {
 	return reTagStrip.ReplaceAllString(s, "")
@@ -271,12 +295,18 @@ func findArticleByGdocID(articlesDir, docID string) string {
 	return ""
 }
 
-func dedup(urls []string) []string {
+// dedupByDocID keeps the first URL seen for each Google Doc ID.
+func dedupByDocID(urls []string) []string {
 	seen := make(map[string]bool, len(urls))
 	var out []string
 	for _, u := range urls {
-		if !seen[u] {
-			seen[u] = true
+		m := reDocID.FindStringSubmatch(u)
+		if m == nil {
+			continue
+		}
+		id := m[1]
+		if !seen[id] {
+			seen[id] = true
 			out = append(out, u)
 		}
 	}
