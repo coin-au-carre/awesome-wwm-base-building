@@ -1,18 +1,19 @@
 ---
-title: "Homestead Update v1.8"
+title: "Homestead v1.8 - What you need to know"
 description: ""
 tags: []
 authors: ["Ahlyam", "Crueliet", "DõtS", "Kuri", "OracleOfXata"]
 date: 2026-06-27
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
+image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a403e3b&format=webp&hm=005aa5304ae4e49e5777f3f952085b9c803fd9693ac1372548a854b56fe2826e&is=6a3eecbb&quality=lossless"
 ---
 
 Homestead Update v1.8
 
 What you need to know by WhereBuildersMeet
 
-Contributors: Ahlyam, Crueliet, DõtS, Kuri, OracleOfXata
+Contributors: Ahlyam, Crueliet, DõtS, OracleOfXata, SiMing
 
 - Try to get to level 5 quickly
 
@@ -46,7 +47,7 @@ Note: normal building does not contribute to prosperity. only the materials that
 
 <!--THE END-->
 
-![](/tutorials/homestead-related-content/img-4.png)![](/tutorials/homestead-related-content/img-5.png)
+<img src="/tutorials/homestead-related-content/img-4.png" width="50%" /><img src="/tutorials/homestead-related-content/img-5.png" width="50%" />
 
 - Reset skills retrieve back books for retainers. Careful, it does remove earned exp though, so the longer the retainer has been working the more is lost :(
 

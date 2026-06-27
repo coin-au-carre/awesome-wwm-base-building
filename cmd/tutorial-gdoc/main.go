@@ -148,8 +148,10 @@ func syncDoc(root, docURL string) error {
 	}
 
 	var content string
-	if data, err := os.ReadFile(outPath); err == nil {
-		if fm := extractFrontmatter(string(data)); fm != "" {
+	if existing, err := os.ReadFile(outPath); err == nil {
+		// Preserve any image customizations (size, style) from the existing file.
+		markdown = preserveImageCustomizations(markdown, string(existing), slug)
+		if fm := extractFrontmatter(string(existing)); fm != "" {
 			content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, markdown)
 		} else {
 			content = buildMarkdown(title, docID, markdown)
@@ -184,6 +186,33 @@ func extractTitle(htmlStr string) string {
 }
 
 var reTagStrip = regexp.MustCompile(`<[^>]+>`)
+var reNewMDImg = regexp.MustCompile(`!\[[^\]]*\]\(/tutorials/[^/]+/([^)]+)\)`)
+
+// preserveImageCustomizations replaces auto-generated ![](/tutorials/slug/img-N.ext) in newMD
+// with whatever representation exists in oldContent for that filename (e.g. <img width="500">).
+func preserveImageCustomizations(newMD, oldContent, slug string) string {
+	q := regexp.QuoteMeta(slug)
+	reOldMD := regexp.MustCompile(`!\[[^\]]*\]\(/tutorials/` + q + `/([^)]+)\)`)
+	reOldHTML := regexp.MustCompile(`<img[^>]+src="/tutorials/` + q + `/([^"]+)"[^>]*(?:/>|>)`)
+
+	existing := make(map[string]string)
+	for _, m := range reOldMD.FindAllStringSubmatch(oldContent, -1) {
+		existing[m[1]] = m[0]
+	}
+	for _, m := range reOldHTML.FindAllStringSubmatch(oldContent, -1) {
+		existing[m[1]] = m[0]
+	}
+	if len(existing) == 0 {
+		return newMD
+	}
+	return reNewMDImg.ReplaceAllStringFunc(newMD, func(match string) string {
+		filename := reNewMDImg.FindStringSubmatch(match)[1]
+		if custom, ok := existing[filename]; ok {
+			return custom
+		}
+		return match
+	})
+}
 
 func stripTags(s string) string {
 	return reTagStrip.ReplaceAllString(s, "")
