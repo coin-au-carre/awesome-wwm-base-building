@@ -37,13 +37,7 @@ Here the prosperity/gourd ratio (higher is better). The less the item is costly 
 
 If you are overwhelmed with wood (it is costly in terms of wood), you could also use kaifeng structure. This gives 12 prosperity
 
-<<<<<<< HEAD
-![](/tutorials/june-25-v1-8-what-you-need-to-know/img-2.png)
-||||||| parent of 38de8a62 (web: tutorial + ruby kick people)
-![](/tutorials/homestead-related-content/img-2.png)
-=======
 ![](/tutorials/homestead-related-content/img-2.webp)
->>>>>>> 38de8a62 (web: tutorial + ruby kick people)
 
 ### How to recycle your prosperity items?
 
