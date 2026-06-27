@@ -101,6 +101,13 @@ export const channels: Channel[] = [
     builderSlug: "你wokay吗",
   },
   {
+    name: "KaiTingLi",
+    url: "https://www.tiktok.com/@kaitingliwwm",
+    handle: "@kaitingliwwm",
+    platform: "tiktok",
+    builderSlug: "kaitingli",
+  },
+  {
     name: "Marvelite",
     url: "https://www.youtube.com/@Marvelite/videos",
     handle: "@Marvelite",
