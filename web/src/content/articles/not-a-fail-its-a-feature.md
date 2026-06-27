@@ -41,7 +41,7 @@ featured: false
 ## Kaifeng mystery geometry
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a4045cc&format=webp&hm=daad78f2d3f20675bee7ddb770e95c60ce01ba6efedf4f5aab89ecb6f7e5b7e1&is=6a3ef44c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a40ee8c&format=webp&hm=ba609c1ff6d210cbd4ff3f1c3e684ac819e86bf5f856168e9a9402db08a08f11&is=6a3f9d0c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
@@ -56,7 +56,7 @@ featured: false
 
 ## Greenery sticking naturally to the stones
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a4036b8&format=webp&hm=162a3a2bdc69b0664fdb3cb1ac1448bfda46461b25c86607475b4db972d14227&is=6a3ee538&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a40df78&format=webp&hm=483bb2baee58596a8a46ba033aef4de065b6bec35f374541ea60ef1e04d0b914&is=6a3f8df8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
