@@ -10,6 +10,7 @@ tasks:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
+      - go run ./cmd/tutorial-gdoc -list data/tutorial_gdocs.txt
       - go run ./cmd/whatever-sync
       - go run ./cmd/bugs-sync
       - go run ./cmd/patches-sync
@@ -21,6 +22,7 @@ tasks:
       - go run ./cmd/sync {{.CLI_ARGS}}
       - go run ./cmd/genjson
       - go run ./cmd/tutorial -list data/tutorial_threads.txt -refresh-videos -refresh-images
+      - go run ./cmd/tutorial-gdoc -list data/tutorial_gdocs.txt
       - go run ./cmd/whatever-sync
       - go run ./cmd/bugs-sync
       - go run ./cmd/patches-sync
@@ -156,10 +158,14 @@ tasks:
     cmd: go run ./cmd/sim-submit {{.CLI_ARGS}}
 
 
-  # ── tutorial (generate article from Discord thread) ─────────
+  # ── tutorial (generate article from Discord thread or Google Doc) ──
   tutorial:
     desc: "generate/refresh markdown tutorials. Usage: task tutorial -- [<url>...] [-refresh-videos] [-refresh-images]"
     cmd: go run ./cmd/tutorial -list data/tutorial_threads.txt {{.CLI_ARGS}}
+
+  tutorial:gdoc:
+    desc: "fetch Google Docs tutorials → articles. Usage: task tutorial:gdoc -- [<url>...]"
+    cmd: go run ./cmd/tutorial-gdoc -list data/tutorial_gdocs.txt {{.CLI_ARGS}}
 
   # ── web (Astro) ─────────────────────────────────────────────
   web:

@@ -1,0 +1,4 @@
+# One Google Doc URL per line (must be shared as "Anyone with link can view").
+# Each URL will be fetched, converted to Markdown, and written to web/src/content/articles/ during task sync.
+# Images are downloaded to web/public/tutorials/<slug>/ and URLs are rewritten.
+https://docs.google.com/document/d/1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM/edit?usp=sharing
