@@ -21,13 +21,7 @@ By Where Builders Meet. Contributors: Ahlyam, Crueliet, DõtS, OracleOfXata, SiM
 
 - When depositing resources into your homestead warehouse, the max cap for the week is 1200 in total, not per type. Choose carefully what you choose to deposit depending on your priorities for the week.
 
-<<<<<<< HEAD
-![](/tutorials/june-25-v1-8-what-you-need-to-know/img-1.png)
-||||||| parent of 38de8a62 (web: tutorial + ruby kick people)
-![](/tutorials/homestead-related-content/img-1.png)
-=======
 ![](/tutorials/homestead-related-content/img-1.webp)
->>>>>>> 38de8a62 (web: tutorial + ruby kick people)
 
 ## Optimise prosperity
 
