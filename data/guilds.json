@@ -1,5 +1,20 @@
 [
 	{
+		"name": "HolyofHolies",
+		"builders": [
+			"Luilei"
+		],
+		"tags": [
+			"Castle/Palace",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "- Dracula Castle\n- Restaurant (McDonald, Panda Express)",
+		"score": 0,
+		"lastModified": "June 28, 2026 at 07:34 AM UTC",
+		"scoutedByDiscordId": "481445193241985024"
+	},
+	{
 		"name": "StrawberryKS",
 		"builders": [
 			"冥 · AIZEN · 冥"
