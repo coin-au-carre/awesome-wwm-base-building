@@ -22,6 +22,7 @@ export interface Blueprint {
   discordThread: string
   createdAt?: string
   lastModified?: string
+  deleted?: boolean
 }
 
 export interface RankedBlueprint extends Blueprint {

@@ -22,6 +22,7 @@ type Blueprint struct {
 	DiscordThread      string                    `json:"discordThread"`
 	CreatedAt          string                    `json:"createdAt,omitempty"`
 	LastModified       string                    `json:"lastModified,omitempty"`
+	Deleted bool `json:"deleted,omitempty"`
 	// internal notification cooldown tracking
 	LastScreenshotNotifiedAt string `json:"lastScreenshotNotifiedAt,omitempty"`
 	LastVideoNotifiedAt      string `json:"lastVideoNotifiedAt,omitempty"`

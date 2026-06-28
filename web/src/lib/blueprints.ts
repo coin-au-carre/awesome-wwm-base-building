@@ -43,7 +43,7 @@ function collectTags(items: Blueprint[]): string[] {
   return [...tagSet].sort()
 }
 
-const ALL_BLUEPRINTS: Blueprint[] = loadJSON()
+const ALL_BLUEPRINTS: Blueprint[] = loadJSON().filter((bp) => !bp.deleted)
 const RANKED_BLUEPRINTS = sortByScore(ALL_BLUEPRINTS)
 const BLUEPRINT_TAGS = collectTags(ALL_BLUEPRINTS)
 

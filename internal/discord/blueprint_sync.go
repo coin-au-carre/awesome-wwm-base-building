@@ -84,8 +84,10 @@ func BlueprintSyncFetch(b *Bot, blueprints []blueprint.Blueprint, cfg SyncConfig
 	}
 	newIndices := make(map[int]bool)
 
+	seenThreadURLs := make(map[string]bool, len(threads))
 	for _, thread := range threads {
 		threadURL := fmt.Sprintf("https://discord.com/channels/%s/%s", thread.GuildID, thread.ID)
+		seenThreadURLs[threadURL] = true
 		if urlIdx, exists := threadURLToIdx[threadURL]; exists {
 			// Check for rename: same thread URL, different name.
 			storedName := blueprints[urlIdx].Name
@@ -109,6 +111,17 @@ func BlueprintSyncFetch(b *Bot, blueprints []blueprint.Blueprint, cfg SyncConfig
 		for _, emoji := range []string{"👍", "🔥", "❤️", "⭐"} {
 			if err := b.Session.MessageReactionAdd(thread.ID, thread.ID, emoji); err != nil {
 				slog.Warn("adding reaction to new blueprint thread", "thread", name, "emoji", emoji, "err", err)
+			}
+		}
+	}
+
+	// Tombstone entries whose thread no longer appears in the forum (deleted/closed).
+	if cfg.GuildFilter == "" {
+		for i := range blueprints {
+			url := blueprints[i].DiscordThread
+			if url != "" && !seenThreadURLs[url] && !blueprints[i].Deleted {
+				slog.Info("blueprint thread gone, marking deleted", "name", blueprints[i].Name, "url", url)
+				blueprints[i].Deleted = true
 			}
 		}
 	}
@@ -140,6 +153,9 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 	now := guild.ModifiedNow()
 
 	for _, r := range result.threads {
+		if blueprints[r.idx].Deleted {
+			continue
+		}
 		rxn := filterReactions(r.reactions, blacklist)
 		score := computeScore(rxn, voterWeights, nil, "", "")
 
