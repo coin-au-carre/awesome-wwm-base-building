@@ -55,7 +55,7 @@ Trade profit is equal across all crops regardless of cost, growth time, or level
 
 <!--THE END-->
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-5.webp)![](/tutorials/homestead-v1-8-what-you-need-to-know/img-6.webp)
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-5.webp" style="width: 48%; max-width: 360px; border-radius: 0.75rem;" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-6.webp" style="width: 48%; max-width: 360px; border-radius: 0.75rem;" />
 
 - Reset skills retrieve back books for retainers. Careful, it does remove earned exp though, so the longer the retainer has been working the more is lost :(
 
