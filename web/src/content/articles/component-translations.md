@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a4107c6&format=webp&hm=9bae145c2a4d9b0ac70b96f34eb9353b85515ad67396cf04275f40e22443fc7b&is=6a3fb646&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a41b086&format=webp&hm=c5e4df5a9a86735213b465a9ee0da7711d43f1796a683c97dd37969b525b270f&is=6a405f06&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a41092f&format=webp&hm=aa9b880d5bc93e3b58abcda80abbee919e1acdf0b2f8866a77f5b77c70eb0161&is=6a3fb7af&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a41b1ef&format=webp&hm=9eec9ba88d6e9a493bd7bf8a41a603fa6790b88eaff404f58360a5db30c016d1&is=6a40606f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a4115a5&format=webp&hm=e8ecae839c3e32ff383e707973456fc4919c07ec9eb385400eed4482376e2c18&is=6a3fc425&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a41be65&format=webp&hm=876335269d7276ec158f65b89cd60b2126f710a3ba16414c24518fed08cd87a3&is=6a406ce5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a4115c5&format=webp&hm=229d3916fb28f1d6ccee5321c9b9337c459cc80efa41fe651e7f68df7606ac1b&is=6a3fc445&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a41be85&format=webp&hm=89b302ccf7c38cb659781922e02a0d8487dd3f51c422280baa1d33a0981de400&is=6a406d05&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a411a86&format=webp&hm=722dbee58cd155afd711ae70b7fae927951455b6d8ef2ffa8db0500237675907&is=6a3fc906&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a41c346&format=webp&hm=9fdb1afe06177d5c5242f94461523c847d1a075e885a25d64870583111b74a8d&is=6a4071c6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a411b9a&format=webp&hm=1a53ac548a5378e57be9dbd944635e143173f82d6528c32cb6c1434d3d4793a8&is=6a3fca1a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a41c45a&format=webp&hm=64d84791d768ffc8c33c0fcbecef2ec76a42ffbc235c7c80b742a912b40aa9e7&is=6a4072da&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a411bb2&format=webp&hm=e40d1296b40734150f552760a84a93ef11a56d51104603fe001ba300ceb894c7&is=6a3fca32&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a41c472&format=webp&hm=85ac1d9d033513a9b62f70497f6478f9f86bea0c032c7a240edf0f0cfb0732bd&is=6a4072f2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 手 - Hand
 
@@ -180,7 +180,7 @@ With surging emotion, I seize the longsword. Ferrying the world, renown calls my
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a412f40&format=webp&hm=6d562f7ee67aa3f659d8d27d2ba65cbc5497b0ec577d0d8af69ead1fe848763d&is=6a3fddc0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a41d800&format=webp&hm=830eb076385686f3208e3efe0c00d5c1f1bb9e83f494150ce3d04e9e1821dbd4&is=6a408680&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
