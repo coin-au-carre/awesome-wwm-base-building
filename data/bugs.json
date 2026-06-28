@@ -89,7 +89,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509593828435431535/image.png?ex=6a41f40f\u0026hm=ad4023f68a7a47cc09079d434679da23c466b3fc042ef96bb0731edd2b948fe3\u0026is=6a40a28f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509593828435431535/image.png?ex=6a429ccf\u0026hm=156423238a3ad57a4a136b51555f659ca000923966fe44a2a4720fa55abd157f\u0026is=6a414b4f\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -150,14 +150,14 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a41e751\u0026hm=499ef0de458dc5a26bbf37a51a590c6ac588798d26e05974a24b68567ad3ccb6\u0026is=6a4095d1\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511029696891191436/Cannot-rotate-2nd-diagram.mp4?ex=6a429011\u0026hm=45f11e4537aaf66c4f4c9304396f4c8a80c69d46e23cc85aa042ab65abf11be8\u0026is=6a413e91\u0026"
     ],
     "version": "v1.7",
     "date": "01/06/2026",
     "notes": ""
   },
   {
-    "severity": "normal",
+    "severity": "fixed",
     "title": "Cannot save diagram if copyright more than 30%",
     "details": "After diagram placement you need to be the builder of more than 70% components to be able to save the diagram",
     "guild": true,
@@ -171,7 +171,7 @@
     ],
     "version": "v1.7",
     "date": "02/06/2026",
-    "notes": "Considered as a bug. Let's say you are 2 builders in a guild and the work repartition is 69% and 21%. Nobody can save the diagram."
+    "notes": "2 builders in a guild and the work repartition is 69% and 21%. Nobody can save the diagram. NOW FIXED THE OWNER CAN CHOOSE TO SHARE"
   },
   {
     "severity": "normal",
@@ -197,8 +197,8 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a41e590\u0026hm=9a3c3652d24bea7c07a72882c9896594f0ad70d063a6de45bbf01629775eb3fa\u0026is=6a409410\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a41ef89\u0026hm=84b416570449434580bb44d072d55f649e6863b2d245cc8de1b64b44cdff49b9\u0026is=6a409e09\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a428e50\u0026hm=499bac11afa7372447b87a62b54b8bf5d69fcf246330012e9a04b6fe7d3b155f\u0026is=6a413cd0\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a429849\u0026hm=0bf828b58590978e46e3628200f1b64e3f55b67632de26551c674d6e9cf0e3bd\u0026is=6a4146c9\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1513157083489632398/SVID_20260607_192226_1.mp4?ex=6a426459\u0026hm=7eba03a48e3f2fb39c4defbd2f7aed1b76949f904a1cd8f4f4035cb00030f190\u0026is=6a4112d9\u0026"
     ],
     "version": "v1.7",
@@ -215,7 +215,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1511771129021206629/Screen_Recording_20260603_183743_Where_Winds_Meet.mp4?ex=6a41f6d4\u0026hm=27d11f2370d8576e1c5e02f839e0a49b667d7ff50ad3e9363e13c78e623c8223\u0026is=6a40a554\u0026",
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1511771129021206629/Screen_Recording_20260603_183743_Where_Winds_Meet.mp4?ex=6a429f94\u0026hm=806307939445a44c519588b8e47954dadc8a925136363fa2c36a9ade114e9a89\u0026is=6a414e14\u0026",
       "https://cdn.discordapp.com/attachments/1483483683456286911/1511732864369168474/Screenshot_20260603_160223_Where_Winds_Meet.jpg?ex=6a427bf1\u0026hm=f0e9a8630e3ce2099a54bc73290dbd66de92c5beb71e7e7be76df222bede7edd\u0026is=6a412a71\u0026"
     ],
     "version": "v1.7",
@@ -232,7 +232,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944440183521310/ScreenRecording_06-04-2026_12-03-39_1.mov?ex=6a41ef7d\u0026hm=ee2eb35a52221e9fd9f5cdb5ef8a92a04cd9380e4a8f58f8c6474fe345d222e1\u0026is=6a409dfd\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944440183521310/ScreenRecording_06-04-2026_12-03-39_1.mov?ex=6a42983d\u0026hm=abb3be4b669f17a0a6cf501162a0060045b7416498c17be5bb7fe18cb8daa6af\u0026is=6a4146bd\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1510909201612935229/ScreenRecording_06-01-2026_17-06-42_1.mov?ex=6a421fd9\u0026hm=bd813b25a51429d4963732b7677d919a9d742c8bf7456969aaffd8187b42bc33\u0026is=6a40ce59\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1510909242838745088/ScreenRecording_06-01-2026_16-35-08_1.mov?ex=6a421fe2\u0026is=6a40ce62\u0026hm=0efa6b11a9acf0f45d20ee4340abf11eb2b98b6aa085088b43d6d9b1c06836bf\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1512014693735207013/ScreenRecording_06-04-2026_16-45-20_1.mov?ex=6a4230ea\u0026hm=4fc97356986109b2918e1a8b4bd401167061b5847ddc1952e598690aec9f6099\u0026is=6a40df6a\u0026",
@@ -254,7 +254,7 @@
     "mobile": true,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944464153706556/ScreenRecording_06-04-2026_12-04-33_1.mov?ex=6a41ef82\u0026hm=7c57926b46bcb223c067db1f22809dfcbf76108d7178d88fa1150077774e0e6f\u0026is=6a409e02\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1511944464153706556/ScreenRecording_06-04-2026_12-04-33_1.mov?ex=6a429842\u0026hm=e249debf3a4c77af37d5d74f1662b0d4e7d0ae3192c20c0b86b0b4f3f121458f\u0026is=6a4146c2\u0026"
     ],
     "version": "v1.7",
     "date": "04/06/2026",
@@ -422,8 +422,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1517546808316792983/image.png?ex=6a41e1d9\u0026hm=b9cb2157ab1200b40fb7803e44392d0441daaba96533a4fbe37845aa129b5ec2\u0026is=6a409059\u0026",
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1517548244924633178/20260619-1514-31.0396381.mp4?ex=6a41e330\u0026hm=3eed5e14de49bda40332b45280e3e2e6097605de807c6d2c511de8ec6c0694d7\u0026is=6a4091b0\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1517546808316792983/image.png?ex=6a428a99\u0026hm=f76d829b366adbccc4fb26f94d8f42367b51688c23300af7c9bcd2c0ef825654\u0026is=6a413919\u0026",
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1517548244924633178/20260619-1514-31.0396381.mp4?ex=6a428bf0\u0026hm=82bfc230e04d6790bbbebd2f22ef709e5fba5948a05f7d1054ed8071537b2426\u0026is=6a413a70\u0026"
     ],
     "version": "v1.7",
     "date": "19/06/2026",
