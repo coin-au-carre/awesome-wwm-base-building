@@ -6,7 +6,7 @@ authors: ["Ahlyam", "Crueliet", "DõtS", "Kuri", "OracleOfXata"]
 date: 2026-06-27
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a418fbb&format=webp&hm=d9055ce59b79cfbf1d32620d704ee0af11b92c67d3b6ba10e6a63639ed0dd649&is=6a403e3b&quality=lossless"
+image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a42387b&format=webp&hm=d374d6f55a86a0119f87feb5ea641591f270d1963ffa29d133330a5460315446&is=6a40e6fb&quality=lossless"
 ---
 
 Homestead Update v1.8
