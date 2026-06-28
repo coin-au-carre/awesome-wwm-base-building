@@ -1,5 +1,36 @@
 [
 	{
+    "name": "MeowMeowClub",
+    "builders": [
+        "Yurioo", "Dunkelheim", "Yungkayn"
+    ],
+    "tags": [
+        "Zen/Nature",
+        "Cute"
+    ],
+    "discordThread": "",
+    "whatToVisit": "Torii gates paths,\nPixel art cat face",
+    "score": 0,
+    "lastModified": "June 28, 2026 at 01:33 PM UTC",
+			"scoutedByDiscordId": "411339877574115338"
+	},
+	{
+    "name": "Milk",
+    "builders": [
+        "TopoByte"
+    ],
+    "tags": [
+        "Desert",
+        "Creative",
+        "River/Canal"
+    ],
+    "discordThread": "",
+    "whatToVisit": "Waterfall",
+    "score": 0,
+    "lastModified": "June 28, 2026 at 01:28 PM UTC",
+    "scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"name": "뜬구름",
 		"builders": [
 			"爱丶",
