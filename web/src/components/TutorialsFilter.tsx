@@ -4,7 +4,7 @@ import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
 import { Input } from "@/components/ui/input"
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead"
 
 interface Tutorial {
   slug: string
@@ -15,6 +15,7 @@ interface Tutorial {
   image: string | null
   date: Date | null
   updatedDate: Date | null
+  deprecated: boolean
 }
 
 function formatDate(d: Date) {
@@ -43,7 +44,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
   const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(new Set())
   const [sortBy, setSortBy] = useState<SortKey>("default")
 
-  const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes"]
+  const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead"]
 
   const filteredGuides = useMemo(() => {
     const q = searchQuery.trim().toLowerCase()
@@ -76,6 +77,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
       cn: 0,
       website: 0,
       "patch-notes": 0,
+      homestead: 0,
     }
     guides.forEach((guide) => {
       guide.tags.forEach((tag) => {
@@ -241,7 +243,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredGuides.map((item) => (
-            <div key={item.slug} className="group relative flex flex-col rounded-2xl bg-card ring-1 ring-foreground/10 overflow-hidden hover:ring-primary/30 hover:shadow-md transition-all">
+            <div key={item.slug} className={`group relative flex flex-col rounded-2xl bg-card ring-1 overflow-hidden transition-all ${item.deprecated ? "ring-foreground/5 opacity-70 hover:opacity-90 hover:shadow-sm" : "ring-foreground/10 hover:ring-primary/30 hover:shadow-md"}`}>
               <a href={`${BASE}/tutorials/${item.slug}`} className="absolute inset-0" aria-label={item.title} />
               {item.slug === newestSlug && (
                 <span className="absolute top-3 right-3 z-10 inline-flex items-center rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
@@ -249,13 +251,18 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
                 </span>
               )}
               {item.image ? (
-                <div className="aspect-video w-full overflow-hidden bg-muted shrink-0">
+                <div className="aspect-video w-full overflow-hidden bg-muted shrink-0 relative">
                   <img
                     src={item.image.startsWith("http") ? item.image : `${BASE}${item.image}`}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 ${item.deprecated ? "grayscale" : ""}`}
                     loading="lazy"
                   />
+                  {item.deprecated && (
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                      <span className="text-xs font-semibold uppercase tracking-widest text-white/70">Outdated</span>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="aspect-video w-full bg-primary/5 flex items-center justify-center shrink-0">
@@ -273,8 +280,8 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
                     .map((t) => {
                       const cfg = TAG_CONFIG[t]
                       return (
-                        <span key={t} className={`inline-flex items-center gap-1 rounded-full ${cfg.bg} ${cfg.text} ${cfg.ring} px-2 py-0.5 text-xs font-medium`}>
-                          <span className={`size-1.5 rounded-full ${cfg.dot} inline-block`}></span>
+                        <span key={t} className={`inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[10px] ${cfg.text} opacity-60`}>
+                          <span className={`size-1 rounded-full ${cfg.dot} inline-block`}></span>
                           {cfg.label}
                         </span>
                       )

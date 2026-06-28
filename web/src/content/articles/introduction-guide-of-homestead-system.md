@@ -1,12 +1,19 @@
 ---
 title: "Pre-introduction Guide of Homestead System"
 description: "A first look at the Homestead system: currencies (melons, logs, green drops, wheat), how to hire and level up workers, setting up a tavern and production chain, and what you need to reach the max level 10."
-tags: ["solo","cn"]
+tags: ["solo","cn", "homestead"]
 authors: ["carnii"]
 date: 2026-06-24
 order: 22
 image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a42e13b&format=webp&hm=2f363dec168141d973c8044d189a8d2a033936ca45c603da79f9a161009bfaa1&is=6a418fbb&quality=lossless"
+deprecated: true
 ---
+
+<!-- preserve-start -->
+
+> **This guide was written before the Homestead update launched.** For up-to-date tips and post-release information, see the [Homestead v1.8 — what you need to know](/tutorials/homestead-v1-8-what-you-need-to-know) guide.
+
+<!-- preserve-end -->
 
 <img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a42e13b&format=webp&hm=2f363dec168141d973c8044d189a8d2a033936ca45c603da79f9a161009bfaa1&is=6a418fbb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 

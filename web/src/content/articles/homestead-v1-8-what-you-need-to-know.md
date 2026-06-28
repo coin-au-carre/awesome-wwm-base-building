@@ -1,7 +1,7 @@
 ---
 title: "Homestead v1.8 - What you need to know"
 description: ""
-tags: []
+tags: ["solo", "homestead", "beginner", "advanced"]
 authors: ["Ahlyam", "Crueliet", "DõtS", "Kuri", "OracleOfXata"]
 date: 2026-06-27
 order: 23
