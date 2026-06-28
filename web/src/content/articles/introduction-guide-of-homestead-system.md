@@ -172,46 +172,46 @@ You need to go to the workers menu, find the "+" and click on it, then select th
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a4249c8&format=webp&hm=c76eaf3c0d09a04bbb21f4f853d468be1c853ccd8dd23cbfd2c234eaddda113f&is=6a40f848&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a42f288&format=webp&hm=6b3287342ac1daea6218145ca4c93c78fdceaa8f7e2134b776fa755eea9f2e6f&is=6a41a108&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a4249c8&format=webp&hm=0323175d1e431b2e618cce267aa2293ef62c008f34e4329143d73b577f0681f4&is=6a40f848&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a42f288&format=webp&hm=46465da0166f305f126a9c4cc2ab462a3d7549796db3cf87a6491095e268bdd3&is=6a41a108&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 To begin with, I suggest that you allocate a place on your island (*it will probably be more convenient to place new stoves or stoves with tables, because everything will be in one place, then you may need to place production in other locations, but I'm not sure about this information, since I did everything only on the island and that was enough for my needs*). 
 Don't forget to put up beds for your employees, because without them you won't be able to hire new ones.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a4249dd&format=webp&hm=ee22e07287d1d80d4a2449883b67dacf98477dbb832e68e3d8b66f0c022a7640&is=6a40f85d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a42f29d&format=webp&hm=4c8b9e19fe6a97df53792a082395fd75de630fb10b1d66f4be0ecb5abed89a56&is=6a41a11d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Each type of production will have its own decorative elements, such as a large oven or stove, tables for visitors, and flower beds.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a4249f1&format=webp&hm=a47fb2eb1699a6196b8e5e3f84cb90fee8469baec91401921ec55d06e65be610&is=6a40f871&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a42f2b1&format=webp&hm=69aa9682feae44146f6e2e62ffc5da65cf275f7bfeeb534e11492c6369e39597&is=6a41a131&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 1. First, you need to hire workers and allocate them to resource extraction.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a424a03&format=webp&hm=3632caa914626f6aa5cf489e174d7dc24d8f8ed69cb6cfb4875fd0e3f02d9ad0&is=6a40f883&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a42f2c3&format=webp&hm=3faf1e9f398ad10efe9afa77cf4d2fcfd9acb1d06d95f9f179051353fb4dc5ac&is=6a41a143&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 2. At the same time, purchase seeds and plant plants that will be useful to you for meals or drinks.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a424a1b&format=webp&hm=9d6c896f10db2f388e6a83ab626f9d84938999ace9fe452082e483cfae54a0fb&is=6a40f89b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a42f2db&format=webp&hm=65185b15a0612b67109bc8b8de5e761e743cf31a5ab029eb03c7e01b4e35815b&is=6a41a15b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 3. In pottery, you need to set up the production of wine jugs.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a424a85&format=webp&hm=67127c2ced53064ab40a21cd1b96d7153af5e681ceaf704da77b591a66426ff9&is=6a40f905&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a42f345&format=webp&hm=a0522cb01848196a325ee5dc948f9f0d34bd6242e5a39041f3591ade23be13bb&is=6a41a1c5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a424ac9&format=webp&hm=c3cec612dfacec4fabf6648b995681f792708f09cf41f28b2bd9b44f5d6b9692&is=6a40f949&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a42f389&format=webp&hm=b256bfbfff0428b004cb9b04259bcab25e4d1e706cbdec8831f514bb3d7b50a6&is=6a41a209&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
