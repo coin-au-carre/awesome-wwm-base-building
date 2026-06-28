@@ -57,6 +57,7 @@ type threadData struct {
 	FirstPostTime       time.Time // First post (should be similar to createdAt)
 	LastContributorTime time.Time // Latest post by allowed contributors (should be similar to modifiedAt)
 	BuildTitle          string
+	ShareCodes          []string
 	IsCurrent           bool
 	HostedAtGuildName   string
 	HostedAtGuildID     string

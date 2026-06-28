@@ -164,6 +164,19 @@ const ogImage = bp.coverImage ?? bp.screenshots?.[0]
       })
     </script>
 
+    <script is:inline>
+      document.querySelectorAll(".share-code-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const code = btn.dataset.code
+          await navigator.clipboard.writeText(code)
+          const orig = btn.textContent
+          btn.textContent = "Copied!"
+          window.umami?.track("share_code_copied")
+          setTimeout(() => { btn.textContent = orig }, 1500)
+        })
+      })
+    </script>
+
     <!-- Stats strip -->
     <div class="flex flex-wrap gap-3">
       {bp.builderName && (
@@ -202,6 +215,20 @@ const ogImage = bp.coverImage ?? bp.screenshots?.[0]
                 </span>
               )
             })}
+          </div>
+        </div>
+      )}
+      {bp.shareCodes && bp.shareCodes.length > 0 && (
+        <div class="rounded-xl border border-border bg-card px-4 py-2 min-w-35 flex-1">
+          <div class="text-xs text-muted-foreground mb-1">{bp.shareCodes.length === 1 ? "Share code" : "Share codes"}</div>
+          <div class="flex flex-col gap-1">
+            {bp.shareCodes.map((code: string) => (
+              <button
+                class="share-code-btn font-mono text-sm text-left hover:text-foreground text-muted-foreground transition-colors cursor-pointer"
+                data-code={code}
+                title="Click to copy"
+              >{code}</button>
+            ))}
           </div>
         </div>
       )}

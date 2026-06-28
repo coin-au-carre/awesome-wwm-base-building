@@ -139,14 +139,11 @@ export function GuildCarousel({ guilds, basePath = "guilds", showDate = false, s
                   </div>
                 )}
                 <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5">
-                  {g.pricingLabel && (() => {
-                    const cfg = tagColor(g.pricingLabel)
-                    return (
-                      <span className={`inline-flex items-center rounded-full ${cfg.bg} ${cfg.text} ${cfg.ring} backdrop-blur-sm px-2 py-0.5 text-[10px] font-medium`}>
-                        {g.pricingLabel}
-                      </span>
-                    )
-                  })()}
+                  {g.pricingLabel && (
+                    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold text-white backdrop-blur-sm ${g.pricingLabel === "Free + Paid" ? "bg-sky-600/90" : g.pricingLabel === "Paid" ? "bg-amber-500/90" : "bg-emerald-600/90"}`}>
+                      {g.pricingLabel}
+                    </span>
+                  )}
                   {g.buildTitle && (
                     <div className="flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-black/50 backdrop-blur-sm text-blue-300">
                       <StackIcon weight="fill" className="size-2.5 shrink-0" />

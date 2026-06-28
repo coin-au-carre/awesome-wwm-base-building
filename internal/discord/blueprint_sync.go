@@ -221,6 +221,9 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 		if r.data.ID != "" {
 			bp.BuilderID = r.data.ID
 		}
+		if len(r.data.ShareCodes) > 0 {
+			bp.ShareCodes = r.data.ShareCodes
+		}
 
 		isNew := result.newIndices[r.idx]
 		if !isNew && blueprintHasChanged(prev, bp) {
@@ -279,6 +282,7 @@ func fetchBlueprintContent(s *discordgo.Session, thread *discordgo.Channel) thre
 		Lore:                parsed.Materials,     // repurposed
 		WhatToVisit:         parsed.Price,         // repurposed
 		BuildTitle:          parsed.BuilderName,   // repurposed
+		ShareCodes:          parsed.ShareCodes,
 		CoverIdx:            parsed.CoverIdx,
 		FirstPostTime:       firstPostMsg,
 		LastContributorTime: lastContributorTime,
@@ -292,6 +296,7 @@ func blueprintHasChanged(prev, next blueprint.Blueprint) bool {
 		prev.IsFree != next.IsFree ||
 		prev.IsPayToBuild != next.IsPayToBuild ||
 		prev.BuilderName != next.BuilderName ||
+		len(prev.ShareCodes) != len(next.ShareCodes) ||
 		len(prev.Screenshots) != len(next.Screenshots) ||
 		len(prev.Videos) != len(next.Videos)
 }

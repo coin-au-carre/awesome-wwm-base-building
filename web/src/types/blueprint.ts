@@ -18,6 +18,7 @@ export interface Blueprint {
   screenshots?: string[]
   screenshotSections?: ScreenshotSection[]
   videos?: string[]
+  shareCodes?: string[]
   discordThread: string
   createdAt?: string
   lastModified?: string

@@ -15,6 +15,7 @@ var (
 	rePriceEchoPearls = regexp.MustCompile(`(?im)^\s*(\d[\d\s,]*\s*echo\s+pearls?)\s*$`)
 	reMaterials       = regexp.MustCompile(`(?im)^materials?\s*:[ \t]*([^\n]+)`)
 	reCover           = regexp.MustCompile(`(?i)cover:[ \t]*(\d+)`)
+	reShareCode       = regexp.MustCompile(`(?i)\bSHARE[0-9a-f]{16}\b`)
 	// matches payment mentions in prose: "60 pearls", "180 echo beads", "$5", "30 dollars"
 	RePayInProse = regexp.MustCompile(`(?i)\d+\s*(?:echo\s+)?(?:pearl|bead|dollar)s?|\$\s*\d`)
 
@@ -31,6 +32,7 @@ type ParsedBlueprintPost struct {
 	IsPayToBuild bool
 	Materials    string
 	Description  string
+	ShareCodes   []string
 	CoverIdx     int // 1-based; 0 means not specified
 }
 
@@ -84,6 +86,17 @@ func ParseFirstPost(content string) ParsedBlueprintPost {
 
 	if m := reCover.FindStringSubmatch(content); len(m) > 1 {
 		fmt.Sscan(m[1], &p.CoverIdx)
+	}
+
+	if codes := reShareCode.FindAllString(content, -1); len(codes) > 0 {
+		seen := make(map[string]bool, len(codes))
+		for _, c := range codes {
+			upper := strings.ToUpper(c)
+			if !seen[upper] {
+				seen[upper] = true
+				p.ShareCodes = append(p.ShareCodes, upper)
+			}
+		}
 	}
 
 	// Description: everything left after stripping structured field lines

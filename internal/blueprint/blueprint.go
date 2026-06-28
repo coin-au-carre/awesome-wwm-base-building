@@ -18,6 +18,7 @@ type Blueprint struct {
 	Screenshots        []string                  `json:"screenshots,omitempty"`
 	ScreenshotSections []guild.ScreenshotSection  `json:"screenshotSections,omitempty"`
 	Videos             []string                  `json:"videos,omitempty"`
+	ShareCodes         []string                  `json:"shareCodes,omitempty"`
 	DiscordThread      string                    `json:"discordThread"`
 	CreatedAt          string                    `json:"createdAt,omitempty"`
 	LastModified       string                    `json:"lastModified,omitempty"`
