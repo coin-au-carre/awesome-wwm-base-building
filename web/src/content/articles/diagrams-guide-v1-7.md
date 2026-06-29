@@ -144,7 +144,7 @@ There is a workaround: add components you own directly inside the diagram area t
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place. We consider this as a bug <https://www.wherebuildersmeet.com/bugs/?bug=small-diagrams-placement-is-tedious>. One solution is to use "Recommended Spot". 
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a43a44b&format=webp&hm=2a18b0f8a9b246f6040f0a7dfb774e69a1b7af2827707909a24d0c503c2d0561&is=6a4252cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a444d0b&format=webp&hm=b4c3676b442b2155499d7362f3317e751308dddea1ee5616912366c71d57ebb4&is=6a42fb8b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
