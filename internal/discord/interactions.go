@@ -28,7 +28,7 @@ const (
 	syncBugsCommandName      = "sync-bugs"
 	syncUpdatesCommandName   = "sync-updates"
 	syncTagsCommandName      = "sync-tags"
-	syncTutorialsCommandName = "sync-tutorials"
+	syncTutorialsCommandName = "sync-gdoc"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 	dotifyCommandName      = "dotify"
