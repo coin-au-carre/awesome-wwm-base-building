@@ -24,10 +24,11 @@ const (
 	helpCommandName        = "commands"
 	builderCommandName     = "builder"
 	warningListCommandName = "warning-list"
-	syncDataCommandName    = "sync-data"
-	syncBugsCommandName    = "sync-bugs"
-	syncUpdatesCommandName = "sync-updates"
-	syncTagsCommandName    = "sync-tags"
+	syncDataCommandName      = "sync-data"
+	syncBugsCommandName      = "sync-bugs"
+	syncUpdatesCommandName   = "sync-updates"
+	syncTagsCommandName      = "sync-tags"
+	syncTutorialsCommandName = "sync-tutorials"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 	dotifyCommandName      = "dotify"
@@ -165,6 +166,10 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Description: "Trigger patch notes sync from the Super Sheet (elevated roles only)",
 		},
 		{
+			Name:        syncTutorialsCommandName,
+			Description: "Fetch Google Docs tutorials and deploy the site (elevated roles only)",
+		},
+		{
 			Name:                     syncTagsCommandName,
 			Description:              "Sync forum channel tags to the canonical list in config/tags.json (admins only)",
 			DefaultMemberPermissions: &adminPerm,
@@ -216,6 +221,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSyncBugsCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			case syncUpdatesCommandName:
 				handleSyncUpdatesCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
+			case syncTutorialsCommandName:
+				handleSyncTutorialsCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			case syncTagsCommandName:
 				handleSyncTagsCommand(s, i, root, guildForumChannelID, soloForumChannelID)
 			case dotifyCommandName:

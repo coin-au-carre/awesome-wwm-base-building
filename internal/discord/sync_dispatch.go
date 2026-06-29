@@ -27,9 +27,10 @@ type syncState struct {
 }
 
 var (
-	guildSync   syncState
-	bugsSync    syncState
-	updatesSync syncState
+	guildSync     syncState
+	bugsSync      syncState
+	updatesSync   syncState
+	tutorialsSync syncState
 )
 
 func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
@@ -42,6 +43,10 @@ func handleSyncBugsCommand(s *discordgo.Session, i *discordgo.InteractionCreate,
 
 func handleSyncUpdatesCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
 	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "patches-sync.yml", "Updates data", &updatesSync)
+}
+
+func handleSyncTutorialsCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
+	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "tutorials-gdoc-sync.yml", "Tutorials", &tutorialsSync)
 }
 
 func handleSyncCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken, workflow, label string, state *syncState) {
