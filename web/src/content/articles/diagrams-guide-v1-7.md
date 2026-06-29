@@ -95,7 +95,7 @@ These diagrams save a **section** of your guild base, useful for replicating par
 ## How to save any diagram
 
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a4276d4&hm=40d178344e75ec45e9b1d5542aee374114bec76b8b502bf60a6af8f0b6ef2766&is=6a412554&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a431f94&hm=8c380336f8bafc3427b9407be575863d97ac320f8d31ab246704caf9fff982d5&is=6a41ce14&" controls></video>
 </div>
 
 The save process is the same for all diagram types:
@@ -160,11 +160,11 @@ After applying a large guild diagram, interactive components (chairs, beds, etc.
 
 To fix it: enter Construction mode, click **Build** (top right), then **Build Management** (bottom right), and select **Clear Large Diagram Holograms**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878920971194469/image.png?ex=6a42bf95&format=webp&hm=d2efbb4af1b0e8c90ea035a24f582244a7917cda9a63590280224b4fed1d883b&is=6a416e15&quality=lossless" alt="Build Management menu" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878920971194469/image.png?ex=6a436855&format=webp&hm=935122b0fab7762c7f8ffdd1f4edcca7f08f21b4ca2a18283bf92405143768ff&is=6a4216d5&quality=lossless" alt="Build Management menu" style="border-radius: 0.75rem; width: 80%;" />
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921419849748/image.png?ex=6a42bf95&format=webp&hm=7ac9f40d2ef856722b3edfe90101ef01375bc60989ea2dd1bd7d9a04b1de855c&is=6a416e15&quality=lossless" alt="Clear Large Diagram Holograms option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921419849748/image.png?ex=6a436855&format=webp&hm=48914f0727a1f7cb7ed1b474fea91fb00453b9fd1dd39b9041302c88ac35ae1a&is=6a4216d5&quality=lossless" alt="Clear Large Diagram Holograms option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921872703638/image.png?ex=6a42bf95&format=webp&hm=d8ff6431d14570141316099f3a291377b372a07b8e71744823ede90182d2d314&is=6a416e15&quality=lossless" alt="Interactive components restored after clearing holograms" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921872703638/image.png?ex=6a436855&format=webp&hm=f6fedfdbcb57fd33086a9c6577c1a751c101d309793e7a0b5509fe04777d0874&is=6a4216d5&quality=lossless" alt="Interactive components restored after clearing holograms" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 If that button has no effect, it is likely because all your components are filled and there are no ghost (hologram) components left. This is also a [second known issue](https://www.wherebuildersmeet.com/bugs/?bug=cannot-clear-diagram-outlines-for-large-guild-diagram). The workaround is to delete at least one component to create a ghost slot, then try **Clear Large Diagram Holograms** again.
 
