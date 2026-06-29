@@ -9,7 +9,9 @@ export const BUILDER_ALIASES: Record<string, string> = {
   "𝕯𝖎𝖆𝖓𝖆": "ðìana",
   "kira": "kirakosma",
   "raiden": "raiden-zongli",
-  "imwokay": "你wokay吗"
+  "imwokay": "你wokay吗",
+  "quesslord-龍風": "quesslord",
+  "parzival": "鶴"
 }
 
 export function resolveCanonical(slug: string): string {
