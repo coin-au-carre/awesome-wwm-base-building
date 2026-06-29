@@ -31,6 +31,7 @@ var reGdocIDField = regexp.MustCompile(`(?m)^gdocID:\s*"([^"]+)"`)
 var reUpdatedDate = regexp.MustCompile(`(?m)^updatedDate:.*\n?`)
 var reTitleTag = regexp.MustCompile(`(?i)<title[^>]*>([^<]+)</title>`)
 var reFirstH1 = regexp.MustCompile(`(?is)<h1[^>]*>(.*?)</h1>`)
+var reGdocTitleP = regexp.MustCompile(`(?is)<p[^>]+\bclass="[^"]*\btitle\b[^"]*"[^>]*>.*?</p>`)
 var reDataURI = regexp.MustCompile(`src="data:image/([^;]+);base64,([^"]+)"`)
 
 func slugify(s string) string {
@@ -145,15 +146,9 @@ func syncDoc(root, docURL string) error {
 		slog.Info("extracted images", "count", counter, "dir", imagesDir)
 	}
 
-	// Strip the first H1 (it duplicates the frontmatter title).
-	stripped := false
-	body := reFirstH1.ReplaceAllStringFunc(htmlStr, func(s string) string {
-		if !stripped {
-			stripped = true
-			return ""
-		}
-		return s
-	})
+	// Strip the Google Docs Title-style paragraph from the body (duplicates frontmatter title).
+	// H1 tags are Heading 1 content and must be preserved.
+	body := reGdocTitleP.ReplaceAllLiteralString(htmlStr, "")
 
 	markdown, err := htmltomarkdown.ConvertString(body)
 	if err != nil {
@@ -214,7 +209,13 @@ func preserveImageCustomizations(newMD, oldContent, slug string) string {
 }
 
 func extractTitle(htmlStr string) string {
-	// Try <title> first, fall back to first <h1>.
+	// Prefer the Google Docs "Title" paragraph style (<p class="...title...">),
+	// then the HTML <title> tag, then first <h1>.
+	if m := reGdocTitleP.FindStringSubmatch(htmlStr); m != nil {
+		if t := strings.TrimSpace(stripTags(m[0])); t != "" {
+			return t
+		}
+	}
 	if m := reTitleTag.FindStringSubmatch(htmlStr); m != nil {
 		if t := strings.TrimSpace(m[1]); t != "" {
 			return t
