@@ -1,5 +1,21 @@
 [
 	{
+		"name": "狂暴小綿羊",
+		"builders": [
+			"小貓的橙哥哥",
+			"橙哥哥的小貓"
+		],
+		"tags": [
+			"Architecture",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Christmas tree\nChurch\nEurope style",
+		"score": 1,
+		"lastModified": "June 29, 2026 at 10:14 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "MeowMeowClub",
 		"builders": [
 			"Yurioo",
