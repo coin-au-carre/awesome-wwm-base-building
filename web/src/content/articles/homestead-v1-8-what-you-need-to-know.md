@@ -72,6 +72,13 @@ This one is easy to miss out but you should Upgrade your facilities by hitting t
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-4.webp)
 
+### Confident Retainers (Gold workers)
+
+- It seems you can only choose one confident retainer once a week.
+- Choosing Shen Yu as confident will give you Xiao Shi too. In other terms you will get 2 workers for the price of one
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-5.webp" style="width: 60%; max-width: 512px; border-radius: 0.75rem;" />
+
 ## Advanced Stages
 
 ### Optimise prosperity
@@ -80,7 +87,7 @@ Use items which cost 100 gourds and give 10 prosperity.
 
 Find below the prosperity/gourd ratio (higher is better). The cheaper the item, the better the ratio.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-5.webp" style="width: 60%; max-width: 512px; border-radius: 0.75rem;" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-6.webp" style="width: 60%; max-width: 512px; border-radius: 0.75rem;" />
 
 If you are overwhelmed with wood, you could also use some Kaifeng structures, which gives 12 prosperity. Careful, this method is costly in terms of wood.
 
@@ -90,7 +97,7 @@ If you already have spent gourds on costly items you can retrieve them!
 
 Recycle your components then use the dismantle option, bottom of build page.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-6.webp" style="width: 60%; max-width: 512px; border-radius: 0.75rem;" />
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-7.webp)
 
 Note: normal building does not contribute to prosperity. Only the materials that are in the homestead section count towards prosperity.
 
@@ -98,19 +105,29 @@ Note: normal building does not contribute to prosperity. Only the materials that
 
 Eating gives 20 energy per level of food. For instance, lvl 1 food will give a worker 50/100 to 70/100 energy.
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-7.webp)
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-8.webp" style="max-width: 50%; height: auto; border-radius: 0.75rem;" />
+
+ 
 
 ### Souvenir gift for your NPC
 
 Ever wondered what this “Souvenir Selection Box” is for?
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-8.webp" style="max-width: 50%; height: auto; border-radius: 0.75rem;" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-9.webp" style="max-width: 50%; height: auto; border-radius: 0.75rem;" />
 
 Occasionally, an NPC hosts a dinner party event where you can bring them a gift.
 
+### Sell your goods
+
+You can decide to sell your Homestead Warehouse items with "Trade for Profit".
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-10.webp" style="max-width: 360px; border-radius: 0.75rem;" />
+
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-11.webp)
+
 Here the corresponding NPC / gift mapping:
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-9.webp" style="max-width: 50%; height: auto; border-radius: 0.75rem;" />
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp)
 
 ### Other tips
 
@@ -118,19 +135,19 @@ Here the corresponding NPC / gift mapping:
 
 <!--THE END-->
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-10.webp" style="max-width: 360px; border-radius: 0.75rem;" />![](/tutorials/homestead-v1-8-what-you-need-to-know/img-11.webp)
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-13.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
 
 - Reset skills retrieve back books for retainers. Note: it does remove earned exp, so the longer the retainer has been working the more is lost :(
 
 <!--THE END-->
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp)
 
 - Industry zones seem to have a height limit of about 250m  
-  <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-13.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
+  ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp)
 - To change to landmark location for homestead: you press on the landmark that you want to remove, under "more" and delete it
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp)
 
 ### Diagram Sharing
 
@@ -141,9 +158,9 @@ Here the corresponding NPC / gift mapping:
 
 You can decide to make the diagram public (everyone can download), friends only, or private. The “Choose specific friends” option is buggy avoid it.
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp)
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp)
 
 #### How to use diagram code
 
@@ -151,7 +168,7 @@ A diagram can be shared with a code for instance SHARE89e3cb2b11b4be85.
 
 Go to Gallery and simply copy paste the code in the input search. The shared code is global and is not accessible on the CN server.
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-20.webp)
 
 #### Other tips
 
