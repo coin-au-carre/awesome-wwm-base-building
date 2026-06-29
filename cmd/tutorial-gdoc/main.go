@@ -28,6 +28,7 @@ import (
 var reDocID = regexp.MustCompile(`/document/d/([a-zA-Z0-9_-]+)`)
 var reSlug = regexp.MustCompile(`[^\p{L}\p{N}]+`)
 var reGdocIDField = regexp.MustCompile(`(?m)^gdocID:\s*"([^"]+)"`)
+var reUpdatedDate = regexp.MustCompile(`(?m)^updatedDate:.*\n?`)
 var reTitleTag = regexp.MustCompile(`(?i)<title[^>]*>([^<]+)</title>`)
 var reFirstH1 = regexp.MustCompile(`(?is)<h1[^>]*>(.*?)</h1>`)
 var reDataURI = regexp.MustCompile(`src="data:image/([^;]+);base64,([^"]+)"`)
@@ -164,6 +165,7 @@ func syncDoc(root, docURL string) error {
 	if existing, err := os.ReadFile(outPath); err == nil {
 		markdown = preserveImageCustomizations(markdown, string(existing), slug)
 		if fm := extractFrontmatter(string(existing)); fm != "" {
+			fm = setUpdatedDate(fm)
 			content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, markdown)
 		} else {
 			content = buildMarkdown(title, docID, markdown)
@@ -240,6 +242,14 @@ var reTagStrip = regexp.MustCompile(`<[^>]+>`)
 
 func stripTags(s string) string {
 	return reTagStrip.ReplaceAllString(s, "")
+}
+
+func setUpdatedDate(fm string) string {
+	today := "updatedDate: " + time.Now().Format("2006-01-02") + "\n"
+	if reUpdatedDate.MatchString(fm) {
+		return reUpdatedDate.ReplaceAllString(fm, today)
+	}
+	return fm + today
 }
 
 func extractFrontmatter(content string) string {
