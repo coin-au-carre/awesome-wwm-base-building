@@ -34,22 +34,22 @@ There are 3 types of diagrams:
 
 1. Select your diagram and choose **Place**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501004306845767/image.png?ex=6a4308b1&format=webp&hm=c41bb40ec3cccc35af7414b179c792300443c79bf8e947b5735c1e1492ef1bd0&is=6a41b731&quality=lossless" alt="Selecting and placing a diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501004306845767/image.png?ex=6a43b171&format=webp&hm=8d6ea1a71ea9c54ac376b56b3a92458cc57a887e77b92c9b1e69fdd6960dc4d1&is=6a425ff1&quality=lossless" alt="Selecting and placing a diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
 
 2. Once placed, move your character close to or inside the placed diagram. A popup will appear with your diagram name.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005221073117/image.png?ex=6a4308b1&format=webp&hm=7d339dfda52931916fe4eeebe7c18b255b387995dc25c8f5404731c9567f3b8f&is=6a41b731&quality=lossless" alt="Diagram popup appearing near the placed diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005221073117/image.png?ex=6a43b171&format=webp&hm=3fe2e04ec95445c46704cb1e8e8c5c51b151ce40a92fa888902af019b385311e&is=6a425ff1&quality=lossless" alt="Diagram popup appearing near the placed diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
 
 3. Select your diagram name, then choose **Auto Completion > Completion**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005976043591/image.png?ex=6a4308b1&format=webp&hm=57e03e45f6b9dc79856c89b5af7cf860950d61dbaac7398ce8d7bf7db275b939&is=6a41b731&quality=lossless" alt="Auto Completion option in the diagram popup" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005976043591/image.png?ex=6a43b171&format=webp&hm=f2a062f7931d6fc297f840c980dd8dac0d82f2fde4cdf3d9c03b928c083e048c&is=6a425ff1&quality=lossless" alt="Auto Completion option in the diagram popup" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
 
 4. The diagram fills automatically if you have enough components (solo) or guild funds (guild)
 5. The diagram outline can stay as-is, but removing any component from it will produce a blue ghost component. To get rid of the outline entirely, select **Remove Diagram > Remove only diagram outline**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501006789873780/image.png?ex=6a4308b1&format=webp&hm=dd288b277362946118b6aef8f7c0d5f622230aee664ca7619d5a6a5bf1fd384e&is=6a41b731&quality=lossless" alt="Remove Diagram option" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501006789873780/image.png?ex=6a43b171&format=webp&hm=eff530f1eb1fd8c850de8d33b5e03ae25c82e88ee08cb3a4a1a0dc51b528b8e8&is=6a425ff1&quality=lossless" alt="Remove Diagram option" style="border-radius: 0.75rem; width: 80%;" />
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501007452442674/image.png?ex=6a4308b1&format=webp&hm=43fc852af5d705d0b296740cefc42f01c9c192aa284a79d67312c575448ddaf2&is=6a41b731&quality=lossless" alt="Remove only diagram outline option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501007452442674/image.png?ex=6a43b171&format=webp&hm=fb2bfce6e599ebf2837f68f24e08a756558b511b66e793693262f21a210e86d5&is=6a425ff1&quality=lossless" alt="Remove only diagram outline option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 
 ---
@@ -132,9 +132,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a430395&format=webp&hm=43726e41822fb98dbfad8a8739c28fd1ff02b3d69cb7687734d91f6bd05a5972&is=6a41b215&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a43ac55&format=webp&hm=0cb7dc532c9c66e5946e1e7ebbd97a2901e62b5a5f3867a434fed6fc44437fbd&is=6a425ad5&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a430395&format=webp&hm=ff752df0d7a77f1c5eff6633869c889c3ff1171b80c637e3cf7538b823075ab6&is=6a41b215&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a43ac55&format=webp&hm=cd49798bb639eaabb94a98b63cab9e3f69d653c664e6b58fa37cc5ff994bf3bf&is=6a425ad5&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 There is a workaround: add components you own directly inside the diagram area to raise your ownership percentage above the 70% threshold.
 
@@ -144,7 +144,7 @@ There is a workaround: add components you own directly inside the diagram area t
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place. We consider this as a bug <https://www.wherebuildersmeet.com/bugs/?bug=small-diagrams-placement-is-tedious>. One solution is to use "Recommended Spot". 
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a42fb8b&format=webp&hm=827fc986cec62f8113787fc6f6106bca8d8d9f8d137ef36899536af0412b9b5a&is=6a41aa0b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a43a44b&format=webp&hm=2a18b0f8a9b246f6040f0a7dfb774e69a1b7af2827707909a24d0c503c2d0561&is=6a4252cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
