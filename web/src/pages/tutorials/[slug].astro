@@ -32,7 +32,9 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { Content } = await render(entry)
+const { Content, headings } = await render(entry)
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3)
+const showToc = entry.data.toc && tocHeadings.length > 0
 
 const coverImage = entry.data.image ?? null
 const firstImageSrc = coverImage?.startsWith("http")
@@ -81,7 +83,7 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
       },
     ],
   })} />
-  <div class="max-w-4xl">
+  <div class={showToc ? "max-w-6xl" : "max-w-4xl"}>
     <a href={`${BASE}/tutorials`} class={buttonVariants({ variant: "ghost", size: "sm" })}>
       <ArrowLeftIcon className="size-4" /> Back to Tutorials
     </a>
@@ -137,9 +139,32 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
       </div>
     )}
 
-    <div class="prose md:prose-lg mt-8">
-      <Content />
-    </div>
+    {showToc ? (
+      <div class="flex gap-10 mt-8 items-start">
+        <nav class="hidden lg:block w-52 shrink-0 sticky top-24 self-start max-h-[calc(100vh-8rem)] overflow-y-auto">
+          <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">On this page</p>
+          <ul class="space-y-1">
+            {tocHeadings.map(h => (
+              <li>
+                <a
+                  href={`#${h.slug}`}
+                  class={`block text-sm text-muted-foreground hover:text-foreground transition-colors leading-snug py-0.5 ${h.depth === 3 ? "pl-3" : ""}`}
+                >
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div class="prose md:prose-lg min-w-0 flex-1">
+          <Content />
+        </div>
+      </div>
+    ) : (
+      <div class="prose md:prose-lg mt-8">
+        <Content />
+      </div>
+    )}
   </div>
 </Layout>
 

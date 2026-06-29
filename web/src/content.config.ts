@@ -16,6 +16,7 @@ const articles = defineCollection({
     featuredLabel: z.string().optional(),
     published: z.boolean().optional().default(true),
     deprecated: z.boolean().optional().default(false),
+    toc: z.boolean().optional().default(false),
   }),
 })
 
