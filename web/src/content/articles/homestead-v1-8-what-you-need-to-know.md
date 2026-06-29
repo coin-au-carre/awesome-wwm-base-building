@@ -7,7 +7,7 @@ date: 2026-06-27
 updatedDate: 2026-06-29
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a42e13b&format=webp&hm=2f363dec168141d973c8044d189a8d2a033936ca45c603da79f9a161009bfaa1&is=6a418fbb&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a42ed78&is=6a419bf8&hm=f855469086049c20d65409f5142a4e7a6663d2c829b7bf91e7de755dfc11bff0&format=webp&quality=lossless"
 ---
 
 Homestead Update v1.8
