@@ -8,7 +8,7 @@ updatedDate: 2026-06-29
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a42ed78&is=6a419bf8&hm=f855469086049c20d65409f5142a4e7a6663d2c829b7bf91e7de755dfc11bff0&format=webp&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a42ed78&format=webp&hm=f855469086049c20d65409f5142a4e7a6663d2c829b7bf91e7de755dfc11bff0&is=6a419bf8&quality=lossless"
 ---
 
 Homestead Update v1.8
@@ -17,7 +17,19 @@ By Where Builders Meet contributors: Ahlyam, Crueliet, DõtS, KARIN, greatjussy,
 
 This guide is community-contributed and continuously updated. Join us on Discord to discuss, share your tips and suggest improvements.
 
-## Homestead content
+The Homestead update is dense and can be unintuitive. Here are our tips to help you navigate it.
+
+## Blissful Retreat Content
+
+### Bounty gourd is the nerd of war
+
+Focus on increasing your Homestead level. Your goal is to gather the most bounty gourds.
+
+- Do not forget to do your Young Master’s Routine, this gives you gourds, rewards and Gold NPC.
+
+        
+
+### Ressource deposit
 
 - When depositing resources into your homestead warehouse, the max cap for the week is 1200 in total, not per type. Choose carefully what you choose to deposit depending on your priorities for the week.
 
@@ -27,15 +39,17 @@ This guide is community-contributed and continuously updated. Join us on Discord
 
 Use items which cost 100 gourds and give 10 prosperity.
 
-Here is the prosperity/gourd ratio (higher is better).The cheaper the item, the better the ratio.
-
-If you are overwhelmed with wood (careful it is costly in terms of wood),you could also use some Kaifeng structures, which gives 12 prosperity.
+Find below the prosperity/gourd ratio (higher is better). The cheaper the item, the better the ratio.
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-2.webp)
 
-#### How to recycle your prosperity items?
+If you are overwhelmed with wood, you could also use some Kaifeng structures, which gives 12 prosperity. Careful, this method is costly in terms of wood.
 
-Yes you can retrieve your gourds by recycling components then using the dismantle option, bottom of build page.
+### How to recycle your prosperity items?
+
+If you already have spent gourds on costly items you can retrieve them!
+
+Recycle your components then use the dismantle option, bottom of build page.
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-3.webp)
 
@@ -67,6 +81,8 @@ Trade profit is equal across all crops regardless of cost, growth time, or level
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-7.webp)
 
+Note: Using "Remove" on crop you don’t get back the seed. Your seed is lost.
+
 ### Other tips
 
 - You can decide to hide your Homestead buildings (but production should still work)
@@ -85,11 +101,7 @@ Trade profit is equal across all crops regardless of cost, growth time, or level
   ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-11.webp)
 - To change to landmark location for homestead: you press on the landmark that you want to remove, under "more" and delete it
 
-<!--THE END-->
-
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp)
-
-- Using "Remove"on crop you don’t get back the seed. It is lost.
 
 ## Diagram Sharing
 
