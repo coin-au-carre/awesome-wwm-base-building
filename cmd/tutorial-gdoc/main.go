@@ -32,6 +32,7 @@ var reUpdatedDate = regexp.MustCompile(`(?m)^updatedDate:.*\n?`)
 var reTitleTag = regexp.MustCompile(`(?i)<title[^>]*>([^<]+)</title>`)
 var reFirstH1 = regexp.MustCompile(`(?is)<h1[^>]*>(.*?)</h1>`)
 var reGdocTitleP = regexp.MustCompile(`(?is)<p[^>]+\bclass="[^"]*\btitle\b[^"]*"[^>]*>.*?</p>`)
+var reHeading = regexp.MustCompile(`(?m)^(#{1,5}) `)
 var reDataURI = regexp.MustCompile(`src="data:image/([^;]+);base64,([^"]+)"`)
 
 func slugify(s string) string {
@@ -155,6 +156,8 @@ func syncDoc(root, docURL string) error {
 		return fmt.Errorf("converting to markdown: %w", err)
 	}
 	markdown = strings.TrimSpace(markdown)
+	// Shift all headings down one level (H1→H2 … H5→H6) so the page <h1> stays the frontmatter title.
+	markdown = reHeading.ReplaceAllString(markdown, "$1# ")
 
 	var content string
 	if existing, err := os.ReadFile(outPath); err == nil {

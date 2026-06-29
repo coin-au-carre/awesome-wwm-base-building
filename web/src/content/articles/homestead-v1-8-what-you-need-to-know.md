@@ -17,9 +17,9 @@ This guide is community-contributed and continuously updated. Join us on Discord
 
 The Homestead update is dense and can be unintuitive. Here are our tips to help you navigate it.
 
-# Blissful Retreat Content
+## Blissful Retreat Content
 
-## Bounty gourd is the nerd of war
+### Bounty gourd is the nerd of war
 
 Focus on increasing your Homestead level. Your goal is to gather the most bounty gourds.
 
@@ -27,13 +27,13 @@ Focus on increasing your Homestead level. Your goal is to gather the most bounty
 
         
 
-## Ressource deposit
+### Ressource deposit
 
 - When depositing resources into your homestead warehouse, the max cap for the week is 1200 in total, not per type. Choose carefully what you choose to deposit depending on your priorities for the week.
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-1.webp)
 
-## Optimise prosperity
+### Optimise prosperity
 
 Use items which cost 100 gourds and give 10 prosperity.
 
@@ -43,7 +43,7 @@ Find below the prosperity/gourd ratio (higher is better). The cheaper the item, 
 
 If you are overwhelmed with wood, you could also use some Kaifeng structures, which gives 12 prosperity. Careful, this method is costly in terms of wood.
 
-### How to recycle your prosperity items?
+#### How to recycle your prosperity items?
 
 If you already have spent gourds on costly items you can retrieve them!
 
@@ -53,13 +53,13 @@ Recycle your components then use the dismantle option, bottom of build page.
 
 Note: normal building does not contribute to prosperity. Only the materials that are in the homestead section count towards prosperity.
 
-## About vigor aka feed your workers
+### About vigor aka feed your workers
 
 Eating gives 20 energy per level of food. For instance, lvl 1 food will give a worker 50/100 to 70/100 energy.
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-4.webp)
 
-## Souvenir gift for your NPC
+### Souvenir gift for your NPC
 
 Ever wondered what this “Souvenir Selection Box” is for?
 
@@ -71,9 +71,9 @@ Here the corresponding NPC / gift mapping:
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-6.webp" style="width: 60%; max-width: 512px; border-radius: 0.75rem;" />
 
-## Farming
+### Farming
 
-### Use fertilizer on any crop
+#### Use fertilizer on any crop
 
 Trade profit is equal across all crops regardless of cost, growth time, or level. The only real variable is growth time combined with fertilizer (manure), and the impact is negligible. If you're not actively managing crops around the clock, prefer any high growth-time crops (14.4 Hours). And you should use fertilizer: it nets you roughly 8 extra gourds per crop per day. 
 
@@ -81,7 +81,7 @@ Trade profit is equal across all crops regardless of cost, growth time, or level
 
 Note: Using "Remove" on crop you don’t get back the seed. Your seed is lost.
 
-## Other tips
+### Other tips
 
 - You can decide to hide your Homestead buildings (but production should still work)
 
@@ -101,12 +101,12 @@ Note: Using "Remove" on crop you don’t get back the seed. Your seed is lost.
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp)
 
-# Diagram Sharing
+## Diagram Sharing
 
 - You can now share your diagrams (solo or guild) in the gallery by clicking in your diagram and choose “Upload to the gallery”
 - Beware when sharing diagrams! Someone can easily pretend they are the creator and have better votes than the original (like any social network publication).
 
-## How to edit diagram permission
+### How to edit diagram permission
 
 You can decide to make the diagram public (everyone can download), friends only, or private. The “Choose specific friends” option is buggy avoid it.
 
@@ -114,7 +114,7 @@ You can decide to make the diagram public (everyone can download), friends only,
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
 
-## How to use diagram code
+### How to use diagram code
 
 A diagram can be shared with a code for instance SHARE89e3cb2b11b4be85.
 
@@ -122,6 +122,6 @@ Go to Gallery and simply copy paste the code in the input search. The shared cod
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp)
 
-## Other tips
+### Other tips
 
 - You can put several screenshots when publishing your blissful retreat diagrams (does not work for other diagrams with other tag)

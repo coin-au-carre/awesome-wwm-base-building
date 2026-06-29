@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 const { Content, headings } = await render(entry)
-const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3)
+const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3 || h.depth === 4)
 const showToc = entry.data.toc && tocHeadings.length > 0
 
 const coverImage = entry.data.image ?? null
@@ -148,7 +148,7 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
               <li>
                 <a
                   href={`#${h.slug}`}
-                  class={`block text-sm text-muted-foreground hover:text-foreground transition-colors leading-snug py-0.5 ${h.depth === 3 ? "pl-3" : ""}`}
+                  class={`block text-sm text-muted-foreground hover:text-foreground transition-colors leading-snug py-0.5 ${h.depth === 3 ? "pl-3" : h.depth === 4 ? "pl-6" : ""}`}
                 >
                   {h.text}
                 </a>
@@ -189,7 +189,7 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
     })
   })()
 
-  document.querySelectorAll('.prose h2[id], .prose h3[id]').forEach(function(heading) {
+  document.querySelectorAll('.prose h2[id], .prose h3[id], .prose h4[id]').forEach(function(heading) {
     var btn = document.createElement('button')
     btn.title = 'Copy link'
     btn.setAttribute('aria-label', 'Copy link to section')
