@@ -7,6 +7,7 @@ date: 2026-06-08
 order: 17
 image: "https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a427640&format=webp&hm=527a3ac83a9dc14c911e8326e719152d1c9ce9cda6acd2b22de20803337421be&is=6a4124c0&quality=lossless"
 featured: true
+toc: true
 ---
 
 

@@ -6,26 +6,14 @@ authors: ["Ahlyam"]
 date: 2026-06-17
 order: 18
 featured: true
+toc: true
 image: "https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a4271e5&format=webp&hm=815554a6fb5232f7c39d255cc50e2dc5cea2f9eaf6a0b79da593675072d4c343&is=6a412065&quality=lossless"
 ---
 
 Diagrams let you save and reuse constructions. v1.7 introduces three types depending on your context.
 
-### Table of Contents
-
-- [Accessing the Diagram tab](#accessing-the-diagram-tab)
-- [Place and fill any small diagram \[Solo + Guild\]](#place-and-fill-any-small-diagram-solo--guild)
-- [Create and use Solo Small Diagrams \[Guild + Solo\]](#create-and-use-solo-small-diagrams-guild--solo)
-- [Create and use Large Guild Diagrams \[Guild only\]](#create-and-use-large-guild-diagrams-guild-only)
-- [Create and use Small Guild Diagrams \[Guild only\]](#create-and-use-small-guild-diagrams-guild-only)
-- [How to save any diagram](#how-to-save-any-diagram)
-- [Understanding the Copyright system](#understanding-the-copyright-system)
-- [Advanced Tip for small diagram: Use Recommended Spot](#advanced-tip-for-small-diagram-use-recommended-spot)
-- [Fix interactive components after applying a large guild diagram](#fix-interactive-components-after-applying-a-large-guild-diagram)
 
 ---
-
-
 
 
 ## Accessing the Diagram tab
