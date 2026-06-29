@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["LyYan", "Raiden-Zongli", "Mothisto", "Crueliet", "Wyrdrake"]
 date: 2026-06-11
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a42ed91&format=webp&hm=a0969ec2294c8e62611d530fa14aac786e1f47b316a58521ccbc8c6584bbf748&is=6a419c11&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a439651&format=webp&hm=bf30e167daeaa8209741517cddf3bcf68fcf5ce642d2d52ffd1b5afea7316130&is=6a4244d1&quality=lossless"
 featured: false
 ---
 
@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Rotating objects by 5-degree increments lets you arrange them in a smooth circular pattern. The small angle gives enough resolution to approximate a circle without visible gaps or jagged edges.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a42ed91&format=webp&hm=a0969ec2294c8e62611d530fa14aac786e1f47b316a58521ccbc8c6584bbf748&is=6a419c11&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a439651&format=webp&hm=bf30e167daeaa8209741517cddf3bcf68fcf5ce642d2d52ffd1b5afea7316130&is=6a4244d1&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -81,9 +81,9 @@ The top section of a golden fire pillar:
 
 Flipping the Plot piece upside down exposes its flat dirt underside, giving you a clean ground texture without any grass. Useful for building on bare earth aesthetics or hiding the default grassy surface.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a42c78b&format=webp&hm=f24fdd3af9947959814bc77b9d290744121c67d89647b3af61547c82349f83a6&is=6a41760b&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a43704b&format=webp&hm=45766370924bf8fe05c4fd143181a02ddccaf8d9512298cf23204c8f038b1ba8&is=6a421ecb&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a42c870&format=webp&hm=20c51f175054025d71fd2a0b230d7e034f2d797c4975b25a5d0470cee1940806&is=6a4176f0&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a437130&format=webp&hm=d40227fe26a3dc58ea8c419453bcd8b814bf7e38284b142afda35bc5f3b2f22b&is=6a421fb0&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
 
 **Good use by [Wyrdrake](/builders/wyrdrake):** Planting on a cemented area made more realistic by inverting the plot. No more plants growing awkwardly out of cement.
 
@@ -98,4 +98,4 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 The Guqin item can be used to simulate hanging strings or thin rope-like details. Its shape and scale make it a natural fit for adding fine texture to lanterns, banners, or any structure that calls for delicate hanging elements.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a42ecf3&format=webp&hm=b20e336289c5009eddc83e55f5200217c8809e73661e4f825387fdbd7a557e34&is=6a419b73&quality=lossless" alt="Guqin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514390920735232040/2026611624.png?ex=6a4395b3&format=webp&hm=b9a7470316b53dd4cc761a65b778b44c4d7475f37a251e9f752c4b4cf823a83d&is=6a424433&quality=lossless" alt="Guqin items used as hanging strings in a build" style="border-radius: 0.75rem; width: 100%;" />

@@ -161,7 +161,7 @@ Proper usage: The “sandy” surface of this component is often misunderstood. 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354043918094396/image.png?ex=6a42d765&format=webp&hm=b5e31757ecafa5bd58815e41220c1881a346747d9c70076f5bfb49fdcff30b99&is=6a4185e5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354043918094396/image.png?ex=6a438025&format=webp&hm=4670b2ba920232e95d9f36e756c792ef8049ff39ce1bcd58e23911c7c7d00ab5&is=6a422ea5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -169,4 +169,4 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354138025558137/image.png?ex=6a42d77c&format=webp&hm=4d7bd61977ba97a7ce17acff8cd8ccccac6357513f675135f193c6f07d996fc8&is=6a4185fc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354138025558137/image.png?ex=6a43803c&format=webp&hm=c1b890861f71a85aa37a22a1393f9697eac6eed29f0b3e553b858dfad7e04831&is=6a422ebc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
