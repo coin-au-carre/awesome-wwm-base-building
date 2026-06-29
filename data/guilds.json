@@ -1,5 +1,16 @@
 [
 	{
+		"name": "梨花鹿苑",
+		"builders": [
+			"哩咖啦"
+		],
+		"discordThread": "",
+		"whatToVisit": "Elegant Round Hall",
+		"score": 0,
+		"lastModified": "June 29, 2026 at 11:51 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "HotBurning",
 		"builders": [
 			"WhiteDarkShadow",
