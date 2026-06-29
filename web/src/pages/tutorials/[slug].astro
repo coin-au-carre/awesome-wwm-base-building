@@ -41,7 +41,7 @@ const firstImageSrc = coverImage?.startsWith("http")
 const ogImage = coverImage?.startsWith("http")
   ? coverImage
   : firstImageSrc ? `${Astro.url.origin}${firstImageSrc}` : undefined
-const showCoverImage = coverImage?.startsWith("/") && !entry.body?.includes(coverImage)
+const showCoverImage = !!coverImage && !entry.body?.includes(coverImage)
 
 const datePublished = entry.data.date?.toISOString().slice(0, 10) ?? "2025-01-01"
 const dateModified = entry.data.updatedDate?.toISOString().slice(0, 10) ?? datePublished

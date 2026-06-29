@@ -22,8 +22,6 @@ If you've found any great building locations in Liangzhou that aren't shown here
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518331856175628359/1518331931266383922/2026620202126.png?ex=6a42c2cd&format=webp&hm=8e84c53ea5a5853d34e1ce6736f620aa09be7a9236667dbb27ae450822ab2063&is=6a41714d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
-
 <img src="https://media.discordapp.net/attachments/1518331856175628359/1518331931568115732/Chalice_Peak.jpg?ex=6a42c2cd&format=webp&hm=1c05ec04616b95442233becccb9861b257812f4bf29c7570a157704d87c6a282&is=6a41714d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---

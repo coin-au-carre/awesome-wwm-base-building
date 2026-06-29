@@ -6,7 +6,7 @@ authors: ["Crueliet"]
 date: 2026-06-23
 order: 20
 image: "https://media.discordapp.net/attachments/1518138757063114823/1518138819117842432/image.png?ex=6a42b7b4&format=webp&hm=f5b135d54dcdc2b447852187c3b73fba423bb477d540c85907feaa4c6ec01a94&is=6a416634&quality=lossless"
-featured: true
+featured: false
 ---
 
 Disclaimer: This guide explains the real-world usage of these unfamiliar items. Where Winds Meet is a video game, so you are entirely free to use them however you see fit. Just remember that realism creates immersion, and immersion creates appreciation and value.
