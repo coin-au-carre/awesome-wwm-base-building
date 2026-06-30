@@ -4,6 +4,7 @@
 export const BUILDER_ALIASES: Record<string, string> = {
   "diana念": "ðìana",
   "siming-司命": "siming司命",
+  "siming": "siming司命",
   "aegisnite-edge": "aegisnite",
   "ℭ𝔞𝔯𝔫𝔦": "carnii",
   "𝕯𝖎𝖆𝖓𝖆": "ðìana",
