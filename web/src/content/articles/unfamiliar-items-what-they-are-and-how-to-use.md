@@ -35,7 +35,7 @@ Not exactly on top of a wok like this, but it must be placed over an open flame.
 
 ---
 
-**2. Physician's Consultation Booth**
+**2.  Anatomical Manikin Display Cabinet:**
 
 ---
 
@@ -43,11 +43,7 @@ Not exactly on top of a wok like this, but it must be placed over an open flame.
 
 ---
 
-Proper usage: Put a chair inside for patients to sit on. Look closely at the bottom of this “display cabinet”. There are two shoe prints. Back of the booth are cheat sheets. Proofs that this is not a cabinet used for displaying items.
-
----
-
-I may be wrong on this. If I am, please tell me why
+Proper usage: Back of the booth are cheat sheets. Look closely at the bottom of this display cabinet. There are two foot prints. The manikin is not available right now as a component to complete this setup.
 
 ---
 

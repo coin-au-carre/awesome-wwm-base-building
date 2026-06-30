@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "solo"]
 authors: ["Crueliet"]
 date: 2026-06-08
 order: 17
-image: "https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a43c7c0&format=webp&hm=18b3d069fdec786e88858de88f4e163068d63bb99b6a56f842ad8b71422519e0&is=6a427640&quality=lossless"
+image: "https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a447080&format=webp&hm=d54c32679df1ea64b8bf43e196499216be67ff7ddc632a25089bc85d81057f33&is=6a431f00&quality=lossless"
 featured: true
 toc: true
 ---
@@ -19,7 +19,7 @@ Normally while an object is selected, mouse-scroll **Down** rotates an object cl
 
 With the **Move tool** in Edit mode, we can fine-tune the rotation by fractions of a degree using the slider or by inputting our own value.
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a43c7c0&format=webp&hm=18b3d069fdec786e88858de88f4e163068d63bb99b6a56f842ad8b71422519e0&is=6a427640&quality=lossless" alt="Basic rotation overview" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a447080&format=webp&hm=d54c32679df1ea64b8bf43e196499216be67ff7ddc632a25089bc85d81057f33&is=6a431f00&quality=lossless" alt="Basic rotation overview" style="border-radius: 0.75rem; width: 100%;" />
 
 One key thing to remember: you can perform Fine Adjustment only on the XY-plane right now.
 
@@ -29,27 +29,27 @@ Version 1.7 introduces a way to rotate objects around the X axis (Teal arrow, YZ
 
 ## Example 1: Lean a fish to its side
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692999024650/image.png?ex=6a43c7c0&format=webp&hm=3d025f27e1a32aeae7ee0d5c385fb7742265a5ddfc22e602ac6d4b671997f163&is=6a427640&quality=lossless" alt="Clockwise rotation with scroll down" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692999024650/image.png?ex=6a447080&format=webp&hm=9577c406c86a437fc159bd0076b082c2bfa333d0b53188f7c97bc4c33debfad3&is=6a431f00&quality=lossless" alt="Clockwise rotation with scroll down" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538693493817535/image.png?ex=6a43c7c0&format=webp&hm=9e4cd6383f84b12b8e3e1f7760b7641bd8ac9cb4d3a82c407635227120b9783c&is=6a427640&quality=lossless" alt="Counter-clockwise rotation with scroll up" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538693493817535/image.png?ex=6a447080&format=webp&hm=722bcc2052e7bd2a2f5636d70dabebccb3dc5baa5699d482ab944e30da19b939&is=6a431f00&quality=lossless" alt="Counter-clockwise rotation with scroll up" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 1:** Stand it up by its head or tail with the Ctrl rotation method (Ctrl+Up/Down ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694022303954/image.png?ex=6a43c7c0&format=webp&hm=92da876f07fc9aac08703fe89e69749ab804116eea7ab6bf4200b363da382b68&is=6a427640&quality=lossless" alt="Fine adjustment rotation slider in Move tool" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694022303954/image.png?ex=6a447080&format=webp&hm=04ccbd349acd2f927516f823a381f7d7537f93ec0d4ebe3f390761658f7a3448&is=6a431f00&quality=lossless" alt="Fine adjustment rotation slider in Move tool" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 2:** Rotate it around the Z axis with mouse-scroll Up or Down. Remember, each Up or Down rotates it by 11.25°. To fine-tune this rotation, switch to Move tool → select the fish → use the rotation slider or input the desired value.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694412505201/image.png?ex=6a43c7c0&format=webp&hm=5dbb020a8e87fc26eeef81018aa979debd916a9686d59b8c21ff4fbf6f5759c8&is=6a427640&quality=lossless" alt="Ctrl+scroll rotation around the X axis (teal arrow)" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694412505201/image.png?ex=6a447080&format=webp&hm=dbacb6f5e9ee76769fe1f656794d21cb5427d25ed7a1ad0315c57889a13ac881&is=6a431f00&quality=lossless" alt="Ctrl+scroll rotation around the X axis (teal arrow)" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 3:** Lay the fish down with Ctrl+Up/Down.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694932463687/image.png?ex=6a43c7c1&format=webp&hm=0f9169f0b68d69daade1e21178975999e8e1c18909acd0f67e5143de79a021e8&is=6a427641&quality=lossless" alt="Fish in starting position to lean to its side" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694932463687/image.png?ex=6a447081&format=webp&hm=b930b3d6d15dd29ab5651a8816aa9de5d44635dd33cf2b355c1b0df12b632bf2&is=6a431f01&quality=lossless" alt="Fish in starting position to lean to its side" style="border-radius: 0.75rem; width: 100%;" />
 
 Now one fish is lying on its left side and the other is lying on its right side.
 
@@ -57,7 +57,7 @@ Now one fish is lying on its left side and the other is lying on its right side.
 
 ## Example 2: Pitch the fish's head up or down
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695368544406/image.png?ex=6a43c7c1&format=webp&hm=292efd6ea0bca5ed10e281555a4f597f66150c13a10bbc78317d4bf22776e9eb&is=6a427641&quality=lossless" alt="Fish standing upright on its head using Ctrl rotation" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695368544406/image.png?ex=6a447081&format=webp&hm=79a33b2ac3b9b3413d7f008ca40a83bb50206ab4d31efcbc9a20448f29c22f6f&is=6a431f01&quality=lossless" alt="Fish standing upright on its head using Ctrl rotation" style="border-radius: 0.75rem; width: 100%;" />
 
 Ctrl+Up/Down rotates the fish by 45° per scroll, but we do not want that. In this example, we want the fish to pitch its head up or down by 22.5°.
 
@@ -65,27 +65,27 @@ Ctrl+Up/Down rotates the fish by 45° per scroll, but we do not want that. In th
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695771193649/image.png?ex=6a43c7c1&format=webp&hm=26821d940f455b36ee383056b49f5380bbde5a3935f1e4c00d5050c349eb4da1&is=6a427641&quality=lossless" alt="Fish rotated around Z axis" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695771193649/image.png?ex=6a447081&format=webp&hm=01af42e909aeaf58211cb996a61587128768dd86409ec722565dce150006bec6&is=6a431f01&quality=lossless" alt="Fish rotated around Z axis" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 2:** Lay it down to its side with Ctrl+Up/Down ×2.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696329171185/image.png?ex=6a43c7c1&format=webp&hm=a4ee2d44fa7a3820e36b354007866b3d0d0e6f52de62bb1101cf402117c223e0&is=6a427641&quality=lossless" alt="Two fish laying on their sides, one left and one right" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696329171185/image.png?ex=6a447081&format=webp&hm=681d5ce9ef677dcbfffdcbb89dd0b8e32f9c43a360264f5b67125b591aec1c5b&is=6a431f01&quality=lossless" alt="Two fish laying on their sides, one left and one right" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 3:** Rotate it around the Z axis with mouse-scroll Up or Down. Remember, each Up or Down rotates it by 11.25°. In this case, do Up or Down ×2 (rotate 22.5°). To fine-tune this rotation, switch to Move tool → select the fish → use the rotation slider or input the desired value.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696916238436/image.png?ex=6a43c7c1&format=webp&hm=6b0df43bd4f849a466e354e8b6bc10591e84e5ecca3c97905a147f1ac821403b&is=6a427641&quality=lossless" alt="Fish in starting position for head pitch" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696916238436/image.png?ex=6a447081&format=webp&hm=eb664d4062d8ef999ddd5a6768e7c2fc166ba930a6b0c113d2efb5d0d0001592&is=6a431f01&quality=lossless" alt="Fish in starting position for head pitch" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 4:** Stand the fish back up with Ctrl+Up/Down.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538923073241138/image.png?ex=6a43c7f7&format=webp&hm=dcfc8e68a92ccee44601b821a0e7a7cc27ce1ba97647fef105b6ee645088b296&is=6a427677&quality=lossless" alt="Fish facing East along the X axis" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538923073241138/image.png?ex=6a4470b7&format=webp&hm=a5d3972c977b7bd755159a07e0990261cb1b76f2ab2fb2fa9606400d1a519145&is=6a431f37&quality=lossless" alt="Fish facing East along the X axis" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538923496997038/image.png?ex=6a43c7f7&format=webp&hm=dbd02eb1cd5d84d5340e0c161008b555b2dd0b483b581edf7e984a29fb23d35a&is=6a427677&quality=lossless" alt="Fish laid down on its side" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538923496997038/image.png?ex=6a4470b7&format=webp&hm=b5d7a199efd443a18ec7ebf144888640bab0e5e9628c64cae0d041233a777d2b&is=6a431f37&quality=lossless" alt="Fish laid down on its side" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -95,27 +95,27 @@ How to push this pillar away from us by 22.5°, then lean it to the left by 22.5
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538924046192783/image.png?ex=6a43c7f7&format=webp&hm=3fd6b5a9e5ff1ed6188cd7062b4d1157d10ea2fa1004429b2dc2a958f8ba39c3&is=6a427677&quality=lossless" alt="Fish rotated 22.5° around Z axis while on its side" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538924046192783/image.png?ex=6a4470b7&format=webp&hm=33530d12c20231b6e34605d57c4d1d6d55b45aa39a4147e19f228d3298ce3015&is=6a431f37&quality=lossless" alt="Fish rotated 22.5° around Z axis while on its side" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538924465619117/image.png?ex=6a43c7f7&format=webp&hm=8df04b0fcbbd9128bf23347fd1c60bc7c786169350b64cbc5f25515cfc3da825&is=6a427677&quality=lossless" alt="Fish standing with head pitched 22.5° upward" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538924465619117/image.png?ex=6a4470b7&format=webp&hm=9435eae71eda34e9bfc04e2c14a15e4577d7fcbff9d032c596e21668dfcbc0c8&is=6a431f37&quality=lossless" alt="Fish standing with head pitched 22.5° upward" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 1:** Lay it down with CCW rotation (Ctrl+Up ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538924851761283/image.png?ex=6a43c7f7&format=webp&hm=6c09dc9ab085c4caf88e606f714a30a3acf5f93f98e67f7c1eb0cba0c9d0acb0&is=6a427677&quality=lossless" alt="Pillar in starting position facing East" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538924851761283/image.png?ex=6a4470b7&format=webp&hm=8d807eb0a5ded1e0775cf5ce5015c8395df09d3b2651bc7fc7bea246dd642c7f&is=6a431f37&quality=lossless" alt="Pillar in starting position facing East" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 2:** Rotate it CW (Down ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538925275119707/image.png?ex=6a43c7f7&format=webp&hm=c607fcc2fc76b4612dc96747b9a92fe4d2263a4adbafbc51bc00e07632ab0045&is=6a427677&quality=lossless" alt="Pillar laid down with CCW rotation" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538925275119707/image.png?ex=6a4470b7&format=webp&hm=81e8d9ffaa9cc5d6150154a1c91eb80be801c97402da6fa35ff56240c5111436&is=6a431f37&quality=lossless" alt="Pillar laid down with CCW rotation" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 3:** Stand it back up (Ctrl+Down ×2). Now the pillar is pushed away from us by 22.5°. To push it more or less, go back to STEP 2 and switch to Move tool → select the pillar → use the slider or input a value to fine-tune the rotation.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538925678034944/image.png?ex=6a43c7f8&format=webp&hm=41dafc38496ad4e8ecfa2828a1b55d2b933aecbee29cedf9b5b27313ff2fe3a8&is=6a427678&quality=lossless" alt="Pillar rotated CW 22.5° while flat" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538925678034944/image.png?ex=6a4470b8&format=webp&hm=ff093fb1b9763e38bd740c047ee7a8f0b1df34afc810083fab6711396687f997&is=6a431f38&quality=lossless" alt="Pillar rotated CW 22.5° while flat" style="border-radius: 0.75rem; width: 100%;" />
 
 To lean the same pillar to our left by 22.5°, we continue.
 
@@ -123,27 +123,27 @@ To lean the same pillar to our left by 22.5°, we continue.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538926319767703/image.png?ex=6a43c7f8&format=webp&hm=82216a15e811b7242f64c6096385a04c7a0521fe72e653dfa6281c5a4fba7a53&is=6a427678&quality=lossless" alt="Pillar standing, pushed away by 22.5°" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538926319767703/image.png?ex=6a4470b8&format=webp&hm=78b4aec9e467dd66628a471725c512f1eecb5cf8efd405186cf91ca5ec3822b1&is=6a431f38&quality=lossless" alt="Pillar standing, pushed away by 22.5°" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 5:** Lay it down (Ctrl+Up ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538927007498340/image.png?ex=6a43c7f8&format=webp&hm=dba8b6a0512c170dd25da67ebdeb9320ee434059559800caeba5eeb7a1756444&is=6a427678&quality=lossless" alt="Pillar rotated 90°, front facing now South" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538927007498340/image.png?ex=6a4470b8&format=webp&hm=570d1636facfe82d691cdff47f7c2f50dfde6bded91a8a2fa386c2c38940752c&is=6a431f38&quality=lossless" alt="Pillar rotated 90°, front facing now South" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 6:** Rotate it CW 22.5° (Down ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538927460487438/image.png?ex=6a43c7f8&format=webp&hm=aa10a52aa496972108f9cacdc8f9d189db9d709f077eef02169cdb0424afa083&is=6a427678&quality=lossless" alt="Pillar laid down again for leaning step" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538927460487438/image.png?ex=6a4470b8&format=webp&hm=96f7f0ec04fdeeb9cc2f6b0ab3a514cd1640152ffc404a990a4047bf7e0c921d&is=6a431f38&quality=lossless" alt="Pillar laid down again for leaning step" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 7:** Bring it back up (Ctrl+Down ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538945109987409/image.png?ex=6a43c7fc&format=webp&hm=12b9af9181406a81a5bcca6c8e6c20fcbe5b56f7bbccc1eeb6b0a2d596bd1797&is=6a42767c&quality=lossless" alt="Pillar rotated CW 22.5° for the lean" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538945109987409/image.png?ex=6a4470bc&format=webp&hm=07ea6c19c0aed7b814a2877a0f743cdd1e4666ed22451c1cd9d1012c3640be63&is=6a431f3c&quality=lossless" alt="Pillar rotated CW 22.5° for the lean" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538945919615156/image.png?ex=6a43c7fc&format=webp&hm=469d88de7f24d71f518ca9782490bd876db7cd8ab095fcd6b1319416dc2ca63a&is=6a42767c&quality=lossless" alt="Pillar in final orientation, pushed back and leaned left 22.5°" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538945919615156/image.png?ex=6a4470bc&format=webp&hm=4f8e625691b4f3bb8bdd35bfaf849db69178546e4cf207b58f6c113e84e73dbe&is=6a431f3c&quality=lossless" alt="Pillar in final orientation, pushed back and leaned left 22.5°" style="border-radius: 0.75rem; width: 100%;" />
 
 The pillar is now in its intended orientation: pushed back 22.5° and leaned left 22.5°. To lean it more or less, go back to STEP 6 and switch to Move tool → select the pillar → use the slider or input a value to fine-tune the rotation.
 
