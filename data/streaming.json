@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-06-29T21:10:47.280042513Z"
+  "streamers": [
+    {
+      "userID": "375327176565850113",
+      "username": "Skysnip",
+      "channelID": "1501149695458676747",
+      "channelName": "Building 101 Bis",
+      "startedAt": "2026-06-30T16:30:50.362951053Z"
+    }
+  ],
+  "updatedAt": "2026-06-30T16:30:55.604951717Z"
 }
