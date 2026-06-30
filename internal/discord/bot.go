@@ -149,7 +149,7 @@ func (b *Bot) ReplyWithFile(channelID, messageID, content, filename string, file
 
 func (b *Bot) Send(channelID, msg string) {
 	if _, err := b.Session.ChannelMessageSend(channelID, msg); err != nil {
-		slog.Warn("failed to send message", "err", err)
+		slog.Warn("failed to send message", "channel", channelID, "err", err)
 	}
 }
 
