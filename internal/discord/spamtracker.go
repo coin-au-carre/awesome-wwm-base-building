@@ -15,13 +15,8 @@ const (
 	spamChannelLimit = 3               // distinct channels within the window to trigger
 	spamCooldown     = 5 * time.Minute // min time between alerts for the same user
 	spamTimeoutDur   = 24 * time.Hour
+	spamWarnTimeout  = 5 * time.Minute
 )
-
-var spamModIDs = map[string]bool{
-	AHLYAM_ID: true,
-	WINDXP_ID: true,
-	BABE_ID:   true,
-}
 
 type spamEntry struct {
 	channelID string
@@ -49,9 +44,6 @@ func NewSpamTracker(alertChannelID string) *SpamTracker {
 func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if t.alertCh == "" || m.Author == nil || m.Author.Bot || m.GuildID == "" {
-			return
-		}
-		if spamModIDs[m.Author.ID] {
 			return
 		}
 
@@ -136,11 +128,15 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 			))
 			slog.Info("spam action: timeout + delete", "user", m.Author.Username, "distinct_channels", distinct)
 		} else {
+			until := now.Add(spamWarnTimeout)
+			if err := s.GuildMemberTimeout(m.GuildID, uid, &until); err != nil {
+				slog.Warn("spam timeout failed", "user", m.Author.Username, "err", err)
+			}
 			bot.Send(t.alertCh, fmt.Sprintf(
-				"⚠️ **%s** (`%s`) posted in %d channels within 20s: %s",
+				"⚠️ **%s** (`%s`) silenced 5m for posting in %d channels within 20s: %s",
 				name, m.Author.Username, distinct, strings.Join(channels, ", "),
 			))
-			slog.Info("spam alert", "user", m.Author.Username, "distinct_channels", distinct)
+			slog.Info("spam alert: timeout 5m", "user", m.Author.Username, "distinct_channels", distinct)
 		}
 	}
 }
