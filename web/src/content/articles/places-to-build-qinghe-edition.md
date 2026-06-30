@@ -164,9 +164,9 @@ Also exploring **Liangzhou**? Check out the [Liangzhou edition](/tutorials/place
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/mothisto" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Mothisto</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a44c787&format=webp&hm=15ceaa93a737c15fc95a8bcf77b288d281344a2133b0c9e0d4fd543fa05d3d7f&is=6a437607&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a457047&format=webp&hm=d4bb9d7f7dc0d21c66b15eacb7fe236379a5adb579b98c89268852c0a13be75f&is=6a441ec7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a44c787&format=webp&hm=a2de35e46a96452bd78703b0adb36bfa8bd6bf3895223c095649205e482b8730&is=6a437607&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a457047&format=webp&hm=99ececc9650b94773d0d86433f6bcd55a332330ff20f3725c1ad43bdd34d3435&is=6a441ec7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
