@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { getGuildsSortedByScore, getGuildRedirects, formatBuilderName, getUsers, getGuildBuilds } from "@/lib/guilds"
 import { getTier } from "@/lib/scoring"
 import { stripGuildShowcase, builderSlug } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
 import { formatDateYMD, formatDateYMDHM } from "@/lib/dates"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
@@ -340,7 +341,7 @@ const guildCanonicalUrl = `https://www.wherebuildersmeet.com/guilds/${g.slug}/`
           {g.builders?.map(formatBuilderName).filter(Boolean).length
             ? g.builders.map(formatBuilderName).filter(Boolean).map((name: string, i: number, arr: string[]) => (
                 <Fragment>
-                  <a href={`${base}/builders/${builderSlug(name)}`} class="hover:text-primary hover:underline underline-offset-2 transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
+                  <a href={`${base}/builders/${resolveCanonical(builderSlug(name))}`} class="hover:text-primary hover:underline underline-offset-2 transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>{i < arr.length - 1 ? ", " : ""}
                 </Fragment>
               ))
             : "—"}

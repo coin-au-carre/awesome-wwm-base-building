@@ -185,25 +185,20 @@ export function getBuilderProfile(slug: string): BuilderProfile | null {
 
   if (!guilds.length && !solos.length && !blueprints.length) return null
 
-  // Prefer canonical slug's name over alias names
+  // Prefer a name whose slug IS the canonical (not an alias form)
   let name: string | undefined
-  for (const g of guilds) {
+  let aliasFormName: string | undefined
+  for (const g of [...guilds, ...solos]) {
     for (const b of g.builders ?? []) {
       const n = formatBuilderName(b)
-      if (n && resolveCanonical(builderSlug(n)) === canonical) { name = n; break }
+      if (!n || resolveCanonical(builderSlug(n)) !== canonical) continue
+      if (builderSlug(n) === canonical) { name = n; break }
+      if (!aliasFormName) aliasFormName = n
     }
     if (name) break
   }
-  if (!name) {
-    for (const g of solos) {
-      for (const b of g.builders ?? []) {
-        const n = formatBuilderName(b)
-        if (n && resolveCanonical(builderSlug(n)) === canonical) { name = n; break }
-      }
-      if (name) break
-    }
-  }
   if (!name && blueprints[0]?.builderName) name = blueprints[0].builderName
+  if (!name) name = aliasFormName
 
   return { name: name ?? canonical, slug: canonical, guilds, solos, blueprints }
 }

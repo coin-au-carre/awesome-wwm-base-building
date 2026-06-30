@@ -15,8 +15,12 @@ export async function getStaticPaths() {
   const slugMap = new Map(builderSlugs.map((b) => [b.slug, b]))
   for (const article of allArticles) {
     for (const authorName of article.data.authors ?? []) {
-      const s = resolveCanonical(builderSlug(authorName))
-      if (s && !slugMap.has(s)) {
+      const rawSlug = builderSlug(authorName)
+      const s = resolveCanonical(rawSlug)
+      if (!s) continue
+      const existing = slugMap.get(s)
+      // Prefer the name whose slug matches the canonical (not an alias form)
+      if (!existing || builderSlug(existing.name) !== s) {
         slugMap.set(s, { name: authorName, slug: s })
       }
     }
@@ -56,9 +60,10 @@ const scoutedCount = scoutedGuilds.length + scoutedSolos.length
 
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
 
-// Alias slugs are keys in BUILDER_ALIASES whose value is this builder's canonical slug
+// Alias slugs are keys in BUILDER_ALIASES whose value is this builder's canonical slug,
+// excluding any alias that is the same as the display name (avoids "X also known as X")
 const aliasNames = Object.entries(BUILDER_ALIASES)
-  .filter(([, target]) => target === canonical)
+  .filter(([alias, target]) => target === canonical && alias !== builderSlug(displayName))
   .map(([alias]) => alias)
 
 const tagCounts = new Map<string, number>()

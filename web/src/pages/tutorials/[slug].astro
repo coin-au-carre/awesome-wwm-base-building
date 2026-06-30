@@ -5,6 +5,7 @@ import { getCollection, render } from "astro:content"
 import { BASE } from "@/lib/url"
 import { ArrowLeftIcon } from "@phosphor-icons/react"
 import { builderSlug } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
 
 type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website"
 
@@ -112,7 +113,7 @@ const tutorialsUrl = `${Astro.url.origin}/tutorials`
                 </div>
                 <div class="flex flex-col leading-tight">
                   <span class="text-[11px] text-muted-foreground uppercase tracking-wide">Tutorial by</span>
-                  <a href={`${BASE}/builders/${builderSlug(name)}`} class="text-sm font-semibold text-foreground hover:text-primary hover:underline underline-offset-2 transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>
+                  <a href={`${BASE}/builders/${resolveCanonical(builderSlug(name))}`} class="text-sm font-semibold text-foreground hover:text-primary hover:underline underline-offset-2 transition-colors" data-umami-event="builder_click" data-umami-event-name={name}>{name}</a>
                 </div>
               </div>
             )
