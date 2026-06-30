@@ -168,7 +168,7 @@ func (t *InviteTracker) OnMemberAdd(bot *Bot) func(*discordgo.Session, *discordg
 			}
 			return fmt.Sprintf("`%s`", inv.Code)
 		}
-		msg := fmt.Sprintf("📥 **%s** (`%s`) joined · %s", name, m.User.Username, inviteLabel(used))
+		msg := fmt.Sprintf("🌞 **%s** (`%s`) joined · %s", name, m.User.Username, inviteLabel(used))
 
 		bot.Send(t.logCh, msg)
 
