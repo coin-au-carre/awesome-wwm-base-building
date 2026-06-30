@@ -48,7 +48,9 @@ Beware, when depositing resources into your homestead warehouse, the max cap for
 
 ### Bounty gourd is the nerd of war
 
-Focus on increasing your Homestead level. Your goal is to gather the most bounty gourds.
+Focus on increasing your Homestead level.
+
+Your goal is to gather the most bounty gourds (and prosperity).
 
 Do not try to optimize too much on what type to gather or build the return of investment (ROI) is roughly the same. Focus on fulfilling quests and Weekly orders. This will give you supplementary gourds.
 
@@ -60,9 +62,9 @@ Later you will be able to sell your surplus goods but not at the beginning.
 
 Do not forget to fulfill the Young Master’s Routine. This gives you gourds, rewards and one confident retainer (gold worker) every week.
 
-You have to read what the rewards are for each mission you pick, some of them you can pick retainers to learn new skills, speed up your production line or fill vigor to max again.
+You have to read what the rewards are for each mission you pick: you can pick retainers to learn new skills, speed up your production line or fill vigor to max again.
 
-This is the only way known as of now to hire Confident retainers (gold worker) so do not miss the opportunity to get them!
+Beware! This is the only way known as of now to hire Confident retainers (gold worker) so do not miss the opportunity to get them! Once you have consumed your 3 days you will have to wait for next week!
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-3.webp)
 
@@ -83,6 +85,13 @@ Trade profit is equal across all crops regardless of cost, growth time, or level
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-5.webp" style="width: 60%; max-width: 512px; border-radius: 0.75rem;" />
 
 Note: Using "Remove" on crop you don’t get back the seed. Your seed is lost.
+
+#### Harvest efficiently with jump
+
+For harvesting,instead of relying on the default mystic skill which is not practical:
+
+- you can use “mighty drop” ( jump + q).
+- or you can use the mystic skill to use fertiliser spreading.
 
 ### Upgrade your facilities
 
@@ -109,7 +118,7 @@ Find below the prosperity/gourd ratio (higher is better). The cheaper the item, 
 
 If you are overwhelmed with wood, you could also use some Kaifeng structures, which gives 12 prosperity. Careful, this method is costly in terms of wood.
 
-#### How to recycle your prosperity items?
+#### Recycle your prosperity items
 
 If you already have spent gourds on costly items you can retrieve them!
 
