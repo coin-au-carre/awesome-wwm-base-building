@@ -183,7 +183,8 @@ func syncDoc(root, docURL string) error {
 	return nil
 }
 
-var reNewMDImg = regexp.MustCompile(`!\[[^\]]*\]\(/tutorials/[^/]+/([^)]+)\)`)
+// group 1 = full path, group 2 = filename
+var reNewMDImg = regexp.MustCompile(`!\[[^\]]*\]\((/tutorials/[^/]+/([^)]+))\)`)
 
 // preserveImageCustomizations keeps custom img markup (e.g. <img width="50%">) from the
 // existing article instead of the plain ![](…) that the sync would regenerate.
@@ -203,11 +204,12 @@ func preserveImageCustomizations(newMD, oldContent, slug string) string {
 		return newMD
 	}
 	return reNewMDImg.ReplaceAllStringFunc(newMD, func(match string) string {
-		filename := reNewMDImg.FindStringSubmatch(match)[1]
+		sub := reNewMDImg.FindStringSubmatch(match)
+		fullPath, filename := sub[1], sub[2]
 		if custom, ok := existing[filename]; ok {
 			return custom
 		}
-		return match
+		return fmt.Sprintf(`<img src="%s" style="width: 80%%" />`, fullPath)
 	})
 }
 
