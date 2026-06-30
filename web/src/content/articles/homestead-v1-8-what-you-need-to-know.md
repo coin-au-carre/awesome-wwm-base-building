@@ -11,7 +11,7 @@ gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
 image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a443ef8&format=webp&hm=51f28408e132ded8c35df28f8ddaa2689d540efe9f1bd9ebdecaca30e1e3f286&is=6a42ed78&quality=lossless"
 ---
 
-By Where Builders Meet contributors: Ahlyam, Crueliet, DõtS, KARIN, greatjussy, Han, LittleMissAngel, OracleOfXata, Parzival, QuessLord, SiMing
+By Where Builders Meet contributors: Ahlyam, carnii, Crueliet, DõtS, KARIN, greatjussy, Han, LittleMissAngel, OracleOfXata, Parzival, QuessLord, SiMing
 
 This guide is community-contributed and continuously updated. Join us on Discord to discuss, share your tips and suggest improvements.
 

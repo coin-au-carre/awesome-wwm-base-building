@@ -1,6 +1,15 @@
 [
   {
     "category": "新闻",
+    "title": "侠影众声丨行至江南处，留影自成篇",
+    "summary": "全新多人玩法「渡尘墟」品玩测试招募开启",
+    "url": "https://www.yysls.cn/news/official/20260630/37780_1306039.html",
+    "date": "2026-06-30",
+    "imageUrl": "https://nie.res.netease.com/r/pic/20260630/2eb1ec67-4254-423e-894a-bb59ac0a1682.png",
+    "fetchedAt": "2026-06-30T08:45:17Z"
+  },
+  {
+    "category": "新闻",
     "title": "6月26日丨叶锦添执笔，明日共赴江南之约！",
     "summary": "策划环西湖徒步送礼",
     "url": "https://www.yysls.cn/news/official/20260630/37780_1306022.html",
@@ -73,8 +82,8 @@
   },
   {
     "category": "公告",
-    "title": "6月28日2.7.0A版本在线修复公告",
-    "summary": "6月28日2.7.0A版本在线修复公告",
+    "title": "6月29日2.7.0A版本在线修复公告",
+    "summary": "6月29日2.7.0A版本在线修复公告",
     "url": "https://www.yysls.cn/news/update/20260629/40412_1305839.html",
     "date": "2026-06-29",
     "imageUrl": "https://nie.res.netease.com/r/pic/20260629/662829b0-94be-4870-863c-0186889f7ff0.png",
