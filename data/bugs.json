@@ -2,7 +2,7 @@
   {
     "severity": "high",
     "title": "Cannot place Guild Construction\u003eDiagrams",
-    "details": "Cannot place full diagrams. Error: \"Diagram contains invalid components for this panel.\"",
+    "details": "Cannot place full diagrams. Error: \"Diagram contains invalid components for this panel.\".  Still bug in v1.8.",
     "guild": true,
     "solo": false,
     "pc": true,
@@ -199,7 +199,7 @@
     "media": [
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a448890\u0026hm=261b5f2c184786e30305102787e6e7cbe496c3de53cf74046b8e4cd071a0bb85\u0026is=6a433710\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a449289\u0026hm=f5416c93580c43e12bca7448f30c571a8d8973fc135c51788e086b835f538689\u0026is=6a434109\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1513157083489632398/SVID_20260607_192226_1.mp4?ex=6a445e99\u0026hm=9a5a4b149f4ab4e75fc2408e71e85b9acd941ae2b53faacf9c2701c064a36378\u0026is=6a430d19\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513157083489632398/SVID_20260607_192226_1.mp4?ex=6a450759\u0026hm=0c4442c237d8e2ab7f98af0b86a7f699b7ec809169b1588a559d2994beef3206\u0026is=6a43b5d9\u0026"
     ],
     "version": "v1.7",
     "date": "03/06/2026",
@@ -216,7 +216,7 @@
     "ps5": false,
     "media": [
       "https://cdn.discordapp.com/attachments/1483483683456286911/1511771129021206629/Screen_Recording_20260603_183743_Where_Winds_Meet.mp4?ex=6a4499d4\u0026hm=8123037de209b1131164ff64091ec8bf3c23e1c0b42bce8caedb0f9250710337\u0026is=6a434854\u0026",
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1511732864369168474/Screenshot_20260603_160223_Where_Winds_Meet.jpg?ex=6a447631\u0026hm=8076f6cae92ff84edb23b35b8a9d6f20778f4e558ff7147faffb41bdb30874dd\u0026is=6a4324b1\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1511732864369168474/Screenshot_20260603_160223_Where_Winds_Meet.jpg?ex=6a451ef1\u0026hm=99a238e7c1d7f69ce38968f07a5128088446897b805f30aabe56c422a5e57343\u0026is=6a43cd71\u0026"
     ],
     "version": "v1.7",
     "date": "03/06/2026",
@@ -332,7 +332,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1512451859032444968/image.png?ex=6a4470cf\u0026hm=e9c88f18df78c7ee2ebc082de84121cf1962973f70f33fc3a79ce6f6be6c72fe\u0026is=6a431f4f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1512451859032444968/image.png?ex=6a45198f\u0026hm=5233e23f420ed3223818cda517eb7b97ccd325a97f3a484105cb2ccddeeea903\u0026is=6a43c80f\u0026"
     ],
     "version": "v1.7",
     "date": "05/06/2026",
@@ -348,7 +348,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1512831912048328725/image.png?ex=6a448142\u0026hm=a93fb2962590b47d5a617b4437acfa5b670f09f017baa172fa0528fc8394c2df\u0026is=6a432fc2\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1512831912048328725/image.png?ex=6a452a02\u0026hm=2a5d75fb97a7df0e8ec91729f1a0ba9e07a5e52e5c1128b5adf7e905d25ca9ac\u0026is=6a43d882\u0026"
     ],
     "version": "v1.7",
     "date": "06/06/2026",
@@ -364,7 +364,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1514645963627696279/image.png?ex=6a44833a\u0026hm=1dccd8d43216272eb5962b51305de4b5f648e08ab8f174637ef61b03bef4bd89\u0026is=6a4331ba\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1514645963627696279/image.png?ex=6a452bfa\u0026hm=72cad3534b8a44d934b82951ad188160b022d307e69675f62e85d5d257478010\u0026is=6a43da7a\u0026"
     ],
     "version": "v1.7",
     "date": "11/06/2026",
@@ -422,8 +422,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1517546808316792983/image.png?ex=6a4484d9\u0026hm=953a402117fe4ac0fa6b629c710f71bc893fd8f9d4a0d866760b48dfb2469df0\u0026is=6a433359\u0026",
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1517548244924633178/20260619-1514-31.0396381.mp4?ex=6a448630\u0026hm=dbdd173329ff0de616e12b5f9f09674e520fd73f2f0b55e8c806e8380b20222d\u0026is=6a4334b0\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1517546808316792983/image.png?ex=6a452d99\u0026hm=bfe21eec7b38a6bb04b5bfeeb7d204cfb539d3fc3355916bf78d323d66018b87\u0026is=6a43dc19\u0026",
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1517548244924633178/20260619-1514-31.0396381.mp4?ex=6a452ef0\u0026hm=4d7699ed8f1935cb9cca0bdeb2434ab3345860d5f1e3d3f63b6708e9c8265c98\u0026is=6a43dd70\u0026"
     ],
     "version": "v1.7",
     "date": "19/06/2026",
