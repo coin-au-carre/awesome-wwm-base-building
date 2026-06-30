@@ -19,10 +19,11 @@ const (
 )
 
 type spamEntry struct {
-	channelID string
-	messageID string
-	content   string
-	at        time.Time
+	channelID   string
+	messageID   string
+	content     string
+	attachments []string // CDN URLs
+	at          time.Time
 }
 
 // SpamTracker flags users who post in many distinct channels in a short window.
@@ -52,7 +53,11 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 
 		t.mu.Lock()
 
-		entries := append(t.history[uid], spamEntry{m.ChannelID, m.ID, m.Content, now})
+		urls := make([]string, len(m.Attachments))
+		for i, a := range m.Attachments {
+			urls[i] = a.URL
+		}
+		entries := append(t.history[uid], spamEntry{m.ChannelID, m.ID, m.Content, urls, now})
 		cutoff := now.Add(-spamWindow)
 		start := 0
 		for start < len(entries) && entries[start].at.Before(cutoff) {
@@ -96,17 +101,18 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 			name = m.Author.Username
 		}
 
-		// Check if all messages in the window are identical.
-		sameContent := snapshot[0].content
+		// Check if all messages in the window are identical (text + attachments).
+		first := snapshot[0]
 		isIdentical := true
 		for _, e := range snapshot[1:] {
-			if e.content != sameContent {
+			if e.content != first.content || strings.Join(e.attachments, ",") != strings.Join(first.attachments, ",") {
 				isIdentical = false
 				break
 			}
 		}
+		hasContent := first.content != "" || len(first.attachments) > 0
 
-		if isIdentical && sameContent != "" {
+		if isIdentical && hasContent {
 			// Timeout the user for 24h.
 			until := now.Add(spamTimeoutDur)
 			if err := s.GuildMemberTimeout(m.GuildID, uid, &until); err != nil {
@@ -118,7 +124,7 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 					slog.Warn("spam delete failed", "channel", e.channelID, "msg", e.messageID, "err", err)
 				}
 			}
-			preview := sameContent
+			preview := first.content
 			if len(preview) > 200 {
 				preview = preview[:200] + "…"
 			}
