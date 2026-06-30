@@ -1,5 +1,19 @@
 [
 	{
+		"name": "TW",
+		"builders": [
+			"蘇幕遮"
+		],
+		"tags": [
+			"Architecture"
+		],
+		"discordThread": "",
+		"whatToVisit": "Western style building",
+		"score": 0,
+		"lastModified": "June 30, 2026 at 09:15 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "梨花鹿苑",
 		"builders": [
 			"哩咖啦"
