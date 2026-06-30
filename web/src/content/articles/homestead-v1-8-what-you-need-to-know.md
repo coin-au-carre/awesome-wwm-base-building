@@ -1,5 +1,5 @@
 ---
-title: "Homestead v1.8 - WBM Guide"
+title: "Homestead v1.8 - WBM Tips"
 description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.8+."
 tags: ["solo", "homestead", "beginner", "advanced"]
 authors: ["Ahlyam", "Crueliet", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing"]
@@ -127,7 +127,7 @@ You can decide to sell your Homestead Warehouse items with "Trade for Profit".
 
 Here the corresponding NPC / gift mapping:
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp)
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp" style="width: 80%" />
 
 ### Buy raw goods with normal/commerce coins
 
@@ -149,13 +149,13 @@ Anticipate and buy also items which will be needed for your future levels.
 
 <!--THE END-->
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp)![](/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp)
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp" style="width: 70%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp" style="width: 70%" />
 
 - Reset skills retrieve back books for retainers. Note: it does remove earned exp, so the longer the retainer has been working the more is lost :(
 
 <!--THE END-->
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp)
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp" style="width: 70%" />
 
 - Industry zones seem to have a height limit of about 250m  
   ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-20.webp)
