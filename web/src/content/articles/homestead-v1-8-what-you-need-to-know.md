@@ -4,7 +4,7 @@ description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.
 tags: ["solo", "homestead", "beginner", "advanced"]
 authors: ["Ahlyam", "Crueliet", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing"]
 date: 2026-06-27
-updatedDate: 2026-06-29
+updatedDate: 2026-06-30
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
@@ -129,25 +129,39 @@ Here the corresponding NPC / gift mapping:
 
 ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp)
 
+### Buy raw goods with normal/commerce coins
+
+You can buy the raw items directly from merchants in the solo world with normal coins.
+
+Anticipate and buy also items which will be needed for your future levels.
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-13.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
+
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp)
+
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp)
+
 ### Other tips
 
 - You can decide to hide your Homestead buildings (but production should still work)
 
 <!--THE END-->
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-13.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="max-width: 80%; height: auto; border-radius: 0.75rem;" />
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp)![](/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp)
 
 - Reset skills retrieve back books for retainers. Note: it does remove earned exp, so the longer the retainer has been working the more is lost :(
 
 <!--THE END-->
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp)
 
 - Industry zones seem to have a height limit of about 250m  
-  ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp)
+  ![](/tutorials/homestead-v1-8-what-you-need-to-know/img-20.webp)
 - To change to landmark location for homestead: you press on the landmark that you want to remove, under "more" and delete it
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-21.webp)
 
 ### Diagram Sharing
 
@@ -158,9 +172,9 @@ Here the corresponding NPC / gift mapping:
 
 You can decide to make the diagram public (everyone can download), friends only, or private. The “Choose specific friends” option is buggy avoid it.
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-22.webp)
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-23.webp)
 
 #### How to use diagram code
 
@@ -168,7 +182,7 @@ A diagram can be shared with a code for instance SHARE89e3cb2b11b4be85.
 
 Go to Gallery and simply copy paste the code in the input search. The shared code is global and is not accessible on the CN server.
 
-![](/tutorials/homestead-v1-8-what-you-need-to-know/img-20.webp)
+![](/tutorials/homestead-v1-8-what-you-need-to-know/img-24.webp)
 
 #### Other tips
 
