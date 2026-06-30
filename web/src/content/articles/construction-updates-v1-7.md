@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a443a7c&hm=8c96f15140cb92b71449a327ca7f2b62b7d0a4c3e54342e78dab4c22e3303230&is=6a42e8fc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a44e33c&hm=54207d49850d1de8b4cf6d943b292dff42a4267fbc468b7352dd84200bdd87af&is=6a4391bc&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a44bc44&format=webp&hm=be1471211cdb039bf6fc3a2423e8b1f0e3b1d760f6e32e704ea87d0ac0bad36d&is=6a436ac4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a44333d&format=webp&hm=aecbc9eff22e2a7bb4b2b2b402de8fbfcbc4983b8b7de5b96a263daaa6c5d705&is=6a42e1bd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a44dbfd&format=webp&hm=027cc3b9c847cf34b417725e76c3918b3ead21ba6701374498b7c19962f67964&is=6a438a7d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a4432de&format=webp&hm=28c72ff413f39a1d1504376b974d19da24595a69c7209c00c7756624233616fc&is=6a42e15e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a44db9e&format=webp&hm=58085b631ed150bb4e1be621583530d9cb09438fd78aad7e2a67149d08819613&is=6a438a1e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a443323&format=webp&hm=a245df3c1bfaa91af91b60d8cc887c1b48eaab93b490bce3d2c89dfa159592b9&is=6a42e1a3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a44dbe3&format=webp&hm=1cfd13ab2f7bf8bb83f72194dc3545596cd5b42a8dafb965a0550edb802b113f&is=6a438a63&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a443db3&hm=34d265b53c4d2c5bfc490cfa14771128f1087fdc024ac764818775295d9866ed&is=6a42ec33&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a44e673&hm=919edffa204a1dc9bbadd0ada5747c1113c7fc3aa5cace53edae32196714b9fe&is=6a4394f3&" controls></video>
 </div>
 
 
@@ -83,11 +83,11 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a444d0b&format=webp&hm=b4c3676b442b2155499d7362f3317e751308dddea1ee5616912366c71d57ebb4&is=6a42fb8b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a44f5cb&format=webp&hm=e1e1a4a054f726f2c5de9e9081ef2c3313878bb92d6f43c131ad4af631b118ba&is=6a43a44b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a4437c7&hm=20e505d82e12f531d8feed221ddfe017fa19f07df0b145d20e00544a01148498&is=6a42e647&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a44e087&hm=f6a30e0d780de4527b8cc52ae1bee75b7cb573391764d2acecdefd33670b7ff6&is=6a438f07&" controls></video>
 </div>
 
 ---
@@ -100,9 +100,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a445515&format=webp&hm=2af0752e532c7e2f343cd0909f0d836d636d9d222529c71c7bb0d7c8c87b7509&is=6a430395&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a44fdd5&format=webp&hm=a377632445ade2550d37a8c91f23abd58fd20fceec8ccd48f1a60ab68ae9f9e3&is=6a43ac55&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a445515&format=webp&hm=bae44b886c09a0b9f3ecc02af776e53dda771372727bad96656965b397f60101&is=6a430395&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a44fdd5&format=webp&hm=7128421945f84b80046797dab4fab5488f86e57a44372219b2128645566bf90e&is=6a43ac55&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
