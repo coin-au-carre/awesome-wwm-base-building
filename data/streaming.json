@@ -1,6 +1,13 @@
 {
   "streamers": [
     {
+      "userID": "272559614493458432",
+      "username": "Kuri (SiMing 司命)",
+      "channelID": "1516821438114304162",
+      "channelName": "Hexi Party",
+      "startedAt": "2026-07-01T18:06:19.37620351Z"
+    },
+    {
       "userID": "353298762103521290",
       "username": "darth_imperious01",
       "channelID": "1496814821520441385",
@@ -8,5 +15,5 @@
       "startedAt": "2026-07-01T13:05:17.181071253Z"
     }
   ],
-  "updatedAt": "2026-07-01T15:57:28.530086504Z"
+  "updatedAt": "2026-07-01T18:06:24.761995867Z"
 }
