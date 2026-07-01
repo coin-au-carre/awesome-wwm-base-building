@@ -5,7 +5,7 @@ tags: ["advanced", "guild", "solo"]
 authors: ["Crueliet"]
 date: 2026-06-08
 order: 17
-image: "https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a451940&format=webp&hm=9642277b2809c193d3d69933a648604fd8ab5925225f0238b21d7bc76b676835&is=6a43c7c0&quality=lossless"
+image: "https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a45c200&format=webp&hm=141beffd140789f3a2f2ee2ca8cbcb14fcb5f7eea0ecd3bfcb8385913b8a7016&is=6a447080&quality=lossless"
 featured: true
 toc: true
 ---
@@ -19,7 +19,7 @@ Normally while an object is selected, mouse-scroll **Down** rotates an object cl
 
 With the **Move tool** in Edit mode, we can fine-tune the rotation by fractions of a degree using the slider or by inputting our own value.
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a451940&format=webp&hm=9642277b2809c193d3d69933a648604fd8ab5925225f0238b21d7bc76b676835&is=6a43c7c0&quality=lossless" alt="Basic rotation overview" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692629921882/image.png?ex=6a45c200&format=webp&hm=141beffd140789f3a2f2ee2ca8cbcb14fcb5f7eea0ecd3bfcb8385913b8a7016&is=6a447080&quality=lossless" alt="Basic rotation overview" style="border-radius: 0.75rem; width: 100%;" />
 
 One key thing to remember: you can perform Fine Adjustment only on the XY-plane right now.
 
@@ -29,27 +29,27 @@ Version 1.7 introduces a way to rotate objects around the X axis (Teal arrow, YZ
 
 ## Example 1: Lean a fish to its side
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692999024650/image.png?ex=6a451940&format=webp&hm=17f6d1a9c9b1371ecb51b2fd8772465f3362d6df4d53b82a2795deee3fecddec&is=6a43c7c0&quality=lossless" alt="Clockwise rotation with scroll down" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538692999024650/image.png?ex=6a45c200&format=webp&hm=d0d3c723b42229ff6e47223fb39ddc1c5c5a826da5bedc19feb2886e8dc3bd4e&is=6a447080&quality=lossless" alt="Clockwise rotation with scroll down" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538693493817535/image.png?ex=6a451940&format=webp&hm=e1cd9da4f1525c519aafbc579a4a1f6b59c1ba8c38b733a9b275024919ae7f61&is=6a43c7c0&quality=lossless" alt="Counter-clockwise rotation with scroll up" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538693493817535/image.png?ex=6a45c200&format=webp&hm=9ecdc760db3dd9a7d2244a4bcbed03d52bc30f4de9ebcd4eac5ac585d7412537&is=6a447080&quality=lossless" alt="Counter-clockwise rotation with scroll up" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 1:** Stand it up by its head or tail with the Ctrl rotation method (Ctrl+Up/Down ×2).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694022303954/image.png?ex=6a451940&format=webp&hm=9a42263a18ccb66a0bc09f5b480f2b9cf5a444ccd7e1a8986404185b7040cc05&is=6a43c7c0&quality=lossless" alt="Fine adjustment rotation slider in Move tool" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694022303954/image.png?ex=6a45c200&format=webp&hm=fc9978f311e5d6c40c5cd66a66ef7affef18e926feb599edba1fc0455cf0d3e3&is=6a447080&quality=lossless" alt="Fine adjustment rotation slider in Move tool" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 2:** Rotate it around the Z axis with mouse-scroll Up or Down. Remember, each Up or Down rotates it by 11.25°. To fine-tune this rotation, switch to Move tool → select the fish → use the rotation slider or input the desired value.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694412505201/image.png?ex=6a451940&format=webp&hm=97de507de7fb4fc60afa7f22cf5e4fca3501393000fdc138a84a7372d5189003&is=6a43c7c0&quality=lossless" alt="Ctrl+scroll rotation around the X axis (teal arrow)" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694412505201/image.png?ex=6a45c200&format=webp&hm=61deba6ff98c0ea251734e91dc1ce431d6652c454de792083cd0f589f05c4f67&is=6a447080&quality=lossless" alt="Ctrl+scroll rotation around the X axis (teal arrow)" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 3:** Lay the fish down with Ctrl+Up/Down.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694932463687/image.png?ex=6a451941&format=webp&hm=ace7dca71ede6e10f0da956220084509834bc86e5d4162a1b54b68d2b6a706fd&is=6a43c7c1&quality=lossless" alt="Fish in starting position to lean to its side" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538694932463687/image.png?ex=6a45c201&format=webp&hm=2c6464d98e4fee7d4c8f8b8039a20edab03fef72384baf740222fce80a739761&is=6a447081&quality=lossless" alt="Fish in starting position to lean to its side" style="border-radius: 0.75rem; width: 100%;" />
 
 Now one fish is lying on its left side and the other is lying on its right side.
 
@@ -57,7 +57,7 @@ Now one fish is lying on its left side and the other is lying on its right side.
 
 ## Example 2: Pitch the fish's head up or down
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695368544406/image.png?ex=6a451941&format=webp&hm=d1d3b85665b2399a7d5c7826d4d72d74c51e5b03670605238c92bc537e1cfb29&is=6a43c7c1&quality=lossless" alt="Fish standing upright on its head using Ctrl rotation" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695368544406/image.png?ex=6a45c201&format=webp&hm=c477ace941a28d9efa5839f1db96cf20fa984d39e980999640c97046b5c69fd8&is=6a447081&quality=lossless" alt="Fish standing upright on its head using Ctrl rotation" style="border-radius: 0.75rem; width: 100%;" />
 
 Ctrl+Up/Down rotates the fish by 45° per scroll, but we do not want that. In this example, we want the fish to pitch its head up or down by 22.5°.
 
@@ -65,19 +65,19 @@ Ctrl+Up/Down rotates the fish by 45° per scroll, but we do not want that. In th
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695771193649/image.png?ex=6a451941&format=webp&hm=b6cb290a55b97d0643cea144c159c35c7f77073cea37ef88c5a5a6e3dddfb516&is=6a43c7c1&quality=lossless" alt="Fish rotated around Z axis" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538695771193649/image.png?ex=6a45c201&format=webp&hm=8329e563b1c8807c2268268a3e8e430365c11f1f46dfce24d69c4c6b7c733526&is=6a447081&quality=lossless" alt="Fish rotated around Z axis" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 2:** Lay it down to its side with Ctrl+Up/Down ×2.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696329171185/image.png?ex=6a451941&format=webp&hm=dbdbf5caa6d5377041367dc84fe2fb75a308bb169b0e5b7c73765b283a41a890&is=6a43c7c1&quality=lossless" alt="Two fish laying on their sides, one left and one right" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696329171185/image.png?ex=6a45c201&format=webp&hm=9a80f0a3e4aba1e05499d11c2e0d6e898ddec8d2e275e820bf41516a9e3f316b&is=6a447081&quality=lossless" alt="Two fish laying on their sides, one left and one right" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 3:** Rotate it around the Z axis with mouse-scroll Up or Down. Remember, each Up or Down rotates it by 11.25°. In this case, do Up or Down ×2 (rotate 22.5°). To fine-tune this rotation, switch to Move tool → select the fish → use the rotation slider or input the desired value.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696916238436/image.png?ex=6a451941&format=webp&hm=62a09d02d91fd3f19d07a983014533c8c516b9fe14268bf35f74d42e571ccd0a&is=6a43c7c1&quality=lossless" alt="Fish in starting position for head pitch" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1513232496383365121/1513538696916238436/image.png?ex=6a45c201&format=webp&hm=c6d6afcf2a126dfaca804cfbcf9b28e7c66491105e35d0b325649ac321426848&is=6a447081&quality=lossless" alt="Fish in starting position for head pitch" style="border-radius: 0.75rem; width: 100%;" />
 
 **STEP 4:** Stand the fish back up with Ctrl+Up/Down.
 

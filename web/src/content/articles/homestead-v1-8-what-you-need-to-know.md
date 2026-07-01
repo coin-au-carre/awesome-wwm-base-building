@@ -4,7 +4,7 @@ description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.
 tags: ["solo", "homestead", "beginner", "advanced"]
 authors: ["Ahlyam", "carnii", "Crueliet", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skisnip"]
 date: 2026-06-27
-updatedDate: 2026-06-30
+updatedDate: 2026-07-01
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
