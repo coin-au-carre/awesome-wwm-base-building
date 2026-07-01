@@ -118,20 +118,25 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 			if err := s.GuildMemberTimeout(m.GuildID, uid, &until); err != nil {
 				slog.Warn("spam timeout failed", "user", m.Author.Username, "err", err)
 			}
-			// Delete all spammed messages.
+			preview := first.content
+			if len(preview) > 200 {
+				preview = preview[:200] + "…"
+			}
+			msg := fmt.Sprintf(
+				"🚫 **%s** (`%s`) timed out 24h for identical spam in %d channels within 20s: %s\n> %s",
+				name, m.Author.Username, distinct, strings.Join(channels, ", "), preview,
+			)
+			if len(first.attachments) > 0 {
+				msg += "\n" + strings.Join(first.attachments, "\n")
+			}
+			// Post evidence to the mod channel before deleting, since attachment
+			// CDN links stop resolving once the source message is gone.
+			bot.Send(t.alertCh, msg)
 			for _, e := range snapshot {
 				if err := s.ChannelMessageDelete(e.channelID, e.messageID); err != nil {
 					slog.Warn("spam delete failed", "channel", e.channelID, "msg", e.messageID, "err", err)
 				}
 			}
-			preview := first.content
-			if len(preview) > 200 {
-				preview = preview[:200] + "…"
-			}
-			bot.Send(t.alertCh, fmt.Sprintf(
-				"🚫 **%s** (`%s`) timed out 24h for identical spam in %d channels within 20s: %s\n> %s",
-				name, m.Author.Username, distinct, strings.Join(channels, ", "), preview,
-			))
 			slog.Info("spam action: timeout + delete", "user", m.Author.Username, "distinct_channels", distinct)
 		} else {
 			until := now.Add(spamWarnTimeout)
