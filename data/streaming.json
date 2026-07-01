@@ -1,6 +1,13 @@
 {
   "streamers": [
     {
+      "userID": "272559614493458432",
+      "username": "Kuri (SiMing 司命)",
+      "channelID": "1498371478570274906",
+      "channelName": "Building Workshop",
+      "startedAt": "2026-07-01T18:08:05.394953352Z"
+    },
+    {
       "userID": "353298762103521290",
       "username": "darth_imperious01",
       "channelID": "1496814821520441385",
@@ -8,5 +15,5 @@
       "startedAt": "2026-07-01T13:05:17.181071253Z"
     }
   ],
-  "updatedAt": "2026-07-01T18:06:37.641674074Z"
+  "updatedAt": "2026-07-01T18:08:10.647265425Z"
 }
