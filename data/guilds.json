@@ -11732,35 +11732,6 @@
 		"buildTitle": "Desert Theme"
 	},
 	{
-		"id": "10016595",
-		"name": "Goosewardens",
-		"builders": [
-			"Amberbelle"
-		],
-		"tags": [
-			"Mountain/Cave",
-			"Zen/Nature"
-		],
-		"discordThread": "https://discord.com/channels/1483447710617960508/1521376123206897825",
-		"posterDiscordId": "183391180384370689",
-		"posterUsername": "Amberbelle",
-		"score": 22,
-		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376124716712048/202663012370.png?ex=6a45442d\u0026is=6a43f2ad\u0026hm=f8dc5407e04d97661ca6b7931d21aa3a9116a4c81b1f1f0328f05260e94872a0\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376127895994409/2026630123026.png?ex=6a45442e\u0026is=6a43f2ae\u0026hm=0abc8b1b5ef03fe3373b1cd8e6d5f714936bdd4a1eb0d902e32f234022dca675\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376128487657524/2026630122911.png?ex=6a45442e\u0026is=6a43f2ae\u0026hm=192ddb9d11ec757528ccfc924c1bbb0dd119f351fcb86423d96accbe73404a95\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376129183780965/2026630122812.png?ex=6a45442e\u0026is=6a43f2ae\u0026hm=c0cfdbff285285a19e456f7016873257a521d8dd6009f3bb9066ac49d7b0d0a2\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376741573263482/image.png?ex=6a4544c1\u0026is=6a43f341\u0026hm=a93964812a045e49c83bea5a562b6991558fb6cfefde11400a5f4938f46d87b2\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376742156144730/image.png?ex=6a4544c1\u0026is=6a43f341\u0026hm=bb59a19a6e0f7701a475f5a41e1fa4d754e0b0d0246bd2d8aa19d235efb98592\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376742705463336/image.png?ex=6a4544c1\u0026is=6a43f341\u0026hm=397fcc686135f30d7b397b570bf12265a547eb86ad69da14a3b38225dea90bde\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376743326351411/image.png?ex=6a4544c1\u0026is=6a43f341\u0026hm=afa54700b97e2ebfa1ed9566587a27c53f7a217e6812f910e90c66677ca6822f\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376918937538641/image.png?ex=6a4544eb\u0026is=6a43f36b\u0026hm=4542037c904cf53334571b2d2ded99e1946a928c30044111e64917392ca1d0ef\u0026",
-			"https://cdn.discordapp.com/attachments/1521376123206897825/1521376919650566206/image.png?ex=6a4544eb\u0026is=6a43f36b\u0026hm=bad9882dd86590e86e269a2e2bcc7450bcc58a1ef51d4e18500610e0c534dd85\u0026"
-		],
-		"createdAt": "June 30, 2026 at 04:45 AM UTC",
-		"lastModified": "June 30, 2026 at 04:48 AM UTC"
-	},
-	{
 		"id": "102381157",
 		"name": "LittleFurry",
 		"builders": [
