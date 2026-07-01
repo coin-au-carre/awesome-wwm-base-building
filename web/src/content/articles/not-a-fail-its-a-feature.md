@@ -56,7 +56,7 @@ featured: false
 
 ## Greenery sticking naturally to the stones
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a462578&format=webp&hm=3dd4463f28f40ce7939d7131e323d1f19ba25203dc8e2b433ce9b5a19f8a252a&is=6a44d3f8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a46ce38&format=webp&hm=146e512a5960380461964f72bc136d1381a489156e404c7bccfacebc69bb1c3b&is=6a457cb8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
