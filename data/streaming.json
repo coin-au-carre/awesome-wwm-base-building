@@ -1,13 +1,6 @@
 {
   "streamers": [
     {
-      "userID": "814547014565888050",
-      "username": "KARIN",
-      "channelID": "1496814821520441385",
-      "channelName": "Building Unlimited",
-      "startedAt": "2026-07-01T14:55:41.663377023Z"
-    },
-    {
       "userID": "353298762103521290",
       "username": "darth_imperious01",
       "channelID": "1496814821520441385",
@@ -15,5 +8,5 @@
       "startedAt": "2026-07-01T13:05:17.181071253Z"
     }
   ],
-  "updatedAt": "2026-07-01T14:55:46.891021419Z"
+  "updatedAt": "2026-07-01T15:57:28.530086504Z"
 }
