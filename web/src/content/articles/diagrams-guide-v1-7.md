@@ -95,7 +95,7 @@ These diagrams save a **section** of your guild base, useful for replicating par
 ## How to save any diagram
 
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a4519d4&hm=1f1992bb46e2263cbae1547a9355ab88459f48b31c4b78c17a6d2ac49ebbe59f&is=6a43c854&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a45c294&hm=0083cb55eaefd17f2f8fe94166fc0ba18b3923963446c86370075d2548e2baf7&is=6a447114&" controls></video>
 </div>
 
 The save process is the same for all diagram types:
