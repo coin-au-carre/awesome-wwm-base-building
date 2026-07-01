@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Potato",
-		"builders": [],
+		"builders": ["Akamiv", "Kajing"],
 		"discordThread": "",
 		"whatToVisit": "Rock passage\nHot springs \nTheater stage\nCafé",
 		"score": 0,
@@ -10,7 +10,7 @@
 	},
 	{
 		"name": "Prestige",
-		"builders": [],
+		"builders": ["2058253636"],
 		"discordThread": "",
 		"whatToVisit": "Huge courtyard building complex\nMountainscape\nHidden Maze",
 		"score": 0,
