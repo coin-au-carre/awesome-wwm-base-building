@@ -94,6 +94,7 @@ func main() {
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 	bot.Session.AddHandler(onGuildMemberUpdate(bot, moderationChannelID))
+	bot.Session.AddHandler(onHoneypotChannelPost(bot, moderationChannelID))
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
 	bot.Session.AddHandler(discord.HandleHexiPartyMute)
 
@@ -332,6 +333,36 @@ func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*dis
 			))
 			slog.Info("honeypot role granted", "user", m.User.Username)
 		}
+	}
+}
+
+// honeypotChannelID is a hidden channel: no legitimate member should ever
+// see or post in it, so posting there is treated as malicious. Hardcoded
+// for the same reason as prisonnerRoleID.
+const honeypotChannelID = "1521804936428392559"
+
+func onHoneypotChannelPost(bot *discord.Bot, moderationChannelID string) func(*discordgo.Session, *discordgo.MessageCreate) {
+	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
+		if m.ChannelID != honeypotChannelID || m.Author == nil || m.Author.Bot || m.GuildID == "" {
+			return
+		}
+		name := m.Author.GlobalName
+		if name == "" {
+			name = m.Author.Username
+		}
+		until := time.Now().Add(24 * time.Hour)
+		if err := s.GuildMemberTimeout(m.GuildID, m.Author.ID, &until); err != nil {
+			slog.Warn("honeypot timeout failed", "user", m.Author.Username, "err", err)
+		}
+		preview := m.Content
+		if len(preview) > 200 {
+			preview = preview[:200] + "…"
+		}
+		bot.Send(moderationChannelID, fmt.Sprintf(
+			"🍯 Honeypot triggered: **%s** (`%s`) posted in the honeypot channel and was silenced 24h.\n> %s",
+			name, m.Author.Username, preview,
+		))
+		slog.Info("honeypot channel post", "user", m.Author.Username)
 	}
 }
 
