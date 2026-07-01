@@ -9,6 +9,7 @@ import (
 	"os"
 	"os/signal"
 	"regexp"
+	"slices"
 	"strings"
 	"syscall"
 	"time"
@@ -92,6 +93,7 @@ func main() {
 		bot.Session.AddHandler(onGuildMemberAdd())
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
+	bot.Session.AddHandler(onGuildMemberUpdate(bot, moderationChannelID))
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
 	bot.Session.AddHandler(discord.HandleHexiPartyMute)
 
@@ -305,6 +307,31 @@ func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo
 		}
 		bot.Send(logsChannelID, msg)
 		slog.Info("member left", "user", m.User.Username, "display_name", name, "discord_server", guildName)
+	}
+}
+
+// prisonnerRoleID is a honeypot role: any legitimate member gaining it signals
+// a compromised/malicious bot or a moderator mis-click, so it's hardcoded
+// rather than env-configured like the other roles.
+const prisonnerRoleID = "1522005940499382404"
+
+func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
+	return func(s *discordgo.Session, m *discordgo.GuildMemberUpdate) {
+		if moderationChannelID == "" || m.Member == nil {
+			return
+		}
+		hadBefore := m.BeforeUpdate != nil && slices.Contains(m.BeforeUpdate.Roles, prisonnerRoleID)
+		hasNow := slices.Contains(m.Member.Roles, prisonnerRoleID)
+		if hasNow && !hadBefore {
+			name := m.User.GlobalName
+			if name == "" {
+				name = m.User.Username
+			}
+			bot.Send(moderationChannelID, fmt.Sprintf(
+				"🍯 Honeypot triggered: **%s** (`%s`) was given the prisonner role.", name, m.User.Username,
+			))
+			slog.Info("honeypot role granted", "user", m.User.Username)
+		}
 	}
 }
 
