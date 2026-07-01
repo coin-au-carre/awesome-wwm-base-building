@@ -1,5 +1,14 @@
 [
 	{
+		"name": "Potato",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "Rock passage\nHot springs \nTheater stage\nCafé",
+		"score": 0,
+		"lastModified": "July 1, 2026 at 01:44 PM UTC",
+		"scoutedByDiscordId": "1030564294443667487"
+	},
+	{
 		"name": "Prestige",
 		"builders": [],
 		"discordThread": "",
