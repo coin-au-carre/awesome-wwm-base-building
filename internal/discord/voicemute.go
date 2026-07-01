@@ -9,6 +9,7 @@ import (
 
 const hexiPartyChannelID = "1516821438114304162"
 const minereaBotID = "365594481594204161"
+const geekMusicBotID = "971868710237274174"
 
 var (
 	hexiMuted   = map[string]bool{}
@@ -18,7 +19,7 @@ var (
 // HandleHexiPartyMute server-mutes anyone who joins the Hexi Party voice channel,
 // and unmutes them when they leave or reconnect to another channel.
 func HandleHexiPartyMute(s *discordgo.Session, e *discordgo.VoiceStateUpdate) {
-	if e.UserID == minereaBotID {
+	if e.UserID == minereaBotID || e.UserID == geekMusicBotID {
 		return
 	}
 
