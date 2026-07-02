@@ -314,7 +314,7 @@ func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo
 // prisonnerRoleID is a honeypot role: any legitimate member gaining it signals
 // a compromised/malicious bot or a moderator mis-click, so it's hardcoded
 // rather than env-configured like the other roles.
-const prisonnerRoleID = "1522005940499382404"
+const prisonnerRoleID = "1521804658216272033"
 
 func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
 	return func(s *discordgo.Session, m *discordgo.GuildMemberUpdate) {
