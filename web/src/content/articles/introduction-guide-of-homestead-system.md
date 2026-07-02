@@ -5,7 +5,7 @@ tags: ["solo","cn", "homestead"]
 authors: ["carnii"]
 date: 2026-06-24
 order: 22
-image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a46d5bb&format=webp&hm=acd731c1373d1708eaa9f970939cc2524bd69993e0dbd5edac57f8e1cd8c4001&is=6a45843b&quality=lossless"
+image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a477e7b&format=webp&hm=5f19641f685d62199e3cf80a74794f9e639bfc4ed468c0a3383f6acebfb8e0c0&is=6a462cfb&quality=lossless"
 deprecated: true
 ---
 
@@ -15,7 +15,7 @@ deprecated: true
 
 <!-- preserve-end -->
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a46d5bb&format=webp&hm=acd731c1373d1708eaa9f970939cc2524bd69993e0dbd5edac57f8e1cd8c4001&is=6a45843b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a477e7b&format=webp&hm=5f19641f685d62199e3cf80a74794f9e639bfc4ed468c0a3383f6acebfb8e0c0&is=6a462cfb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 The first city to receive this system will be Qinghe
 
@@ -28,13 +28,13 @@ In the future, we will also receive an extension of this system for the Invisibl
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090502547411204/image.png?ex=6a46d6c7&format=webp&hm=272c3c14db249f32670ec003fb3e9c07af184d0fb7b70b939249645ace2c61bd&is=6a458547&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090502547411204/image.png?ex=6a477f87&format=webp&hm=13acf7ae50045f0417297f9beae9df3afbf27b13c29f4d6301e551b6e9c75839&is=6a462e07&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503071563846/image.png?ex=6a46d6c7&format=webp&hm=25200d2f5d47a16e932c41bd1d8485fd2a17f83d7e598e4ba9011c2bf7b73e64&is=6a458547&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503071563846/image.png?ex=6a477f87&format=webp&hm=9045236d142e58f6111468de05e40c4cd0c387eb97b499f288d68f47413e926d&is=6a462e07&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503600312431/image.png?ex=6a46d6c7&format=webp&hm=c2519ce410e54ebab209142cc5463aa4b174dadc45778e8c740705933ecc475e&is=6a458547&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503600312431/image.png?ex=6a477f87&format=webp&hm=2151a70f360a2300847e089c5a62ffdb5c00293efa10bede60cab6291cf6a956&is=6a462e07&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a46d6c7&format=webp&hm=1dc914d032759ccb224d456bcbe7e58a1338882243145cda96fd6c6a2f79f9ad&is=6a458547&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a477f87&format=webp&hm=d08848e26d55acc85c851cb2a47553fd390d19fd748b22979fde882e731e59aa&is=6a462e07&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ### 🍈 One of the most important currencies, **melons**, for them you can buy a large number of various furniture in the store, as well as seeds, buildings and books to upgrade your workers.
 
@@ -46,25 +46,25 @@ There are several ways, here are the main ones that will be available to you and
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519092975567634593/image.png?ex=6a46d914&format=webp&hm=d4f9b5b823bd9c6a68e9730735c350d8a1c212a24153e400ef7ea66a647333d8&is=6a458794&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519092975567634593/image.png?ex=6a4781d4&format=webp&hm=4b8f0d710fecceb2c9b216e69f01965b3f646c217c9f719c1e337d5b0091e0f0&is=6a463054&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈  Weekly cargo tasks in which you give away the collected resources and cooked meals
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519093116974403674/image.png?ex=6a46d936&format=webp&hm=4b7b491ccff0f3e118fefb368dd44518c78dabee7ba03917579517fc6c2ed7e2&is=6a4587b6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519093116974403674/image.png?ex=6a4781f6&format=webp&hm=973dc087c6256479638f1903d999f677c3a303962efc0443212598d64292bbb3&is=6a463076&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈 Achievement system
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094214636474428/image.png?ex=6a46da3c&format=webp&hm=000b3636870ae14dae4fab0b766ea1f66eeb902aad6ef4ce7167b4d44930b896&is=6a4588bc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094214636474428/image.png?ex=6a4782fc&format=webp&hm=ad74fe657161bbed49fb09082ae5f94a9091476dbfe07d91e43573cd99be4aec&is=6a46317c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈 From the constant sale of food and wine in your tavern
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094992478535700/image.png?ex=6a46daf5&format=webp&hm=2ed874b74bacf3677b644ec477e579fe1b7f464664797e497f7ba1f9b6352b63&is=6a458975&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094992478535700/image.png?ex=6a4783b5&format=webp&hm=37ebdaf183a0667bcd1a360c3fb8c6f7c555373650bada7005854708848e2fe1&is=6a463235&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈 By selling excess materials to a trader
 

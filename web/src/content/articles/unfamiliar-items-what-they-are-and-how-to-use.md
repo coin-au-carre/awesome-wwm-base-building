@@ -121,7 +121,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139684830707752/image.png?ex=6a46ad02&format=webp&hm=a9beefce4f36fb0f249ee506b83320cd914b7e1ece3de4e20a12311beb5bc079&is=6a455b82&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139684830707752/image.png?ex=6a4755c2&format=webp&hm=eff95542b8bc1700a600b1c0d982ed23737cb24f3b5dafd86663be2304f3ec0f&is=6a460442&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -133,7 +133,7 @@ Unlike the lotus next to it. Duckweed leaves must touch the surface of the water
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139753000865842/image.png?ex=6a46ad12&format=webp&hm=7287cccf22223f22404b1b0b78d2701ca4d222fbcb0a5e1bbc5ee76d1ea3f1e9&is=6a455b92&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139753000865842/image.png?ex=6a4755d2&format=webp&hm=403d43f6c79bb30e445b4e76fb0d075612a9032ee5e09e9c4deab3c8d3c4ad8d&is=6a460452&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -145,7 +145,7 @@ Proper usage: This is a high-heat furnace, not a stove or an oven for baking or 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139855098347590/image.png?ex=6a46ad2b&format=webp&hm=6e09c352f4defde073a4a346da120a00d0fc67bbe9cb33db6ac71377005a64f9&is=6a455bab&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139855098347590/image.png?ex=6a4755eb&format=webp&hm=043fbb80f074e0eda452052c36b5d254b33bbed7b498959a6024a5de3bf5fadb&is=6a46046b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -157,7 +157,7 @@ Proper usage: The “sandy” surface of this component is often misunderstood. 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354043918094396/image.png?ex=6a46cbe5&format=webp&hm=680a7f755df980084fda1f9fe2e686e7146cbd4790795a2a3e0f4e799c3d9006&is=6a457a65&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354043918094396/image.png?ex=6a4774a5&format=webp&hm=d5e5c1a2f12687afba5f98c829a9eb96fa80cf38ea4e28dec818859972a815e7&is=6a462325&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -165,4 +165,4 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354138025558137/image.png?ex=6a46cbfc&format=webp&hm=dbca0a3eef86411f782c334385bcc35413e074b369c43ad1ccf1e390d8caabcd&is=6a457a7c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518354138025558137/image.png?ex=6a4774bc&format=webp&hm=75d09530126811b127edd4aa99a9aad0a9ed96c4080481e9f4a2382c3de3ff8f&is=6a46233c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
