@@ -1,5 +1,22 @@
 [
 	{
+		"id": "10286210",
+		"name": "雲水澗",
+		"builders": [
+			"攸然"
+		],
+		"tags": [
+			"Snow",
+			"Zen/Nature",
+			"River/Canal"
+		],
+		"discordThread": "",
+		"whatToVisit": "Snow landscape\nWaterfall\nCave",
+		"score": 2,
+		"lastModified": "July 2, 2026 at 09:39 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Potato",
 		"builders": [
 			"Akamiv",
