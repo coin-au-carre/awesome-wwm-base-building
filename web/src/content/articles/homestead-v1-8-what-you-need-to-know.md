@@ -21,7 +21,7 @@ The Homestead update is dense and can be unintuitive. Here are our tips to help 
 
 ### Read Cylos beginner guide
 
-If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783007001311349&usg=AOvVaw2uNjUmoXmfqhslUEA1RPsM)
+If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783016027069182&usg=AOvVaw3-BRmdJc0gnzm4UWZU-O8V)
 
 ### Blissful Retreat & Beyond Mundane (Cloudrest Passage)
 
@@ -42,13 +42,15 @@ The warehouse is a special place related to the Homestead system. This is where 
 
 Deposit allows you to transfer materials from your personal bag to your warehouse.
 
-Beware: when depositing resources into your Homestead warehouse, the weekly cap is 1,200 in total, not per type. Choose carefully what you deposit depending on your priorities for the week.
+Beware: when depositing resources into your Homestead warehouse, the weekly cap is 1,200 in total, not per type. Choose carefully what you deposit depending on your priorities for the week. We would recommend to deposit ores in priority as it is one of the lacking resources once you launch production.
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-1.webp" style="width: 80%" />
 
 ## Beginning Stages
 
 ### Bounty gourd is the nerd of war
+
+Be careful when buying from the shop! Seeds, Fertiliser
 
 Focus on increasing your Homestead level. This is done by spending bounty gourds and prosperity.
 
@@ -134,7 +136,23 @@ If you've already spent gourds on costly items, you can recover them. Recycle yo
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-10.webp" style="width: 80%" />
 
-Note: normal buildings do not contribute to prosperity. Only items in the Homestead section count toward prosperity.
+Note: normal buildings  do not contribute to prosperity. Only items in the Homestead section count toward prosperity. (With the exception of the 3 Golden Grain components)
+
+#### Golden Grain
+
+When optimising for Prosperity, make sure not to forget turning your Golden Grain into prosperity.
+
+   
+This process is reversible! You do not lose golden grain by doing this and can always reclaim it.  
+All 3 of the 3.5k Golden Grain Building Components provide 150 prosperity each. The same amount as 15 ‘Medical Kit’ items.  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-28.webp" style="width: 80%" />  
+While this will not provide a large amount, in the race to the top every drop of Prosperity is important!
+
+You can find these items in the Personal Building Components.  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-29.webp" style="width: 80%" />
+
+Reclaim your Golden Grain by dismantling the component.  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-30.webp" style="width: 80%" />
 
 ### About vigor aka feed your workers
 
@@ -173,6 +191,53 @@ You can buy raw materials directly from merchants in the solo world using normal
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp" style="width: 60%" />
 
+### Beyond Mundane - Cloudrest Passage
+
+Beyond Mundane is a separate map where you can freely build homestead components without the placement limitations of having them in Qinghe.  
+For example, it is not possible to have the Brewery be next to the kitchen area in Qinghe, as the Brewery and Inn Industry zones are not movable. (The same applies to the Kiln Industry)
+
+The Cloudrest Passage Industry Zone, which covers the entirety of the buildable area in Beyond Mundane, Has 3 fundamental building limits:
+
+\- Building Count: The absolute number of prefab buildings you can place in the zone. (Due to the individual buildings also having placement limits you will not actually be able to reach this limit)  
+\- Facility Count: The maximum number of Industry Facilities you can place. Think Stoves, Kilns etc.  
+\- Component&Furniture Count: The absolute number of building components, both Homestead and Personal, that can be placed in this Industry Zone.
+
+Just like all other Industry Zones, the Cloudrest Passage has its own Prosperity counter that contributes to overall homestead prosperity, just like the other Zones do.
+
+Apart from the ability to place all Facility components inside it, the Cloudrest Passage has one large difference to the other Industry Zones.<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-31.webp" style="width: 80%" />
+
+#### Neighbourhood Mechanics<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-32.webp" style="width: 80%" />
+
+You might notice this button while inside Beyond Mundane. Click it!
+
+You should see something like this!  
+These are your Neighbours
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-33.webp" style="width: 80%" />
+
+1. This is another player’s Homestead. At the start you will not be able to see who this is, but by interacting with them via the special Message Board you will learn their name in time!
+2. This is a revealed player’s Homestead! By interacting with them we were able to learn their name. In this case the image was produced via an alt account.
+3. If you don't like your neighbours, consider clicking this button! It will transport you to a different realm with different neighbours.  
+   (If you end up in an empty realm, do not worry. More people will join in time)
+
+##### The Message Board:
+
+Upon teleporting to the Cloudrest Passage Waystone, you might notice a rather large board placed to the side of the path.  Interact with it.
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-34.webp" style="width: 80%" />
+
+Here you can send messages which all your Neighbours will be able to see, assuming they interact with the message board.  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-35.webp" style="width: 80%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-36.webp" style="width: 80%" />
+
+The real advantage however is the Assists Tab! Here you can request resources from your neighbours once per day.  If you exchange resources with the same neighbour three times you will learn their name and be able to form a companion bond with them.
+
+If you find a nice player willing to interact with you in your neighbourhood, consider inviting them to a Companion Bond. Why? Because the realm shifts periodically, separating you from your past neighbours.  
+Members of a Companion Bond stay together when the realm shifts and do not get separated.  (NOTE: At this point I can not confirm if realm shifts are currently in the game)
+
+If your neighbours do not interact with you, that's normal. You can try finding a more active realm by manually triggering shifts, but it is unlikely that you will be put in a realm with active players.  
+As a measure of thumb: Homestead level 3 means barely finishing most of the tutorial. Level 4 is pretty much finishing the tutorial.  
+Level 5 and above players are most likely to be active, so be on the lookout for those.
+
 ### Other tips
 
 - You can hide your Homestead buildings (production still runs normally).
@@ -192,6 +257,8 @@ You can buy raw materials directly from merchants in the solo world using normal
 - To change a landmark location in your Homestead: select the landmark you want to remove, go to "More," and delete it.
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-24.webp" style="width: 80%" />
+
+\- Make sure to visit the requests on the Beyond Mundane board every day. You can help your neighbors and you can ask them for help. At one point you should be able to reveal your neighbor's name and chat.
 
 ### Diagram Sharing
 
