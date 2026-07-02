@@ -4,7 +4,7 @@ description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.
 tags: ["solo", "homestead", "beginner", "advanced"]
 authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skisnip"]
 date: 2026-06-27
-updatedDate: 2026-07-02
+updatedDate: 2026-07-03
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
@@ -21,7 +21,7 @@ The Homestead update is dense and can be unintuitive. Here are our tips to help 
 
 ### Read Cylos beginner guide
 
-If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783035674466373&usg=AOvVaw34tGEH7ctzoaBO_IEKkZJf)
+If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing)
 
 ### Blissful Retreat & Beyond Mundane (Cloudrest Passage)
 
