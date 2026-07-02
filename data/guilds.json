@@ -1,5 +1,14 @@
 [
 	{
+		"name": "SilverRiver",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "Floating Island\nDragon\nTavern\nDinner halls\nParty Pool garden area\nRiver",
+		"score": 0,
+		"lastModified": "July 2, 2026 at 07:34 PM UTC",
+		"scoutedByDiscordId": "1030564294443667487"
+	},
+	{
 		"id": "10286210",
 		"name": "雲水澗",
 		"builders": [
