@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a46dd7c&hm=7bdf124264f1920551299a421acb39b0402fe1aad4e6a04f2b8894839d10a4cf&is=6a458bfc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a47863c&hm=b9d5c6f7539839ccd86ad154df224b89c6dbc11ac6847de9ca5bb33487533b47&is=6a4634bc&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a475f44&format=webp&hm=0d2301f25f4d701ca4f6fe9a285c300473d3c5919056e0124a23ed201007f9fe&is=6a460dc4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a46e0b3&hm=249d427138c73087443bdac25c13eed1b65f40a209fb7e79c32c183e55fa9e9b&is=6a458f33&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a478973&hm=4fbc967df4e9ae2569c337a7f08e9ca99533f54da131cab067e63968d47a8f14&is=6a4637f3&" controls></video>
 </div>
 
 
@@ -83,7 +83,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a46f00b&format=webp&hm=084c4f18088efd8f323235d1d6023e037a6eed7ceff52a25ed6e0ee771e2e6fb&is=6a459e8b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a4798cb&format=webp&hm=d59ef003ac10b2f2d898c9879d9b38dc3fea2216610bef659d7f623be214104e&is=6a46474b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
@@ -100,9 +100,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a46f815&format=webp&hm=6b15e878c0683da0a5b8efda9b4f55fdaf713eb3925bf565ab8bf75729cf7519&is=6a45a695&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a47a0d5&format=webp&hm=78d90616962356607c28eed3c3539910490cb19d32d89b07e006e20e28606d19&is=6a464f55&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a46f815&format=webp&hm=4327ae00ab3f6fb6cb145aa6323cef267f497e83f7e1616e00dc0c9634c8e1fd&is=6a45a695&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a47a0d5&format=webp&hm=0f230676d5c278c220c860fb07ce13cb7ec0d8acbe2afeaff8043442b3eb1732&is=6a464f55&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
