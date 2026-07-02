@@ -13,6 +13,10 @@ toc: true
 
 A new way to rotate objects in v1.7 was introduced. On PC, press **Ctrl+mouse-scroll**. Not available on console or mobile.
 
+Ctrl rotate works:
+- before placing an object
+- with the hand tool "Place/Pickup" (not with the move tool)
+
 ## Basic rotation
 
 Normally while an object is selected, mouse-scroll **Down** rotates an object clockwise (CW) and mouse-scroll **Up** rotates it counter-clockwise (CCW). Each scroll changes the angle by 11.25° around the Z axis. In other words, it spins in place on the XY-plane (the flat ground beneath our feet).
