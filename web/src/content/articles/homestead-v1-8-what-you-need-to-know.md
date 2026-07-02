@@ -8,7 +8,7 @@ updatedDate: 2026-07-02
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a478ab8&format=webp&hm=f5214e8b7b95a5de7e2cf014c8ca1b6864cbbace8caea1e7092562f764774f0a&is=6a463938&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a483378&format=webp&hm=3706ffbac359142a2a7e8342bca2066e1f815417475dc4cd1e69e688ce5dd370&is=6a46e1f8&quality=lossless"
 ---
 
 Credit to Parzival for the cover image
@@ -21,7 +21,7 @@ The Homestead update is dense and can be unintuitive. Here are our tips to help 
 
 ### Read Cylos beginner guide
 
-If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783028686640591&usg=AOvVaw3iOFTgzyaqgxMwJ3NgCK4y)
+If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783035674466373&usg=AOvVaw34tGEH7ctzoaBO_IEKkZJf)
 
 ### Blissful Retreat & Beyond Mundane (Cloudrest Passage)
 
