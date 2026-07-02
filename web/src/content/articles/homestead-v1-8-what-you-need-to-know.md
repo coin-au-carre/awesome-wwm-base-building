@@ -21,7 +21,7 @@ The Homestead update is dense and can be unintuitive. Here are our tips to help 
 
 ### Read Cylos beginner guide
 
-If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783016027069182&usg=AOvVaw3-BRmdJc0gnzm4UWZU-O8V)
+If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1783022468502280&usg=AOvVaw2uHRSmdPxZs7tSHFQG1kO8)
 
 ### Blissful Retreat & Beyond Mundane (Cloudrest Passage)
 
@@ -50,7 +50,7 @@ Beware: when depositing resources into your Homestead warehouse, the weekly cap 
 
 ### Bounty gourd is the nerd of war
 
-Be careful when buying from the shop! Seeds, Fertiliser
+Be careful when buying from the shop! Seeds, Fertilizers and other non Building items can not be refunded. Buying too many of them near the start will make progression significantly slower.
 
 Focus on increasing your Homestead level. This is done by spending bounty gourds and prosperity.
 

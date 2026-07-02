@@ -110,7 +110,7 @@ This can be a harsh limitation in collaborative builds. For example, if two buil
 
 You can now block up to **30 players** and **3 guilds** from visiting your guild base.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a475110&format=webp&hm=5966d5ae4a74a24190d5e937a9a3c29c6aaf237601d93e653c39150e07bb0e19&is=6a45ff90&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a47f9d0&format=webp&hm=d9b642d05b4ac6dd66ce1e0b75d86a793811be8b07fba1d238325fc21b650c14&is=6a46a850&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
 
 ---
 
