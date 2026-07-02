@@ -27,9 +27,9 @@ Rotating objects by 5-degree increments lets you arrange them in a smooth circul
 
 Floor pieces often become invisible when viewed from below, which can look odd in elevated structures. Instead of spending extra components on additional flooring, simply flip a second floor piece upside down and overlap it with the first. The flipped face covers the invisible underside.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a46742d&format=webp&hm=0d730b76192832170a85a35134a8c7f2fb9c6d676be06fe9fb888302a30a71af&is=6a4522ad&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a471ced&format=webp&hm=c67de9a984ced9660e2c14f0b31354304b95458ef91ea26587829fd788f9bc6f&is=6a45cb6d&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a46742d&format=webp&hm=cc2038dc5e3d38c07b12aaa9662eb3e79326d4d2fc8969d7ca28a9e54cd24c24&is=6a4522ad&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a471ced&format=webp&hm=a73e8d76110f8588f430065781e4b1f9dd69b8a87ae5a3ce01007a56f9cfc7fa&is=6a45cb6d&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -38,13 +38,13 @@ Floor pieces often become invisible when viewed from below, which can look odd i
 
 With improved axis rotation now available, the giant painting can be laid flat and used as a solid floor texture. Previously, beds were the go-to for this kind of surface. The painting gives a more distinctive look and works especially well for decorative floor sections.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959251314479264/image.png?ex=6a46a0ed&format=webp&hm=ece94654717738405e45ae6134b095275ff4261a6fad7e2ac894fe57f7456f88&is=6a454f6d&quality=lossless" alt="Giant painting rotated flat and used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959251314479264/image.png?ex=6a4749ad&format=webp&hm=15d65529764a9cd392c70e0aca5728c93367119b1115f9946fb32f647f2ca0e8&is=6a45f82d&quality=lossless" alt="Giant painting rotated flat and used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
 
 Before and after examples by Crueliet:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962974878892082/before1.png?ex=6a46a465&format=webp&hm=ab0f70119485926a7b898651becd6a9d1be9ead22000a90f229546570055c856&is=6a4552e5&quality=lossless" alt="Before — floor section without the giant painting" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962974878892082/before1.png?ex=6a474d25&format=webp&hm=d597bc167322831db7e29b4ddb23c018bbf31d3abcd9df72b3fddcf20edceeb0&is=6a45fba5&quality=lossless" alt="Before — floor section without the giant painting" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962975369887824/After1.png?ex=6a46a465&format=webp&hm=79481ec19332cd312901a248fa94a51cbf2ff4e0a9986e9f4002d7736e47ccdf&is=6a4552e5&quality=lossless" alt="After — the same area with the giant painting used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962975369887824/After1.png?ex=6a474d25&format=webp&hm=5611d47b18009dfdd0ca074f7f159d7defb9197ce0547e95d3495e9cafba5c24&is=6a45fba5&quality=lossless" alt="After — the same area with the giant painting used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -53,11 +53,11 @@ Before and after examples by Crueliet:
 
 A building flipped on its side can double as a crane arm or support structure. Hide the rest of the piece inside rocks or terrain to leave only the jutting section visible — the result reads as a convincing industrial support.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a46797b&format=webp&hm=721ba6f5c8d9d692d107a492fe41769dee4520828dff7234d02c1be4c8b602a3&is=6a4527fb&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a47223b&format=webp&hm=0c8e5f595867c16cd7e4d34366bb18cf1acf3aa179a0e8bba65780493b328a6e&is=6a45d0bb&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
 
 An example by Crueliet using the same idea:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959552070979694/image.png?ex=6a46a135&format=webp&hm=f955454f8823d1034c85bf6bc2b37b0c16fab589fcfe4a404023d6d56aaf49e3&is=6a454fb5&quality=lossless" alt="Crane-like structure built using a sideways-flipped building piece" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959552070979694/image.png?ex=6a4749f5&format=webp&hm=c150388d35c04877ce18cfd9ab7b425d0cdf17ccb0654d5b9f6e6efc3ade6cfa&is=6a45f875&quality=lossless" alt="Crane-like structure built using a sideways-flipped building piece" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -66,7 +66,7 @@ An example by Crueliet using the same idea:
 
 A wooden torch shape assembled from standard building components:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513967901181477006/image.png?ex=6a46a8fb&format=webp&hm=835cb46ca6a5492c3a220bddfe1d71561f4c35ad1075ed010c90ab0c7ce7054e&is=6a45577b&quality=lossless" alt="Wooden torch design built from standard components" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513967901181477006/image.png?ex=6a4751bb&format=webp&hm=c1c88d42aa637d7cb1417ea1d833a51e43270b906aeae36a6bb532fb1465f3dc&is=6a46003b&quality=lossless" alt="Wooden torch design built from standard components" style="border-radius: 0.75rem; width: 100%;" />
 
 The top section of a golden fire pillar:
 
@@ -87,9 +87,9 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 **Good use by [Wyrdrake](/builders/wyrdrake):** Planting on a cemented area made more realistic by inverting the plot. No more plants growing awkwardly out of cement.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873248926531775/image.png?ex=6a46a867&format=webp&hm=b8d4c4ee700f5ae7488d77f959e49bf3a774ae89c4d7eeab38e1254b3b5e796f&is=6a4556e7&quality=lossless" alt="Inverted plot used under plants on a cemented surface" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873248926531775/image.png?ex=6a475127&format=webp&hm=71a9566192a67a99921b08beb46aae82f3c6f11de19ecd2ee580852563693e08&is=6a45ffa7&quality=lossless" alt="Inverted plot used under plants on a cemented surface" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873249429983302/image.png?ex=6a46a867&format=webp&hm=05240d7a1e2ca291aee6dc312245ed8eb23a53053ce7f9401e002437041d3f40&is=6a4556e7&quality=lossless" alt="Close-up of the inverted plot hiding the cement under natural-looking plants" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873249429983302/image.png?ex=6a475127&format=webp&hm=b44aced06c9f76fc742033c8a680a78327ceb023d59cfa07ff1d444794e81e4a&is=6a45ffa7&quality=lossless" alt="Close-up of the inverted plot hiding the cement under natural-looking plants" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
