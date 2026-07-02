@@ -723,20 +723,6 @@
 		"scoutedByDiscordId": "149790526076354561"
 	},
 	{
-		"name": "Twin-Crescent",
-		"builders": [
-			"tugbarones"
-		],
-		"tags": [
-			"Creative"
-		],
-		"discordThread": "",
-		"whatToVisit": "Caroussel\nHouses",
-		"score": 0,
-		"lastModified": "May 27, 2026 at 05:37 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
-	},
-	{
 		"name": "KCP",
 		"builders": [
 			"Anemon"
