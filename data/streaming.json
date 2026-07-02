@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-07-02T00:04:50.935237655Z"
+  "streamers": [
+    {
+      "userID": "149790526076354561",
+      "username": "Ahlyam",
+      "channelID": "1483447711499030636",
+      "channelName": "General",
+      "startedAt": "2026-07-02T15:54:56.922984529Z"
+    }
+  ],
+  "updatedAt": "2026-07-02T15:55:02.171932181Z"
 }
