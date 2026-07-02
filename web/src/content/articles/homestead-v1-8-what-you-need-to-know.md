@@ -2,7 +2,7 @@
 title: "Homestead v1.8 - WBM Tips"
 description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.8+."
 tags: ["solo", "homestead", "beginner", "advanced"]
-authors: ["Ahlyam", "carnii", "Crueliet", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skisnip"]
+authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skisnip"]
 date: 2026-06-27
 updatedDate: 2026-07-02
 toc: true
@@ -13,13 +13,15 @@ image: "https://media.discordapp.net/attachments/1483447711499030633/15207332650
 
 Credit to Parzival for the cover image
 
-By Where Builders Meet contributors: Ahlyam, carnii, Crueliet, DõtS, KARIN, greatjussy, Han, Ha-JiWon, LittleMissAngel, OracleOfXata, Parzival, QuessLord, SiMing, Skisnip
-
-This guide or rather tips gathering is community-contributed and continuously updated. Join us on Discord to discuss, share your tips and suggest improvements.
+This guide/tips gathering is community-contributed and continuously updated. Join us on Discord to discuss, share your tips and suggest improvements.
 
 The Homestead update is dense and can be unintuitive. Here are our tips to help you navigate it.
 
 ## Things to know before you start
+
+### Read Cylos beginner guide
+
+If you are beginning in Homestead, you should definitely read Cylos guide available [here](https://www.google.com/url?q=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s%2Fedit%3Ftab%3Dt.0&sa=D&source=editors&ust=1782996785414277&usg=AOvVaw0HGUvwS71MNFhD_U8f7j5u)
 
 ### Blissful Retreat & Beyond Mundane (Cloudrest Passage)
 
@@ -110,6 +112,7 @@ Easy to miss: upgrade your facilities by tapping the double up-arrow button.
 
 - You can only choose one Confidant Retainer per week.
 - Choosing Shen Yu as your Confidant Retainer also gives you Xiao Shi: two workers for the price of one.
+- Choosing the 3 Zhang Brothers also is recommended: you have 3 workers for the price of one.
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-8.webp" style="width: 60%" />
 
