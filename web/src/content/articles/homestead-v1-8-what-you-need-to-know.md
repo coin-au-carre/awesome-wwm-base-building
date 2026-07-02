@@ -15,7 +15,7 @@ Credit to Parzival for the cover image
 
 By Where Builders Meet contributors: Ahlyam, carnii, Crueliet, DõtS, KARIN, greatjussy, Han, Ha-JiWon, LittleMissAngel, OracleOfXata, Parzival, QuessLord, SiMing, Skisnip
 
-This guide is community-contributed and continuously updated. Join us on Discord to discuss, share your tips and suggest improvements.
+This guide or rather tips gathering is community-contributed and continuously updated. Join us on Discord to discuss, share your tips and suggest improvements.
 
 The Homestead update is dense and can be unintuitive. Here are our tips to help you navigate it.
 
@@ -30,7 +30,7 @@ The game offers two locations where the Homestead system works:
 
 Both locations allow you to place facilities and hire Retainers (workers).
 
-For simplicity, if you want to maximize efficiency early on, focus solely on building in Blissful Retreat first.
+For simplicity, at the beginning, you can focus solely on building in Blissful Retreat first.
 
 ### Warehouse
 
@@ -48,9 +48,13 @@ Beware: when depositing resources into your Homestead warehouse, the weekly cap 
 
 ### Bounty gourd is the nerd of war
 
-Focus on increasing your Homestead level. Your goal is to gather as many bounty gourds (and prosperity) as possible.
+Focus on increasing your Homestead level. This is done by spending bounty gourds and prosperity.
 
-Don't try to over-optimize on what type to gather or build — the return on investment (ROI) is roughly the same across the board. Focus on fulfilling quests and Weekly Orders instead; they give you supplementary gourds.
+Your goal is to gather as many bounty gourds (and prosperity) as possible.
+
+Don't try to over-optimize on what type to gather or build at first. Follow the recommendations.
+
+Focus on fulfilling quests and Weekly Orders instead; they give you supplementary gourds.
 
 You'll be able to sell surplus goods later, but we don’t recommend it at the beginning.
 
