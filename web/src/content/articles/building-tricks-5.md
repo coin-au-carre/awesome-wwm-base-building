@@ -27,9 +27,9 @@ Rotating objects by 5-degree increments lets you arrange them in a smooth circul
 
 Floor pieces often become invisible when viewed from below, which can look odd in elevated structures. Instead of spending extra components on additional flooring, simply flip a second floor piece upside down and overlap it with the first. The flipped face covers the invisible underside.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a471ced&format=webp&hm=c67de9a984ced9660e2c14f0b31354304b95458ef91ea26587829fd788f9bc6f&is=6a45cb6d&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a47c5ad&format=webp&hm=3e3a54834b2e45b0d13d6e7da4dc5ec1f0fd6b791dcc945e9e8bd7598fe58404&is=6a46742d&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a471ced&format=webp&hm=a73e8d76110f8588f430065781e4b1f9dd69b8a87ae5a3ce01007a56f9cfc7fa&is=6a45cb6d&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a47c5ad&format=webp&hm=4cdf9c601ee43a5e6a23f433bb76eae4ae983de5bc0694ff89ddc698d43a2f80&is=6a46742d&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
