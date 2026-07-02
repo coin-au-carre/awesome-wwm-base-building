@@ -95,10 +95,10 @@ Note: using "Remove" on a crop does not return the seed. Your seed is lost.
 
 #### Harvest efficiently with jump
 
-For harvesting,instead of relying on the default mystic skill which is not practical:
+The default mystic skill for harvesting isn't practical. Instead:
 
-- you can use “mighty drop” ( jump + q).
-- or you can use the mystic skill to use fertiliser spreading.
+- Use "mighty drop" (jump + q) to harvest.
+- Use the mystic skill for fertilizer spreading instead.
 
 ### Upgrade your facilities
 
@@ -117,7 +117,7 @@ Easy to miss: upgrade your facilities by tapping the double up-arrow button.
 
 ### Optimise prosperity
 
-Use items which cost 100 gourds and give 10 prosperity.
+Use items which cost 100 gourds and give 10 prosperity in priority (like single bamboo).
 
 Find below the prosperity/gourd ratio (higher is better). The cheaper the item, the better the ratio.
 

@@ -4,7 +4,10 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"crypto/sha256"
 	"encoding/base64"
+	"encoding/hex"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"image"
@@ -16,6 +19,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 
@@ -122,6 +126,9 @@ func syncDoc(root, docURL string) error {
 	}
 
 	imagesDir := filepath.Join(root, "web", "public", "tutorials", slug)
+	manifestPath := filepath.Join(imagesDir, ".manifest.json")
+	manifest := loadImageManifest(manifestPath)
+	nextNum := nextImageNum(manifest)
 	counter := 0
 	htmlStr = reDataURI.ReplaceAllStringFunc(htmlStr, func(match string) string {
 		sub := reDataURI.FindStringSubmatch(match)
@@ -130,21 +137,31 @@ func syncDoc(root, docURL string) error {
 		if err != nil {
 			return match
 		}
-		counter++
-		filename := fmt.Sprintf("img-%d.webp", counter)
+		// Hash the raw image bytes so a filename stays attached to the same image
+		// regardless of where it moves in the doc (reordering/insertion doesn't
+		// shift numbering out from under existing width customizations).
+		hash := sha256.Sum256(decoded)
+		key := hex.EncodeToString(hash[:])
+		filename, known := manifest[key]
+		if !known {
+			filename = fmt.Sprintf("img-%d.webp", nextNum)
+			nextNum++
+		}
 		if err := os.MkdirAll(imagesDir, 0755); err == nil {
 			if webpBytes, err := toWebP(decoded); err == nil {
 				_ = os.WriteFile(filepath.Join(imagesDir, filename), webpBytes, 0644)
 			} else {
 				slog.Warn("webp encode failed, skipping image", "err", err)
-				counter--
 				return match
 			}
 		}
+		manifest[key] = filename
+		counter++
 		return fmt.Sprintf(`src="/tutorials/%s/%s"`, slug, filename)
 	})
 	if counter > 0 {
 		slog.Info("extracted images", "count", counter, "dir", imagesDir)
+		saveImageManifest(manifestPath, manifest)
 	}
 
 	// Strip the Google Docs Title-style paragraph from the body (duplicates frontmatter title).
@@ -181,6 +198,42 @@ func syncDoc(root, docURL string) error {
 
 	fmt.Printf("wrote  %s\n", outPath)
 	return nil
+}
+
+// group 1 = full path, group 2 = filename
+var reImgNum = regexp.MustCompile(`^img-(\d+)\.webp$`)
+
+// loadImageManifest reads the hash→filename map for a tutorial's images, if any.
+func loadImageManifest(path string) map[string]string {
+	m := make(map[string]string)
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return m
+	}
+	_ = json.Unmarshal(data, &m)
+	return m
+}
+
+func saveImageManifest(path string, m map[string]string) {
+	data, err := json.MarshalIndent(m, "", "  ")
+	if err != nil {
+		return
+	}
+	_ = os.WriteFile(path, data, 0644)
+}
+
+// nextImageNum finds the smallest unused img-N.webp number so new images
+// don't collide with filenames already claimed by known hashes.
+func nextImageNum(manifest map[string]string) int {
+	max := 0
+	for _, filename := range manifest {
+		if m := reImgNum.FindStringSubmatch(filename); m != nil {
+			if n, err := strconv.Atoi(m[1]); err == nil && n > max {
+				max = n
+			}
+		}
+	}
+	return max + 1
 }
 
 // group 1 = full path, group 2 = filename
