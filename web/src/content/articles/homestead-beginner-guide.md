@@ -10,7 +10,7 @@ updatedDate: 2026-07-03
 ---
 
 <!-- preserve:start -->
-This page is a web version Cylos guide available on [Google Doc](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing). kept in sync automatically.
+This page is a web version Cylos guide available on [Google Doc](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing). It is kept in sync automatically.
 <!-- preserve:end -->
 
 

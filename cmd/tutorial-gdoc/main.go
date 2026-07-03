@@ -38,6 +38,7 @@ var reTitleTag = regexp.MustCompile(`(?i)<title[^>]*>([^<]+)</title>`)
 var reFirstH1 = regexp.MustCompile(`(?is)<h1[^>]*>(.*?)</h1>`)
 var reGdocTitleP = regexp.MustCompile(`(?is)<p[^>]+\bclass="[^"]*\btitle\b[^"]*"[^>]*>.*?</p>`)
 var reHeading = regexp.MustCompile(`(?m)^(#{1,5}) `)
+var rePreserve = regexp.MustCompile(`(?s)<!-- preserve:start -->.*?<!-- preserve:end -->\n*`)
 var reDataURI = regexp.MustCompile(`src="data:image/([^;]+);base64,([^"]+)"`)
 var reGoogleRedirect = regexp.MustCompile(`href="https://www\.google\.com/url\?([^"]+)"`)
 
@@ -197,6 +198,9 @@ func syncDoc(root, docURL string) error {
 	var content string
 	if existing, err := os.ReadFile(outPath); err == nil {
 		markdown = preserveImageCustomizations(markdown, string(existing), slug)
+		if preserved := rePreserve.FindString(string(existing)); preserved != "" {
+			markdown = preserved + "\n" + markdown
+		}
 		if fm := extractFrontmatter(string(existing)); fm != "" {
 			fm = setUpdatedDate(fm)
 			content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, markdown)
