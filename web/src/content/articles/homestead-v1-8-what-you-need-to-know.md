@@ -145,20 +145,20 @@ When optimising for Prosperity, make sure not to forget turning your Golden Grai
    
 This process is reversible! You do not lose golden grain by doing this and can always reclaim it.  
 All 3 of the 3.5k Golden Grain Building Components provide 150 prosperity each. The same amount as 15 ‘Medical Kit’ items.  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-28.webp" style="width: 80%" />  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-11.webp" style="width: 80%" />  
 While this will not provide a large amount, in the race to the top every drop of Prosperity is important!
 
 You can find these items in the Personal Building Components.  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-29.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp" style="width: 80%" />
 
 Reclaim your Golden Grain by dismantling the component.  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-30.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-13.webp" style="width: 80%" />
 
 ### About vigor aka feed your workers
 
 Food gives 20 energy per food level. For example, level 1 food restores a worker from 50/100 to 70/100 energy.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-11.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="width: 80%" />
 
  
 
@@ -166,30 +166,30 @@ Food gives 20 energy per food level. For example, level 1 food restores a worker
 
 Ever wondered what the "Souvenir Selection Box" is for?
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-12.webp" style="width: 60%" />  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp" style="width: 60%" />  
 Occasionally, an NPC hosts a dinner party event where you can bring them a gift. See the NPC/gift mapping below.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-13.webp" style="width: 70%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp" style="width: 70%" />
 
 ### Sell your goods
 
 You can decide to sell your Homestead Warehouse items with "Trade for Profit".
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-14.webp" style="width: 70%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp" style="width: 70%" />
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-15.webp" style="width: 70%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp" style="width: 70%" />
 
 ### Buy raw goods with normal/commerce coins
 
 You can buy raw materials directly from merchants in the solo world using normal coins. Plan ahead and also buy items you'll need for future levels.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp" style="width: 70%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp" style="width: 70%" />
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-17.webp" style="width: 70%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-20.webp" style="width: 70%" />
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-18.webp" style="width: 50%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-21.webp" style="width: 50%" />
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-19.webp" style="width: 60%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-22.webp" style="width: 60%" />
 
 ### Beyond Mundane - Cloudrest Passage
 
@@ -204,16 +204,16 @@ The Cloudrest Passage Industry Zone, which covers the entirety of the buildable 
 
 Just like all other Industry Zones, the Cloudrest Passage has its own Prosperity counter that contributes to overall homestead prosperity, just like the other Zones do.
 
-Apart from the ability to place all Facility components inside it, the Cloudrest Passage has one large difference to the other Industry Zones.<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-31.webp" style="width: 80%" />
+Apart from the ability to place all Facility components inside it, the Cloudrest Passage has one large difference to the other Industry Zones.<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-23.webp" style="width: 50%" />
 
-#### Neighbourhood Mechanics<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-32.webp" style="width: 80%" />
+#### Neighbourhood Mechanics<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-24.webp" style="width: 80%" />
 
 You might notice this button while inside Beyond Mundane. Click it!
 
 You should see something like this!  
 These are your Neighbours
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-33.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-25.webp" style="width: 80%" />
 
 1. This is another player’s Homestead. At the start you will not be able to see who this is, but by interacting with them via the special Message Board you will learn their name in time!
 2. This is a revealed player’s Homestead! By interacting with them we were able to learn their name. In this case the image was produced via an alt account.
@@ -224,10 +224,10 @@ These are your Neighbours
 
 Upon teleporting to the Cloudrest Passage Waystone, you might notice a rather large board placed to the side of the path.  Interact with it.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-34.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-26.webp" style="width: 80%" />
 
 Here you can send messages which all your Neighbours will be able to see, assuming they interact with the message board.  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-35.webp" style="width: 80%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-36.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-27.webp" style="width: 60%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-28.webp" style="width: 60%" />
 
 The real advantage however is the Assists Tab! Here you can request resources from your neighbours once per day.  If you exchange resources with the same neighbour three times you will learn their name and be able to form a companion bond with them.
 
@@ -244,19 +244,19 @@ Level 5 and above players are most likely to be active, so be on the lookout for
 
 <!--THE END-->
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-20.webp" style="width: 50%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-21.webp" style="width: 50%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-29.webp" style="width: 50%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-30.webp" style="width: 50%" />
 
 - Resetting a Retainer's skills returns the skill books. However, it removes earned experience. The longer the Retainer has been working, the more exp is lost.
 
 <!--THE END-->
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-22.webp" style="width: 50%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-31.webp" style="width: 50%" />
 
 - Industry zones appear to have a height limit of around 250m  
-  <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-23.webp" style="width: 80%" />
+  <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-32.webp" style="width: 80%" />
 - To change a landmark location in your Homestead: select the landmark you want to remove, go to "More," and delete it.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-24.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-33.webp" style="width: 80%" />
 
 \- Make sure to visit the requests on the Beyond Mundane board every day. You can help your neighbors and you can ask them for help. At one point you should be able to reveal your neighbor's name and chat.
 
@@ -269,16 +269,16 @@ Level 5 and above players are most likely to be active, so be on the lookout for
 
 You can set a diagram to public (anyone can download), friends only, or private. Avoid the "Choose specific friends" option: it is currently buggy.
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-25.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-34.webp" style="width: 80%" />
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-26.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-35.webp" style="width: 80%" />
 
 #### How to use diagram code
 
 A diagram can be shared via a code, for example: SHARE89e3cb2b11b4be85. Go to the Gallery and paste the code into the search field.  
 Share codes are global and are not accessible on the CN server (and vice-versa)
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-27.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-36.webp" style="width: 80%" />
 
 #### Other tips
 

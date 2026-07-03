@@ -7,7 +7,7 @@ import { ArrowLeftIcon } from "@phosphor-icons/react"
 import { builderSlug } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead"
 
 const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string }> = {
   beginner: { label: "Beginner", bg: "bg-emerald-500/10", text: "text-emerald-600 dark:text-emerald-400", dot: "bg-emerald-500" },
@@ -17,10 +17,12 @@ const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot:
   sightseeing: { label: "Sightseeing", bg: "bg-teal-500/10", text: "text-teal-600 dark:text-teal-400", dot: "bg-teal-500" },
   cn: { label: "CN Content", bg: "bg-rose-500/10", text: "text-rose-600 dark:text-rose-400", dot: "bg-rose-500" },
   website: { label: "Website", bg: "bg-indigo-500/10", text: "text-indigo-600 dark:text-indigo-400", dot: "bg-indigo-500" },
+  "patch-notes": { label: "Patch Notes", bg: "bg-blue-500/10", text: "text-blue-600 dark:text-blue-400", dot: "bg-blue-500" },
+  homestead: { label: "Homestead", bg: "bg-orange-500/10", text: "text-orange-600 dark:text-orange-400", dot: "bg-orange-500" },
 }
 
 function renderTags(tags: string[] = []) {
-  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website"]
+  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead"]
   return tags.filter((t): t is TagKey => known.includes(t as TagKey))
 }
 
