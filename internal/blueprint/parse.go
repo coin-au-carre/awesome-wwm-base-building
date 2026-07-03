@@ -91,10 +91,10 @@ func ParseFirstPost(content string) ParsedBlueprintPost {
 	if codes := reShareCode.FindAllString(content, -1); len(codes) > 0 {
 		seen := make(map[string]bool, len(codes))
 		for _, c := range codes {
-			upper := strings.ToUpper(c)
-			if !seen[upper] {
-				seen[upper] = true
-				p.ShareCodes = append(p.ShareCodes, upper)
+			key := strings.ToUpper(c)
+			if !seen[key] {
+				seen[key] = true
+				p.ShareCodes = append(p.ShareCodes, c)
 			}
 		}
 	}
