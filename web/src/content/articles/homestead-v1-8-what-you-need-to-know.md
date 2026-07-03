@@ -21,7 +21,7 @@ The Homestead update is dense and can be unintuitive. Here are our tips to help 
 
 ### Read Cylos beginner guide
 
-##### If you are beginning in Homestead, you should definitely read [Cylos guide](https://www.wherebuildersmeet.com/tutorials/homestead-beginner-guide/)
+If you are beginning in Homestead, you should definitely read [Cylos guide](https://www.wherebuildersmeet.com/tutorials/homestead-beginner-guide/)
 
 ### Blissful Retreat & Beyond Mundane (Cloudrest Passage)
 

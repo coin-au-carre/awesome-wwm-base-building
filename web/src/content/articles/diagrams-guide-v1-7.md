@@ -1,6 +1,6 @@
 ---
 title: "Diagrams Guide for builders (v1.7)"
-description: "How to access, create, and save the three types of diagrams introduced in v1.7: Solo Small Diagrams, Large Guild Diagrams, and Small Guild Diagrams."
+description: "How to access, create, and save the three types of diagrams introduced in v1.7: Solo Small Diagrams, Large Guild Diagrams, and Small Guild Diagrams. Learn copyright system, how to remove blue ghost components from a guild diagram, and fix non working interactive chair components. "
 tags: ["beginner", "advanced", "diagram", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-17
@@ -154,11 +154,9 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 ---
 
-## Fix interactive components after applying a large guild diagram
+## Remove blue ghost components from a guild diagram
 
-After applying a large guild diagram, interactive components (chairs, beds, etc.) may stop working. This is a [known bug](https://www.wherebuildersmeet.com/bugs/?bug=interactive-components-do-not-work-after-guild-diagram).
-
-To fix it: enter Construction mode, click **Build** (top right), then **Build Management** (bottom right), and select **Clear Large Diagram Holograms**.
+Enter Construction mode, click **Build** (top right), then **Build Management** (bottom right), and select **Clear Large Diagram Holograms**.
 
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516878920971194469/image.png?ex=6a48ae55&format=webp&hm=eab0f4b413d887a7cc07abee42ce4e839871672e7e148510516a0aaf731b84c6&is=6a475cd5&quality=lossless" alt="Build Management menu" style="border-radius: 0.75rem; width: 80%;" />
 
@@ -167,4 +165,11 @@ To fix it: enter Construction mode, click **Build** (top right), then **Build Ma
 <img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921872703638/image.png?ex=6a48ae55&format=webp&hm=444a9a1ee4ae8180cf002476894254455a99987151505458dd31ada702e7aded&is=6a475cd5&quality=lossless" alt="Interactive components restored after clearing holograms" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 If that button has no effect, it is likely because all your components are filled and there are no ghost (hologram) components left. This is also a [second known issue](https://www.wherebuildersmeet.com/bugs/?bug=cannot-clear-diagram-outlines-for-large-guild-diagram). The workaround is to delete at least one component to create a ghost slot, then try **Clear Large Diagram Holograms** again.
+
+
+## Fix interactive components after applying a large guild diagram
+
+After applying a large guild diagram, interactive components (chairs, beds, etc.) may stop working. This is a [known bug](https://www.wherebuildersmeet.com/bugs/?bug=interactive-components-do-not-work-after-guild-diagram).
+
+You have to proceed to [Remove blue ghost components from a guild diagram](#remove-blue-ghost-components-from-a-guild-diagram) and this will work again.
 
