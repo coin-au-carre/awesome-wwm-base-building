@@ -1,13 +1,6 @@
 {
   "streamers": [
     {
-      "userID": "149790526076354561",
-      "username": "Ahlyam",
-      "channelID": "1496814821520441385",
-      "channelName": "Building Unlimited",
-      "startedAt": "2026-07-03T19:25:17.395124439Z"
-    },
-    {
       "userID": "375327176565850113",
       "username": "Skysnip",
       "channelID": "1496814821520441385",
@@ -15,5 +8,5 @@
       "startedAt": "2026-07-03T18:54:00.698778062Z"
     }
   ],
-  "updatedAt": "2026-07-03T19:25:22.67769683Z"
+  "updatedAt": "2026-07-03T19:25:32.95811698Z"
 }
