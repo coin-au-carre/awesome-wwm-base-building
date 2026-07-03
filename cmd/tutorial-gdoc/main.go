@@ -16,6 +16,7 @@ import (
 	"io"
 	"log/slog"
 	"net/http"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -38,6 +39,23 @@ var reFirstH1 = regexp.MustCompile(`(?is)<h1[^>]*>(.*?)</h1>`)
 var reGdocTitleP = regexp.MustCompile(`(?is)<p[^>]+\bclass="[^"]*\btitle\b[^"]*"[^>]*>.*?</p>`)
 var reHeading = regexp.MustCompile(`(?m)^(#{1,5}) `)
 var reDataURI = regexp.MustCompile(`src="data:image/([^;]+);base64,([^"]+)"`)
+var reGoogleRedirect = regexp.MustCompile(`href="https://www\.google\.com/url\?([^"]+)"`)
+
+// unwrapGoogleLinks replaces Google Docs' click-tracking redirect
+// (https://www.google.com/url?q=<target>&sa=D&...) with the real target URL.
+func unwrapGoogleLinks(htmlStr string) string {
+	return reGoogleRedirect.ReplaceAllStringFunc(htmlStr, func(match string) string {
+		sub := reGoogleRedirect.FindStringSubmatch(match)
+		// ParseQuery errors on the stray ";" inside "usp%3Dsharing" but still
+		// populates q before returning the error, so ignore err and check the value.
+		q, _ := url.ParseQuery(sub[1])
+		target := q.Get("q")
+		if target == "" {
+			return match
+		}
+		return fmt.Sprintf(`href="%s"`, target)
+	})
+}
 
 func slugify(s string) string {
 	return strings.Trim(reSlug.ReplaceAllString(strings.ToLower(s), "-"), "-")
@@ -106,7 +124,7 @@ func syncDoc(root, docURL string) error {
 	if err != nil {
 		return fmt.Errorf("reading doc: %w", err)
 	}
-	htmlStr := string(htmlBytes)
+	htmlStr := unwrapGoogleLinks(string(htmlBytes))
 
 	title := extractTitle(htmlStr)
 	if title == "" {
