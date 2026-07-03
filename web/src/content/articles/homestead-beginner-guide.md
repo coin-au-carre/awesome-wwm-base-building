@@ -1,16 +1,17 @@
 ---
-title: "Homestead Beginner Guide"
-description: "Beginner's guide to Homestead basics: gourds, prosperity, facilities, retainers, farming, and the Inn."
+title: "Cylos Homestead Beginner Guide"
+description: "Beginner's guide from Cylos to Homestead basics: gourds, prosperity, facilities, retainers, farming, and the Inn."
 tags: ["beginner", "homestead"]
 authors: ["Cylos"]
 date: 2026-07-03
 order: 24
 gdocID: "1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s"
 updatedDate: 2026-07-03
+image: "/tutorials/homestead-beginner-guide/img-14.webp"
 ---
 
 <!-- preserve:start -->
-This page is a web version Cylos guide available on [Google Doc](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing). It is kept in sync automatically.
+This page is a web version of Cylos guide available on [Google Doc](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing). It is kept in sync automatically.
 <!-- preserve:end -->
 
 
@@ -20,13 +21,13 @@ Homestead Guide
 
 Bounty Gourd: The main currency you use for almost everything inside the Homestead system. You can buy consumables (seeds, artisan manuals etc.), facilities & furniture with it.
 
-<img src="/tutorials/homestead-beginner-guide/img-2.webp" style="width: 80%" />
+<img src="/tutorials/homestead-beginner-guide/img-2.webp" style="width: 70%" />
 
 Prosperity: Prosperity could be seen as the “elegance score” of the Homestead. You gain prosperity points by placing furniture and facilities that have a prosperity score. The prosperity score is an accumulation of everything you placed inside Blissful Retreat, Beyond Mundane & any facility in Qinghe. You can check your score by clicking your Homestead level in the top right and then the small question mark next to “Prosperity”.
 
 * * *
 
-<img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 80%" />
+<img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" />
 
 Warehouse: The warehouse is your Homesteads storage. All the items you produce go into your warehouse. You can also deposit items from your normal character backpack into the warehouse. There is a deposit cap of 1200 items per week. The best use for this feature early on would be to deposit items you can buy from normal vendors across the map to save time e.g. Dushan Blue Jade, Copper, Wine-Scented Jade etc. This could give you a boost in completing the Trade for Profit packs without having to change around your whole production line.<img src="/tutorials/homestead-beginner-guide/img-6.webp" style="width: 60%" />
 
@@ -59,7 +60,7 @@ You can also filter for specific innate skills at the bottom of the retainer lis
 
 * * *
 
-## The Main UI<img src="/tutorials/homestead-beginner-guide/img-14.webp" style="width: 80%" />
+## The Main UI<img src="/tutorials/homestead-beginner-guide/img-14.webp" style="width: 100%" />
 
 - 1\) Qinghe Shop: Place to buy Appearances for Golden Grain & spend your Gourd for Furniture, Seed etc.
 - 2\) Homestead level: This shows your current Homestead level and the amount of total prosperity you have across your region.
