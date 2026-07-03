@@ -39,7 +39,7 @@ When you hit the maximum area density and can't place more items, you can sink t
 
 <!-- discord-video:1483447711499030634/1494424053497331952 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1494424042822828242/Where_Winds_Meet_2026.04.16_-_20.45.41.01.mp4?ex=6a48ba98&hm=fd743f24a4467adbdd9849cd4af8aed8c829a12b01820fce929ba83df96c012d&is=6a476918&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1494424042822828242/Where_Winds_Meet_2026.04.16_-_20.45.41.01.mp4?ex=6a496358&hm=cd6039a4dadbdd30e2ae939035cc4966829fdf399cbf543e8d7086b185a8767d&is=6a4811d8&" controls></video>
 </div>
 
 ---
