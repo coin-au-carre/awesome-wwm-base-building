@@ -40,18 +40,5 @@
     "status": "scheduled",
     "subscriberCount": 7,
     "discordUrl": "https://discord.com/events/1483447710617960508/1521166997696811139"
-  },
-  {
-    "id": "1521951885349748828",
-    "name": "Panda Guild Tour #10",
-    "description": "Everybody welcome\nThread organization: https://discord.com/channels/1483447710617960508/1520921409553956904/1520921415505936556\n\n- Join the tour stream on \u003c#1483447711499030636\u003e \n- Join in game request/DM on Ahlyam [2122662369] \nOur group chat id: `110975624`.\n\n## React/Vote the builds on their discord thread!\n\n- Nightwitches\n- Morningstar\n- Coven\n- Oh-ho",
-    "type": "tour",
-    "scheduledStart": "2026-07-02T16:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 6,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1521951885349748828",
-    "image": "https://cdn.discordapp.com/guild-events/1521951885349748828/5223e46b6f046d9bc2d0dd8e5fe802d5.png?size=512"
   }
 ]
