@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a4855e5&format=webp&hm=7ff00bcf00b6eba04c5f193f2169f0fb1eb3e34fa766fe124e5f4b21591714d7&is=6a470465&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a48fea5&format=webp&hm=e68713640964adfbf2673cc2dd945540491ffb19055d0a5e455780e0f9b18c0f&is=6a47ad25&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a485605&format=webp&hm=699bb3d50ae3d76eb5ea749da2e1a899ea6954887f1d5741764c4bbaa2f23043&is=6a470485&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a48fec5&format=webp&hm=dd4d2a1e30521ec19c15e4b7a2e0ad28e459c9f7ecb1cb27a6188d48b1e4a045&is=6a47ad45&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a485ac6&format=webp&hm=a9281cdc696677ac32fdd6791855d9854d2bea5a0a083db801ab67a3f423b4b6&is=6a470946&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a490386&format=webp&hm=8568bc3f0ef9010a6d3d4d95ebac0051c76dc8f10db497b5328b360d819d1ec5&is=6a47b206&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a485bda&format=webp&hm=08421455b5021ee1cdb2cbfa615227c2045c3cc370efa8f185c180e0f87cf66c&is=6a470a5a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a49049a&format=webp&hm=44f5357dfccc8c126d27327977caec0f2aed27fb801e1d028ad2bef631ad022b&is=6a47b31a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a485bf2&format=webp&hm=77b0560938b1294b30ed1eb887d35a03bc8180f64a98d926d634d492a69136cf&is=6a470a72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a4904b2&format=webp&hm=42dffefc8de2beae083ec4ebe6390b627597277d1e854b038f6166931fdc9349&is=6a47b332&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 手 - Hand
 
@@ -180,7 +180,7 @@ With surging emotion, I seize the longsword. Ferrying the world, renown calls my
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a486f80&format=webp&hm=8b24833a24a038b971f97122eb2cf97e8a85fba0c7fc607a78a36ff6779052bf&is=6a471e00&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a491840&format=webp&hm=353c30866ea3ec19546849e68b0562188fb93188ff9c5f4662da68642bbc4692&is=6a47c6c0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
