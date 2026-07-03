@@ -1,7 +1,7 @@
 ---
 title: "Cylos Homestead Beginner Guide"
 description: "Beginner's guide from Cylos to Homestead basics: gourds, prosperity, facilities, retainers, farming, and the Inn."
-tags: ["beginner", "homestead"]
+tags: ["beginner", "homestead", "solo"]
 authors: ["Cylos"]
 date: 2026-07-03
 order: 24
