@@ -2,7 +2,7 @@
 title: "It's not a fail, it's a feature"
 description: "To all the perfectionist builders...even the Where Winds Meet devs and designers struggle"
 tags: ["solo", "sightseeing"]
-authors: ["alscend", "noxlamina", "Crueliet", "Ahlyam", "Skysnip", "vehs"]
+authors: ["alscend", "noxlamina", "Crueliet", "Ahlyam", "Skysnip", "vehs", "Carni"]
 date: 2026-05-17
 order: 12
 image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a492d44&format=webp&hm=d526d949c0c76672f9ac37ab876e715d3c1f1ef64aea2bbfddfd67f6dc09dedc&is=6a47dbc4&quality=lossless"
@@ -57,6 +57,13 @@ featured: false
 ## Greenery sticking naturally to the stones
 
 <img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a48c878&format=webp&hm=f0b0dd599a6f1aeb4df46985f3e45e700eaf85b5e8e07016b54e2decaa9f505f&is=6a4776f8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
+## Did someone try to cut a piece of cake?
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carni" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carni</a></p>
+
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1522669317290852463/image.png?ex=6a494fcf&format=webp&hm=42ae5aed8192a5208febd7dde5d21b35305299fc4f7c19c85c48d9fd32ad10dd&is=6a47fe4f&quality=lossless" alt="Did someone try to cut a piece of cake?" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
