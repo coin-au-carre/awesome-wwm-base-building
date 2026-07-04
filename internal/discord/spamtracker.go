@@ -11,19 +11,20 @@ import (
 )
 
 const (
-	spamWindow       = 20 * time.Second
+	spamWindow       = 10 * time.Second
 	spamChannelLimit = 3               // distinct channels within the window to trigger
 	spamCooldown     = 5 * time.Minute // min time between alerts for the same user
 	spamTimeoutDur   = 24 * time.Hour
-	spamWarnTimeout  = 5 * time.Minute
+	spamWarnTimeout  = 1 * time.Hour
 )
 
 type spamEntry struct {
-	channelID   string
-	messageID   string
-	content     string
-	attachments []string // CDN URLs
-	at          time.Time
+	channelID    string
+	messageID    string
+	content      string
+	attachments  []string // CDN URLs
+	fingerprints []string // filename:size, stable across re-uploads (unlike the CDN URL)
+	at           time.Time
 }
 
 // SpamTracker flags users who post in many distinct channels in a short window.
@@ -54,10 +55,12 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 		t.mu.Lock()
 
 		urls := make([]string, len(m.Attachments))
+		fingerprints := make([]string, len(m.Attachments))
 		for i, a := range m.Attachments {
 			urls[i] = a.URL
+			fingerprints[i] = fmt.Sprintf("%s:%d", a.Filename, a.Size)
 		}
-		entries := append(t.history[uid], spamEntry{m.ChannelID, m.ID, m.Content, urls, now})
+		entries := append(t.history[uid], spamEntry{m.ChannelID, m.ID, m.Content, urls, fingerprints, now})
 		cutoff := now.Add(-spamWindow)
 		start := 0
 		for start < len(entries) && entries[start].at.Before(cutoff) {
@@ -105,7 +108,7 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 		first := snapshot[0]
 		isIdentical := true
 		for _, e := range snapshot[1:] {
-			if e.content != first.content || strings.Join(e.attachments, ",") != strings.Join(first.attachments, ",") {
+			if e.content != first.content || strings.Join(e.fingerprints, ",") != strings.Join(first.fingerprints, ",") {
 				isIdentical = false
 				break
 			}
@@ -144,10 +147,15 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 				slog.Warn("spam timeout failed", "user", m.Author.Username, "err", err)
 			}
 			bot.Send(t.alertCh, fmt.Sprintf(
-				"⚠️ **%s** (`%s`) silenced 5m for posting in %d channels within 20s: %s",
+				"⚠️ **%s** (`%s`) silenced 1h for posting in %d channels within 20s: %s",
 				name, m.Author.Username, distinct, strings.Join(channels, ", "),
 			))
-			slog.Info("spam alert: timeout 5m", "user", m.Author.Username, "distinct_channels", distinct)
+			for _, e := range snapshot {
+				if err := s.ChannelMessageDelete(e.channelID, e.messageID); err != nil {
+					slog.Warn("spam delete failed", "channel", e.channelID, "msg", e.messageID, "err", err)
+				}
+			}
+			slog.Info("spam alert: timeout 1h + delete", "user", m.Author.Username, "distinct_channels", distinct)
 		}
 	}
 }
