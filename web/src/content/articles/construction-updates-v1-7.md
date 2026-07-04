@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a4a293c&hm=ce0116ed30caf642dd9de0b7a85765b5cf1f61abc0618b0d85e0033d44633f7e&is=6a48d7bc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a4ad1fc&hm=42e045ce470d940c3f367abf79d0d7caccb08b328d29e286c584104bfa235186&is=6a49807c&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a4aab04&format=webp&hm=7dd9f67d833f47a674548a528402596a753a31505ea19425690ea0d63f69bcb5&is=6a495984&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a4a2c73&hm=c021b8fb6ad88ea183b35941c33897503e7a1b3b28bbf073720172b8b8723197&is=6a48daf3&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a4ad533&hm=820419c4a56741acf25322d414cb41f67f5cbf30b80cc6d7f60664c55b4c0160&is=6a4983b3&" controls></video>
 </div>
 
 
@@ -87,7 +87,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a4a2687&hm=608d39dbe1d905e2d94305d7f2baf52cce25bb8935b43da1913fcfe94ff8a9c9&is=6a48d507&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a4acf47&hm=a052a6708a408b03a322bdea591837fa8b3c0c87506ef89394f6505ca0162fa6&is=6a497dc7&" controls></video>
 </div>
 
 ---
