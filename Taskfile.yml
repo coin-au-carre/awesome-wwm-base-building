@@ -147,6 +147,11 @@ tasks:
     desc: "force-assign the builder role to all forum authors, ignoring role cache"
     cmd: go run ./cmd/assign-roles
 
+  # ── assign-announcement-roles (one-time: give everyone both announcement roles) ──
+  assign-announcement-roles:
+    desc: "one-time: add WBM Announcements + WWM Announcements roles to every server member"
+    cmd: go run ./cmd/assign-announcement-roles
+
   # ── announce (test general-channel announcement card) ────────
   announce:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"
