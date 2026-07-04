@@ -57,7 +57,7 @@ There are 3 types of diagrams:
 ## Create and use Solo Small Diagrams [Guild + Solo]
 
 <div class="video-embed" style="width: 80%;">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a4904be&hm=cbee2c01f7e5c0aeff1cd6d8e62a1b3f3481d4390712d53c1976403f1b78ccfd&is=6a47b33e&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a49ad7e&hm=bef79c09e01107e9b044852e6da5fef5d57eb21f375132fbb34b34d438ec706d&is=6a485bfe&" controls></video>
 </div>
 
 
@@ -65,7 +65,7 @@ Found under the **"Small Diagram"** category in the Diagram tab.
 
 These diagrams can only be **created in Solo World**, but can be applied in both solo world and guild bases. → [How to save a diagram](#how-to-save-a-diagram)
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a4901fb&format=webp&hm=b0803306f29e1b141ce902d07b6d1c734e038edeb0e83d7184f20aae0c12372e&is=6a47b07b&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a49aabb&format=webp&hm=9688471cc24deda5e351b99cd3fb387c8cf4b4780848a5902d5ac8ef197aa911&is=6a48593b&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
 
 
 ---
