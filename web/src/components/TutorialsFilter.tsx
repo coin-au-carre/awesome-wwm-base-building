@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { BookOpenIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
 import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
@@ -39,12 +39,28 @@ interface Props {
 
 type SortKey = "default" | "updated" | "newest"
 
+const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead"]
+
 export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_CONFIG }: Props) {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(new Set())
+  const [searchQuery, setSearchQuery] = useState(() => {
+    if (typeof window === "undefined") return ""
+    return new URLSearchParams(window.location.search).get("q") ?? ""
+  })
+  const [selectedTags, setSelectedTags] = useState<Set<TagKey>>(() => {
+    if (typeof window === "undefined") return new Set()
+    const tags = new URLSearchParams(window.location.search).get("tags")
+    return new Set((tags?.split(",") ?? []).filter((t): t is TagKey => allTags.includes(t as TagKey)))
+  })
   const [sortBy, setSortBy] = useState<SortKey>("default")
 
-  const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead"]
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (searchQuery) url.searchParams.set("q", searchQuery)
+    else url.searchParams.delete("q")
+    if (selectedTags.size > 0) url.searchParams.set("tags", [...selectedTags].join(","))
+    else url.searchParams.delete("tags")
+    history.replaceState(null, "", url.toString())
+  }, [searchQuery, selectedTags])
 
   const filteredGuides = useMemo(() => {
     const q = searchQuery.trim().toLowerCase()
