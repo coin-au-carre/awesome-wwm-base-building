@@ -316,6 +316,9 @@ func onGuildMemberRemove(bot *discord.Bot, logsChannelID string) func(*discordgo
 // rather than env-configured like the other roles.
 const prisonnerRoleID = "1521804658216272033"
 
+// maxTimeoutDur is Discord's hard ceiling on member timeouts.
+const maxTimeoutDur = 28 * 24 * time.Hour
+
 func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
 	return func(s *discordgo.Session, m *discordgo.GuildMemberUpdate) {
 		if moderationChannelID == "" || m.Member == nil {
@@ -328,8 +331,12 @@ func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*dis
 			if name == "" {
 				name = m.User.Username
 			}
+			until := time.Now().Add(maxTimeoutDur)
+			if err := s.GuildMemberTimeout(m.GuildID, m.User.ID, &until); err != nil {
+				slog.Warn("honeypot role timeout failed", "user", m.User.Username, "err", err)
+			}
 			bot.Send(moderationChannelID, fmt.Sprintf(
-				"🍯 Honeypot triggered: **%s** (`%s`) was given the prisonner role.", name, m.User.Username,
+				"🍯 Honeypot triggered: **%s** (`%s`) was given the prisonner role and was silenced 28d.", name, m.User.Username,
 			))
 			slog.Info("honeypot role granted", "user", m.User.Username)
 		}
@@ -350,16 +357,15 @@ func onHoneypotChannelPost(bot *discord.Bot, moderationChannelID string) func(*d
 		if name == "" {
 			name = m.Author.Username
 		}
-		until := time.Now().Add(24 * time.Hour)
-		if err := s.GuildMemberTimeout(m.GuildID, m.Author.ID, &until); err != nil {
-			slog.Warn("honeypot timeout failed", "user", m.Author.Username, "err", err)
+		if err := s.GuildBanCreateWithReason(m.GuildID, m.Author.ID, "honeypot channel post", 0); err != nil {
+			slog.Warn("honeypot ban failed", "user", m.Author.Username, "err", err)
 		}
 		preview := m.Content
 		if len(preview) > 200 {
 			preview = preview[:200] + "…"
 		}
 		bot.Send(moderationChannelID, fmt.Sprintf(
-			"🍯 Honeypot triggered: **%s** (`%s`) posted in the honeypot channel and was silenced 24h.\n> %s",
+			"🍯 Honeypot triggered: **%s** (`%s`) posted in the honeypot channel and was banned.\n> %s",
 			name, m.Author.Username, preview,
 		))
 		slog.Info("honeypot channel post", "user", m.Author.Username)
