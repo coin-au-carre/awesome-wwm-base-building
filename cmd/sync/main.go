@@ -602,7 +602,7 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 			continue
 		}
 		g, ok := byName[name]
-		if !ok || g.PosterDiscordID == ahlyamID {
+		if !ok || (g.PosterDiscordID == ahlyamID && g.Name != "Jenova" && g.GuildName != "Jenova") {
 			continue
 		}
 		if g.PosterDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
@@ -616,7 +616,7 @@ func announceToGeneral(bot *discord.Bot, channelID string, entries []guild.Guild
 	}
 	for _, name := range stats.MoreVideoNames {
 		g, ok := byName[name]
-		if !ok || g.PosterDiscordID == ahlyamID {
+		if !ok || (g.PosterDiscordID == ahlyamID && g.Name != "Jenova" && g.GuildName != "Jenova") {
 			continue
 		}
 		if g.PosterDiscordID == babeID && g.Name != "PleasureSeeker" && g.GuildName != "PleasureSeeker" {
