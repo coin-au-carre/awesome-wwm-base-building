@@ -188,37 +188,37 @@ Don't forget to put up beds for your employees, because without them you won't b
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a4a32dd&format=webp&hm=4ea6b6b60c809d5c960ce90a8aa2a4cea3c228575c4dbac7bb6983463caa2c07&is=6a48e15d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a4adb9d&format=webp&hm=98a3facf02f44972c596ae0d1c91b7956aa39a530f6304cb1b678209efda0242&is=6a498a1d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Each type of production will have its own decorative elements, such as a large oven or stove, tables for visitors, and flower beds.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a4a32f1&format=webp&hm=0464200e43a9145cbbc453412ee0238c793c5ea1955b1d2afb9c12f399717fcd&is=6a48e171&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a4adbb1&format=webp&hm=64aabede757fad24d4b32093d1e028c8f57361f477234cdb67d8c04d26ebee9a&is=6a498a31&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 1. First, you need to hire workers and allocate them to resource extraction.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a4a3303&format=webp&hm=83ac69b1c3c5347c84a42c4857432c1728c53f90fb300da3f09a503856f65032&is=6a48e183&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a4adbc3&format=webp&hm=375af0f54a682adc8748598df4c11a6704bc0a472e58738d751b6b792a198536&is=6a498a43&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 2. At the same time, purchase seeds and plant plants that will be useful to you for meals or drinks.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a4a331b&format=webp&hm=0295a3440db9fd53b78396bc9df3f8890825341bfab9764695c1c8b70f99bd41&is=6a48e19b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a4adbdb&format=webp&hm=c164732ad4c6d62a90427c141e6de65723739565cecb3e00f3332187661fb484&is=6a498a5b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 3. In pottery, you need to set up the production of wine jugs.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a4a3385&format=webp&hm=6086bc1958d6e2eb4d870d9c7b73029317f4c384a22d300a4605a53c0b7e9997&is=6a48e205&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a4adc45&format=webp&hm=e251960cfdd03482765aa62c12c05110d56daa3fdc5a7e4e6d013d1937cf4009&is=6a498ac5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a4a33c9&format=webp&hm=be5912ec6b830759fbf8567d8ffea342877f026f08c357a30a30f00dc0f24dd6&is=6a48e249&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a4adc89&format=webp&hm=90cbc02f6e593bfc64d79fe587ae81aa59a297a9a00867e052036edab4bfcc42&is=6a498b09&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a4a355e&format=webp&hm=a03fd257a8df2ab6ed840ef5ec8adb266eb29ba1172592b162c2624da687929f&is=6a48e3de&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a4ade1e&format=webp&hm=1a49ed5fe9f770e4cafec9013cb89f9a3862c52d3e347848b4440f2a8a6fd86a&is=6a498c9e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

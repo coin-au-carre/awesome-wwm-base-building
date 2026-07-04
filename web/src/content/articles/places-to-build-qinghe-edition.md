@@ -164,18 +164,18 @@ Also exploring **Liangzhou**? Check out the [Liangzhou edition](/tutorials/place
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/mothisto" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Mothisto</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a4a0d87&format=webp&hm=2151fb32f10a0923014947ca4bf8e669090a6b6383a194834de4342b65641951&is=6a48bc07&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a4ab647&format=webp&hm=5603ae1bf47ac921774e5b13e3fe0eff589348db384639944f91657d860df192&is=6a4964c7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a4a0d87&format=webp&hm=057487a3cb7f9772c4f73586205812a1f249f37f6a32a47aae155771e07606b4&is=6a48bc07&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a4ab647&format=webp&hm=e73147f9e20b34d63535b5b24854b058b5b4a5ee7d72da01bde51f8fd543e834&is=6a4964c7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663747068399656/202662065054.png?ex=6a4a37c2&format=webp&hm=d1ebc263276f5e9c074f800b95a97900af85cd66d2c8edba8f89182e971c42d9&is=6a48e642&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663747068399656/202662065054.png?ex=6a4ae082&format=webp&hm=48abdf571a54fda999247d5825c22b4ed0e253003ef828fd8ef9f9a7ff39dc6d&is=6a498f02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748138205366/202662065130.png?ex=6a4a37c2&format=webp&hm=426b3fb8ff1e767a4bf9f377b0ea9cc4e7548366693d64dd6fb991a95bd316cf&is=6a48e642&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748138205366/202662065130.png?ex=6a4ae082&format=webp&hm=f48d07729d6c189fdc7b530cc0cb9395bea19224c1064a898a86750a7457788e&is=6a498f02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748821614754/image.png?ex=6a4a37c2&format=webp&hm=119daea67fca1d514b340d6e3ea916f76c9d6bc53864e8b99aecea64cb20d937&is=6a48e642&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748821614754/image.png?ex=6a4ae082&format=webp&hm=e51115db1bf05aa66c7c06074e3eeac3e287cedd3b98e6361b02afac0ab122f3&is=6a498f02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
