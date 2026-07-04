@@ -1,0 +1,201 @@
+---
+import Layout from "@/layouts/main.astro"
+import { getCollection } from "astro:content"
+import { BASE } from "@/lib/url"
+import { builderSlug } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
+import { getAllBuilderSlugs } from "@/lib/builders"
+import { HouseIcon, ArrowSquareOutIcon, ArrowRightIcon, SparkleIcon, CalculatorIcon, BookOpenIcon, FileXlsIcon, FileDocIcon } from "@phosphor-icons/react"
+
+function fileIconFor(href: string) {
+  if (href.includes("/spreadsheets/")) return FileXlsIcon
+  if (href.includes("/document/")) return FileDocIcon
+  return null
+}
+
+// A name only gets a link if they already have a builder profile page
+// (credited on a guild/solo/blueprint, or as a tutorial author).
+const validBuilderSlugs = new Set(getAllBuilderSlugs().map((b) => b.slug))
+const articles = await getCollection("articles", ({ data }) => data.published !== false)
+for (const article of articles) {
+  for (const author of article.data.authors ?? []) {
+    validBuilderSlugs.add(resolveCanonical(builderSlug(author)))
+  }
+}
+function builderHref(name: string): string | null {
+  const slug = resolveCanonical(builderSlug(name))
+  return validBuilderSlugs.has(slug) ? `${BASE}/builders/${slug}` : null
+}
+
+const guideLinks = [
+  {
+    title: "Beginner Guide",
+    href: `${BASE}/tutorials/homestead-beginner-guide`,
+    by: "Cylos",
+    external: false,
+    icon: FileDocIcon,
+  },
+  {
+    title: "Retainer Guide",
+    href: "https://docs.google.com/spreadsheets/d/1cKG4sqd7NNFWWqxfXkrAncJBYfbAULT9JcHKZ-qUtYA/edit?usp=sharing",
+    by: "LittleMissAngel♡",
+    external: true,
+    icon: FileXlsIcon,
+  },
+]
+
+const sheetLinks = [
+  {
+    title: "Goose Calcs",
+    description: "Recipes calculation & planner",
+    href: "https://docs.google.com/spreadsheets/d/1NI0uJ9t-pEX2idqO1aUDRJgGZhxXPGyIiUbcbkgWiVA/edit?usp=sharing",
+    by: "Goose",
+  },
+  {
+    title: "Dravish Arbiter System",
+    description: "Seller planner",
+    href: "https://docs.google.com/spreadsheets/d/1WvhDRh5EIIH6LPvNXi_GbB0s56CpciFD9vHdmko2_4Q/edit?usp=sharing",
+    by: "Dravish",
+  },
+  {
+    title: "ResponsibleCulture43 Planner",
+    description: "Retainers, crops, farms, weekly plan, queues, order planner",
+    href: "https://docs.google.com/spreadsheets/d/1KqUKDaL74fDClVv-Ow-uNXcrXdX5q08uvy_KNqK0iJo/edit?usp=sharing",
+    by: "ResponsibleCulture43",
+  },
+]
+---
+
+<Layout
+  title="Where Builders Meet | Homestead Guide"
+  description="Guides, sheets, and planners for the Homestead system in Where Winds Meet — curated by the community."
+  image={`${BASE}/homestead/hero.webp`}
+>
+  <div class="relative max-w-5xl mx-auto space-y-4">
+    <!-- Banner: three community screenshots framing the header -->
+    <div class="relative rounded-2xl overflow-hidden border border-border h-28 sm:h-36">
+      <div class="grid grid-cols-3 h-full gap-px bg-border">
+        <img src={`${BASE}/homestead/hero.webp`} alt="Homestead build screenshot" class="w-full h-full object-cover" loading="eager" />
+        <img src={`${BASE}/homestead/hero-2.webp`} alt="Homestead build screenshot" class="w-full h-full object-cover hidden sm:block" loading="eager" />
+        <img src={`${BASE}/homestead/hero-3.webp`} alt="Homestead build screenshot" class="w-full h-full object-cover" loading="eager" />
+      </div>
+      <div class="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent" />
+      <div class="absolute inset-x-0 bottom-0 px-4 py-3">
+        <h1 class="font-heading text-2xl font-semibold flex items-center gap-2.5 drop-shadow-sm">
+          <HouseIcon weight="duotone" className="size-6 text-primary" /> Homestead
+        </h1>
+      </div>
+    </div>
+
+    <p class="text-muted-foreground text-sm leading-relaxed -mt-1">
+      Guides, sheets, and planners for the Homestead system, curated by the community.
+    </p>
+
+    <!-- New player tip -->
+    <a
+      href={`${BASE}/tutorials/homestead-beginner-guide`}
+      class="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      data-umami-event="homestead_resource_click"
+      data-umami-event-title="Homestead Beginner Guide"
+    >
+      <SparkleIcon weight="fill" className="size-4 shrink-0 text-primary" />
+      Just starting out? We suggest the <span class="font-medium text-foreground underline underline-offset-2">Cylos Beginner Guide</span> first.
+      <ArrowRightIcon weight="bold" className="size-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+    </a>
+
+    <!-- The community's essential guide -->
+    <a
+      href={`${BASE}/tutorials/homestead-v1-8-what-you-need-to-know`}
+      class="group relative flex items-center gap-4 rounded-2xl overflow-hidden border border-amber-500/30 bg-linear-to-br from-amber-500/10 via-orange-500/5 to-transparent px-5 py-4 shadow-sm transition-all hover:border-amber-500/50 hover:from-amber-500/15 hover:shadow-md hover:-translate-y-0.5"
+      data-umami-event="homestead_featured_guide_click"
+    >
+      <div class="shrink-0 flex items-center justify-center size-12 rounded-xl bg-amber-500/15 text-2xl group-hover:scale-110 transition-transform">
+        🏡
+      </div>
+      <div class="space-y-0.5 min-w-0">
+        <p class="text-xs font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-300 flex items-center gap-1">
+          <SparkleIcon weight="fill" className="size-3" /> The community's go-to guide
+        </p>
+        <p class="font-semibold text-base flex items-center gap-1.5 text-foreground">
+          Homestead v1.8 — What You Need to Know
+          <ArrowRightIcon weight="bold" className="size-4 text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform" />
+        </p>
+        <p class="text-sm text-muted-foreground">
+          Put together by lots of awesome builders — everything you need to get your Homestead going.
+        </p>
+      </div>
+    </a>
+
+    <p class="text-sm text-muted-foreground leading-relaxed flex items-center gap-1.5">
+      <SparkleIcon weight="fill" className="size-3.5 shrink-0 text-primary" />
+      Thank you to the contributors below for kindly sharing these guides and tools with the community.
+    </p>
+
+    <!-- Guide + Sheets side by side -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <section class="space-y-2">
+        <h2 class="font-heading text-sm font-medium flex items-center gap-1.5">
+          <BookOpenIcon weight="duotone" className="size-4 text-primary" /> Homestead Guide
+        </h2>
+        <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+          {guideLinks.map((g) => {
+            const FileIcon = g.icon
+            return (
+              <div class="px-3.5 py-2.5 flex items-start gap-2.5">
+                {FileIcon && <FileIcon weight="duotone" className="size-4 shrink-0 text-muted-foreground mt-0.5" />}
+                <div class="space-y-0.5 min-w-0">
+                  <a
+                    href={g.href}
+                    target={g.external ? "_blank" : undefined}
+                    rel={g.external ? "noopener noreferrer" : undefined}
+                    class="text-sm font-medium text-foreground underline underline-offset-2 hover:text-primary transition-colors inline-flex items-center gap-1"
+                    data-umami-event="homestead_resource_click"
+                    data-umami-event-title={g.title}
+                  >
+                    {g.title}
+                    {g.external ? <ArrowSquareOutIcon weight="bold" className="size-3" /> : <ArrowRightIcon weight="bold" className="size-3" />}
+                  </a>
+                  <p class="text-xs text-muted-foreground">
+                    by {builderHref(g.by) ? <a href={builderHref(g.by)!} class="underline underline-offset-2 hover:text-foreground transition-colors" data-umami-event="builder_click" data-umami-event-name={g.by}>{g.by}</a> : g.by}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="font-heading text-sm font-medium flex items-center gap-1.5">
+          <CalculatorIcon weight="duotone" className="size-4 text-primary" /> Homestead Sheets
+        </h2>
+        <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+          {sheetLinks.map((s) => {
+            const FileIcon = fileIconFor(s.href)
+            return (
+              <div class="px-3.5 py-2.5 flex items-start gap-2.5">
+                {FileIcon && <FileIcon weight="duotone" className="size-4 shrink-0 text-muted-foreground mt-0.5" />}
+                <div class="space-y-0.5 min-w-0">
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm font-medium text-foreground underline underline-offset-2 hover:text-primary transition-colors inline-flex items-center gap-1"
+                    data-umami-event="homestead_resource_click"
+                    data-umami-event-title={s.title}
+                  >
+                    {s.title}
+                    <ArrowSquareOutIcon weight="bold" className="size-3" />
+                  </a>
+                  <p class="text-xs text-muted-foreground">
+                    {s.description} — by {builderHref(s.by) ? <a href={builderHref(s.by)!} class="underline underline-offset-2 hover:text-foreground transition-colors" data-umami-event="builder_click" data-umami-event-name={s.by}>{s.by}</a> : s.by}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

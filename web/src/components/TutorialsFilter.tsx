@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react"
 import { BookOpenIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
 import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
 import { Input } from "@/components/ui/input"
 
 type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead"
@@ -165,7 +166,7 @@ export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_
                         by {item.authors.map((name, i) => (
                           <span key={`latest-${item.slug}-${name}`}>
                             <a
-                              href={`${BASE}/builders/${builderSlug(name)}`}
+                              href={`${BASE}/builders/${resolveCanonical(builderSlug(name))}`}
                               className="relative z-10 hover:text-foreground hover:underline underline-offset-2 transition-colors"
                               onClick={(e) => e.stopPropagation()}
                               data-umami-event="builder_click"

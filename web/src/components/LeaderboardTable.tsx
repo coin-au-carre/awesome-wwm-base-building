@@ -9,6 +9,7 @@ declare global {
 import * as React from "react"
 import { getTier } from "@/lib/scoring"
 import { formatBuilderName, builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
+import { resolveCanonical } from "@/lib/builder-aliases"
 import { url } from "@/lib/url"
 import { cn } from "@/lib/utils"
 import { isBuilderSubmission } from "@/lib/config"
@@ -75,7 +76,7 @@ function BuilderNames({ builders, activeSet }: { builders?: string[]; activeSet?
         return (
           <React.Fragment key={name}>
             <a
-              href={url(`/builders/${slug}`)}
+              href={url(`/builders/${resolveCanonical(slug)}`)}
               className={cn(
                 "hover:underline underline-offset-2 transition-colors",
                 isActive
