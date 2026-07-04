@@ -212,13 +212,13 @@ Each type of production will have its own decorative elements, such as a large o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a498ac5&format=webp&hm=ce85452a5da68cf7170e572098592e028907f5d22ec3657734cb44fd02a57ee7&is=6a483945&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a4a3385&format=webp&hm=6086bc1958d6e2eb4d870d9c7b73029317f4c384a22d300a4605a53c0b7e9997&is=6a48e205&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a498b09&format=webp&hm=4a39acfba1b937635e6688ccff55909786f89d480926e3cc71516431d7ece4ec&is=6a483989&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a4a33c9&format=webp&hm=be5912ec6b830759fbf8567d8ffea342877f026f08c357a30a30f00dc0f24dd6&is=6a48e249&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a498c9e&format=webp&hm=9c7afb95337a679e5a9975108e9f508ee274cec2bb4e2330faf051662a87bdc6&is=6a483b1e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a4a355e&format=webp&hm=a03fd257a8df2ab6ed840ef5ec8adb266eb29ba1172592b162c2624da687929f&is=6a48e3de&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
