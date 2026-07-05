@@ -2,7 +2,7 @@
 title: "Homestead v1.8 - WBM Tips"
 description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.8+."
 tags: ["solo", "homestead", "beginner", "advanced"]
-authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skisnip"]
+authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skysnip"]
 date: 2026-06-27
 updatedDate: 2026-07-05
 toc: true
