@@ -247,13 +247,9 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 		// Determine channel mode.
 		liteMode := !allowedChannels[m.ChannelID]
 
-		mentioned := false
-		for _, u := range m.Mentions {
-			if u.ID == s.State.User.ID {
-				mentioned = true
-				break
-			}
-		}
+		// Use the literal mention tag in content, not m.Mentions — Discord auto-adds
+		// the replied-to author to m.Mentions on any reply, even without an @ mention.
+		mentioned := strings.Contains(m.Content, "<@"+s.State.User.ID+">") || strings.Contains(m.Content, "<@!"+s.State.User.ID+">")
 
 		roleMentioned := rubyRoleID != "" && strings.Contains(m.Content, "<@&"+rubyRoleID+">")
 		if !mentioned && !roleMentioned && !strings.Contains(strings.ToLower(m.Content), "ruby") {
