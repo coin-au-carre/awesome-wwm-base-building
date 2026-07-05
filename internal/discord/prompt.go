@@ -214,13 +214,15 @@ func buildSystemPrompt(root string, guilds []promptGuild, cliMode bool) string {
 	}
 
 	if solos, err := guild.LoadFile(filepath.Join(root, "data", "solos.json")); err == nil {
-		sb.WriteString("\n\n## Solo builds directory\n")
+		sb.WriteString("\n\n## Solo builds directory\nWhen mentioning a solo build, always include a markdown link like [BuildName](url) using the solo's own url — never reuse a /guilds/ link for a solo build. Never mention scores in your replies.\n")
 		for _, g := range solos {
+			soloURL := "https://www.wherebuildersmeet.com/solos/" + slugify(g.Name) + "?utm_source=discord&utm_medium=bot&utm_campaign=ruby"
 			parts := []string{g.Name, fmt.Sprintf("score:%d", g.Score)}
 			if len(g.Builders) > 0 {
 				parts = append(parts, "builders:"+strings.Join(g.Builders, ","))
 			}
 			sb.WriteString(strings.Join(parts, " | "))
+			sb.WriteString(" | url: " + soloURL)
 			sb.WriteByte('\n')
 		}
 	}
