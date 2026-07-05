@@ -1,5 +1,19 @@
 [
 	{
+		"name": "米米貓貓",
+		"builders": [
+			"葦名琉"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Marvelous Red Gundam\nImprisoned Fishes\nPixel art Cat",
+		"score": 0,
+		"lastModified": "July 5, 2026 at 08:04 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "Clerith",
 		"builders": [
 			"Panacieux",
@@ -1030,7 +1044,7 @@
 			"千龜"
 		],
 		"discordThread": "",
-		"whatToVisit": "Nice change of the former guild pool area\nMarvellous Red Gundam",
+		"whatToVisit": "Nice change of the former guild pool area",
 		"score": 0,
 		"lastModified": "May 18, 2026 at 12:19 PM UTC",
 		"scoutedByDiscordId": "149790526076354561"
