@@ -40,5 +40,18 @@
     "status": "scheduled",
     "subscriberCount": 9,
     "discordUrl": "https://discord.com/events/1483447710617960508/1521166997696811139"
+  },
+  {
+    "id": "1523448698552582144",
+    "name": "CHESS at SNEJNAYA",
+    "description": "Players will be the chest pieces, and 2 players will be chess-leaders. It will be fun, come participate or just for the company ^^",
+    "guildName": "SNEJNAYA",
+    "type": "other",
+    "scheduledStart": "2026-07-06T16:30:00Z",
+    "scheduledEnd": "2026-07-06T17:30:00Z",
+    "location": "SNEJNAYA",
+    "status": "scheduled",
+    "subscriberCount": 2,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1523448698552582144"
   }
 ]
