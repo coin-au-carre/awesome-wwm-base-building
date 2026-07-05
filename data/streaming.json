@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-07-05T00:10:15.844398271Z"
+  "streamers": [
+    {
+      "userID": "511958617600294923",
+      "username": "Ella",
+      "channelID": "1496814821520441385",
+      "channelName": "Building Unlimited",
+      "startedAt": "2026-07-05T09:23:50.530637578Z"
+    }
+  ],
+  "updatedAt": "2026-07-05T09:23:55.795944027Z"
 }
