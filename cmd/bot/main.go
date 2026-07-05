@@ -11,6 +11,7 @@ import (
 	"regexp"
 	"slices"
 	"strings"
+	"sync"
 	"syscall"
 	"time"
 
@@ -162,6 +163,62 @@ var spotlightKeywords = map[string]bool{
 	"random": true,
 }
 
+// faqAnswers are exact canned replies for common questions, matched by required keyword sets, bypassing Claude entirely.
+var faqAnswers = []struct {
+	keywords []string
+	answer   string
+}{
+	{[]string{"submit", "solo"}, "Use `/submit-solo` — I'll DM you a ready-to-paste template. Your build appears on the next sync! Check the contribute guide too: https://www.wherebuildersmeet.com/contribute/builder"},
+	{[]string{"submit", "guild"}, "Use `/submit-guild` — I'll DM you a ready-to-paste template. Your build appears on the next sync! Check the contribute guide too: https://www.wherebuildersmeet.com/contribute/builder"},
+	{[]string{"scout"}, "Use `/scout-guild` to report an impressive base you've found!"},
+	{[]string{"find", "builder"}, "Find your match in <#1513104617041297498>!"},
+	{[]string{"looking for", "builder"}, "Find your match in <#1513104617041297498>!"},
+	{[]string{"blueprint"}, "Ask the builders in <#1502979217619685416>!"},
+	{[]string{"tutorial"}, "Browse tutorials at https://www.wherebuildersmeet.com/tutorials/ or ask in <#1483483683456286911> or <#1522001435187744901>!"},
+	{[]string{"vote"}, "Read the voting guide at https://www.wherebuildersmeet.com/how-it-works/ before you start — explore many bases and rate each one honestly!"},
+}
+
+// liteModeNags tracks repeated triggers per channel+user in lite-mode channels
+// so Ruby can get annoyed and redirect pests to #ruby instead of answering forever.
+var liteModeNags = struct {
+	mu   sync.Mutex
+	seen map[string]int
+	last map[string]time.Time
+}{seen: make(map[string]int), last: make(map[string]time.Time)}
+
+const liteModeNagWindow = 5 * time.Minute
+const liteModeNagThreshold = 3
+
+// annoyedResponses are canned replies once someone trips the lite-mode nag threshold.
+var annoyedResponses = []string{
+	"*(sighs)* that's a lot of questions for one chat... take it to <#%s>?",
+	"okay, i think this deserves its own room. <#%s> is right there~",
+	"*(fans self)* you're keeping me busy! let's continue in <#%s> instead.",
+}
+
+// checkLiteModeNag returns an annoyed reply and true if this channel+user has
+// tripped the repeat-question threshold within the window, resetting the count.
+func checkLiteModeNag(channelID, userID, rubyChannelID string) (string, bool) {
+	key := channelID + ":" + userID
+	now := time.Now()
+
+	liteModeNags.mu.Lock()
+	defer liteModeNags.mu.Unlock()
+
+	if now.Sub(liteModeNags.last[key]) > liteModeNagWindow {
+		liteModeNags.seen[key] = 0
+	}
+	liteModeNags.seen[key]++
+	liteModeNags.last[key] = now
+
+	if liteModeNags.seen[key] >= liteModeNagThreshold {
+		liteModeNags.seen[key] = 0
+		msg := annoyedResponses[rand.Intn(len(annoyedResponses))]
+		return fmt.Sprintf(msg, rubyChannelID), true
+	}
+	return "", false
+}
+
 // restingResponses are random messages Ruby gives when Claude is disabled.
 var restingResponses = []string{
 	"*(rests quietly)* i'm taking a moment away~",
@@ -216,16 +273,36 @@ func onMessageCreate(bot *discord.Bot, responder discord.LLMResponder, root stri
 		slog.Info("bot triggered", "channel", m.ChannelID, "display_name", displayName, "content", text)
 
 		// Fast path: single keyword commands skip Claude entirely.
-		for _, word := range strings.Fields(strings.ToLower(text)) {
+		lowerText := strings.ToLower(text)
+		for _, word := range strings.Fields(lowerText) {
 			if spotlightKeywords[word] {
 				handleSpotlightReply(bot, s, responder, m.ChannelID, m.ID, root)
 				return
 			}
 		}
 
+		// Fast path: common questions get a canned answer, skipping the LLM call entirely.
+		for _, faq := range faqAnswers {
+			matched := true
+			for _, kw := range faq.keywords {
+				if !strings.Contains(lowerText, kw) {
+					matched = false
+					break
+				}
+			}
+			if matched {
+				bot.Reply(m.ChannelID, m.ID, faq.answer)
+				return
+			}
+		}
+
 		// Outside #ruby/#dev: tutorial/technique questions only, short replies, redirect searches.
 		if liteMode {
-			text = "[You are replying in a public channel outside #ruby. Answer only building technique or tutorial questions, and keep your reply brief. For guild searches, spotlights, or image requests, invite the user to ask in <#" + rubyChannelID + "> instead.]\n\n" + text
+			if annoyed, ok := checkLiteModeNag(m.ChannelID, m.Author.ID, rubyChannelID); ok {
+				bot.Reply(m.ChannelID, m.ID, annoyed)
+				return
+			}
+			text = "[You are replying in a public channel outside #ruby. Answer only building technique or tutorial questions, in 1-2 sentences max. For guild searches, spotlights, or image requests, invite the user to ask in <#" + rubyChannelID + "> instead.]\n\n" + text
 		}
 
 		if responder == nil {
