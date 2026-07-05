@@ -1,5 +1,23 @@
 [
 	{
+		"name": "SilentSnow",
+		"builders": [
+			"Anecdotal",
+			"Sycarion",
+			"ToecrusherAsmo"
+		],
+		"tags": [
+			"Creative",
+			"Desert",
+			"City"
+		],
+		"discordThread": "",
+		"whatToVisit": "corridor at spawn point, enclosed guild party area, library, flower tea bar, grand stage, runway, cat playground",
+		"score": 0,
+		"lastModified": "July 5, 2026 at 04:24 AM UTC",
+		"scoutedByDiscordId": "647589744976592937"
+	},
+	{
 		"name": "PEX",
 		"builders": [
 			"Therana",
