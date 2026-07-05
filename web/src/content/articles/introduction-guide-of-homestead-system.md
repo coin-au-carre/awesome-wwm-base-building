@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a4ade1e&format=webp&hm=1a49ed5fe9f770e4cafec9013cb89f9a3862c52d3e347848b4440f2a8a6fd86a&is=6a498c9e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a4b86de&format=webp&hm=134207e9fb7c59dbfb8f48c8a1b9e9cc5d14b9ca0aa104267e932aeac3cf1666&is=6a4a355e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
