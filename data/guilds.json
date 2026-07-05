@@ -1,5 +1,14 @@
 [
 	{
+		"name": "PolskaGurom-PL",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "Carousel\nDragon\nGarden\nCity/Village\nStrip club",
+		"score": 0,
+		"lastModified": "July 5, 2026 at 12:39 PM UTC",
+		"scoutedByDiscordId": "1030564294443667487"
+	},
+	{
 		"name": "SilentSnow",
 		"builders": [
 			"Anecdotal",
