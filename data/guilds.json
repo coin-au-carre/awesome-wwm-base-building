@@ -344,6 +344,7 @@
 	},
 	{
 		"name": "KillSwitch",
+		"id": "10276996",
 		"builders": [
 			"QuessLord-龍風"
 		],
@@ -475,26 +476,6 @@
 		"whatToVisit": "Palace, \nFountain\nGreat Canals",
 		"score": 0,
 		"lastModified": "June 15, 2026 at 06:15 PM UTC",
-		"scoutedByDiscordId": "411339877574115338"
-	},
-	{
-		"name": "NightWitches",
-		"builders": [
-			"Drasyl",
-			"Gabite",
-			"WafflelordV",
-			"Fanbai"
-		],
-		"tags": [
-			"Snow",
-			"Zen/Nature",
-			"Creative",
-			"Mountain/Cave"
-		],
-		"discordThread": "",
-		"whatToVisit": "Mountain Village\nMountain Cave\nGiant sword\nElevated platforms",
-		"score": 2,
-		"lastModified": "June 15, 2026 at 05:59 PM UTC",
 		"scoutedByDiscordId": "411339877574115338"
 	},
 	{

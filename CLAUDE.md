@@ -145,6 +145,7 @@ BUGS_CHANNEL_ID                       # #bugs channel ID for the digest message
 BUGS_MESSAGE_ID                       # pinned message ID to edit (empty = create new on first run, then save the logged ID)
 UPDATES_CHANNEL_ID                    # #updates channel ID for the digest message
 UPDATES_MESSAGE_ID                    # pinned message ID to edit (empty = create new on first run, then save the logged ID)
+HOMESTEAD_MESSAGE_ID                   # pinned message ID in #homestead-hall-of-fame to edit (empty = create new on first run, then save the logged ID)
 ```
 
 > **When adding a new env var that affects `task sync`:** you must do all three or Discord CDN URLs in the output file will expire and break images on the live site:
