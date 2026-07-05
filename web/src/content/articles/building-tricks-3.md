@@ -28,7 +28,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a4a9a1d&hm=17de4f02add6bc19e7e47e194b00573e38174917a77f04c22eedcb57995acdf3&is=6a49489d&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a4b42dd&hm=27e00d1193e4311754f50a065fc1625723c303773aae7fc1fe93b09d05a5c445&is=6a49f15d&" controls></video>
 </div>
 
 ---
