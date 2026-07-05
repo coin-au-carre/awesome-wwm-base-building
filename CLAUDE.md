@@ -64,6 +64,7 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
 | Bugs | Google Sheets (CSV export) | `task sync:bugs` | `data/bugs.json` |
 | Patch notes | Google Sheets (CSV export) | `task sync:patches` | `data/patches.json` |
 | Events | Discord Scheduled Events API | `task events-sync` | `data/events.json` |
+| Homestead level rankings | Discord guild member roles | `task homestead-sync` | `data/homestead_members.json` |
 
 Tutorials are fetched from Discord threads listed one-per-line in `data/tutorial_threads.txt` and written as Markdown to `web/src/content/articles/`. Bugs and patch notes are managed in a shared Google Spreadsheet and exported as CSV at sync time.
 
@@ -185,6 +186,7 @@ Use `guild.LoadFile(path)` / `guild.SaveFile(path, guilds)` for arbitrary paths.
 
 - `sync.yml` — runs `task sync` on schedule (8×/day), commits `data/guilds.json data/solos.json`, triggers deploy on completion
 - `sync-events.yml` — runs `cmd/events-sync` every 30 min, commits `data/events.json` if changed, push to main triggers deploy
+- `sync-homestead.yml` — runs `cmd/homestead-sync` hourly, commits `data/homestead_members.json`/`data/users.json` if changed (does not trigger deploy)
 - `deploy.yml` — triggered by push to `main` or on completion of "Sync Guild Data" or "Sync Events", uses `withastro/action@v3` with `path: web`
 - `test.yml` — runs `go test ./...` on every push/PR to `main`
 - GitHub Pages source must be set to **GitHub Actions** (not "Deploy from branch")

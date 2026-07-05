@@ -1,0 +1,40 @@
+name: Sync Homestead
+
+on:
+  schedule:
+    - cron: '15 * * * *'
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  sync-homestead:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Sync homestead level rankings
+        env:
+          RUBY_BOT_TOKEN: ${{ secrets.RUBY_BOT_TOKEN }}
+          GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID: ${{ secrets.GUILD_BASE_SHOWCASE_CHANNEL_FORUM_ID }}
+        run: go run ./cmd/homestead-sync
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/homestead_members.json data/users.json
+          if git diff --cached --quiet; then
+            echo "No homestead changes, skipping commit."
+          else
+            git commit -m "chore: sync homestead rankings $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
