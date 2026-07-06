@@ -1,11 +1,32 @@
 ---
+import { readFileSync } from "fs"
+import { resolve } from "path"
 import Layout from "@/layouts/main.astro"
 import { getCollection } from "astro:content"
 import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { getAllBuilderSlugs } from "@/lib/builders"
-import { HouseIcon, ArrowSquareOutIcon, ArrowRightIcon, SparkleIcon, CalculatorIcon, BookOpenIcon, FileXlsIcon, FileDocIcon } from "@phosphor-icons/react"
+import { parseLastModified, relativeTime } from "@/lib/dates"
+import { HouseIcon, ArrowSquareOutIcon, ArrowRightIcon, SparkleIcon, CalculatorIcon, BookOpenIcon, FileXlsIcon, FileDocIcon, TrophyIcon } from "@phosphor-icons/react"
+
+interface HomesteadMember {
+  level: number
+  since: string
+  username: string
+  globalName?: string
+  nickname?: string
+}
+const membersRaw: Record<string, HomesteadMember> = JSON.parse(
+  readFileSync(resolve(process.cwd(), "..", "data/homestead_members.json"), "utf-8")
+)
+const topMembers = Object.values(membersRaw)
+  .sort((a, b) => b.level - a.level || a.since.localeCompare(b.since))
+  .slice(0, 10)
+const medal = ["🥇", "🥈", "🥉"]
+function levelEmoji(level: number) {
+  return level >= 8 ? "🔥" : "🌱"
+}
 
 function fileIconFor(href: string) {
   if (href.includes("/spreadsheets/")) return FileXlsIcon
@@ -197,5 +218,34 @@ const sheetLinks = [
         </div>
       </section>
     </div>
+
+    <!-- Homestead level leaderboard -->
+    <section class="space-y-2">
+      <h2 class="font-heading text-sm font-medium flex items-center gap-1.5">
+        <TrophyIcon weight="duotone" className="size-4 text-primary" /> Top 10 Homestead Levels on Discord! 🏡✨
+      </h2>
+      <p class="text-xs text-muted-foreground">
+        Level up your Homestead and climb the ranks —
+        <a
+          href="https://discord.gg/Qygt9u26Bn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline underline-offset-2 hover:text-foreground transition-colors"
+          data-umami-event="discord_cta_click"
+        >join the crew on Discord ↗</a>
+      </p>
+      <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+        {topMembers.map((m, i) => (
+          <div class={`px-3.5 py-2 flex items-center gap-3 ${m.level >= 8 ? "bg-amber-500/10" : ""}`}>
+            <span class="w-6 text-center text-sm shrink-0">{medal[i] ?? `#${i + 1}`}</span>
+            <span class="text-sm font-medium text-foreground truncate flex-1">
+              {m.nickname ?? m.globalName ?? m.username}
+            </span>
+            <span class="text-xs text-muted-foreground shrink-0 hidden sm:inline" title={m.since}>{relativeTime(parseLastModified(m.since))}</span>
+            <span class={`text-xs font-semibold shrink-0 ${m.level >= 8 ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>{levelEmoji(m.level)} Lv. {m.level}</span>
+          </div>
+        ))}
+      </div>
+    </section>
   </div>
 </Layout>
