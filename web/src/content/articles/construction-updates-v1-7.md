@@ -5,7 +5,7 @@ tags: ["update", "guild", "solo"]
 authors: ["Ahlyam"]
 date: 2026-06-05
 order: 15
-image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a4bfc84&format=webp&hm=9ea26ac5156a3e0fe756b00ad6f2935042229b2801eb6a2dc97a2f63d151fa24&is=6a4aab04&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a4ca544&format=webp&hm=ca909609c00331c7eed5cc5c00df53a028c3cbe2fc6d1ced96596108086dd27b&is=6a4b53c4&quality=lossless"
 featured: false
 ---
 
@@ -22,7 +22,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
   <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a4c237c&hm=b6399e3078526e003ae2c896875d7692ebc11a1f564a44fc0363f26358cdf919&is=6a4ad1fc&" controls></video>
 </div>
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a4bfc84&format=webp&hm=9ea26ac5156a3e0fe756b00ad6f2935042229b2801eb6a2dc97a2f63d151fa24&is=6a4aab04&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a4ca544&format=webp&hm=ca909609c00331c7eed5cc5c00df53a028c3cbe2fc6d1ced96596108086dd27b&is=6a4b53c4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">Image credit: <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
 Note for mobile and PS5 players: there is no known method to rotate on a second axis as of now.
@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a4c1c3d&format=webp&hm=3c800cd9b2047f884fb5b14045d098e6e624ea90207bdad0df0d8bfc28dfec28&is=6a4acabd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a4cc4fd&format=webp&hm=819ce88bee99bb4559c6e7438550bfb7b81d4627cb84f915fe6e2f29faf389be&is=6a4b737d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a4c1bde&format=webp&hm=e631fce7784341fe2fae9a98bba470b2b41604c8683f435b2e3b6f556f38de33&is=6a4aca5e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a4cc49e&format=webp&hm=5263e42e57d674a3d91b96d14f839c6763e613831b64b05f072614c766f0f6ec&is=6a4b731e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a4c1c23&format=webp&hm=33dce4b01c5fc387fe2af0c02cb0f6d05646c5da59cbe92be7d3c40093e86f97&is=6a4acaa3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a4cc4e3&format=webp&hm=363d3bf8b40985463646439549f520144a06fe370ea4e5bb26625c886ef5e813&is=6a4b7363&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -110,7 +110,7 @@ This can be a harsh limitation in collaborative builds. For example, if two buil
 
 You can now block up to **30 players** and **3 guilds** from visiting your guild base.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a4bee50&format=webp&hm=149d382ffc90adf079fdcc10ec56472e73fe524fd177a5d9ac5fc0d9fda47f82&is=6a4a9cd0&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1517228674741567651/image.png?ex=6a4c9710&format=webp&hm=ab3d62ef1dfa6768db05bef4cb30d8db7707890e5d07ed8970a1f5406e4d80a1&is=6a4b4590&quality=lossless" alt="Block visitors panel in guild base" style="border-radius: 0.75rem; width: 60%;" />
 
 ---
 
