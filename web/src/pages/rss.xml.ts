@@ -28,6 +28,11 @@ function enclosureFor(image: string | undefined) {
 const DISCORD_INVITE = "https://discord.gg/Qygt9u26Bn"
 const MORE_ON_PREFIX = `More on <a href="${DISCORD_INVITE}">WBM Discord</a>:`
 
+const KIND_LABEL: Record<"guilds" | "solos", string> = {
+  guilds: "Guild Base 百業建築",
+  solos: "Solo Build 單人世界",
+}
+
 function buildItems(entries: RankedGuild[], kind: "guilds" | "solos") {
   return entries.map((g) => {
     const image = g.coverImage ?? g.screenshots?.[0]
@@ -38,10 +43,10 @@ function buildItems(entries: RankedGuild[], kind: "guilds" | "solos") {
       `${MORE_ON_PREFIX} <a href="${g.discordThread}">${g.discordThread}</a>`,
     ]
       .filter(Boolean)
-      .join("<br/>")
+      .join("<br/>\n")
 
     return {
-      title: `${g.guildName || g.name} — ${kind === "guilds" ? "Guild Base" : "Solo Build"}`,
+      title: `${g.guildName || g.name} — ${KIND_LABEL[kind]}`,
       link: `/${kind}/${g.slug}`,
       description: desc,
       pubDate: safeDate(g.lastModified),
@@ -59,10 +64,10 @@ function buildBlueprintItems(entries: RankedBlueprint[]) {
       `${MORE_ON_PREFIX} <a href="${bp.discordThread}">${bp.discordThread}</a>`,
     ]
       .filter(Boolean)
-      .join("<br/>")
+      .join("<br/>\n")
 
     return {
-      title: `${bp.name} — Blueprint`,
+      title: `${bp.name} — Blueprint 建築圖紙`,
       link: `/blueprints/${bp.slug}`,
       description: desc,
       pubDate: safeDate(bp.lastModified),
