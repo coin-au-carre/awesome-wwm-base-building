@@ -8,7 +8,7 @@ updatedDate: 2026-07-06
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a4c27f8&format=webp&hm=ecfefaa90c7d7874d556ad235a5f6a80a5a491cb6abca82c9b27cdebd4e77624&is=6a4ad678&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a4cd0b8&format=webp&hm=654b87aee9691238ed4a090c62e029c985c01e4c1fd8a4a5601e245077de01fd&is=6a4b7f38&quality=lossless"
 ---
 
 Credit to Parzival for the cover image
@@ -254,7 +254,7 @@ Here you can send messages which all your Neighbours will be able to see, assumi
 The real advantage however is the Assists Tab! Here you can request resources from your neighbours once per day.  If you exchange resources with the same neighbour three times you will learn their name and be able to form a companion bond with them.
 
 If you find a nice player willing to interact with you in your neighbourhood, consider inviting them to a Companion Bond. Why? Because the realm shifts periodically, separating you from your past neighbours.  
-Members of a Companion Bond stay together when the realm shifts and do not get separated.  (NOTE: At this point I can not confirm if realm shifts are currently in the game)
+Members of a Companion Bond stay together when the realm shifts and do not get separated.  (NOTE: At this point we can not confirm if realm shifts are currently in the game)
 
 If your neighbours do not interact with you, that's normal. You can try finding a more active realm by manually triggering shifts, but it is unlikely that you will be put in a realm with active players.  
 As a measure of thumb: Homestead level 3 means barely finishing most of the tutorial. Level 4 is pretty much finishing the tutorial.  
