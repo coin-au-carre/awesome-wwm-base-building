@@ -79,8 +79,8 @@ function collectTags(items: Guild[]): string[] {
   return [...tagSet].sort()
 }
 
-const ALL_GUILDS: Guild[] = loadJSON("data/guilds.json")
-const ALL_SOLOS: Guild[] = loadJSON("data/solos.json")
+const ALL_GUILDS: Guild[] = loadJSON("data/guilds.json").filter((g: Guild) => !g.deletedAt)
+const ALL_SOLOS: Guild[] = loadJSON("data/solos.json").filter((g: Guild) => !g.deletedAt)
 
 const RANKED_GUILDS = sortByScore(ALL_GUILDS)
 const RANKED_SOLOS = sortByScore(ALL_SOLOS)

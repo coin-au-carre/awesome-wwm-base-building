@@ -65,6 +65,7 @@ type Guild struct {
 	PostedOnBehalfOf         string              `json:"postedOnBehalfOf,omitempty"`
 	ScoutedByDiscordID       string              `json:"scoutedByDiscordId,omitempty"`
 	DisbandedAt              string              `json:"disbandedAt,omitempty"`
+	DeletedAt                string              `json:"deletedAt,omitempty"` // thread no longer found in Discord (deleted/locked); entry kept for reference, hidden from the site
 	BuildTitle               string              `json:"buildTitle,omitempty"`
 	IsCurrent                bool                `json:"isCurrent,omitempty"`
 	HostedAtGuildName        string              `json:"hostedAtGuildName,omitempty"`

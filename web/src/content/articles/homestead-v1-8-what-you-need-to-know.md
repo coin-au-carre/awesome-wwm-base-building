@@ -2,7 +2,7 @@
 title: "Homestead v1.8 - WBM Tips"
 description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.8+."
 tags: ["solo", "homestead", "beginner", "advanced"]
-authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skysnip"]
+authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "Lina BunBun🐰", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skysnip"]
 date: 2026-06-27
 updatedDate: 2026-07-06
 toc: true
@@ -110,7 +110,29 @@ Easy to miss: upgrade your facilities by tapping the double up-arrow button.
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-7.webp" style="width: 60%" />
 
-### Confidant Retainers (Gold workers)
+### Retainers
+
+#### Retainers sheet guide
+
+You can take a look at detailed [LittleMissAngel Retainer guide](https://docs.google.com/spreadsheets/d/1cKG4sqd7NNFWWqxfXkrAncJBYfbAULT9JcHKZ-qUtYA/edit?usp=sharing)
+
+#### Enhance retainers
+
+Buy artisan’s Manual every week. You need to level up your characters and you are limited per week.
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-37.webp" style="width: 80%" />
+
+Here an example how retainers efficiency work:
+
+Assume Worker A has 107% efficiency (+7%)
+
+Assume Worker B has 105% efficiency (+5%)
+
+The new production time for having worker A and B is:
+
+45 min ÷ (1 + 7% + 5%) = 45 min ÷ 1.12 = 40 min 11 sec
+
+#### Confidant Retainers (Gold workers)
 
 - You can only choose one Confidant Retainer per week.
 - Choosing Shen Yu as your Confidant Retainer also gives you Xiao Shi: two workers for the price of one.
@@ -122,7 +144,7 @@ Easy to miss: upgrade your facilities by tapping the double up-arrow button.
 
 ### Optimise prosperity
 
-Use items which cost 100 gourds and give 10 prosperity in priority (like single bamboo).
+Use items which cost 100 gourds and give 10 prosperity in priority (such as single bamboo).
 
 Find below the prosperity/gourd ratio (higher is better). The cheaper the item, the better the ratio.
 
@@ -227,7 +249,7 @@ Upon teleporting to the Cloudrest Passage Waystone, you might notice a rather la
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-26.webp" style="width: 80%" />
 
 Here you can send messages which all your Neighbours will be able to see, assuming they interact with the message board.  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-27.webp" style="width: 60%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-28.webp" style="width: 60%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-27.webp" style="width: 40%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-28.webp" style="width: 40%" />
 
 The real advantage however is the Assists Tab! Here you can request resources from your neighbours once per day.  If you exchange resources with the same neighbour three times you will learn their name and be able to form a companion bond with them.
 
@@ -260,7 +282,38 @@ Level 5 and above players are most likely to be active, so be on the lookout for
 
 \- Make sure to visit the requests on the Beyond Mundane board every day. You can help your neighbors and you can ask them for help. At one point you should be able to reveal your neighbor's name and chat.
 
-### Diagram Sharing
+### Construction & Diagrams
+
+#### Component Limit Beyond Mundane (Island)
+
+10K components + 4K components from residence area
+
+#### How to completely reset Homestead and restart from scratch
+
+You have to manually find every industry zone you placed and delete it / reclaim all components in it. For the 3 main industries you need to do this. (this will delete everything in the industry zone):
+
+Build &gt; Build Management &gt; Retrieve Industry Components
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-38.webp" style="width: 80%" />
+
+Or
+
+Choose Homestead zone &gt; More &gt; Delete
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-39.webp" style="width: 80%" />
+
+#### Using diagrams is buggy as hell
+
+If you have troubles using diagrams then you experience what most players do. There are different kinds of problems so hop in the WBM discord for specific troubleshooting.
+
+If you have the Homestead “Diagram data error Application failed” error you can try this:  
+Retrieve all of your stoves and tables first then place diagram and put the stoves and tables back.
+
+Beware! When applying diagrams your catering can reset if you replace your tables.
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-40.webp" style="width: 80%" />
+
+#### Diagram Sharing
 
 - You can now share your diagrams (solo or guild) in the gallery by clicking in your diagram and choose “Upload to the gallery”
 - Beware when sharing diagrams! Someone can easily pretend they are the creator and have better votes than the original (like any social network publication).
@@ -280,6 +333,6 @@ Share codes are global and are not accessible on the CN server (and vice-versa)
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-36.webp" style="width: 80%" />
 
-#### Other tips
+#### Multiple Screenshots
 
-- You can attach multiple screenshots when publishing Blissful Retreat diagrams. (This does not work for diagrams tagged with other location types.)
+You can attach multiple screenshots when publishing Blissful Retreat/Beyond Mundane diagrams. (This does not work for diagrams tagged with other location types.)

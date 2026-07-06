@@ -44,9 +44,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	public := make([]publicGuild, len(guilds))
-	for i, g := range guilds {
-		public[i] = publicGuild{
+	public := make([]publicGuild, 0, len(guilds))
+	for _, g := range guilds {
+		if g.DeletedAt != "" {
+			continue
+		}
+		public = append(public, publicGuild{
 			ID:                 g.ID,
 			Name:               g.Name,
 			GuildName:          g.GuildName,
@@ -60,7 +63,7 @@ func main() {
 			Screenshots:  g.Screenshots,
 			Videos:       g.Videos,
 			LastModified:       g.LastModified,
-		}
+		})
 	}
 
 	data, err := json.MarshalIndent(public, "", "\t")

@@ -295,17 +295,19 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 		threadURLToIdx = remappedURLToIdx
 	}
 
-	// Warn about stored guilds whose thread was not seen in the crawl (deleted/locked threads).
+	// Mark stored guilds whose thread was not seen in the crawl (deleted/locked threads) as
+	// deleted, so the site stops displaying them. The entry is kept in guilds.json for reference.
 	if cfg.GuildFilter == "" {
 		for i, g := range guilds[:originalGuildCount] {
-			if g.DiscordThread == "" || seenThreadURLs[g.DiscordThread] || placeholderIndices[i] {
+			if g.DiscordThread == "" || seenThreadURLs[g.DiscordThread] || placeholderIndices[i] || g.DeletedAt != "" {
 				continue
 			}
+			guilds[i].DeletedAt = guild.ModifiedNow()
 			warning := fmt.Sprintf(
-				"⚠️ **Orphaned guild entry:** **%s** — thread not found in Discord (deleted or locked?).\nConsider removing it from guilds.json: %s",
+				"⚠️ **Guild entry marked deleted:** **%s** — thread not found in Discord (deleted or locked?). Hidden from the site.\n%s",
 				guild.ExtractName(g.Name), g.DiscordThread,
 			)
-			slog.Warn("orphaned guild entry", "name", g.Name, "thread", g.DiscordThread)
+			slog.Warn("guild entry marked deleted", "name", g.Name, "thread", g.DiscordThread)
 			partialStats.DuplicateWarnings = append(partialStats.DuplicateWarnings, warning)
 		}
 	}
