@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a4c95dd&hm=876092301d0a3aef24e13c80040f2e8a3a5576ab92da84a49992df33f1542b09&is=6a4b445d&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a4d3e9d&hm=3b631fa35f560fd7d77c6bbe19582c81a6a31839995d3374aaef6124c452a024&is=6a4bed1d&" controls></video>
 </div>
 
 ---
@@ -28,7 +28,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a4c945d&hm=75d858bd6e10620975d3241ef0f65773197070f21699b8a2ebe723dde05ab87d&is=6a4b42dd&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a4d3d1d&hm=144508f93c6e25c16f389ad6138b16f8a6910edbee1dbc9cb5355d16029e76cb&is=6a4beb9d&" controls></video>
 </div>
 
 ---

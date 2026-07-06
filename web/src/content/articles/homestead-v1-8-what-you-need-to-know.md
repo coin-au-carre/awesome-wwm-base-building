@@ -74,7 +74,7 @@ Important: this is currently the only known way to hire Confidant Retainers (gol
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-3.webp" style="width: 30%" />
 
-Note: Players who missed last’s Young Master’s Routine can buy hte “Catch Up Pack” pack in the Personal Qinghe Shop to claim partial event rewards.
+Note: Players who missed last’s Young Master’s Routine can buy the “Catch Up Pack” pack in the Personal Qinghe Shop to claim partial event rewards.
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-4.webp" style="width: 80%" />
 
