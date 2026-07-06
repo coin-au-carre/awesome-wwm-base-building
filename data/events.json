@@ -30,18 +30,6 @@
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
   },
   {
-    "id": "1521166997696811139",
-    "name": "Fairytopia Tour Season 4",
-    "description": "Anyone would like have tour at this hour, just react at this yeah, 1️⃣ \u003ct:1783342800:F\u003e\nGuild base or Solo World visit will be :\n\nAnyone would like to invite us to join your Solo world or guild base, just write your name ✨ ✨ ✨",
-    "type": "tour",
-    "scheduledStart": "2026-07-06T13:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 8,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1521166997696811139"
-  },
-  {
     "id": "1523448698552582144",
     "name": "CHESS at SNEJNAYA",
     "description": "Players will be the chest pieces, and 2 players will be chess-leaders. It will be fun, come participate or just for the company ^^",
@@ -51,7 +39,7 @@
     "scheduledEnd": "2026-07-06T17:30:00Z",
     "location": "SNEJNAYA",
     "status": "scheduled",
-    "subscriberCount": 3,
+    "subscriberCount": 4,
     "discordUrl": "https://discord.com/events/1483447710617960508/1523448698552582144"
   },
   {
@@ -63,7 +51,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 1,
+    "subscriberCount": 2,
     "discordUrl": "https://discord.com/events/1483447710617960508/1523624438363324448"
   }
 ]
