@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-07-06T00:59:06.175945335Z"
+  "streamers": [
+    {
+      "userID": "929923366809370664",
+      "username": "DõtS ︱ LotS Guild Master",
+      "channelID": "1483447711499030636",
+      "channelName": "General",
+      "startedAt": "2026-07-06T13:17:03.513909575Z"
+    }
+  ],
+  "updatedAt": "2026-07-06T13:17:08.802957889Z"
 }
