@@ -7,7 +7,7 @@ import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { getAllBuilderSlugs } from "@/lib/builders"
-import { parseLastModified, relativeTime } from "@/lib/dates"
+import { parseLastModified } from "@/lib/dates"
 import { HouseIcon, ArrowSquareOutIcon, ArrowRightIcon, SparkleIcon, CalculatorIcon, BookOpenIcon, FileXlsIcon, FileDocIcon, TrophyIcon } from "@phosphor-icons/react"
 
 interface HomesteadMember {
@@ -27,7 +27,6 @@ const medal = ["🥇", "🥈", "🥉"]
 function levelEmoji(level: number) {
   return level >= 8 ? "🔥" : "🌱"
 }
-
 function fileIconFor(href: string) {
   if (href.includes("/spreadsheets/")) return FileXlsIcon
   if (href.includes("/document/")) return FileDocIcon
@@ -241,7 +240,7 @@ const sheetLinks = [
             <span class="text-sm font-medium text-foreground truncate flex-1">
               {m.nickname ?? m.globalName ?? m.username}
             </span>
-            <span class="text-xs text-muted-foreground shrink-0 hidden sm:inline" title={m.since}>{relativeTime(parseLastModified(m.since))}</span>
+            <span class="text-xs text-muted-foreground shrink-0 hidden sm:inline js-since" data-since={parseLastModified(m.since)} title={m.since}></span>
             <span class={`text-xs font-semibold shrink-0 ${m.level >= 8 ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>{levelEmoji(m.level)} Lv. {m.level}</span>
           </div>
         ))}
@@ -249,3 +248,27 @@ const sheetLinks = [
     </section>
   </div>
 </Layout>
+
+<script>
+  function relativeTimeHM(ms: number): string {
+    const diff = Date.now() - ms
+    const mins = Math.floor(diff / 60000)
+    if (mins < 60) { return mins <= 1 ? "just now" : `${mins}m ago` }
+    const hours = Math.floor(mins / 60)
+    const remMins = mins % 60
+    if (hours < 24) { return remMins ? `${hours}h ${remMins}m ago` : `${hours}h ago` }
+    const days = Math.floor(hours / 24)
+    if (days < 30) { return `${days}d ago` }
+    const months = Math.floor(days / 30)
+    if (months < 12) { return `${months}mo ago` }
+    return `${Math.floor(months / 12)}y ago`
+  }
+  function updateSinceLabels() {
+    document.querySelectorAll<HTMLElement>(".js-since").forEach((el) => {
+      const ms = Number(el.dataset.since)
+      if (ms) { el.textContent = relativeTimeHM(ms) }
+    })
+  }
+  updateSinceLabels()
+  setInterval(updateSinceLabels, 60000)
+</script>
