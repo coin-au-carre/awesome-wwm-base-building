@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-07-06T18:07:14.15349728Z"
+  "streamers": [
+    {
+      "userID": "126791095731486722",
+      "username": "AegisNite Edge",
+      "channelID": "1496814821520441385",
+      "channelName": "Building Unlimited",
+      "startedAt": "2026-07-06T19:43:23.438523848Z"
+    }
+  ],
+  "updatedAt": "2026-07-06T19:43:28.683912034Z"
 }
