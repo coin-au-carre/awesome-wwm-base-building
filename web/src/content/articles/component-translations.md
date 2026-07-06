@@ -22,7 +22,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a4cc509&format=webp&hm=5b8b2fae1da5982be2ac9a8dc1535f4129d9ca6aa1968c23a09d08926534693f&is=6a4b7389&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a4d6dc9&format=webp&hm=1a95d4287cfef5cfa52d8261c94cf2bcfe1a796d16f6a689a251ad9eb2498c6c&is=6a4c1c49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 悬 - hang
 壶 - gourd
@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a4ccd88&format=webp&hm=f62494fd2c9402199cbe5248445e52cd4d2b869f3d98d2b4cb0c897a7369ad86&is=6a4b7c08&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a4d7648&format=webp&hm=d18aa94122f658cf94fc00f1b1e48940a559108d5da1ffdd4e9f3c2f92d392c9&is=6a4c24c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a4ccdc4&format=webp&hm=94d6792bf4c9759fa75cdafe0739143b38fabb227192b407d4ad2afc7f73f574&is=6a4b7c44&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a4d7684&format=webp&hm=181d8333081a1dc31b6440a898906cde60ae3d82c968119a3e08122ae36ba1a2&is=6a4c2504&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 萬 ten thousand
 家 family
@@ -172,7 +172,7 @@ Can use this anywhere you want to name "Jade Gate Pass"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a4cc976&format=webp&hm=2947a8582030a69632c826bc0f0d8092d09fcdc2a053ec28001b57d2a7fec166&is=6a4b77f6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a4d7236&format=webp&hm=e1be2c22ac4d5651527f7807a5977753a4df835d6823b07b125ebf51d3cba93e&is=6a4c20b6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 

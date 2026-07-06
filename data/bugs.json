@@ -26,7 +26,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a4cd162\u0026hm=452731375cf9c7e0942be07d35f1842dc322fdf402294048c5ca52ee6a08371c\u0026is=6a4b7fe2\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a4d7a22\u0026hm=9f1090c1346674ad873efcaa81a975426004e2752350f4d1658d49c4cefefb56\u0026is=6a4c28a2\u0026",
       "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a4d66df\u0026hm=84e0577886d058b00de7b0ce2b31954888cf33408ac46e67ee1d9c64e2ce3d2e\u0026is=6a4c155f\u0026"
     ],
     "version": "v1.7",
@@ -57,7 +57,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a4cc98c\u0026hm=ac8257ce0e0b9b074d3703f07699686ca4a5b3819e22c707c1113f2ed2d55f88\u0026is=6a4b780c\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a4d724c\u0026hm=f58b798d60bb8c3fc6402ac16a11163d4826a043bb8f48fac3a9049c240b3d7f\u0026is=6a4c20cc\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -316,7 +316,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a4cc7b0\u0026hm=41a598749043eccdec65baf68da002ecd83f1b93a6e6a9aa6c70fa4279112c2b\u0026is=6a4b7630\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a4d7070\u0026hm=b2cb88cb4f80ccea53fac899a62859cf53042131ccbbc00d9fec7314d5171219\u0026is=6a4c1ef0\u0026"
     ],
     "version": "v1.7",
     "date": "05/06/2026",
@@ -467,11 +467,27 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010451679838268/image.png?ex=6a4cd28c\u0026hm=efb5fce19b8394ab316a4590d9e0ed8f61683bc508d4bce5ba79fe9cb319ab79\u0026is=6a4b810c\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010354409869463/image.png?ex=6a4cd274\u0026hm=bc65bdace13a7b247c510ca51cc834c33cda21a1dd93b730fd47b428c78dc563\u0026is=6a4b80f4\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010451679838268/image.png?ex=6a4d7b4c\u0026hm=17ec0b7a19b5d742f68fc399e88b458beb738baadce9aba1fa2e2bac81b2427b\u0026is=6a4c29cc\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010354409869463/image.png?ex=6a4d7b34\u0026hm=843eff04f1ac693fe19ff8cc6f5d7cfadbc2df0a29f8724255bae7ff33919d00\u0026is=6a4c29b4\u0026"
     ],
     "version": "v1.8",
     "date": "26/06/2026",
+    "notes": ""
+  },
+  {
+    "severity": "normal",
+    "title": "Combine mode for Homestead is too buggy",
+    "details": "Error message: \"Contains areas outside the map edge\". Components are doomed",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": false,
+    "ps5": false,
+    "media": [
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1523803019215638579/image.png?ex=6a4d6fa6\u0026hm=2bb304fef656aa80dfe7c792a1359da008df7afcc92a58b5a1fd066e64e2aefc\u0026is=6a4c1e26\u0026"
+    ],
+    "version": "v1.8",
+    "date": "06/07/2026",
     "notes": ""
   }
 ]
