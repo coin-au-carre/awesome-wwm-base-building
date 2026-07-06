@@ -38,7 +38,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 9,
+    "subscriberCount": 8,
     "discordUrl": "https://discord.com/events/1483447710617960508/1521166997696811139"
   },
   {
@@ -53,5 +53,17 @@
     "status": "scheduled",
     "subscriberCount": 3,
     "discordUrl": "https://discord.com/events/1483447710617960508/1523448698552582144"
+  },
+  {
+    "id": "1523624438363324448",
+    "name": "Fairytopia Tour Season 5",
+    "description": "## Fairytopia Tour Season 5 \u003ct:1783947600:F\u003e\n\nAnyone would like to invite us to join your Solo world or guild base, just write your name ✨ ✨ ✨",
+    "type": "tour",
+    "scheduledStart": "2026-07-13T13:00:00Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 1,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1523624438363324448"
   }
 ]
