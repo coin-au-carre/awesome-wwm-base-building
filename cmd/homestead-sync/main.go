@@ -33,6 +33,7 @@ var homesteadLevelRoles = []struct {
 	{6, "1523026273712996513"},
 	{7, "1523026359209824408"},
 	{8, "1523026488981721088"},
+	{9, "1523740416023990523"},
 }
 
 // Discord doesn't expose when a role was granted, so Since is first-observed:
@@ -230,7 +231,8 @@ func heldDuration(since string) string {
 }
 
 var levelLabel = map[int]string{
-	8: "👑  Level 8 — Master Homesteaders",
+	9: "👑  Level 9 — Master Homesteaders",
+	8: "🌟  Level 8",
 	7: "💠  Level 7",
 	6: "🔷  Level 6",
 	5: "▫️  Level 5",
@@ -262,7 +264,7 @@ func buildHomesteadEmbed(members map[string]homesteadMember) *discordgo.MessageE
 
 	var sb strings.Builder
 	rank := 0
-	for _, level := range []int{8, 7, 6, 5} {
+	for _, level := range []int{9, 8, 7, 6, 5} {
 		group := byLevel[level]
 		if len(group) == 0 {
 			continue
