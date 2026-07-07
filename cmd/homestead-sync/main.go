@@ -213,21 +213,15 @@ func parseSince(since string) (time.Time, bool) {
 	return t, true
 }
 
-// heldDuration formats how long a level has been held as "3d 5h", or
-// "5h 12m" once it drops under a day.
+// heldDuration renders a Discord relative timestamp (e.g. "3 hours ago")
+// that the client keeps live-updating on its own, so it stays accurate even
+// if the sync workflow is delayed or skipped between edits.
 func heldDuration(since string) string {
 	t, ok := parseSince(since)
 	if !ok {
 		return "?"
 	}
-	d := time.Since(t)
-	days := int(d.Hours() / 24)
-	hours := int(d.Hours()) % 24
-	if days > 0 {
-		return fmt.Sprintf("%dd %dh", days, hours)
-	}
-	minutes := int(d.Minutes()) % 60
-	return fmt.Sprintf("%dh %dm", hours, minutes)
+	return fmt.Sprintf("<t:%d:R>", t.Unix())
 }
 
 var levelLabel = map[int]string{
