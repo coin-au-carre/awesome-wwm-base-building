@@ -132,8 +132,14 @@ func InteriorSyncFinalize(result InteriorSyncFetchResult) ([]interior.Interior, 
 			it.Name = name
 		}
 		it.Description = r.data.GuildName
-		it.Screenshots = r.data.Screenshots
-		it.Videos = r.data.Videos
+		// Only overwrite media on a successful fetch; a mid-pagination API failure returns an
+		// empty result that would otherwise look like every screenshot got deleted.
+		if !r.data.MediaOK {
+			slog.Warn("skipping media update for interior due to failed media fetch", "name", it.Name)
+		} else {
+			it.Screenshots = r.data.Screenshots
+			it.Videos = r.data.Videos
+		}
 		if it.CreatedAt == "" {
 			it.CreatedAt = r.data.FirstPostTime.UTC().Format(guild.ModifiedLayout)
 		}
@@ -190,7 +196,7 @@ func fetchInteriorContent(s *discordgo.Session, thread *discordgo.Channel) threa
 	if !strings.Contains(strings.ToLower(thread.Name), "all builders") {
 		allowedIDs = map[string]bool{authorID: true}
 	}
-	_, screenshots, videos, lastContributorTime := collectMedia(s, thread.ID, allowedIDs)
+	_, screenshots, videos, lastContributorTime, mediaOK := collectMedia(s, thread.ID, allowedIDs)
 
 	return threadData{
 		AuthorID:            authorID,
@@ -199,6 +205,7 @@ func fetchInteriorContent(s *discordgo.Session, thread *discordgo.Channel) threa
 		Videos:              videos,
 		FirstPostTime:       firstPostTime,
 		LastContributorTime: lastContributorTime,
+		MediaOK:             mediaOK,
 	}
 }
 

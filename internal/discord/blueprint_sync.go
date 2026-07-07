@@ -178,19 +178,25 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 		}
 		bp.Tags = tags
 		bp.Score = score
-		bp.Screenshots = r.data.Screenshots
-		var labeledSections []guild.ScreenshotSection
-		for _, s := range r.data.ScreenshotSections {
-			if s.Label != "" {
-				labeledSections = append(labeledSections, s)
-			}
-		}
-		bp.ScreenshotSections = labeledSections
-		bp.Videos = r.data.Videos
-		if idx := parsed.CoverIdx; idx >= 1 && idx <= len(r.data.Screenshots) {
-			bp.CoverImage = r.data.Screenshots[idx-1]
+		// Only overwrite media on a successful fetch; a mid-pagination API failure returns an
+		// empty result that would otherwise look like every screenshot got deleted.
+		if !r.data.MediaOK {
+			slog.Warn("skipping media update for blueprint due to failed media fetch", "name", bp.Name)
 		} else {
-			bp.CoverImage = ""
+			bp.Screenshots = r.data.Screenshots
+			var labeledSections []guild.ScreenshotSection
+			for _, s := range r.data.ScreenshotSections {
+				if s.Label != "" {
+					labeledSections = append(labeledSections, s)
+				}
+			}
+			bp.ScreenshotSections = labeledSections
+			bp.Videos = r.data.Videos
+			if idx := parsed.CoverIdx; idx >= 1 && idx <= len(r.data.Screenshots) {
+				bp.CoverImage = r.data.Screenshots[idx-1]
+			} else {
+				bp.CoverImage = ""
+			}
 		}
 		if bp.CreatedAt == "" {
 			bp.CreatedAt = r.data.FirstPostTime.UTC().Format(guild.ModifiedLayout)
@@ -284,7 +290,7 @@ func fetchBlueprintContent(s *discordgo.Session, thread *discordgo.Channel) thre
 	authorID := msgs[0].Author.ID
 
 	allowedIDs := map[string]bool{authorID: true}
-	sections, screenshots, videos, lastContributorTime := collectMedia(s, thread.ID, allowedIDs)
+	sections, screenshots, videos, lastContributorTime, mediaOK := collectMedia(s, thread.ID, allowedIDs)
 
 	firstPostMsg := msgs[0].Timestamp
 
@@ -302,6 +308,7 @@ func fetchBlueprintContent(s *discordgo.Session, thread *discordgo.Channel) thre
 		CoverIdx:            parsed.CoverIdx,
 		FirstPostTime:       firstPostMsg,
 		LastContributorTime: lastContributorTime,
+		MediaOK:             mediaOK,
 	}
 }
 

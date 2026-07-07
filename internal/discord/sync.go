@@ -61,6 +61,7 @@ type threadData struct {
 	IsCurrent           bool
 	HostedAtGuildName   string
 	HostedAtGuildID     string
+	MediaOK             bool // false if collectMedia failed mid-fetch; Screenshots/Videos are unreliable
 }
 
 type fetchedThread struct {
@@ -513,19 +514,25 @@ func SyncFinalize(result SyncFetchResult, voterWeights map[string]float64, black
 		g.Tags = tags
 		g.DiscordThread = fmt.Sprintf("https://discord.com/channels/%s/%s", r.thread.GuildID, r.thread.ID)
 		g.Score = data.Score
-		g.Screenshots = data.Screenshots
-		var labeledSections []guild.ScreenshotSection
-		for _, s := range data.ScreenshotSections {
-			if s.Label != "" {
-				labeledSections = append(labeledSections, s)
-			}
-		}
-		g.ScreenshotSections = labeledSections
-		g.Videos = filterVideos(data.Videos, g.IgnoredVideos)
-		if idx := data.CoverIdx; idx >= 1 && idx <= len(data.Screenshots) {
-			g.CoverImage = data.Screenshots[idx-1]
+		// Only overwrite media on a successful fetch; a mid-pagination API failure returns
+		// an empty result that would otherwise be mistaken for the builder deleting everything.
+		if !data.MediaOK {
+			slog.Warn("skipping media update for guild due to failed media fetch", "name", g.Name)
 		} else {
-			g.CoverImage = ""
+			g.Screenshots = data.Screenshots
+			var labeledSections []guild.ScreenshotSection
+			for _, s := range data.ScreenshotSections {
+				if s.Label != "" {
+					labeledSections = append(labeledSections, s)
+				}
+			}
+			g.ScreenshotSections = labeledSections
+			g.Videos = filterVideos(data.Videos, g.IgnoredVideos)
+			if idx := data.CoverIdx; idx >= 1 && idx <= len(data.Screenshots) {
+				g.CoverImage = data.Screenshots[idx-1]
+			} else {
+				g.CoverImage = ""
+			}
 		}
 		if data.Lore != "" {
 			g.Lore = data.Lore
@@ -704,7 +711,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 	for _, id := range allowedContributors {
 		allowedIDs[id] = true
 	}
-	sections, screenshots, videos, lastContributorTime := collectMedia(s, thread.ID, allowedIDs)
+	sections, screenshots, videos, lastContributorTime, mediaOK := collectMedia(s, thread.ID, allowedIDs)
 
 	if parsed.PostedOnBehalfOf != "" && parsed.PostedOnBehalfOf != "unknown" {
 		parsed.PostedOnBehalfOf = resolveOnBehalf(s, thread.GuildID, parsed.PostedOnBehalfOf)
@@ -733,6 +740,7 @@ func fetchThreadContent(s *discordgo.Session, thread *discordgo.Channel, allowed
 		HostedAtGuildID:     parsed.HostedAtGuildID,
 		FirstPostTime:       firstPostMsg,
 		LastContributorTime: lastContributorTime,
+		MediaOK:             mediaOK,
 	}
 }
 
@@ -850,13 +858,20 @@ func isIgnored(s *discordgo.Session, channelID string, msg *discordgo.Message, a
 	return false
 }
 
-func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string, lastContributorTime time.Time) {
+func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]bool) (sections []guild.ScreenshotSection, screenshots, videos []string, lastContributorTime time.Time, ok bool) {
 	// Fetch all messages (Discord returns newest-first), then reverse to process chronologically.
 	var allMsgs []*discordgo.Message
 	var lastID string
 	for {
 		msgs, err := s.ChannelMessages(threadID, 100, lastID, "", "")
-		if err != nil || len(msgs) == 0 {
+		if err != nil {
+			// Transient API failure (rate limit, timeout, ...) mid-pagination: report failure so
+			// the caller keeps the previously stored media instead of overwriting it with a
+			// partial/empty result.
+			slog.Warn("fetching thread messages page", "thread", threadID, "err", err)
+			return sections, screenshots, videos, lastContributorTime, false
+		}
+		if len(msgs) == 0 {
 			break
 		}
 		allMsgs = append(allMsgs, msgs...)
@@ -961,6 +976,7 @@ func collectMedia(s *discordgo.Session, threadID string, allowedIDs map[string]b
 		}
 	}
 	sections = filtered
+	ok = true
 	return
 }
 
