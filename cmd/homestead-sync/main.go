@@ -124,12 +124,13 @@ func main() {
 		}
 
 		info, known := users[m.User.ID]
-		if !known {
-			info = guild.UserInfo{
-				Username:   m.User.Username,
-				GlobalName: m.User.GlobalName,
-				Nickname:   m.Nick,
-			}
+		fresh := guild.UserInfo{
+			Username:   m.User.Username,
+			GlobalName: m.User.GlobalName,
+			Nickname:   m.Nick,
+		}
+		if !known || info != fresh {
+			info = fresh
 			users[m.User.ID] = info
 			usersDirty = true
 		}
