@@ -5,8 +5,9 @@ import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { resolveCanonical, BUILDER_ALIASES } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
-import { BlueprintIcon, BookOpenIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
+import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
+import { HOMESTEAD_SHEETS } from "@/lib/homestead-resources"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -24,6 +25,11 @@ export async function getStaticPaths() {
         slugMap.set(s, { name: authorName, slug: s })
       }
     }
+  }
+  for (const sheet of HOMESTEAD_SHEETS) {
+    const s = resolveCanonical(builderSlug(sheet.by))
+    if (!s) continue
+    if (!slugMap.has(s)) slugMap.set(s, { name: sheet.by, slug: s })
   }
 
   return [...slugMap.values()].map(({ name, slug }) => ({
@@ -58,7 +64,7 @@ const scoutedSolos = scoutDiscordId
   : []
 const scoutedCount = scoutedGuilds.length + scoutedSolos.length
 
-const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + tutorials.length
+const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + (profile?.homesteadSheets.length ?? 0) + tutorials.length
 
 // Alias slugs are keys in BUILDER_ALIASES whose value is this builder's canonical slug,
 // excluding any alias that is the same as the display name (avoids "X also known as X")
@@ -71,7 +77,7 @@ for (const g of [...(profile?.guilds ?? []), ...(profile?.solos ?? [])]) {
   for (const tag of g.tags ?? []) tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1)
 }
 const topTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]).map(([tag]) => tag)
-const contributionTypes = [(profile?.guilds.length ?? 0) > 0, (profile?.solos.length ?? 0) > 0, (profile?.blueprints.length ?? 0) > 0, tutorials.length > 0].filter(Boolean).length
+const contributionTypes = [(profile?.guilds.length ?? 0) > 0, (profile?.solos.length ?? 0) > 0, (profile?.blueprints.length ?? 0) > 0, (profile?.homesteadSheets.length ?? 0) > 0, tutorials.length > 0].filter(Boolean).length
 const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
 const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${totalCount} contribution${totalCount !== 1 ? "s" : ""} including guild bases, solo builds, blueprints, and tutorials.`
 
@@ -146,6 +152,13 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
               <BlueprintIcon weight="duotone" className="size-3.5 shrink-0" />
               Blueprint Creator
               <span class="text-[10px] opacity-60 font-normal">· {profile.blueprints.length}</span>
+            </span>
+          )}
+          {profile && profile.homesteadSheets.length > 0 && (
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-orange-500/10 text-orange-600 dark:text-orange-300 ring-1 ring-inset ring-orange-500/25">
+              <CalculatorIcon weight="duotone" className="size-3.5 shrink-0" />
+              Homestead Sheet
+              <span class="text-[10px] opacity-60 font-normal">· {profile.homesteadSheets.length}</span>
             </span>
           )}
           {tutorials.length > 0 && (
@@ -306,6 +319,37 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
               </a>
             )
           })}
+        </div>
+      </section>
+    )}
+
+    <!-- Homestead Sheets -->
+    {profile && profile.homesteadSheets.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <CalculatorIcon weight="duotone" className="size-4 text-orange-500" />
+          Homestead Sheets
+        </h2>
+        <div class="flex flex-col gap-2">
+          {profile.homesteadSheets.map((sheet) => (
+            <a
+              href={sheet.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center gap-3 rounded-xl ring-1 ring-orange-500/25 bg-card hover:ring-orange-500/50 hover:shadow-sm transition-all px-3 py-2.5"
+              data-umami-event="builder_profile_homestead_sheet_click"
+              data-umami-event-name={sheet.title}
+            >
+              <div class="shrink-0 w-20 aspect-video rounded-md bg-orange-500/10 flex items-center justify-center">
+                <CalculatorIcon weight="duotone" className="size-5 text-orange-400" />
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-medium leading-tight">{sheet.title}</p>
+                <p class="text-xs text-muted-foreground mt-0.5">{sheet.description}</p>
+              </div>
+              <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-orange-500 group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+            </a>
+          ))}
         </div>
       </section>
     )}

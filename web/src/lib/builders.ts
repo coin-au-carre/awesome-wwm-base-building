@@ -4,6 +4,7 @@ import { getGuildsSortedByScore, getSolosSortedByScore } from "@/lib/guilds"
 import { getBlueprintsSortedByScore } from "@/lib/blueprints"
 import { formatBuilderName, builderSlug } from "@/lib/format"
 import { resolveCanonical, getAllSlugsForCanonical } from "@/lib/builder-aliases"
+import { HOMESTEAD_SHEETS, type HomesteadSheet } from "@/lib/homestead-resources"
 
 export interface BuilderProfile {
   name: string
@@ -11,6 +12,7 @@ export interface BuilderProfile {
   guilds: RankedGuild[]
   solos: RankedGuild[]
   blueprints: RankedBlueprint[]
+  homesteadSheets: HomesteadSheet[]
 }
 
 function matchesSlug(rawName: string, targetCanonical: string): boolean {
@@ -43,6 +45,9 @@ export function getAllBuilderSlugs(): { name: string; slug: string }[] {
   }
   for (const bp of getBlueprintsSortedByScore()) {
     if (bp.builderName) addName(bp.builderName)
+  }
+  for (const sheet of HOMESTEAD_SHEETS) {
+    addName(sheet.by)
   }
 
   return [...slugMap.entries()].map(([slug, name]) => ({ name, slug }))
@@ -182,8 +187,9 @@ export function getBuilderProfile(slug: string): BuilderProfile | null {
   const blueprints = getBlueprintsSortedByScore().filter(
     (bp) => bp.builderName && allSlugs.has(resolveCanonical(builderSlug(bp.builderName)))
   )
+  const homesteadSheets = HOMESTEAD_SHEETS.filter((sheet) => matchesSlug(sheet.by, canonical))
 
-  if (!guilds.length && !solos.length && !blueprints.length) return null
+  if (!guilds.length && !solos.length && !blueprints.length && !homesteadSheets.length) return null
 
   // Prefer a name whose slug IS the canonical (not an alias form)
   let name: string | undefined
@@ -198,7 +204,8 @@ export function getBuilderProfile(slug: string): BuilderProfile | null {
     if (name) break
   }
   if (!name && blueprints[0]?.builderName) name = blueprints[0].builderName
+  if (!name && homesteadSheets[0]) name = homesteadSheets[0].by
   if (!name) name = aliasFormName
 
-  return { name: name ?? canonical, slug: canonical, guilds, solos, blueprints }
+  return { name: name ?? canonical, slug: canonical, guilds, solos, blueprints, homesteadSheets }
 }
