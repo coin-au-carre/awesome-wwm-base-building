@@ -40,5 +40,18 @@
     "status": "scheduled",
     "subscriberCount": 2,
     "discordUrl": "https://discord.com/events/1483447710617960508/1523624438363324448"
+  },
+  {
+    "id": "1523971843990749255",
+    "name": "Panda Guild Tour #11 - All Welcome!",
+    "description": "- Join the tour stream on https://discord.com/channels/1483447710617960508/1483447711499030636\n- Join in game request/DM on Moonlight [0015300816]\n- Communicate through our group chat (id:110975624)  or vocal\n\n## React/Vote the builds on their discord thread!\n\n- [HeavenlyPillar](https://www.wherebuildersmeet.com/guilds/heavenlypillar/) | [Discord thread](https://discord.com/channels/1483447710617960508/1519748335324364963)  |  Builder: Panhua, Firelith, Xiongbao, Ralpx, Eljiro, WeiNel, LuoWeiLian, greatjussy\n- [Milk](https://www.wherebuildersmeet.com/guilds/milk/)  |  [Discord thread](https://discord.com/channels/1483447710617960508/1520911008053592166)  |  Builder: RiriLala, TopoByte, pfftkrystal, valkyrie\n- [LittleFurry](https://www.wherebuildersmeet.com/guilds/littlefurry/)  |  [Discord thread](https://discord.com/channels/1483447710617960508/1521627275890524170)  |  Builder: barashfr\n\nTour should last ~1H, each guild tour should take ~15/20min.",
+    "type": "tour",
+    "scheduledStart": "2026-07-07T10:00:00.403Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 2,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1523971843990749255",
+    "image": "https://cdn.discordapp.com/guild-events/1523971843990749255/ea69a57b9eeef8581b536343433787da.png?size=512"
   }
 ]
