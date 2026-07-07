@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a4d87a6&format=webp&hm=d226d4af4abef4f25fb56df39425c1c304b2775d1e31086a62d3e8892285269f&is=6a4c3626&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a4e3066&format=webp&hm=b7e902ef0430fcd5b5384f1d3d4ca193494bde119f8e1884e61afc767a87fc4c&is=6a4cdee6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a4d8891&format=webp&hm=00143239ce60b51c573821ea98c2f434de1a0f35f028cb1660af84d49b8dda7c&is=6a4c3711&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a4e3151&format=webp&hm=95e479274b0d1a266ad07a70ca26e54528a44bf4133d9b441b2886083c9bc988&is=6a4cdfd1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -81,7 +81,7 @@ Roughly translated, it means "one's character does not leave the pine (tree); it
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a4d8977&format=webp&hm=927943f4ec903499e820d8b8ac92999fd8fe44e28e3ae60c8253b831db7c3e22&is=6a4c37f7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a4e3237&format=webp&hm=a3310b0efdf177408b65e7e80931b30d31be1391ebe8f026fc9a6e607a3073a1&is=6a4ce0b7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驿 - postal (relay station)
 
@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a4d8aa1&format=webp&hm=c78ca8eb8545632904a6c844c1d9fd8ca328da1c3ad54c6e033ab68a08fac5e5&is=6a4c3921&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a4e3361&format=webp&hm=c858d72234e375f9b58303b5135af4c89c4ac60255494f9bbc38685128963056&is=6a4ce1e1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 天 Heaven
 石 Stone
@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a4d8cfc&format=webp&hm=f72c6a4e4f38769d6130f4bf93a608dadbc1e8a3a1d2dfbf3941da1a721f7d94&is=6a4c3b7c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a4e35bc&format=webp&hm=d80a74042f8e68fbf76dd48a93818c533b42bc2c56412a70cda9d3366d14c3f7&is=6a4ce43c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驛 - traditional version of "postal relay station" 
 
@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a4d8e06&format=webp&hm=ee86c491105bca5942b1ffe93d368f93a554b58d7961d525d0e69e0898485075&is=6a4c3c86&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a4e36c6&format=webp&hm=ae6b6fa578d4d5765ff26cbd27af6bc185649d624bc54184dd4c073c044438b0&is=6a4ce546&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a4d8f6f&format=webp&hm=bde6f31834af2c6af979a80ed43c3ce014e6b6f4494da48456b5138727cc1bb4&is=6a4c3def&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a4e382f&format=webp&hm=856fc490a566e0feebaeb48f9f745ea84cf1c4b4fc0e09873a6c8adc4f2a63c9&is=6a4ce6af&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
