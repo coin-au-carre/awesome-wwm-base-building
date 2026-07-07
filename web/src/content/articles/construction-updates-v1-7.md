@@ -83,7 +83,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a4cdecb&format=webp&hm=e6afae5ec93f3794d7ae9997abe6cd08e9dbfe9a424345db91a6f3c9054aaef2&is=6a4b8d4b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a4d878b&format=webp&hm=7078cc1fb62f7347eff284406e919007ecc81589fd2ecbd44f19ffad9582b240&is=6a4c360b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
@@ -100,9 +100,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a4ce6d5&format=webp&hm=b747acdd0e2c61c73422944fdf922635e569cda37725482eb5493956f4f0a905&is=6a4b9555&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a4d8f95&format=webp&hm=33a62b79973c379fff7c1f55330a748b01268cea28983e00d995093288dcaa4b&is=6a4c3e15&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a4ce6d5&format=webp&hm=e95225b07af49b2d3a6b7b4c3e4f4bc09a5d535ba44ea3eb620760a9c8e3db52&is=6a4b9555&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a4d8f95&format=webp&hm=4515031823f1b23722fecc6cd7f55a851157376d176fdbb061a2e315b3a2214c&is=6a4c3e15&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

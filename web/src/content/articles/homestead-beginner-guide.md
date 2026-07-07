@@ -6,13 +6,14 @@ authors: ["Cylos"]
 date: 2026-07-03
 order: 24
 gdocID: "1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s"
-updatedDate: 2026-07-06
+updatedDate: 2026-07-07
 image: "/tutorials/homestead-beginner-guide/img-14.webp"
 ---
 
 <!-- preserve:start -->
 This page is a web version of Cylos guide available on [Google Doc](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing). It is kept in sync automatically.
 <!-- preserve:end -->
+
 
 
 
@@ -69,7 +70,7 @@ Prosperity: Prosperity could be seen as the “elegance score” of the Homeste
 
 * * *
 
-<img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" />
+<img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" />
 
 Warehouse: The warehouse is your Homesteads storage. All the items you produce go into your warehouse. You can also deposit items from your normal character backpack into the warehouse. There is a deposit cap of 1200 items per week. The best use for this feature early on would be to deposit items you can buy from normal vendors across the map to save time e.g. Dushan Blue Jade, Copper, Wine-Scented Jade etc. This could give you a boost in completing the Trade for Profit packs without having to change around your whole production line.<img src="/tutorials/homestead-beginner-guide/img-6.webp" style="width: 60%" />
 
@@ -150,7 +151,7 @@ By pressing on a farm you can check:
 
 ## Retainers
 
-Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" />
+Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" />
 
 There are instances where the worker has no listed skills. This means they can learn any of the skills. The level of a retainer skill determines how fast he finishes a task or how many materials per hour he will produce. You use Artisan’s Manuals to increase the skill level.
 
@@ -160,7 +161,7 @@ Recruiting Retainers: There are several different ways of recruiting retainers.
 
 Then there are the Mortals. There are different requirements to recruit them. Some require you to give them the red Companion’s Call.
 
-Some others simply need to be persuaded with GIft of Gab. Animal type workers usually need some form of food item you can buy in the Consumables store like Dried Fish or Alfalfa.<img src="/tutorials/homestead-beginner-guide/img-12.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-13.webp" style="width: 70%" />
+Some others simply need to be persuaded with GIft of Gab. Animal type workers usually need some form of food item you can buy in the Consumables store like Dried Fish or Alfalfa.<img src="/tutorials/homestead-beginner-guide/img-13.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-12.webp" style="width: 80%" />
 
 You can also filter for specific innate skills at the bottom of the retainer list. Workers with the filtered skill will show a small orange icon in their portrait to indicate that they have the skill.
 
