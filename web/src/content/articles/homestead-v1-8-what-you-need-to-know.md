@@ -268,7 +268,7 @@ Level 5 and above players are most likely to be active, so be on the lookout for
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-29.webp" style="width: 50%" /><img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-30.webp" style="width: 50%" />
 
-- Resetting a Retainer's skills returns the skill books. However, it removes earned experience. The longer the Retainer has been working, the more exp is lost.
+- Resetting a Retainer's skills converts every 500 experience over the initial skill level into one skill book. Leftover exp is not discarded, but retained. So resetting a retainer with 1700 total earned exp would grant 3 books and leave the retainer at 200 exp.
 
 <!--THE END-->
 
