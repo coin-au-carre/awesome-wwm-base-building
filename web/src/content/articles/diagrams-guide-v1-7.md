@@ -158,11 +158,11 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 Enter Construction mode, click **Build** (top right), then **Build Management** (bottom right), and select **Clear Large Diagram Holograms**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878920971194469/image.png?ex=6a4df455&format=webp&hm=4f1ddcec61b7061a552e174143b32e378250235015ea2578150452afb446252d&is=6a4ca2d5&quality=lossless" alt="Build Management menu" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878920971194469/image.png?ex=6a4e9d15&format=webp&hm=9e546da1b08198e0214c02f3b25e0fabd4b6ce50448fc271c4e109079d025d52&is=6a4d4b95&quality=lossless" alt="Build Management menu" style="border-radius: 0.75rem; width: 80%;" />
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921419849748/image.png?ex=6a4df455&format=webp&hm=0bae9a593959c9c7d9adf9af7fa60396e8e1e2a8e6c902c0186bf79319c525ae&is=6a4ca2d5&quality=lossless" alt="Clear Large Diagram Holograms option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921419849748/image.png?ex=6a4e9d15&format=webp&hm=cb367aa86d046ed53e909f01faa9ea28f5ee20b4d904f4d2285ec12c0c89f056&is=6a4d4b95&quality=lossless" alt="Clear Large Diagram Holograms option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921872703638/image.png?ex=6a4df455&format=webp&hm=952757d6f65b3845327fe21b0ff2be4ef4b752c8ec906cb50cb5f0365b89f63c&is=6a4ca2d5&quality=lossless" alt="Interactive components restored after clearing holograms" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516878921872703638/image.png?ex=6a4e9d15&format=webp&hm=a833ed8b36d7c26ca57ac7d60f09cb131cf4afd2e8e1be634f02df3d6272b9f4&is=6a4d4b95&quality=lossless" alt="Interactive components restored after clearing holograms" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 If that button has no effect, it is likely because all your components are filled and there are no ghost (hologram) components left. This is also a [second known issue](https://www.wherebuildersmeet.com/bugs/?bug=cannot-clear-diagram-outlines-for-large-guild-diagram). The workaround is to delete at least one component to create a ghost slot, then try **Clear Large Diagram Holograms** again.
 
