@@ -1,6 +1,6 @@
 ---
 title: "How to remove grass on Beyond Mundane island"
-description: ""
+description: "How to clear the grass on your Beyond Mundane island using building placement, plus a glitch to get underground so you can remove the buried structures afterward."
 tags: ["advanced", "homestead"]
 authors: ["Crueliet"]
 date: 2026-07-07
