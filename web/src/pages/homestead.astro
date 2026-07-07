@@ -22,7 +22,7 @@ const membersRaw: Record<string, HomesteadMember> = JSON.parse(
 )
 const topMembers = Object.values(membersRaw)
   .sort((a, b) => b.level - a.level || a.since.localeCompare(b.since))
-  .slice(0, 10)
+  .slice(0, 15)
 const medal = ["🥇", "🥈", "🥉"]
 function levelEmoji(level: number) {
   return level >= 8 ? "🔥" : "🌱"
@@ -114,19 +114,19 @@ const sheetLinks = [
     <!-- New player tip -->
     <a
       href={`${BASE}/tutorials/homestead-beginner-guide`}
-      class="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+      class="group text-sm text-muted-foreground hover:text-foreground transition-colors"
       data-umami-event="homestead_resource_click"
       data-umami-event-title="Homestead Beginner Guide"
     >
-      <SparkleIcon weight="fill" className="size-4 shrink-0 text-primary" />
+      <SparkleIcon weight="fill" className="size-4 shrink-0 text-primary inline align-text-bottom mr-1.5" />
       Just starting out? We suggest the <span class="font-medium text-foreground underline underline-offset-2">Cylos Beginner Guide</span> first.
-      <ArrowRightIcon weight="bold" className="size-3.5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+      <ArrowRightIcon weight="bold" className="size-3.5 inline align-text-bottom text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
     </a>
 
     <!-- The community's essential guide -->
     <a
       href={`${BASE}/tutorials/homestead-v1-8-what-you-need-to-know`}
-      class="group relative flex items-center gap-4 rounded-2xl overflow-hidden border border-amber-500/30 bg-linear-to-br from-amber-500/10 via-orange-500/5 to-transparent px-5 py-4 shadow-sm transition-all hover:border-amber-500/50 hover:from-amber-500/15 hover:shadow-md hover:-translate-y-0.5"
+      class="group relative flex items-center gap-4 rounded-2xl overflow-hidden border border-amber-500/30 bg-linear-to-br from-amber-500/10 via-orange-500/5 to-transparent px-5 py-4 mt-1 shadow-sm transition-all hover:border-amber-500/50 hover:from-amber-500/15 hover:shadow-md hover:-translate-y-0.5"
       data-umami-event="homestead_featured_guide_click"
     >
       <div class="shrink-0 flex items-center justify-center size-12 rounded-xl bg-amber-500/15 text-2xl group-hover:scale-110 transition-transform">
@@ -141,7 +141,7 @@ const sheetLinks = [
           <ArrowRightIcon weight="bold" className="size-4 text-amber-600 dark:text-amber-400 group-hover:translate-x-1 transition-transform" />
         </p>
         <p class="text-sm text-muted-foreground">
-          Put together by lots of awesome builders — everything you need to get your Homestead going.
+          Put together by lots of awesome builders.
         </p>
       </div>
     </a>
@@ -221,7 +221,7 @@ const sheetLinks = [
     <!-- Homestead level leaderboard -->
     <section class="space-y-2">
       <h2 class="font-heading text-sm font-medium flex items-center gap-1.5">
-        <TrophyIcon weight="duotone" className="size-4 text-primary" /> Top 10 Homestead Fanatics! 🏡✨
+        <TrophyIcon weight="duotone" className="size-4 text-primary" /> Top 15 Homestead Fanatics! 🏡✨
       </h2>
       <p class="text-xs text-muted-foreground">
         Level up your Homestead and climb the ranks —
