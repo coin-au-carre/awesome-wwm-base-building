@@ -69,7 +69,7 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 		if hasReaction(msg, "🚫") {
 			continue
 		}
-		reactions := sumReactions(msg)
+		reactions := uniqueReactorCount(s, channelID, msg)
 		if reactions == 0 {
 			continue
 		}
@@ -113,12 +113,22 @@ func videosFromMessage(msg *discordgo.Message) []string {
 	return urls
 }
 
-func sumReactions(msg *discordgo.Message) int {
-	n := 0
+// uniqueReactorCount counts distinct users who reacted, regardless of how many
+// different emoji each one used, so one person spamming ⭐👍🔥 on the same
+// image only counts once.
+func uniqueReactorCount(s *discordgo.Session, channelID string, msg *discordgo.Message) int {
+	seen := make(map[string]struct{})
 	for _, r := range msg.Reactions {
-		n += r.Count
+		users, err := s.MessageReactions(channelID, msg.ID, r.Emoji.APIName(), 100, "", "")
+		if err != nil {
+			slog.Warn("fetching reaction users", "error", err, "message", msg.ID, "emoji", r.Emoji.Name)
+			continue
+		}
+		for _, u := range users {
+			seen[u.ID] = struct{}{}
+		}
 	}
-	return n
+	return len(seen)
 }
 
 func hasReaction(msg *discordgo.Message, emoji string) bool {
