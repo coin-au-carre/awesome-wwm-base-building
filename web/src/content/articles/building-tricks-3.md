@@ -51,9 +51,9 @@ This second method blends in more naturally with the surroundings.
 
 The guild party area has an open gate that leads directly into the guild wall, which can feel awkward. Placing a gate in it closes the space and makes it feel more cozy.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a4d9ab7&format=webp&hm=3ab7adf7359f842b0770e24f58da25e2a2718e5e16b4a22a20d6eed4f1a67144&is=6a4c4937&quality=lossless" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743602877862019/20265783053.png?ex=6a4e4377&format=webp&hm=e332eff2ea95e4501d5f0ebe15b4b272dbbb2eed55f19edee9d1ad084afacac3&is=6a4cf1f7&quality=lossless" alt="Open gate in the guild party area before placing a gate — opens to nothing but the guild wall" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a4d9ab8&format=webp&hm=eccd62103e7641590703203380c280cf65bdb18fab8912a4a5e39427edc714b5&is=6a4c4938&quality=lossless" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1501743603360464996/20265782714.png?ex=6a4e4378&format=webp&hm=58bbb3142e096c52dcc927bf362c34cf849d9441a9b6c3c11a9db70efcff1bc8&is=6a4cf1f8&quality=lossless" alt="Same gate area after — a gate fills the opening and closes the space" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a4d9be5&format=webp&hm=7a5b8bfedfa59f51f38e56fa83ff945676ccb8d0ec03a4eb28644504127cb41f&is=6a4c4a65&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a4e44a5&format=webp&hm=df7718da1e160fa19eb75dcb20b9da8fe51875585caea2233b04b9114463ec6e&is=6a4cf325&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a4d9c05&format=webp&hm=4491016a15da6bf4b99a6120e3b9925522ccb62d7a268475b6766d70cda2a0d2&is=6a4c4a85&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a4e44c5&format=webp&hm=cab23f0eac87d9e9a02c99b8d65b3db5fd9a7937c19e5dabad71cb01b122c55e&is=6a4cf345&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a4da0c6&format=webp&hm=7b26ecc48e53da6a85fa9b668c9ec3ca1883d695effc39f05faaae889332071c&is=6a4c4f46&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a4e4986&format=webp&hm=1e5dfa4a7a6dbbe60507322e76994f3f71df6f713728e2a4721f46058f23c02f&is=6a4cf806&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
