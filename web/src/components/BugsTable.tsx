@@ -245,6 +245,9 @@ export function BugsTable({ bugs }: { bugs: Bug[] }) {
       return true
     })
     result.sort((a, b) => {
+      const aFixed = a.severity === "fixed"
+      const bFixed = b.severity === "fixed"
+      if (aFixed !== bFixed) return aFixed ? 1 : -1
       let diff = 0
       if (sortKey === "date") {
         diff = parseBugDate(a.date) - parseBugDate(b.date)
