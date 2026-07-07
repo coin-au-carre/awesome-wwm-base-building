@@ -76,7 +76,7 @@ Grand Inns seem to work consistently
 
 ---
 
-If it bugs out, you can adjust the build with Move tool and hope it gets fixed or start over from the beginning
+If it bugs out, you can adjust the building with Move tool and hope it gets fixed or start over from the beginning
 
 ---
 
