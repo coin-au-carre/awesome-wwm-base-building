@@ -389,12 +389,12 @@ func searchBuilds(guilds []promptGuild, solos []promptGuild, keyword string) (st
 	var results []string
 	for _, g := range guilds {
 		if snippets := matchBuild(g, kw); len(snippets) > 0 {
-			results = append(results, fmt.Sprintf("- %s (score:%d) — %s", g.Name, g.Score, strings.Join(snippets, "; ")))
+			results = append(results, fmt.Sprintf("%s (score:%d) — %s", g.Name, g.Score, strings.Join(snippets, "; ")))
 		}
 	}
 	for _, s := range solos {
 		if snippets := matchBuild(s, kw); len(snippets) > 0 {
-			results = append(results, fmt.Sprintf("- [Solo] %s (score:%d) — %s", s.Name, s.Score, strings.Join(snippets, "; ")))
+			results = append(results, fmt.Sprintf("[Solo] %s (score:%d) — %s", s.Name, s.Score, strings.Join(snippets, "; ")))
 		}
 	}
 	if len(results) == 0 {
@@ -403,8 +403,12 @@ func searchBuilds(guilds []promptGuild, solos []promptGuild, keyword string) (st
 	if len(results) > 15 {
 		return fmt.Sprintf("Too many builds match %q (%d results) — do not list them. Instead, tell the user in character that there are too many to name and ask them to be more specific.", keyword, len(results)), len(results)
 	}
-	note := "Mention ALL results listed above — do not skip any. Solo builds are prefixed with [Solo]."
-	return fmt.Sprintf("%d builds found matching %q:\n%s\n\n%s", len(results), keyword, strings.Join(results, "\n"), note), len(results)
+	var numbered strings.Builder
+	for i, r := range results {
+		fmt.Fprintf(&numbered, "%d/%d. %s — YOU MUST MENTION THIS ONE\n", i+1, len(results), r)
+	}
+	note := fmt.Sprintf("There are exactly %d results above, numbered 1/%d through %d/%d. Your reply must name all %d — check the count before sending.", len(results), len(results), len(results), len(results), len(results))
+	return fmt.Sprintf("%d builds found matching %q:\n%s\n%s", len(results), keyword, numbered.String(), note), len(results)
 }
 
 func matchBuild(g promptGuild, kw string) []string {
