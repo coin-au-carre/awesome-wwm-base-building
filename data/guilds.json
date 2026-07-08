@@ -1,5 +1,14 @@
 [
 	{
+		"name": "LotusClan",
+		"builders": [],
+		"discordThread": "",
+		"whatToVisit": "Village",
+		"score": 0,
+		"lastModified": "July 8, 2026 at 08:01 PM UTC",
+		"scoutedByDiscordId": "1030564294443667487"
+	},
+	{
 		"name": "夢回花深處",
 		"builders": [
 			"似水",
