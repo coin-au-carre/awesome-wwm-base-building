@@ -6,7 +6,7 @@ authors: ["AegisNite"]
 date: 2026-06-20
 order: 19
 image: "https://media.discordapp.net/attachments/1517573730992132127/1517573822411178085/202661941052.png?ex=6a4e8142&format=webp&hm=638710c570e93c4869665e45ecf6c1cceea55505c9ef7b282e8dcb37fe059e71&is=6a4d2fc2&quality=lossless"
-featured: true
+featured: false
 ---
 
 <!-- preserve-start -->

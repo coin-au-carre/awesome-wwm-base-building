@@ -6,6 +6,7 @@ authors: ["Crueliet"]
 date: 2026-07-07
 order: 25
 image: "https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a4e5d1f&format=webp&hm=95abeb4f92fa9f2ea45e5fe983a93e89e0b89cfd2da128c1d8e0f212b6897c65&is=6a4d0b9f&quality=lossless"
+featured: true
 ---
 
 **How to remove grass on Beyond Mundane island**
