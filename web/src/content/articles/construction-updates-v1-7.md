@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a4f6f3c&hm=4f1a83ee8ed93cd6dce7ad455be290edca844bfcd7d24cde9dbaeaefeabe822a&is=6a4e1dbc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a5017fc&hm=0bd1d0e4a33bae49ea4ec41c2826400b4bf48f6a54f246ee3685a849aa068f6c&is=6a4ec67c&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a4ff104&format=webp&hm=34584ae0ef6ddf833fc39944357136311247e8482e3091e76df014f9bacf353c&is=6a4e9f84&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a4f7273&hm=a4a809c9a59736bc33b4c7bce3b40c5665ac52d6af61220520a504a00779d76b&is=6a4e20f3&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a501b33&hm=63ac447a1347c27e7dd0b939b06aec51b56411a98bc55c2cd935a063939d7d3b&is=6a4ec9b3&" controls></video>
 </div>
 
 
@@ -83,7 +83,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a4f81cb&format=webp&hm=4be63a3b95b6586c586da100092e3dc94a6271f69dbf0693bc97bc4d0571a29c&is=6a4e304b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a502a8b&format=webp&hm=c92017398f3e0be25b38f18c9ffa9a9c58a7851b27dad53681063934ebd81a84&is=6a4ed90b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
