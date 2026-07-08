@@ -1,5 +1,20 @@
 [
 	{
+		"name": "夢回花深處",
+		"builders": [
+			"似水",
+			"郁竹"
+		],
+		"tags": [
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "The loop of death\nBecome a hamster",
+		"score": 0,
+		"lastModified": "July 8, 2026 at 07:49 PM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "墨雨煙樓",
 		"builders": [
 			"燕·燕琴alya"
