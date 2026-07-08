@@ -1,19 +1,4 @@
 {
-  "streamers": [
-    {
-      "userID": "126791095731486722",
-      "username": "AegisNite Edge",
-      "channelID": "1496814821520441385",
-      "channelName": "Building Unlimited",
-      "startedAt": "2026-07-06T19:43:23.438523848Z"
-    },
-    {
-      "userID": "429283765135736833",
-      "username": "Tetzsuki",
-      "channelID": "1483447711499030636",
-      "channelName": "General",
-      "startedAt": "2026-07-07T22:11:45.454928327Z"
-    }
-  ],
-  "updatedAt": "2026-07-08T00:16:39.19755332Z"
+  "streamers": [],
+  "updatedAt": "2026-07-08T01:12:50.576223508Z"
 }
