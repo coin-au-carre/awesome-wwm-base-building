@@ -1,5 +1,24 @@
 [
 	{
+		"id": "10017591",
+		"name": "風塵酒肆",
+		"builders": [
+			"伊塵部落",
+			"塵默部語"
+		],
+		"tags": [
+			"Architecture",
+			"Cute",
+			"Creative",
+			"Underground/Underwater"
+		],
+		"discordThread": "",
+		"whatToVisit": "Incredible Church spreading Love\nChristmast Tree \u0026 Village\nMill\nClock Tower\nUnderground bar",
+		"score": 2,
+		"lastModified": "July 8, 2026 at 09:36 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"name": "不見山",
 		"builders": [
 			"矩子燕",
