@@ -67,8 +67,8 @@ const items = posts.flatMap((p) => {
 const FOUR_DAYS_MS = 4 * 24 * 60 * 60 * 1000
 const recentCutoff = Date.now() - FOUR_DAYS_MS
 const recentTopItems = items
-  .filter((item) => item.isPrimary && item.postedAt && new Date(item.postedAt).getTime() >= recentCutoff)
-  .sort((a, b) => b.reactions - a.reactions)
+  .filter((item) => item.isPrimary && item.reactions > 0 && item.postedAt && new Date(item.postedAt).getTime() >= recentCutoff)
+  .sort((a, b) => new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime())
   .slice(0, 8)
 ---
 
