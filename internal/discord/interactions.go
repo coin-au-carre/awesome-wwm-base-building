@@ -29,6 +29,7 @@ const (
 	syncUpdatesCommandName   = "sync-updates"
 	syncTagsCommandName      = "sync-tags"
 	syncTutorialsCommandName = "sync-gdoc"
+	syncHomesteadCommandName = "sync-homestead"
 	shareGuildPrefix       = "sbg:"
 	shareSoloPrefix        = "sbs:"
 	dotifyCommandName      = "dotify"
@@ -170,6 +171,10 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 			Description: "Fetch Google Docs tutorials and deploy the site (elevated roles only)",
 		},
 		{
+			Name:        syncHomesteadCommandName,
+			Description: "Trigger homestead level ranking sync (elevated roles only)",
+		},
+		{
 			Name:                     syncTagsCommandName,
 			Description:              "Sync forum channel tags to the canonical list in config/tags.json (admins only)",
 			DefaultMemberPermissions: &adminPerm,
@@ -223,6 +228,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSyncUpdatesCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			case syncTutorialsCommandName:
 				handleSyncTutorialsCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
+			case syncHomesteadCommandName:
+				handleSyncHomesteadCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			case syncTagsCommandName:
 				handleSyncTagsCommand(s, i, root, guildForumChannelID, soloForumChannelID)
 			case dotifyCommandName:

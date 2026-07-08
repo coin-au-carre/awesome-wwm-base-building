@@ -31,6 +31,7 @@ var (
 	bugsSync      syncState
 	updatesSync   syncState
 	tutorialsSync syncState
+	homesteadSync syncState
 )
 
 func handleSyncDataCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
@@ -47,6 +48,10 @@ func handleSyncUpdatesCommand(s *discordgo.Session, i *discordgo.InteractionCrea
 
 func handleSyncTutorialsCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
 	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "tutorials-gdoc-sync.yml", "Tutorials", &tutorialsSync)
+}
+
+func handleSyncHomesteadCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken string) {
+	handleSyncCommand(s, i, bot, notifyChannelID, allowedRoleIDs, githubToken, "sync-homestead.yml", "Homestead rankings", &homesteadSync)
 }
 
 func handleSyncCommand(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, notifyChannelID string, allowedRoleIDs []string, githubToken, workflow, label string, state *syncState) {
