@@ -26,6 +26,8 @@ const topMembers = Object.values(membersRaw)
   .slice(0, 15)
 const medal = ["🥇", "🥈", "🥉"]
 function levelEmoji(level: number) {
+  if (level >= 10) return "💎"
+  if (level >= 9) return "👑"
   return level >= 8 ? "🔥" : "🌱"
 }
 function fileIconFor(href: string) {
@@ -56,23 +58,16 @@ const guideLinks = [
     external: false,
     icon: FileDocIcon,
   },
-  {
-    title: "Angel Retainer Guide",
-    href: "https://docs.google.com/spreadsheets/d/1cKG4sqd7NNFWWqxfXkrAncJBYfbAULT9JcHKZ-qUtYA/edit?usp=sharing",
-    by: "LittleMissAngel♡",
+  ...HOMESTEAD_SHEETS.filter((s) => s.column === "guide").map((s) => ({
+    title: s.title,
+    href: s.href,
+    by: s.by,
     external: true,
-    icon: FileXlsIcon,
-  },
-  {
-    title: "Simple Farming & Specialties",
-    href: "https://docs.google.com/spreadsheets/d/1RnfMBbyvffaij8JeBIoMJQlQHI9S15qAmxZzDwZsoSE/edit?usp=sharing",
-    by: "KCrazy",
-    external: true,
-    icon: FileXlsIcon,
-  },
+    icon: fileIconFor(s.href),
+  })),
 ]
 
-const sheetLinks = HOMESTEAD_SHEETS
+const sheetLinks = HOMESTEAD_SHEETS.filter((s) => s.column !== "guide")
 ---
 
 <Layout
@@ -224,13 +219,13 @@ const sheetLinks = HOMESTEAD_SHEETS
       </p>
       <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
         {topMembers.map((m, i) => (
-          <div class={`px-3.5 py-2 flex items-center gap-3 ${m.level >= 8 ? "bg-amber-500/10" : ""}`}>
+          <div class={`px-3.5 py-2 flex items-center gap-3 ${m.level >= 10 ? "bg-sky-500/10" : m.level >= 9 ? "bg-purple-500/10" : m.level >= 8 ? "bg-amber-500/10" : ""}`}>
             <span class="w-6 text-center text-sm shrink-0">{medal[i] ?? `#${i + 1}`}</span>
             <span class="text-sm font-medium text-foreground truncate flex-1">
               {m.nickname ?? m.globalName ?? m.username}
             </span>
             <span class="text-xs text-muted-foreground shrink-0 hidden sm:inline js-since" data-since={parseLastModified(m.since)} title={m.since}></span>
-            <span class={`text-xs font-semibold shrink-0 ${m.level >= 8 ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>{levelEmoji(m.level)} Lv. {m.level}</span>
+            <span class={`text-xs font-semibold shrink-0 ${m.level >= 10 ? "text-sky-600 dark:text-sky-400" : m.level >= 9 ? "text-purple-600 dark:text-purple-400" : m.level >= 8 ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>{levelEmoji(m.level)} Lv. {m.level}</span>
           </div>
         ))}
       </div>

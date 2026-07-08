@@ -3,9 +3,24 @@ export interface HomesteadSheet {
   description: string
   href: string
   by: string
+  column?: "guide" | "sheet"
 }
 
 export const HOMESTEAD_SHEETS: HomesteadSheet[] = [
+  {
+    title: "Angel Retainer Guide",
+    description: "Retainer planner",
+    href: "https://docs.google.com/spreadsheets/d/1cKG4sqd7NNFWWqxfXkrAncJBYfbAULT9JcHKZ-qUtYA/edit?usp=sharing",
+    by: "LittleMissAngel♡",
+    column: "guide",
+  },
+  {
+    title: "Simple Farming & Specialties",
+    description: "Farming & specialties consumption tracker",
+    href: "https://docs.google.com/spreadsheets/d/1RnfMBbyvffaij8JeBIoMJQlQHI9S15qAmxZzDwZsoSE/edit?usp=sharing",
+    by: "KCrazy",
+    column: "guide",
+  },
   {
     title: "Goose Calcs",
     description: "Recipes calculation & planner",
