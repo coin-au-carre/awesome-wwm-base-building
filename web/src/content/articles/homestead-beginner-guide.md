@@ -71,6 +71,7 @@ This page is a web version of Cylos guide available on [Google Doc](https://docs
 
 
 
+
 Homestead Guide
 
 ## Basics<img src="/tutorials/homestead-beginner-guide/img-1.webp" style="width: 80%" />
@@ -148,7 +149,7 @@ Alternatively you can also change the Tab to Seeds and plant them from there by
 
 In the Tend Tab you will find the option to Remove crops. You can use this to delete unwanted crops you planted.
 
-By going to the main homestead screen and pressing on Farming you will be presented with this UI. Here you can see all your farms and what you planted on them. <img src="/tutorials/homestead-beginner-guide/img-22.webp" style="width: 20%" /><img src="/tutorials/homestead-beginner-guide/img-21.webp" style="width: 80%" />
+By going to the main homestead screen and pressing on Farming you will be presented with this UI. Here you can see all your farms and what you planted on them. <img src="/tutorials/homestead-beginner-guide/img-21.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-22.webp" style="width: 20%" />
 
 By pressing on a farm you can check:
 
@@ -164,7 +165,7 @@ By pressing on a farm you can check:
 
 ## Retainers
 
-Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" />
+Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" />
 
 There are instances where the worker has no listed skills. This means they can learn any of the skills. The level of a retainer skill determines how fast he finishes a task or how many materials per hour he will produce. You use Artisan’s Manuals to increase the skill level.
 
@@ -188,7 +189,7 @@ Retainer skills: As previously mentioned some retainers come with innate skills 
 
 ## The Inn<img src="/tutorials/homestead-beginner-guide/img-23.webp" style="width: 70%" />
 
-The Inn is a facility building and is where you make most of your Bounty Gourds. You do this by cooking dishes and then catering them. Depending on the level of your Inn you can place a varying amount of stoves and tables & it also determines the amount of retainers you can send fishing & hunting. Stoves determine the amount of cooks you can use and tables determine the amount of dishes/drinks you can sell. There is no difference in profit or productivity between basic and standard stoves/tables, you only get more prosperity for placing them and you do need to place them to be able to upgrade your Inn. You can tell how many furnaces/tables you can place by checking the Inn UI. It will also tell you how many retainers you can employ by clicking on the icon below the hammer. Furthermore, do you get a recommendation of what to cook for the most profit and an overview of how much income you have made today. It also shows your warehouse deposit cap. The same applies for catering. You get a recommended sales plan by selecting Cater. This will show you the setup for the most profit/ideal setup you can currently make. <img src="/tutorials/homestead-beginner-guide/img-25.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-26.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-24.webp" style="width: 50%" />
+The Inn is a facility building and is where you make most of your Bounty Gourds. You do this by cooking dishes and then catering them. Depending on the level of your Inn you can place a varying amount of stoves and tables & it also determines the amount of retainers you can send fishing & hunting. Stoves determine the amount of cooks you can use and tables determine the amount of dishes/drinks you can sell. There is no difference in profit or productivity between basic and standard stoves/tables, you only get more prosperity for placing them and you do need to place them to be able to upgrade your Inn. You can tell how many furnaces/tables you can place by checking the Inn UI. It will also tell you how many retainers you can employ by clicking on the icon below the hammer. Furthermore, do you get a recommendation of what to cook for the most profit and an overview of how much income you have made today. It also shows your warehouse deposit cap. The same applies for catering. You get a recommended sales plan by selecting Cater. This will show you the setup for the most profit/ideal setup you can currently make. <img src="/tutorials/homestead-beginner-guide/img-26.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-25.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-24.webp" style="width: 50%" />
 
 To start cooking click on the + icon on the left side to select the dish you want to make. Then click on the + on the right side to add the retainer.
 

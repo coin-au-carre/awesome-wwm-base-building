@@ -49,7 +49,7 @@ featured: false
 ## Near a certain musician in Kaifeng Palace
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/vehs" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">vehs</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a4edfd0&format=webp&hm=1d2c9f7753001de820053214614531da551f4e89730b434e5f0a473bc7be5a59&is=6a4d8e50&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a4f8890&format=webp&hm=f7a5aed0b8a033484ed440f0be2b09d949a4cae302c20e01b8cd2641d1405e37&is=6a4e3710&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---

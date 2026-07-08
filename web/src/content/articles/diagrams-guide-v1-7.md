@@ -34,22 +34,22 @@ There are 3 types of diagrams:
 
 1. Select your diagram and choose **Place**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501004306845767/image.png?ex=6a4ee631&format=webp&hm=609d056d71d454703933d946241c3559a5668171b9d498924d71a49af49d9759&is=6a4d94b1&quality=lossless" alt="Selecting and placing a diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501004306845767/image.png?ex=6a4f8ef1&format=webp&hm=fe83fe64f59ba9dbd1a58d5e4af1bd3e9f586db2733e7d956bccaf283ec187c5&is=6a4e3d71&quality=lossless" alt="Selecting and placing a diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
 
 2. Once placed, move your character close to or inside the placed diagram. A popup will appear with your diagram name.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005221073117/image.png?ex=6a4ee631&format=webp&hm=3d8549a132b304f51a712ae766349c469fca3345a357d8a04e19fd0586551a48&is=6a4d94b1&quality=lossless" alt="Diagram popup appearing near the placed diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005221073117/image.png?ex=6a4f8ef1&format=webp&hm=303b0d52b553a1ca6342d5b8078211f8d0f5b1dda27189d17f77b675b5a5a1cf&is=6a4e3d71&quality=lossless" alt="Diagram popup appearing near the placed diagram" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
 
 3. Select your diagram name, then choose **Auto Completion > Completion**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005976043591/image.png?ex=6a4ee631&format=webp&hm=bdfe95799e74a4a6eb16b5b23eb5724af550d0d3ec7c232c465a7524c7763e08&is=6a4d94b1&quality=lossless" alt="Auto Completion option in the diagram popup" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501005976043591/image.png?ex=6a4f8ef1&format=webp&hm=d2018cc57e9643975d80f776cfd92bc5c4cbf1933c5ddad860e3ed1ef247662e&is=6a4e3d71&quality=lossless" alt="Auto Completion option in the diagram popup" style="border-radius: 0.75rem; width: 80%; margin-top: 0.5rem;" />
 
 4. The diagram fills automatically if you have enough components (solo) or guild funds (guild)
 5. The diagram outline can stay as-is, but removing any component from it will produce a blue ghost component. To get rid of the outline entirely, select **Remove Diagram > Remove only diagram outline**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501006789873780/image.png?ex=6a4ee631&format=webp&hm=7e2d934c9cf8fd8f50dd7a4bf4217a3e5bf7f8498bb6f74644fbfda4abc3b850&is=6a4d94b1&quality=lossless" alt="Remove Diagram option" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501006789873780/image.png?ex=6a4f8ef1&format=webp&hm=bc02ea1d7309520bb2108432a392acf7437a43f350b3f403cc72f83fe46f03e7&is=6a4e3d71&quality=lossless" alt="Remove Diagram option" style="border-radius: 0.75rem; width: 80%;" />
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501007452442674/image.png?ex=6a4ee631&format=webp&hm=b068003c6f0e78334b5fa34ca4f2a991b5d6b64ee83cbeb8b082c58bd650161a&is=6a4d94b1&quality=lossless" alt="Remove only diagram outline option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1517501007452442674/image.png?ex=6a4f8ef1&format=webp&hm=5bde102220625b96dc97565f19cc2bc3e8cec33fbf1fff306733288e5b0de027&is=6a4e3d71&quality=lossless" alt="Remove only diagram outline option" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 
 ---
@@ -57,7 +57,7 @@ There are 3 types of diagrams:
 ## Create and use Solo Small Diagrams [Guild + Solo]
 
 <div class="video-embed" style="width: 80%;">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a4ef37e&hm=6fc261986647864247e5c380d34b78fb0482631b9db446ebfb265d6d04eeb964&is=6a4da1fe&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a4f9c3e&hm=be6387cd26b4805cebc83f0e1f6e83c47a9aae595a42e1b6668705996819640f&is=6a4e4abe&" controls></video>
 </div>
 
 
@@ -65,7 +65,7 @@ Found under the **"Small Diagram"** category in the Diagram tab.
 
 These diagrams can only be **created in Solo World**, but can be applied in both solo world and guild bases. → [How to save a diagram](#how-to-save-a-diagram)
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a4ef0bb&format=webp&hm=68f6a22f65815c7ae54debb3cb49b6a4e35d8214b956e3c776562443c83b35d5&is=6a4d9f3b&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a4f997b&format=webp&hm=d8f6cf5b8bf00877b7456b824e94bc4d094633b54d2970519eaba1251cc83d01&is=6a4e47fb&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
 
 
 ---
@@ -132,9 +132,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a4ee115&format=webp&hm=c6c5ba0f9e2fa81c03c01f486a69bf73e1a27188a4ff82624bb8631c736e12a7&is=6a4d8f95&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a4f89d5&format=webp&hm=10d8ad2264a5f6f6173c49b0003213f31896f7e1cdec87326a8127db7befc3f5&is=6a4e3855&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a4ee115&format=webp&hm=7861edc1858690d62801c9c2aaf7b0d86a03c36f31093f8b4e42574eba17a6c2&is=6a4d8f95&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a4f89d5&format=webp&hm=062a396e526412d407fe9fa0ec7e27ef814ac95dbc93f3f2a17060ae0fed51fa&is=6a4e3855&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 There is a workaround: add components you own directly inside the diagram area to raise your ownership percentage above the 70% threshold.
 
@@ -144,7 +144,7 @@ There is a workaround: add components you own directly inside the diagram area t
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place. We consider this as a bug <https://www.wherebuildersmeet.com/bugs/?bug=small-diagrams-placement-is-tedious>. One solution is to use "Recommended Spot". 
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a4ed90b&format=webp&hm=e680f6e69a97dca4d8bd2428e8076a1da7f0a7fea1a808901c5b5b56d74e869b&is=6a4d878b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a4f81cb&format=webp&hm=4be63a3b95b6586c586da100092e3dc94a6271f69dbf0693bc97bc4d0571a29c&is=6a4e304b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
