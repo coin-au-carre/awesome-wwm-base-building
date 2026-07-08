@@ -1,5 +1,16 @@
 [
 	{
+		"name": "墨雨煙樓",
+		"builders": [
+			"燕·燕琴alya"
+		],
+		"discordThread": "",
+		"whatToVisit": "Bar \nCarousel \nLakeside pavilions\nGuild event area",
+		"score": 0,
+		"lastModified": "July 8, 2026 at 12:34 PM UTC",
+		"scoutedByDiscordId": "1030564294443667487"
+	},
+	{
 		"name": "夜貓窩",
 		"builders": [
 			"莫蕊蕊"
