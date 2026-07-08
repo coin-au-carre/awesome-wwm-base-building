@@ -1,5 +1,20 @@
 [
 	{
+		"name": "夜貓窩",
+		"builders": [
+			"莫蕊蕊"
+		],
+		"tags": [
+			"Cute",
+			"Creative"
+		],
+		"discordThread": "",
+		"whatToVisit": "Cats\nMini tori gates leading to cats divinities to pray\nMini games for guildies\nUse many diagrams from other authors but builder creations are its own",
+		"score": 1,
+		"lastModified": "July 8, 2026 at 10:09 AM UTC",
+		"scoutedByDiscordId": "149790526076354561"
+	},
+	{
 		"id": "10017591",
 		"name": "風塵酒肆",
 		"builders": [
