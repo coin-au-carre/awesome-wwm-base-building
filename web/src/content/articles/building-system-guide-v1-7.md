@@ -15,25 +15,12 @@ Presentation of the Where Winds Meet building system by **AegisNite**, covering 
 
 > **PC only** — some features shown (precision tool, 2-axis rotation) are not yet available on mobile or PS5.
 
-<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+<div style="aspect-ratio: 16 / 9; max-width: 900px; margin: 0 auto 1.5rem; border-radius: 0.75rem; overflow: hidden;">
   <iframe
-    id="tt-7648377225657486624"
-    src="https://www.tiktok.com/embed/v2/7648377225657486624"
+    src="https://www.youtube.com/embed/CDD4Uf12_js"
     title="WWM Building System Guide with v1.7 Changes by AegisNite"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen
-    style="width: 100%; max-width: 605px; height: 740px; border: 0; border-radius: 0.75rem;"
+    style="width: 100%; height: 100%; border: 0;"
   ></iframe>
 </div>
-<script>
-  (function () {
-    const iframe = document.getElementById("tt-7648377225657486624");
-    const base = "https://www.tiktok.com/embed/v2/7648377225657486624";
-    function sync() {
-      const dark = document.documentElement.classList.contains("dark");
-      iframe.src = dark ? base + "?dark_mode=1" : base;
-    }
-    sync();
-    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  })();
-</script>
