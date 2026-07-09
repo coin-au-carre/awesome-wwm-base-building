@@ -144,11 +144,11 @@ There is a workaround: add components you own directly inside the diagram area t
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place. We consider this as a bug <https://www.wherebuildersmeet.com/bugs/?bug=small-diagrams-placement-is-tedious>. One solution is to use "Recommended Spot". 
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a502a8b&format=webp&hm=c92017398f3e0be25b38f18c9ffa9a9c58a7851b27dad53681063934ebd81a84&is=6a4ed90b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a50d34b&format=webp&hm=2e045466c9aaf0f2d549e7f78214690f503b2fdc681c9c4d4eab9f5d443a384b&is=6a4f81cb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a501547&hm=e3801856bc4d28a1acc9065c21364f749b63708929673d28595bb3f5d2f259a5&is=6a4ec3c7&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a50be07&hm=b4464439cf043cf751902f7200d6f4bcddcd882b4cd44671d724ebb49ff9b7d2&is=6a4f6c87&" controls></video>
 </div>
 
 

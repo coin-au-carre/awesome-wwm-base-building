@@ -22,7 +22,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a5010c9&format=webp&hm=d070dfe436cc2d6cdc78f0247442b61feffc5960b06efb064a86ad38d62c9c68&is=6a4ebf49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a50b989&format=webp&hm=f0ccc012e168333c179d3a575b4acad21dd12746b09ff5e023e00a9d7fa94a00&is=6a4f6809&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 悬 - hang
 壶 - gourd
@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a501948&format=webp&hm=e6fcf83c24b01b95e093236106a58ded9c34f745a1b17404d02d57c936f533cf&is=6a4ec7c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a50c208&format=webp&hm=055046e2d18c2b4d0f147c5c7633f5b47607e077ec5d373c441d6695a84d8b2d&is=6a4f7088&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a501984&format=webp&hm=20dd52135060b273795ce1d7a91201fd83ab0f9f3a658cc86823fed87c7184e1&is=6a4ec804&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a50c244&format=webp&hm=796b434dd2c3da8784d2ea4fbb92e02f6a8c0e0cf1c97e6b1b4eeef5c0d4288d&is=6a4f70c4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 萬 ten thousand
 家 family
@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a502aa6&format=webp&hm=79abcdc299c8f18d34d501782df69262995a1384ebc1aeb80e6c8d535af56390&is=6a4ed926&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a50d366&format=webp&hm=79edcccb79ee3a1e637903a22b0a3a639c6cec5ad06204c45be12da49a9347df&is=6a4f81e6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a502b91&format=webp&hm=25d00885cce6b9996c243bbad4d0dc45b0b916e73ac8cadebb240775ea1c561f&is=6a4eda11&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a50d451&format=webp&hm=67e68312b884ccbfccf68c527f72fdaab982ae6dc46e3b0e85868eb5c50563c1&is=6a4f82d1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -81,7 +81,7 @@ Roughly translated, it means "one's character does not leave the pine (tree); it
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a502c77&format=webp&hm=5a3bb1d42b618d9768ec8dce362ff985c4686b409524b1c3e213069f37b9444a&is=6a4edaf7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a50d537&format=webp&hm=42eca9f599949c3635dada4bb3a639b827d93752524ada48a166e1137ff17ae2&is=6a4f83b7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驿 - postal (relay station)
 
@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a502da1&format=webp&hm=e9b6b6e581a5e8140cb0049b16e06ee557072a68c058bb44c652809971887224&is=6a4edc21&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a50d661&format=webp&hm=e154340ac46c1b6975216a726d7b4c87fe5066c5fa853afd8f8c15482461ae2b&is=6a4f84e1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 天 Heaven
 石 Stone
@@ -172,7 +172,7 @@ Can use this anywhere you want to name "Jade Gate Pass"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a501536&format=webp&hm=7c6fbc2cc00ccd7fa3de271a343b8c170f7885c1e5162aa8f51ee9e8a745611f&is=6a4ec3b6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a50bdf6&format=webp&hm=3c6b904fb1f2e9ec706f3c9a5b33a826d86da7051dc93a4ac8bcbe2a93fac09a&is=6a4f6c76&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 
