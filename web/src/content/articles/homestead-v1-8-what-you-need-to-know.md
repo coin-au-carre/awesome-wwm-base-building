@@ -8,7 +8,7 @@ updatedDate: 2026-07-09
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a50c538&format=webp&hm=7ac7b8e43a5f26e4540fb89ad8ab64ccc960760c5598d12dfbb83ea4edf312e8&is=6a4f73b8&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a516df8&format=webp&hm=e76b73f850526b89c481aa5518cfe7fc1054bd378a29911643c236380dea2e03&is=6a501c78&quality=lossless"
 ---
 
 Credit to Parzival for the cover image
