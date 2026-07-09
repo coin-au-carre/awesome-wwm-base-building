@@ -35,6 +35,16 @@ const (
 	dotifyCommandName      = "dotify"
 )
 
+// Homestead level 5-10 roles, in addition to Trusted Eye/Member, may trigger /sync-homestead.
+var homesteadSyncRoleIDs = []string{
+	"1523025455047770193",
+	"1523026273712996513",
+	"1523026359209824408",
+	"1523026488981721088",
+	"1523740416023990523",
+	"1523982664237846579",
+}
+
 var submitMu sync.Mutex
 
 func logCommandUsage(bot *Bot, i *discordgo.InteractionCreate, devChannelID string) {
@@ -229,7 +239,7 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 			case syncTutorialsCommandName:
 				handleSyncTutorialsCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
 			case syncHomesteadCommandName:
-				handleSyncHomesteadCommand(s, i, bot, botChannelID, []string{trustedEyeRoleID, trustedMemberRoleID}, githubToken)
+				handleSyncHomesteadCommand(s, i, bot, botChannelID, append([]string{trustedEyeRoleID, trustedMemberRoleID}, homesteadSyncRoleIDs...), githubToken)
 			case syncTagsCommandName:
 				handleSyncTagsCommand(s, i, root, guildForumChannelID, soloForumChannelID)
 			case dotifyCommandName:
