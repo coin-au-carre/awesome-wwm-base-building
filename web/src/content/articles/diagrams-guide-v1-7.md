@@ -7,7 +7,7 @@ date: 2026-06-17
 order: 18
 featured: true
 toc: true
-image: "https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a4fa0e5&format=webp&hm=dbe4bcc8676cc5a6a5af52affdde18caad79be3ac0390870d5d864db96402ece&is=6a4e4f65&quality=lossless"
+image: "https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a5049a5&format=webp&hm=353a0a1eb9f5055f00cfbeb2f5a8319c3131a585a2732de023b776feda4e3012&is=6a4ef825&quality=lossless"
 ---
 
 Diagrams let you save and reuse constructions. v1.7 introduces three types depending on your context.
@@ -57,7 +57,7 @@ There are 3 types of diagrams:
 ## Create and use Solo Small Diagrams [Guild + Solo]
 
 <div class="video-embed" style="width: 80%;">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a4f9c3e&hm=be6387cd26b4805cebc83f0e1f6e83c47a9aae595a42e1b6668705996819640f&is=6a4e4abe&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a5044fe&hm=4d9917f5348ba664a24636c19314a0321b6c216a1b7d802c8e1b6f444a0133df&is=6a4ef37e&" controls></video>
 </div>
 
 
@@ -65,7 +65,7 @@ Found under the **"Small Diagram"** category in the Diagram tab.
 
 These diagrams can only be **created in Solo World**, but can be applied in both solo world and guild bases. → [How to save a diagram](#how-to-save-a-diagram)
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a4f997b&format=webp&hm=d8f6cf5b8bf00877b7456b824e94bc4d094633b54d2970519eaba1251cc83d01&is=6a4e47fb&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516787546154340392/image.png?ex=6a50423b&format=webp&hm=46818fca95f8dfdf0c341d5e46c6cb9945b52f9d76813c699a1a1b3613a19984&is=6a4ef0bb&quality=lossless" alt="Solo Small Diagram category in the Diagram tab" style="border-radius: 0.75rem; width: 80%;" />
 
 
 ---
@@ -76,7 +76,7 @@ Found under the **"Mine"** category in the Diagram tab.
 
 These diagrams save your **entire guild base**. Use them as full base backups or to share a complete layout. → [How to save a diagram](#how-to-save-a-diagram)
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a4fa0e5&format=webp&hm=dbe4bcc8676cc5a6a5af52affdde18caad79be3ac0390870d5d864db96402ece&is=6a4e4f65&quality=lossless" alt="Large Guild Diagram — taking a free slot" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a5049a5&format=webp&hm=353a0a1eb9f5055f00cfbeb2f5a8319c3131a585a2732de023b776feda4e3012&is=6a4ef825&quality=lossless" alt="Large Guild Diagram — taking a free slot" style="border-radius: 0.75rem; width: 80%;" />
 
 
 ---
@@ -88,21 +88,21 @@ Found under the **"Small Diagram - Mine"** category in the Diagram tab.
 These diagrams save a **section** of your guild base, useful for replicating parts of a construction. The maximum is **1,000 components**.
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a4fa411&format=webp&hm=8376757db804d496cd2e1d1f2aab9b3eee9a38e56cd62a787fe1c107f9cda49b&is=6a4e5291&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a504cd1&format=webp&hm=31acacccbd7f86e3626f6c77dd751073a749af1407e405e80a0f297c0d464ff9&is=6a4efb51&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
 ## How to save any diagram
 
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a4fa5d4&hm=a920d93c482f32b748a47b61a966d014fc83aad29a6f21c32861e5874cab6946&is=6a4e5454&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a504e94&hm=97863f49b70c2040af96dc7832833583fbb9336ed2051dead61feae7826162a5&is=6a4efd14&" controls></video>
 </div>
 
 The save process is the same for all diagram types:
 
 **1.** In the Diagram tab, take a free slot. You enter **diagram edit mode**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a4fa411&format=webp&hm=8376757db804d496cd2e1d1f2aab9b3eee9a38e56cd62a787fe1c107f9cda49b&is=6a4e5291&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a504cd1&format=webp&hm=31acacccbd7f86e3626f6c77dd751073a749af1407e405e80a0f297c0d464ff9&is=6a4efb51&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
 
 **2.** Choose the region you want to capture (does not apply to Large Guild Diagram)
@@ -110,17 +110,17 @@ The save process is the same for all diagram types:
 **3.** Click **"Leave"**. A panel opens where you can set the Diagram Name, choose an image, icon, and add a note.
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505638637662/image.png?ex=6a4fa0e5&format=webp&hm=ebb5a578149969079bbd3ca8c3f0ca9d4eaeb1a0ce38d0c0bee77edfffabc130&is=6a4e4f65&quality=lossless" alt="Large Guild Diagram — diagram edit mode" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505638637662/image.png?ex=6a5049a5&format=webp&hm=f5812f108d74a1c12e0a76663083029633a3d4faf316bf7ff957c9f2649aaf6b&is=6a4ef825&quality=lossless" alt="Large Guild Diagram — diagram edit mode" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 
 **4.** Click **"Save & Exit"** to confirm. 
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506259656804/image.png?ex=6a4fa0e5&format=webp&hm=a9a042b7d5248bc37feb233dc56517b3e4b6c9e8f95d6e05055b402c924167a6&is=6a4e4f65&quality=lossless" alt="Large Guild Diagram — save panel" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506259656804/image.png?ex=6a5049a5&format=webp&hm=f25a2139e012b47740711835e7b4fa38d2528a1911bd22d1deb7b26e89a89fc6&is=6a4ef825&quality=lossless" alt="Large Guild Diagram — save panel" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 The choice between "Save & Exit" and "Leave directly" from the final modal makes no difference.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506678825071/image.png?ex=6a4fa0e5&format=webp&hm=769ed12f7a59109e3d7a53e90a1cc82d737871218bd6321531ff86ad2c35360f&is=6a4e4f65&quality=lossless" alt="Large Guild Diagram — saved result" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506678825071/image.png?ex=6a5049a5&format=webp&hm=1a1a32f34f075a1ce37af709bec48a9a5c9199da3d06b01a314bac93df72865d&is=6a4ef825&quality=lossless" alt="Large Guild Diagram — saved result" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 ---
 
