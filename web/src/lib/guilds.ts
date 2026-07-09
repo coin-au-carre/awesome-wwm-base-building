@@ -96,11 +96,25 @@ export function getGuildBuilds(name: string): RankedGuild[] {
   return RANKED_GUILDS.filter((g) => g.name === name)
 }
 
+/** Guilds in JSON insertion order (newest last), reversed to newest-first — unlike getGuildsSortedByScore, which is ranked by score. */
+export function getGuildsByRecency(): RankedGuild[] {
+  return [...ALL_GUILDS].reverse()
+    .map((g) => RANKED_GUILDS.find((r) => r.discordThread === g.discordThread))
+    .filter((g): g is RankedGuild => g !== undefined)
+}
+
 export function getSolosSortedByScore(): RankedGuild[] { return RANKED_SOLOS }
 export function getSoloBySlug(slug: string): RankedGuild | undefined {
   return RANKED_SOLOS.find((g) => g.slug === slug)
 }
 export function getAllSoloTags(): string[] { return SOLO_TAGS }
+
+/** Solos in JSON insertion order (newest last), reversed to newest-first — unlike getSolosSortedByScore, which is ranked by score. */
+export function getSolosByRecency(): RankedGuild[] {
+  return [...ALL_SOLOS].reverse()
+    .map((g) => RANKED_SOLOS.find((r) => r.discordThread === g.discordThread))
+    .filter((g): g is RankedGuild => g !== undefined)
+}
 
 export function hasSolos(): boolean { return ALL_SOLOS.length > 0 }
 

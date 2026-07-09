@@ -51,6 +51,13 @@ export function getBlueprintsSortedByScore(): RankedBlueprint[] { return RANKED_
 export function getBlueprintBySlug(slug: string): RankedBlueprint | undefined {
   return RANKED_BLUEPRINTS.find((bp) => bp.slug === slug)
 }
+
+/** Blueprints in JSON insertion order (newest last), reversed to newest-first — unlike getBlueprintsSortedByScore, which is ranked by score. */
+export function getBlueprintsByRecency(): RankedBlueprint[] {
+  return [...ALL_BLUEPRINTS].reverse()
+    .map((bp) => RANKED_BLUEPRINTS.find((r) => r.discordThread === bp.discordThread))
+    .filter((bp): bp is RankedBlueprint => bp !== undefined)
+}
 export function getAllBlueprintTags(): string[] { return BLUEPRINT_TAGS }
 export function hasBlueprints(): boolean { return ALL_BLUEPRINTS.length > 0 }
 

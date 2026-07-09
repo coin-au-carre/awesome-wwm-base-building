@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss"
 import type { APIContext } from "astro"
-import { getGuildsSortedByScore, getSolosSortedByScore } from "@/lib/guilds"
-import { getBlueprintsSortedByScore } from "@/lib/blueprints"
+import { getGuildsByRecency, getSolosByRecency } from "@/lib/guilds"
+import { getBlueprintsByRecency } from "@/lib/blueprints"
 import { parseLastModified } from "@/lib/dates"
 import type { RankedGuild } from "@/types/guild"
 import type { RankedBlueprint } from "@/types/blueprint"
@@ -77,14 +77,10 @@ function buildBlueprintItems(entries: RankedBlueprint[]) {
 }
 
 export async function GET(context: APIContext) {
-  const guilds = getGuildsSortedByScore()
-  const solos = getSolosSortedByScore()
-  const blueprints = getBlueprintsSortedByScore()
-
-  // Take the 30 most recently added from each (JSON file order, reversed = newest first)
-  const recentGuilds = [...guilds].reverse().slice(0, 30)
-  const recentSolos = [...solos].reverse().slice(0, 30)
-  const recentBlueprints = [...blueprints].reverse().slice(0, 30)
+  // Take the 30 most recently added from each, newest first
+  const recentGuilds = getGuildsByRecency().slice(0, 30)
+  const recentSolos = getSolosByRecency().slice(0, 30)
+  const recentBlueprints = getBlueprintsByRecency().slice(0, 30)
 
   const items = [
     ...buildItems(recentGuilds, "guilds"),
