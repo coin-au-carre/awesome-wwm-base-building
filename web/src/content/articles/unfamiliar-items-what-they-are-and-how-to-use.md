@@ -5,7 +5,7 @@ tags: ["beginner", "guild", "solo"]
 authors: ["Crueliet"]
 date: 2026-06-23
 order: 20
-image: "https://media.discordapp.net/attachments/1518138757063114823/1518138819117842432/image.png?ex=6a4fe6b4&format=webp&hm=860d0b07eefc0563b161aacc0e473e7cf2eb3400047f2fbd3cc7036ac40abfbf&is=6a4e9534&quality=lossless"
+image: "https://media.discordapp.net/attachments/1518138757063114823/1518138819117842432/image.png?ex=6a508f74&format=webp&hm=e5de3a6261281efe87bc6bc1f908b839f52600e3e32e6bd488d2041d66270bd1&is=6a4f3df4&quality=lossless"
 featured: false
 ---
 
@@ -19,7 +19,7 @@ Bottom piece is a metal base. Top piece is a very heavy lid to seal in whatever 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518138819117842432/image.png?ex=6a4fe6b4&format=webp&hm=860d0b07eefc0563b161aacc0e473e7cf2eb3400047f2fbd3cc7036ac40abfbf&is=6a4e9534&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518138819117842432/image.png?ex=6a508f74&format=webp&hm=e5de3a6261281efe87bc6bc1f908b839f52600e3e32e6bd488d2041d66270bd1&is=6a4f3df4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -27,7 +27,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518138871106240552/image.png?ex=6a4fe6c0&format=webp&hm=f1c3f46e800b50e14fb43d6dd331897dc3a2893d7a2364e2ad427501b12d0808&is=6a4e9540&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518138871106240552/image.png?ex=6a508f80&format=webp&hm=9fec24df5b14262bb8f66a590677a0fdce666d802430f2eda557e4d384204488&is=6a4f3e00&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -39,7 +39,7 @@ Not exactly on top of a wok like this, but it must be placed over an open flame.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518138970146340964/image.png?ex=6a4fe6d8&format=webp&hm=e5fcd2b4de564d197e1f5048096d84afe5bd2e7c30c74f2a582d0ec7a0c6895b&is=6a4e9558&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518138970146340964/image.png?ex=6a508f98&format=webp&hm=c15b2e86a08ca6da5d6c806a33323573428a8e5ef4556595dd2ae2ee9a507bf0&is=6a4f3e18&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -51,7 +51,7 @@ Proper usage: Back of the booth are cheat sheets. Look closely at the bottom of 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139187096846386/image.png?ex=6a4fe70b&format=webp&hm=61fa5829118256f1f8d053a7125a51fc1d178b92fa758be73d755671dab9de23&is=6a4e958b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139187096846386/image.png?ex=6a508fcb&format=webp&hm=d75952a1e26a3a1fd8d3b119e9169a4b9559f9d29070273e6bfad462b98a7fc7&is=6a4f3e4b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -59,7 +59,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139227114836008/image.png?ex=6a4fe715&format=webp&hm=2aa9e885a35d391b22a91260d9a84b452b22409b3007c2057a7de84c391306e0&is=6a4e9595&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139227114836008/image.png?ex=6a508fd5&format=webp&hm=968f1eba9953ef9731b4e10ae6be8c8839f7f54e99b7fb469da2d701f936c541&is=6a4f3e55&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -67,7 +67,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139283209195630/image.png?ex=6a4fe722&format=webp&hm=6a9b8bdb654b358a4f44705511af2c2c89352c7ca44731211f4e8f7eb38864bd&is=6a4e95a2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139283209195630/image.png?ex=6a508fe2&format=webp&hm=171f7ed64ae6754d222a3b11b5264b3169a62ab2a63afb7cbe44b4f9fed369d7&is=6a4f3e62&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -75,7 +75,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139329074167983/image.png?ex=6a4fe72d&format=webp&hm=ac01784a607e6aa50d6ba4585a4a8a0c8683f049fe5f21bfbe4703cabbfaa6b7&is=6a4e95ad&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139329074167983/image.png?ex=6a508fed&format=webp&hm=c7b1a773eeed3bb450015d224663db214ddde9c0c252d682841be36c9dea6a51&is=6a4f3e6d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -87,7 +87,7 @@ For the complete setup. Check out the fountain right next to the guild pool part
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139468387844108/image.png?ex=6a4fe74e&format=webp&hm=ca870f18ee6901855f7e56209c07fbf5420210d99db9b3c16bdf66f38efbece9&is=6a4e95ce&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139468387844108/image.png?ex=6a50900e&format=webp&hm=a97577364f49ebf8bd5735982c463f202cf1f961a540affd36341fda9e5e3c59&is=6a4f3e8e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -101,7 +101,7 @@ Put near water. Can be partially submerged
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139548473757766/image.png?ex=6a4fe762&format=webp&hm=f6339568c482ef5bdbab0092069a3311b6f13d6652c4a3ef4b14788758f549f4&is=6a4e95e2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139548473757766/image.png?ex=6a509022&format=webp&hm=fe5f90073212e5852454958ce8ee14262a964a98bcb584e3fa864692b881c8f1&is=6a4f3ea2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -113,7 +113,7 @@ Proper usage: Unlike lucky bamboo (mini indoor bamboo). True bamboo cannot survi
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139642183024721/image.png?ex=6a4fe778&format=webp&hm=411ae36f13dc57942e992b2be0226bb54df9b891aee49289ed7da363d49cb910&is=6a4e95f8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139642183024721/image.png?ex=6a509038&format=webp&hm=3ba45a130c82d8bf917284f1f5dde20eaa2b0446c111e87a9053895d3d01d172&is=6a4f3eb8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -121,7 +121,7 @@ Proper usage:
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139684830707752/image.png?ex=6a4fe782&format=webp&hm=82ea205844edeac2af3ba1050d29d0a89fd6949212243f1b986c06eb7690769a&is=6a4e9602&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139684830707752/image.png?ex=6a509042&format=webp&hm=1b4b3c5fd604c42e8551c2ec904479c7326ac7ab109ca9e2bd87e8e5d39c34f7&is=6a4f3ec2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -133,7 +133,7 @@ Unlike the lotus next to it. Duckweed leaves must touch the surface of the water
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139753000865842/image.png?ex=6a4fe792&format=webp&hm=f964fe6b76607897134c88139cac618cdfe3663258257fbb3211ce03789c3ff1&is=6a4e9612&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139753000865842/image.png?ex=6a509052&format=webp&hm=d534efba7bbf656f3cc032ae66fba8555631f01f50e58b4e77e4cb325e5a5cd8&is=6a4f3ed2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -145,7 +145,7 @@ Proper usage: This is a high-heat furnace, not a stove or an oven for baking or 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139855098347590/image.png?ex=6a4fe7ab&format=webp&hm=cc5466d128779ea5ab2eaa41ba96121a170644f19509a2876c12fc093ea7a58f&is=6a4e962b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1518138757063114823/1518139855098347590/image.png?ex=6a50906b&format=webp&hm=5c1198b0016fb3ea04355a850d09f7a52b9122401bb95375e54e2ac758007881&is=6a4f3eeb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
