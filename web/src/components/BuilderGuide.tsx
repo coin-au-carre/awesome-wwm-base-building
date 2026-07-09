@@ -3,7 +3,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import TemplateBuilder from "@/components/TemplateBuilder"
-import { Terminal, Image, LayoutList, Sparkles, Users, Layers, Bold, FileImage, type LucideIcon } from "lucide-react"
+import { Terminal, Image, LayoutList, Sparkles, Users, Layers, Bold, FileImage, Ban, type LucideIcon } from "lucide-react"
 import { url } from "@/lib/url"
 
 type Mode = "guild" | "solo" | "blueprint"
@@ -193,14 +193,14 @@ const tips: Tip[] = [
   {
     icon: Users,
     color: "text-slate-400",
-    title: "Thread already exists?",
-    body: "Create a new one and ask a moderator to close the old one.",
+    title: "Screenshots ownership",
+    body: "By default, only the poster's screenshots are shown on the website. To let another contributor post screenshots, ask a moderator to whitelist them for your thread.",
   },
   {
-    icon: Users,
+    icon: Ban,
     color: "text-slate-400",
-    title: "Not comfortable posting?",
-    body: "A moderator can post it for you.",
+    title: "Don't want an image shown?",
+    body: "Post it in the thread and react with 🚫 (:no_entry:) to keep it off the website.",
   },
   {
     icon: Layers,
