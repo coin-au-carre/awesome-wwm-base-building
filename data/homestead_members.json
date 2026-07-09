@@ -266,12 +266,22 @@
 		"username": "mangotango8683",
 		"globalName": "mango"
 	},
+<<<<<<< HEAD
 	"370435767396335617": {
 		"level": 7,
 		"since": "2026-07-09 12:08",
 		"username": ".alfrost.",
 		"globalName": "無極、 [Wuji]"
 	},
+||||||| parent of 0bfcbfab (data: homestead)
+=======
+	"370435767396335617": {
+		"level": 7,
+		"since": "2026-07-09 13:16",
+		"username": ".alfrost.",
+		"globalName": "無極、 [Wuji]"
+	},
+>>>>>>> 0bfcbfab (data: homestead)
 	"375327176565850113": {
 		"level": 6,
 		"since": "2026-07-05 10:00",
@@ -409,6 +419,7 @@
 		"username": "snowy_eagle",
 		"globalName": "Snowy_eagle"
 	},
+<<<<<<< HEAD
 	"929923366809370664": {
 		"level": 5,
 		"since": "2026-07-09 12:08",
@@ -416,6 +427,16 @@
 		"globalName": "DõtS",
 		"nickname": "DõtS ︱ LotS Guild Master"
 	},
+||||||| parent of 0bfcbfab (data: homestead)
+=======
+	"929923366809370664": {
+		"level": 5,
+		"since": "2026-07-09 13:16",
+		"username": "daughter.of.the.sea",
+		"globalName": "DõtS",
+		"nickname": "DõtS ︱ LotS Guild Master"
+	},
+>>>>>>> 0bfcbfab (data: homestead)
 	"953861262943596574": {
 		"level": 8,
 		"since": "2026-07-08 01:08",
