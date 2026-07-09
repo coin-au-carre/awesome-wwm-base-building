@@ -54,7 +54,10 @@ func loadExisting(path string) map[string]homesteadMember {
 	}
 	var m map[string]homesteadMember
 	if err := json.Unmarshal(data, &m); err != nil {
-		return nil
+		// A silent nil here makes every member look brand new next run,
+		// which mass-announces "just reached" for the whole roster.
+		slog.Error("parsing existing homestead_members.json, refusing to run", "path", path, "err", err)
+		os.Exit(1)
 	}
 	return m
 }
