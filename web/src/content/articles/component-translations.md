@@ -5,7 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a500ee4&format=webp&hm=b4a51f0f93de77ef53e13f6bdbe8beb32dbd8a5114bfff7400b3d730094cb651&is=6a4ebd64&quality=lossless"
+image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a50b7a4&format=webp&hm=39114834ef2a8d892547ff8b42f7de66c7cf0490ca8e92ab203d61dbbb77d460&is=6a4f6624&quality=lossless"
 featured: false
 published: true
 ---
@@ -14,7 +14,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a500ee4&format=webp&hm=b4a51f0f93de77ef53e13f6bdbe8beb32dbd8a5114bfff7400b3d730094cb651&is=6a4ebd64&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a50b7a4&format=webp&hm=39114834ef2a8d892547ff8b42f7de66c7cf0490ca8e92ab203d61dbbb77d460&is=6a4f6624&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 寒 - winter / cold
 日 - day
@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a500e0a&format=webp&hm=f2dc82cb4327bd597057601c2347acaddef7709f33dedc0f78314e059cfe013c&is=6a4ebc8a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a50b6ca&format=webp&hm=5232d758edf8d44eb3e6a5546e1b572979970934704b1424a11feee3c0526938&is=6a4f654a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 玉門關 - Jade Gate Pass
 

@@ -42,9 +42,9 @@ The advantage over manual adjustment (going up and down until sections blend) is
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a5006e6&hm=9c4e8cb00dbb5d6370b2b4e0f75783b3f3ddddab8c486b4f07ff734c80c27153&is=6a4eb566&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a50afa6&hm=2b2f198ea8f7b5d2814bfdd93ec701aa0f2816f940d2ca4656e4b58ba41abacc&is=6a4f5e26&" controls></video>
 </div>
 
 **Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a500e6a&format=webp&hm=d07af738ffd3ab978346580fc7757d8f0533a70e9f24457f083a39d881b1545c&is=6a4ebcea&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a50b72a&format=webp&hm=ad2323b63e4d886607d7558099804773eec808f3db235c9fede22e82e945d91c&is=6a4f65aa&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
