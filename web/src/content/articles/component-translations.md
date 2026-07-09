@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a4f89af&format=webp&hm=62d7603980f113f89f36170635acc643893644531a0270d3aaa9ce7f3d1e9570&is=6a4e382f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a50326f&format=webp&hm=5b782a47a05f3025b9f5df88ffa02b77d3739815224e1eb8ecbc8f3184645f88&is=6a4ee0ef&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
