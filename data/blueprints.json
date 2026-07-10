@@ -105,7 +105,8 @@
 		"builderName": "Chumimaru",
 		"isPayToBuild": true,
 		"tags": [
-			"Paid"
+			"Paid",
+			"Small Solo Diagram"
 		],
 		"score": 52,
 		"screenshots": [
@@ -117,7 +118,7 @@
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1510240775756058624/image.png?ex=6a522653\u0026is=6a50d4d3\u0026hm=5bb84b3730bb4cb4671da7c510adcade6dbeb3185b578172fb3383b5727fedba\u0026",
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1510242467381903460/202653019828.png?ex=6a5227e7\u0026is=6a50d667\u0026hm=6a5a206ef14ba0185493d8993f2b169694c42789836fe24eeff248a2ca612a40\u0026",
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1510242468602318900/202653019238.png?ex=6a5227e7\u0026is=6a50d667\u0026hm=5376a4758c984f68ed8d829b5c86a09c48c1eb038789968243f69089f325484f\u0026",
-			"https://cdn.discordapp.com/attachments/1510238896477438042/1514257538697269328/image.png?ex=6a5199fa\u0026is=6a50487a\u0026hm=c248e9b6f26c1d328c03affd0bbe37928047a5186d090ebced6010be97c9086f\u0026",
+			"https://cdn.discordapp.com/attachments/1510238896477438042/1514257538697269328/image.png?ex=6a5242ba\u0026is=6a50f13a\u0026hm=d3609e885a41a332868a4b0fdc545d7cec270a27badc1d7ed975393f03979185\u0026",
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1516768390310662256/2026617193521.png?ex=6a522aa4\u0026is=6a50d924\u0026hm=9e8c3089d21abfb5e9b9d2ab87e548779f7c34b4ae7b442ae83b381d499c1e10\u0026",
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1524096389229969459/image.png?ex=6a51cc9f\u0026is=6a507b1f\u0026hm=83b3384e900be7f1dd9436cd87c96ab1feadb72c3fb60af464d7c039c130e523\u0026",
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1524096389917704333/image.png?ex=6a51cc9f\u0026is=6a507b1f\u0026hm=4bdfb12f182a004ea48355a05851de1d0be020bad2eeb630afb6380279cfb261\u0026",
@@ -169,12 +170,12 @@
 		"price": "free",
 		"isFree": true,
 		"description": "i made a catwalk blueprint ;3\n!Price free",
-		"score": 48,
+		"score": 49,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014641369616405/202661222636.png?ex=6a51ab4b\u0026is=6a5059cb\u0026hm=808cba504cc7ed59c9413cac5637d4446845c6d938fc75b43cb22efb5ebd2ce0\u0026",
-			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014642611257479/202661222659.png?ex=6a51ab4c\u0026is=6a5059cc\u0026hm=24061af5824792c1774bed2d40fb10573d2fd19c776f212761be9c03c042fadd\u0026",
-			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014643659702514/202661222559.png?ex=6a51ab4c\u0026is=6a5059cc\u0026hm=78b562e54020fbcdeb5774d21c6844c7b8e6fcccdd58d978d20665e8849782ac\u0026",
-			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014644938969139/202661222620.png?ex=6a51ab4c\u0026is=6a5059cc\u0026hm=c3fe1c9afdf24cc69cb1a452abf2df29c03a386484f05ce0c91e5ffde03380a7\u0026"
+			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014641369616405/202661222636.png?ex=6a52540b\u0026is=6a51028b\u0026hm=76a74faf3c16d07ed80becafac42c1ec0e511d3e4fe160acdd7a1ea38d2dd13a\u0026",
+			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014642611257479/202661222659.png?ex=6a52540c\u0026is=6a51028c\u0026hm=6333134e6c607c0153a1b51b8990389cd5ef43395c5a7160172b70b64b47021c\u0026",
+			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014643659702514/202661222559.png?ex=6a52540c\u0026is=6a51028c\u0026hm=61bb058609bab72fbc7246089d75e02c044b6c45a661325426e7cc7cc1633504\u0026",
+			"https://cdn.discordapp.com/attachments/1511014639566323762/1511014644938969139/202661222620.png?ex=6a52540c\u0026is=6a51028c\u0026hm=60e31afcab23650d1bb636d25f11c015b240f057b926a9f555fad28cae041a68\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1511014639566323762",
 		"createdAt": "June 1, 2026 at 02:32 PM UTC",
@@ -409,34 +410,34 @@
 		"isFree": true,
 		"isPayToBuild": true,
 		"description": "Choose the one you want and and DM me",
-		"score": 48,
+		"score": 49,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707214905806969/202662094454.png?ex=6a51a07d\u0026is=6a504efd\u0026hm=8d069b2033f3a98d4a9b431e3a1ce7b12e18130c2ab78d52e294172c497f7c15\u0026",
-			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707300012429373/202662094444.png?ex=6a51a091\u0026is=6a504f11\u0026hm=0a95fcfba906c3e0ac818830484c7ca9bc85ee9fecb68a4a41b01c9dcb4b9320\u0026",
-			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707358476697710/202662094431.png?ex=6a51a09f\u0026is=6a504f1f\u0026hm=8ca5c1970dd4d55b166a04c806908d15cfb0133cd0ce4f3c5fb18c7ba9170b4d\u0026"
+			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707214905806969/202662094454.png?ex=6a52493d\u0026is=6a50f7bd\u0026hm=59d5794cc3b4109c37b6af47e1a07c214ac23a526f0eb4d9f0f6b3fc40133fee\u0026",
+			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707300012429373/202662094444.png?ex=6a524951\u0026is=6a50f7d1\u0026hm=388ecccd7f30b9ed29704af5b00933fd8dd3f9db13b30967e8b9e153f1a301e3\u0026",
+			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707358476697710/202662094431.png?ex=6a52495f\u0026is=6a50f7df\u0026hm=bd12e50889a04dc49a4dba0503b926556ed8753069c847de99b7dc691c45b62c\u0026"
 		],
 		"screenshotSections": [
 			{
 				"label": "Model X",
 				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1517707076644634624/1517707214905806969/202662094454.png?ex=6a51a07d\u0026is=6a504efd\u0026hm=8d069b2033f3a98d4a9b431e3a1ce7b12e18130c2ab78d52e294172c497f7c15\u0026"
+					"https://cdn.discordapp.com/attachments/1517707076644634624/1517707214905806969/202662094454.png?ex=6a52493d\u0026is=6a50f7bd\u0026hm=59d5794cc3b4109c37b6af47e1a07c214ac23a526f0eb4d9f0f6b3fc40133fee\u0026"
 				]
 			},
 			{
 				"label": "Model Y",
 				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1517707076644634624/1517707300012429373/202662094444.png?ex=6a51a091\u0026is=6a504f11\u0026hm=0a95fcfba906c3e0ac818830484c7ca9bc85ee9fecb68a4a41b01c9dcb4b9320\u0026"
+					"https://cdn.discordapp.com/attachments/1517707076644634624/1517707300012429373/202662094444.png?ex=6a524951\u0026is=6a50f7d1\u0026hm=388ecccd7f30b9ed29704af5b00933fd8dd3f9db13b30967e8b9e153f1a301e3\u0026"
 				]
 			},
 			{
 				"label": "Model Z",
 				"screenshots": [
-					"https://cdn.discordapp.com/attachments/1517707076644634624/1517707358476697710/202662094431.png?ex=6a51a09f\u0026is=6a504f1f\u0026hm=8ca5c1970dd4d55b166a04c806908d15cfb0133cd0ce4f3c5fb18c7ba9170b4d\u0026"
+					"https://cdn.discordapp.com/attachments/1517707076644634624/1517707358476697710/202662094431.png?ex=6a52495f\u0026is=6a50f7df\u0026hm=bd12e50889a04dc49a4dba0503b926556ed8753069c847de99b7dc691c45b62c\u0026"
 				]
 			}
 		],
 		"videos": [
-			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707078448451686/2026618174315.mp4?ex=6a51a05d\u0026is=6a504edd\u0026hm=ed27b5236afe6d748e8647d1371e5ab5d51e02678c0ed1259144145f23ec2318\u0026"
+			"https://cdn.discordapp.com/attachments/1517707076644634624/1517707078448451686/2026618174315.mp4?ex=6a52491d\u0026is=6a50f79d\u0026hm=df25658303e24d8a6488d644c2185b356307763b11d92f5338976a09bcf7a40f\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1517707076644634624",
 		"createdAt": "June 20, 2026 at 01:46 AM UTC",
@@ -474,9 +475,10 @@
 		"isFree": true,
 		"description": "I sell this diagram for 180 pearls .... \u003ew\u003c and thank you for buying it \u003ew\u003c especially this one can put interactive chair on machine gun position.",
 		"tags": [
-			"Free"
+			"Free",
+			"Small Solo Diagram"
 		],
-		"score": 44,
+		"score": 45,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1518880993975468052/1518880994382577695/202662314578.png?ex=6a51f128\u0026is=6a509fa8\u0026hm=d0bd81597267a3dd38c3abbc04355c17c8adb6787a0e9e55a392f5e436750571\u0026",
 			"https://cdn.discordapp.com/attachments/1518880993975468052/1518881111063924776/2026623145751.png?ex=6a51f144\u0026is=6a509fc4\u0026hm=27d13227bbd30623108e352c5d477f02341dcbb795420cbbf37417978e753826\u0026",
@@ -624,7 +626,7 @@
 		"description": "Small garden from guild base, sitting area.\nLacks the water in the center it did not get copyed in diagram so add it your self.",
 		"score": 39,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1520075833237045348/1520075833958600794/2026626223622.png?ex=6a51acb0\u0026is=6a505b30\u0026hm=0c7486567715beee40f7a5185492244dc5a931b7b0c7779964dca065b5837dda\u0026"
+			"https://cdn.discordapp.com/attachments/1520075833237045348/1520075833958600794/2026626223622.png?ex=6a525570\u0026is=6a5103f0\u0026hm=3d09aeff0d7bee61a4db4d62afefd6e24d85f7a6404535ec9b23a234cedf2244\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1520075833237045348",
 		"createdAt": "June 26, 2026 at 02:38 PM UTC",
@@ -653,7 +655,7 @@
 		"description": "Hello.\n\nPoison tower should be quite common among us these days, but since the gallery share feature is up, I figured that if you don't have one by now - you can just take the code here and use it.\n\nYou'll need the auto-gathering horse (Snow Oath) for this.\n\n=========\nAppearance \u003e Mounts \u003e Mount Settings \u003e Mount Follow: Enable\nGo into the boxed area of the tower, and stand there. \nMap \u003e Aureate Pavilion (this is the camp right of Kaifeng) \nV/Wayfinder to summon horse\nAfter the horse is summoned, get off the horse\nGo into the tunnel that drops all the way down\n\nMighty drop to the bottom, Dragon breath, wait for the loot\nLightness up to the top, mighty drop back down\n\nRepeat^\n=========\n\nThis works because the horse is within 30m from you, so it doesn't move, and the pickup radius is also the same. When you do a lightness skill up, you temporarily exit the spawn radius of the mobs, so it respawns as you come back down.\n\nThe tunnel places you right at a barrel so the fire insta triggers and explodes it, killing 4 to 5 mobs.\n\nRinse and repeat until you have enough divinecraft, or max out your daily loot limit (therefore conches, if you auto-recycle).\n\nYou'll notice that you take damage from the explosion as well, so I recommend turning on HP food at ~30% to keep yourself healthy.\n\nHere's the sharing code:\n\nSHARE6087d96713af1f72\n\nIn case the sharing code breaks, you can find the blueprint at profile 4012407507.",
 		"score": 24,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1520250177422622791/1520250177749909544/Screenshot_2026-06-27_095254.png?ex=6a51a64f\u0026is=6a5054cf\u0026hm=9cfce2e8328f8c3b64b1bf0bcca2ab6b0532908a1a3b39fece622194cd5dccab\u0026"
+			"https://cdn.discordapp.com/attachments/1520250177422622791/1520250177749909544/Screenshot_2026-06-27_095254.png?ex=6a524f0f\u0026is=6a50fd8f\u0026hm=91c966e330fda9501779e7400a8034b901fad398d7effb8a6834f0828adafe41\u0026"
 		],
 		"shareCodes": [
 			"SHARE6087d96713af1f72"
@@ -771,7 +773,8 @@
 		"isPayToBuild": true,
 		"description": "Looking for a Buyer of this BP . DM me",
 		"tags": [
-			"Paid"
+			"Paid",
+			"Large Guild Diagram"
 		],
 		"score": 27,
 		"screenshots": [
@@ -783,9 +786,9 @@
 			"https://cdn.discordapp.com/attachments/1521816848490827796/1521816851896602684/2026623174554.png?ex=6a521363\u0026is=6a50c1e3\u0026hm=d9a57a1c35794ff0978468d6a65a7c32106f4be4197a84fba1e19ff5e17c790f\u0026",
 			"https://cdn.discordapp.com/attachments/1521816848490827796/1521816852383273081/2026623174735.png?ex=6a521363\u0026is=6a50c1e3\u0026hm=7527b4ae1c66c38eb27542d771b85d343ea21627113c831ec82bfdbc55881843\u0026",
 			"https://cdn.discordapp.com/attachments/1521816848490827796/1521816854132297768/2026623175614.png?ex=6a521364\u0026is=6a50c1e4\u0026hm=7e459abbb7ac023b35a071f36995ceff274a9e8221735cf7a1d3648feb926790\u0026",
-			"https://cdn.discordapp.com/attachments/1521816848490827796/1523319778436055082/20267521181.png?ex=6a519c59\u0026is=6a504ad9\u0026hm=6be8df3a52d410ae4d13826d4c8916d03ad5da1de93378d2b6745d2ead90bfe3\u0026",
-			"https://cdn.discordapp.com/attachments/1521816848490827796/1523319778998095923/202675211222.png?ex=6a519c59\u0026is=6a504ad9\u0026hm=e827f39d38698b044a4e05214ca3917d4eb44360f04d0274306b62738a350528\u0026",
-			"https://cdn.discordapp.com/attachments/1521816848490827796/1523319779669315654/202675211846.png?ex=6a519c59\u0026is=6a504ad9\u0026hm=d5ec88fd80fb503979ad06218b1feb78fd47d4af7d560f283adaddc505959119\u0026"
+			"https://cdn.discordapp.com/attachments/1521816848490827796/1523319778436055082/20267521181.png?ex=6a524519\u0026is=6a50f399\u0026hm=ae6421548cc63d1e875164c94cf405fbbff257277fbbc9567de74cdad85b15ad\u0026",
+			"https://cdn.discordapp.com/attachments/1521816848490827796/1523319778998095923/202675211222.png?ex=6a524519\u0026is=6a50f399\u0026hm=63d7fa17f1f54458d0ab84798b3c3f4073d389cdfeb3bf0395793ed7659ffd65\u0026",
+			"https://cdn.discordapp.com/attachments/1521816848490827796/1523319779669315654/202675211846.png?ex=6a524519\u0026is=6a50f399\u0026hm=e77553dc91da60bd33a896de8cd79f5ef4853bb5db05914bea64e81549bcca4c\u0026"
 		],
 		"videos": [
 			"https://www.youtube.com/watch?v=SY7guKsfZSQ",
@@ -803,6 +806,7 @@
 		"isFree": true,
 		"description": "**Code:**  SHARE5f223181ad510813\n\nHere is my submission for Beyond Artistry!\n\nIt is a full level 6 Blissful Retreat blueprint with max components and includes:\n\n- Custom two level home \n- Level 6 Inn with 3 stoves and 6 catering tables\n- Customized Standard Inn (empty), waiting for you to place a House Diagram to decorate however you would like. ❤️ \n\n**Purchase Requirements**\n**Gourds:** 48,300\n**Timber:** 3,850\n\n**Craft Requirements**\n**Timber:** 3979 \n**Raw Ore:** 1818",
 		"tags": [
+			"Homestead Diagram",
 			"Free"
 		],
 		"score": 36,
@@ -830,11 +834,11 @@
 		"builderName": "KARIN",
 		"isFree": true,
 		"isPayToBuild": true,
-		"score": 20,
+		"score": 21,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1522431297916506193/1522431298742911026/202673102813.png?ex=6a51aca3\u0026is=6a505b23\u0026hm=5be379340b2b5653230ad1796905142457b0e543248988ff2e2ccb590b0659f4\u0026",
-			"https://cdn.discordapp.com/attachments/1522431297916506193/1522431299296432128/20267310285.png?ex=6a51aca3\u0026is=6a505b23\u0026hm=9a33ae47d003c135d3151e913a6523ff0998f1e6c5e3c28716fdb840cb04a6b3\u0026",
-			"https://cdn.discordapp.com/attachments/1522431297916506193/1522431301813276813/202673102732.png?ex=6a51aca3\u0026is=6a505b23\u0026hm=73d02c28353552f6ca5b39496996a341f0187cf5161f4a9c2b863875ef7ead74\u0026"
+			"https://cdn.discordapp.com/attachments/1522431297916506193/1522431298742911026/202673102813.png?ex=6a525563\u0026is=6a5103e3\u0026hm=847327598c13e0a2748e355edc0d2f721dd0f6a12f179cb3c3d51e807f847e0a\u0026",
+			"https://cdn.discordapp.com/attachments/1522431297916506193/1522431299296432128/20267310285.png?ex=6a525563\u0026is=6a5103e3\u0026hm=1fcd0cfbae460b1e070cd2f633692e308cccb2c425c4eb2bf9c864474edaa6b2\u0026",
+			"https://cdn.discordapp.com/attachments/1522431297916506193/1522431301813276813/202673102732.png?ex=6a525563\u0026is=6a5103e3\u0026hm=a98fdc5aee808ba8ab80d6d876d990fd9710a27e84e70ea3ad71cc19cdc5462f\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1522431297916506193",
 		"createdAt": "July 3, 2026 at 02:38 AM UTC",
@@ -849,7 +853,7 @@
 		"score": 20,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1522535412562792459/1522535412764250203/image.png?ex=6a520d99\u0026is=6a50bc19\u0026hm=3ae14ebb6624be0106522b5b63f35d353bc5f3f9306306575b5031f85cc8c96d\u0026",
-			"https://cdn.discordapp.com/attachments/1522535412562792459/1522608056146464910/image.png?ex=6a51a881\u0026is=6a505701\u0026hm=437540f15c8944519d679a35a8270ba125b1dbc2d5d2773929464186d3c39aea\u0026"
+			"https://cdn.discordapp.com/attachments/1522535412562792459/1522608056146464910/image.png?ex=6a525141\u0026is=6a50ffc1\u0026hm=76626bca542ee599f2fa26b7a24b34a97c4ec1218c3ccf85c54ddac6afab5769\u0026"
 		],
 		"shareCodes": [
 			"SHARE8125762a9742e89e"
@@ -960,12 +964,12 @@
 		"price": "Free",
 		"isFree": true,
 		"description": "Cover: 1\nUpdated version, should work properly now, you can swap individual pieces for diffrent floor tiles with T2 without issue also.",
-		"score": 26,
-		"coverImage": "https://cdn.discordapp.com/attachments/1523673960707919952/1523673961077014569/image.png?ex=6a5194b4\u0026is=6a504334\u0026hm=b01545ffaea9ee4a318c11506712a673fc3c6cccdcd01f4c91264abb292b34c2\u0026",
+		"score": 27,
+		"coverImage": "https://cdn.discordapp.com/attachments/1523673960707919952/1523673961077014569/image.png?ex=6a523d74\u0026is=6a50ebf4\u0026hm=4c844135167e2fbcd0cf1367a37d92ec7c29a8d11ae3e69360a370f2387a2e3a\u0026",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1523673960707919952/1523673961077014569/image.png?ex=6a5194b4\u0026is=6a504334\u0026hm=b01545ffaea9ee4a318c11506712a673fc3c6cccdcd01f4c91264abb292b34c2\u0026",
-			"https://cdn.discordapp.com/attachments/1523673960707919952/1523673961458831450/image.png?ex=6a5194b4\u0026is=6a504334\u0026hm=70a02d9d53913167fd9d3a2ee1687ec3bcc27ba1f4e81219a31893af929688e3\u0026",
-			"https://cdn.discordapp.com/attachments/1523673960707919952/1523673961932525678/image.png?ex=6a5194b5\u0026is=6a504335\u0026hm=dab171413ae4da2e0684001a52f97f9543f074de18800c8f928f500e2d3ac944\u0026"
+			"https://cdn.discordapp.com/attachments/1523673960707919952/1523673961077014569/image.png?ex=6a523d74\u0026is=6a50ebf4\u0026hm=4c844135167e2fbcd0cf1367a37d92ec7c29a8d11ae3e69360a370f2387a2e3a\u0026",
+			"https://cdn.discordapp.com/attachments/1523673960707919952/1523673961458831450/image.png?ex=6a523d74\u0026is=6a50ebf4\u0026hm=a3f8161dd1a7b348f0b9407f812d04477c40521687158b1c3fdaa539716091a1\u0026",
+			"https://cdn.discordapp.com/attachments/1523673960707919952/1523673961932525678/image.png?ex=6a523d75\u0026is=6a50ebf5\u0026hm=08005a3ff6873f646faa8ab117df4290dbb81419678742e48801059a0616c394\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1523673960707919952",
 		"createdAt": "July 6, 2026 at 12:56 PM UTC",
@@ -975,8 +979,11 @@
 		"name": "Windmill (free)",
 		"builderName": "°•°• alscend",
 		"isFree": true,
-		"isPayToBuild": true,
 		"description": "Code: SHARE8178d35e638cc530\n\n- 92 components\n- 296 homestead prosperity\n\nenjoy! \u003c:pandablush:1509227846432718920\u003e\n\n🍃 🌿",
+		"tags": [
+			"Homestead Diagram",
+			"Free"
+		],
 		"score": 33,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1524013334528000112/1524013338034442410/20267719836.png?ex=6a522806\u0026is=6a50d686\u0026hm=09f50d4804708c35701da6fac289601fa2c7f230c7a64e3411f3cbece2500c85\u0026",
@@ -995,6 +1002,7 @@
 		"isFree": true,
 		"description": "```SHARE68dacc085f0ab439```\n**Fishnado**\n\nThis geometric vortex of fish spirals from 22.5° to 112.5° with a prosperity score of 1050.",
 		"tags": [
+			"Homestead Diagram",
 			"Free"
 		],
 		"score": 24,
@@ -1020,7 +1028,7 @@
 		],
 		"score": 39,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1524784384111280248/1524784384916590764/202679211116.png?ex=6a51aa5e\u0026is=6a5058de\u0026hm=023b2eb330e69299302391e4dcb461de53a760082a7575b2bc8aac06b60bb492\u0026"
+			"https://cdn.discordapp.com/attachments/1524784384111280248/1524784384916590764/202679211116.png?ex=6a52531e\u0026is=6a51019e\u0026hm=866a9637525a9a361c1690470888a788a8d580222c3dcbf869b0918dd385f861\u0026"
 		],
 		"shareCodes": [
 			"SHARE5309250142fc26ea"
@@ -1035,6 +1043,7 @@
 		"isFree": true,
 		"description": "Small but detailed cozy Cottage, all 1k components used.\n\n**Code:**  SHARE7ef992be5691ff85\n**Price:** Free",
 		"tags": [
+			"Homestead Diagram",
 			"Free"
 		],
 		"score": 34,
