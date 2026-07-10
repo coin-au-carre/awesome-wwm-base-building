@@ -40,6 +40,7 @@
 | `/bugs` | Bug reports — live CSV from Google Sheets |
 | `/updates` | Updates — building features per version, curated from Google Sheets |
 | `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials by one builder |
+| `/homestead/rankings` | Full Homestead level leaderboard (all members) |
 
 ## Nav dot versioning
 

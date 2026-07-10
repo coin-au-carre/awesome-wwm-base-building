@@ -1,0 +1,85 @@
+---
+import { readFileSync } from "fs"
+import { resolve } from "path"
+import Layout from "@/layouts/main.astro"
+import { BASE } from "@/lib/url"
+import { parseLastModified } from "@/lib/dates"
+import { TrophyIcon, ArrowLeftIcon } from "@phosphor-icons/react"
+
+interface HomesteadMember {
+  level: number
+  since: string
+  username: string
+  globalName?: string
+  nickname?: string
+}
+const membersRaw: Record<string, HomesteadMember> = JSON.parse(
+  readFileSync(resolve(process.cwd(), "..", "data/homestead_members.json"), "utf-8")
+)
+const members = Object.values(membersRaw).sort((a, b) => b.level - a.level || a.since.localeCompare(b.since))
+const medal = ["🥇", "🥈", "🥉"]
+function levelEmoji(level: number) {
+  if (level >= 10) return "💎"
+  if (level >= 9) return "👑"
+  return level >= 8 ? "🔥" : "🌱"
+}
+---
+
+<Layout
+  title="Homestead Rankings | Where Builders Meet"
+  description="Full Homestead level leaderboard for the Awesome WWM Discord community."
+>
+  <div class="relative max-w-2xl mx-auto space-y-4">
+    <a
+      href={`${BASE}/homestead`}
+      class="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+    >
+      <ArrowLeftIcon weight="bold" className="size-3.5" /> Back to Homestead
+    </a>
+
+    <h1 class="font-heading text-2xl font-semibold flex items-center gap-2.5">
+      <TrophyIcon weight="duotone" className="size-6 text-primary" /> Homestead Rankings
+    </h1>
+    <p class="text-sm text-muted-foreground">
+      All {members.length} ranked members, by Homestead level.
+    </p>
+
+    <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
+      {members.map((m, i) => (
+        <div class={`px-3.5 py-2 flex items-center gap-3 ${m.level >= 10 ? "bg-sky-500/10" : m.level >= 9 ? "bg-purple-500/10" : m.level >= 8 ? "bg-amber-500/10" : ""}`}>
+          <span class="w-8 text-center text-sm shrink-0 text-muted-foreground">{medal[i] ?? `#${i + 1}`}</span>
+          <span class="text-sm font-medium text-foreground truncate flex-1">
+            {m.nickname ?? m.globalName ?? m.username}
+          </span>
+          <span class="text-xs text-muted-foreground shrink-0 hidden sm:inline js-since" data-since={parseLastModified(m.since)} title={m.since}></span>
+          <span class={`text-xs font-semibold shrink-0 ${m.level >= 10 ? "text-sky-600 dark:text-sky-400" : m.level >= 9 ? "text-purple-600 dark:text-purple-400" : m.level >= 8 ? "text-amber-600 dark:text-amber-400" : "text-primary"}`}>{levelEmoji(m.level)} Lv. {m.level}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<script>
+  function relativeTimeHM(ms: number): string {
+    const diff = Date.now() - ms
+    const mins = Math.floor(diff / 60000)
+    if (mins < 60) { return mins <= 1 ? "just now" : `${mins}m ago` }
+    const hours = Math.floor(mins / 60)
+    const remMins = mins % 60
+    if (hours < 24) { return remMins ? `${hours}h ${remMins}m ago` : `${hours}h ago` }
+    const days = Math.floor(hours / 24)
+    const remHours = hours % 24
+    if (days < 30) { return remHours ? `${days}d ${remHours}h ago` : `${days}d ago` }
+    const months = Math.floor(days / 30)
+    if (months < 12) { return `${months}mo ago` }
+    return `${Math.floor(months / 12)}y ago`
+  }
+  function updateSinceLabels() {
+    document.querySelectorAll<HTMLElement>(".js-since").forEach((el) => {
+      const ms = Number(el.dataset.since)
+      if (ms) { el.textContent = relativeTimeHM(ms) }
+    })
+  }
+  updateSinceLabels()
+  setInterval(updateSinceLabels, 60000)
+</script>

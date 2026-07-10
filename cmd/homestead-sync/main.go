@@ -22,6 +22,7 @@ import (
 const homesteadChannelID = "1523299578860933220"
 const defaultHomesteadMessageID = "1523309120248086589"
 const homesteadAnnounceChannelID = "1521760524235309191"
+const homesteadRankingsURL = "https://www.wherebuildersmeet.com/homestead/rankings?utm_source=discord&utm_medium=hall-of-fame"
 const sinceLayout = "2006-01-02 15:04"
 
 // Ordered lowest → highest so the last match wins as the member's highest level.
@@ -278,6 +279,8 @@ func buildHomesteadEmbed(members map[string]homesteadMember) *discordgo.MessageE
 		}
 		sb.WriteString("\n")
 	}
+
+	fmt.Fprintf(&sb, "[See the full rankings ↗](%s)", homesteadRankingsURL)
 
 	return &discordgo.MessageEmbed{
 		Title:       "🏡 Homestead Hall of Fame 🏡",

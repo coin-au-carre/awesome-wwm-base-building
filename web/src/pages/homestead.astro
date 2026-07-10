@@ -216,6 +216,11 @@ const sheetLinks = HOMESTEAD_SHEETS.filter((s) => s.column !== "guide")
           class="underline underline-offset-2 hover:text-foreground transition-colors"
           data-umami-event="discord_cta_click"
         >join the addicts on Discord ↗</a>
+        · <a
+          href={`${BASE}/homestead/rankings`}
+          class="underline underline-offset-2 hover:text-foreground transition-colors"
+          data-umami-event="homestead_rankings_click"
+        >view full rankings ↗</a>
       </p>
       <div class="rounded-xl border border-border overflow-hidden divide-y divide-border">
         {topMembers.map((m, i) => (
