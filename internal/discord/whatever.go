@@ -5,7 +5,6 @@ import (
 	"log/slog"
 	"slices"
 	"strings"
-	"sync"
 	"time"
 
 	"ruby/internal/guild"
@@ -35,6 +34,7 @@ type WhateverPost struct {
 
 // FetchWhateverShowcase fetches all image-bearing messages from the given plain channel.
 func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]WhateverPost, error) {
+	start := time.Now()
 	var all []*discordgo.Message
 	var before string
 	for {
@@ -52,7 +52,7 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 		}
 	}
 
-	slog.Info("fetched messages", "total", len(all), "channel", channelID)
+	slog.Info("fetched messages", "total", len(all), "channel", channelID, "elapsed", time.Since(start))
 
 	// Discord returns newest-first; reverse to chronological order.
 	slices.Reverse(all)
@@ -78,55 +78,30 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 		candidates = append(candidates, candidate{msg: msg, images: images, videos: videos})
 	}
 
-	// Fetching unique reactor counts is one Discord API call per emoji per
-	// message; run it through a worker pool instead of serially or it takes
-	// minutes on a busy channel.
-	posts := make([]WhateverPost, len(candidates))
-	keep := make([]bool, len(candidates))
-	jobs := make(chan int, len(candidates))
-	var wg sync.WaitGroup
-	for range numWorkers {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for i := range jobs {
-				c := candidates[i]
-				reactions := uniqueReactorCount(s, channelID, c.msg)
-				if reactions == 0 {
-					continue
-				}
-				name := c.msg.Author.GlobalName
-				if name == "" {
-					name = c.msg.Author.Username
-				}
-				posts[i] = WhateverPost{
-					ID:              c.msg.ID,
-					AuthorName:      name,
-					AuthorID:        c.msg.Author.ID,
-					Content:         strings.TrimSpace(c.msg.Content),
-					Images:          c.images,
-					Videos:          c.videos,
-					Reactions:       reactions,
-					ReactionDetails: reactionDetails(c.msg),
-					MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, c.msg.ID),
-					PostedAt:        c.msg.Timestamp.Format(time.RFC3339),
-				}
-				keep[i] = true
-			}
-		}()
-	}
-	for i := range candidates {
-		jobs <- i
-	}
-	close(jobs)
-	wg.Wait()
-
-	result := make([]WhateverPost, 0, len(posts))
-	for i, p := range posts {
-		if keep[i] {
-			result = append(result, p)
+	result := make([]WhateverPost, 0, len(candidates))
+	for _, c := range candidates {
+		reactions := maxReactionCount(c.msg)
+		if reactions == 0 {
+			continue
 		}
+		name := c.msg.Author.GlobalName
+		if name == "" {
+			name = c.msg.Author.Username
+		}
+		result = append(result, WhateverPost{
+			ID:              c.msg.ID,
+			AuthorName:      name,
+			AuthorID:        c.msg.Author.ID,
+			Content:         strings.TrimSpace(c.msg.Content),
+			Images:          c.images,
+			Videos:          c.videos,
+			Reactions:       reactions,
+			ReactionDetails: reactionDetails(c.msg),
+			MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, c.msg.ID),
+			PostedAt:        c.msg.Timestamp.Format(time.RFC3339),
+		})
 	}
+	slog.Info("whatever showcase fetched", "posts", len(result), "elapsed", time.Since(start))
 	return result, nil
 }
 
@@ -150,22 +125,20 @@ func videosFromMessage(msg *discordgo.Message) []string {
 	return urls
 }
 
-// uniqueReactorCount counts distinct users who reacted, regardless of how many
-// different emoji each one used, so one person spamming ⭐👍🔥 on the same
-// image only counts once.
-func uniqueReactorCount(s *discordgo.Session, channelID string, msg *discordgo.Message) int {
-	seen := make(map[string]struct{})
+// maxReactionCount approximates unique reactor count as the single
+// highest-count emoji on the message, with zero extra API calls (unlike
+// fetching each emoji's reactor list to dedupe exactly). This undercounts a
+// user who reacted with multiple emoji as if they were one reactor across
+// the whole message, but never overcounts the way summing all emoji counts
+// would when someone stacks ⭐👍🔥 on their own post.
+func maxReactionCount(msg *discordgo.Message) int {
+	max := 0
 	for _, r := range msg.Reactions {
-		users, err := s.MessageReactions(channelID, msg.ID, r.Emoji.APIName(), 100, "", "")
-		if err != nil {
-			slog.Warn("fetching reaction users", "error", err, "message", msg.ID, "emoji", r.Emoji.Name)
-			continue
-		}
-		for _, u := range users {
-			seen[u.ID] = struct{}{}
+		if r.Count > max {
+			max = r.Count
 		}
 	}
-	return len(seen)
+	return max
 }
 
 func hasReaction(msg *discordgo.Message, emoji string) bool {
