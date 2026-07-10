@@ -1,5 +1,17 @@
 [
 	{
+		"name": "ZhenZhuGong",
+		"builders": [
+			"AlkriseAzata",
+			"Histooryia"
+		],
+		"discordThread": "",
+		"whatToVisit": "Kaifeng structures usage around the lake",
+		"score": 0,
+		"lastModified": "July 10, 2026 at 10:44 AM UTC",
+		"scoutedByDiscordId": "411339877574115338"
+	},
+	{
 		"name": "LotusClan",
 		"builders": [],
 		"discordThread": "",
