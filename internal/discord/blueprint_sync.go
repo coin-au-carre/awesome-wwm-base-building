@@ -210,7 +210,13 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 		if r.data.GuildName != "" {
 			bp.Description = r.data.GuildName
 		}
-		if r.data.WhatToVisit != "" {
+		hasFreeTag := containsTag(tags, "Free")
+		hasPaidTag := containsTag(tags, "Paid")
+		if hasFreeTag || hasPaidTag {
+			// Forum "Free"/"Paid" tags take dominance over the legacy title/price-text parsing below.
+			bp.IsFree = hasFreeTag
+			bp.IsPayToBuild = hasPaidTag
+		} else if r.data.WhatToVisit != "" {
 			bp.Price = r.data.WhatToVisit
 			lower := strings.ToLower(bp.Price)
 			bp.IsFree = strings.Contains(lower, "free")
@@ -224,14 +230,14 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 			} else {
 				bp.IsPayToBuild = true // no "free" anywhere → paid by default
 			}
-		}
-		// Thread title keywords override first-post price parsing.
-		titleLower := strings.ToLower(r.thread.Name)
-		if strings.Contains(titleLower, "free") {
-			bp.IsFree = true
-		}
-		if strings.Contains(titleLower, "paid") {
-			bp.IsPayToBuild = true
+			// Thread title keywords override first-post price parsing (legacy system only).
+			titleLower := strings.ToLower(r.thread.Name)
+			if strings.Contains(titleLower, "free") {
+				bp.IsFree = true
+			}
+			if strings.Contains(titleLower, "paid") {
+				bp.IsPayToBuild = true
+			}
 		}
 		if r.data.BuildTitle != "" {
 			bp.BuilderName = r.data.BuildTitle
@@ -296,20 +302,29 @@ func fetchBlueprintContent(s *discordgo.Session, thread *discordgo.Channel) thre
 
 	return threadData{
 		ID:                  parsed.BuilderID,
-		GuildName:           parsed.Description,  // repurposed
+		GuildName:           parsed.Description, // repurposed
 		AuthorID:            authorID,
 		Screenshots:         screenshots,
 		ScreenshotSections:  sections,
 		Videos:              videos,
-		Lore:                parsed.Materials,     // repurposed
-		WhatToVisit:         parsed.Price,         // repurposed
-		BuildTitle:          parsed.BuilderName,   // repurposed
+		Lore:                parsed.Materials,   // repurposed
+		WhatToVisit:         parsed.Price,       // repurposed
+		BuildTitle:          parsed.BuilderName, // repurposed
 		ShareCodes:          parsed.ShareCodes,
 		CoverIdx:            parsed.CoverIdx,
 		FirstPostTime:       firstPostMsg,
 		LastContributorTime: lastContributorTime,
 		MediaOK:             mediaOK,
 	}
+}
+
+func containsTag(tags []string, want string) bool {
+	for _, t := range tags {
+		if t == want {
+			return true
+		}
+	}
+	return false
 }
 
 func blueprintHasChanged(prev, next blueprint.Blueprint) bool {

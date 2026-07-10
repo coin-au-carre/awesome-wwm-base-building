@@ -103,8 +103,10 @@
 	{
 		"name": "[Chumimaru] paid blueprint",
 		"builderName": "Chumimaru",
-		"isFree": true,
 		"isPayToBuild": true,
+		"tags": [
+			"Paid"
+		],
 		"score": 52,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1510238896477438042/1510238897152462898/image.png?ex=6a522493\u0026is=6a50d313\u0026hm=fcc122a79ae6e66c0f3e08ac56d48687ebeb9c216d83ed77d8c34b54931f4e07\u0026",
@@ -294,9 +296,6 @@
 		"isFree": true,
 		"isPayToBuild": true,
 		"description": "Want the world's best gravy fried chicken chain in your jianghu?\nYou can have it now in solo mode and in your guild!\n\n140 components. You provide material\ncode: SHARE7636a7c07b9a8d91\nGame UID: 4035808467 IGN: greatjussy\n\nDM me for franchise opportunity (saying this for roleplaying purposes only)",
-		"tags": [
-			"Modern"
-		],
 		"score": 43,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1514710015578210574/1514710016291246252/202661125628.png?ex=6a51ede1\u0026is=6a509c61\u0026hm=91f81c7dbf11ecf1540a8d794e6ae94de68c66427b0158dd0baccd4019435d4b\u0026",
@@ -472,9 +471,12 @@
 	{
 		"name": "[KARIN] PAID Tank blueprint [Model",
 		"builderName": "KARIN",
-		"isPayToBuild": true,
+		"isFree": true,
 		"description": "I sell this diagram for 180 pearls .... \u003ew\u003c and thank you for buying it \u003ew\u003c especially this one can put interactive chair on machine gun position.",
-		"score": 36,
+		"tags": [
+			"Free"
+		],
+		"score": 44,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1518880993975468052/1518880994382577695/202662314578.png?ex=6a51f128\u0026is=6a509fa8\u0026hm=d0bd81597267a3dd38c3abbc04355c17c8adb6787a0e9e55a392f5e436750571\u0026",
 			"https://cdn.discordapp.com/attachments/1518880993975468052/1518881111063924776/2026623145751.png?ex=6a51f144\u0026is=6a509fc4\u0026hm=27d13227bbd30623108e352c5d477f02341dcbb795420cbbf37417978e753826\u0026",
@@ -768,6 +770,9 @@
 		"builderName": "PASH",
 		"isPayToBuild": true,
 		"description": "Looking for a Buyer of this BP . DM me",
+		"tags": [
+			"Paid"
+		],
 		"score": 27,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1521816848490827796/1521816849262710894/202662317456.png?ex=6a521362\u0026is=6a50c1e2\u0026hm=f409ed17f7c04c91fa229cd881cfd7c48d83f09b76a5d5ed522830100a38b992\u0026",
@@ -796,8 +801,10 @@
 		"name": "[Beyond Artistry] FREE Full Lvl 6 Homestead",
 		"builderName": "Kuri (SiMing 司命)",
 		"isFree": true,
-		"isPayToBuild": true,
 		"description": "**Code:**  SHARE5f223181ad510813\n\nHere is my submission for Beyond Artistry!\n\nIt is a full level 6 Blissful Retreat blueprint with max components and includes:\n\n- Custom two level home \n- Level 6 Inn with 3 stoves and 6 catering tables\n- Customized Standard Inn (empty), waiting for you to place a House Diagram to decorate however you would like. ❤️ \n\n**Purchase Requirements**\n**Gourds:** 48,300\n**Timber:** 3,850\n\n**Craft Requirements**\n**Timber:** 3979 \n**Raw Ore:** 1818",
+		"tags": [
+			"Free"
+		],
 		"score": 36,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1522387399076876428/1522387403556257802/20267374016.png?ex=6a522c81\u0026is=6a50db01\u0026hm=54873ce0df4eabdbd9306e63a1237c11660e7670858aa96742419d0cddc422d4\u0026",
@@ -857,7 +864,7 @@
 		"builderName": "AegisNite Edge",
 		"isPayToBuild": true,
 		"description": "a safe place for your horses. feed them. change their hoofs. pet them. love them.\nyou can obtain this diagram from gallery : SHARE49db1300d1e20736",
-		"score": 27,
+		"score": 28,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1522693507473604810/1522693511332233338/20267431223.png?ex=6a51f817\u0026is=6a50a697\u0026hm=8c31913964b4705e306646280b436057c44e7f8de14bacbb537c655509749629\u0026",
 			"https://cdn.discordapp.com/attachments/1522693507473604810/1522693512792117351/20267431111.png?ex=6a51f817\u0026is=6a50a697\u0026hm=6f54d56a107d78fdd4071d807fec7339cbf63022cd29ec659faa6fcaf6bb2b01\u0026",
@@ -895,7 +902,7 @@
 		"description": "A small kitchen, of course without a stove, you can add a stove later.\nSHARE24ca1f8b1a34bbc6",
 		"score": 27,
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1523126717844033586/1523126718263459971/2026758384.png?ex=6a51914b\u0026is=6a503fcb\u0026hm=eddd68aae18fc330ec0c5a2b44627fa131b623a6c5c6adbf7011108e4cc19d4a\u0026",
+			"https://cdn.discordapp.com/attachments/1523126717844033586/1523126718263459971/2026758384.png?ex=6a523a0b\u0026is=6a50e88b\u0026hm=42e44a9d26ecf192f850339027e4050b3af377c1b2756a38289cb4f6b0b0be23\u0026",
 			"https://cdn.discordapp.com/attachments/1523126717844033586/1523127570323865702/image.png?ex=6a519217\u0026is=6a504097\u0026hm=1bdd108372a0556b608459a3ededb3ad7a8882b372823441a6d6c5cf0238b2b6\u0026"
 		],
 		"shareCodes": [
@@ -986,8 +993,10 @@
 		"name": "[Beyond Artistry] Free Fishnado Blueprint",
 		"builderName": "DõtS ︱ LotS Guild Master",
 		"isFree": true,
-		"isPayToBuild": true,
 		"description": "```SHARE68dacc085f0ab439```\n**Fishnado**\n\nThis geometric vortex of fish spirals from 22.5° to 112.5° with a prosperity score of 1050.",
+		"tags": [
+			"Free"
+		],
 		"score": 24,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1524696983330230374/1524696984110235739/202679154952.png?ex=6a5201b8\u0026is=6a50b038\u0026hm=18fd423057f6ba0b66bf00d9a15267514d52932c8cd1646b41ee8fe39ee202b8\u0026",
@@ -1005,12 +1014,11 @@
 		"name": "Small House (Free)",
 		"builderName": "Rhuele",
 		"isFree": true,
-		"isPayToBuild": true,
 		"description": "A Casual House.\nThe house has a separate floor. The Platform on the picture is not included so you can pick which platform do you prefer. \n\nSHARE5309250142fc26ea\n107 Components\nProsperity 220",
 		"tags": [
-			"Modern"
+			"Free"
 		],
-		"score": 38,
+		"score": 39,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1524784384111280248/1524784384916590764/202679211116.png?ex=6a51aa5e\u0026is=6a5058de\u0026hm=023b2eb330e69299302391e4dcb461de53a760082a7575b2bc8aac06b60bb492\u0026"
 		],
@@ -1026,7 +1034,10 @@
 		"builderName": "KaiTingLi",
 		"isFree": true,
 		"description": "Small but detailed cozy Cottage, all 1k components used.\n\n**Code:**  SHARE7ef992be5691ff85\n**Price:** Free",
-		"score": 32,
+		"tags": [
+			"Free"
+		],
+		"score": 34,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1525000458341585028/1525000459457134733/2026710122244.png?ex=6a51cada\u0026is=6a50795a\u0026hm=27e4a8b63c0b309a8edcba57018b1f394e88b4f5f3d8a4347f378af120da1bef\u0026",
 			"https://cdn.discordapp.com/attachments/1525000458341585028/1525000460115771432/image.png?ex=6a51cada\u0026is=6a50795a\u0026hm=85b119e23304697b94cd26c7165b869d4eb447aa5071a84a8f8db9f04bf980fc\u0026",
@@ -1052,9 +1063,12 @@
 	{
 		"name": "Encircling Lake house!",
 		"builderName": "AegisNite Edge",
-		"isPayToBuild": true,
+		"isFree": true,
 		"description": "Hi i made a empty house for people who like decorating only.\nThese are 2 blueprints you can download it from gallery.\nSHAREe5f77790e0fc9ef4\nSHARE0f0e753c4928f08c",
-		"score": 27,
+		"tags": [
+			"Free"
+		],
+		"score": 28,
 		"screenshots": [
 			"https://cdn.discordapp.com/attachments/1525107026106253412/1525107026622025749/2026710194556.png?ex=6a522e1a\u0026is=6a50dc9a\u0026hm=b409b0e8db1fd1fdf6bc26f1feb2dae3c23f6ce3d26a840b0e95517642a2f7e0\u0026",
 			"https://cdn.discordapp.com/attachments/1525107026106253412/1525107027393642566/2026710194645.png?ex=6a522e1a\u0026is=6a50dc9a\u0026hm=95123a96a0698ff2d53d9b649782c89b34b92e74234a40e344fb260ad8140222\u0026",
@@ -1069,6 +1083,6 @@
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1525107026106253412",
 		"createdAt": "July 10, 2026 at 11:50 AM UTC",
-		"lastModified": "July 10, 2026 at 12:08 PM UTC"
+		"lastModified": "July 10, 2026 at 12:44 PM UTC"
 	}
 ]

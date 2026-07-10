@@ -3,6 +3,7 @@ import * as React from "react"
 import type { RankedBlueprint } from "@/types/blueprint"
 import { url } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
+import { getDiagramType, nonDiagramTags } from "@/lib/blueprints"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { parseLastModified, relativeTime } from "@/lib/dates"
 import { cn } from "@/lib/utils"
@@ -38,6 +39,21 @@ const TAG_PALETTE = [
 function tagPalette(label: string) {
   const hash = [...label].reduce((a, c) => a + c.charCodeAt(0), 0)
   return TAG_PALETTE[hash % TAG_PALETTE.length]
+}
+
+const DIAGRAM_TYPE_ICON: Record<string, string> = {
+  "Homestead Diagram": "🏡",
+  "Small Solo Diagram": "🧍",
+  "Small Guild Diagram": "👥",
+  "Large Guild Diagram": "🏰",
+}
+
+function DiagramTypeBadge({ type }: { type: string }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-500/30 px-2 py-0.5 text-[10px] font-medium">
+      {DIAGRAM_TYPE_ICON[type] ?? "📐"} {type.replace(" Diagram", "")}
+    </span>
+  )
 }
 
 function Tag({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
@@ -316,6 +332,8 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((bp) => {
             const img = bp.coverImage ?? bp.screenshots?.[0]
+            const diagramType = getDiagramType(bp.tags)
+            const restTags = nonDiagramTags(bp.tags)
             return (
               <a
                 key={bp.discordThread}
@@ -359,6 +377,11 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
 
                 {/* Card body */}
                 <div className="flex flex-col gap-1.5 p-3 flex-1">
+                  {diagramType && (
+                    <div>
+                      <DiagramTypeBadge type={diagramType} />
+                    </div>
+                  )}
                   <div className="flex items-start justify-between gap-2">
                     <p className="font-medium text-sm leading-tight">{bp.name}</p>
                     {bp.score > 0 && (
@@ -381,9 +404,9 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                       Materials: {bp.materials}
                     </p>
                   )}
-                  {bp.tags && bp.tags.length > 0 && (
+                  {restTags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-auto pt-1">
-                      {bp.tags.slice(0, 3).map((tag) => {
+                      {restTags.slice(0, 3).map((tag) => {
                         const cfg = tagPalette(tag)
                         return (
                           <span

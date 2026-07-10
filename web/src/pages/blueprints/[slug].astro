@@ -2,7 +2,7 @@
 import Layout from "@/layouts/main.astro"
 import MediaGallery from "@/components/MediaGallery.astro"
 import { Badge } from "@/components/ui/badge"
-import { getBlueprintsSortedByScore } from "@/lib/blueprints"
+import { getBlueprintsSortedByScore, getDiagramType, nonDiagramTags } from "@/lib/blueprints"
 import { renderMarkdown } from "@/lib/markdown"
 import { BASE } from "@/lib/url"
 import { builderSlug } from "@/lib/format"
@@ -20,6 +20,14 @@ export async function getStaticPaths() {
 const { blueprint: bp } = Astro.props
 const base = BASE
 const ogImage = bp.coverImage ?? bp.screenshots?.[0]
+const diagramType = getDiagramType(bp.tags)
+const restTags = nonDiagramTags(bp.tags)
+const DIAGRAM_TYPE_ICON: Record<string, string> = {
+  "Homestead Diagram": "🏡",
+  "Small Solo Diagram": "🧍",
+  "Small Guild Diagram": "👥",
+  "Large Guild Diagram": "🏰",
+}
 ---
 
 <Layout
@@ -98,7 +106,12 @@ const ogImage = bp.coverImage ?? bp.screenshots?.[0]
                     Free
                   </span>
                 )}
-                {bp.tags && bp.tags.length > 0 && bp.tags.map((tag: string) => (
+                {diagramType && (
+                  <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/80 text-white backdrop-blur-sm font-medium">
+                    {DIAGRAM_TYPE_ICON[diagramType] ?? "📐"} {diagramType.replace(" Diagram", "")}
+                  </span>
+                )}
+                {restTags.map((tag: string) => (
                   <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/15 text-white border border-white/25 backdrop-blur-sm">
                     {tag}
                   </span>
@@ -128,7 +141,12 @@ const ogImage = bp.coverImage ?? bp.screenshots?.[0]
             ) : (
               <Badge className="bg-emerald-600 text-white hover:bg-emerald-700">Free</Badge>
             )}
-            {bp.tags && bp.tags.map((tag: string) => <Badge variant="secondary">{tag}</Badge>)}
+            {diagramType && (
+              <Badge className="bg-indigo-600 text-white hover:bg-indigo-700 gap-1">
+                {DIAGRAM_TYPE_ICON[diagramType] ?? "📐"} {diagramType.replace(" Diagram", "")}
+              </Badge>
+            )}
+            {restTags.map((tag: string) => <Badge variant="secondary">{tag}</Badge>)}
           </div>
         </div>
         <button
