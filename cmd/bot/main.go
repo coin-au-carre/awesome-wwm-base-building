@@ -95,6 +95,7 @@ func main() {
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 	bot.Session.AddHandler(onGuildMemberUpdate(bot, moderationChannelID))
+	bot.Session.AddHandler(onHomesteadRoleUpdate(*root))
 	bot.Session.AddHandler(onHoneypotChannelPost(bot, moderationChannelID))
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
 	bot.Session.AddHandler(discord.HandleHexiPartyMute)
@@ -413,6 +414,54 @@ func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*dis
 			))
 			slog.Info("honeypot role granted", "user", m.User.Username)
 		}
+	}
+}
+
+// onHomesteadRoleUpdate reacts to a member's Homestead level role changing
+// in real time, instead of waiting for the hourly sync-homestead workflow to
+// pick it up. The hourly Action stays in place as a backstop for role
+// changes made while the bot is offline, and for the initial backfill.
+func onHomesteadRoleUpdate(root string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
+	return func(s *discordgo.Session, m *discordgo.GuildMemberUpdate) {
+		if m.Member == nil || m.BeforeUpdate == nil {
+			return
+		}
+		newLevel := discord.HomesteadLevelFromRoles(m.Member.Roles)
+		oldLevel := discord.HomesteadLevelFromRoles(m.BeforeUpdate.Roles)
+		if newLevel <= oldLevel {
+			return
+		}
+
+		members, err := discord.LoadHomesteadMembers(root)
+		if err != nil {
+			slog.Error("loading homestead_members.json", "err", err)
+			return
+		}
+
+		entry := discord.HomesteadMember{
+			Level:      newLevel,
+			Since:      time.Now().UTC().Format("2006-01-02 15:04"),
+			Username:   m.User.Username,
+			GlobalName: m.User.GlobalName,
+			Nickname:   m.Member.Nick,
+		}
+		members[m.User.ID] = entry
+
+		if err := discord.SaveHomesteadMembers(root, members); err != nil {
+			slog.Error("saving homestead_members.json", "err", err)
+			return
+		}
+
+		messageID := os.Getenv("HOMESTEAD_MESSAGE_ID")
+		if messageID == "" {
+			messageID = discord.DefaultHomesteadMessageID
+		}
+		discord.PostHomesteadRanking(s, messageID, members)
+
+		if newLevel >= 7 {
+			discord.AnnounceHomesteadLevelUp(s, entry)
+		}
+		slog.Info("homestead level up", "user", m.User.Username, "level", newLevel)
 	}
 }
 
