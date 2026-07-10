@@ -1,8 +1,8 @@
 [
   {
-    "severity": "high",
+    "severity": "normal",
     "title": "Cannot place Guild Construction\u003eDiagrams",
-    "details": "Cannot place full diagrams. Error: \"Diagram contains invalid components for this panel.\".  Still bug in v1.8.",
+    "details": "Cannot place premade v1,7 diagrams. Error: \"Diagram contains invalid components for this panel.\".  Still bug in v1.8.",
     "guild": true,
     "solo": false,
     "pc": true,
@@ -17,7 +17,7 @@
     "notes": "CN server also received this update which is problematic. Many builders use those components in their work. It's critical because days of efforts are lost because of this."
   },
   {
-    "severity": "high",
+    "severity": "normal",
     "title": "Cannot place guild diagrams component",
     "details": "Cannot place/copy any exclusive component from Guild Construction \u003e Diagrams in guild base. Error: \"This component is not available in the current panel.\"",
     "guild": true,
@@ -26,7 +26,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a516ea2\u0026hm=b5e37d12df14019abd89d46a0055651ea592794c53411f700e845782cbd8555e\u0026is=6a501d22\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a521762\u0026hm=326a7235a5e29fed5b54a8ea24b368d56228f7c10ec525dd0734c5d16e752eb4\u0026is=6a50c5e2\u0026",
       "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a52041f\u0026hm=3dec5e6bf881f624b363955d821a3d02a4f44dda10c462c730965a32f9251db6\u0026is=6a50b29f\u0026"
     ],
     "version": "v1.7",
@@ -34,7 +34,7 @@
     "notes": "Probable root cause:Cannot place Guild Construction\u003eDiagrams"
   },
   {
-    "severity": "high",
+    "severity": "fixed",
     "title": "Cannot apply some custom diagrams",
     "details": "Custom/Saved guild diagrams cannot be applied in certain conditions. Error: \"Blueprint contains components that cannot be placed in the Open World.\"",
     "guild": true,
@@ -166,8 +166,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a5182df\u0026hm=eb0907340b87e926be10c5332a8e68a4e37a0953a6d114db41dfbfd4439d06be\u0026is=6a50315f\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a5182df\u0026hm=38d44575fb2c04d5a97b98f6295db6d15b505d4630cf30f0dac2a03d7ecbd128\u0026is=6a50315f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a522b9f\u0026hm=7184617462751d9654718bf817bafda337fde700fe18bcee8219cdf1e5ca0d16\u0026is=6a50da1f\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a522b9f\u0026hm=d6029975b0a80a3b5be1e348c432d25ff7eb1ed2ee9d2efb87598e9237e3bca1\u0026is=6a50da1f\u0026"
     ],
     "version": "v1.7",
     "date": "02/06/2026",
@@ -413,7 +413,7 @@
     "notes": ""
   },
   {
-    "severity": "high",
+    "severity": "fixed",
     "title": "Remaining components that cannot be deleted",
     "details": "Deleting the largest building from large component with scroll decoration can leave some remaining components",
     "guild": true,
@@ -467,8 +467,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010451679838268/image.png?ex=6a516fcc\u0026hm=07eb6636fc3fce036f03899fad7f28ca0ee0e791d9a23ac2f24423f56c0d512e\u0026is=6a501e4c\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010354409869463/image.png?ex=6a516fb4\u0026hm=6c2d347382396f5f14301d26f12c02b499bf19e1760d46eb6e66f8252d20058c\u0026is=6a501e34\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010451679838268/image.png?ex=6a52188c\u0026hm=a67aed8339d559c514a3ed3250d3031d73dd55baa9d3df8147187cff81a50ba0\u0026is=6a50c70c\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010354409869463/image.png?ex=6a521874\u0026hm=653f1e7620d5e1190f9445acfaf3d0d3cfbf5dda5915908ab2358308ea5aaca8\u0026is=6a50c6f4\u0026"
     ],
     "version": "v1.8",
     "date": "26/06/2026",
