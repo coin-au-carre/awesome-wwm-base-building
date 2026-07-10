@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503456647954305106 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a51331d&hm=200916826e7ffeab84ff1e68211f1199054c7c97b8f6c27e9e989248ac9e8a44&is=6a4fe19d&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503456647618494644/Where_Winds_Meet_2026.05.11_-_20.58.21.11.mp4?ex=6a51dbdd&hm=ddc0e1b2d047c681b12a0fd4817e2ac1f507e6b18463f7ab5ef57946a09fef76&is=6a508a5d&" controls></video>
 </div>
 
 ---
@@ -28,7 +28,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 <!-- discord-video:1483447711499030634/1503455036062175395 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a51319d&hm=c7e6972d6554424b2cbf789a30170bd7067c0e4383ac01ed7fc0b84aba728ab6&is=6a4fe01d&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1503455035806187620/Where_Winds_Meet_2026.05.11_-_20.50.13.10.mp4?ex=6a51da5d&hm=aa28ce79089c65d27eec5cfc4c49c9bd7b990986c5afa76d21938d5121afeb45&is=6a5088dd&" controls></video>
 </div>
 
 ---
@@ -42,7 +42,7 @@ The Great Healer NPC sign can be hidden with the right placement. Here are two a
 
 This second method blends in more naturally with the surroundings.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a515a4a&format=webp&hm=bfa5207ac1b17ffdde524b680961e8dc6bc97a46612f684e3fe9cbe1b5d5ccee&is=6a5008ca&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a52030a&format=webp&hm=cddbb0c6f28e2abea6b5aa63f88e4f9d94df5f0e98a70e7a84a36573c1e8f0ba&is=6a50b18a&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

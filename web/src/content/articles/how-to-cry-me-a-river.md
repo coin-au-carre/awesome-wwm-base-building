@@ -26,7 +26,7 @@ Hiding the middle part below ground is optional, depending on how far above grou
 
 <!-- discord-video:1483483683456286911/1500737049140002816 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a513188&hm=a81f28f0bb2952e4f4d1bf336f3a68e5961ae77e8246a3e50045dbaab0e3df4a&is=6a4fe008&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a51da48&hm=84e9d4152e714faa5c20ff1aba305293399a91a40a0f09624da803e249fa5e75&is=6a5088c8&" controls></video>
 </div>
 
 ---
@@ -42,9 +42,9 @@ The advantage over manual adjustment (going up and down until sections blend) is
 
 <!-- discord-video:1483447711499030634/1502228322896052264 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a515866&hm=be9e9cb700325a3d8754efb002ffb7fc4ec9b28dc137b64f753514c4379903cc&is=6a5006e6&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1502228322111848468/Where_Winds_Meet_2026.05.08_-_04.52.25.02.mp4?ex=6a520126&hm=d36f78a154b1571624cd4be98774d0942e4b5d95ebb8cfe638103fd87adcbc78&is=6a50afa6&" controls></video>
 </div>
 
 **Note by [Ahlyam](/builders/ahlyam):** Building using Carnii's technique, you can efficiently construct straight rivers by starting from the single small wooden floor, then duplicating it following this pattern: **10 wooden floor spaces wide, 1 wooden floor space tall**. From there you can construct your courtyards without having to resort to the stone floor / vertical wall / wooden floor placement every single time.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a515fea&format=webp&hm=e8ea5a7bcb9367695bf2c9f769f4e1cb289fc4cf27102a351b11c7bad995a475&is=6a500e6a&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506041468446572635/image.png?ex=6a5208aa&format=webp&hm=907a5295ce61f1b40517b01055382a8ae95e1d43b2baecda0f0309b3bbec1fd3&is=6a50b72a&quality=lossless" alt="River construction using the 10×1 wooden floor duplication pattern" style="border-radius: 0.75rem; width: 100%;" />

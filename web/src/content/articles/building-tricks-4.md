@@ -45,7 +45,7 @@ This watchtower has a unique rustic-looking bell on top. While the full structur
 
 Some ironware items are currently available only in solo build mode. But you can save them into a diagram in solo mode and then place that diagram in guild build mode. So in the future, when we get more items like this, we’ll be able to use the same trick to bring solo items into the guild.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a51316a&format=webp&hm=fbd09b53278c85e36080a74fe4356d05233a4ae21956839c52f9ee226f23a585&is=6a4fdfea&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a51da2a&format=webp&hm=ff459ed0e1f24075a70c13feb63a8d7bc81ee37918718fedaef5b0f136e47d67&is=6a5088aa&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -56,7 +56,7 @@ Some ironware items are currently available only in solo build mode. But you can
 
 Sink a flat top cabinetThis cabinet component has some that make it fit the bar counter
 
-<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a516c1d&format=webp&hm=bae1dd7e59742a92d54153abb8ae6c531bd7a55bad4fd12442c5839f54858bae&is=6a501a9d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483483683456286911/1510584412344160307/Where_Winds_Meet_5_31_2026_6_01_12_PM.png?ex=6a5214dd&format=webp&hm=5aee66f9a80aa09c398462624e191d6f5c1b67e0ade28d836d373895f2c915d0&is=6a50c35d&quality=lossless" alt="Bar counter extended using a sunk flat top cabinet" style="border-radius: 0.75rem; width: 100%;" />
 
 <img src="https://media.discordapp.net/attachments/1483483683456286911/1510584982475903077/image.png?ex=6a516ca5&format=webp&hm=0ce023ed6eb8e3e43b50840caca6d74018259e3f2620fabe8baac5452886a692&is=6a501b25&quality=lossless" alt="Flat top cabinet component shown next to the bar counter" style="border-radius: 0.75rem; width: 100%;" />
 
