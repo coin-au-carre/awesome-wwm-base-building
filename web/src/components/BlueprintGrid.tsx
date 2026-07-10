@@ -2,8 +2,8 @@ import { useState, useMemo } from "react"
 import * as React from "react"
 import type { RankedBlueprint } from "@/types/blueprint"
 import { url } from "@/lib/url"
-import { builderSlug } from "@/lib/format"
-import { getDiagramType, nonDiagramTags } from "@/lib/blueprints"
+import { builderSlug, youtubeThumbnail } from "@/lib/format"
+import { getDiagramType, displayTags } from "@/lib/blueprints"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { parseLastModified, relativeTime } from "@/lib/dates"
 import { cn } from "@/lib/utils"
@@ -331,9 +331,9 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((bp) => {
-            const img = bp.coverImage ?? bp.screenshots?.[0]
+            const img = bp.coverImage ?? bp.screenshots?.[0] ?? (bp.videos?.[0] ? youtubeThumbnail(bp.videos[0]) : undefined)
             const diagramType = getDiagramType(bp.tags)
-            const restTags = nonDiagramTags(bp.tags)
+            const restTags = displayTags(bp.tags)
             return (
               <a
                 key={bp.discordThread}

@@ -9,7 +9,7 @@ import { getBlueprintsSortedByScore, getAllBlueprintTags, hasBlueprints, getRece
 import { getBuilderProfile } from "@/lib/builders"
 import { getLastSyncDate } from "@/lib/guilds"
 import { formatSyncDate } from "@/lib/dates"
-import { thumbUrl, builderSlug, slugify } from "@/lib/format"
+import { thumbUrl, builderSlug, slugify, youtubeThumbnail } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, ArrowsClockwiseIcon, InfoIcon } from "@phosphor-icons/react"
@@ -49,14 +49,17 @@ const builderCards = blueprints
     const profile = getBuilderProfile(slug)
     if (builderSeen.has(slug)) return acc
     builderSeen.add(slug)
-    const builderBlueprints = (profile?.blueprints ?? [bp]).map((b) => ({
-      name: b.name,
-      slug: b.slug ?? slugify(b.name),
-      coverImage: (b.coverImage ?? b.screenshots?.[0]) ? thumbUrl(b.coverImage ?? b.screenshots![0]) : undefined,
-      isFree: b.isFree,
-      isPayToBuild: b.isPayToBuild,
-      price: b.price,
-    }))
+    const builderBlueprints = (profile?.blueprints ?? [bp]).map((b) => {
+      const img = b.coverImage ?? b.screenshots?.[0] ?? (b.videos?.[0] ? youtubeThumbnail(b.videos[0]) : undefined)
+      return {
+        name: b.name,
+        slug: b.slug ?? slugify(b.name),
+        coverImage: img ? thumbUrl(img) : undefined,
+        isFree: b.isFree,
+        isPayToBuild: b.isPayToBuild,
+        price: b.price,
+      }
+    })
     acc.push({
       name: profile?.name ?? bp.builderName!,
       slug,

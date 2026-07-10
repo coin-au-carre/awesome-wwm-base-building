@@ -25,6 +25,19 @@ export function slugify(name: string): string {
     .replace(/^-+|-+$/g, "")
 }
 
+/** YouTube thumbnail URL for a watch/share link, used as a cover-image fallback when no screenshots exist. */
+export function youtubeThumbnail(rawURL: string): string | undefined {
+  try {
+    const u = new URL(rawURL)
+    let id = ""
+    if (u.hostname === "youtu.be") { id = u.pathname.replace(/^\//, "") }
+    else if (u.hostname === "www.youtube.com" || u.hostname === "youtube.com") { id = u.searchParams.get("v") ?? "" }
+    return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : undefined
+  } catch {
+    return undefined
+  }
+}
+
 export function stripGuildShowcase(name: string): string {
   return name.replace(/\bGuild Showcase\b/gi, "").trim()
 }
