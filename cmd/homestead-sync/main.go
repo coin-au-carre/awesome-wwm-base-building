@@ -262,6 +262,7 @@ func buildHomesteadEmbed(members map[string]homesteadMember) *discordgo.MessageE
 	}
 
 	var sb strings.Builder
+	fmt.Fprintf(&sb, "[See the full rankings ↗](%s)\n\n", homesteadRankingsURL)
 	rank := 0
 	for _, level := range []int{9, 8, 7, 6, 5} {
 		group := byLevel[level]
@@ -279,8 +280,6 @@ func buildHomesteadEmbed(members map[string]homesteadMember) *discordgo.MessageE
 		}
 		sb.WriteString("\n")
 	}
-
-	fmt.Fprintf(&sb, "[See the full rankings ↗](%s)", homesteadRankingsURL)
 
 	return &discordgo.MessageEmbed{
 		Title:       "🏡 Homestead Hall of Fame 🏡",
