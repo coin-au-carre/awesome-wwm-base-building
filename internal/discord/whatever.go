@@ -5,6 +5,7 @@ import (
 	"log/slog"
 	"slices"
 	"strings"
+	"sync"
 	"time"
 
 	"ruby/internal/guild"
@@ -56,7 +57,12 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 	// Discord returns newest-first; reverse to chronological order.
 	slices.Reverse(all)
 
-	var posts []WhateverPost
+	type candidate struct {
+		msg    *discordgo.Message
+		images []string
+		videos []string
+	}
+	var candidates []candidate
 	for _, msg := range all {
 		if msg.Author == nil {
 			continue
@@ -69,28 +75,59 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 		if hasReaction(msg, "🚫") {
 			continue
 		}
-		reactions := uniqueReactorCount(s, channelID, msg)
-		if reactions == 0 {
-			continue
-		}
-		name := msg.Author.GlobalName
-		if name == "" {
-			name = msg.Author.Username
-		}
-		posts = append(posts, WhateverPost{
-			ID:              msg.ID,
-			AuthorName:      name,
-			AuthorID:        msg.Author.ID,
-			Content:         strings.TrimSpace(msg.Content),
-			Images:          images,
-			Videos:          videos,
-			Reactions:       reactions,
-			ReactionDetails: reactionDetails(msg),
-			MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, msg.ID),
-			PostedAt:        msg.Timestamp.Format(time.RFC3339),
-		})
+		candidates = append(candidates, candidate{msg: msg, images: images, videos: videos})
 	}
-	return posts, nil
+
+	// Fetching unique reactor counts is one Discord API call per emoji per
+	// message; run it through a worker pool instead of serially or it takes
+	// minutes on a busy channel.
+	posts := make([]WhateverPost, len(candidates))
+	keep := make([]bool, len(candidates))
+	jobs := make(chan int, len(candidates))
+	var wg sync.WaitGroup
+	for range numWorkers {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for i := range jobs {
+				c := candidates[i]
+				reactions := uniqueReactorCount(s, channelID, c.msg)
+				if reactions == 0 {
+					continue
+				}
+				name := c.msg.Author.GlobalName
+				if name == "" {
+					name = c.msg.Author.Username
+				}
+				posts[i] = WhateverPost{
+					ID:              c.msg.ID,
+					AuthorName:      name,
+					AuthorID:        c.msg.Author.ID,
+					Content:         strings.TrimSpace(c.msg.Content),
+					Images:          c.images,
+					Videos:          c.videos,
+					Reactions:       reactions,
+					ReactionDetails: reactionDetails(c.msg),
+					MessageURL:      fmt.Sprintf("https://discord.com/channels/%s/%s/%s", guildID, channelID, c.msg.ID),
+					PostedAt:        c.msg.Timestamp.Format(time.RFC3339),
+				}
+				keep[i] = true
+			}
+		}()
+	}
+	for i := range candidates {
+		jobs <- i
+	}
+	close(jobs)
+	wg.Wait()
+
+	result := make([]WhateverPost, 0, len(posts))
+	for i, p := range posts {
+		if keep[i] {
+			result = append(result, p)
+		}
+	}
+	return result, nil
 }
 
 func imagesFromMessage(msg *discordgo.Message) []string {
