@@ -80,7 +80,7 @@ func FetchWhateverShowcase(s *discordgo.Session, channelID, guildID string) ([]W
 
 	result := make([]WhateverPost, 0, len(candidates))
 	for _, c := range candidates {
-		reactions := maxReactionCount(c.msg)
+		reactions := totalReactionCount(c.msg)
 		if reactions == 0 {
 			continue
 		}
@@ -125,20 +125,13 @@ func videosFromMessage(msg *discordgo.Message) []string {
 	return urls
 }
 
-// maxReactionCount approximates unique reactor count as the single
-// highest-count emoji on the message, with zero extra API calls (unlike
-// fetching each emoji's reactor list to dedupe exactly). This undercounts a
-// user who reacted with multiple emoji as if they were one reactor across
-// the whole message, but never overcounts the way summing all emoji counts
-// would when someone stacks ⭐👍🔥 on their own post.
-func maxReactionCount(msg *discordgo.Message) int {
-	max := 0
+// totalReactionCount sums every emoji's count on the message.
+func totalReactionCount(msg *discordgo.Message) int {
+	total := 0
 	for _, r := range msg.Reactions {
-		if r.Count > max {
-			max = r.Count
-		}
+		total += r.Count
 	}
-	return max
+	return total
 }
 
 func hasReaction(msg *discordgo.Message, emoji string) bool {
