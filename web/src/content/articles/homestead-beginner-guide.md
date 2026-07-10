@@ -95,6 +95,7 @@ This page is a web version of Cylos guide available on [Google Doc](https://docs
 
 
 
+
 Homestead Guide
 
 ## Basics<img src="/tutorials/homestead-beginner-guide/img-1.webp" style="width: 80%" />
@@ -159,7 +160,7 @@ To start farming, place down the farm plot and walk up to it. You can interact w
 
 - 1\) Sow: Used to plant seeds. To choose what seeds you want to plant either left click on the sow button or click on the config button on the right. This will pull up the Seeds menu. Here you can select the seed you want to be sown by ticking the box on the right side<img src="/tutorials/homestead-beginner-guide/img-17.webp" style="width: 60%" />
 
-One thing to note is that each plot has 16 slots. So you can choose either 16 of the same seed or 8/8 of 2 different seeds. Each seed has a different growth time and yield amount. Usually the more growth time means more yield. You can check this by hovering over the seed.<img src="/tutorials/homestead-beginner-guide/img-19.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-18.webp" style="width: 60%" />
+One thing to note is that each plot has 16 slots. So you can choose either 16 of the same seed or 8/8 of 2 different seeds. Each seed has a different growth time and yield amount. Usually the more growth time means more yield. You can check this by hovering over the seed.<img src="/tutorials/homestead-beginner-guide/img-18.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-19.webp" style="width: 60%" />
 
 Alternatively you can also change the Tab to Seeds and plant them from there by pressing the number you want to sow.
 
@@ -188,7 +189,7 @@ By pressing on a farm you can check:
 
 ## Retainers
 
-Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" />
+Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" />
 
 There are instances where the worker has no listed skills. This means they can learn any of the skills. The level of a retainer skill determines how fast he finishes a task or how many materials per hour he will produce. You use Artisan’s Manuals to increase the skill level.
 
@@ -218,7 +219,7 @@ To start cooking click on the + icon on the left side to select the dish you wan
 
 Depending on what cooking level your retainer has it will take more or less time to finish the dish.
 
-The recommended dishes are always marked with a little yellow thumbs up icon. On the top right you will find the Materials Abundant option. This will give you an overview of how many raw materials you use up per hour. This will also tell you if you have a surplus production on any of your materials. It does not account for anything that is currently planted on the farms and will only tell you the surplus for materials gained from Local Specialties. <img src="/tutorials/homestead-beginner-guide/img-27.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-28.webp" style="width: 40%" />
+The recommended dishes are always marked with a little yellow thumbs up icon. On the top right you will find the Materials Abundant option. This will give you an overview of how many raw materials you use up per hour. This will also tell you if you have a surplus production on any of your materials. It does not account for anything that is currently planted on the farms and will only tell you the surplus for materials gained from Local Specialties. <img src="/tutorials/homestead-beginner-guide/img-28.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-27.webp" style="width: 60%" />
 
 Catering is your way of selling the cooked food and drinks you make in your brewery. You can tell how many gourds you get by hovering over the dish. The Unit Sale Price is the amount of gourds you get every time your retainer finishes one work cycle. You can also check your production/consumption per hour to ensure you have enough supply to keep the sales running while you’re offline.<img src="/tutorials/homestead-beginner-guide/img-29.webp" style="width: 60%" />
 

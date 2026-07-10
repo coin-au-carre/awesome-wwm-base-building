@@ -42,9 +42,9 @@ With improved axis rotation now available, the giant painting can be laid flat a
 
 Before and after examples by Crueliet:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962974878892082/before1.png?ex=6a51d925&format=webp&hm=ab1b7a5e51e0ec4b47261584eb09e47bb8f65d307e8b8e86faea6d417791f71c&is=6a5087a5&quality=lossless" alt="Before — floor section without the giant painting" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962974878892082/before1.png?ex=6a5281e5&format=webp&hm=6ba8e4dad98a7bd2d8404181ea079602ad1702641b020931820284b57324d322&is=6a513065&quality=lossless" alt="Before — floor section without the giant painting" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962975369887824/After1.png?ex=6a51d925&format=webp&hm=d0a3e3de197ced7d28af09e3320e1b23756f48eee37cd46ddc23f21e579d7a0c&is=6a5087a5&quality=lossless" alt="After — the same area with the giant painting used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513962975369887824/After1.png?ex=6a5281e5&format=webp&hm=ea9f2c7e9b09f09b89500198338f92ef0d4ad7706af4a4c10f016d87eeee1b22&is=6a513065&quality=lossless" alt="After — the same area with the giant painting used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -66,13 +66,13 @@ An example by Crueliet using the same idea:
 
 A wooden torch shape assembled from standard building components:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513967901181477006/image.png?ex=6a51ddbb&format=webp&hm=dfedcf9729be7bdf6fb7aa407970cd6da301b03bee435a845a3e29bdde55e7ca&is=6a508c3b&quality=lossless" alt="Wooden torch design built from standard components" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513967901181477006/image.png?ex=6a52867b&format=webp&hm=54a7890dc3b4dd6889661c03cd29938b4bfec93d4549d3e4bcfabf1024fddd0a&is=6a5134fb&quality=lossless" alt="Wooden torch design built from standard components" style="border-radius: 0.75rem; width: 100%;" />
 
 The top section of a golden fire pillar:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a51e5ef&format=webp&hm=f01017ff6866092b53233415d95615ed562910422980e521bbf772ea0e2533b2&is=6a50946f&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a528eaf&format=webp&hm=6e304e6cf389938b83d047a784f681f97dcfdf9e243bdf6ba7e0b1cc08ba22ab&is=6a513d2f&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a51e1f2&format=webp&hm=ef88be7f79e71eeba4d195bcdc72b00796e09c271e1d9d00271be991f331cd52&is=6a509072&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a528ab2&format=webp&hm=4bc7aeb1ee709d46e759bc379cc7be987ec9354d7ee35b8da5ebe1185f6815fd&is=6a513932&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -87,9 +87,9 @@ Flipping the Plot piece upside down exposes its flat dirt underside, giving you 
 
 **Good use by [Wyrdrake](/builders/wyrdrake):** Planting on a cemented area made more realistic by inverting the plot. No more plants growing awkwardly out of cement.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873248926531775/image.png?ex=6a51dd27&format=webp&hm=b4909b246d75d33cdecbfa37783593103e85aa4f9c6c58db49f67a1c59a799d5&is=6a508ba7&quality=lossless" alt="Inverted plot used under plants on a cemented surface" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873248926531775/image.png?ex=6a5285e7&format=webp&hm=d9f9a9d67b9350f5611ce028199a5fe76868340f37613124419c66f25a48dea9&is=6a513467&quality=lossless" alt="Inverted plot used under plants on a cemented surface" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873249429983302/image.png?ex=6a51dd27&format=webp&hm=ce90bfbe3ade474368000a7510f7e15362f7ed8f49b8b7d44d24e021b185e665&is=6a508ba7&quality=lossless" alt="Close-up of the inverted plot hiding the cement under natural-looking plants" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514873249429983302/image.png?ex=6a5285e7&format=webp&hm=b3524e2922b3ce4c268595bcdf985a5d91c8dd398c586a4e3eeedd882fc4dfbd&is=6a513467&quality=lossless" alt="Close-up of the inverted plot hiding the cement under natural-looking plants" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
