@@ -5,7 +5,7 @@ tags: ["solo", "sightseeing"]
 authors: ["alscend", "noxlamina", "Crueliet", "Ahlyam", "Skysnip", "vehs", "Carni"]
 date: 2026-05-17
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a511644&format=webp&hm=c5fdbd794cf7e3983a97a94c606db33ba5c8727f469270ca0c0e2b931a5a35f9&is=6a4fc4c4&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a51bf04&format=webp&hm=b0096999ec6d30c53f213c58391d53727c98ffdf1444ddb11ff842ac4829257b&is=6a506d84&quality=lossless"
 featured: false
 ---
 
@@ -13,21 +13,21 @@ featured: false
 ## Modern stairs
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a511644&format=webp&hm=c5fdbd794cf7e3983a97a94c606db33ba5c8727f469270ca0c0e2b931a5a35f9&is=6a4fc4c4&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a51bf04&format=webp&hm=b0096999ec6d30c53f213c58391d53727c98ffdf1444ddb11ff842ac4829257b&is=6a506d84&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
 ## The build is fine, the screenshot is just from a bad angle
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/noxlamina" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">noxlamina</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a50f97e&format=webp&hm=9947249e4eca752177686a674288c22b4f08771ae7c7396bbde9572bb6e6140c&is=6a4fa7fe&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a51a23e&format=webp&hm=f277fce15d8db6d90ceeabf2fa43fac4877e87d6e15a114461c8cd1c6ed487da&is=6a5050be&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
 ## Guild base pool area with sand
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a51100b&format=webp&hm=65bebad4db15a2577d82e72b6e310a923d34aa55130acb2276d9f1eb9b9ac5f8&is=6a4fbe8b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a51b8cb&format=webp&hm=4317e86e9ef618c802c7148b517ac8651e86a1f6e56db6d2950ff7f5e8252c87&is=6a50674b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

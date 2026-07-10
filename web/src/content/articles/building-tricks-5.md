@@ -27,9 +27,9 @@ Rotating objects by 5-degree increments lets you arrange them in a smooth circul
 
 Floor pieces often become invisible when viewed from below, which can look odd in elevated structures. Instead of spending extra components on additional flooring, simply flip a second floor piece upside down and overlap it with the first. The flipped face covers the invisible underside.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a51002d&format=webp&hm=fd1b207f67e9ab4bc855200625290f978b2d297b9b185cc6464fbfbfafb40539&is=6a4faead&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273590164459711/IMG_2188.png?ex=6a51a8ed&format=webp&hm=b282b57173210257008657b5bd8c2c977270b7273c22d7f1ca373c2589c870b2&is=6a50576d&quality=lossless" alt="Two floor pieces overlapped — one flipped upside down to cover the invisible underside" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a51002d&format=webp&hm=4a935f8e49d829a2e48ca60ea574ba2334dcc1f078f3bd3fe258c05958c6516e&is=6a4faead&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514273588340064360/IMG_2189.png?ex=6a51a8ed&format=webp&hm=16ffe7a9e7ef6947a243b9298cc1ca1ec39c872c8f698644195211d765ec2269&is=6a50576d&quality=lossless" alt="Result — the bottom of the floor is now fully visible" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -38,7 +38,7 @@ Floor pieces often become invisible when viewed from below, which can look odd i
 
 With improved axis rotation now available, the giant painting can be laid flat and used as a solid floor texture. Previously, beds were the go-to for this kind of surface. The painting gives a more distinctive look and works especially well for decorative floor sections.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959251314479264/image.png?ex=6a512ced&format=webp&hm=893e969f74046db1e18568904eadeff19758e73f4f5831140d40be1f3b7c491e&is=6a4fdb6d&quality=lossless" alt="Giant painting rotated flat and used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959251314479264/image.png?ex=6a51d5ad&format=webp&hm=5b52ffc9902a38ffff68d8fd6846f01fc0af28acf1dec4d9cdcc1727b4ba5fde&is=6a50842d&quality=lossless" alt="Giant painting rotated flat and used as a floor texture" style="border-radius: 0.75rem; width: 100%;" />
 
 Before and after examples by Crueliet:
 
@@ -53,11 +53,11 @@ Before and after examples by Crueliet:
 
 A building flipped on its side can double as a crane arm or support structure. Hide the rest of the piece inside rocks or terrain to leave only the jutting section visible — the result reads as a convincing industrial support.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a51057b&format=webp&hm=a9138f58858eb6015d500f2ed995c110ff9a5ffd1a9c3e0cfd356c8303c07dc8&is=6a4fb3fb&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513916897786069162/image.png?ex=6a51ae3b&format=webp&hm=2ec561783fea8fe1d0a6d3e23bb5a0c9253f9ae7ee8de5d47750a99342805a56&is=6a505cbb&quality=lossless" alt="Building flipped on its side, partially hidden in rocks, showing a crane-like support arm" style="border-radius: 0.75rem; width: 100%;" />
 
 An example by Crueliet using the same idea:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959552070979694/image.png?ex=6a512d35&format=webp&hm=b8a81a4ba6898dfc935e51fe76c0fd2dcd29a4874011ae1f0354443d98c3080c&is=6a4fdbb5&quality=lossless" alt="Crane-like structure built using a sideways-flipped building piece" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513959552070979694/image.png?ex=6a51d5f5&format=webp&hm=e218f8a8a519aafd4879678ce7fcea81f05e6b3cb9dc1c15cf7335731dc769c7&is=6a508475&quality=lossless" alt="Crane-like structure built using a sideways-flipped building piece" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
