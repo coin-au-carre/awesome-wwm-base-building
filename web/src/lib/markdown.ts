@@ -32,7 +32,12 @@ const instance = new Marked({
 // Normalize Discord-style loose bold markers: ** text ** → **text**
 const reLooseBold = /\*\* ?(.+?) ?\*\*/g
 
+// Strip "**" glued directly onto a code fence (e.g. "**```" or "```**") — bold can't wrap a
+// fenced code block, and the trailing "**" makes the closing fence invalid, swallowing the
+// rest of the text into the code block. Discord tolerates this typo; marked does not.
+const reBoldOnFence = /\*\*(`+)|(`+)\*\*/g
+
 export function renderMarkdown(text: string): string {
-  const normalized = text.replace(reLooseBold, "**$1**")
+  const normalized = text.replace(reBoldOnFence, "$1$2").replace(reLooseBold, "**$1**")
   return instance.parse(normalized, { async: false }) as string
 }
