@@ -156,5 +156,31 @@
     "media": [],
     "version": "",
     "notes": ""
+  },
+  {
+    "coolness": "low",
+    "title": "Homestead Residency cap 100 components",
+    "description": "",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": false,
+    "ps5": false,
+    "media": [],
+    "version": "",
+    "notes": ""
+  },
+  {
+    "coolness": "normal",
+    "title": "Homestead Beyond Mundane cap 10K components",
+    "description": "Can be increased with residencies",
+    "guild": false,
+    "solo": false,
+    "pc": false,
+    "mobile": false,
+    "ps5": false,
+    "media": [],
+    "version": "",
+    "notes": ""
   }
 ]
