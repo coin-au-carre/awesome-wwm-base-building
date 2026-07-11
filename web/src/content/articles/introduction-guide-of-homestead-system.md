@@ -218,7 +218,7 @@ Each type of production will have its own decorative elements, such as a large o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a521cc9&format=webp&hm=c50fc75f0c2b065784bba9ccb8a9062b246d1411f94c3da8ad8d35e1b9e4ce07&is=6a50cb49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a52c589&format=webp&hm=c352bc375ecd335cfbf5ba819950abd82edfe7561cd15d4d7f9e0f660213efb6&is=6a517409&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a521e5e&format=webp&hm=646bb7d7189ee38a037db4020fb0876b1cd3e801db851f3337e6a1568aef4ed4&is=6a50ccde&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a52c71e&format=webp&hm=5671e7a6e79e46c52be92a92744d109d97d21fe2aa59c84cdb29e5c196a1a5f5&is=6a51759e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
