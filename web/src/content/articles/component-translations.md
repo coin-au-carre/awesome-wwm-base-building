@@ -5,7 +5,7 @@ tags: ["beginner"]
 authors: ["SiMing司命"]
 date: 2026-04-27
 order: 7
-image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a535aa4&format=webp&hm=b779bb9731a4b86d5f4656d579c74e238cff4fbf883dd84b7bac1f49214d40e3&is=6a520924&quality=lossless"
+image: "https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a540364&format=webp&hm=7004364ab67b9904cc1e725ab5613e587b93594aa9850b12592280218056ccc3&is=6a52b1e4&quality=lossless"
 featured: false
 published: true
 ---
@@ -14,7 +14,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a535aa4&format=webp&hm=b779bb9731a4b86d5f4656d579c74e238cff4fbf883dd84b7bac1f49214d40e3&is=6a520924&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498069444918771874/Screenshot_2026-04-26_170854.png?ex=6a540364&format=webp&hm=7004364ab67b9904cc1e725ab5613e587b93594aa9850b12592280218056ccc3&is=6a52b1e4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 寒 - winter / cold
 日 - day
@@ -22,7 +22,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a535c89&format=webp&hm=71dd63568c2cd0eab22b370e28d740f27322ad0c7734d37ac72a66347baeffd8&is=6a520b09&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498071480217501777/sign1-b.png?ex=6a540549&format=webp&hm=320181599a08062723e15c1f55b0daca36dfec96c881ea1340bd2d52c81a2af8&is=6a52b3c9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 悬 - hang
 壶 - gourd
@@ -164,7 +164,7 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a5359ca&format=webp&hm=c14cb63fd0f879aba4270dca534bd42eba097162c4b9daa2fd37877ceb34331d&is=6a52084a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498430917134258376/image.png?ex=6a54028a&format=webp&hm=de9a314cc2fbf219f519dc0b0df03b5e7349a057e35118092f79cda336564b08&is=6a52b10a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 玉門關 - Jade Gate Pass
 
