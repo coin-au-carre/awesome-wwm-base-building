@@ -35,6 +35,10 @@ tasks:
     desc: find members with Homestead Lvl5-8 roles → data/homestead_members.json, backfill data/users.json
     cmd: go run ./cmd/homestead-sync
 
+  active-roles:
+    desc: scan tracked chat channels, assign Wanderer role to active chatters, report inactive builders
+    cmd: go run ./cmd/assign-active-roles {{.CLI_ARGS}}
+
   sync:patches:
     desc: fetch Google Sheets patch notes CSV → data/patches.json (with Discord CDN refresh)
     cmd: go run ./cmd/patches-sync {{.CLI_ARGS}}
