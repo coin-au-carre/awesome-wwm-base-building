@@ -19,6 +19,12 @@ export const HOMESTEAD_SHEETS: HomesteadSheet[] = [
     description: "Farming & specialties consumption tracker",
     href: "https://docs.google.com/spreadsheets/d/1RnfMBbyvffaij8JeBIoMJQlQHI9S15qAmxZzDwZsoSE/edit?usp=sharing",
     by: "KCrazy",
+  },
+  {
+    title: "Elune Retainer List",
+    description: "Retainer planner",
+    href: "https://docs.google.com/spreadsheets/d/1xnaS7aV26b8cGwU-VktvPolqrd_9P5wHEci-WOZAuwY/edit?usp=sharing",
+    by: "๖̶̶̶ζ͜͡Elune",
     column: "guide",
   },
   {
