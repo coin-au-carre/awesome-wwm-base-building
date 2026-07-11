@@ -24,7 +24,7 @@
     "scheduledStart": "2026-07-11T21:30:00Z",
     "scheduledEnd": "2026-07-12T00:00:00Z",
     "location": "The Inner Ways Guild HQ",
-    "status": "scheduled",
+    "status": "active",
     "subscriberCount": 5,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
