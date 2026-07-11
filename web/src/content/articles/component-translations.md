@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a52cda6&format=webp&hm=6d9f0f9e6795c36de3142baeab13aaa5cd3fb1b1e622f781ac3ec141a354b259&is=6a517c26&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a537666&format=webp&hm=b30512f854828bb43de53fd87b00c3d95f51316db16269c37a7dfdec54b6139e&is=6a5224e6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 福 Fortune
 
