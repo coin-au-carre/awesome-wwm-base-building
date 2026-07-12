@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a5426ef&format=webp&hm=fdb33df612d46b58a95b483fb9a7943116025e843bc9505ddbfa528b537ce5c4&is=6a52d56f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a54cfaf&format=webp&hm=ca72e792459f6a40c2eda2f73bcaabf967ffa43c8ecc4c3517fae44b74a7f51a&is=6a537e2f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a543365&format=webp&hm=42ab06865bc8f67af84de24192edb95bbdd41797af9e99c94f4076a2954000f5&is=6a52e1e5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a54dc25&format=webp&hm=aea878f1e1d60ab3a55f39b136377e663fd4e087362680df1a1a90616ae8ab7e&is=6a538aa5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a543385&format=webp&hm=45c93605a1a051dcd4864184ecdb464011909b268690f4ac8f8f6896ba78ed92&is=6a52e205&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a54dc45&format=webp&hm=a76585810c9b87048eb4d5b0d9a3e011d192a9366b19facb2540c4d6be3dd707&is=6a538ac5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a543846&format=webp&hm=da9b18571e8a7de5d63ca88c257120df2b24a084a20c42fca1bb1632ecc51070&is=6a52e6c6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a54e106&format=webp&hm=25e2bf62bff58d8191b0aba291475037e2e7b51d7c77bb69f2efc0ffd4500648&is=6a538f86&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a54395a&format=webp&hm=a7dff54b240a4f33609a5be80b0c5aaf29e6fbec969f9b46f67b237f55f486bf&is=6a52e7da&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a54e21a&format=webp&hm=824adc32442895c3fe201a526f7f4b7739e4696bb2ce2ce96c6561bedaadc561&is=6a53909a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a543972&format=webp&hm=efa802d30b72ba222bf1358d2df1e8f541498ab852e6077b68371ec73ddc60f3&is=6a52e7f2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a54e232&format=webp&hm=a069dc4d97596e2655b5a69535a3fbf484afcf6aba3b1d2511f2021e21ea936b&is=6a5390b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 手 - Hand
 
