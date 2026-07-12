@@ -67,9 +67,9 @@ Sink a flat top cabinetThis cabinet component has some that make it fit the bar 
 
 Place a diagram without filling in all of its component slots. The empty slots create a screen-like void, while the filled parts form the frame around it — resulting in a clean monitor shape. Wonpil was the first to demonstrate this idea in the Heavenly Sage guild to our knowledge.
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a541458&format=webp&hm=3e3517078c9e721606e81251dc53ba26d6488f6533aefbfd0f261fd26538d391&is=6a52c2d8&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a54bd18&format=webp&hm=3232d91bb18169a531c2bbf4dcf6368eb1959752426b71eb272a0bae9acbdd36&is=6a536b98&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a541f6f&hm=df5e6e64968a33aa3a9764962abcc29626927603565685d9379a7b0dc7e84cec&is=6a52cdef&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a54c82f&hm=64059ae710b6c4a162a70f70313e37cba1a321d950c4a53c03a37c76bffc604d&is=6a5376af&" controls></video>
 </div>

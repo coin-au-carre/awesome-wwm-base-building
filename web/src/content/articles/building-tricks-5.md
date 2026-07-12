@@ -5,7 +5,7 @@ tags: ["beginner", "advanced", "guild", "solo"]
 authors: ["LyYan", "Raiden-Zongli", "Mothisto", "Crueliet", "Wyrdrake"]
 date: 2026-06-11
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a541111&format=webp&hm=7e133122d97b4a91d7971d4a808dff282f627aabf4a69a96437587cb50328e23&is=6a52bf91&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a54b9d1&format=webp&hm=f99288c0467629dac6a4cb4e8f28a98b43ae5d60a44b05b49218a9a1ea8a729b&is=6a536851&quality=lossless"
 featured: false
 ---
 
@@ -18,7 +18,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Rotating objects by 5-degree increments lets you arrange them in a smooth circular pattern. The small angle gives enough resolution to approximate a circle without visible gaps or jagged edges.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a541111&format=webp&hm=7e133122d97b4a91d7971d4a808dff282f627aabf4a69a96437587cb50328e23&is=6a52bf91&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514391581698949261/image.png?ex=6a54b9d1&format=webp&hm=f99288c0467629dac6a4cb4e8f28a98b43ae5d60a44b05b49218a9a1ea8a729b&is=6a536851&quality=lossless" alt="Objects rotated in 5-degree steps forming a smooth circle" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

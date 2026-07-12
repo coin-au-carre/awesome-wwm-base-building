@@ -133,25 +133,25 @@ There are several ways, here are the main ones that will be available to you and
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103606832496730/image.png?ex=6a5411fb&format=webp&hm=73b87691a818f29c87e90c33f3211bfbdfdea13cf0bc5db4a5219de325d6d395&is=6a52c07b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103606832496730/image.png?ex=6a54babb&format=webp&hm=853405c821b39783210aa5b8ddcd31cdde210a990fd71fa4c6315a91ed3db2ac&is=6a53693b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897476661500/image.png?ex=6a541240&format=webp&hm=f97f6f15e90b6d289cbedabaf55d7cdd8e66b1f072b040d65bf56cffd960f04e&is=6a52c0c0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897476661500/image.png?ex=6a54bb00&format=webp&hm=1845e7a5c15db9ad88ceb4ccc1271ae6ba604805808b0ebf05ab633e567fffe8&is=6a536980&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897845764277/image.png?ex=6a541240&format=webp&hm=74b8f26c3732fe0de91544f52363523dbefef74015261259a943c93a3e9ebe30&is=6a52c0c0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897845764277/image.png?ex=6a54bb00&format=webp&hm=1bf49753100ad1b2414146eaa0c613c20f64c02a5b3e9de45746feea9e3024c8&is=6a536980&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In order for any of your businesses to work or in order to gather resources, you need employees, often with specific skills.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104081858396380/image.png?ex=6a54126c&format=webp&hm=e84ee871db029774fb78ffce59f5c3a7fa8f512c9a208178629ca0b3d9dcaf9c&is=6a52c0ec&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104081858396380/image.png?ex=6a54bb2c&format=webp&hm=8092aab6898e37be4b87ce4518980c9267ea2a6bbcbd58fe15a4957abd95590a&is=6a5369ac&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In order to unlock skills and raise the level of workers, books are needed, which are redeemed weekly in the store.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104203983687862/image.png?ex=6a541289&format=webp&hm=a1d371f8fa98527cd6695df3bc5facb7f794d455484ba8b5fedfc482ee600c9d&is=6a52c109&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104203983687862/image.png?ex=6a54bb49&format=webp&hm=3971eff02cfe791efe8c9c95106d17b483c2b8e53b3ab8f31826110f8d3e23db&is=6a5369c9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 You also get them for weekly quests/homestead activities.
 
@@ -162,13 +162,13 @@ You also get them for weekly quests/homestead activities.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911248199800/image.png?ex=6a541332&format=webp&hm=ef8d0cce253b95b91f675c79c592e1a86745375a895c39fa741852cedfd7d849&is=6a52c1b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911248199800/image.png?ex=6a54bbf2&format=webp&hm=200aff54625fc3e2262e14434a2512cb97b1c8283fd06316555e1a40bc882908&is=6a536a72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911592128512/image.png?ex=6a541332&format=webp&hm=5d7e6befb81acf98d7632fe4d755f470356f8db0a22f4854a9d7546af49e52b9&is=6a52c1b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911592128512/image.png?ex=6a54bbf2&format=webp&hm=ef74890652be3d00f3933d5f362651e3321eef4eb358ba376a11bd7213f8e448&is=6a536a72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911978270942/image.png?ex=6a541332&format=webp&hm=5cc2ac8dd3a0ea02f3a98c1ceea668930f43e761e086bc9fb523583c57c406c3&is=6a52c1b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911978270942/image.png?ex=6a54bbf2&format=webp&hm=ef9b4dd01b031bbb81a1943acf2dbfff5c35c2f65e84993cd59bf129d5f12ef6&is=6a536a72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104912284319805/image.png?ex=6a541332&format=webp&hm=22c168bd89f959524930d2f33a924cd7012bfd828145c286a71fdadedf981acd&is=6a52c1b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104912284319805/image.png?ex=6a54bbf2&format=webp&hm=d4ab7d5ef73a90358eeafc63a68aeea0cfaf65792e8880e950674f38d11682c1&is=6a536a72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 You need to go to the workers menu, find the "+" and click on it, then select the NPC you are interested in and follow further instructions, there may be conditions for hiring or just a conversation.
 
@@ -179,46 +179,46 @@ You need to go to the workers menu, find the "+" and click on it, then select th
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a541608&format=webp&hm=51baba842910f23d13f16779929e37950ec686eac81c087505e8880c6b5710f4&is=6a52c488&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a54bec8&format=webp&hm=8a158a3f7706788f7a51d066edfef87b85eb096cc9ecfd112e15a4719a084965&is=6a536d48&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a541608&format=webp&hm=81dbcab4e6c149a8006c6ab139bdb2e4a8521c864534ae8fc0b729d440c4aadd&is=6a52c488&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a54bec8&format=webp&hm=cf7a4b6478adff52f8c6588e3d26c1e522a59c6748a19b5bee0d2ca7525fe635&is=6a536d48&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 To begin with, I suggest that you allocate a place on your island (*it will probably be more convenient to place new stoves or stoves with tables, because everything will be in one place, then you may need to place production in other locations, but I'm not sure about this information, since I did everything only on the island and that was enough for my needs*). 
 Don't forget to put up beds for your employees, because without them you won't be able to hire new ones.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a54161d&format=webp&hm=955e97c874b277e34cda92df3a83909a1ed2b95eb5d8072f0e527d26bd8e0fa5&is=6a52c49d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a54bedd&format=webp&hm=324d19444692af074dcd6e912cbefc5afab4e6f4054bb94d9b862ce1071e5518&is=6a536d5d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Each type of production will have its own decorative elements, such as a large oven or stove, tables for visitors, and flower beds.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a541631&format=webp&hm=6baa838477a79b777e109dd859c98acf0eb129df8b44da71dc252c415023da99&is=6a52c4b1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a54bef1&format=webp&hm=26cb8369c99a9b6b9ebda34c0d97240cb278866befad16a30b834b83fdfe1e1d&is=6a536d71&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 1. First, you need to hire workers and allocate them to resource extraction.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a541643&format=webp&hm=5abf00ad30eed98f0387be4bc8499a2d8add1978bf42958cc5cab11bb9a38087&is=6a52c4c3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a54bf03&format=webp&hm=6b94636ea7418ab3b7c1528019f8b22de83f82b7a028c52e319349922ca09b43&is=6a536d83&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 2. At the same time, purchase seeds and plant plants that will be useful to you for meals or drinks.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a54165b&format=webp&hm=85b2754177fac39f57238531f68292ea1c0e41ffe9a1cb09d18b2424bc241230&is=6a52c4db&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a54bf1b&format=webp&hm=6f5d98d3485c1ca359764f94e2626e5b2df00b681ac208d3805e3ea3ca2b2563&is=6a536d9b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 3. In pottery, you need to set up the production of wine jugs.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a5416c5&format=webp&hm=97625374d9490ea94dc961f9d0c7d5dbf147022372398533cf40f0eb9b072e73&is=6a52c545&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a54bf85&format=webp&hm=3fc0fba6d4d88260e889855e64a6e6c1128f35649704d734aea56eab810121f0&is=6a536e05&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a541709&format=webp&hm=db8d1f1fc6c1988b7a8029cc61af617e29e5e2f420162bf368d421bccc9fbd20&is=6a52c589&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a54bfc9&format=webp&hm=87954e8d97c78773737786d9332dff3b5006606817ec2109db65ffd46ffb2397&is=6a536e49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a54189e&format=webp&hm=c1b0573544961df48cb5cc3f00332d492f6b350b237f6571ecff2a549b3dcf18&is=6a52c71e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a54c15e&format=webp&hm=704d392494c2d419ccf19d27d5a11a0106f3f393a0c51f44e3359f35c4577e27&is=6a536fde&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
