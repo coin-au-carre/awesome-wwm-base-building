@@ -96,6 +96,20 @@ export const channels: Channel[] = [
     builderSlug: "ðìana",
   },
   {
+    name: "Sayuru",
+    url: "https://www.tiktok.com/@sayuru.wwm",
+    handle: "@sayuru.wwm",
+    platform: "tiktok",
+    builderSlug: "sayuru",
+  },
+  {
+    name: "myo-morph",
+    url: "https://www.tiktok.com/@myo_morph",
+    handle: "@myo_morph",
+    platform: "tiktok",
+    builderSlug: "myo-morph",
+  },
+  {
     name: "FoxiKate",
     url: "https://www.youtube.com/@FoxiKate",
     handle: "@FoxiKate",
