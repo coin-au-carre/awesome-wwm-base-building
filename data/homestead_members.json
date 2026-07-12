@@ -6,8 +6,8 @@
 		"globalName": "Ark"
 	},
 	"105758463660937216": {
-		"level": 7,
-		"since": "2026-07-07 20:30",
+		"level": 8,
+		"since": "2026-07-12 08:09",
 		"username": "mikachuwu",
 		"globalName": "Mika"
 	},
@@ -25,7 +25,11 @@
 	},
 	"108756572951351296": {
 		"level": 6,
+<<<<<<< Updated upstream
 		"since": "2026-07-11 17:15",
+=======
+		"since": "2026-07-11 16:32",
+>>>>>>> Stashed changes
 		"username": "vegito4106",
 		"globalName": "Axylus"
 	},
@@ -142,6 +146,12 @@
 		"username": "coincouinade",
 		"globalName": "Coincoin",
 		"nickname": "Ahlyam"
+	},
+	"152742908238364672": {
+		"level": 6,
+		"since": "2026-07-12 08:07",
+		"username": "toushirou",
+		"globalName": "Tracid / Miao"
 	},
 	"154670989903527936": {
 		"level": 8,
@@ -297,7 +307,7 @@
 	},
 	"328213746315165707": {
 		"level": 8,
-		"since": "2026-07-12 06:45",
+		"since": "2026-07-12 05:32",
 		"username": "bloodtoxindevil",
 		"globalName": "j"
 	},
@@ -441,6 +451,7 @@
 	"586714186399088641": {
 		"level": 8,
 		"since": "2026-07-12 06:45",
+		"since": "2026-07-12 06:20",
 		"username": "myo_morph",
 		"globalName": "-Myo-",
 		"nickname": "myo-morph"
