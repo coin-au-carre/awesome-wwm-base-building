@@ -95,7 +95,7 @@ func main() {
 	}
 	bot.Session.AddHandler(onGuildMemberRemove(bot, logsChannelID))
 	bot.Session.AddHandler(onGuildMemberUpdate(bot, moderationChannelID))
-	bot.Session.AddHandler(onHomesteadRoleUpdate(*root))
+	bot.Session.AddHandler(onHomesteadRoleUpdate(bot, *root, devChannelID))
 	bot.Session.AddHandler(onHoneypotChannelPost(bot, moderationChannelID))
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
 	bot.Session.AddHandler(discord.HandleHexiPartyMute)
@@ -421,7 +421,7 @@ func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*dis
 // in real time, instead of waiting for the hourly sync-homestead workflow to
 // pick it up. The hourly Action stays in place as a backstop for role
 // changes made while the bot is offline, and for the initial backfill.
-func onHomesteadRoleUpdate(root string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
+func onHomesteadRoleUpdate(bot *discord.Bot, root, devChannelID string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
 	return func(s *discordgo.Session, m *discordgo.GuildMemberUpdate) {
 		if m.Member == nil || m.BeforeUpdate == nil {
 			return
@@ -451,6 +451,7 @@ func onHomesteadRoleUpdate(root string) func(*discordgo.Session, *discordgo.Guil
 			slog.Error("saving homestead_members.json", "err", err)
 			return
 		}
+		go discord.GitCommitAndPush(root, "data/homestead_members.json", "data: homestead level up", bot, devChannelID)
 
 		messageID := os.Getenv("HOMESTEAD_MESSAGE_ID")
 		if messageID == "" {
