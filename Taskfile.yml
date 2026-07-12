@@ -32,8 +32,10 @@ tasks:
     cmd: go run ./cmd/bugs-sync {{.CLI_ARGS}}
 
   homestead-sync:
-    desc: find members with Homestead Lvl5-8 roles → data/homestead_members.json, backfill data/users.json
-    cmd: go run ./cmd/homestead-sync
+    desc: git pull, find members with Homestead Lvl5-8 roles → data/homestead_members.json, backfill data/users.json
+    cmds:
+      - git pull
+      - go run ./cmd/homestead-sync
 
   active-roles:
     desc: scan tracked chat channels, assign Wanderer role to active chatters, report inactive builders
