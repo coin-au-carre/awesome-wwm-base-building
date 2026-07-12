@@ -34,7 +34,7 @@ featured: false
 ## Kaifeng: Forbidden City or Forbidden Table?
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a54bfb3&format=webp&hm=278333105169caf4bfd19848aae52d80186b8f54acf5ec0c19dafab7be28b09c&is=6a536e33&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a556873&format=webp&hm=78e955b8e3a1a50cba8837d65dbdacb8d77bfed363cb3972f952f4955d8ed8a7&is=6a5416f3&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
