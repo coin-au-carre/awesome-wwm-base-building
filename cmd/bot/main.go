@@ -423,18 +423,26 @@ func onGuildMemberUpdate(bot *discord.Bot, moderationChannelID string) func(*dis
 // changes made while the bot is offline, and for the initial backfill.
 func onHomesteadRoleUpdate(bot *discord.Bot, root, devChannelID string) func(*discordgo.Session, *discordgo.GuildMemberUpdate) {
 	return func(s *discordgo.Session, m *discordgo.GuildMemberUpdate) {
-		if m.Member == nil || m.BeforeUpdate == nil {
+		if m.Member == nil {
 			return
 		}
 		newLevel := discord.HomesteadLevelFromRoles(m.Member.Roles)
-		oldLevel := discord.HomesteadLevelFromRoles(m.BeforeUpdate.Roles)
-		if newLevel <= oldLevel {
+		if newLevel == 0 {
 			return
 		}
 
 		members, err := discord.LoadHomesteadMembers(root)
 		if err != nil {
 			slog.Error("loading homestead_members.json", "err", err)
+			return
+		}
+
+		// Compare against the level on disk rather than discordgo's in-memory
+		// BeforeUpdate: on a large guild Discord doesn't send a full member
+		// list on connect, so BeforeUpdate is nil (and this check falls
+		// through as a no-op level-up) until the bot happens to have already
+		// cached that member from some earlier event.
+		if members[m.User.ID].Level >= newLevel {
 			return
 		}
 
