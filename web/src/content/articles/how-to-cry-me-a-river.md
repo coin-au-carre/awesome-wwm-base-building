@@ -26,7 +26,7 @@ Hiding the middle part below ground is optional, depending on how far above grou
 
 <!-- discord-video:1483483683456286911/1500737049140002816 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a53d488&hm=34f33ec9d6c2595cd5c592a0b769ee025aab2dc0f5c6e3ff87adc929e92d48f4&is=6a528308&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483483683456286911/1500737037412728872/Where_Winds_Meet_2026.05.04_-_12.49.28.01.mp4?ex=6a547d48&hm=4c48211c3a1f3799e6d3096fae74a62f9fb4317a3ebaf287933bbf3a8dbf52ba&is=6a532bc8&" controls></video>
 </div>
 
 ---
