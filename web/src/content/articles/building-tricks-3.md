@@ -6,7 +6,7 @@ authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 updatedDate: 2026-05-26
 order: 10
-image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a545649&format=webp&hm=c449d20d35ce84c88b075d816a739153863097a68b2b20a6b7ed290a3a01b5df&is=6a5304c9&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a54ff09&format=webp&hm=d90c34ba0a85da6e6ffffd49e5b0911383f6dc303de5919b4af19ed34381fba4&is=6a53ad89&quality=lossless"
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` channel.
@@ -38,7 +38,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here are two approaches.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a545649&format=webp&hm=c449d20d35ce84c88b075d816a739153863097a68b2b20a6b7ed290a3a01b5df&is=6a5304c9&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a54ff09&format=webp&hm=d90c34ba0a85da6e6ffffd49e5b0911383f6dc303de5919b4af19ed34381fba4&is=6a53ad89&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 This second method blends in more naturally with the surroundings.
 
