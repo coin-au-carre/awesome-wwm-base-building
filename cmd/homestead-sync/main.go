@@ -70,7 +70,11 @@ func main() {
 
 	result := make(map[string]discord.HomesteadMember)
 	usersDirty := false
-	var newAchievers []discord.HomesteadMember
+	type achiever struct {
+		userID string
+		member discord.HomesteadMember
+	}
+	var newAchievers []achiever
 	for _, m := range members {
 		level := discord.HomesteadLevelFromRoles(m.Roles)
 		if level == 0 {
@@ -105,7 +109,7 @@ func main() {
 		result[m.User.ID] = member
 
 		if level >= 7 && level > prev.Level {
-			newAchievers = append(newAchievers, member)
+			newAchievers = append(newAchievers, achiever{userID: m.User.ID, member: member})
 		}
 	}
 	slog.Info("homestead members found", "count", len(result))
@@ -129,7 +133,7 @@ func main() {
 	}
 	discord.PostHomesteadRanking(session, messageID, result)
 
-	for _, m := range newAchievers {
-		discord.AnnounceHomesteadLevelUp(session, m)
+	for _, a := range newAchievers {
+		discord.AnnounceHomesteadLevelUp(session, result, a.member, a.userID)
 	}
 }

@@ -32,6 +32,7 @@ var HomesteadLevelRoles = []struct {
 	{7, "1523026359209824408"},
 	{8, "1523026488981721088"},
 	{9, "1523740416023990523"},
+	{10, "1524844102846382080"},
 }
 
 // Discord doesn't expose when a role was granted, so Since is first-observed:
@@ -110,8 +111,53 @@ func HomesteadDisplayName(m HomesteadMember) string {
 	return m.Username
 }
 
-func AnnounceHomesteadLevelUp(s *discordgo.Session, m HomesteadMember) {
-	content := fmt.Sprintf("🎉 **%s** just reached **Homestead Level %d**!", HomesteadDisplayName(m), m.Level)
+// levelRank returns m's rank (1st, 2nd, 3rd, ...) among all members at the
+// given level, ordered by when they first reached it.
+func levelRank(members map[string]HomesteadMember, userID string, level int) int {
+	var since []string
+	for _, mm := range members {
+		if mm.Level == level {
+			since = append(since, mm.Since)
+		}
+	}
+	sort.Strings(since)
+	target := members[userID].Since
+	for i, s := range since {
+		if s == target {
+			return i + 1
+		}
+	}
+	return len(since)
+}
+
+func ordinal(n int) string {
+	if n%100 >= 11 && n%100 <= 13 {
+		return fmt.Sprintf("%dth", n)
+	}
+	switch n % 10 {
+	case 1:
+		return fmt.Sprintf("%dst", n)
+	case 2:
+		return fmt.Sprintf("%dnd", n)
+	case 3:
+		return fmt.Sprintf("%drd", n)
+	default:
+		return fmt.Sprintf("%dth", n)
+	}
+}
+
+func AnnounceHomesteadLevelUp(s *discordgo.Session, members map[string]HomesteadMember, m HomesteadMember, userID string) {
+	var content string
+	switch m.Level {
+	case 10:
+		rank := levelRank(members, userID, 10)
+		content = fmt.Sprintf("🤯 **%s** just reached **Homestead Level 10**. How is that even possible?? That's the final stage... Ruby is filing a bug report. The **%s** builder to break reality like this.",
+			HomesteadDisplayName(m), ordinal(rank))
+	case 9:
+		content = fmt.Sprintf("👑 **%s** just ascended to Level 9. Ruby is very proud to see such determination <3!", HomesteadDisplayName(m))
+	default:
+		content = fmt.Sprintf("🎉 **%s** just reached **Homestead Level %d**!", HomesteadDisplayName(m), m.Level)
+	}
 	if _, err := s.ChannelMessageSend(HomesteadAnnounceChannelID, content); err != nil {
 		slog.Error("posting homestead level-up announcement", "user", HomesteadDisplayName(m), "err", err)
 	}
@@ -141,11 +187,12 @@ func heldDuration(since string) string {
 }
 
 var homesteadLevelLabel = map[int]string{
-	9: "👑  Level 9 — Master Homesteaders",
-	8: "🌟  Level 8",
-	7: "💠  Level 7",
-	6: "🔷  Level 6",
-	5: "▫️  Level 5",
+	10: "🤯  Level 10 — The Final Stage",
+	9:  "👑  Level 9 — Master Homesteaders",
+	8:  "🌟  Level 8",
+	7:  "💠  Level 7",
+	6:  "🔷  Level 6",
+	5:  "▫️  Level 5",
 }
 
 var homesteadMedals = map[int]string{0: "🥇", 1: "🥈", 2: "🥉"}
@@ -175,7 +222,7 @@ func BuildHomesteadEmbed(members map[string]HomesteadMember) *discordgo.MessageE
 	var sb strings.Builder
 	fmt.Fprintf(&sb, "[See the full rankings ↗](%s)\n\n", HomesteadRankingsURL)
 	rank := 0
-	for _, level := range []int{9, 8, 7, 6, 5} {
+	for _, level := range []int{10, 9, 8, 7, 6, 5} {
 		group := byLevel[level]
 		if len(group) == 0 {
 			continue

@@ -468,7 +468,7 @@ func onHomesteadRoleUpdate(bot *discord.Bot, root, devChannelID string) func(*di
 		discord.PostHomesteadRanking(s, messageID, members)
 
 		if newLevel >= 7 {
-			discord.AnnounceHomesteadLevelUp(s, entry)
+			discord.AnnounceHomesteadLevelUp(s, members, entry, m.User.ID)
 		}
 		slog.Info("homestead level up", "user", m.User.Username, "level", newLevel)
 	}
