@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a54adfd&format=webp&hm=fc49757cd6a2e085cb768f0e7d325b93dd015218988d2a0e1a6a0b0f192fc466&is=6a535c7d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a5556bd&format=webp&hm=7d6a44d4f77c39c64c68e87e6015d29ec397715ea5a5159a8c844e4d035f24d1&is=6a54053d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a54ad9e&format=webp&hm=bb00a24a75fb9502cdcd09e204689c1d85109ac7a002706377f965a42f7360e7&is=6a535c1e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a55565e&format=webp&hm=dc444b36bf3f611408fff502ca1008bc8ef0ff7835452523be86bb5b81a8ee71&is=6a5404de&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a54ade3&format=webp&hm=bdfa7f9f16e619bb371e2c51814f76b617ed5f87375437c4ca0ccccd62034e38&is=6a535c63&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a5556a3&format=webp&hm=db23168b2f8c1276be9274acd0f5bded763b6af1ee1741de7e0ae5b3be4204a0&is=6a540523&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
