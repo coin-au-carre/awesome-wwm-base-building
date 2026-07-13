@@ -100,9 +100,9 @@ To save a diagram in both guild and solo base, you need to own at least **70%** 
 
 This can be a harsh limitation in collaborative builds. For example, if two builders split work 69% and 31%, neither of them can save the diagram since neither reaches the 70% threshold alone.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a54cfd5&format=webp&hm=5f49a22457f007bc21c3679e7cbf6f9c618b87e34b9a0f97dadb0bb420795746&is=6a537e55&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153731935404042/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a557895&format=webp&hm=035e30f5a15f84400967f6a52b8af2398c8d3ec7b6d3a517eedd8943cd31b107&is=6a542715&quality=lossless" alt="Copyright score example in diagram" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a54cfd5&format=webp&hm=bd489f782752fef4089651c3da46cd98e70a6eaf2807b3b22db3a8d8e091b604&is=6a537e55&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1511153732308701234/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a557895&format=webp&hm=9b907e6c08db9a7502b8b46e686fa5dec0307abd795611112e7f5a12aeb54ce7&is=6a542715&quality=lossless" alt="Copyright score blocked example" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

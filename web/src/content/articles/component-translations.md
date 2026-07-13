@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a54cd3c&format=webp&hm=30abbd461c29909c66ae8bd8355429d3233b46b8266ca20bad9d8603ce224acd&is=6a537bbc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a5575fc&format=webp&hm=8f87cafc81937d08359476bb0be9c5f5c910a082785bbf75000703d30eda81d2&is=6a54247c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驛 - traditional version of "postal relay station" 
 
@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a54ce46&format=webp&hm=883fac8d856604e1f87746fd018a79427d6a9812af08550def4f78f5d2ba8727&is=6a537cc6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a557706&format=webp&hm=1ff23973bf78c21313c45192df825dc5c543f99906050697a453cb6fc5fab919&is=6a542586&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a54cfaf&format=webp&hm=ca72e792459f6a40c2eda2f73bcaabf967ffa43c8ecc4c3517fae44b74a7f51a&is=6a537e2f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a55786f&format=webp&hm=9361ddb8560b16649a9093ca910a7d4a9597443df2c073a007a49a113112dd6b&is=6a5426ef&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
@@ -132,19 +132,19 @@ Written during the Tang Dynasty, this line is the title of the first volume of o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a54dc25&format=webp&hm=aea878f1e1d60ab3a55f39b136377e663fd4e087362680df1a1a90616ae8ab7e&is=6a538aa5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498120990654464090/sign-9.png?ex=6a5584e5&format=webp&hm=22388d50835232d4fa783109bf5fd50e0592f0baa9bb2a2728421e1e46e096d9&is=6a543365&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 宋 “Song” （ as in Song Dynasty) - this is in seal script.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a54dc45&format=webp&hm=a76585810c9b87048eb4d5b0d9a3e011d192a9366b19facb2540c4d6be3dd707&is=6a538ac5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498121123731079271/IMG_4623.png?ex=6a558505&format=webp&hm=8f44c113e063575a4eda47091853ea0dfa1a79dc88e2999929c9d684a9ea7742&is=6a543385&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a54e106&format=webp&hm=25e2bf62bff58d8191b0aba291475037e2e7b51d7c77bb69f2efc0ffd4500648&is=6a538f86&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a5589c6&format=webp&hm=0dd81ad183e53953281c59c874e2cdf859170a881968fb59402d620c0ea9db5a&is=6a543846&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a54e21a&format=webp&hm=824adc32442895c3fe201a526f7f4b7739e4696bb2ce2ce96c6561bedaadc561&is=6a53909a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a558ada&format=webp&hm=72dbfd0a8277d97d97cd1e8fdc91872c2740217d7c93203aa97578acb92fe1b2&is=6a54395a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a54e232&format=webp&hm=a069dc4d97596e2655b5a69535a3fbf484afcf6aba3b1d2511f2021e21ea936b&is=6a5390b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a558af2&format=webp&hm=5b0bc48613d98f415892556b358440174def9edcdd3194f440cd2b25557170ae&is=6a543972&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 手 - Hand
 
