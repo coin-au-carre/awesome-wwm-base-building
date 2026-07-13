@@ -100,13 +100,27 @@ func main() {
 	bot.Session.AddHandler(streamingTracker.HandleVoiceStateUpdate)
 	bot.Session.AddHandler(discord.HandleHexiPartyMute)
 
+	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
+	defer cancel()
+
+	instanceID := os.Getenv("INSTANCE_NAME")
+	if instanceID == "" {
+		if h, err := os.Hostname(); err == nil {
+			instanceID = h
+		} else {
+			instanceID = "unknown"
+		}
+	}
+	discord.AcquireLock(ctx, bot.Session, devChannelID, os.Getenv("INSTANCE_LOCK_MESSAGE_ID"), instanceID)
+	if ctx.Err() != nil {
+		slog.Info("shutting down before acquiring lock")
+		return
+	}
+
 	if err := bot.Open(); err != nil {
 		slog.Error("opening session", "err", err)
 		os.Exit(1)
 	}
-
-	ctx, cancel := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
-	defer cancel()
 
 	discord.PullOnStart(*root, responder)
 	discord.StartDataWatcher(ctx, *root, responder)
