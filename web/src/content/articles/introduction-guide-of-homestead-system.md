@@ -5,7 +5,7 @@ tags: ["solo","cn", "homestead"]
 authors: ["carnii"]
 date: 2026-06-24
 order: 22
-image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a55fefb&format=webp&hm=7f2b5afb203071c6c9c1b7edc5bfdb776794212e99a576417a59862873ab334b&is=6a54ad7b&quality=lossless"
+image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a56a7bb&format=webp&hm=bfed099d6f3fb49d078b2ef02d170050f0ac1b0fd61ba0f92a3b7220d5c96362&is=6a55563b&quality=lossless"
 deprecated: true
 ---
 
@@ -15,7 +15,7 @@ deprecated: true
 
 <!-- preserve-end -->
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a55fefb&format=webp&hm=7f2b5afb203071c6c9c1b7edc5bfdb776794212e99a576417a59862873ab334b&is=6a54ad7b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a56a7bb&format=webp&hm=bfed099d6f3fb49d078b2ef02d170050f0ac1b0fd61ba0f92a3b7220d5c96362&is=6a55563b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 The first city to receive this system will be Qinghe
 
@@ -28,13 +28,13 @@ In the future, we will also receive an extension of this system for the Invisibl
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090502547411204/image.png?ex=6a560007&format=webp&hm=a151ccab42f3a37c796403642c96a97c927cb98aa6702940caa759bdbbc9ead3&is=6a54ae87&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090502547411204/image.png?ex=6a56a8c7&format=webp&hm=d7764c54f2f867f4eea2ef21d30bd6b174b002cebf01a3bed609618da4ccb907&is=6a555747&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503071563846/image.png?ex=6a560007&format=webp&hm=b7e4be7f4c5ec431e20324a3950b3f7f10ff8d4aae08f4ec8c0a1aadb0e408d0&is=6a54ae87&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503071563846/image.png?ex=6a56a8c7&format=webp&hm=e3cc61f0e9528b5dbaf87a9e542ca05a2229bee670f137d587216ccf8f01c575&is=6a555747&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503600312431/image.png?ex=6a560007&format=webp&hm=094c9c7d4ecbdba0e79979323eaedc492c6424658678caf4da3e96656360834c&is=6a54ae87&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503600312431/image.png?ex=6a56a8c7&format=webp&hm=1549d669a2bfa3836ce9bff73dbfd3dc4da4149054c62503d799e13cfea3ebb5&is=6a555747&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a560007&format=webp&hm=129fdd737a7cecbf8065b2f9511555ad3247e0bde952e6c7198ffc5612a5bc9a&is=6a54ae87&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a56a8c7&format=webp&hm=50753b1da8c3cceeca24ae760b387d3fc48477765ef3a1a96bb76f3e6d3e4698&is=6a555747&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ### 🍈 One of the most important currencies, **melons**, for them you can buy a large number of various furniture in the store, as well as seeds, buildings and books to upgrade your workers.
 
@@ -46,33 +46,33 @@ There are several ways, here are the main ones that will be available to you and
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519092975567634593/image.png?ex=6a560254&format=webp&hm=f1d78eb382a0655d40dad12dd94b8964950b80433ca042f90c2283abe2fc78bd&is=6a54b0d4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519092975567634593/image.png?ex=6a56ab14&format=webp&hm=02e5e09bbc3def2ea8da0f6ed50acaaccf3d203ab0657fd79063fe0354938307&is=6a555994&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈  Weekly cargo tasks in which you give away the collected resources and cooked meals
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519093116974403674/image.png?ex=6a560276&format=webp&hm=54805df311c552da7254130ba9df27d20be88049f98bff059c3171fcb1f3ca6f&is=6a54b0f6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519093116974403674/image.png?ex=6a56ab36&format=webp&hm=b546469792355e71428c4b62cdbe28cae8df46b178c70738ef6a26fecbfbda9e&is=6a5559b6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈 Achievement system
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094214636474428/image.png?ex=6a56037c&format=webp&hm=db4c97dd6c1c9079e215d6185ee9ede53d338f61099f7d02462fb05f5a0383fd&is=6a54b1fc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094214636474428/image.png?ex=6a56ac3c&format=webp&hm=f7d71c756ac1a64293e8b5e0ae12b5a89d1b3dc4c74dd11652a10bfdc545d724&is=6a555abc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈 From the constant sale of food and wine in your tavern
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094992478535700/image.png?ex=6a560435&format=webp&hm=81c318dd15e5684fc5d8b501b282d9200c810fb4950bcb3e68c62d12c9a57552&is=6a54b2b5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519094992478535700/image.png?ex=6a56acf5&format=webp&hm=f40e57cd0b20a7a1d4935b03586447a809057ff76b5e21dcccbf1b99b982cab0&is=6a555b75&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🍈 By selling excess materials to a trader
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519097126188224522/image.png?ex=6a560632&format=webp&hm=fe6321bd959e39bd903f52e79aa7baa147a6565badcfefe58c09933c9050abd6&is=6a54b4b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519097126188224522/image.png?ex=6a56aef2&format=webp&hm=38f24bee75c36b2f7c5d3ab3e795e3c49703b089ea5c8735cbd5cc61f695ada1&is=6a555d72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519097126582485155/image.png?ex=6a560632&format=webp&hm=21690c3c0bc2020aca397d01abd7d7566049c28a22089136ed5c8d650b14c6d1&is=6a54b4b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519097126582485155/image.png?ex=6a56aef2&format=webp&hm=b6689c054b9e106251f109086bf8827daf695cb74123b7db48bfde8139939388&is=6a555d72&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ### 🪵 The next currency is ordinary **logs**, for which you can buy structural units (they are already available for construction in the guild)
 
@@ -82,47 +82,47 @@ There are several ways, here are the main ones that will be available to you and
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519097909986070608/image.png?ex=6a5606ed&format=webp&hm=4b96b9647b0dedd7e814ee52c2db41912edd245b247a35c8d82f889b3be0b85f&is=6a54b56d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519097909986070608/image.png?ex=6a56afad&format=webp&hm=6b7b925e3d1cec8cec80c984ad54d56fcc49620b057552dbc540647799787099&is=6a555e2d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🪵 You will also send workers to collect resources and receive a lot of materials every day (this is the best option)
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519098498102988970/image.png?ex=6a560779&format=webp&hm=758b63035db4a292855f2e83bac2481ccda6e9d1d45b4080e312e0b32cb9aa19&is=6a54b5f9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519098498102988970/image.png?ex=6a56b039&format=webp&hm=fdfb53456ff17c3dfa1eb073d8546d150480d3064735f0086c9b2ba724e157df&is=6a555eb9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519098498627403817/image.png?ex=6a560779&format=webp&hm=1ee4fd370a331ded8284e8d571cade6ddeeca09d1d81561906ff27910d7e9559&is=6a54b5f9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519098498627403817/image.png?ex=6a56b039&format=webp&hm=4d460c519d3bad70981418ee6974a43921e3698a881433f94c1fd9dbbe8c0e66&is=6a555eb9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ###  💚 **Green drops** that are used to purchase unique items
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519099394807300267/image.png?ex=6a56084f&format=webp&hm=06285214b44bb305881740e05ee0c9c103b8dd99d29f3bbf1163d47baa1f1b05&is=6a54b6cf&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519099394807300267/image.png?ex=6a56b10f&format=webp&hm=851426c20767896131394757fffd846ed0ce815dfb86ac239d8814b73540f0da&is=6a555f8f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519099395247706314/image.png?ex=6a56084f&format=webp&hm=9bf5e3ac534f40184409bff6daf8397bf9ba5d2ad1a3b2a6f745906f80fc3863&is=6a54b6cf&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519099395247706314/image.png?ex=6a56b10f&format=webp&hm=3144c67296c9b0dc01a45fbfb7a49e1c143e3ade034e9c21d30df2683cc78f63&is=6a555f8f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 💚  They are obtained by growing vegetables in the garden beds.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519100040621068429/image.png?ex=6a5608e9&format=webp&hm=55751141a5e2ee0648c0dd93dd118c4b0bf2224e628f00808a828b3256d012ad&is=6a54b769&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519100040621068429/image.png?ex=6a56b1a9&format=webp&hm=3309ab25d7175e761c0e93250ccd1e8c9c628af5024f9b59e59edf1ead3b95ab&is=6a556029&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ### 🌾 Another currency that is used in homestead is **wheat**
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519101483088347166/image.png?ex=6a560a41&format=webp&hm=e3c0870ecdecd5ee0e70a52983e5bcb475b488fa42e46d871ded8ae0cbb1c9ea&is=6a54b8c1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519101483088347166/image.png?ex=6a56b301&format=webp&hm=caa1410e60777f9f68c74a3bef0b484c46b539e7ede5d29a960223e6b4184eb5&is=6a556181&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🌾 This material can be obtained by completing weekly cargo
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519101725238362133/image.png?ex=6a560a7a&format=webp&hm=9cb30cc16a7fc52e6d24d6a6a8e55a9df2215a273ac2e4981772b8a96dbb0df4&is=6a54b8fa&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519101725238362133/image.png?ex=6a56b33a&format=webp&hm=a132c964d1f07d985d07b48c9e27e734a08eb21dd74e93b7e4681d8927b50580&is=6a5561ba&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🌾There are also weekly quests.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519101911641493615/image.png?ex=6a560aa7&format=webp&hm=8d283baec907b4c7481c8289e800b51d2b147df214df2998de6c6197dce8e44b&is=6a54b927&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519101911641493615/image.png?ex=6a56b367&format=webp&hm=28c232b5e1929523dd96e8b6b8a3116834e3dadccf927a48bc574cb4511af2e8&is=6a5561e7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 🌾 Achievements
 
@@ -133,25 +133,25 @@ There are several ways, here are the main ones that will be available to you and
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103606832496730/image.png?ex=6a560c3b&format=webp&hm=6c58e7d35e4eea84173d430a52970f8416d334241f212722eb5c3bae2488b884&is=6a54babb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103606832496730/image.png?ex=6a56b4fb&format=webp&hm=8502c31263e14a83e77d8268e01a37994000ce683437d38b7889300148a0994d&is=6a55637b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897476661500/image.png?ex=6a560c80&format=webp&hm=71211783214bb552cf925d1a3666b19a584411cc63ca565fd6509bf23e53a402&is=6a54bb00&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897476661500/image.png?ex=6a56b540&format=webp&hm=1f741916bf19c7d6ece7865497a414e0d256405ac1257856e1fd108043b4383b&is=6a5563c0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897845764277/image.png?ex=6a560c80&format=webp&hm=edaa0bfeed32a5f9c2e05187a9474960edbc7b2b244400c95d83dd500a50047f&is=6a54bb00&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519103897845764277/image.png?ex=6a56b540&format=webp&hm=fd1861c9fa696895fef6c902bc5fbb463b8ca82a809106a9fa34286546059080&is=6a5563c0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In order for any of your businesses to work or in order to gather resources, you need employees, often with specific skills.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104081858396380/image.png?ex=6a560cac&format=webp&hm=76dcb27f8e8b74acc1d5b2220d6a11a95eeb4a939e1876ea86c7e52452a0a3c9&is=6a54bb2c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104081858396380/image.png?ex=6a56b56c&format=webp&hm=7e70ec6374e66aff70b60b27d800261310bc4e8ae465e3ec98125205854ac5fc&is=6a5563ec&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In order to unlock skills and raise the level of workers, books are needed, which are redeemed weekly in the store.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104203983687862/image.png?ex=6a560cc9&format=webp&hm=a5b0a997620f4de9151f728970ef5b2cd376295a5bf8bfe6f1df3e3fe7e55113&is=6a54bb49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104203983687862/image.png?ex=6a56b589&format=webp&hm=806d0a8ab2358476ab393386706555ec94d142d6d9d9fbabb76655aebcaca873&is=6a556409&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 You also get them for weekly quests/homestead activities.
 
@@ -162,13 +162,13 @@ You also get them for weekly quests/homestead activities.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911248199800/image.png?ex=6a560d72&format=webp&hm=6b05430aa2ea2ebcf43f9527611343d11a47cdf3d43064af73453c0b782ed8ae&is=6a54bbf2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911248199800/image.png?ex=6a56b632&format=webp&hm=89b0e4dfee2ff4fb3fe453c55fd578a8f774fe2480dec20ba222c2d4e6f37c73&is=6a5564b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911592128512/image.png?ex=6a560d72&format=webp&hm=a1f7441b7f7c1da3425aff6e28fd63a7e00eb5eb8cfe53c0eef75613b226919d&is=6a54bbf2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911592128512/image.png?ex=6a56b632&format=webp&hm=6ad420d7dedbcf2d590aef345f1f75dea018dc9ba54edfcbe21dc41188bb05a0&is=6a5564b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911978270942/image.png?ex=6a560d72&format=webp&hm=74fcc8820bdb688eb10102cf8a33427fdf87704f9be6a0558fc77eac6b133839&is=6a54bbf2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104911978270942/image.png?ex=6a56b632&format=webp&hm=8d570c82fac4f0f014ba6484c12f051a5a6a0d03502141da4d1b637e72c1d8cd&is=6a5564b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104912284319805/image.png?ex=6a560d72&format=webp&hm=1d30d010ec6ba4f772ae59d40ee0c45e4cb252b24f6088b8adfd6a7465601ad9&is=6a54bbf2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519104912284319805/image.png?ex=6a56b632&format=webp&hm=f822c3f9e723c0eeded5b8f7ebc019cbeb7d711b261c7761fc0ad77c2d335932&is=6a5564b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 You need to go to the workers menu, find the "+" and click on it, then select the NPC you are interested in and follow further instructions, there may be conditions for hiring or just a conversation.
 
@@ -179,16 +179,16 @@ You need to go to the workers menu, find the "+" and click on it, then select th
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a561048&format=webp&hm=f5d088b10cb90ea29fa5b474cf6c1b4fb59e1ab5d33bc28a7ef35eb94ee7c720&is=6a54bec8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a56b908&format=webp&hm=c51bf6865772c4412cd4e3c35bff368661bbfaa204ca7f5887ef3c44e6422171&is=6a556788&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a561048&format=webp&hm=061360c115b76d9af7144128de4130837d77c7d81f37f8c848b41c1008a8ff64&is=6a54bec8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a56b908&format=webp&hm=9b818f7febc513b44bba6273c3fba3ff2d0f3152bbd1d1f2b5b0184478b42db1&is=6a556788&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 To begin with, I suggest that you allocate a place on your island (*it will probably be more convenient to place new stoves or stoves with tables, because everything will be in one place, then you may need to place production in other locations, but I'm not sure about this information, since I did everything only on the island and that was enough for my needs*). 
 Don't forget to put up beds for your employees, because without them you won't be able to hire new ones.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a56105d&format=webp&hm=b82cd8a3b1e3434048653ab328bdf396e8790ad03afedcc82008bc89fa2b2b17&is=6a54bedd&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a56b91d&format=webp&hm=dbfb7db6070f6aa9d92be063ead61962680f174e4cd4f72df5563cdebd6e70b0&is=6a55679d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Each type of production will have its own decorative elements, such as a large oven or stove, tables for visitors, and flower beds.
 
