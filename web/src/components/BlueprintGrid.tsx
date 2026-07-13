@@ -3,7 +3,7 @@ import * as React from "react"
 import type { RankedBlueprint } from "@/types/blueprint"
 import { url } from "@/lib/url"
 import { builderSlug, youtubeThumbnail } from "@/lib/format"
-import { getDiagramType, displayTags } from "@/lib/blueprint-tags"
+import { getDiagramType, displayTags, DIAGRAM_TYPES } from "@/lib/blueprint-tags"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { parseLastModified, relativeTime } from "@/lib/dates"
 import { cn } from "@/lib/utils"
@@ -71,6 +71,11 @@ function Tag({ label, active, onClick }: { label: string; active: boolean; onCli
 
 type PriceFilter = "all" | "free" | "paytobuild"
 type SortOrder = "score" | "updated" | "created"
+type TypeFilter = "all" | (typeof DIAGRAM_TYPES)[number]
+
+function typeLabel(t: TypeFilter): string {
+  return t === "all" ? "All" : t.replace(" Diagram", "")
+}
 
 const PINNED_LAST = new Set(["Beautiful stick"])
 
@@ -88,8 +93,9 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
   const [search, setSearch] = useState("")
   const [activeTags, setActiveTags] = useState<Set<string>>(new Set())
   const [priceFilter, setPriceFilter] = useState<PriceFilter>("all")
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("all")
   const [sortOrder, setSortOrder] = useState<SortOrder>("score")
-  const [sheetOpen, setSheetOpen] = useState(false)
+  const [mobileSheetOpen, setMobileSheetOpen] = useState(false)
 
   function toggleTag(tag: string) {
     setActiveTags((prev) => {
@@ -119,6 +125,9 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
     } else if (priceFilter === "paytobuild") {
       result = result.filter((bp) => bp.isPayToBuild === true)
     }
+    if (typeFilter !== "all") {
+      result = result.filter((bp) => getDiagramType(bp.tags) === typeFilter)
+    }
     if (sortOrder === "score") {
       return result
     }
@@ -126,9 +135,9 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
     const pinned = result.filter((bp) => PINNED_LAST.has(bp.name))
     main.sort((a, b) => blueprintDate(b, sortOrder) - blueprintDate(a, sortOrder))
     return [...main, ...pinned]
-  }, [blueprints, search, activeTags, priceFilter, sortOrder])
+  }, [blueprints, search, activeTags, priceFilter, typeFilter, sortOrder])
 
-  const activeFilterCount = activeTags.size + (priceFilter !== "all" ? 1 : 0)
+  const activeFilterCount = activeTags.size + (priceFilter !== "all" ? 1 : 0) + (typeFilter !== "all" ? 1 : 0)
 
   const sortLabels: Record<SortOrder, string> = { score: "Score", updated: "Updated", created: "Created" }
 
@@ -203,6 +212,26 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
           ))}
         </div>
 
+        {/* Type filter pills — desktop */}
+        <div className="hidden sm:flex items-center gap-1.5 border-l border-border pl-3">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60 pr-0.5">Type</span>
+          {(["all", ...DIAGRAM_TYPES] as TypeFilter[]).map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setTypeFilter(t)}
+              className={cn(
+                "rounded-full px-3 py-1 text-xs font-medium transition-colors border",
+                typeFilter === t
+                  ? "bg-foreground text-background border-foreground"
+                  : "bg-transparent text-muted-foreground border-border hover:text-foreground"
+              )}
+            >
+              {typeLabel(t)}
+            </button>
+          ))}
+        </div>
+
         {/* Sort pills — desktop */}
         <div className="hidden sm:flex items-center gap-1.5 border-l border-border pl-3">
           <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60 pr-0.5">Sort</span>
@@ -224,7 +253,7 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
         </div>
 
         {/* Mobile: sheet */}
-        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+        <Sheet open={mobileSheetOpen} onOpenChange={setMobileSheetOpen}>
           <SheetTrigger asChild>
             <Button variant="outline" size="sm" className="sm:hidden shrink-0 gap-1.5">
               <SlidersHorizontal className="size-3.5" />
@@ -260,6 +289,26 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                   ))}
                 </div>
               </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Type</p>
+                <div className="flex flex-wrap gap-2">
+                  {(["all", ...DIAGRAM_TYPES] as TypeFilter[]).map((t) => (
+                    <button
+                      key={t}
+                      type="button"
+                      onClick={() => setTypeFilter(t)}
+                      className={cn(
+                        "rounded-full px-3 py-1 text-xs font-medium transition-colors border",
+                        typeFilter === t
+                          ? "bg-foreground text-background border-foreground"
+                          : "bg-transparent text-muted-foreground border-border hover:text-foreground"
+                      )}
+                    >
+                      {typeLabel(t)}
+                    </button>
+                  ))}
+                </div>
+              </div>
               {allTags.length > 0 && (
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Tags</p>
@@ -272,42 +321,24 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => { setActiveTags(new Set()); setPriceFilter("all"); setSortOrder("score") }}
+                  onClick={() => { setActiveTags(new Set()); setPriceFilter("all"); setTypeFilter("all"); setSortOrder("score") }}
                 >
                   Clear all
                 </Button>
               )}
-              <Button onClick={() => setSheetOpen(false)}>Done</Button>
+              <Button onClick={() => setMobileSheetOpen(false)}>Done</Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>
-
-        {/* Desktop: tag filter (inline Sheet-like) trigger */}
-        {allTags.length > 0 && (
-          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="sm" className="hidden sm:flex shrink-0 gap-1.5">
-                <SlidersHorizontal className="size-3.5" />
-                Tags{activeTags.size > 0 ? ` (${activeTags.size})` : ""}
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="bottom" className="max-h-[60dvh] overflow-y-auto rounded-t-2xl">
-              <SheetHeader className="mb-4">
-                <SheetTitle>Filter by tag</SheetTitle>
-              </SheetHeader>
-              {TagFilters}
-              <SheetFooter className="mt-4">
-                {activeTags.size > 0 && (
-                  <Button variant="ghost" size="sm" onClick={() => setActiveTags(new Set())}>
-                    Clear tags
-                  </Button>
-                )}
-                <Button onClick={() => setSheetOpen(false)}>Done</Button>
-              </SheetFooter>
-            </SheetContent>
-          </Sheet>
-        )}
       </div>
+
+      {/* Tag filter pills — desktop */}
+      {allTags.length > 0 && (
+        <div className="hidden sm:flex flex-wrap items-center gap-2">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60 pr-0.5">Tags</span>
+          {TagFilters}
+        </div>
+      )}
 
       {/* Results count */}
       {(search || activeFilterCount > 0) && (
@@ -316,7 +347,7 @@ export function BlueprintGrid({ blueprints, allTags }: Props) {
           {activeFilterCount > 0 && (
             <button
               type="button"
-              onClick={() => { setActiveTags(new Set()); setPriceFilter("all") }}
+              onClick={() => { setActiveTags(new Set()); setPriceFilter("all"); setTypeFilter("all") }}
               className="ml-2 text-xs underline hover:text-foreground"
             >
               Clear filters
