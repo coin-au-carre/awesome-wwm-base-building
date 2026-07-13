@@ -43,14 +43,37 @@ func NewStreamingTracker(root string, session *discordgo.Session, guildID string
 		root:    root,
 		session: session,
 		guildID: guildID,
-		active:  make(map[string]*Streamer),
+		active:  loadStreamingState(root),
 		saveCh:  make(chan struct{}, 1),
 	}
 	go t.saveLoop()
 	return t
 }
 
-// HandleGuildCreate scans voice states from the GUILD_CREATE payload to catch anyone already streaming.
+// loadStreamingState seeds the tracker from the last-persisted streaming.json
+// so a restart (e.g. a lock handoff between local and VPS) preserves each
+// streamer's original StartedAt instead of resetting it to time.Now().
+func loadStreamingState(root string) map[string]*Streamer {
+	active := make(map[string]*Streamer)
+	data, err := os.ReadFile(filepath.Join(root, "data", "streaming.json"))
+	if err != nil {
+		return active
+	}
+	var state streamingFile
+	if err := json.Unmarshal(data, &state); err != nil {
+		return active
+	}
+	for i := range state.Streamers {
+		active[state.Streamers[i].UserID] = &state.Streamers[i]
+	}
+	return active
+}
+
+// HandleGuildCreate reconciles active streamers against the GUILD_CREATE
+// voice states, the authoritative snapshot of who's streaming right now:
+// carries over StartedAt for anyone still streaming, drops anyone who
+// stopped while this instance wasn't connected, and only sets StartedAt to
+// now for streamers seen for the first time.
 func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.GuildCreate) {
 	if t.guildID != "" && e.ID != t.guildID {
 		return
@@ -59,6 +82,7 @@ func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.
 	t.mu.Lock()
 	defer t.mu.Unlock()
 
+	reconciled := make(map[string]*Streamer)
 	for _, vs := range e.VoiceStates {
 		if !vs.SelfStream {
 			continue
@@ -80,15 +104,20 @@ func (t *StreamingTracker) HandleGuildCreate(s *discordgo.Session, e *discordgo.
 				username = m.User.Username
 			}
 		}
-		t.active[vs.UserID] = &Streamer{
+		startedAt := time.Now().UTC()
+		if existing, ok := t.active[vs.UserID]; ok {
+			startedAt = existing.StartedAt
+		}
+		reconciled[vs.UserID] = &Streamer{
 			UserID:      vs.UserID,
 			Username:    username,
 			ChannelID:   vs.ChannelID,
 			ChannelName: channelName,
-			StartedAt:   time.Now().UTC(),
+			StartedAt:   startedAt,
 		}
-		slog.Info("streaming detected on startup", "user", username, "userID", vs.UserID, "channel", channelName, "channelID", vs.ChannelID)
+		slog.Info("streaming detected on startup", "user", username, "userID", vs.UserID, "channel", channelName, "channelID", vs.ChannelID, "startedAt", startedAt)
 	}
+	t.active = reconciled
 
 	select {
 	case t.saveCh <- struct{}{}:
