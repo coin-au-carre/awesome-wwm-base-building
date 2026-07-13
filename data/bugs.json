@@ -26,7 +26,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a556322\u0026hm=c8cbb9e3260e5975bf5f014a4879c42ceae7fd5eb5f1d935583f8067e76566c1\u0026is=6a5411a2\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1509499956384370688/image.png?ex=6a560be2\u0026hm=3ab95590ff526bd3df4d1b6f0575c082cb70a0f861062648687495a3b7c3303d\u0026is=6a54ba62\u0026",
       "https://cdn.discordapp.com/attachments/1509461162520219688/1510928823716417556/Component_not_available.mp4?ex=6a55f89f\u0026hm=af266d74e4c511e559ec49758d1d5c93420505eddf7e96683c36541193cc411e\u0026is=6a54a71f\u0026"
     ],
     "version": "v1.7",
@@ -57,7 +57,7 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a555b4c\u0026hm=9e907244de40e040d29da4d7d0d40db33db211d255838ba0e258d5e37b73a56e\u0026is=6a5409cc\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1510578703531376771/image.png?ex=6a56040c\u0026hm=d0dd7dd04bb21609b3586ab88a9a312e9950be8b816f47104eb9118fb7949686\u0026is=6a54b28c\u0026"
     ],
     "version": "v1.7",
     "date": "28/05/2026",
@@ -166,8 +166,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a55775f\u0026hm=543cc1f701685e29291b6782135cc2791ab86d4cf54fc191c1b2c029e71dddda\u0026is=6a5425df\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a55775f\u0026hm=93e9efe8971f94c3116b19b03f4242145424fbcc4951cd40c98d3a4aa1b707c5\u0026is=6a5425df\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a56201f\u0026hm=4cfc70901129a46710ee6978103d78fbeddf2c6e094b0f90a873737341c40db5\u0026is=6a54ce9f\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a56201f\u0026hm=38a28c9acffd0b08226502ea67d4544e1da82a78abc9d86579dfc1ff8dcd429d\u0026is=6a54ce9f\u0026"
     ],
     "version": "v1.7",
     "date": "02/06/2026",
@@ -316,7 +316,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a555970\u0026hm=d4520be2b38d84fe89acc6e27a6292ae7bc6ee710e9a066cb28d4d513f60b55f\u0026is=6a5407f0\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030634/1512388648363098122/2026-06-05_11-28-24.mp4?ex=6a560230\u0026hm=a68b73120b2c5f0cce9897c2d0b45e7aa58aef0978159dc942938366828f1e1d\u0026is=6a54b0b0\u0026"
     ],
     "version": "v1.7",
     "date": "05/06/2026",
@@ -339,7 +339,7 @@
     "notes": ""
   },
   {
-    "severity": "normal",
+    "severity": "fixed",
     "title": "Vegetation toggle not working.",
     "details": "Vegetation is deleted even if the clear vegetation toggle is off.",
     "guild": true,
@@ -355,7 +355,7 @@
     "notes": "Ongoing bug as far as i remember since the beginning."
   },
   {
-    "severity": "normal",
+    "severity": "fixed",
     "title": "Wrong Delete label for Solo diagram",
     "details": "There are two Delete labelled button. Top \"Delete\" should be \"Edit\". \"Edit\" button is \"Edit info\"",
     "guild": true,
@@ -445,7 +445,7 @@
   },
   {
     "severity": "low",
-    "title": "Share in Chat button for diagram gallery is long",
+    "title": "Share in Chat button for diagram gallery is taking too long",
     "details": "Have to wait many seconds until the Share In chat overlay pop up",
     "guild": true,
     "solo": true,
@@ -458,7 +458,7 @@
     "notes": ""
   },
   {
-    "severity": "normal",
+    "severity": "fixed",
     "title": "Place a personal house achievement not working",
     "details": "Homestead achievent is not working: Target data does not exist",
     "guild": false,
@@ -467,8 +467,8 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010451679838268/image.png?ex=6a55644c\u0026hm=b729cefaa3ea75e0e66307644b27ab22257421f4f8ea292b7dc7d13a34b168b5\u0026is=6a5412cc\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010354409869463/image.png?ex=6a556434\u0026hm=51d65250deb87e2082d270535db33aea8a4c93a47ede51c5adcc486f95bbabb0\u0026is=6a5412b4\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010451679838268/image.png?ex=6a560d0c\u0026hm=509e6e5e8feb5e3776f1d61228d7adddc8e8d8ae29264ee9b85e23b80482a6a8\u0026is=6a54bb8c\u0026",
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1520010354409869463/image.png?ex=6a560cf4\u0026hm=52c5ca29f89763ba77c901129c41384d98f212f509f459c0d98b9357b93dee4f\u0026is=6a54bb74\u0026"
     ],
     "version": "v1.8",
     "date": "26/06/2026",
@@ -484,7 +484,7 @@
     "mobile": false,
     "ps5": false,
     "media": [
-      "https://cdn.discordapp.com/attachments/1483483683456286911/1523803019215638579/image.png?ex=6a5558a6\u0026hm=143bc389c65aba8688f058947ccb00c7210af075c15ac17c6b3242b4a7c8e3af\u0026is=6a540726\u0026"
+      "https://cdn.discordapp.com/attachments/1483483683456286911/1523803019215638579/image.png?ex=6a560166\u0026hm=bc82fea0a985bd91d5e7c790628e47718ae60ed51e60bae41a78263dbf1fb898\u0026is=6a54afe6\u0026"
     ],
     "version": "v1.8",
     "date": "06/07/2026",
