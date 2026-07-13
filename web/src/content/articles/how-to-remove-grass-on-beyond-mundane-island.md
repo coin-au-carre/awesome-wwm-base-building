@@ -39,7 +39,7 @@ Build a large building. Preferably a "standard inn" or a "grand inn"
 
 ---
 
-Make sure to place down the building first so the grass clearing feature is active.
+May have to place down the building first so the grass clearing feature is active.
 
 ---
 
@@ -47,7 +47,7 @@ Make sure to place down the building first so the grass clearing feature is acti
 
 ---
 
-Pick it up and rotate it 45 degree like so...
+Pick it up and rotate it 45 degree like so WITH THE **FRONT** FACING DOWNWARD IF USING A GRAND INN or WITH THE **BACK** FACING DOWNWARD IF USING A STANDARD INN
 
 ---
 
@@ -71,15 +71,7 @@ Use the Move tool and bury it until the very tip of the structure is just right 
 
 ---
 
-Standard Inns can bug out and would not clear the grass some times
-
----
-
-Grand Inns seem to work consistently
-
----
-
-If it bugs out, you can adjust the building with Move tool and hope it gets fixed or start over from the beginning
+If you see some parts of the inn sticking out or grass are left behind, go back to STEP 2 and make sure the orientation of the building is correct
 
 ---
 
@@ -159,7 +151,7 @@ Switch to Follow Camera so your build camera ends up under the ground and not ab
 
 ---
 
-And that conclude on how to effectively remove grass and glitch yourself under the ground on Beyond Mundane island. You may try placing other buildings to remove a smaller area of grass. Maybe some other buildings work better than the inns.
+And that conclude on how to effectively remove grass and glitch yourself under the ground on Beyond Mundane island. You may try placing other buildings to remove a smaller area of grass. Another way to quickly glitch your build camera under the ground is building a standard inn while in free camera mode, wait for it to load completely and pushes your camera under the ground.
 
 ---
 

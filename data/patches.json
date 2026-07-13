@@ -39,9 +39,9 @@
     "notes": ""
   },
   {
-    "coolness": "high",
-    "title": "No density cap in solo",
-    "description": "Lifted density cap components in solo base",
+    "coolness": "normal",
+    "title": "Density cap in solo increased",
+    "description": "Area Capacity Limit: Each plot (50m²) has a capacity limit of 5K",
     "guild": false,
     "solo": true,
     "pc": true,
