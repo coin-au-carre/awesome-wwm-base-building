@@ -419,9 +419,7 @@ In order these buildings link to:
 
 The Farm industry is, to no surprise, created together with the Farmland.
 
-### Using Industry Zones:
-
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-52.webp" style="width: 80%" />
+### Using Industry Zones:<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-52.webp" style="width: 80%" />
 
 #### Teleporting To Industry Zones:
 
