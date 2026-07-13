@@ -41,7 +41,7 @@
   {
     "coolness": "normal",
     "title": "Density cap in solo increased",
-    "description": "Area Capacity Limit: Each plot (50m²) has a capacity limit of 5K",
+    "description": "Area Item Capacity Limit: Each plot (50m²) has a capacity limit of 5K",
     "guild": false,
     "solo": true,
     "pc": true,
