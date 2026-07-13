@@ -260,6 +260,14 @@ func (t *StreamingTracker) saveAndPush() {
 			if strings.Contains(string(out), "nothing to commit") {
 				return
 			}
+			// A conflicting pull --rebase must never be left half-applied —
+			// otherwise the next "git add" silently stages the file with raw
+			// conflict markers still in it as if it were resolved.
+			if args[1] == "pull" {
+				abort := exec.Command("git", "rebase", "--abort")
+				abort.Dir = t.root
+				_ = abort.Run()
+			}
 			slog.Error("git op failed", "args", args, "err", err, "output", string(out))
 			return
 		}
