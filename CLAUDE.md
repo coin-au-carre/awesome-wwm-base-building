@@ -149,13 +149,16 @@ UPDATES_MESSAGE_ID                    # pinned message ID to edit (empty = creat
 HOMESTEAD_MESSAGE_ID                   # pinned message ID in #homestead-hall-of-fame to edit (empty = create new on first run, then save the logged ID)
 INSTANCE_LOCK_MESSAGE_ID               # message ID (in DEV_CHANNEL_ID, private) used as a cross-machine lock heartbeat (empty = falls back to discord.DefaultInstanceLockMessageID so both machines share one message even before either .env is updated)
 INSTANCE_NAME                          # optional — label shown as the lock holder (defaults to os.Hostname())
+INSTANCE_PRIORITY                      # optional int, default 0 — higher wins immediately over a lower-priority holder even if its heartbeat is fresh (set higher on local so it always preempts the VPS)
 ```
 
 ## Single-instance lock (local vs VPS)
 
 `cmd/bot` can run on a local machine or the VPS, but never both at once — they share a Discord bot token, not a filesystem. `discord.AcquireLock` (`internal/discord/instancelock.go`) enforces this using a single Discord message in `DEV_CHANNEL_ID` (private, not the public bot channel) as a heartbeat lock, edited every 5s:
-- On startup, before `bot.Open()`, the instance reads the lock message. If the heartbeat is fresh (<15s old, i.e. no more than 3 missed beats) and held by another instance, it waits and polls instead of connecting to the gateway.
-- Once the heartbeat is stale or absent, it claims the lock and starts heartbeating.
+- On startup, before `bot.Open()`, the instance reads the lock message. If the heartbeat is fresh (<15s old, i.e. no more than 3 missed beats), held by another instance, and that instance's priority is `>=` its own, it waits and polls instead of connecting to the gateway.
+- A higher-`INSTANCE_PRIORITY` instance (e.g. local) skips the wait and claims the lock immediately, even over a fresh lower-priority holder (e.g. VPS).
+- Once the heartbeat is stale/absent, or this instance outranks the current holder, it claims the lock and starts heartbeating.
+- The current holder's heartbeat loop re-reads the lock message on every tick; if it finds a different holder (preempted by a higher-priority instance), it cancels its own context and shuts down instead of fighting the new holder for events.
 - Killing the active bot lets the other, already-waiting instance take over automatically within ~15s — no manual restart needed.
 
 > **When adding a new env var that affects `task sync`:** you must do all three or Discord CDN URLs in the output file will expire and break images on the live site:

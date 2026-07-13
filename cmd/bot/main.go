@@ -10,6 +10,7 @@ import (
 	"os/signal"
 	"regexp"
 	"slices"
+	"strconv"
 	"strings"
 	"sync"
 	"syscall"
@@ -115,7 +116,11 @@ func main() {
 	if lockMessageID == "" {
 		lockMessageID = discord.DefaultInstanceLockMessageID
 	}
-	discord.AcquireLock(ctx, bot.Session, devChannelID, lockMessageID, instanceID)
+	instancePriority, err := strconv.Atoi(os.Getenv("INSTANCE_PRIORITY"))
+	if err != nil {
+		instancePriority = 0
+	}
+	discord.AcquireLock(ctx, cancel, bot.Session, devChannelID, lockMessageID, instanceID, instancePriority)
 	if ctx.Err() != nil {
 		slog.Info("shutting down before acquiring lock")
 		return

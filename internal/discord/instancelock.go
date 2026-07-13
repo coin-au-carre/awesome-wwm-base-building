@@ -5,8 +5,8 @@ import (
 	"context"
 	"fmt"
 	"log/slog"
+	"regexp"
 	"strconv"
-	"strings"
 	"time"
 
 	"github.com/bwmarrin/discordgo"
@@ -26,22 +26,25 @@ const (
 	lockStaleAfter        = 3 * lockHeartbeatInterval // ~45s: 3 missed beats before a waiter takes over
 )
 
-// AcquireLock blocks until no other instance's heartbeat is fresh, then
-// starts a background goroutine that re-writes the lock message every
-// lockHeartbeatInterval until ctx is cancelled. Call before bot.Open() so a
-// blocked instance never opens a gateway connection while waiting.
-func AcquireLock(ctx context.Context, s *discordgo.Session, channelID, messageID, instanceID string) {
+// AcquireLock blocks until it can safely claim the lock (no fresher, equal-
+// or-higher-priority holder), then starts a background goroutine that
+// re-writes the lock message every lockHeartbeatInterval. If a higher
+// priority instance later takes the lock away, that goroutine calls cancel
+// so this process shuts down instead of fighting the new holder for events.
+// Call before bot.Open() so a waiting instance never opens a gateway
+// connection.
+func AcquireLock(ctx context.Context, cancel context.CancelFunc, s *discordgo.Session, channelID, messageID, instanceID string, priority int) {
 	if channelID == "" {
 		slog.Warn("no lock channel configured (DEV_CHANNEL_ID), skipping instance lock")
 		return
 	}
 
 	for messageID != "" {
-		holder, ts, ok := readLock(s, channelID, messageID)
-		if !ok || holder == instanceID || time.Since(ts) > lockStaleAfter {
+		holder, holderPriority, ts, ok := readLock(s, channelID, messageID)
+		if !ok || holder == instanceID || time.Since(ts) > lockStaleAfter || priority > holderPriority {
 			break
 		}
-		slog.Info("another bot instance holds the lock, waiting", "holder", holder, "age", time.Since(ts).Round(time.Second))
+		slog.Info("another bot instance holds the lock, waiting", "holder", holder, "priority", holderPriority, "age", time.Since(ts).Round(time.Second))
 		select {
 		case <-ctx.Done():
 			return
@@ -49,8 +52,8 @@ func AcquireLock(ctx context.Context, s *discordgo.Session, channelID, messageID
 		}
 	}
 
-	messageID = writeLock(s, channelID, messageID, instanceID)
-	slog.Info("acquired instance lock", "instance", instanceID)
+	messageID = writeLock(s, channelID, messageID, instanceID, priority)
+	slog.Info("acquired instance lock", "instance", instanceID, "priority", priority)
 
 	go func() {
 		t := time.NewTicker(lockHeartbeatInterval)
@@ -60,47 +63,55 @@ func AcquireLock(ctx context.Context, s *discordgo.Session, channelID, messageID
 			case <-ctx.Done():
 				return
 			case <-t.C:
-				writeLock(s, channelID, messageID, instanceID)
+				if holder, _, _, ok := readLock(s, channelID, messageID); ok && holder != instanceID {
+					slog.Info("lock taken over by another instance, shutting down", "new_holder", holder)
+					cancel()
+					return
+				}
+				writeLock(s, channelID, messageID, instanceID, priority)
 			}
 		}
 	}()
 }
 
-func lockContent(instanceID string, ts time.Time) string {
-	return fmt.Sprintf("🔒 lock held by `%s` — heartbeat %d", instanceID, ts.Unix())
+// lockContentRe parses messages written by lockContent: holder, priority, heartbeat unix time.
+var lockContentRe = regexp.MustCompile("lock held by `([^`]+)` \\(priority (-?\\d+)\\) — heartbeat (\\d+)")
+
+func lockContent(instanceID string, priority int, ts time.Time) string {
+	return fmt.Sprintf("🔒 lock held by `%s` (priority %d) — heartbeat %d", instanceID, priority, ts.Unix())
 }
 
-// parseLockContent extracts the holder name and heartbeat time from a lock
-// message body previously written by lockContent.
-func parseLockContent(content string) (holder string, ts time.Time, ok bool) {
-	parts := strings.Split(content, "`")
-	if len(parts) < 2 {
-		return "", time.Time{}, false
+// parseLockContent extracts the holder name, priority, and heartbeat time
+// from a lock message body previously written by lockContent.
+func parseLockContent(content string) (holder string, priority int, ts time.Time, ok bool) {
+	m := lockContentRe.FindStringSubmatch(content)
+	if m == nil {
+		return "", 0, time.Time{}, false
 	}
-	i := strings.LastIndex(content, "heartbeat ")
-	if i < 0 {
-		return "", time.Time{}, false
-	}
-	unix, err := strconv.ParseInt(strings.TrimSpace(content[i+len("heartbeat "):]), 10, 64)
+	priority, err := strconv.Atoi(m[2])
 	if err != nil {
-		return "", time.Time{}, false
+		return "", 0, time.Time{}, false
 	}
-	return parts[1], time.Unix(unix, 0), true
+	unix, err := strconv.ParseInt(m[3], 10, 64)
+	if err != nil {
+		return "", 0, time.Time{}, false
+	}
+	return m[1], priority, time.Unix(unix, 0), true
 }
 
-func readLock(s *discordgo.Session, channelID, messageID string) (holder string, ts time.Time, ok bool) {
+func readLock(s *discordgo.Session, channelID, messageID string) (holder string, priority int, ts time.Time, ok bool) {
 	m, err := s.ChannelMessage(channelID, messageID)
 	if err != nil {
 		slog.Warn("reading lock message", "err", err)
-		return "", time.Time{}, false
+		return "", 0, time.Time{}, false
 	}
 	return parseLockContent(m.Content)
 }
 
 // writeLock edits messageID in place, or creates it on the first run when
 // empty, returning the message ID to reuse on subsequent heartbeats.
-func writeLock(s *discordgo.Session, channelID, messageID, instanceID string) string {
-	content := lockContent(instanceID, time.Now())
+func writeLock(s *discordgo.Session, channelID, messageID, instanceID string, priority int) string {
+	content := lockContent(instanceID, priority, time.Now())
 	if messageID != "" {
 		if _, err := s.ChannelMessageEdit(channelID, messageID, content); err == nil {
 			return messageID
