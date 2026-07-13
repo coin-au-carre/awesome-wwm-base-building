@@ -194,31 +194,31 @@ Each type of production will have its own decorative elements, such as a large o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a561071&format=webp&hm=37519982968a2c6302fa186301b25f9eb3bc2aee93012df227bbdb18b7dab469&is=6a54bef1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a56b931&format=webp&hm=65a8a052af014056a233b6b76f1e141da72539adc5b0a5b592b2af081d2b73ea&is=6a5567b1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 1. First, you need to hire workers and allocate them to resource extraction.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a561083&format=webp&hm=171411c165dd5f5040ef51799910b9e6e36710783bed626b5b1e376b41f9b53b&is=6a54bf03&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a56b943&format=webp&hm=3bee385e839e318cd3a9994507f7e328290fb615157c60fe97530849d8b7b0a1&is=6a5567c3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 2. At the same time, purchase seeds and plant plants that will be useful to you for meals or drinks.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a56109b&format=webp&hm=2a2b41f412e0593ec70e3652794dd9130357742166d1fd140ac15c0ce6e011f4&is=6a54bf1b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a56b95b&format=webp&hm=8ec244afe9d6ef1f930a3ac274c4d5858bc183d13f1dfcea12bb9d6d4c73b4f9&is=6a5567db&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 3. In pottery, you need to set up the production of wine jugs.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a561105&format=webp&hm=bd6a3518703a0c864a8fbe5ce98fc48446e6a547486a4ac218588e2358ac3f92&is=6a54bf85&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a56b9c5&format=webp&hm=bffcfb504552223aa13d18026bfbe9d7e7750a997a1e0df6426d4e95b9111216&is=6a556845&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a561149&format=webp&hm=403454f362a808805ae4fe207379a17dcaa0dd98ce9c0557c24f0bab574135bb&is=6a54bfc9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a56ba09&format=webp&hm=d7b2b02b3425e9c1a28ccf12319795cf0c8d5a2318a252fbd01ac55e3b81c83a&is=6a556889&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a5612de&format=webp&hm=d99c0646a90cbb0f7380a5ff186b5072ee3e128a729d6424d2791a73234fe5c0&is=6a54c15e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a56bb9e&format=webp&hm=00b446aebf7d72b89aca13aa712f3dd172751f835d4327d1c2a43f6e09d703b9&is=6a556a1e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
