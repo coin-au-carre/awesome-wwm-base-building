@@ -213,6 +213,237 @@ You can buy raw materials directly from merchants in the solo world using normal
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-22.webp" style="width: 60%" />
 
+### Industry Zones And You!
+
+Homestead components can only be placed in ‘claimed’ areas of the map. These areas are what we call Industry Zones.
+
+If you ever had the courage to click the prosperity list button in the homestead upgrade screen, then this list will be familiar to you.<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-41.webp" style="width: 80%" />
+
+The list differentiates between 2 areas:
+
+- Beyond Mundane
+- Qinghe
+
+Beyond Mundane is the private island unlocked during the homestead tutorial (more on that later) while Qinghe is the normal map we all know and love.
+
+Beyond each of the 2 headings the game lists a bunch of names.
+
+- Cloudrest Passage
+- House (player home)
+- Farmland
+
+Are listed for Beyond Mundane.
+
+- House (player home)
+- Residence (npc home)
+- Farmland
+- Blissful Retreat
+- Aromas Brewery
+- Porcelain Kiln
+- Crane Retreat
+
+These are the Industry Zones!  
+And even better, this list also tells us where each industry zone is allowed to exist.  
+This means that apart from the Farmland and House industry, all other Industry Zones can only exist within Qinghe.
+
+(Note: This is in part because the ‘Cloudrest Passage’ Industry Zone combines all the other zones into one)
+
+The number to the right of each Industry Zone Name is how much prosperity is held up in the Industry Zones of that type.
+
+Every Industry Zone Type comes with its own map marker and the ability to teleport there.
+
+For players that do not care about building pretty homesteads, Industry zones can function as player specified teleport points.  You can place your own Waystones!
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-42.webp" style="width: 80%" />
+
+Clicking on the mapmarker gives us all basic information on that Industry Zone type.  
+What we can see here depends on the industry, but the two lines under ‘Industry Info’ will always be a constant across them.
+
+The first line ‘Cottage Lvl. 1’  just shows us the level of the Industry Zone.  
+Prosperity too is rather self-explanatory; This just shows us how much prosperity the Furniture placed within the selected Industry Zone gives.
+
+Now we click on ‘Prosperity’:
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-43.webp" style="width: 80%" />
+
+Here we can see how much we can place inside our Residence.  
+As we can see…. We are not allowed to place a whole lot.
+
+We are allowed to place 1 prefab building, 100 Beds (the only facility for this type of industry) and 100 building components. This limit counts both Homestead Components (like rocks) and Personal Building Components.
+
+### A List Of Industry Zones And Their Properties.
+
+Icon
+
+Name
+
+Function
+
+Movable?
+
+Beyond Mundane?
+
+Placement Limit
+
+Max Furniture
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-44.webp" style="width: 80%" />
+
+Blissful Retreat
+
+Cooking and Catering
+
+NO
+
+NO
+
+1
+
+2000(lvl 10)
+
+200 at lvl 1  
+\+ 200 per lvl
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-45.webp" style="width: 80%" />
+
+Crane Retreat
+
+Retainer Recovery
+
+YES
+
+NO
+
+1
+
+1000(lvl 10)
+
+100 at lvl1  
+\+ 100 per lvl
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-46.webp" style="width: 80%" />
+
+Porcelain Kiln
+
+Pottery Production
+
+NO
+
+NO
+
+1
+
+1000(lvl 10)
+
+100 at lvl1  
+\+ 100 per lvl
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-47.webp" style="width: 80%" />
+
+Aromas Brewery
+
+Wine Production
+
+NO
+
+NO
+
+1
+
+1000(lvl 10)
+
+100 at lvl1  
+\+ 100 per lvl
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-48.webp" style="width: 80%" />
+
+Farm
+
+Grow Crops
+
+YES
+
+Yes
+
+4 (lvl 7)  
+3 (lvl 5)  
+2 (lvl 4)  
+1 (lvl 1-3)
+
+0
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-49.webp" style="width: 80%" />
+
+Residence  
+(House)
+
+Cosmetic
+
+YES
+
+Yes
+
+2 in Cloudrest,  
+2 in Qinghe.  
+Total: 4
+
+2000
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-50.webp" style="width: 80%" />
+
+Residence  
+(Npc)
+
+Npc Beds  
+(Maximum working retainers)
+
+YES
+
+NO
+
+20
+
+100
+
+Making Industry Zones:
+
+First, note that it is only possible to create Industry Zones of movable industries.
+
+Creating an Industry Zone is easy. Just place one of the associated buildings where you want the zone to be!  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-51.webp" style="width: 80%" />  
+In order these buildings link to:
+
+- \[Red]    Residence (Player)
+- \[Green] Residence (NPC)
+- \[Blue]    Crane Retreat
+
+The Farm industry is, to no surprise, created together with the Farmland.
+
+### Using Industry Zones:
+
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-52.webp" style="width: 80%" />
+
+#### Teleporting To Industry Zones:
+
+This is quite simple. Find where the Industry Zone you want to teleport to is on the map -&gt; click it -&gt; hit ‘Teleport’ in the bottom right.
+
+#### Finding Industry Zones:
+
+All Industry Zones are listed under ‘My Homestead’  
+To the bottom left of the Map.  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-53.webp" style="width: 80%" />
+
+#### Avoiding Placement Limits In Industry Zones:
+
+A quick glance at the component limits for most industry zones is enough to realise that building in industry zones is heavily limited by component count.
+
+While circumventing those limitations is not possible for Homestead Building Components,  
+Personal Building Components that exist before the industry zone is placed will not count towards the Industry Zone's component cap.
+
+If at all possible, it is recommended to place as many Personal Building Components as possible before placing the industry zone. That way more component count is left for the homestead components.
+
+Especially Npc Residences (Component Cap of 100) can prove to be difficult to detail otherwise.
+
 ### Beyond Mundane - Cloudrest Passage
 
 Beyond Mundane is a separate map where you can freely build homestead components without the placement limitations of having them in Qinghe.  
