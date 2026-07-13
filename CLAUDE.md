@@ -154,11 +154,12 @@ INSTANCE_PRIORITY                      # optional int, default 0 — higher wins
 
 ## Single-instance lock (local vs VPS)
 
-`cmd/bot` can run on a local machine or the VPS, but never both at once — they share a Discord bot token, not a filesystem. `discord.AcquireLock` (`internal/discord/instancelock.go`) enforces this using a single Discord message in `DEV_CHANNEL_ID` (private, not the public bot channel) as a heartbeat lock, edited every 5s:
-- On startup, before `bot.Open()`, the instance reads the lock message. If the heartbeat is fresh (<15s old, i.e. no more than 3 missed beats), held by another instance, and that instance's priority is `>=` its own, it waits and polls instead of connecting to the gateway.
+`cmd/bot` can run on a local machine or the VPS, but never both at once — they share a Discord bot token, not a filesystem. The VPS instance is meant to run 24/7 as the fallback, so losing the lock must idle it, not kill the process. `discord.RunLocked` (`internal/discord/instancelock.go`) enforces this by cycling forever between "waiting" and "active", using a single Discord message in `DEV_CHANNEL_ID` (private, not the public bot channel) as a heartbeat lock, edited every 5s:
+- While waiting, it reads the lock message. If the heartbeat is fresh (<15s old, i.e. no more than 3 missed beats), held by another instance, and that instance's priority is `>=` its own, it keeps polling — no gateway connection, no handlers firing, no data watcher.
 - A higher-`INSTANCE_PRIORITY` instance (e.g. local) skips the wait and claims the lock immediately, even over a fresh lower-priority holder (e.g. VPS).
-- Once the heartbeat is stale/absent, or this instance outranks the current holder, it claims the lock and starts heartbeating.
-- The current holder's heartbeat loop re-reads the lock message on every tick; if it finds a different holder (preempted by a higher-priority instance), it cancels its own context and shuts down instead of fighting the new holder for events.
+- Once it claims the lock, `onAcquire` runs (`bot.Open()` + `PullOnStart` + `StartDataWatcher`) and it starts heartbeating.
+- Every heartbeat tick it re-reads the lock message; if a different holder now owns it (preempted by a higher-priority instance), it runs `onRelease` (`bot.Close()`), stops its data watcher, and goes back to waiting — the process itself keeps running so it can reclaim the lock automatically once the other instance goes away (e.g. a laptop going to sleep).
+- Only a real shutdown (SIGINT/SIGTERM, i.e. the outer `ctx`) makes `RunLocked` return and the process exit.
 - Killing the active bot lets the other, already-waiting instance take over automatically within ~15s — no manual restart needed.
 
 > **When adding a new env var that affects `task sync`:** you must do all three or Discord CDN URLs in the output file will expire and break images on the live site:

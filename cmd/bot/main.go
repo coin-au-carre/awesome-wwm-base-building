@@ -120,22 +120,20 @@ func main() {
 	if err != nil {
 		instancePriority = 0
 	}
-	discord.AcquireLock(ctx, cancel, bot.Session, devChannelID, lockMessageID, instanceID, instancePriority)
-	if ctx.Err() != nil {
-		slog.Info("shutting down before acquiring lock")
-		return
+
+	onAcquire := func(activeCtx context.Context) {
+		if err := bot.Open(); err != nil {
+			slog.Error("opening session", "err", err)
+			return
+		}
+		discord.PullOnStart(*root, responder)
+		discord.StartDataWatcher(activeCtx, *root, responder)
+		slog.Info("bot running")
 	}
-
-	if err := bot.Open(); err != nil {
-		slog.Error("opening session", "err", err)
-		os.Exit(1)
+	onRelease := func() {
+		bot.Close()
 	}
-
-	discord.PullOnStart(*root, responder)
-	discord.StartDataWatcher(ctx, *root, responder)
-
-	slog.Info("bot running")
-	<-ctx.Done()
+	discord.RunLocked(ctx, bot.Session, devChannelID, lockMessageID, instanceID, instancePriority, onAcquire, onRelease)
 
 	slog.Info("shutting down")
 }

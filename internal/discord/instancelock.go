@@ -26,52 +26,71 @@ const (
 	lockStaleAfter        = 3 * lockHeartbeatInterval // ~45s: 3 missed beats before a waiter takes over
 )
 
-// AcquireLock blocks until it can safely claim the lock (no fresher, equal-
-// or-higher-priority holder), then starts a background goroutine that
-// re-writes the lock message every lockHeartbeatInterval. If a higher
-// priority instance later takes the lock away, that goroutine calls cancel
-// so this process shuts down instead of fighting the new holder for events.
-// Call before bot.Open() so a waiting instance never opens a gateway
-// connection.
-func AcquireLock(ctx context.Context, cancel context.CancelFunc, s *discordgo.Session, channelID, messageID, instanceID string, priority int) {
+// RunLocked keeps this process alive for as long as ctx runs, cycling
+// between waiting for the lock and holding it. Whenever it holds the lock it
+// calls onAcquire(activeCtx) once; activeCtx is cancelled the moment the
+// lock is lost (or ctx itself is cancelled) so onAcquire can stop the
+// gateway connection and any background watchers, then onRelease runs to
+// finish tearing them down. If a higher-priority instance takes the lock, or
+// this one's own heartbeat goes stale, RunLocked releases and goes back to
+// waiting instead of exiting the process — so a 24/7 VPS instance idles
+// while a higher-priority local instance is up, and reclaims automatically
+// once it goes away.
+func RunLocked(ctx context.Context, s *discordgo.Session, channelID, messageID, instanceID string, priority int, onAcquire func(context.Context), onRelease func()) {
 	if channelID == "" {
 		slog.Warn("no lock channel configured (DEV_CHANNEL_ID), skipping instance lock")
+		activeCtx, activeCancel := context.WithCancel(ctx)
+		onAcquire(activeCtx)
+		<-ctx.Done()
+		activeCancel()
+		onRelease()
 		return
 	}
 
-	for messageID != "" {
-		holder, holderPriority, ts, ok := readLock(s, channelID, messageID)
-		if !ok || holder == instanceID || time.Since(ts) > lockStaleAfter || priority > holderPriority {
-			break
-		}
-		slog.Info("another bot instance holds the lock, waiting", "holder", holder, "priority", holderPriority, "age", time.Since(ts).Round(time.Second))
-		select {
-		case <-ctx.Done():
-			return
-		case <-time.After(lockHeartbeatInterval):
-		}
-	}
-
-	messageID = writeLock(s, channelID, messageID, instanceID, priority)
-	slog.Info("acquired instance lock", "instance", instanceID, "priority", priority)
-
-	go func() {
-		t := time.NewTicker(lockHeartbeatInterval)
-		defer t.Stop()
-		for {
+	for ctx.Err() == nil {
+		for messageID != "" {
+			holder, holderPriority, ts, ok := readLock(s, channelID, messageID)
+			if !ok || holder == instanceID || time.Since(ts) > lockStaleAfter || priority > holderPriority {
+				break
+			}
+			slog.Info("another bot instance holds the lock, waiting", "holder", holder, "priority", holderPriority, "age", time.Since(ts).Round(time.Second))
 			select {
 			case <-ctx.Done():
 				return
+			case <-time.After(lockHeartbeatInterval):
+			}
+		}
+		if ctx.Err() != nil {
+			return
+		}
+
+		messageID = writeLock(s, channelID, messageID, instanceID, priority)
+		slog.Info("acquired instance lock", "instance", instanceID, "priority", priority)
+
+		activeCtx, activeCancel := context.WithCancel(ctx)
+		onAcquire(activeCtx)
+
+		t := time.NewTicker(lockHeartbeatInterval)
+	heartbeat:
+		for {
+			select {
+			case <-ctx.Done():
+				t.Stop()
+				activeCancel()
+				onRelease()
+				return
 			case <-t.C:
 				if holder, _, _, ok := readLock(s, channelID, messageID); ok && holder != instanceID {
-					slog.Info("lock taken over by another instance, shutting down", "new_holder", holder)
-					cancel()
-					return
+					slog.Info("lock taken over by another instance, releasing and waiting to reclaim", "new_holder", holder)
+					break heartbeat
 				}
 				writeLock(s, channelID, messageID, instanceID, priority)
 			}
 		}
-	}()
+		t.Stop()
+		activeCancel()
+		onRelease()
+	}
 }
 
 // lockContentRe parses messages written by lockContent: holder, priority, heartbeat unix time.
