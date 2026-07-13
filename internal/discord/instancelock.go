@@ -48,12 +48,28 @@ func RunLocked(ctx context.Context, s *discordgo.Session, channelID, messageID, 
 	}
 
 	for ctx.Err() == nil {
+		// Staleness is judged purely against this reader's own clock: has the
+		// embedded heartbeat value changed recently, as observed here? Never
+		// compare the holder's embedded timestamp directly against our wall
+		// clock — local and VPS clocks aren't guaranteed to be in sync (WSL2
+		// clocks in particular drift after sleep/resume), which would make a
+		// perfectly fresh heartbeat look stale (or vice versa) and cause an
+		// endless preempt/reclaim flap between instances.
+		lastSeenUnix := int64(-1)
+		lastChangeAt := time.Now()
 		for messageID != "" {
 			holder, holderPriority, ts, ok := readLock(s, channelID, messageID)
-			if !ok || holder == instanceID || time.Since(ts) > lockStaleAfter || priority > holderPriority {
+			if !ok || holder == instanceID || priority > holderPriority {
 				break
 			}
-			slog.Info("another bot instance holds the lock, waiting", "holder", holder, "priority", holderPriority, "age", time.Since(ts).Round(time.Second))
+			if unix := ts.Unix(); unix != lastSeenUnix {
+				lastSeenUnix = unix
+				lastChangeAt = time.Now()
+			}
+			if time.Since(lastChangeAt) > lockStaleAfter {
+				break
+			}
+			slog.Info("another bot instance holds the lock, waiting", "holder", holder, "priority", holderPriority, "unchanged_for", time.Since(lastChangeAt).Round(time.Second))
 			select {
 			case <-ctx.Done():
 				return
