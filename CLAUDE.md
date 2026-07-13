@@ -147,7 +147,7 @@ BUGS_MESSAGE_ID                       # pinned message ID to edit (empty = creat
 UPDATES_CHANNEL_ID                    # #updates channel ID for the digest message
 UPDATES_MESSAGE_ID                    # pinned message ID to edit (empty = create new on first run, then save the logged ID)
 HOMESTEAD_MESSAGE_ID                   # pinned message ID in #homestead-hall-of-fame to edit (empty = create new on first run, then save the logged ID)
-INSTANCE_LOCK_MESSAGE_ID               # message ID (in DEV_CHANNEL_ID, private) used as a cross-machine lock heartbeat (empty = create new on first run, then save the logged ID)
+INSTANCE_LOCK_MESSAGE_ID               # message ID (in DEV_CHANNEL_ID, private) used as a cross-machine lock heartbeat (empty = falls back to discord.DefaultInstanceLockMessageID so both machines share one message even before either .env is updated)
 INSTANCE_NAME                          # optional — label shown as the lock holder (defaults to os.Hostname())
 ```
 

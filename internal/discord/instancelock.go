@@ -16,6 +16,12 @@ import (
 // instead of a shared DB/Redis — local and VPS share no filesystem, but both
 // already talk to Discord, so no new infra is needed.
 const (
+	// DefaultInstanceLockMessageID is the fallback used when
+	// INSTANCE_LOCK_MESSAGE_ID isn't set, so every instance locks against the
+	// same message instead of each silently creating its own (and never
+	// seeing each other) the first time it runs without that env var set.
+	DefaultInstanceLockMessageID = "1526335789347246251"
+
 	lockHeartbeatInterval = 5 * time.Second
 	lockStaleAfter        = 3 * lockHeartbeatInterval // ~45s: 3 missed beats before a waiter takes over
 )

@@ -111,7 +111,11 @@ func main() {
 			instanceID = "unknown"
 		}
 	}
-	discord.AcquireLock(ctx, bot.Session, devChannelID, os.Getenv("INSTANCE_LOCK_MESSAGE_ID"), instanceID)
+	lockMessageID := os.Getenv("INSTANCE_LOCK_MESSAGE_ID")
+	if lockMessageID == "" {
+		lockMessageID = discord.DefaultInstanceLockMessageID
+	}
+	discord.AcquireLock(ctx, bot.Session, devChannelID, lockMessageID, instanceID)
 	if ctx.Err() != nil {
 		slog.Info("shutting down before acquiring lock")
 		return
