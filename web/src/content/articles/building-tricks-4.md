@@ -32,11 +32,11 @@ Standard mode and lite mode don't share the same assets representation. Trees an
 
 This watchtower has a unique rustic-looking bell on top. While the full structure doesn't fit or blend well in many scenarios, sinking most of the tower into the ground leaves behind a clean platform — or no platform at all — and a lovely pavilion. Adding a couple of your favorite lanterns completes the look perfectly.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900565849608335/4.png?ex=6a5673de&format=webp&hm=4df8b16c7028f00f0c9292bde00ce3ec9f819794cd8772f0f12bc2896b78aaf7&is=6a55225e&quality=lossless" alt="Watchtower with rustic bell — full structure above ground" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900565849608335/4.png?ex=6a571c9e&format=webp&hm=4483acb9fb2d6ed9161c99c4482fc3ebca9038ec792868d75bc9916c10be13b3&is=6a55cb1e&quality=lossless" alt="Watchtower with rustic bell — full structure above ground" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900566634074313/5.png?ex=6a5673de&format=webp&hm=752f4f99d402d4451cdb80d08a42a1e1c9fcdbf203e08f3526bc9182fe30e722&is=6a55225e&quality=lossless" alt="Watchtower sunk into the ground — only the bell and platform remain visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900566634074313/5.png?ex=6a571c9e&format=webp&hm=9d6adbaac16aeb256f1ae8b7fbd635c31ade70164d5f388f819bcd1fe9034a1b&is=6a55cb1e&quality=lossless" alt="Watchtower sunk into the ground — only the bell and platform remain visible" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900567422468166/6.png?ex=6a5673de&format=webp&hm=fea0bd37d81474d3f8a039f945919ed2c307e85161217098e989f30b23d0f39a&is=6a55225e&quality=lossless" alt="Finished pavilion with lanterns added around the sunken watchtower bell" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900567422468166/6.png?ex=6a571c9e&format=webp&hm=1fd0c71c8a0d7e7bbc08fbf11a059a188c0d4bdf0a4d153ff9d0acb084ffae3f&is=6a55cb1e&quality=lossless" alt="Finished pavilion with lanterns added around the sunken watchtower bell" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -45,7 +45,7 @@ This watchtower has a unique rustic-looking bell on top. While the full structur
 
 Some ironware items are currently available only in solo build mode. But you can save them into a diagram in solo mode and then place that diagram in guild build mode. So in the future, when we get more items like this, we’ll be able to use the same trick to bring solo items into the guild.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a56776a&format=webp&hm=27e1a0343f93ae319fcefba2c00e4adf334038bd3362853f7fd9f82b8e8ecdc8&is=6a5525ea&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a57202a&format=webp&hm=ae901d2f7233a5861742a9b9d468e71e5bff9f9e3e459535580bcb006e241dc7&is=6a55ceaa&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
