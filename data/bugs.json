@@ -45,7 +45,7 @@
     "media": [],
     "version": "v1.7",
     "date": "28/05/2026",
-    "notes": "Probable root cause:Cannot place Guild Construction\u003eDiagrams. Indeed, diagram can contain some components from Guild construction \u003e Diagrams"
+    "notes": "Now we can apply some old guild diagrams thank you!!!"
   },
   {
     "severity": "normal",
@@ -166,8 +166,8 @@
     "mobile": true,
     "ps5": true,
     "media": [
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a56201f\u0026hm=4cfc70901129a46710ee6978103d78fbeddf2c6e094b0f90a873737341c40db5\u0026is=6a54ce9f\u0026",
-      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a56201f\u0026hm=38a28c9acffd0b08226502ea67d4544e1da82a78abc9d86579dfc1ff8dcd429d\u0026is=6a54ce9f\u0026"
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152433492132000/2026-06-02_00_17_08-Where_Winds_Meet.jpg?ex=6a56c8df\u0026hm=e10c9f69ff4027de5934ab826c89e81d0c86ac8edb590be449623c9072275d2f\u0026is=6a55775f\u0026",
+      "https://cdn.discordapp.com/attachments/1509461162520219688/1511152432267268157/2026-06-02_01_06_40-Where_Winds_Meet.jpg?ex=6a56c8df\u0026hm=630661b4fc699ff5a5228a6cbad485ee2a55057cd34c19bafb122dc9b6e6b6e5\u0026is=6a55775f\u0026"
     ],
     "version": "v1.7",
     "date": "02/06/2026",
@@ -199,7 +199,7 @@
     "media": [
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511571396671701093/Screenshot_20260603_102216_com_netease_yysls_MessiahNativeActivity.jpg?ex=6a5654d0\u0026hm=b81871b1bc0908aa5a845d14f2260a3c6bba2b7661a5bb4b5404a11f6c56d19e\u0026is=6a550350\u0026",
       "https://cdn.discordapp.com/attachments/1483447711499030633/1511944494143246386/ScreenRecording_06-04-2026_12-06-14_1.mov?ex=6a565ec9\u0026hm=96d4d778b3c2394e576df0ea9a3cd8c94538b308473bc9ed7d2bf06acaafb30b\u0026is=6a550d49\u0026",
-      "https://cdn.discordapp.com/attachments/1483447711499030633/1513157083489632398/SVID_20260607_192226_1.mp4?ex=6a562ad9\u0026hm=85c1bc191129e995daff488da4bedcb86a5efcbb89004e31b7c418a52cd7e8bb\u0026is=6a54d959\u0026"
+      "https://cdn.discordapp.com/attachments/1483447711499030633/1513157083489632398/SVID_20260607_192226_1.mp4?ex=6a56d399\u0026hm=b7a382fda8317bc3c3fdbfa5aa2b3a3d77efcf2c329309ea7c60ef4ddd2011f7\u0026is=6a558219\u0026"
     ],
     "version": "v1.7",
     "date": "03/06/2026",
