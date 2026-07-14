@@ -59,7 +59,20 @@ func RunLocked(ctx context.Context, s *discordgo.Session, channelID, messageID, 
 		lastChangeAt := time.Now()
 		for messageID != "" {
 			holder, holderPriority, ts, ok := readLock(s, channelID, messageID)
-			if !ok || holder == instanceID || priority > holderPriority {
+			if !ok {
+				// A failed read (rate limit, network blip) tells us nothing about
+				// who holds the lock — treating it as "free" would let a waiter
+				// barge in over a real, fresh, higher-priority holder. Stay
+				// parked and retry instead of breaking out.
+				slog.Warn("reading lock message failed, staying parked", "unchanged_for", time.Since(lastChangeAt).Round(time.Second))
+				select {
+				case <-ctx.Done():
+					return
+				case <-time.After(lockHeartbeatInterval):
+				}
+				continue
+			}
+			if holder == instanceID || priority > holderPriority {
 				break
 			}
 			if unix := ts.Unix(); unix != lastSeenUnix {
