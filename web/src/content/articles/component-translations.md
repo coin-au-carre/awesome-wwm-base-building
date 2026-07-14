@@ -144,7 +144,7 @@ Here are examples of “宋” in seal script
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a56db46&format=webp&hm=76bf593cc523e3d45ed3f65a4d0ecb4c765520c5ef1a8d9de54d93051728a190&is=6a5589c6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498126226395627550/sign18.png?ex=6a578406&format=webp&hm=d62bba6892a21fd54559d0a3807ca7a00abd48d820deba99b0ced57a0c04b329&is=6a563286&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 This text is an excerpt from *Preface to the Poems Composed at the Orchid Pavilion* 《兰亭集序》by Wang Xizhi. You can read a full translation [here](https://en.wikisource.org/wiki/Translation:Preface_to_the_Poems_Composed_at_the_Orchid_Pavilion). 
 
@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a56dc5a&format=webp&hm=643fc9e47c17946811b57163ce6198bdcf18fe4aa40790a46e3cf45fcacef7a2&is=6a558ada&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a57851a&format=webp&hm=c9abbc1bc88b5fdc2e425ab7c5d085e60d33e008c1b9f1ce39fe6ccfb710a5d4&is=6a56339a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a56dc72&format=webp&hm=06d9ae87b1f5574e1ae057d7b200e2e61b1a0806f0a177ce79986071ae84caf1&is=6a558af2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a578532&format=webp&hm=588cb27969153fc9f30dbbbd7a0c504c5147896e34de5b0abef8789fefe5979d&is=6a5633b2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 手 - Hand
 
