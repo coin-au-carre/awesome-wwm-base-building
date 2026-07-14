@@ -96,8 +96,8 @@ func RunLocked(ctx context.Context, s *discordgo.Session, channelID, messageID, 
 				onRelease()
 				return
 			case <-t.C:
-				if holder, _, _, ok := readLock(s, channelID, messageID); ok && holder != instanceID {
-					slog.Info("lock taken over by another instance, releasing and waiting to reclaim", "new_holder", holder)
+				if holder, holderPriority, _, ok := readLock(s, channelID, messageID); ok && holder != instanceID && holderPriority > priority {
+					slog.Info("lock taken over by a higher-priority instance, releasing and waiting to reclaim", "new_holder", holder, "priority", holderPriority)
 					break heartbeat
 				}
 				writeLock(s, channelID, messageID, instanceID, priority)
