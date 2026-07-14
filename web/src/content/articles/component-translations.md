@@ -152,13 +152,13 @@ It is considered the most famous classical Chinese prose in Chinese calligraphy 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a56339a&format=webp&hm=30b0bb6a170acd3f4727d2a0013a7bda6ad920048859f6bb3f4a5dc62c90626d&is=6a54e21a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127383310368888/sign17.png?ex=6a56dc5a&format=webp&hm=643fc9e47c17946811b57163ce6198bdcf18fe4aa40790a46e3cf45fcacef7a2&is=6a558ada&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 香 - Fragrant
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a5633b2&format=webp&hm=1b413cd21849bfd9035ecb67164f59890484f316f5ef6b28694fcb2d2ab34fe3&is=6a54e232&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498127487140368395/sign16.png?ex=6a56dc72&format=webp&hm=06d9ae87b1f5574e1ae057d7b200e2e61b1a0806f0a177ce79986071ae84caf1&is=6a558af2&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 手 - Hand
 
@@ -180,7 +180,7 @@ With surging emotion, I seize the longsword. Ferrying the world, renown calls my
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a564740&format=webp&hm=00a25e07bed7f2d124ef5926e979db783b561745b2eb8e55eeda3948002f10c2&is=6a54f5c0&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a56f000&format=webp&hm=a24935b38e631924c7025d1ffaeceeaa50dd85d124c7b57eb6b731c3f417b69d&is=6a559e80&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
