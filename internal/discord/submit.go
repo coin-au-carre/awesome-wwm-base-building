@@ -673,14 +673,25 @@ func GitCommitAndPush(root, file, message string, bot *Bot, devChannelID string)
 		fail("commit", err, out)
 		return
 	}
-	if out, err := run("pull", "--rebase"); err != nil {
-		_, _ = run("rebase", "--abort")
-		fail("pull --rebase", err, out)
-		return
+	// ponytail: another instance (local vs VPS) can push between our rebase
+	// and our push, rejecting it — retry the rebase+push cycle a few times
+	// rather than failing on the first race.
+	const maxAttempts = 3
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		if out, err := run("pull", "--rebase"); err != nil {
+			_, _ = run("rebase", "--abort")
+			fail("pull --rebase", err, out)
+			return
+		}
+		out, err := run("push")
+		if err == nil {
+			slog.Info("git commit and push done", "message", message)
+			return
+		}
+		if attempt == maxAttempts {
+			fail("push", err, out)
+			return
+		}
+		slog.Warn("git push rejected, retrying after re-pull", "attempt", attempt, "output", string(out))
 	}
-	if out, err := run("push"); err != nil {
-		fail("push", err, out)
-		return
-	}
-	slog.Info("git commit and push done", "message", message)
 }

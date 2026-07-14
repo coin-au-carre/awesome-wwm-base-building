@@ -247,30 +247,49 @@ func (t *StreamingTracker) saveAndPush() {
 		return
 	}
 
+	run := func(args ...string) ([]byte, error) {
+		cmd := exec.Command(args[0], args[1:]...)
+		cmd.Dir = t.root
+		return cmd.CombinedOutput()
+	}
+
 	for _, args := range [][]string{
 		{"git", "add", "data/streaming.json"},
 		{"git", "commit", "-m", "chore: live streaming update"},
-		{"git", "pull", "--rebase"},
-		{"git", "push"},
 	} {
-		cmd := exec.Command(args[0], args[1:]...)
-		cmd.Dir = t.root
-		out, err := cmd.CombinedOutput()
+		out, err := run(args...)
 		if err != nil {
 			if strings.Contains(string(out), "nothing to commit") {
 				return
-			}
-			// A conflicting pull --rebase must never be left half-applied —
-			// otherwise the next "git add" silently stages the file with raw
-			// conflict markers still in it as if it were resolved.
-			if args[1] == "pull" {
-				abort := exec.Command("git", "rebase", "--abort")
-				abort.Dir = t.root
-				_ = abort.Run()
 			}
 			slog.Error("git op failed", "args", args, "err", err, "output", string(out))
 			return
 		}
 	}
-	slog.Info("streaming.json pushed", "streamers", len(streamers))
+
+	// ponytail: another instance (local vs VPS) can push between our rebase
+	// and our push, rejecting it — retry the rebase+push cycle a few times
+	// rather than failing on the first race.
+	const maxAttempts = 3
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		out, err := run("git", "pull", "--rebase")
+		if err != nil {
+			// A conflicting pull --rebase must never be left half-applied —
+			// otherwise the next "git add" silently stages the file with raw
+			// conflict markers still in it as if it were resolved.
+			_, _ = run("git", "rebase", "--abort")
+			slog.Error("git op failed", "args", []string{"git", "pull", "--rebase"}, "err", err, "output", string(out))
+			return
+		}
+		out, err = run("git", "push")
+		if err == nil {
+			slog.Info("streaming.json pushed", "streamers", len(streamers))
+			return
+		}
+		if attempt == maxAttempts {
+			slog.Error("git op failed", "args", []string{"git", "push"}, "err", err, "output", string(out))
+			return
+		}
+		slog.Warn("git push rejected, retrying after re-pull", "attempt", attempt, "output", string(out))
+	}
 }
