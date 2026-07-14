@@ -5,7 +5,7 @@ tags: ["advanced", "homestead"]
 authors: ["Crueliet"]
 date: 2026-07-07
 order: 25
-image: "https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a56eedf&format=webp&hm=1e977e2d9cd2e1fa13c432dc57fdaf7956dcf161d1b217e6cc0e506a9b78239d&is=6a559d5f&quality=lossless"
+image: "https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a57979f&format=webp&hm=1755751cb2b4dcb46e14f763c3730e14b0c11e16ee3e1f7eaa0dea410b6c1c79&is=6a56461f&quality=lossless"
 featured: true
 ---
 
@@ -13,7 +13,7 @@ featured: true
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a56eedf&format=webp&hm=1e977e2d9cd2e1fa13c432dc57fdaf7956dcf161d1b217e6cc0e506a9b78239d&is=6a559d5f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a57979f&format=webp&hm=1755751cb2b4dcb46e14f763c3730e14b0c11e16ee3e1f7eaa0dea410b6c1c79&is=6a56461f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -35,7 +35,7 @@ Build a large building. Preferably a "standard inn" or a "grand inn"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060054108770314/202677222635.png?ex=6a56f0c8&format=webp&hm=dba2b0d474fbdb75864f17be0b358ded07bf37b8074ac85e2084b13728a38528&is=6a559f48&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060054108770314/202677222635.png?ex=6a579988&format=webp&hm=76515756b88580230350ec2c48a3ddea5e9d03e4f9b4151da502f688ecf3e06c&is=6a564808&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -51,7 +51,7 @@ Pick it up and rotate it 45 degree like so WITH THE **FRONT** FACING DOWNWARD IF
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060808252751902/202677223241.png?ex=6a56f17c&format=webp&hm=399c4d35ebe4123831445ecdda693f74311c49bd500e0379d53ddc86cfa606d9&is=6a559ffc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060808252751902/202677223241.png?ex=6a579a3c&format=webp&hm=b35fbeca23b78012ba9653963470e182e7141b580c5d4eb390862cf1225e654a&is=6a5648bc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -67,7 +67,7 @@ Use the Move tool and bury it until the very tip of the structure is just right 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524063599990014032/202677224417.png?ex=6a56f415&format=webp&hm=ea6d1d8ec3d24f300d5f54c0506eea9acfc2d61786fbe6e60478c7ecca4597e3&is=6a55a295&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524063599990014032/202677224417.png?ex=6a579cd5&format=webp&hm=d83841c860cf43e6f7a87c850049637e4a7016599e03d2b210ff9c4a5a3bdccf&is=6a564b55&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -91,7 +91,7 @@ Build a "Rain-Listening Chair"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065480237781032/image.png?ex=6a56f5d6&format=webp&hm=2c01411638ff2c9d9926392cf68e4de6681ec4bfb1d2bbc65cffaa87e8ce93b1&is=6a55a456&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065480237781032/image.png?ex=6a579e96&format=webp&hm=a6bc7e319f86c42e2c7d2fbb913c0ed2e95b224bcd57adc26f08aaa3ae0d9583&is=6a564d16&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -103,7 +103,7 @@ Sink it into the ground until only a little bit of it is left
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065618725179492/202677221643.png?ex=6a56f5f7&format=webp&hm=f7d0714bbcf9aa934b813648f798c60843dc010d75282b8a2620f874faab0ce2&is=6a55a477&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065618725179492/202677221643.png?ex=6a579eb7&format=webp&hm=4b75dae32415a8a20567b96394799af99646bde8b28c3f5ec97455fdf52f51e4&is=6a564d37&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -119,7 +119,7 @@ Like this piece of roof. It is rotated 45 degree for better catching action
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524066820040949791/20267722634.png?ex=6a56f715&format=webp&hm=c668a39a725382231d506567166e1254f0ed0dc0313df4c08dbee04bec01dbe5&is=6a55a595&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524066820040949791/20267722634.png?ex=6a579fd5&format=webp&hm=b0a862b55b29769800b86a491a8c4d09d6add5857e4531291c00d964605007b9&is=6a564e55&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -147,7 +147,7 @@ Switch to Follow Camera so your build camera ends up under the ground and not ab
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524067546788134933/b5.png?ex=6a56f7c2&format=webp&hm=ab0d01ef1403f2ccdf111b819a94021b7539027171fef516bf7229b0edab2922&is=6a55a642&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524067546788134933/b5.png?ex=6a57a082&format=webp&hm=18451b122aecc3b2383246e789c7ac2c551a8c93f8464d2756a0a34427fee306&is=6a564f02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -199,7 +199,7 @@ Sink the correctly rotated flooring tile into the ground
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526229151067934961/4_sink_it.png?ex=6a56ebe9&format=webp&hm=70d89d41926acad3fa27b0c230f7d10f3e882fd3f10514f1c69cecdb7c43eb71&is=6a559a69&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526229151067934961/4_sink_it.png?ex=6a5794a9&format=webp&hm=317bf8a50ef7b2d50014cc3a55b8731e773477b5d4dfaccb18ab6b92d2e30bca&is=6a564329&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -211,7 +211,7 @@ Create a pattern of choice
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230496814829708/5_create_pattern.png?ex=6a56ed2a&format=webp&hm=9eb2faffd6e2fa50c81faabd55e724cf206d2cb0e0d904f9e7a0e4d2e581cc90&is=6a559baa&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230496814829708/5_create_pattern.png?ex=6a5795ea&format=webp&hm=ef927169efb8178bb13f41ebbb4b49529eb28a33af8a5e96d7bd8a248af8758e&is=6a56446a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -219,7 +219,7 @@ Manually sink each piece into the ground
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230625890341014/6.png?ex=6a56ed49&format=webp&hm=bcf6560561a82894a9c5722836d978f4dfb3064d168542c2e3748b9a361dc973&is=6a559bc9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230625890341014/6.png?ex=6a579609&format=webp&hm=da18a4f917f9145b8c5a761596c1a8b640a12afd3c66ade136fa0e563dabcda9&is=6a564489&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
