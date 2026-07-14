@@ -45,6 +45,12 @@ func filterReactions(reactions map[string][]string, blacklist map[string]bool) m
 // rawCaps optionally limits how many raw points a specific voter can contribute (before weight).
 // Pass nil for no caps.
 func computeScore(reactions map[string][]string, weights map[string]float64, rawCaps map[string]int, lore, whatToVisit string) int {
+	return computeScoreWithOpts(reactions, weights, rawCaps, lore, whatToVisit, false)
+}
+
+// computeScoreWithOpts is computeScore plus countAnyEmoji: when true, any reaction emoji
+// not otherwise scored counts as a like (scorePerLike), instead of being ignored.
+func computeScoreWithOpts(reactions map[string][]string, weights map[string]float64, rawCaps map[string]int, lore, whatToVisit string, countAnyEmoji bool) int {
 	// Accumulate raw points per voter, then apply weight and optional cap.
 	userRaw := make(map[string]int)
 	thumbsVoters := make(map[string]bool)
@@ -61,6 +67,12 @@ func computeScore(reactions map[string][]string, weights map[string]float64, raw
 		case "🔥", "❤️":
 			for _, uid := range users {
 				userRaw[uid] += scorePerLike
+			}
+		default:
+			if countAnyEmoji {
+				for _, uid := range users {
+					userRaw[uid] += scorePerLike
+				}
 			}
 		}
 	}
@@ -137,6 +149,56 @@ func fetchThreadReactions(s *discordgo.Session, threadID string) map[string][]st
 	ch := make(chan result, len(scoredEmojis))
 	var wg sync.WaitGroup
 	for _, emoji := range scoredEmojis {
+		wg.Add(1)
+		go func(emoji string) {
+			defer wg.Done()
+			var ids []string
+			var after string
+			for {
+				page, err := s.MessageReactions(threadID, threadID, emoji, 100, "", after)
+				if err != nil || len(page) == 0 {
+					break
+				}
+				for _, u := range page {
+					ids = append(ids, u.ID)
+				}
+				after = page[len(page)-1].ID
+				if len(page) < 100 {
+					break
+				}
+			}
+			if len(ids) > 0 {
+				ch <- result{emoji, ids}
+			}
+		}(emoji)
+	}
+	wg.Wait()
+	close(ch)
+
+	reactions := make(map[string][]string)
+	for r := range ch {
+		reactions[r.emoji] = r.ids
+	}
+	return reactions
+}
+
+// fetchThreadReactionsAny fetches reactor user IDs for every emoji actually present on the
+// thread's first message, not just scoredEmojis. Used where countAnyEmoji scoring applies.
+func fetchThreadReactionsAny(s *discordgo.Session, threadID string) map[string][]string {
+	msg, err := s.ChannelMessage(threadID, threadID)
+	if err != nil || len(msg.Reactions) == 0 {
+		return nil
+	}
+
+	type result struct {
+		emoji string
+		ids   []string
+	}
+
+	ch := make(chan result, len(msg.Reactions))
+	var wg sync.WaitGroup
+	for _, r := range msg.Reactions {
+		emoji := r.Emoji.APIName()
 		wg.Add(1)
 		go func(emoji string) {
 			defer wg.Done()

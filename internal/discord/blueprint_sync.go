@@ -126,7 +126,7 @@ func BlueprintSyncFetch(b *Bot, blueprints []blueprint.Blueprint, cfg SyncConfig
 		}
 	}
 
-	fetched, userThreads := fetchAllContent(b, threads, threadURLToIdx, fetchBlueprintContent, "blueprint")
+	fetched, userThreads := fetchAllContentWithReactions(b, threads, threadURLToIdx, fetchBlueprintContent, fetchThreadReactionsAny, "blueprint")
 
 	voterCounts := make(map[string]int, len(userThreads))
 	for uid, threadSet := range userThreads {
@@ -157,7 +157,7 @@ func BlueprintSyncFinalize(result BlueprintSyncFetchResult, voterWeights map[str
 			continue
 		}
 		rxn := filterReactions(r.reactions, blacklist)
-		score := computeScore(rxn, voterWeights, nil, "", "")
+		score := computeScoreWithOpts(rxn, voterWeights, nil, "", "", true)
 
 		var tags []string
 		for _, tagID := range r.thread.AppliedTags {

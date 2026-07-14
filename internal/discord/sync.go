@@ -1051,6 +1051,12 @@ func resolveUsers(s *discordgo.Session, discordGuildID string, userThreads map[s
 // fetchAllContent runs a concurrent worker pool to fetch thread content and reactions.
 // fetch is called once per thread to retrieve its parsed data.
 func fetchAllContent(b *Bot, threads []*discordgo.Channel, threadURLToIdx map[string]int, fetch func(*discordgo.Session, *discordgo.Channel) threadData, label string) ([]fetchedThread, map[string]map[string]bool) {
+	return fetchAllContentWithReactions(b, threads, threadURLToIdx, fetch, fetchThreadReactions, label)
+}
+
+// fetchAllContentWithReactions is fetchAllContent with a swappable reaction fetcher
+// (e.g. fetchThreadReactionsAny for channels that score arbitrary emoji).
+func fetchAllContentWithReactions(b *Bot, threads []*discordgo.Channel, threadURLToIdx map[string]int, fetch func(*discordgo.Session, *discordgo.Channel) threadData, fetchReactions func(*discordgo.Session, string) map[string][]string, label string) ([]fetchedThread, map[string]map[string]bool) {
 	type work struct {
 		thread *discordgo.Channel
 		idx    int
@@ -1078,7 +1084,7 @@ func fetchAllContent(b *Bot, threads []*discordgo.Channel, threadURLToIdx map[st
 				)
 				wg2.Add(2)
 				go func() { defer wg2.Done(); data = fetch(b.Session, j.thread) }()
-				go func() { defer wg2.Done(); reactions = fetchThreadReactions(b.Session, j.thread.ID) }()
+				go func() { defer wg2.Done(); reactions = fetchReactions(b.Session, j.thread.ID) }()
 				wg2.Wait()
 				results <- result{idx: j.idx, thread: j.thread, data: data, reactions: reactions}
 			}
