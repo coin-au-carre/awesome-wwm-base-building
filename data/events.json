@@ -39,5 +39,18 @@
     "subscriberCount": 4,
     "discordUrl": "https://discord.com/events/1483447710617960508/1525792359990820875",
     "image": "https://cdn.discordapp.com/guild-events/1525792359990820875/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
+  },
+  {
+    "id": "1526725816401268857",
+    "name": "Panda Guild Tour #12",
+    "description": "- Join the tour stream on https://discord.com/channels/1483447710617960508/1483447711499030636\n- Join in game request/DM on Moonlight [0015300816]\n- Communicate through our group chat (id:110975624) or vocal\n\n## React/Vote the builds on their discord thread!\n\n- [Corruption](https://www.wherebuildersmeet.com/guilds/corruption/) | [Discord thread](https://discord.com/channels/1483447710617960508/1526322693605949692)\n- [UAE](https://www.wherebuildersmeet.com/guilds/uae/) | [Discord thread](https://discord.com/channels/1483447710617960508/1517695925781266452) \n- [The Dark Pact Guild Base](https://www.wherebuildersmeet.com/guilds/thedarkpact/) | [Discord thread](https://discord.com/channels/1483447710617960508/1522179548077228152) \n\nTour should last ~1H, each guild tour should take ~15/20min.",
+    "type": "tour",
+    "scheduledStart": "2026-07-16T16:00:00Z",
+    "channelType": "voice",
+    "channelName": "General",
+    "status": "scheduled",
+    "subscriberCount": 2,
+    "discordUrl": "https://discord.com/events/1483447710617960508/1526725816401268857",
+    "image": "https://cdn.discordapp.com/guild-events/1526725816401268857/e64de750b34fffcca0edcb3c8064b623.png?size=512"
   }
 ]
