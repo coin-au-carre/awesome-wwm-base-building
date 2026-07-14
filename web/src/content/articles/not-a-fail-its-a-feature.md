@@ -34,14 +34,14 @@ featured: false
 ## Kaifeng: Forbidden City or Forbidden Table?
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a56b9f3&format=webp&hm=6d850d7eb066ca7aa6df8aefc76e1d0804c9ec19c4fdccc975bf56ab7b993791&is=6a556873&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a5762b3&format=webp&hm=6b327ea37c7c8acb1add425916b4e2d96e3f02d7aef38523fdde815bd6b66a5b&is=6a561133&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
 ## Kaifeng mystery geometry
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a56af4c&format=webp&hm=de4a514aa2508ade07d6c68675d620685b35bdf62d701e4519d0afdce3070193&is=6a555dcc&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a57580c&format=webp&hm=2349eaab7fd080c68a949b948c77011384e888c45870619d8990422d3d296301&is=6a56068c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
