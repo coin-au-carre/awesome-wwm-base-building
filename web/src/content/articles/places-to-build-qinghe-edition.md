@@ -173,9 +173,9 @@ Also exploring **Liangzhou**? Check out the [Liangzhou edition](/tutorials/place
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663747068399656/202662065054.png?ex=6a5766c2&format=webp&hm=bcd789efaebb02586f4ad1373940e303814cbc0080355895234c31f20c4f43fd&is=6a561542&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663747068399656/202662065054.png?ex=6a580f82&format=webp&hm=1228714dd02a3bce289be663036aeb4377419a6ebda760f8d0fa1aa4c36ecc87&is=6a56be02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748138205366/202662065130.png?ex=6a5766c2&format=webp&hm=d82de1e3bd2fb40050122fe9e19889aba1e7f73ae063081e1991243c820d5193&is=6a561542&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748138205366/202662065130.png?ex=6a580f82&format=webp&hm=a134504f2e43b2ef671566a0e4b70d9cb990c6610899c80c56324cf504ac70eb&is=6a56be02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748821614754/image.png?ex=6a5766c2&format=webp&hm=ac2941ba57a01277658aa363f50f15c0fa410b82c31b7e8a067c852e21aade9a&is=6a561542&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517663748821614754/image.png?ex=6a580f82&format=webp&hm=7e45551ddd35a5ccf3831c94d03d563db0ca7ec68a25ac8777b6bde9e8a32ec2&is=6a56be02&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%" />
 

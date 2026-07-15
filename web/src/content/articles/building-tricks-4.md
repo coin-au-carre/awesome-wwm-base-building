@@ -6,7 +6,7 @@ authors: ["AegisNite", "Crueliet", "Wyrdrake", "KARIN", "Ahlyam"]
 date: 2026-05-26
 updatedDate: 2026-06-06
 order: 11
-image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a577802&format=webp&hm=ee1ee77e77086f4b61070a20188028b0c6c8711cb09ccebf5f6bcaf0a8792e73&is=6a562682&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a5820c2&format=webp&hm=8194a4ba385565c9a49684a3a28ef440413803483251171b7bc35e687938418d&is=6a56cf42&quality=lossless"
 featured: false
 ---
 
@@ -19,9 +19,9 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Standard mode and lite mode don't share the same assets representation. Trees and vegetation can look different, and the textures and colors of certain wood and building materials also change between modes. Something that looks great in one mode can look noticeably different in the other.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a577802&format=webp&hm=ee1ee77e77086f4b61070a20188028b0c6c8711cb09ccebf5f6bcaf0a8792e73&is=6a562682&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a5820c2&format=webp&hm=8194a4ba385565c9a49684a3a28ef440413803483251171b7bc35e687938418d&is=6a56cf42&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a577803&format=webp&hm=40c7776b6e87235836103ce5ba3920db1cb37f344d78b6dc2813f5c5c8ebb758&is=6a562683&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a5820c3&format=webp&hm=53306c1b885f989f56de1f6ac363e358f81b722ae559514b5bf5649941fdd9c4&is=6a56cf43&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
 
 > **Warning! Using ReShade on lite mode?** ReShade is a post-processing injector not officially supported by the game. Using it would likely get you banned. Stick to vanilla visuals.
 
@@ -71,5 +71,5 @@ Place a diagram without filling in all of its component slots. The empty slots c
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a576b2f&hm=a2dbe92e5d0d518460aebb16a70da1725a912028b33f1bce1b6253c879d3b77c&is=6a5619af&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a5813ef&hm=7005ffc43022c7d3717d88b9599a909773f8933da02356c2cdf147430e319cd0&is=6a56c26f&" controls></video>
 </div>
