@@ -6,7 +6,7 @@ authors: ["Carnii", "SiMing 司命", "alscend", "Crueliet"]
 date: 2026-05-12
 updatedDate: 2026-05-26
 order: 10
-image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a57a209&format=webp&hm=fa6fcb06d46dedf01ce54b48ad397ab98861dd47429a831b8b603b7b12df65a4&is=6a565089&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a584ac9&format=webp&hm=f61aa6cd5736df6d4fc9b2d163cc97a88b56e5bbc49083f01ac1612fb18e3539&is=6a56f949&quality=lossless"
 ---
 
 A collection of creative tricks shared by the community builders in the Discord `#tips-and-tricks` channel.
@@ -38,7 +38,7 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 The Great Healer NPC sign can be hidden with the right placement. Here are two approaches.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a57a209&format=webp&hm=fa6fcb06d46dedf01ce54b48ad397ab98861dd47429a831b8b603b7b12df65a4&is=6a565089&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1502869494282850374/image.png?ex=6a584ac9&format=webp&hm=f61aa6cd5736df6d4fc9b2d163cc97a88b56e5bbc49083f01ac1612fb18e3539&is=6a56f949&quality=lossless" alt="Great Healer sign covered with a decorative element" style="border-radius: 0.75rem; width: 100%;" />
 
 This second method blends in more naturally with the surroundings.
 
@@ -77,4 +77,4 @@ By sinking the wooden bridge into the ground, you can create parallel fences and
 
 If your guild doesn't have enough funds for construction, several active guild members can quickly replenish them together.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a57b68e&format=webp&hm=e9f4971aed3133d1dc0e1de9fb0a86124796b05ad2cd94c21d3daa4fb4c8141e&is=6a56650e&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1500536005038444754/image.png?ex=6a585f4e&format=webp&hm=819867ac1385f477e0f5c195e2342dc4c2cf0a353e328501cd613e7e94f0f66e&is=6a570dce&quality=lossless" alt="Guild fund replenishment screen showing contributions from multiple members" style="border-radius: 0.75rem; width: 100%;" />
