@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a58a9bc&hm=7fb91c0168fa52fcef8de4b14e8d948c44df33542c980f565e02ab751f9cda5a&is=6a57583c&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a59527c&hm=13e8c204ad2fd803b13976c05a91bb40c7fc6978b81fc778d821173aec8b4dc0&is=6a5800fc&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a592b84&format=webp&hm=97877ea18e08e781008053aec884292df157941f4cc9dcffdec088cf8d3902b2&is=6a57da04&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a58a27d&format=webp&hm=197f31a3fadc97f209a204e84460067a38619d020ea293938b413727e8c05ea1&is=6a5750fd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a594b3d&format=webp&hm=409a478e3fb17af42d3e315f01df919d46d0784c4e61055dc5fe40aa520e3adf&is=6a57f9bd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a58a21e&format=webp&hm=370cb37dcc693c2365d53675ad9a0353ab59d79db1cbfc155f55f96f61574432&is=6a57509e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a594ade&format=webp&hm=13096d9a548554e20507bbc621bb00a2fc053a6b9e167fb99fa34efab05221b0&is=6a57f95e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a58a263&format=webp&hm=09d776dbcb3e1115f3b48f19acd2e242e270fa48652cb936f35a1fcfb03cf3cb&is=6a5750e3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a594b23&format=webp&hm=787af148253dfff585dd5b1daac47169a6c849dd59795ee535e4739e82ce5986&is=6a57f9a3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a58acf3&hm=495cc2350881a320d3d46de0b719c8b9821a5f546f436b0f124b48cea675ad40&is=6a575b73&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a5955b3&hm=bb2cba3949588bc4ed428c1a0561d217b267fe7ff3b39aa51db04291c665e94b&is=6a580433&" controls></video>
 </div>
 
 
@@ -87,7 +87,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a58a707&hm=34883b0ed2b91ffa341e553f01888d39bfe85ebc834146a315204e30adfeb541&is=6a575587&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a594fc7&hm=a4a2c3b07ecfcfddb42ff7c55a2e09875f50170d4125af797ada33f339818ea4&is=6a57fe47&" controls></video>
 </div>
 
 ---
