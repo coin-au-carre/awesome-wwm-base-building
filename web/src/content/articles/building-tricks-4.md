@@ -71,5 +71,5 @@ Place a diagram without filling in all of its component slots. The empty slots c
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a58bcaf&hm=6d094dcc76a767e0b0ca99c619f6c92f7d2c1a03d368175cff8c4edb4cba0c22&is=6a576b2f&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a59656f&hm=df7fd66d82f753cf30b2bd06ecf540e3c210dac894d12b3ad1d6ceaf0021c76c&is=6a5813ef&" controls></video>
 </div>
