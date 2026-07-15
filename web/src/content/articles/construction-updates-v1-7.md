@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a5800fc&hm=e8e3ff11faf5e8761fb81f42d852b54af258e30759fd0ffcb5955d6fd8140f01&is=6a56af7c&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a58a9bc&hm=7fb91c0168fa52fcef8de4b14e8d948c44df33542c980f565e02ab751f9cda5a&is=6a57583c&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a5882c4&format=webp&hm=d4b28d157cade9a603ee39d5de499c89c79d1fa2048e4cbbc7fa97c262e4b34f&is=6a573144&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a580433&hm=7baf9e0e92f3ca0bee0d3e4fda7290265f67b98416a861b27fdeb76349a2de10&is=6a56b2b3&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a58acf3&hm=495cc2350881a320d3d46de0b719c8b9821a5f546f436b0f124b48cea675ad40&is=6a575b73&" controls></video>
 </div>
 
 
@@ -83,11 +83,11 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a58138b&format=webp&hm=780997b013cda6f5d2361a3f904471057aa46998c09cd7470fe681c7155b4186&is=6a56c20b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a58bc4b&format=webp&hm=1893a98badf311770f20549d890b48ac23c87973e255b84f18e7b05d7a2410b0&is=6a576acb&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a57fe47&hm=cb86a839be6fa27d5292d1bd4dfd124298f85afa04aa4c7ad750632c9b276c20&is=6a56acc7&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a58a707&hm=34883b0ed2b91ffa341e553f01888d39bfe85ebc834146a315204e30adfeb541&is=6a575587&" controls></video>
 </div>
 
 ---
