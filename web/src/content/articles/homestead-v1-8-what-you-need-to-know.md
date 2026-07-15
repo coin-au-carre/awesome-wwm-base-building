@@ -193,6 +193,8 @@ Occasionally, an NPC hosts a dinner party event where you can bring them a gift.
 
 <img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-16.webp" style="width: 70%" />
 
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-41.webp" style="width: 80%" />
+
 ### Sell your goods
 
 You can decide to sell your Homestead Warehouse items with "Trade for Profit".
@@ -217,7 +219,7 @@ You can buy raw materials directly from merchants in the solo world using normal
 
 Homestead components can only be placed in ‘claimed’ areas of the map. These areas are what we call Industry Zones.
 
-If you ever had the courage to click the prosperity list button in the homestead upgrade screen, then this list will be familiar to you.<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-41.webp" style="width: 80%" />
+If you ever had the courage to click the prosperity list button in the homestead upgrade screen, then this list will be familiar to you.<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-42.webp" style="width: 80%" />
 
 The list differentiates between 2 areas:
 
@@ -254,7 +256,7 @@ Every Industry Zone Type comes with its own map marker and the ability to telepo
 
 For players that do not care about building pretty homesteads, Industry zones can function as player specified teleport points.  You can place your own Waystones!
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-42.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-43.webp" style="width: 80%" />
 
 Clicking on the mapmarker gives us all basic information on that Industry Zone type.  
 What we can see here depends on the industry, but the two lines under ‘Industry Info’ will always be a constant across them.
@@ -264,7 +266,7 @@ Prosperity too is rather self-explanatory; This just shows us how much prosperit
 
 Now we click on ‘Prosperity’:
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-43.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-44.webp" style="width: 80%" />
 
 Here we can see how much we can place inside our Residence.  
 As we can see…. We are not allowed to place a whole lot.
@@ -287,7 +289,7 @@ Placement Limit
 
 Max Furniture
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-44.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-45.webp" style="width: 80%" />
 
 Blissful Retreat
 
@@ -304,7 +306,7 @@ NO
 200 at lvl 1  
 \+ 200 per lvl
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-45.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-46.webp" style="width: 80%" />
 
 Crane Retreat
 
@@ -321,7 +323,7 @@ NO
 100 at lvl1  
 \+ 100 per lvl
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-46.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-47.webp" style="width: 80%" />
 
 Porcelain Kiln
 
@@ -338,7 +340,7 @@ NO
 100 at lvl1  
 \+ 100 per lvl
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-47.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-48.webp" style="width: 80%" />
 
 Aromas Brewery
 
@@ -355,7 +357,7 @@ NO
 100 at lvl1  
 \+ 100 per lvl
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-48.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-49.webp" style="width: 80%" />
 
 Farm
 
@@ -372,7 +374,7 @@ Yes
 
 0
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-49.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-50.webp" style="width: 80%" />
 
 Residence  
 (House)
@@ -389,7 +391,7 @@ Total: 4
 
 2000
 
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-50.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-51.webp" style="width: 80%" />
 
 Residence  
 (Npc)
@@ -410,7 +412,7 @@ Making Industry Zones:
 First, note that it is only possible to create Industry Zones of movable industries.
 
 Creating an Industry Zone is easy. Just place one of the associated buildings where you want the zone to be!  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-51.webp" style="width: 80%" />  
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-52.webp" style="width: 80%" />  
 In order these buildings link to:
 
 - \[Red]    Residence (Player)
@@ -419,7 +421,7 @@ In order these buildings link to:
 
 The Farm industry is, to no surprise, created together with the Farmland.
 
-### Using Industry Zones:<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-52.webp" style="width: 80%" />
+### Using Industry Zones:<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-53.webp" style="width: 80%" />
 
 #### Teleporting To Industry Zones:
 
@@ -429,7 +431,7 @@ This is quite simple. Find where the Industry Zone you want to teleport to is on
 
 All Industry Zones are listed under ‘My Homestead’  
 To the bottom left of the Map.  
-<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-53.webp" style="width: 80%" />
+<img src="/tutorials/homestead-v1-8-what-you-need-to-know/img-54.webp" style="width: 80%" />
 
 #### Avoiding Placement Limits In Industry Zones:
 
