@@ -67,4 +67,11 @@ featured: false
 
 ---
 
+## A chair is in the wall
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
+
+<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5a1f30&is=6a58cdb0&hm=fe0e21cd2af59023c26f5d9041ff7d47e6a9fe285ac78ba3ec9d0d8b2c9b6515&" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
 If you find other gems, [let us know](https://discord.gg/Qygt9u26Bn) :)
