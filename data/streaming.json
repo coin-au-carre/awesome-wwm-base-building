@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-07-14T16:24:17.164836485Z"
+  "streamers": [
+    {
+      "userID": "208153687623729152",
+      "username": "Moonlight",
+      "channelID": "1483447711499030636",
+      "channelName": "General",
+      "startedAt": "2026-07-16T15:52:32.21846192Z"
+    }
+  ],
+  "updatedAt": "2026-07-16T15:52:37.550933183Z"
 }
