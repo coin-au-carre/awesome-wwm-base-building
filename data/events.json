@@ -41,19 +41,6 @@
     "image": "https://cdn.discordapp.com/guild-events/1525792359990820875/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
   },
   {
-    "id": "1526725816401268857",
-    "name": "Panda Guild Tour #12",
-    "description": "- Join the tour stream on https://discord.com/channels/1483447710617960508/1483447711499030636\n- Join in game request/DM on Moonlight [0015300816]\n- Communicate through our group chat (id:110975624) or vocal\n\n## React/Vote the builds on their discord thread!\n\n- [Corruption](https://www.wherebuildersmeet.com/guilds/corruption/) | [Discord thread](https://discord.com/channels/1483447710617960508/1526322693605949692)\n- [UAE](https://www.wherebuildersmeet.com/guilds/uae/) | [Discord thread](https://discord.com/channels/1483447710617960508/1517695925781266452) \n- [The Dark Pact Guild Base](https://www.wherebuildersmeet.com/guilds/thedarkpact/) | [Discord thread](https://discord.com/channels/1483447710617960508/1522179548077228152) \n\nTour should last ~1H, each guild tour should take ~15/20min.",
-    "type": "tour",
-    "scheduledStart": "2026-07-16T16:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 7,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1526725816401268857",
-    "image": "https://cdn.discordapp.com/guild-events/1526725816401268857/e64de750b34fffcca0edcb3c8064b623.png?size=512"
-  },
-  {
     "id": "1526989640865681488",
     "name": "Beyond The Wall with Carni",
     "description": "@ℭ𝔞𝔯𝔫𝔦  is venturing deep into CN territory: solo world and Family Business islands, all live streaming on Discord!  Open to everyone!\nCome watch, explore alongside her, and chat in vocal in ⁠General.  Carni will be communicating through text.",
@@ -62,7 +49,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 24,
+    "subscriberCount": 25,
     "discordUrl": "https://discord.com/events/1483447710617960508/1526989640865681488",
     "image": "https://cdn.discordapp.com/guild-events/1526989640865681488/b8c53d43172afef98a7b56a37f5f6904.png?size=512"
   }
