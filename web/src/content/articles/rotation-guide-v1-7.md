@@ -157,7 +157,7 @@ With practice, understanding, and mastery of this new rotation technique, you wi
 
 ## Download
 
-The original guide is also available as a document: [Rotation_Guide.odt](https://media.discordapp.net/attachments/1513232496383365121/1513232642764439642/Rotation_Guide.odt?ex=6a59bcf8&format=webp&hm=fd9842b377b88fc3ae6f9d12d1f78879f9a73244d32ba8e7d63b6ee260c33f81&is=6a586b78&quality=lossless · [Rotation_Guide.7z](https://media.discordapp.net/attachments/1513232496383365121/1513232895953600512/Rotation_Guide.7z?ex=6a59bd34&format=webp&hm=0a8db5f6d832342ce581946769d4268d7f1b6308c66d1f1dc3c5c08edf708ade&is=6a586bb4&quality=lossless
+The original guide is also available as a document: [Rotation_Guide.odt](https://media.discordapp.net/attachments/1513232496383365121/1513232642764439642/Rotation_Guide.odt?ex=6a5a65b8&format=webp&hm=c42a1b685172130a5fde132dcce112334d764f5d35062822b1ab4907ef92ab4d&is=6a591438&quality=lossless · [Rotation_Guide.7z](https://media.discordapp.net/attachments/1513232496383365121/1513232895953600512/Rotation_Guide.7z?ex=6a5a65f4&format=webp&hm=648b791b99a52c79e99657ed827187865c8b0047d7159f7079b3beac9bcc821e&is=6a591474&quality=lossless
 
 Original post: [#rotation-guide on Discord](https://discord.com/channels/1483447710617960508/1513232496383365121)
 
