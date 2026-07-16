@@ -43,9 +43,9 @@
 		"builderId": "793671066161381416",
 		"description": "Made of the biggest cabinet in solo mode",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614280694009968/Screenshot_Where_Winds_Meet_20260611_124323.jpg?ex=6a597db8\u0026is=6a582c38\u0026hm=e400513d1c5809e6ce0a603c14ff83c0001b2bac8d11ee054f0e65d7990bcf51\u0026",
-			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614281759621322/Screenshot_Where_Winds_Meet_20260611_124255.jpg?ex=6a597db8\u0026is=6a582c38\u0026hm=9b6e18de26ff552a57b6bc50263ee0b253f83339021c8c7894fb15d477509c12\u0026",
-			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614282438971443/image_20260611_11_07_13.jpg?ex=6a597db9\u0026is=6a582c39\u0026hm=a97ffada9284fdb409bdf838583a084a58d4b6afb16ae990a672542c4b796bd3\u0026",
+			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614280694009968/Screenshot_Where_Winds_Meet_20260611_124323.jpg?ex=6a5a2678\u0026is=6a58d4f8\u0026hm=bdab26abc637e26b9796b8b3f5a48f2cf2018664cf0827ba525e1fe48e5c9030\u0026",
+			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614281759621322/Screenshot_Where_Winds_Meet_20260611_124255.jpg?ex=6a5a2678\u0026is=6a58d4f8\u0026hm=d84e5a762c39082800b0a409d9705969034dabeb0b677f3c47bdebf206dd47a8\u0026",
+			"https://cdn.discordapp.com/attachments/1514614279716868249/1514614282438971443/image_20260611_11_07_13.jpg?ex=6a5a2679\u0026is=6a58d4f9\u0026hm=6ca30c1f27a2a12e9c6e8b49ebb2baa555e434acbc7fc8fa4a3546ce9c0dc8f4\u0026",
 			"https://cdn.discordapp.com/attachments/1514614279716868249/1514773858660651088/Screenshot_Where_Winds_Meet_20260611_124323.jpg?ex=6a5a1257\u0026is=6a58c0d7\u0026hm=ca08d70ebfea275870179692d17fbaba576ac11f4fcdc608ce1ea47779fa40f7\u0026",
 			"https://cdn.discordapp.com/attachments/1514614279716868249/1514773858979283185/Screenshot_Where_Winds_Meet_20260611_124255.jpg?ex=6a5a1257\u0026is=6a58c0d7\u0026hm=81aa6d5778437ac96da8a9bdf4b4cf2763698e0a39d6cdc67c6500aba47ca8e6\u0026",
 			"https://cdn.discordapp.com/attachments/1514614279716868249/1514773859453243402/image_20260611_11_07_13.jpg?ex=6a5a1257\u0026is=6a58c0d7\u0026hm=5b9b436189c75205db3e476517838f1848dddb8567a7db3fc62543fbf857196d\u0026"
@@ -161,12 +161,13 @@
 			"https://cdn.discordapp.com/attachments/1514918091753001011/1514918205456515072/2026612164858.png?ex=6a59f006\u0026is=6a589e86\u0026hm=c07b35cbe8a022c3385c14e0c1b258fca584cc7af0ce815b314488b261a39ee9\u0026",
 			"https://cdn.discordapp.com/attachments/1514918091753001011/1514918206215688292/2026612165059.png?ex=6a59f006\u0026is=6a589e86\u0026hm=235e36fa4c4f7bd6d8063b8a3f5bdbd0e8e6d9a8c6b71cab8774481580fb4994\u0026",
 			"https://cdn.discordapp.com/attachments/1514918091753001011/1514918207398350878/2026612165421.png?ex=6a59f006\u0026is=6a589e86\u0026hm=0226bca6780c5e588a7ef87835b0a5f747501ba26d2a2048aff2705681808572\u0026",
-			"https://cdn.discordapp.com/attachments/1514918091753001011/1515375660212682863/image.png?ex=6a599fcf\u0026is=6a584e4f\u0026hm=7eb2f24fda7e4a168df16cdde0bc9cdc7cb9379c6cb7cb30b52b5ae1f49dd57b\u0026"
+			"https://cdn.discordapp.com/attachments/1514918091753001011/1515375660212682863/image.png?ex=6a599fcf\u0026is=6a584e4f\u0026hm=7eb2f24fda7e4a168df16cdde0bc9cdc7cb9379c6cb7cb30b52b5ae1f49dd57b\u0026",
+			"https://cdn.discordapp.com/attachments/1514918091753001011/1527299235450458183/2026716125532.png?ex=6a5a27c1\u0026is=6a58d641\u0026hm=6b09f85e11e5089b31452e6ba65a9d343a86ff86dda1f5f74987b3d9949313e9\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1514918091753001011",
 		"createdAt": "June 12, 2026 at 09:03 AM UTC",
-		"lastModified": "June 13, 2026 at 04:59 PM UTC",
-		"lastScreenshotNotifiedAt": "June 13, 2026 at 04:59 PM UTC"
+		"lastModified": "July 16, 2026 at 02:36 PM UTC",
+		"lastScreenshotNotifiedAt": "July 16, 2026 at 02:36 PM UTC"
 	},
 	{
 		"name": "Simple Chandelier",
@@ -174,8 +175,8 @@
 		"builderId": "411339877574115338",
 		"description": "Made with a chain, a wheel, an incense burner, and bunch of lamps. I tried various configurations and found out that this looks best and low cost. A larger version with more light can be made. Adding wooden lanterns or lamps complicates this setup and made it looks bad because of the mix in materials - wood, paper, and metal. Keeping it simple like this - mostly metal - is best.",
 		"screenshots": [
-			"https://cdn.discordapp.com/attachments/1515362584138879037/1515362584746918038/image.png?ex=6a5993a2\u0026is=6a584222\u0026hm=ddd76315b4713f15fdbcc3e52afd168ac9980440ebfa58a8a80ff3ae4f1ea8b5\u0026",
-			"https://cdn.discordapp.com/attachments/1515362584138879037/1515362585258491904/2026613222450.png?ex=6a5993a2\u0026is=6a584222\u0026hm=4f9d2bc5d558cbc92fb6f9cfd4fdb7ab6d83aa4ea01ca1aea4e8650dfb3bf19e\u0026"
+			"https://cdn.discordapp.com/attachments/1515362584138879037/1515362584746918038/image.png?ex=6a5a3c62\u0026is=6a58eae2\u0026hm=f62d78a59572c39cc2c2072960af00619be093c3ad194a47daf6bca54e581896\u0026",
+			"https://cdn.discordapp.com/attachments/1515362584138879037/1515362585258491904/2026613222450.png?ex=6a5a3c62\u0026is=6a58eae2\u0026hm=43b0b9540d7d4f1f6ccd240811b7db24a8614bafa9fbb741cd822cfd18ef6176\u0026"
 		],
 		"discordThread": "https://discord.com/channels/1483447710617960508/1515362584138879037",
 		"createdAt": "June 13, 2026 at 02:29 PM UTC",
@@ -196,9 +197,9 @@
 			"https://cdn.discordapp.com/attachments/1516393114435322048/1516398254034518046/content.png?ex=6a5a0c6d\u0026is=6a58baed\u0026hm=cc13d07f6da449c0bb3b95d7dafaab0a3c6d094fe908b874024cd7a9a0390753\u0026",
 			"https://cdn.discordapp.com/attachments/1516393114435322048/1516398254303219764/content.png?ex=6a5a0c6d\u0026is=6a58baed\u0026hm=a87c4f7e1f1ff1c320f66b07b662aa31173feb376b008fcce0a4c58dc4421f71\u0026",
 			"https://cdn.discordapp.com/attachments/1516393114435322048/1516410829040254996/2026616195439.png?ex=6a5a1823\u0026is=6a58c6a3\u0026hm=c74585b53888e4e22289912a7df5f72a89ce32cbd16f5adc2322e5ad18996772\u0026",
-			"https://cdn.discordapp.com/attachments/1516393114435322048/1516417197591760916/image.png?ex=6a597551\u0026is=6a5823d1\u0026hm=cf342690de6a66ec44595fd1e2a742c4564c4798eda68263f74bf6c9ed67056a\u0026",
-			"https://cdn.discordapp.com/attachments/1516393114435322048/1516432112666935346/image.png?ex=6a598335\u0026is=6a5831b5\u0026hm=7a19b626438442aeae207f4998b4d7656f83e6fae94b5d05d712c7440988d316\u0026",
-			"https://cdn.discordapp.com/attachments/1516393114435322048/1516439890064183327/2026410060.png?ex=6a598a73\u0026is=6a5838f3\u0026hm=e8aa2a7e1cd9660f9718ccb76ed9abf3f6d1eb8b873793e3089822a6340ca3a5\u0026",
+			"https://cdn.discordapp.com/attachments/1516393114435322048/1516417197591760916/image.png?ex=6a5a1e11\u0026is=6a58cc91\u0026hm=17d208d907c627d1d35ed4b59034989fef3bf73df70ba04515d1cd1cbc23a68f\u0026",
+			"https://cdn.discordapp.com/attachments/1516393114435322048/1516432112666935346/image.png?ex=6a5a2bf5\u0026is=6a58da75\u0026hm=77dc866467290d9c050a7221e2f52b92854c2554c6ac6b3d118be5c3f9189c24\u0026",
+			"https://cdn.discordapp.com/attachments/1516393114435322048/1516439890064183327/2026410060.png?ex=6a5a3333\u0026is=6a58e1b3\u0026hm=47892af6973deb1ac6107f0f5f51f163a095221d56ff59b0a538b15a1a0d149e\u0026",
 			"https://cdn.discordapp.com/attachments/1516393114435322048/1516471429456068810/image_20260616_22_45_34.jpg?ex=6a59a7d3\u0026is=6a585653\u0026hm=a2cae52714831c7cd20bf7cac771775a1617b35f7a30fdbd2d6176f6f046f755\u0026",
 			"https://cdn.discordapp.com/attachments/1516393114435322048/1516471429842079814/image_20260616_22_46_03.jpg?ex=6a59a7d3\u0026is=6a585653\u0026hm=35001148b05f3a3c275f82bfa3284fee39390f455dd808a2d34b48d3e3915ecf\u0026",
 			"https://cdn.discordapp.com/attachments/1516393114435322048/1516471430194266213/image_20260616_22_47_24.jpg?ex=6a59a7d3\u0026is=6a585653\u0026hm=f29650f0cd37426c2825d5b911e3cfa2f01cc1c72b214d526970a5a18e5600b5\u0026",
@@ -236,5 +237,18 @@
 		"discordThread": "https://discord.com/channels/1483447710617960508/1518993621347471623",
 		"createdAt": "June 23, 2026 at 02:58 PM UTC",
 		"lastModified": "June 23, 2026 at 03:37 PM UTC"
+	},
+	{
+		"name": "Stairs/steps [from all builders]",
+		"builderName": "anyone",
+		"screenshots": [
+			"https://cdn.discordapp.com/attachments/1527290523566608516/1527290523897954374/image.png?ex=6a5a1fa4\u0026is=6a58ce24\u0026hm=c7de8136e006a16bb6b8c9a69a8f90f516f3fb08d281dd97d05caeb992f740a1\u0026",
+			"https://cdn.discordapp.com/attachments/1527290523566608516/1527293317904203899/2026716203612.png?ex=6a5a223e\u0026is=6a58d0be\u0026hm=0ad6680f13f0b8e488d9ce32b7d667184ab8d16283d1a0701b0d278132e7bc32\u0026",
+			"https://cdn.discordapp.com/attachments/1527290523566608516/1527293318977814589/2026716203548.png?ex=6a5a223e\u0026is=6a58d0be\u0026hm=e0fe65c94ee2ba8b8bdd2f11850089fc05083dd0634dfc7bf38f4e2674ebb642\u0026",
+			"https://cdn.discordapp.com/attachments/1527290523566608516/1527293693910974545/2026716203349.png?ex=6a5a2298\u0026is=6a58d118\u0026hm=e1be4de7afe820cbfaa15db1892eb106eed78dc738316e2a93e504b0e5eadbf4\u0026"
+		],
+		"discordThread": "https://discord.com/channels/1483447710617960508/1527290523566608516",
+		"createdAt": "July 16, 2026 at 12:27 PM UTC",
+		"lastModified": "July 16, 2026 at 02:36 PM UTC"
 	}
 ]
