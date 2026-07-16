@@ -180,6 +180,19 @@ func (b *Bot) SendWithFile(channelID, content, filename string, file io.Reader) 
 	return err
 }
 
+// SendWithFilesHere posts content and attachments to channelID, pinging @here.
+func (b *Bot) SendWithFilesHere(channelID, content string, files []*discordgo.File) error {
+	_, err := b.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{
+		Content:         "@here " + content,
+		Files:           files,
+		AllowedMentions: &discordgo.MessageAllowedMentions{Parse: []discordgo.AllowedMentionType{discordgo.AllowedMentionTypeEveryone}},
+	})
+	if err != nil {
+		slog.Warn("failed to send file message", "channel", channelID, "err", err)
+	}
+	return err
+}
+
 func (b *Bot) NotifyWithFile(content, filename string, file io.Reader) error {
 	if b.channelID == "" {
 		slog.Warn("no channel ID configured, skipping notification")

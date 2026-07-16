@@ -1839,23 +1839,6 @@
 		"scoutedByDiscordId": "149790526076354561"
 	},
 	{
-		"name": "Kaifeng 匠 Corp",
-		"builders": [
-			"Crib",
-			"XxDivinityxX"
-		],
-		"tags": [
-			"City",
-			"Floating Island",
-			"Military/Arena"
-		],
-		"discordThread": "",
-		"whatToVisit": "Floating colosseum \nFishing cake tower\nUnderground passage\nCute cemetery\nCurrently rebuilding",
-		"score": 0,
-		"lastModified": "April 26, 2026 at 09:25 PM UTC",
-		"scoutedByDiscordId": "149790526076354561"
-	},
-	{
 		"name": "Sinful-Desire",
 		"builders": [
 			"SkellyStelio",
@@ -13555,9 +13538,6 @@
 					"https://cdn.discordapp.com/attachments/1527136410849775837/1527138140882473030/202677141019.png?ex=6a5a3a79\u0026is=6a58e8f9\u0026hm=a5698774cfc6a5c869f2a515ddc197c0297eaa44352fd06bcbe30abe7d932691\u0026"
 				]
 			}
-		],
-		"formerNames": [
-			"Kaifeng 匠 Corp  [ID"
 		],
 		"createdAt": "July 16, 2026 at 02:14 AM UTC",
 		"lastModified": "July 16, 2026 at 03:50 AM UTC"

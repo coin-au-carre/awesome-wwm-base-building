@@ -43,6 +43,40 @@ func NewSpamTracker(alertChannelID string) *SpamTracker {
 	}
 }
 
+// postEvidence re-downloads each attachment URL and re-uploads it as a fresh
+// Discord attachment, since links to a deleted message's CDN files go dead
+// immediately. Falls back to posting the raw URL if a download fails.
+func postEvidence(bot *Bot, channelID, content string, attachmentURLs []string, here bool) {
+	var files []*discordgo.File
+	var deadLinks []string
+	for _, url := range attachmentURLs {
+		body, filename, err := DownloadImage(url)
+		if err != nil {
+			slog.Warn("spam evidence download failed", "url", url, "err", err)
+			deadLinks = append(deadLinks, url)
+			continue
+		}
+		defer body.Close()
+		files = append(files, &discordgo.File{Name: filename, Reader: body})
+	}
+	if len(deadLinks) > 0 {
+		content += "\n" + strings.Join(deadLinks, "\n")
+	}
+	if here {
+		if err := bot.SendWithFilesHere(channelID, content, files); err != nil {
+			slog.Warn("spam evidence post failed", "err", err)
+		}
+		return
+	}
+	if len(files) == 0 {
+		bot.Send(channelID, content)
+		return
+	}
+	if _, err := bot.Session.ChannelMessageSendComplex(channelID, &discordgo.MessageSend{Content: content, Files: files}); err != nil {
+		slog.Warn("spam evidence post failed", "err", err)
+	}
+}
+
 func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordgo.MessageCreate) {
 	return func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		if t.alertCh == "" || m.Author == nil || m.Author.Bot || m.GuildID == "" {
@@ -129,12 +163,9 @@ func (t *SpamTracker) HandleMessage(bot *Bot) func(*discordgo.Session, *discordg
 				"🚫 **%s** (`%s`) timed out 24h for identical spam in %d channels within 20s: %s\n> %s",
 				name, m.Author.Username, distinct, strings.Join(channels, ", "), preview,
 			)
-			if len(first.attachments) > 0 {
-				msg += "\n" + strings.Join(first.attachments, "\n")
-			}
-			// Post evidence to the mod channel before deleting, since attachment
-			// CDN links stop resolving once the source message is gone.
-			bot.Send(t.alertCh, msg)
+			// Re-upload evidence as fresh attachments before deleting, since the
+			// original CDN links go dead the instant the source message is deleted.
+			postEvidence(bot, t.alertCh, msg, first.attachments, true)
 			for _, e := range snapshot {
 				if err := s.ChannelMessageDelete(e.channelID, e.messageID); err != nil {
 					slog.Warn("spam delete failed", "channel", e.channelID, "msg", e.messageID, "err", err)
