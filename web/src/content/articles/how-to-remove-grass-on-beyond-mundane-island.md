@@ -67,7 +67,7 @@ Use the Move tool and bury it until the very tip of the structure is just right 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524063599990014032/202677224417.png?ex=6a599715&format=webp&hm=dc5cb9b9a8545246868b5d016b95cf6b3830dff01615369827d9060494633389&is=6a584595&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524063599990014032/202677224417.png?ex=6a5a3fd5&format=webp&hm=7fe91029aa4efc06596afe6cfef899e485a1cabebbd62bcc73c0d0dcffcf80a7&is=6a58ee55&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -91,7 +91,7 @@ Build a "Rain-Listening Chair"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065480237781032/image.png?ex=6a5998d6&format=webp&hm=3813213c3f7f7381e042967c590921da696321d8a47852d27b9668b8e2f92eba&is=6a584756&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065480237781032/image.png?ex=6a5a4196&format=webp&hm=cb3389ab1dc0474243a2915503d4c98ec17745774ac12bddb6a6bfc9da5131e2&is=6a58f016&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -103,7 +103,7 @@ Sink it into the ground until only a little bit of it is left
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065618725179492/202677221643.png?ex=6a5998f7&format=webp&hm=918e21b3569c7812dfe82f464b5b92f5f4ffe2bf90ab76a468e8d16ecac6a923&is=6a584777&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524065618725179492/202677221643.png?ex=6a5a41b7&format=webp&hm=55998b98ca8bf4069525b6d3a64eb1a16c8b0e02846cd5700d482991e406c80e&is=6a58f037&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -119,7 +119,7 @@ Like this piece of roof. It is rotated 45 degree for better catching action
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524066820040949791/20267722634.png?ex=6a599a15&format=webp&hm=93bb445453d50c898ac28aa3ce23a74493eeea51388a45d05d51f84537621820&is=6a584895&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524066820040949791/20267722634.png?ex=6a5a42d5&format=webp&hm=112d1954ce920ab396d321b1bba807fc31bc5a94144512fd3805cf241e0ee760&is=6a58f155&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -147,7 +147,7 @@ Switch to Follow Camera so your build camera ends up under the ground and not ab
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524067546788134933/b5.png?ex=6a599ac2&format=webp&hm=f11ac7f4fb26ecc87a8a28d05499da6e1353e99340a56e4f14df9e663e94ff00&is=6a584942&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524067546788134933/b5.png?ex=6a5a4382&format=webp&hm=127a6af72f3c643bd088cd38f86837512f6e79d851be17218c3dd6d4de3ba4ba&is=6a58f202&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

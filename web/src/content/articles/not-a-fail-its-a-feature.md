@@ -5,7 +5,7 @@ tags: ["solo", "sightseeing"]
 authors: ["alscend", "noxlamina", "Crueliet", "Ahlyam", "Skysnip", "vehs", "Carni"]
 date: 2026-05-17
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a59a804&format=webp&hm=4190c1a914efbcb39885329bafbd4e7dea0896bbd5a4962d024edb26cf78b2b2&is=6a585684&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a5a50c4&format=webp&hm=909a21871a28c40cf7c3274842007f85de7523985835fd136f3ac42b75dea9e7&is=6a58ff44&quality=lossless"
 featured: false
 ---
 
@@ -13,7 +13,7 @@ featured: false
 ## Modern stairs
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a59a804&format=webp&hm=4190c1a914efbcb39885329bafbd4e7dea0896bbd5a4962d024edb26cf78b2b2&is=6a585684&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a5a50c4&format=webp&hm=909a21871a28c40cf7c3274842007f85de7523985835fd136f3ac42b75dea9e7&is=6a58ff44&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -27,7 +27,7 @@ featured: false
 ## Guild base pool area with sand
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/crueliet" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Crueliet</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a59a1cb&format=webp&hm=8267f2793500127909a028fa6d3421b3d3b261e4ae189ac46b9cec88eceb578d&is=6a58504b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505593315633004744/2026517232745.png?ex=6a5a4a8b&format=webp&hm=b77ee9043546fc5ae5add429a5c77a9e8b0cf008a3f6c28b6a9c87330ea4727a&is=6a58f90b&quality=lossless" alt="Works as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -70,7 +70,7 @@ featured: false
 ## A chair is in the wall
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://cdn.discordapp.com/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5a1f30&is=6a58cdb0&hm=fe0e21cd2af59023c26f5d9041ff7d47e6a9fe285ac78ba3ec9d0d8b2c9b6515&" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5a1f30&format=webp&hm=fe0e21cd2af59023c26f5d9041ff7d47e6a9fe285ac78ba3ec9d0d8b2c9b6515&is=6a58cdb0&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
