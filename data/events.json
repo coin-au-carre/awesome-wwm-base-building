@@ -39,18 +39,5 @@
     "subscriberCount": 5,
     "discordUrl": "https://discord.com/events/1483447710617960508/1525792359990820875",
     "image": "https://cdn.discordapp.com/guild-events/1525792359990820875/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
-  },
-  {
-    "id": "1526989640865681488",
-    "name": "Beyond The Wall with Carni",
-    "description": "@ℭ𝔞𝔯𝔫𝔦  is venturing deep into CN territory: solo world and Family Business islands, all live streaming on Discord!  Open to everyone!\nCome watch, explore alongside her, and chat in vocal in ⁠General.  Carni will be communicating through text.",
-    "type": "streaming",
-    "scheduledStart": "2026-07-17T16:00:00Z",
-    "channelType": "voice",
-    "channelName": "General",
-    "status": "active",
-    "subscriberCount": 28,
-    "discordUrl": "https://discord.com/events/1483447710617960508/1526989640865681488",
-    "image": "https://cdn.discordapp.com/guild-events/1526989640865681488/b8c53d43172afef98a7b56a37f5f6904.png?size=512"
   }
 ]
