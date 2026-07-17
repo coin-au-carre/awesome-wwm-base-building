@@ -4,11 +4,11 @@ description: "Tips for Homestead prosperity, farming, and diagram sharing in v1.
 tags: ["solo", "homestead", "beginner", "advanced"]
 authors: ["Ahlyam", "carnii", "Crueliet", "Cylos", "DõtS", "KARIN", "greatjussy", "HAN", "Lina BunBun🐰", "LittleMissAngel", "OracleOfXata", "Parzival", "QuessLord", "SiMing", "Skysnip"]
 date: 2026-06-27
-updatedDate: 2026-07-16
+updatedDate: 2026-07-17
 toc: true
 order: 23
 gdocID: "1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM"
-image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a59ffb8&format=webp&hm=2c1be072e329477ac58086ad8b497b2f6f04032fd42ec4f517a36d51d36a640f&is=6a58ae38&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1520733265047064647/image.png?ex=6a5aa878&format=webp&hm=5adf63af9ff33524c3f9fa0730a8ff1d3c4374aa34f131d99bc7ff0a03d6ece7&is=6a5956f8&quality=lossless"
 ---
 
 Credit to Parzival for the cover image
