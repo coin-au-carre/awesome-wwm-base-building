@@ -1,4 +1,12 @@
 {
-  "streamers": [],
-  "updatedAt": "2026-07-17T17:16:25.531120096Z"
+  "streamers": [
+    {
+      "userID": "375327176565850113",
+      "username": "Skysnip",
+      "channelID": "1498371478570274906",
+      "channelName": "Building Workshop",
+      "startedAt": "2026-07-17T17:31:17.305262122Z"
+    }
+  ],
+  "updatedAt": "2026-07-17T17:31:22.704673907Z"
 }
