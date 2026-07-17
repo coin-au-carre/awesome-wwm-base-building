@@ -20,7 +20,7 @@ featured: false
 ## The build is fine, the screenshot is just from a bad angle
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/noxlamina" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">noxlamina</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a5adcbe&format=webp&hm=2eac5c63249de5d7a7f210ee91aaffaec7f06810ea686062d13d6b7c815a2e17&is=6a598b3e&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a5b857e&format=webp&hm=a67c589abfd226eb90f033924fc667b03e9057f07245a49ab637bd051ab63c0c&is=6a5a33fe&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -70,7 +70,7 @@ featured: false
 ## A bonsai is in the wall
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5ac7f0&format=webp&hm=9e7dd4735e6146ca457ff5b27c6731848223243abcaf6e5af48ccc9803105739&is=6a597670&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5b70b0&format=webp&hm=d8f8f61869f9a4df405b9bdb4471f85bb6a998216722f6cda631962502c1b8ca&is=6a5a1f30&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
