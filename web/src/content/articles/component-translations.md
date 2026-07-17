@@ -35,7 +35,7 @@ Are you ever worried that you might be using a component incorrectly due to not 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a5b4e08&format=webp&hm=78bdb49d75b64bd55ca0e6dbed29462f6e761c3a33a1dbc56b7cfcb64547bb97&is=6a59fc88&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080603164119261/Screenshot_2026-04-26_163138.png?ex=6a5bf6c8&format=webp&hm=35aafa434688a0971b7576e592391e5bc034a0048c091727cb639859a014682e&is=6a5aa548&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 丹 - cinnabar/red 
 心 - heart
@@ -53,7 +53,7 @@ A loyal heart remains to illuminate written history.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a5b4e44&format=webp&hm=960544f96bce35f5d94142adb4276dbc4ea54e71e102d90f5e9111b70cb7b9f3&is=6a59fcc4&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498080851546869771/Screenshot_2026-04-26_163259.png?ex=6a5bf704&format=webp&hm=46323817e6bef9be77bd32d1f4a3f9ddfbba7ab3c5a9eb8af140a1cca0907819&is=6a5aa584&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 萬 ten thousand
 家 family
@@ -172,7 +172,7 @@ Can use this anywhere you want to name "Jade Gate Pass"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a5b49f6&format=webp&hm=befa751db431bf3ee6d8a497c63a10df7fbe0cc6ae43a4076f8008b4f2742567&is=6a59f876&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498438619294208212/Screenshot_2026-04-26_204954.png?ex=6a5bf2b6&format=webp&hm=3a7553922b7114c57e20fab344724fe5f089cb145ea2c9e64e479b971f2169be&is=6a5aa136&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 慨然攬長劍，濟世宣邀名，星旗紛電舉，日羽蕭天行，遍野屯萬騎，臨原駐五營，登山麾武節，背水縱神兵，在昔我戈動，今來宇宙平。
 
