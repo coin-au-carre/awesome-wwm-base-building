@@ -164,9 +164,9 @@ Also exploring **Liangzhou**? Check out the [Liangzhou edition](/tutorials/place
 ## Bonus place
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/mothisto" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Mothisto</a></p>
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a5b3107&format=webp&hm=186b90c507e4576d8cfcaab528c2ab27d709d44ede453b71323a991f97e67661&is=6a59df87&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618404477898773/image.png?ex=6a5bd9c7&format=webp&hm=6e7902cf8efc9a9322ecd8da2b00d0f5d118234f7d3822cdba01692ee64a677f&is=6a5a8847&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a5b3107&format=webp&hm=e1d5c99e1e7e138495d735fb99aa0ba619717e93dc6c87e7f3b9d5fc8e39e976&is=6a59df87&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1517573730992132127/1517618405216358620/image.png?ex=6a5bd9c7&format=webp&hm=4795baf688aef91a2acff55584e032c3b73248a82b3e761cec00eeaa92e4e2f7&is=6a5a8847&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

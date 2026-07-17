@@ -42,7 +42,7 @@ The Great Healer NPC sign can be hidden with the right placement. Here are two a
 
 This second method blends in more naturally with the surroundings.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a5b3d8a&format=webp&hm=c1abd0d56e399de0da326bd259fab8b3829f4e3beded991002910fefbe345430&is=6a59ec0a&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1506760203947868180/image.png?ex=6a5be64a&format=webp&hm=bdef0e6b4d0696e2b8c9c4b499299f8b1a79399de660d3d006aeb88ff2c6b669&is=6a5a94ca&quality=lossless" alt="Great Healer sign hidden using a placement that blends in more naturally" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
