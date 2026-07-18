@@ -29,6 +29,19 @@ type planInfo struct {
 	HeatVal    int     `json:"heat_val"`
 	Tags       []int   `json:"tags"`
 	Pid        string  `json:"pid"`
+	Private    int     `json:"private"`
+}
+
+// visibility reports what the "private" field can and can't tell us.
+// Confirmed by direct testing (see architecture.md): private=1 reliably
+// means "Only Visible To Me," but private=0 covers "Public," "Cannot
+// Apply," AND "Friends Can Apply" alike — those three are indistinguishable
+// in NetEase's own data, not a limitation of this tool specifically.
+func visibility(private int) string {
+	if private == 1 {
+		return "Only Visible To Me"
+	}
+	return "Public, Cannot Apply, or Friends Can Apply (indistinguishable in the data)"
 }
 
 type designerInfo struct {
@@ -157,6 +170,7 @@ func main() {
 	}
 	fmt.Printf("Heat:        %d\n", info.HeatVal)
 	fmt.Printf("Tags:        %v\n", info.Tags)
+	fmt.Printf("Visibility:  %s\n", visibility(info.Private))
 
 	if info.Pid == "" {
 		return
