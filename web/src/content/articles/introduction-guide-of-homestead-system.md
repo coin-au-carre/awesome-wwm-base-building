@@ -5,7 +5,7 @@ tags: ["solo","cn", "homestead"]
 authors: ["carnii"]
 date: 2026-06-24
 order: 22
-image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a5c967b&format=webp&hm=984d98f6b885d098995f0d1cf6ffb170dce482567c72f5df8c73b03ecdbdc6e9&is=6a5b44fb&quality=lossless"
+image: "https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a5d3f3b&format=webp&hm=638a10ef6cdea38bf645f65d2226ccb7d637d024a2618b6dc8f2e0f44086a547&is=6a5bedbb&quality=lossless"
 deprecated: true
 ---
 
@@ -15,7 +15,7 @@ deprecated: true
 
 <!-- preserve-end -->
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a5c967b&format=webp&hm=984d98f6b885d098995f0d1cf6ffb170dce482567c72f5df8c73b03ecdbdc6e9&is=6a5b44fb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519089380470423572/image.png?ex=6a5d3f3b&format=webp&hm=638a10ef6cdea38bf645f65d2226ccb7d637d024a2618b6dc8f2e0f44086a547&is=6a5bedbb&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 The first city to receive this system will be Qinghe
 
@@ -28,13 +28,13 @@ In the future, we will also receive an extension of this system for the Invisibl
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090502547411204/image.png?ex=6a5c9787&format=webp&hm=6a78e92c944d7b04b0bc0cd6c01aaa63c2d4957f58e009ecf841f25a6581f476&is=6a5b4607&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090502547411204/image.png?ex=6a5d4047&format=webp&hm=8c6f8c977a0b18d615987ebdffde07bdc5ed45b94e92ed6abf05f373810c68ab&is=6a5beec7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503071563846/image.png?ex=6a5c9787&format=webp&hm=bae8ac65e9d1cbaf4d87a1b3071324dab1dc0c48f40de337cca6767a0caadf59&is=6a5b4607&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503071563846/image.png?ex=6a5d4047&format=webp&hm=98f1fe91b3bdfeaa0a0cf34a76337618eed9cbd54667a78b6ded820c8b874ac3&is=6a5beec7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503600312431/image.png?ex=6a5c9787&format=webp&hm=9c8c577e98c9f714ee0f7ee6abd04b00c2d1193f6bcd4901dd6331aa7660aa26&is=6a5b4607&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503600312431/image.png?ex=6a5d4047&format=webp&hm=30a24be2a74c13c7f61741914543d480838df7457a455700ba5e63313db0fcca&is=6a5beec7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a5c9787&format=webp&hm=d7216917c56d0f14dc429dc82405aea19fb927a6b1f80ad47b14a632bc817391&is=6a5b4607&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519090503927201912/image.png?ex=6a5d4047&format=webp&hm=41258883e7c569df5b0db5168bc5526ae5ab63b8e3b28c42a4be2fddb4ab5226&is=6a5beec7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ### 🍈 One of the most important currencies, **melons**, for them you can buy a large number of various furniture in the store, as well as seeds, buildings and books to upgrade your workers.
 
