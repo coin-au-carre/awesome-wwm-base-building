@@ -83,7 +83,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a5cb0cb&format=webp&hm=c822f80a5080c31bc98087418d53c3a4190edce3ae281b29811dc8729776feb3&is=6a5b5f4b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a5d598b&format=webp&hm=5524c8f2ddf4dc54c03ff6d9ed4b63bda30cff3edb2afcbfc3725fd7ce86fdaf&is=6a5c080b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
