@@ -7,7 +7,7 @@ date: 2026-06-17
 order: 18
 featured: true
 toc: true
-image: "https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a5b7e65&format=webp&hm=19de7d5f8a9a6bc5d03cf99a688ad2b609a3e1effc2885132af2fd1675efd7d2&is=6a5a2ce5&quality=lossless"
+image: "https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a5c2725&format=webp&hm=0679cd0dc773ce585af49aac41aa711f4e990673deb45c0a0abe1dab00851c7c&is=6a5ad5a5&quality=lossless"
 ---
 
 Diagrams let you save and reuse constructions. v1.7 introduces three types depending on your context.
@@ -57,7 +57,7 @@ There are 3 types of diagrams:
 ## Create and use Solo Small Diagrams [Guild + Solo]
 
 <div class="video-embed" style="width: 80%;">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a5b79be&hm=4125628aee05b3cdb278bf30f5e6918aa981b921ed38fb41e0ba087e337186d6&is=6a5a283e&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516790509690159214/2026-06-17_14-59-49.mp4?ex=6a5c227e&hm=d6ec2b0b79ceefcc8d39366650a348b78688ebff0a6acdaaa4b8ad8f389235e6&is=6a5ad0fe&" controls></video>
 </div>
 
 
@@ -76,7 +76,7 @@ Found under the **"Mine"** category in the Diagram tab.
 
 These diagrams save your **entire guild base**. Use them as full base backups or to share a complete layout. → [How to save a diagram](#how-to-save-a-diagram)
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a5b7e65&format=webp&hm=19de7d5f8a9a6bc5d03cf99a688ad2b609a3e1effc2885132af2fd1675efd7d2&is=6a5a2ce5&quality=lossless" alt="Large Guild Diagram — taking a free slot" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505018142781/image.png?ex=6a5c2725&format=webp&hm=0679cd0dc773ce585af49aac41aa711f4e990673deb45c0a0abe1dab00851c7c&is=6a5ad5a5&quality=lossless" alt="Large Guild Diagram — taking a free slot" style="border-radius: 0.75rem; width: 80%;" />
 
 
 ---
@@ -88,21 +88,21 @@ Found under the **"Small Diagram - Mine"** category in the Diagram tab.
 These diagrams save a **section** of your guild base, useful for replicating parts of a construction. The maximum is **1,000 components**.
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5b8191&format=webp&hm=4a6279945da447f74829775b5577e48daeeded425862b86e09e33eaa25c64dcf&is=6a5a3011&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5c2a51&format=webp&hm=d20ad47e63dc0eb3f60722854d888cc6ab0a312ad3db3de19dab516990bfe3e4&is=6a5ad8d1&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
 ## How to save any diagram
 
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a5b8354&hm=4df53eb97ed9b32118279c577767fc326969cf79be5f62116522fd1bfd81838c&is=6a5a31d4&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a5c2c14&hm=12f7586dee977824e45e6e97ff6a48f326639669cfd04566193259442037f10d&is=6a5ada94&" controls></video>
 </div>
 
 The save process is the same for all diagram types:
 
 **1.** In the Diagram tab, take a free slot. You enter **diagram edit mode**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5b8191&format=webp&hm=4a6279945da447f74829775b5577e48daeeded425862b86e09e33eaa25c64dcf&is=6a5a3011&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5c2a51&format=webp&hm=d20ad47e63dc0eb3f60722854d888cc6ab0a312ad3db3de19dab516990bfe3e4&is=6a5ad8d1&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
 
 **2.** Choose the region you want to capture (does not apply to Large Guild Diagram)
@@ -110,17 +110,17 @@ The save process is the same for all diagram types:
 **3.** Click **"Leave"**. A panel opens where you can set the Diagram Name, choose an image, icon, and add a note.
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505638637662/image.png?ex=6a5b7e65&format=webp&hm=c2d64440316437df7904633788fa53eb021238ce679f3f2292e7ff456914f10c&is=6a5a2ce5&quality=lossless" alt="Large Guild Diagram — diagram edit mode" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795505638637662/image.png?ex=6a5c2725&format=webp&hm=15d3f0f8680987d6e48dda9b9e1501fb555749101485ffbef1057dc4f7a683ff&is=6a5ad5a5&quality=lossless" alt="Large Guild Diagram — diagram edit mode" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 
 **4.** Click **"Save & Exit"** to confirm. 
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506259656804/image.png?ex=6a5b7e65&format=webp&hm=9626d9a2135142283776e43b8f5332cba137fe732420006198dfd0583c360b5b&is=6a5a2ce5&quality=lossless" alt="Large Guild Diagram — save panel" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506259656804/image.png?ex=6a5c2725&format=webp&hm=a559d74545ed27919e62d232ced444f99a7768d1931406a92ebc843e265d08b2&is=6a5ad5a5&quality=lossless" alt="Large Guild Diagram — save panel" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 The choice between "Save & Exit" and "Leave directly" from the final modal makes no difference.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506678825071/image.png?ex=6a5b7e65&format=webp&hm=b9cfb8b07b1b059461e7e3bba7e50be6443c3867e94241005bb384fb14a5be8c&is=6a5a2ce5&quality=lossless" alt="Large Guild Diagram — saved result" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516795506678825071/image.png?ex=6a5c2725&format=webp&hm=771e513d146af728800c2f79e8af6e9c8f6f108f71746e64140afc9fbd7d1e52&is=6a5ad5a5&quality=lossless" alt="Large Guild Diagram — saved result" style="border-radius: 0.75rem; width: 80%; margin-top: 0.75rem;" />
 
 ---
 
