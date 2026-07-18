@@ -167,7 +167,7 @@ Build a piece of "Indoor Flooring"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526227849818804365/1.png?ex=6a5c30b3&format=webp&hm=bea9a47b257030c21d2384276d471edb3e43d02e8907bda3f56fb5f8f04ff654&is=6a5adf33&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526227849818804365/1.png?ex=6a5cd973&format=webp&hm=5d73e57db2e0e938aebb09c9b3d2d042401de8615991ae257d1f389f554ee9b5&is=6a5b87f3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
