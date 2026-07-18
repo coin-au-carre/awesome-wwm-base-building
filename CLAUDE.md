@@ -123,6 +123,8 @@ task send              # post a message as Ruby (one-shot)
 task spotlight         # post a random guild screenshot to the Ruby channel
 task announce          # test-post a new-guild announcement card
 
+task diagram-lookup -- <ART code>  # look up a diagram's title/description/screenshot/date from its ART code (SHARE codes aren't resolvable externally — paste into the game instead)
+
 task test              # go test ./...
 task vet               # go vet ./...
 task push              # vet + test + git push
@@ -150,6 +152,7 @@ HOMESTEAD_MESSAGE_ID                   # pinned message ID in #homestead-hall-of
 INSTANCE_LOCK_MESSAGE_ID               # message ID (in DEV_CHANNEL_ID, private) used as a cross-machine lock heartbeat (empty = falls back to discord.DefaultInstanceLockMessageID so both machines share one message even before either .env is updated)
 INSTANCE_NAME                          # optional — label shown as the lock holder (defaults to os.Hostname())
 INSTANCE_PRIORITY                      # optional int, default 0 — higher wins immediately over a lower-priority holder even if its heartbeat is fresh (set higher on local so it always preempts the VPS)
+DIAGRAM_LOOKUP_API_BASE                # required for `task diagram-lookup` — base URL of the (undocumented, third-party) diagram metadata API; intentionally not hardcoded or named in source, see .env
 ```
 
 ## Single-instance lock (local vs VPS)

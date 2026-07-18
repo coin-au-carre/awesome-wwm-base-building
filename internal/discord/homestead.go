@@ -241,11 +241,32 @@ func BuildHomesteadEmbed(members map[string]HomesteadMember) *discordgo.MessageE
 
 	return &discordgo.MessageEmbed{
 		Title:       "🏡 Homestead Hall of Fame 🏡",
-		Description: strings.TrimRight(sb.String(), "\n"),
+		Description: truncateHomesteadDescription(strings.TrimRight(sb.String(), "\n")),
 		Color:       0xF5B942,
 		Footer:      &discordgo.MessageEmbedFooter{Text: "Updated"},
 		Timestamp:   time.Now().UTC().Format(time.RFC3339),
 	}
+}
+
+// discordEmbedDescriptionMax is Discord's hard limit on embed description
+// length (BASE_TYPE_MAX_LENGTH).
+const discordEmbedDescriptionMax = 4096
+
+// truncateHomesteadDescription drops whole lines from the bottom (lowest
+// level, longest-tenured-last entries are added last, so they're the least
+// interesting) until the description fits Discord's 4096-char embed limit,
+// leaving room for a truncation note.
+func truncateHomesteadDescription(desc string) string {
+	if len(desc) <= discordEmbedDescriptionMax {
+		return desc
+	}
+	const note = "\n\n*…roster truncated, see the full rankings link above*"
+	limit := discordEmbedDescriptionMax - len(note)
+	lines := strings.Split(desc, "\n")
+	for len(strings.Join(lines, "\n")) > limit && len(lines) > 0 {
+		lines = lines[:len(lines)-1]
+	}
+	return strings.TrimRight(strings.Join(lines, "\n"), "\n") + note
 }
 
 func PostHomesteadRanking(s *discordgo.Session, messageID string, members map[string]HomesteadMember) {

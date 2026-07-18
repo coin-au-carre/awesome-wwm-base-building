@@ -41,6 +41,10 @@ tasks:
     desc: scan tracked chat channels, assign Wanderer role to active chatters, report inactive builders
     cmd: go run ./cmd/assign-active-roles {{.CLI_ARGS}}
 
+  diagram-lookup:
+    desc: look up a diagram's title/description/screenshot/creation date from its ART code (SHARE codes not resolvable externally)
+    cmd: go run ./cmd/diagram-lookup {{.CLI_ARGS}}
+
   sync:patches:
     desc: fetch Google Sheets patch notes CSV → data/patches.json (with Discord CDN refresh)
     cmd: go run ./cmd/patches-sync {{.CLI_ARGS}}
