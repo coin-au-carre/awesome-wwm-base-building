@@ -75,7 +75,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 <!-- discord-video:1483447711499030634/1512396991517294612 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a5bf8b3&hm=e5a4a3a3f8a6de470a86ac45ab5dd0f12e712b91bec0abf5c885d0c655089d45&is=6a5aa733&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512396981174140948/2026-06-05_12-01-57.mp4?ex=6a5ca173&hm=eac83acbee4b4d1fcdfc23c123a6142dcf9afd05c5586ab5f2301bc45788ceac&is=6a5b4ff3&" controls></video>
 </div>
 
 
@@ -83,7 +83,7 @@ You can now use small diagrams, which are convenient for saving sections of your
 
 This lets you place your small diagram more easily. As of now, small diagrams can be difficult to place.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a5c080b&format=webp&hm=59a2c8e3a5babfb821e47a7e3b2f325232a64bd9e1807bdcd56252d6e8833eff&is=6a5ab68b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1511507486954360892/image.png?ex=6a5cb0cb&format=webp&hm=c822f80a5080c31bc98087418d53c3a4190edce3ae281b29811dc8729776feb3&is=6a5b5f4b&quality=lossless" alt="Recommended Spot Placement" style="border-radius: 0.75rem; width: 100%;" />
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
