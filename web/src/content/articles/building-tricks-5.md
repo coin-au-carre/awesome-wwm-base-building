@@ -70,7 +70,7 @@ A wooden torch shape assembled from standard building components:
 
 The top section of a golden fire pillar:
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a5bc92f&format=webp&hm=e2ed8556e4e4f9d879958b1c628993dd603a44672edfa78fd4fd53aed97cdca5&is=6a5a77af&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1513976705990266890/image.png?ex=6a5c71ef&format=webp&hm=5e0e72b04ee96e7c8e0ffea5f12317e7060a1d8246497163cb548351ef3b69ec&is=6a5b206f&quality=lossless" alt="Top section of a golden fire pillar" style="border-radius: 0.75rem; width: 100%;" />
 
 <img src="https://media.discordapp.net/attachments/1483447711499030634/1513972425522544870/image.png?ex=6a5c6df2&format=webp&hm=2aac6c00795c60a432fda59ebd91dab0d6cbf22bd5840cb4cb691fdc4abce73a&is=6a5b1c72&quality=lossless" alt="Full view of the golden fire pillar construction" style="border-radius: 0.75rem; width: 100%;" />
 
@@ -81,9 +81,9 @@ The top section of a golden fire pillar:
 
 Flipping the Plot piece upside down exposes its flat dirt underside, giving you a clean ground texture without any grass. Useful for building on bare earth aesthetics or hiding the default grassy surface.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a5bd40b&format=webp&hm=8f48956ee5bd3ccc598ce9c5abd5d929f6dc2022d0955616dbd26f529c745116&is=6a5a828b&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514350755979722842/image.png?ex=6a5c7ccb&format=webp&hm=bec37708215a3f615bc697082f2de2b6ecb8b3fd7279ef46c9c5e80270adab07&is=6a5b2b4b&quality=lossless" alt="Plot piece flipped upside down showing a flat dirt surface" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a5bd4f0&format=webp&hm=e3b64f52ff1ea7624f1e214957ca1f4b2193a40a37e98728efb599f7236b954f&is=6a5a8370&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1514351716865150996/image.png?ex=6a5c7db0&format=webp&hm=6370203b0cb637c956e4db7afff8d5f154ee5e65f07909b6d0fc8a515642a824&is=6a5b2c30&quality=lossless" alt="Flat dirt ground created from a flipped Plot — no grass visible" style="border-radius: 0.75rem; width: 100%;" />
 
 **Good use by [Wyrdrake](/builders/wyrdrake):** Planting on a cemented area made more realistic by inverting the plot. No more plants growing awkwardly out of cement.
 
