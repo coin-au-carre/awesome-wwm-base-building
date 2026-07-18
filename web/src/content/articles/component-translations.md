@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a5c0d7c&format=webp&hm=7ae585a6b5ea7b0c6b98d9a8a91c9942aa8ea68ebcd9b79f846eb38a846b62f0&is=6a5abbfc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a5cb63c&format=webp&hm=a3ff2720f0ff6c2c377b67edd920221066b5ac25b8b735afe347449b572c8523&is=6a5b64bc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驛 - traditional version of "postal relay station" 
 
@@ -106,7 +106,7 @@ Used for postal relay stations/courier stations and inns.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a5c0e86&format=webp&hm=5e1985a2673fbebcc75f3356e2262cf7d29fbb346f1bf8c9cee8253ec0f359e8&is=6a5abd06&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498106093560139856/Screenshot_2026-04-26_170218.png?ex=6a5cb746&format=webp&hm=92540d9df0c6b11721734f96fd632efd29d83b41cd9bb6e0d70bc612dbb72752&is=6a5b65c6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Plaque:** 妙手回春 
 Chinese idiom that literally means "skillful hands bring back spring," but refers specifically to a physician who can bring back a patient from the brink of death.
@@ -121,7 +121,7 @@ Skillful hands and a loyal heart can preserve health and extinguish illness
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a5c0fef&format=webp&hm=0b11f9e968b475aa227791e4dfce574fba50539484234f3a98afb30a4de44622&is=6a5abe6f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498107609218285659/sign-12.png?ex=6a5cb8af&format=webp&hm=52c9b48742ceead12fa3601b11eeb5ed8bce74a8aece54490616ec3d24882e57&is=6a5b672f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 大医 Great Physician 
 精诚 Absolute Sincerity 
