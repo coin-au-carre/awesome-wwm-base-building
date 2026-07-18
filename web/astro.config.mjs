@@ -33,7 +33,7 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !page.includes("/admin/") && !/\/media\/[^/]+\/?$/.test(page),
+      filter: (page) => !page.includes("/admin/") && !page.includes("/gallery") && !/\/media\/[^/]+\/?$/.test(page),
       serialize(item) {
         const url = item.url
         if (/\/(guilds|solos)\/[^/]+\/?$/.test(url)) {

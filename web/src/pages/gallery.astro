@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/main.astro"
+import { GalleryGrid } from "@/components/GalleryGrid"
+
+// Unlisted on purpose (no nav link, noindex, excluded from sitemap —
+// see astro.config.mjs) — this fetches from wbm-relay, a private
+// backend still being built. Remove noindex + add a nav link once
+// that's ready to go public.
+---
+
+<Layout
+  title="Where Builders Meet | Gallery (preview)"
+  description="Live construction diagram gallery — work in progress."
+  noindex
+>
+  <div class="max-w-5xl space-y-6">
+    <div class="flex flex-col gap-2">
+      <h1 class="font-heading text-2xl font-semibold">Gallery (preview)</h1>
+      <p class="text-muted-foreground text-sm">
+        Unlisted preview page — not linked from navigation yet.
+      </p>
+    </div>
+    <GalleryGrid client:load />
+  </div>
+</Layout>
