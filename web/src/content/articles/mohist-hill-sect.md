@@ -40,7 +40,7 @@ Mohist outfit:
 
 <img src="/tutorials/mohist-hill-sect/img-2.webp" style="width: 80%" />
 
-### Joining the sect
+### How to join the sect?
 
 To receive an invitation:
 
@@ -116,9 +116,9 @@ Building Thesis Score
 Here the ranks:
 
 - 学工 Apprentice
-- 工正 Craft Corrector
-- 工师 Craft Master
-- 主造 Chief Builder
+- 工正 Craft Corrector (also known as Earthworker)
+- 工师 Craft Master (also known as Green Vine Elite)
+- 主造 Chief Builder (also known as Yellow River Scholar)
 - 大匠 Grandmaster
 
 #### Election How to register
@@ -126,6 +126,18 @@ Here the ranks:
 Only Chief Builders may register for the Grandmaster election. Upon a successful campaign, one gains the Grandmaster title for 1 week, until the next week's Grandmaster is born. Grandmasters may not run for re-election.
 
 Application Fee: Each application costs 10,000 treasure coins (宝钱), covering campaign preparation expenses.
+
+Yellow River Scholars are all promoted from Mo-mountain disciples based on their scholarship and craftsmanship. Each disciple casts 4 votes, 3 blind-reviewed and 1 open-reviewed. The top 10 vote recipients are promoted to Mohist sect Grandmaster
+
+#### Important Promotion Rules
+
+Promotions are processed during Week 2.
+
+You must manually apply for promotion.
+
+Forgetting to apply before Week 2 ends resets your progress.
+
+This is probably the most common mistake among Mohist members.
 
 ### Ways to Gain Research Value
 
@@ -136,16 +148,6 @@ Application Fee: Each application costs 10,000 treasure coins (宝钱), covering
 5. Gathering Materials: wood, ore and magnetite – up to 2800 points.
 6. Construction & Diagram creation – up to 1400 points.
 7. Divinecraft Enhancements – up to 600 points.
-
-### Important Promotion Rules
-
-Promotions are processed during Week 2.
-
-You must manually apply for promotion.
-
-Forgetting to apply before Week 2 ends resets your progress.
-
-This is probably the most common mistake among Mohist members.
 
 ### Craftsman Fame
 
