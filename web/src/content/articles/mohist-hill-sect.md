@@ -6,12 +6,10 @@ toc: true
 image: "/tutorials/mohist-hill-sect-cover.webp"
 authors: ["OdaVa", "OracleOfXata", "Ahlyam"]
 date: 2026-07-19
-  order: 26
+order: 26
 gdocID: "1jS4pBOtPGBy_W4EzuGjEtE9Ro_U2jZF7mNvsIdXU1pw"
 updatedDate: 2026-07-19
 ---
-
-Editor-in-chief: OdaVa
 
 Disclaimer: This guide was written with limited knowledge prior to the official release thanks to Chinese content. Some information may differ from the sect's actual release. We will update the guide as needed.
 
@@ -31,10 +29,10 @@ Good fit if:
 - You log in regularly and can hit a weekly deadline (Week 2, every week, no exceptions).
 - You're willing to coordinate with 1-2 other players; group thesis Co-authoring is the biggest Research Value multiplier in the sect.
 - You want to receive extra bonuses for diagrams/blueprints and Divine Craft
+- You want to earn fame more easily from Bounties
 
 Good to know before you join:
 
-- Mohist Sect Disciples are forbidden from accepting Vendetta Bounties
 - Casual and solo play both work, they're just slower. Co-authoring gives up to +25% Research Value and disciple contributions add more, so grouping up speeds things along, but it's not required.
 - Missing the Week 2 promotion window resets your progress, so if you're playing casually, just keep that deadline on your radar.
 
@@ -47,7 +45,7 @@ Mohist outfit:
 To receive an invitation:
 
 - Be unaffiliated (have no current sect)
-- Enter Family Construction or Personal Construction mode
+- Enter Homestead or Solo Construction Mode
 - Create three original blueprints/designs (using someone else's blueprints does not count)
 - Shortly afterward, you'll receive an invitation to Mo Shan Dao
 - Travel to Hidden Mountain (不见山) and speak to Elder He (鹤长老) to officially join
@@ -68,7 +66,7 @@ You will get specific items 20x “Mortise and Tenon Joint” and 1200x“Mohist
 
 <img src="/tutorials/mohist-hill-sect/img-8.webp" style="width: 40%" />
 
-Looks like you can exchange tokens with Normal coins
+Looks like you can exchange tokens with Normal coins, we would recommend not to do it as it is unsure.
 
 ## <img src="/tutorials/mohist-hill-sect/img-9.webp" style="width: 40%" /> Progression & Research Value
 
@@ -92,6 +90,10 @@ Location of the bookstore:
 
 ![](/tutorials/mohist-hill-sect/img-1.webp)
 
+#### Shops
+
+Mohist sect members mostly use Mohist coins to trade for goods. Besides shops within the market, there is also a Grain Exchange, originally a place for food trading, it has gradually evolved into a treasure-trading venue, where you can exchange wood, stone, fire/spark material, blue orb, purple powder…
+
 ### Ranking Up & Gaining Merit
 
  
@@ -110,6 +112,20 @@ Building Thesis Score
 750 is sufficient for apprentices to submit a promotion thesis, but higher scores contribute more merit.
 
  
+
+Here the ranks:
+
+- 学工 Apprentice
+- 工正 Craft Corrector
+- 工师 Craft Master
+- 主造 Chief Builder
+- 大匠 Grandmaster
+
+#### Election How to register
+
+Only Chief Builders may register for the Grandmaster election. Upon a successful campaign, one gains the Grandmaster title for 1 week, until the next week's Grandmaster is born. Grandmasters may not run for re-election.
+
+Application Fee: Each application costs 10,000 treasure coins (宝钱), covering campaign preparation expenses.
 
 ### Ways to Gain Research Value
 
@@ -131,7 +147,17 @@ Forgetting to apply before Week 2 ends resets your progress.
 
 This is probably the most common mistake among Mohist members.
 
- 
+### Craftsman Fame
+
+The higher the rank the higher fame you gain from bounties.
+
+Reward Increase:
+
+- 学工 Apprentice: +0%
+- 工正 Craft Corrector: +20%
+- 工师 Craft Master: +30%
+- 主造 Chief Builder: +50%
+- 大匠 Grandmaster: +50%
 
 ### Material farming
 
