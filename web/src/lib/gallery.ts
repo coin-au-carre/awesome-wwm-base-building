@@ -27,12 +27,12 @@ export interface GalleryPlan {
   private: number
   upload_ts: number
   category_tag: number
+  // author_number_id is also what designerUrl()/GET /api/designer takes
+  // — the relay resolves whatever internal id it needs server-side, so
+  // that's never exposed here. See wbm-relay's CLAUDE.md "Designer
+  // profiles" section.
   author_number_id?: string
   author_name?: string
-  // author_pid is the designer's internal id — needed for designerUrl()/
-  // GET /api/designer, distinct from the public author_number_id shown
-  // in the UI. See wbm-relay's CLAUDE.md "Designer profiles" section.
-  author_pid?: string
 }
 
 export interface GalleryPage {
@@ -78,8 +78,11 @@ export function planDetailUrl(planID: string): string {
   return `${WBM_RELAY_URL}/api/plan?id=${encodeURIComponent(planID)}`
 }
 
-export function designerUrl(pid: string): string {
-  return `${WBM_RELAY_URL}/api/designer?pid=${encodeURIComponent(pid)}`
+// numberID is the public account number (author_number_id on a
+// GalleryPlan) — the relay resolves whatever internal id it needs
+// server-side, so nothing else has to travel through this URL.
+export function designerUrl(numberID: string): string {
+  return `${WBM_RELAY_URL}/api/designer?id=${encodeURIComponent(numberID)}`
 }
 
 // Confirmed working for ART codes (e.g. "ARTakLUQfFVevW1Xl1A") and SHARE
@@ -110,14 +113,12 @@ export function planVisibility(private_: number, hasFriendsWhitelist: boolean): 
 }
 
 // Mirrors wbm-relay's pkg/relay.DesignerProfile. Lighter stats than the
-// in-game designer profile UI (no "Total Popularity"/"Following") —
-// that data has no known equivalent on the public proxy this endpoint
-// uses. See wbm-relay's CLAUDE.md "Designer profiles" section.
+// in-game designer profile UI (no "Total Popularity"/"Following") — that
+// data has no known equivalent on NetEase's live API. See wbm-relay's
+// CLAUDE.md "Designer profiles" section.
 export interface DesignerProfile {
-  pid: string
-  // number_id is the numeric player id shown in-game (e.g. "3014918987")
-  // — distinct from pid (an internal id, never shown to players). Empty
-  // if that lookup failed.
+  // number_id is the same public account number passed to designerUrl()
+  // — the internal id wbm-relay actually queries with is never exposed.
   number_id: string
   nickname: string
   follower_num: number
@@ -126,18 +127,11 @@ export interface DesignerProfile {
   plans: DesignerPlan[]
 }
 
-// Mirrors wbm-relay's pkg/relay.DesignerPlan — lighter than GalleryPlan,
-// this upstream doesn't return build_num/like_num per plan.
-export interface DesignerPlan {
-  plan_id: string
-  art_code: string
-  share_id: string
-  picture_url: string
-  heat_val: number
-  upload_ts: number
-  category_tag: number
-  private: number
-}
+// wbm-relay's DesignerProfile.plans is now []*PlanBrief directly (the
+// live host's plan-brief-batch endpoint returns build_num/like_num per
+// plan, unlike the old wwmpresets.com proxy this replaced) — same shape
+// as GalleryPlan, no separate lighter type needed anymore.
+export type DesignerPlan = GalleryPlan
 
 // 1464320 -> "1464K". Matches how the in-game UI abbreviates large
 // heat/like counts.

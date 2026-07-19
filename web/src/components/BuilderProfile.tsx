@@ -1,13 +1,12 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
-import { ArrowLeftIcon, FireIcon, UserCircleIcon } from "@phosphor-icons/react"
-import { DetailModal, VisibilityBadge, CopyPill } from "@/components/GalleryGrid"
+import { ArrowLeftIcon, UserCircleIcon } from "@phosphor-icons/react"
+import { DetailModal, StatRow, VisibilityBadge, CopyPill } from "@/components/GalleryGrid"
 import { url } from "@/lib/url"
 import {
   WBM_RELAY_URL,
   designerUrl,
-  formatCount,
   categoryLabel,
   isPrivate,
   type DesignerProfile,
@@ -24,37 +23,39 @@ function StatTile({ value, label }: { value: number | string; label: string }) {
 }
 
 export function BuilderProfile() {
-  const [pid, setPid] = useState<string | null>(null)
+  const [numberId, setNumberId] = useState<string | null>(null)
   const [profile, setProfile] = useState<DesignerProfile | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [selectedPlan, setSelectedPlan] = useState<DesignerPlan | null>(null)
 
-  // Query-string route (?id=<pid>), not a dynamic [id] path segment —
-  // the site builds statically with no build-time list of designer
-  // pids. See gallery/builder.astro.
+  // Query-string route (?id=<number_id>), not a dynamic [id] path
+  // segment — the site builds statically with no build-time list of
+  // designer ids. id is the public account number; wbm-relay resolves
+  // whatever internal id it needs server-side (see gallery.ts's
+  // designerUrl). See gallery/builder.astro.
   useEffect(() => {
-    setPid(new URLSearchParams(location.search).get("id"))
+    setNumberId(new URLSearchParams(location.search).get("id"))
   }, [])
 
   useEffect(() => {
-    if (!pid) return
+    if (!numberId) return
     if (!WBM_RELAY_URL) {
       setError("not deployed yet")
       return
     }
     setError(null)
-    fetch(designerUrl(pid))
+    fetch(designerUrl(numberId))
       .then((res) => {
         if (!res.ok) throw new Error(`relay returned ${res.status}`)
         return res.json()
       })
       .then(setProfile)
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
-  }, [pid])
+  }, [numberId])
 
-  if (pid === null) return null
+  if (numberId === null) return null
 
-  if (!pid) {
+  if (!numberId) {
     return <p className="text-sm text-muted-foreground">No builder specified.</p>
   }
 
@@ -86,7 +87,7 @@ export function BuilderProfile() {
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-3">
           <UserCircleIcon weight="fill" className="size-14 text-muted-foreground/50" />
-          <h1 className="font-heading text-3xl font-bold leading-tight">{profile.nickname || profile.pid}</h1>
+          <h1 className="font-heading text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
         </div>
         <div className="flex items-center gap-6 ml-auto">
           <StatTile value={profile.follower_num} label="Fans" />
@@ -101,7 +102,7 @@ export function BuilderProfile() {
         <>
           <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
             <span>
-              Showing all {profile.plans.length} published construction diagrams by {profile.nickname || profile.pid}.
+              Showing all {profile.plans.length} published construction diagrams by {profile.nickname || profile.number_id}.
             </span>
             {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
           </div>
@@ -131,9 +132,7 @@ export function BuilderProfile() {
                   )}
                   {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} className="absolute top-2 right-2" />}
                   <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-end">
-                    <span className="flex items-center gap-1 text-xs text-white/90">
-                      <FireIcon weight="fill" className="size-3.5 text-orange-400" /> {formatCount(plan.heat_val)}
-                    </span>
+                    <StatRow plan={plan} className="text-xs text-white/90" />
                   </div>
                 </button>
               )
@@ -144,7 +143,7 @@ export function BuilderProfile() {
 
       {selectedPlan && (
         <DetailModal
-          plan={{ plan_id: selectedPlan.plan_id, author_name: profile.nickname, author_pid: profile.pid, author_number_id: profile.number_id }}
+          plan={{ plan_id: selectedPlan.plan_id, author_name: profile.nickname, author_number_id: profile.number_id }}
           onClose={() => setSelectedPlan(null)}
         />
       )}

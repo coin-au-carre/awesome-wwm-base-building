@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
 import { HammerIcon, HeartIcon, FireIcon, XIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
+import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import {
   WBM_RELAY_URL,
@@ -60,7 +61,7 @@ export function VisibilityBadge({
 
 const LIMIT = 20
 
-function StatRow({ plan, className = "" }: { plan: Pick<GalleryPlan, "heat_val" | "like_num" | "build_num">; className?: string }) {
+export function StatRow({ plan, className = "" }: { plan: Pick<GalleryPlan, "heat_val" | "like_num" | "build_num">; className?: string }) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <span className="flex items-center gap-1">
@@ -110,12 +111,14 @@ export function CopyPill({ label, value, className = "" }: { label: string; valu
 }
 
 // A builder link — same shape whether it comes off a gallery card
-// (GalleryPlan) or a designer's own build grid (DesignerPlan).
-export function builderHref(pid?: string): string {
-  return url(`/gallery/builder?id=${encodeURIComponent(pid ?? "")}`)
+// (GalleryPlan) or a designer's own build grid (DesignerPlan). numberID
+// is the public account number — wbm-relay resolves whatever internal
+// id it needs server-side.
+export function builderHref(numberID?: string): string {
+  return url(`/gallery/builder?id=${encodeURIComponent(numberID ?? "")}`)
 }
 
-export function DetailModal({ plan, onClose }: { plan: Pick<GalleryPlan, "plan_id" | "author_name" | "author_pid" | "author_number_id">; onClose: () => void }) {
+export function DetailModal({ plan, onClose }: { plan: Pick<GalleryPlan, "plan_id" | "author_name" | "author_number_id">; onClose: () => void }) {
   const [detail, setDetail] = useState<PlanDetail | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [imgIndex, setImgIndex] = useState(0)
@@ -233,12 +236,13 @@ export function DetailModal({ plan, onClose }: { plan: Pick<GalleryPlan, "plan_i
               {plan.author_name && (
                 <div className="flex items-center gap-2 flex-wrap">
                   <a
-                    href={builderHref(plan.author_pid)}
+                    href={builderHref(plan.author_number_id)}
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 text-base sm:text-lg font-semibold hover:text-primary transition-colors"
+                    className={buttonVariants({ variant: "secondary", size: "lg", className: "text-base sm:text-lg font-semibold" })}
                   >
-                    <UserCircleIcon weight="fill" className="size-8 text-muted-foreground" />
+                    <UserCircleIcon weight="fill" className="size-6" />
                     {plan.author_name}
+                    <CaretRightIcon weight="bold" className="size-4 opacity-60" />
                   </a>
                   {plan.author_number_id && <CopyPill label="ID" value={plan.author_number_id} />}
                 </div>
@@ -476,9 +480,9 @@ export function GalleryGrid() {
                     <StatRow plan={plan} className="text-xs text-white/90" />
                     {plan.author_name && (
                       <a
-                        href={builderHref(plan.author_pid)}
+                        href={builderHref(plan.author_number_id)}
                         onClick={(e) => e.stopPropagation()}
-                        className="text-sm font-semibold text-white hover:text-primary hover:underline underline-offset-2 truncate max-w-28 shrink-0"
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full px-2.5 py-1 truncate max-w-28 shrink-0 transition-colors"
                       >
                         {plan.author_name}
                       </a>
