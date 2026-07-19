@@ -78,7 +78,7 @@ You will gain Research Value through a variety of activities. Over time, you'll 
 
 #### Sect Buffs Details
 
-- Raise Blueprint Component Cap: Mohist Sect disciples' components cap for diagram is increased by 500.
+- Raise Blueprint Component Cap: Mohist Sect disciples' components cap for diagram is increased from 1000 to 2000
 - Raise Blueprint Storage Cap: Mohist Sect disciples' personal diagram storage cap is increased by 15.
 - Divine Craft Enhancement: Mo Sect disciples can permanently enhance the effects of  Divine crafted tools/items. Enhanced items can be used personally, or carefully gifted to trusted individuals.
 
