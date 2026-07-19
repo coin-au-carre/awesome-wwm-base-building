@@ -38,6 +38,8 @@ jobs:
           path: web
           node-version: 22
           package-manager: npm@latest
+        env:
+          PUBLIC_WBM_RELAY_URL: ${{ secrets.PUBLIC_WBM_RELAY_URL }}
 
   deploy:
     needs: build
