@@ -18,19 +18,19 @@ Everything is community-contributed and continuously updated. Join us on Discord
 
 ### Sect overview
 
-Mohist Hill is one of the more unique sects in the game. Unlike others, it revolves around craftsmanship, research, construction, and scholarly progression. Your advancement depends less on social interaction and more on producing "research value" (研凿值) through crafting, gathering, and publishing papers. You can also team up with friends or fellow sect members via the “Co-Author” system, which allows you to create a thesis together that will benefit the entire group.
+Mohist Hill is one of the more unique sects in the game. Unlike others, it revolves around craftsmanship, research, construction, and scholarly progression. Your advancement depends less on social interaction and more on producing "research value" (研凿值) through crafting, gathering, and publishing papers. You can also team up with friends or fellow sect members via the “Co-author” system, which allows you to create a thesis together that will benefit the entire group.
 
 ### Is Mohist Hill for you?
 
 Good fit if:
 
 - You log in regularly and can hit a weekly deadline (Week 2, every week, no exceptions).
-- You're willing to coordinate with 1-2 other players; group thesis Co-Authoring is the biggest Research Value multiplier in the sect.
+- You're willing to coordinate with 1-2 other players; group thesis Co-authoring is the biggest Research Value multiplier in the sect.
 - You enjoy crafting/gathering/building loops over combat or social RP.
 
 Good to know before you join:
 
-- Casual and solo play both work, they're just slower. Co-Authoring gives up to +25% Research Value and disciple contributions add more, so grouping up speeds things along, but it's not required.
+- Casual and solo play both work, they're just slower. Co-authoring gives up to +25% Research Value and disciple contributions add more, so grouping up speeds things along, but it's not required.
 - Missing the Week 2 promotion window resets your progress, so if you're playing casually, just keep that deadline on your radar.
 - Leaving the sect means betraying your master and being teleported to Perception Forest, you lose all sect benefits and become sectless. Not a casual switch, so it's worth trying the sect out with that in mind.
 
@@ -39,8 +39,8 @@ Good to know before you join:
 To receive an invitation:
 
 - Be unaffiliated (have no current sect).
-- Enter Family Construction or Personal Construction mode.
-- Create three original blueprints/designs (using someone else's blueprints does not count).
+- Enter Family Construction or Personal Construction mode.
+- Create three original blueprints/designs (using someone else's blueprints does not count).
 - Shortly afterward, you'll receive an invitation to Mo Shan Dao.
 - Travel to Hidden Mountain (不见山) and speak to Elder He (鹤长老) to officially join.
 
@@ -64,7 +64,7 @@ Location of the bookstore:
 
 As mentioned before, promotion revolves around accumulating Research Value (研凿值) and manually applying for advancement.
 
-Each week, you can invite fellow sect members to participate in collaborative creation. A three-person team receives an additional 25% Research Value bonus. You can have up to 10 co-authors
+Each week, you can invite fellow sect members to participate in collaborative creation. A three-person team receives an additional 25% Research Value bonus. You can have up to 10 Co-authors
 
  
 
@@ -80,7 +80,7 @@ Building Thesis Score
 ### Ways to Gain Research Value
 
 1. Thesis Score - up to 4,800 points.
-2. Collaborative Research - up to 10 Co-Authors; 3-player groups receive +25%.
+2. Collaborative Research - up to 10 Co-authors; 3-player groups receive +25%.
 3. Disciple Contributions - your apprentices' work contributes to your merit.
 4. Sect Missions.
 5. Gathering Materials: wood, ore and magnetite – up to 2800 points.
@@ -119,11 +119,9 @@ You'll need approximately 6 Small Ratchets to unlock all Tiangong enhancements.
 
 Sources:
 
-Sect Shop (20).
-
-Hidden Mountain Shop (50).
-
-Mine along railroad tracks.
+- Sect Shop (20).
+- Hidden Mountain Shop (50).
+- Mine along railroad tracks.
 
 #### Wood
 
@@ -164,12 +162,12 @@ Re-enter the area or switch instances or restart the game if necessary.
 
  
 
-### Co-Author Optimization
+### Co-author Optimization
 
  For maximum efficiency:
 
 - Form groups of three.
-- Add Co-Authors while your thesis score is still 0.
+- Add Co-authors while your thesis score is still 0.
 - Coordinate with friends and mutually add each other.
 
  This provides the highest long-term Research Value gains.
