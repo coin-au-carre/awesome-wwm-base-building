@@ -6,7 +6,7 @@ toc: true
 image: "/tutorials/mohist-hill-sect-cover.webp"
 authors: ["OdaVa"]
 date: 2026-07-19
-order: 26
+  order: 26
 gdocID: "1jS4pBOtPGBy_W4EzuGjEtE9Ro_U2jZF7mNvsIdXU1pw"
 updatedDate: 2026-07-19
 ---
@@ -50,7 +50,25 @@ To receive an invitation:
 - Shortly afterward, you'll receive an invitation to Mo Shan Dao
 - Travel to Hidden Mountain (不见山) and speak to Elder He (鹤长老) to officially join
 
-## Progression & Research Value
+### Reach the secret Mohist Hill base before the update
+
+The 'secret' Mohist Hill base under kaifeng is under this house here. Enter via online mode or by outmapping from below.
+
+<img src="/tutorials/mohist-hill-sect/img-3.webp" style="width: 70%" />
+
+## <img src="/tutorials/mohist-hill-sect/img-4.webp" style="width: 70%" />
+
+Continue down and you will eventually reach this pretty area where you can find a chest<img src="/tutorials/mohist-hill-sect/img-5.webp" style="width: 80%" />
+
+<img src="/tutorials/mohist-hill-sect/img-6.webp" style="width: 70%" />
+
+You will get specific items 20x “Mortise and Tenon Joint” and 1200x“Mohist Tally”<img src="/tutorials/mohist-hill-sect/img-7.webp" style="width: 40%" />
+
+<img src="/tutorials/mohist-hill-sect/img-8.webp" style="width: 40%" />
+
+Looks like you can exchange tokens with Normal coins
+
+## <img src="/tutorials/mohist-hill-sect/img-9.webp" style="width: 40%" /> Progression & Research Value
 
 ### What to expect
 
