@@ -179,46 +179,46 @@ You need to go to the workers menu, find the "+" and click on it, then select th
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a5df948&format=webp&hm=eda5ff42120abfa16f421f01492112ea702e39ea5eaff29009def3e18cfdf9cf&is=6a5ca7c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956006977618/image.png?ex=6a5ea208&format=webp&hm=29856147d63a0e4c7312d9e88be13df13f850a574f8698eb9332f26c220b03c4&is=6a5d5088&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a5df948&format=webp&hm=c2958e1ccdaada24cdef611a6b6930453a56cc24436d5344878b058d4dea5608&is=6a5ca7c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519107956468220055/image.png?ex=6a5ea208&format=webp&hm=f05d2459d88db0d6575860402df0efcfc5cce88c9b815880ac9f30b6c66d53d3&is=6a5d5088&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 To begin with, I suggest that you allocate a place on your island (*it will probably be more convenient to place new stoves or stoves with tables, because everything will be in one place, then you may need to place production in other locations, but I'm not sure about this information, since I did everything only on the island and that was enough for my needs*). 
 Don't forget to put up beds for your employees, because without them you won't be able to hire new ones.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a5df95d&format=webp&hm=ceab00f78ad2daa488860b04002bff635a0a4fb8ead1aa0e6ad765f54b0f0dff&is=6a5ca7dd&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108046641565927/image.png?ex=6a5ea21d&format=webp&hm=970010c4953a4b4a13609807284482ee07b5c3e43c8178bf2acad642b9a2ea9d&is=6a5d509d&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 Each type of production will have its own decorative elements, such as a large oven or stove, tables for visitors, and flower beds.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a5df971&format=webp&hm=764d5980b7ae9ccf14184b41ef735d07f3fdeb93e99ca79ff1cdeea6161316a1&is=6a5ca7f1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108129437126696/image.png?ex=6a5ea231&format=webp&hm=45fa92d0f590e729ccdd0c3df09b3f727428970e9cc4316ecfbacc9ed78f0340&is=6a5d50b1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 1. First, you need to hire workers and allocate them to resource extraction.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a5df983&format=webp&hm=a5000897e93e3f1e6f6a4349862d9c20b1e2318804bf64dd807a016486436441&is=6a5ca803&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108203592286209/image.png?ex=6a5ea243&format=webp&hm=f78fec05eadb07408f6cb60df278ecfedfe2b6c4746acedefd78b055598aa6fc&is=6a5d50c3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 2. At the same time, purchase seeds and plant plants that will be useful to you for meals or drinks.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a5df99b&format=webp&hm=0cad54ad9ec21d2eee18570a652081d1cff18abbfd2192db2e5d421ba1b53151&is=6a5ca81b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a5ea25b&format=webp&hm=a1e54a60c629ccda45feb0b23ea2f5945fb8eb023703e16a5a118cc4d33037aa&is=6a5d50db&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 3. In pottery, you need to set up the production of wine jugs.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a5dfa05&format=webp&hm=f20f842e67d64088429f94b1fde2014079c93084579c28b52510ee56324ba653&is=6a5ca885&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a5ea2c5&format=webp&hm=f5a3af6a4fa06208a50c2fd2519da21568275183bdbd005ceac1cd121274d7cd&is=6a5d5145&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a5dfa49&format=webp&hm=59f1a8df83b96f78ab1b3b32ce09949cf5b20b8a1d64e301e381db65f1045f8e&is=6a5ca8c9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a5ea309&format=webp&hm=a09543dd9eb0d7e932bc9a51fed0d40aaee75dcb71caa1c2b6e42711bcabdf1e&is=6a5d5189&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a5dfbde&format=webp&hm=e18747f12d2cb4c2f763879cf42dc50a15e044986c6e74a2ae7cdfa60d20d0b9&is=6a5caa5e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a5ea49e&format=webp&hm=7449a2e2bfca861d4942884dbf6612c94c4f49ddd4addfd5ee23a68745e738d1&is=6a5d531e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
