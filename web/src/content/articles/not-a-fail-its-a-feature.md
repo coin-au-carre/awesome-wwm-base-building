@@ -63,7 +63,7 @@ featured: false
 ## Did someone try to cut a piece of cake?
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carni" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Carni</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1522669317290852463/image.png?ex=6a5dbf0f&format=webp&hm=e68d6296e1050c8105ad1aa677fb81644eff5614d5eb6054ea6564a56c8f56e7&is=6a5c6d8f&quality=lossless" alt="Did someone try to cut a piece of cake?" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1522669317290852463/image.png?ex=6a5e67cf&format=webp&hm=21db908c2d88ceb65bf50b14f25df337d913fdae26bb5184b42cfca04d31358f&is=6a5d164f&quality=lossless" alt="Did someone try to cut a piece of cake?" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

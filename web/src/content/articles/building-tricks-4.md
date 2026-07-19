@@ -45,7 +45,7 @@ This watchtower has a unique rustic-looking bell on top. While the full structur
 
 Some ironware items are currently available only in solo build mode. But you can save them into a diagram in solo mode and then place that diagram in guild build mode. So in the future, when we get more items like this, we’ll be able to use the same trick to bring solo items into the guild.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a5db7aa&format=webp&hm=72387637371024a890abc2d754f3ca8b51a398d0594a38ca8557a2559d2e49b1&is=6a5c662a&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504904374068187216/111.png?ex=6a5e606a&format=webp&hm=ab7c8f77ab831a6369840cca2e3367697a048ba5f4eef36dbbc4287bfbe5ac57&is=6a5d0eea&quality=lossless" alt="Ironware items placed in guild mode via a diagram saved from solo build mode" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
