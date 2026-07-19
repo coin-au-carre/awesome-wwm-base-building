@@ -167,7 +167,7 @@ Build a piece of "Indoor Flooring"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526227849818804365/1.png?ex=6a5d8233&format=webp&hm=f4c375fe1b41e55f4b378965b74e563832b1b98398d8c97454926d3672b9b54b&is=6a5c30b3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526227849818804365/1.png?ex=6a5e2af3&format=webp&hm=63c3ff461c8ec6d0421d7b3943411061973f95e05296d35cfa5d14cc6823224a&is=6a5cd973&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -183,7 +183,7 @@ If using the larger piece, make sure the wood grain runs along North-South
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526228525823295679/3.png?ex=6a5d82d4&format=webp&hm=4f0a8b77f2983fff1fc9adb536e26a6296159df86dc718f2a592d2fe7e89c647&is=6a5c3154&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526228525823295679/3.png?ex=6a5e2b94&format=webp&hm=d60dc8e1cc7d146e538da675181f34631fb3cc412a6571cca0f3de0d5cb72e06&is=6a5cda14&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 

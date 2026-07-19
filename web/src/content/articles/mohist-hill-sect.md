@@ -45,7 +45,7 @@ Mohist outfit:
 To receive an invitation:
 
 - Be unaffiliated (have no current sect)
-- Enter Homestead or Solo Construction Mode
+- Enter Homestead or Solo
 - Create three original blueprints/designs (using someone else's blueprints does not count)
 - Shortly afterward, you'll receive an invitation to Mo Shan Dao
 - Travel to Hidden Mountain (不见山) and speak to Elder He (鹤长老) to officially join

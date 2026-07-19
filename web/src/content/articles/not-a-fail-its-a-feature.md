@@ -20,7 +20,7 @@ featured: false
 ## The build is fine, the screenshot is just from a bad angle
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/noxlamina" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">noxlamina</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a5d7fbe&format=webp&hm=13e31274467d0098a20fcfd0e0e2c8c7802832945ca17a167b41d54b5b3f8db8&is=6a5c2e3e&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1505387910319571085/image.png?ex=6a5e287e&format=webp&hm=01f0af76c94b18c53908c6ac0445cd796d16eed6269fdd029549d01b032d9e9d&is=6a5cd6fe&quality=lossless" alt="A build that looks exactly as intended, allegedly" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -49,7 +49,7 @@ featured: false
 ## Near a certain musician in Kaifeng Palace
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/vehs" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">vehs</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a5d6050&format=webp&hm=815eb0033362d706700103959dba78dd4bf480e60b0b3e0e9a058b2f723933a0&is=6a5c0ed0&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a5e0910&format=webp&hm=19aa0f6294122d1d0e57a7b9e4e268c38cf5e79db6fcba5b4545160cb94a1e57&is=6a5cb790&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
@@ -70,7 +70,7 @@ featured: false
 ## A bonsai is in the wall
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5d6af0&format=webp&hm=e37511ba55dfe9b6a5d8ffd85e324a2f4026f6f27338f417bfed8bce14c09a6b&is=6a5c1970&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5e13b0&format=webp&hm=bfaefa3d69388052bc23efa030502c79ed9fa9c9e0b95935e141d7eb0e670e6e&is=6a5cc230&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
