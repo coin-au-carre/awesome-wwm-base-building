@@ -148,7 +148,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a5d4447&hm=dbb4471d8184716041b2b6146cdca9b0fd36fb31243befb5c7d648d10780888a&is=6a5bf2c7&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a5ded07&hm=ab946010ba1a4a8f12615f51530b64afd587690d9c7c351c3bd1aaaa4a955fee&is=6a5c9b87&" controls></video>
 </div>
 
 

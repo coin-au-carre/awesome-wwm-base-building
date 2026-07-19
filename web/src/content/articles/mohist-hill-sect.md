@@ -25,25 +25,30 @@ Mohist Hill is one of the more unique sects in the game. Unlike others, it revol
 
 Good fit if:
 
+- You absolutely want the outfit!
 - You log in regularly and can hit a weekly deadline (Week 2, every week, no exceptions).
 - You're willing to coordinate with 1-2 other players; group thesis Co-authoring is the biggest Research Value multiplier in the sect.
-- You enjoy crafting/gathering/building loops over combat or social RP.
+- You want to receive extra bonuses for diagrams/blueprints and Divine Craft
 
 Good to know before you join:
 
+- Mohist Sect Disciples are forbidden from accepting Vendetta Bounties
 - Casual and solo play both work, they're just slower. Co-authoring gives up to +25% Research Value and disciple contributions add more, so grouping up speeds things along, but it's not required.
 - Missing the Week 2 promotion window resets your progress, so if you're playing casually, just keep that deadline on your radar.
-- Leaving the sect means betraying your master and being teleported to Perception Forest, you lose all sect benefits and become sectless. Not a casual switch, so it's worth trying the sect out with that in mind.
+
+Mohist outfit:
+
+<img src="/tutorials/mohist-hill-sect/img-2.webp" style="width: 80%" />
 
 ### Joining the sect
 
 To receive an invitation:
 
-- Be unaffiliated (have no current sect).
-- Enter Family Construction or Personal Construction mode.
-- Create three original blueprints/designs (using someone else's blueprints does not count).
-- Shortly afterward, you'll receive an invitation to Mo Shan Dao.
-- Travel to Hidden Mountain (不见山) and speak to Elder He (鹤长老) to officially join.
+- Be unaffiliated (have no current sect)
+- Enter Family Construction or Personal Construction mode
+- Create three original blueprints/designs (using someone else's blueprints does not count)
+- Shortly afterward, you'll receive an invitation to Mo Shan Dao
+- Travel to Hidden Mountain (不见山) and speak to Elder He (鹤长老) to officially join
 
 ## Progression & Research Value
 
@@ -52,6 +57,14 @@ To receive an invitation:
 After officially joining Mohist Hill, your first priority should be becoming familiar with the sect's progression systems. Unlike many other sects, advancement is not immediate and is tied to a weekly cycle. Most of your progress will revolve around earning Research Value (研凿值), which is used to increase your thesis score and qualify for promotions.
 
 You will gain Research Value through a variety of activities. Over time, you'll also unlock additional progression through Divinecraft enhancements and other sect-specific mechanics.
+
+#### Sect Buffs Details
+
+- Raise Blueprint Component Cap: Mohist Sect disciples' components cap for diagram is increased by 500.
+- Raise Blueprint Storage Cap: Mohist Sect disciples' personal diagram storage cap is increased by 15.
+- Divine Craft Enhancement: Mo Sect disciples can permanently enhance the effects of  Divine crafted tools/items. Enhanced items can be used personally, or carefully gifted to trusted individuals.
+
+#### Hidden Mountain bookstore
 
 You'll also want to spend some time exploring Hidden Mountain, as many of the sect's important NPCs, shops, and facilities are located there. In particular, the bookstore is worth visiting early, as the books it sells increase the amount of Research Value you can earn from specific activities.
 
