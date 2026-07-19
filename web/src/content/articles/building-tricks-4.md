@@ -32,11 +32,11 @@ Standard mode and lite mode don't share the same assets representation. Trees an
 
 This watchtower has a unique rustic-looking bell on top. While the full structure doesn't fit or blend well in many scenarios, sinking most of the tower into the ground leaves behind a clean platform — or no platform at all — and a lovely pavilion. Adding a couple of your favorite lanterns completes the look perfectly.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900565849608335/4.png?ex=6a5db41e&format=webp&hm=032886790228d8805db22710b82b56db737434d0b82d70dc9ff9118e0fb4af5c&is=6a5c629e&quality=lossless" alt="Watchtower with rustic bell — full structure above ground" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900565849608335/4.png?ex=6a5e5cde&format=webp&hm=2842c11a938c2b41cb391c2debec8a7531fd62da953883cc69deb15409d4b347&is=6a5d0b5e&quality=lossless" alt="Watchtower with rustic bell — full structure above ground" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900566634074313/5.png?ex=6a5db41e&format=webp&hm=170cd6f27a1c7ba1e5182d5f04d0422b155ba5c8c891a755008a677eeb99255b&is=6a5c629e&quality=lossless" alt="Watchtower sunk into the ground — only the bell and platform remain visible" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900566634074313/5.png?ex=6a5e5cde&format=webp&hm=e0ba009e0e3020624b5053df62c3f340f47687dee7534045754d9a07b1db2887&is=6a5d0b5e&quality=lossless" alt="Watchtower sunk into the ground — only the bell and platform remain visible" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900567422468166/6.png?ex=6a5db41e&format=webp&hm=d9035da73e6dcff29bc7fd1b9ca93f71b81a5a3cf23d69369e969d5eb9a299f1&is=6a5c629e&quality=lossless" alt="Finished pavilion with lanterns added around the sunken watchtower bell" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1504900567422468166/6.png?ex=6a5e5cde&format=webp&hm=1fc8423dbd28817a61261260e685b48f141d6e1e018e5a6012e6d5d7bd102b86&is=6a5d0b5e&quality=lossless" alt="Finished pavilion with lanterns added around the sunken watchtower bell" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
