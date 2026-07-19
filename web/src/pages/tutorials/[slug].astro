@@ -7,7 +7,7 @@ import { ArrowLeftIcon } from "@phosphor-icons/react"
 import { builderSlug } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead" | "mohist-hill"
 
 const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string }> = {
   beginner: { label: "Beginner", bg: "bg-emerald-500/10", text: "text-emerald-600 dark:text-emerald-400", dot: "bg-emerald-500" },
@@ -19,10 +19,11 @@ const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot:
   website: { label: "Website", bg: "bg-indigo-500/10", text: "text-indigo-600 dark:text-indigo-400", dot: "bg-indigo-500" },
   "patch-notes": { label: "Patch Notes", bg: "bg-blue-500/10", text: "text-blue-600 dark:text-blue-400", dot: "bg-blue-500" },
   homestead: { label: "Homestead", bg: "bg-orange-500/10", text: "text-orange-600 dark:text-orange-400", dot: "bg-orange-500" },
+  "mohist-hill": { label: "Mohist Hill", bg: "bg-fuchsia-500/10", text: "text-fuchsia-600 dark:text-fuchsia-400", dot: "bg-fuchsia-500" },
 }
 
 function renderTags(tags: string[] = []) {
-  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead"]
+  const known: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead", "mohist-hill"]
   return tags.filter((t): t is TagKey => known.includes(t as TagKey))
 }
 
