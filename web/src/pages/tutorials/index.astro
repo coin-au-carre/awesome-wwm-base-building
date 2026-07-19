@@ -6,7 +6,7 @@ import { getCollection } from "astro:content"
 
 const entries = await getCollection("articles", ({ data }) => data.published !== false)
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead" | "mohist-hill"
 
 const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot: string; ring: string }> = {
   beginner: { label: "Beginner", bg: "bg-emerald-500/10", text: "text-emerald-700 dark:text-emerald-300", dot: "bg-emerald-500", ring: "ring-1 ring-inset ring-emerald-500/30" },
@@ -18,6 +18,7 @@ const TAG_CONFIG: Record<TagKey, { label: string; bg: string; text: string; dot:
   website: { label: "Website", bg: "bg-indigo-500/10", text: "text-indigo-700 dark:text-indigo-300", dot: "bg-indigo-500", ring: "ring-1 ring-inset ring-indigo-500/30" },
   "patch-notes": { label: "Patch Notes", bg: "bg-blue-500/10", text: "text-blue-700 dark:text-blue-300", dot: "bg-blue-500", ring: "ring-1 ring-inset ring-blue-500/30" },
   homestead: { label: "Homestead", bg: "bg-orange-500/10", text: "text-orange-700 dark:text-orange-300", dot: "bg-orange-500", ring: "ring-1 ring-inset ring-orange-500/30" },
+  "mohist-hill": { label: "Mohist Hill", bg: "bg-fuchsia-500/10", text: "text-fuchsia-700 dark:text-fuchsia-300", dot: "bg-fuchsia-500", ring: "ring-1 ring-inset ring-fuchsia-500/30" },
 }
 
 

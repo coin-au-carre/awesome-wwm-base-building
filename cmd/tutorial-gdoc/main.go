@@ -149,6 +149,7 @@ func syncDoc(root, docURL string) error {
 	manifest := loadImageManifest(manifestPath)
 	nextNum := nextImageNum(manifest)
 	counter := 0
+	written := 0
 	htmlStr = reDataURI.ReplaceAllStringFunc(htmlStr, func(match string) string {
 		sub := reDataURI.FindStringSubmatch(match)
 		_, data := sub[1], sub[2]
@@ -166,12 +167,18 @@ func syncDoc(root, docURL string) error {
 			filename = fmt.Sprintf("img-%d.webp", nextNum)
 			nextNum++
 		}
-		if err := os.MkdirAll(imagesDir, 0755); err == nil {
-			if webpBytes, err := toWebP(decoded); err == nil {
-				_ = os.WriteFile(filepath.Join(imagesDir, filename), webpBytes, 0644)
-			} else {
-				slog.Warn("webp encode failed, skipping image", "err", err)
-				return match
+		outPath := filepath.Join(imagesDir, filename)
+		// Skip the decode/encode when we already have this exact image on disk —
+		// Google's export re-embeds unchanged images too, so this is the common case.
+		if !known || !fileExists(outPath) {
+			if err := os.MkdirAll(imagesDir, 0755); err == nil {
+				if webpBytes, err := toWebP(decoded); err == nil {
+					_ = os.WriteFile(outPath, webpBytes, 0644)
+					written++
+				} else {
+					slog.Warn("webp encode failed, skipping image", "err", err)
+					return match
+				}
 			}
 		}
 		manifest[key] = filename
@@ -179,7 +186,7 @@ func syncDoc(root, docURL string) error {
 		return fmt.Sprintf(`src="/tutorials/%s/%s"`, slug, filename)
 	})
 	if counter > 0 {
-		slog.Info("extracted images", "count", counter, "dir", imagesDir)
+		slog.Info("processed images", "count", counter, "written", written, "dir", imagesDir)
 		saveImageManifest(manifestPath, manifest)
 	}
 
@@ -305,6 +312,11 @@ func extractTitle(htmlStr string) string {
 		return strings.TrimSpace(stripTags(m[1]))
 	}
 	return ""
+}
+
+func fileExists(path string) bool {
+	_, err := os.Stat(path)
+	return err == nil
 }
 
 func toWebP(raw []byte) ([]byte, error) {

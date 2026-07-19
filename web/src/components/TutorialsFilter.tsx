@@ -5,7 +5,7 @@ import { builderSlug } from "@/lib/format"
 import { resolveCanonical } from "@/lib/builder-aliases"
 import { Input } from "@/components/ui/input"
 
-type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead"
+type TagKey = "beginner" | "advanced" | "guild" | "solo" | "sightseeing" | "cn" | "website" | "patch-notes" | "homestead" | "mohist-hill"
 
 interface Tutorial {
   slug: string
@@ -40,7 +40,7 @@ interface Props {
 
 type SortKey = "default" | "updated" | "newest"
 
-const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead"]
+const allTags: TagKey[] = ["beginner", "advanced", "guild", "solo", "sightseeing", "cn", "website", "patch-notes", "homestead", "mohist-hill"]
 
 export default function TutorialsFilter({ guides, latestGuides, newestSlug, TAG_CONFIG }: Props) {
   const [searchQuery, setSearchQuery] = useState(() => {

@@ -2,6 +2,7 @@
 title: "Mohist Hill Sect"
 description: "How to join Mohist Hill Sect, earn Research Value through crafting and Co-Authoring, and hit the Week 2 promotion deadline without resetting your progress."
 tags: ["solo", "mohist-hill"]
+image: "/tutorials/mohist-hill-sect-cover.webp"
 authors: ["OdaVa"]
 date: 2026-07-19
 order: 26
