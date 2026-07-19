@@ -19,6 +19,9 @@ export interface GalleryPlan {
   art_code: string
   share_id: string
   picture_url: string
+  // build_num is a download/apply count, not a piece count despite the
+  // name — see wbm-relay's CLAUDE.md "Component list" section. Use
+  // components_count for the actual piece total.
   build_num: number
   like_num: number
   heat_val: number
@@ -27,6 +30,10 @@ export interface GalleryPlan {
   private: number
   upload_ts: number
   category_tag: number
+  // The real total placed-piece count (NetEase's own
+  // extra.components_count field) — 0/absent if upstream didn't include
+  // it for this item.
+  components_count?: number
   // author_number_id is also what designerUrl()/GET /api/designer takes
   // — the relay resolves whatever internal id it needs server-side, so
   // that's never exposed here. See wbm-relay's CLAUDE.md "Designer
@@ -51,6 +58,8 @@ export interface PlanDetail {
   description: string
   picture_url: string
   previews: string[] | null
+  // See GalleryPlan.build_num — a download/apply count, not a piece
+  // count. components_count below is the real piece total.
   build_num: number
   like_num: number
   heat_val: number
@@ -65,6 +74,8 @@ export interface PlanDetail {
   // human-readable name mapping exists yet. See wbm-relay's CLAUDE.md
   // "Bill of materials" section. Undefined when the plan has none.
   components?: Record<string, number>
+  // Sum of every value in components — the real total piece count.
+  components_count?: number
   // Only set on "industry"/settlement-type plans (guild bases etc) —
   // undefined otherwise.
   industry_level?: number

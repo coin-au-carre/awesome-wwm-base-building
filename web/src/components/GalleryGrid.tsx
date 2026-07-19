@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { HammerIcon, HeartIcon, FireIcon, XIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, XIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import {
@@ -61,7 +61,13 @@ export function VisibilityBadge({
 
 const LIMIT = 20
 
-export function StatRow({ plan, className = "" }: { plan: Pick<GalleryPlan, "heat_val" | "like_num" | "build_num">; className?: string }) {
+export function StatRow({
+  plan,
+  className = "",
+}: {
+  plan: Pick<GalleryPlan, "heat_val" | "like_num" | "build_num" | "components_count">
+  className?: string
+}) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <span className="flex items-center gap-1">
@@ -70,9 +76,14 @@ export function StatRow({ plan, className = "" }: { plan: Pick<GalleryPlan, "hea
       <span className="flex items-center gap-1">
         <HeartIcon weight="fill" className="size-3.5 text-rose-400" /> {formatCount(plan.like_num)}
       </span>
-      <span className="flex items-center gap-1" title="Components used">
-        <HammerIcon weight="duotone" className="size-3.5" /> {formatCount(plan.build_num)}
+      <span className="flex items-center gap-1" title="Downloads">
+        <DownloadSimpleIcon weight="bold" className="size-3.5" /> {formatCount(plan.build_num)}
       </span>
+      {plan.components_count != null && plan.components_count > 0 && (
+        <span className="flex items-center gap-1" title="Components used">
+          <HammerIcon weight="duotone" className="size-3.5" /> {formatCount(plan.components_count)}
+        </span>
+      )}
     </div>
   )
 }
@@ -253,7 +264,10 @@ export function DetailModal({ plan, onClose }: { plan: Pick<GalleryPlan, "plan_i
                 </p>
               )}
               <div className="flex flex-wrap gap-4 text-sm">
-                <span><span className="text-muted-foreground">Components</span> <span className="font-medium">{detail.build_num}</span></span>
+                {detail.components_count != null && detail.components_count > 0 && (
+                  <span><span className="text-muted-foreground">Components</span> <span className="font-medium">{detail.components_count}</span></span>
+                )}
+                <span><span className="text-muted-foreground">Downloads</span> <span className="font-medium">{detail.build_num}</span></span>
                 {detail.industry_level !== undefined && (
                   <span><span className="text-muted-foreground">Industry level</span> <span className="font-medium">{detail.industry_level}</span></span>
                 )}
