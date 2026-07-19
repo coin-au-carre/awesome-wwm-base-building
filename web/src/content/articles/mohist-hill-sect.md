@@ -4,12 +4,14 @@ description: "How to join Mohist Hill Sect, earn Research Value through crafting
 tags: ["solo", "mohist-hill"]
 toc: true
 image: "/tutorials/mohist-hill-sect-cover.webp"
-authors: ["OdaVa"]
+authors: ["OdaVa", "OracleOfXata", "Ahlyam"]
 date: 2026-07-19
   order: 26
 gdocID: "1jS4pBOtPGBy_W4EzuGjEtE9Ro_U2jZF7mNvsIdXU1pw"
 updatedDate: 2026-07-19
 ---
+
+Editor-in-chief: OdaVa
 
 Disclaimer: This guide was written with limited knowledge prior to the official release thanks to Chinese content. Some information may differ from the sect's actual release. We will update the guide as needed.
 
