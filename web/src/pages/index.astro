@@ -15,8 +15,8 @@ import { ArrowsClockwiseIcon, TrophyIcon, SparkleIcon, DiamondIcon, BookOpenIcon
 import { getCollection, type CollectionEntry } from "astro:content"
 
 // ─── Page toggles ────────────────────────────────────────────────────────────
-const SHOW_BEYOND_WALL_EVENT = true    // restore to false after the event
-const SHOW_PATCH_BANNER      = false   // v1.7 update banner
+const SHOW_BEYOND_WALL_EVENT = false   // restore to false after the event
+const SHOW_PATCH_BANNER      = true    // v2.0 Mohist Hill update banner
 const SHOW_TOUR_BANNER       = true   // auto-shows when a tour event is within 24h
 const SHOW_FEATURED_BANNERS  = true   // featured articles & events + catalog banner
 const SHOW_GUILD_WALL        = true    // "Discover Guild Bases" random wall
@@ -47,7 +47,6 @@ const featuredArticles: FeaturedEntry[] = allArticles.filter((e) => e.data.featu
   return { article, thumb }
 })
 const tutorialAuthorSlugs = new Set<string>(allArticles.flatMap((a) => (a.data.authors ?? []).map((n: string) => builderSlug(n))))
-const homesteadBg = allArticles.find((a) => a.id === "homestead-v1-8-what-you-need-to-know")?.data.image ?? ""
 const activeBuilders = getActiveBuilderSlugs(tutorialAuthorSlugs)
 const allTags = getAllTags()
 const lastSync = getLastSyncDate()
@@ -479,30 +478,35 @@ const articlesToShow = featuredArticles.slice(0, 3)
     <!-- Patch notes banner — set SHOW_PATCH_BANNER = false to restore normal sections -->
     {SHOW_PATCH_BANNER && (
       <section>
-        <div class="group relative flex rounded-2xl overflow-hidden ring-1 ring-emerald-500/40 hover:ring-emerald-500/70 hover:shadow-xl transition-all h-36 sm:h-40">
+        <div class="group relative flex rounded-2xl overflow-hidden ring-1 ring-amber-500/40 hover:ring-amber-500/70 hover:shadow-xl transition-all h-36 sm:h-40">
           {/* background */}
-          <div class="absolute inset-0 bg-cover bg-position-[center_55%]" style={`background-image: url('${homesteadBg}'); filter: brightness(0.6) saturate(0.7);`} />
+          <div class="absolute inset-0 bg-size-[auto_340%] bg-position-[25%_55%] bg-no-repeat" style={`background-image: url('${BASE}/tutorials/mohist-hill-bg-1.jpg'); filter: brightness(0.6) saturate(0.7);`} />
+          {/* build thumbnails strip — right side */}
+          <div class="absolute right-0 top-0 bottom-0 w-2/5 hidden sm:flex">
+            <div class="flex-1 overflow-hidden"><img src={`${BASE}/tutorials/mohist-hill-bg-2.jpg`} alt="" aria-hidden="true" class="w-full h-full object-cover opacity-70" style="mask-image: linear-gradient(to right, transparent 0%, black 40%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);" /></div>
+            <div class="flex-1 overflow-hidden"><img src={`${BASE}/tutorials/mohist-hill-bg-3.jpg`} alt="" aria-hidden="true" class="w-full h-full object-cover opacity-70" /></div>
+          </div>
           <div class="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-transparent" />
           <div class="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
           {/* content — z-20 so buttons sit above the background overlay link */}
           <div class="relative z-20 flex flex-col justify-center gap-2 px-6 py-5 max-w-lg">
             <div class="flex items-center gap-2">
-              <span class="size-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              <span class="text-[10px] font-semibold uppercase tracking-widest text-emerald-400">Homestead v1.8 · June 27, 2026</span>
+              <span class="size-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+              <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-400">v2.0 Mohist Hill</span>
             </div>
             <div>
               <p class="text-base sm:text-lg font-bold text-white leading-tight drop-shadow">
-                <span class="sm:hidden"><span class="text-emerald-400">Homestead</span> v1.8 — Guide</span>
-                <span class="hidden sm:inline"><span class="text-emerald-400">Homestead</span> v1.8 — what you need to know</span>
+                <span class="sm:hidden"><span class="text-amber-400">Mohist Hill</span> Sect Guide</span>
+                <span class="hidden sm:inline"><span class="text-amber-400">Mohist Hill</span> Sect — What to Know Before v2.0</span>
               </p>
               <p class="text-sm text-white/70 mt-1">
-                Prosperity, farming, warehouse cap<span class="hidden sm:inline">, diagram sharing</span>: tips from the community. <span class="hidden sm:inline text-white/40">by WBM contributors</span>
+                Everything to know about joining, ranking up, and earning Research Value. <span class="hidden sm:inline text-white/40">by OdaVa</span>
               </p>
             </div>
             <div class="flex items-center gap-2 mt-1 flex-wrap">
               <a
-                href={`${BASE}/tutorials/homestead-v1-8-what-you-need-to-know`}
-                class="inline-flex items-center gap-1.5 bg-emerald-500/20 ring-1 ring-emerald-500/50 rounded-full px-3 py-1 text-xs font-semibold text-emerald-200 hover:bg-emerald-500/35 transition-colors"
+                href={`${BASE}/tutorials/mohist-hill-sect`}
+                class="inline-flex items-center gap-1.5 bg-amber-500/20 ring-1 ring-amber-500/50 rounded-full px-3 py-1 text-xs font-semibold text-amber-200 hover:bg-amber-500/35 transition-colors"
                 data-umami-event="patch_banner_click"
               >
                 <span class="sm:hidden">Read</span>
@@ -522,7 +526,7 @@ const articlesToShow = featuredArticles.slice(0, 3)
           </div>
           {/* background clickable area for the rest of the card */}
           <a
-            href={`${BASE}/tutorials/homestead-v1-8-what-you-need-to-know`}
+            href={`${BASE}/tutorials/mohist-hill-sect`}
             class="absolute inset-0 z-10"
             aria-hidden="true"
             tabindex="-1"

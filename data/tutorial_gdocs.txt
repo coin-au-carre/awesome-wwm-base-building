@@ -3,3 +3,4 @@
 # Images are downloaded to web/public/tutorials/<slug>/ and URLs are rewritten.
 https://docs.google.com/document/d/1vVLV8gQ6dfuptU1yFQstEfxcGiCYK5kZJjxiH5q6KyM/edit?usp=sharing
 https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing
+https://docs.google.com/document/d/1jS4pBOtPGBy_W4EzuGjEtE9Ro_U2jZF7mNvsIdXU1pw/edit?usp=sharing
