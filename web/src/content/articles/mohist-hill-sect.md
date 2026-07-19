@@ -92,7 +92,13 @@ Location of the bookstore:
 
 #### Shops
 
-Mohist sect members mostly use Mohist coins to trade for goods. Besides shops within the market, there is also a Grain Exchange, originally a place for food trading, it has gradually evolved into a treasure-trading venue, where you can exchange wood, stone, fire/spark material, blue orb, purple powder…
+Mohist sect members mostly use Mohist coins to trade for goods. Besides shops within the market, there is also a Grain Exchange, originally a place for food trading, it has gradually evolved into a treasure-trading venue, where you can exchange wood, stone, fire/spark material, blue orb, purple powder, gauntlets… Also the rope martial art that pairs with gauntlets is obtained after winning a duel in one of the locations in the hidden mountain.
+
+<img src="/tutorials/mohist-hill-sect/img-10.webp" style="width: 50%" />
+
+<img src="/tutorials/mohist-hill-sect/img-11.webp" style="width: 50%" />
+
+### <img src="/tutorials/mohist-hill-sect/img-12.webp" style="width: 80%" />
 
 ### Ranking Up & Gaining Merit
 
