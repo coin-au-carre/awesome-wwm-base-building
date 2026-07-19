@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { GalleryGrid } from "@/components/GalleryGrid"
+import { Badge } from "@/components/ui/badge"
 
 // Unlisted on purpose (no nav link, noindex, excluded from sitemap —
 // see astro.config.mjs) — this fetches from wbm-relay, a private
@@ -9,15 +10,22 @@ import { GalleryGrid } from "@/components/GalleryGrid"
 ---
 
 <Layout
-  title="Where Builders Meet | Gallery (preview)"
+  title="Where Builders Meet | Gallery (alpha)"
   description="Live construction diagram gallery — work in progress."
   noindex
+  fullWidth
 >
   <div class="space-y-6">
     <div class="flex flex-col gap-2">
-      <h1 class="font-heading text-2xl font-semibold">Gallery (preview)</h1>
+      <div class="flex items-center gap-2">
+        <h1 class="font-heading text-2xl font-semibold">Gallery</h1>
+        <Badge variant="outline" className="border-amber-500/50 text-amber-600 dark:text-amber-400">
+          Alpha
+        </Badge>
+        <Badge variant="secondary">Work in progress</Badge>
+      </div>
       <p class="text-muted-foreground text-sm">
-        Work in progress...
+        This is an early alpha, expect rough edges and changes.
       </p>
     </div>
     <GalleryGrid client:load />

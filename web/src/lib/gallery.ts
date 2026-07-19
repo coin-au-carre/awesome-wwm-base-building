@@ -3,7 +3,13 @@
 // talks to its small public API — no credentials or upstream details
 // live here. Override PUBLIC_WBM_RELAY_URL in web/.env for local dev
 // against a local `task dev` relay instance.
-export const WBM_RELAY_URL = import.meta.env.PUBLIC_WBM_RELAY_URL || "http://localhost:3000"
+//
+// wbm-relay has no public deployment yet, so the localhost fallback
+// only applies in dev — baking it into the production build made every
+// visitor's browser try to fetch a private-network address, which
+// browsers flag with a Local Network Access permission prompt. Empty
+// in prod until PUBLIC_WBM_RELAY_URL is wired up as a real deploy secret.
+export const WBM_RELAY_URL = import.meta.env.PUBLIC_WBM_RELAY_URL || (import.meta.env.DEV ? "http://localhost:3000" : "")
 
 // Mirrors wbm-relay's pkg/relay.PlanBrief — a gallery-listing item, not
 // the full plan detail. No title/description/previews: those only
@@ -23,6 +29,10 @@ export interface GalleryPlan {
   category_tag: number
   author_number_id?: string
   author_name?: string
+  // author_pid is the designer's internal id — needed for designerUrl()/
+  // GET /api/designer, distinct from the public author_number_id shown
+  // in the UI. See wbm-relay's CLAUDE.md "Designer profiles" section.
+  author_pid?: string
 }
 
 export interface GalleryPage {
@@ -46,6 +56,19 @@ export interface PlanDetail {
   heat_val: number
   private: number
   upload_ts: number
+  // Only ever populated here (get_face_plan_data) — never on
+  // GalleryPlan/DesignerPlan, which come from endpoints that don't
+  // return this field at all.
+  has_friends_whitelist: boolean
+  // Bill of materials: {type_code: count}, all spatial data stripped.
+  // Keys are raw internal item-type codes (e.g. "803905") — no
+  // human-readable name mapping exists yet. See wbm-relay's CLAUDE.md
+  // "Bill of materials" section. Undefined when the plan has none.
+  components?: Record<string, number>
+  // Only set on "industry"/settlement-type plans (guild bases etc) —
+  // undefined otherwise.
+  industry_level?: number
+  prosperity?: number
 }
 
 // plan_id can contain "/" and "+" (e.g. "aluKZe6M5w8b/fFP") — never
@@ -53,6 +76,67 @@ export interface PlanDetail {
 // form. See wbm-relay's CLAUDE.md.
 export function planDetailUrl(planID: string): string {
   return `${WBM_RELAY_URL}/api/plan?id=${encodeURIComponent(planID)}`
+}
+
+export function designerUrl(pid: string): string {
+  return `${WBM_RELAY_URL}/api/designer?pid=${encodeURIComponent(pid)}`
+}
+
+// Confirmed working for ART codes (e.g. "ARTakLUQfFVevW1Xl1A") and SHARE
+// codes (e.g. "SHAREeaea710c24cbc453") — see wbm-relay's
+// wbm-tool/gallery-api.md. Free-text title search isn't confirmed
+// upstream, so a plain name may return no results.
+export function searchGalleryUrl(q: string): string {
+  return `${WBM_RELAY_URL}/api/search?q=${encodeURIComponent(q)}`
+}
+
+// private=1 reliably means "Only Visible To Me" — private=0 covers
+// "Public," "Cannot Apply," AND "Friends Can Apply" alike, genuinely
+// indistinguishable in NetEase's own data (see cmd/diagram-lookup's
+// visibility() in the main repo, and gallery-api.md/architecture.md).
+export function isPrivate(private_: number): boolean {
+  return private_ === 1
+}
+
+// Richer 3-way label, only available where has_friends_whitelist is
+// known (PlanDetail, i.e. the detail modal — not grid thumbnails, which
+// only ever have the coarser `private` flag). "Friends Only" isn't
+// independently confirmed against a real Friends-Can-Apply diagram yet
+// — see wbm-relay's CLAUDE.md "Sharing-permission ambiguity".
+export function planVisibility(private_: number, hasFriendsWhitelist: boolean): "private" | "friends" | "public" {
+  if (private_ === 1) return "private"
+  if (hasFriendsWhitelist) return "friends"
+  return "public"
+}
+
+// Mirrors wbm-relay's pkg/relay.DesignerProfile. Lighter stats than the
+// in-game designer profile UI (no "Total Popularity"/"Following") —
+// that data has no known equivalent on the public proxy this endpoint
+// uses. See wbm-relay's CLAUDE.md "Designer profiles" section.
+export interface DesignerProfile {
+  pid: string
+  // number_id is the numeric player id shown in-game (e.g. "3014918987")
+  // — distinct from pid (an internal id, never shown to players). Empty
+  // if that lookup failed.
+  number_id: string
+  nickname: string
+  follower_num: number
+  like_num: number
+  published_num: number
+  plans: DesignerPlan[]
+}
+
+// Mirrors wbm-relay's pkg/relay.DesignerPlan — lighter than GalleryPlan,
+// this upstream doesn't return build_num/like_num per plan.
+export interface DesignerPlan {
+  plan_id: string
+  art_code: string
+  share_id: string
+  picture_url: string
+  heat_val: number
+  upload_ts: number
+  category_tag: number
+  private: number
 }
 
 // 1464320 -> "1464K". Matches how the in-game UI abbreviates large

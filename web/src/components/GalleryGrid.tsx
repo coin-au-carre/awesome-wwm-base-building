@@ -3,18 +3,60 @@ import { useEffect, useRef, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { HammerIcon, HeartIcon, FireIcon, XIcon } from "@phosphor-icons/react"
+import { Input } from "@/components/ui/input"
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
+import { HammerIcon, HeartIcon, FireIcon, XIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
+import { url } from "@/lib/url"
 import {
   WBM_RELAY_URL,
   SORT_OPTIONS,
   DEFAULT_SORT,
   CATEGORY_OPTIONS,
   planDetailUrl,
+  searchGalleryUrl,
   formatCount,
   categoryLabel,
+  isPrivate,
+  planVisibility,
   type GalleryPlan,
   type PlanDetail,
 } from "@/lib/gallery"
+
+const VISIBILITY_STYLE = {
+  private: { icon: LockIcon, label: "Private", className: "bg-amber-500/80 text-white", title: "Only visible to the designer" },
+  friends: { icon: UsersIcon, label: "Friends Only", className: "bg-sky-500/80 text-white", title: "Friends Can Apply — best-effort detection, not fully confirmed yet" },
+  public: { icon: GlobeIcon, label: "Public", className: "bg-black/60 text-white/90", title: "Public or Cannot Apply — indistinguishable in the data" },
+} as const
+
+// Visibility pill. Grid thumbnails only ever know the coarse `private`
+// flag (hasFriendsWhitelist omitted); the detail modal has the fuller
+// PlanDetail and can tell "Friends Only" apart too — see
+// lib/gallery.ts's planVisibility.
+export function VisibilityBadge({
+  private_,
+  hasFriendsWhitelist = false,
+  size = "sm",
+  className = "",
+}: {
+  private_: number
+  hasFriendsWhitelist?: boolean
+  size?: "sm" | "md"
+  className?: string
+}) {
+  const state = VISIBILITY_STYLE[planVisibility(private_, hasFriendsWhitelist)]
+  const Icon = state.icon
+  const sizeClasses = size === "md" ? "text-sm px-2 py-1 gap-1.5" : "text-[11px] px-2 py-0.5 gap-1"
+  const iconSize = size === "md" ? "size-4" : "size-3"
+  return (
+    <span
+      title={state.title}
+      className={`inline-flex items-center font-medium rounded-md backdrop-blur-sm ${sizeClasses} ${state.className} ${className}`}
+    >
+      <Icon weight="fill" className={iconSize} />
+      {state.label}
+    </span>
+  )
+}
 
 const LIMIT = 20
 
@@ -27,16 +69,56 @@ function StatRow({ plan, className = "" }: { plan: Pick<GalleryPlan, "heat_val" 
       <span className="flex items-center gap-1">
         <HeartIcon weight="fill" className="size-3.5 text-rose-400" /> {formatCount(plan.like_num)}
       </span>
-      <span className="flex items-center gap-1">
+      <span className="flex items-center gap-1" title="Components used">
         <HammerIcon weight="duotone" className="size-3.5" /> {formatCount(plan.build_num)}
       </span>
     </div>
   )
 }
 
-function DetailModal({ planId, onClose }: { planId: string; onClose: () => void }) {
+// Every image for the modal's carousel: the cover picture first, then
+// any additional previews (deduped — the upstream API sometimes
+// repeats the cover inside `previews`).
+function detailImages(detail: PlanDetail): string[] {
+  const urls = [detail.picture_url, ...(detail.previews ?? [])].filter(Boolean)
+  return Array.from(new Set(urls))
+}
+
+// A code pill (art_code / share_id) that copies its own value on click.
+export function CopyPill({ label, value, className = "" }: { label: string; value: string; className?: string }) {
+  const [copied, setCopied] = useState(false)
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation()
+        navigator.clipboard.writeText(value)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 800)
+      }}
+      title={`Copy ${label}`}
+      className={`inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-4 py-1.5 text-sm font-mono cursor-pointer select-none hover:bg-muted transition-colors ${className}`}
+    >
+      <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</span>
+      {value}
+      {copied ? (
+        <CheckIcon weight="bold" className="size-3.5 text-green-500" />
+      ) : (
+        <CopyIcon weight="bold" className="size-3.5 text-muted-foreground" />
+      )}
+    </button>
+  )
+}
+
+// A builder link — same shape whether it comes off a gallery card
+// (GalleryPlan) or a designer's own build grid (DesignerPlan).
+export function builderHref(pid?: string): string {
+  return url(`/gallery/builder?id=${encodeURIComponent(pid ?? "")}`)
+}
+
+export function DetailModal({ plan, onClose }: { plan: Pick<GalleryPlan, "plan_id" | "author_name" | "author_pid" | "author_number_id">; onClose: () => void }) {
   const [detail, setDetail] = useState<PlanDetail | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [imgIndex, setImgIndex] = useState(0)
 
   useEffect(() => {
     document.body.style.overflow = "hidden"
@@ -55,7 +137,8 @@ function DetailModal({ planId, onClose }: { planId: string; onClose: () => void 
   useEffect(() => {
     setDetail(null)
     setError(null)
-    fetch(planDetailUrl(planId))
+    setImgIndex(0)
+    fetch(planDetailUrl(plan.plan_id))
       .then((res) => {
         if (!res.ok) {
           throw new Error(`relay returned ${res.status}`)
@@ -64,7 +147,9 @@ function DetailModal({ planId, onClose }: { planId: string; onClose: () => void 
       })
       .then(setDetail)
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
-  }, [planId])
+  }, [plan.plan_id])
+
+  const images = detail ? detailImages(detail) : []
 
   return (
     <div
@@ -100,12 +185,40 @@ function DetailModal({ planId, onClose }: { planId: string; onClose: () => void 
         {!error && detail && (
           <>
             <div className="relative">
-              {detail.picture_url && (
+              {images[imgIndex] && (
                 <img
-                  src={detail.picture_url}
+                  src={images[imgIndex]}
                   alt={detail.title}
                   className="w-full max-h-[65vh] object-contain bg-black"
                 />
+              )}
+              {images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setImgIndex((i) => (i - 1 + images.length) % images.length)}
+                    aria-label="Previous image"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center size-8 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors cursor-pointer"
+                  >
+                    <CaretLeftIcon weight="bold" className="size-4" />
+                  </button>
+                  <button
+                    onClick={() => setImgIndex((i) => (i + 1) % images.length)}
+                    aria-label="Next image"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center size-8 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors cursor-pointer"
+                  >
+                    <CaretRightIcon weight="bold" className="size-4" />
+                  </button>
+                  <div className="absolute top-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    {images.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setImgIndex(i)}
+                        aria-label={`Image ${i + 1}`}
+                        className={`size-1.5 rounded-full transition-colors cursor-pointer ${i === imgIndex ? "bg-white" : "bg-white/40 hover:bg-white/60"}`}
+                      />
+                    ))}
+                  </div>
+                </>
               )}
               <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/40 to-transparent px-6 pt-10 pb-5">
                 {detail.title && (
@@ -117,14 +230,65 @@ function DetailModal({ planId, onClose }: { planId: string; onClose: () => void 
               </div>
             </div>
             <div className="p-6 space-y-4">
+              {plan.author_name && (
+                <div className="flex items-center gap-2 flex-wrap">
+                  <a
+                    href={builderHref(plan.author_pid)}
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 text-base sm:text-lg font-semibold hover:text-primary transition-colors"
+                  >
+                    <UserCircleIcon weight="fill" className="size-8 text-muted-foreground" />
+                    {plan.author_name}
+                  </a>
+                  {plan.author_number_id && <CopyPill label="ID" value={plan.author_number_id} />}
+                </div>
+              )}
               {detail.description && (
                 <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
                   {detail.description}
                 </p>
               )}
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="font-mono">{detail.art_code}</Badge>
-                {detail.share_id && <Badge variant="outline" className="font-mono">{detail.share_id}</Badge>}
+              <div className="flex flex-wrap gap-4 text-sm">
+                <span><span className="text-muted-foreground">Components</span> <span className="font-medium">{detail.build_num}</span></span>
+                {detail.industry_level !== undefined && (
+                  <span><span className="text-muted-foreground">Industry level</span> <span className="font-medium">{detail.industry_level}</span></span>
+                )}
+                {detail.prosperity !== undefined && (
+                  <span><span className="text-muted-foreground">Prosperity</span> <span className="font-medium">{detail.prosperity}</span></span>
+                )}
+              </div>
+              {detail.components && Object.keys(detail.components).length > 0 && (
+                <Collapsible>
+                  <CollapsibleTrigger className="group flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                    <CaretRightIcon weight="bold" className="size-3 transition-transform group-data-[state=open]:rotate-90" />
+                    Component list ({Object.keys(detail.components).length} types)
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <p className="text-xs text-muted-foreground mt-2 mb-1">
+                      Raw internal item codes — no name mapping exists yet, so these aren't human-readable item names.
+                    </p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm font-mono">
+                      {Object.entries(detail.components)
+                        .sort((a, b) => b[1] - a[1])
+                        .map(([code, count]) => (
+                          <div key={code} className="flex justify-between">
+                            <span className="text-muted-foreground">#{code}</span>
+                            <span>×{count}</span>
+                          </div>
+                        ))}
+                    </div>
+                  </CollapsibleContent>
+                </Collapsible>
+              )}
+              <div className="flex flex-wrap gap-3 items-center">
+                <CopyPill label="ART" value={detail.art_code} />
+                {detail.share_id && <CopyPill label="Share" value={detail.share_id} />}
+                <VisibilityBadge
+                  private_={detail.private}
+                  hasFriendsWhitelist={detail.has_friends_whitelist}
+                  size="md"
+                  className="bg-muted/50! text-foreground! border border-border"
+                />
               </div>
             </div>
           </>
@@ -137,21 +301,41 @@ function DetailModal({ planId, onClose }: { planId: string; onClose: () => void 
 export function GalleryGrid() {
   const [sort, setSort] = useState<string>(DEFAULT_SORT)
   const [tag, setTag] = useState<number>(CATEGORY_OPTIONS[0].value)
+  const [query, setQuery] = useState("")
   const [plans, setPlans] = useState<GalleryPlan[]>([])
   const [nextStart, setNextStart] = useState(0)
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null)
+  const [selectedPlan, setSelectedPlan] = useState<GalleryPlan | null>(null)
   const [hasMore, setHasMore] = useState(true)
   const sentinelRef = useRef<HTMLDivElement | null>(null)
 
-  // sort/tag change → reset and refetch page 0
+  // Debounce the raw input into a value the fetch effect reacts to, so
+  // we don't hit the relay on every keystroke.
+  const [debouncedQuery, setDebouncedQuery] = useState("")
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedQuery(query.trim()), 400)
+    return () => clearTimeout(t)
+  }, [query])
+
+  // sort/tag/search change → reset and refetch page 0. A non-empty
+  // search takes over the whole grid (single page, no pagination — see
+  // wbm-relay's /api/search, only confirmed for ART/SHARE codes so far).
   useEffect(() => {
     setLoading(true)
     setError(null)
     setHasMore(true)
-    fetch(`${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=0&limit=${LIMIT}`)
+    if (!WBM_RELAY_URL) {
+      setLoading(false)
+      setHasMore(false)
+      setError("not deployed yet")
+      return
+    }
+    const fetchUrl = debouncedQuery
+      ? searchGalleryUrl(debouncedQuery)
+      : `${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=0&limit=${LIMIT}`
+    fetch(fetchUrl)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`relay returned ${res.status}`)
@@ -162,11 +346,11 @@ export function GalleryGrid() {
         const fetched = data.plans ?? []
         setPlans(fetched)
         setNextStart(data.next_start ?? 0)
-        setHasMore(fetched.length > 0)
+        setHasMore(!debouncedQuery && fetched.length > 0)
       })
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
       .finally(() => setLoading(false))
-  }, [sort, tag])
+  }, [sort, tag, debouncedQuery])
 
   function loadMore() {
     setLoadingMore(true)
@@ -210,24 +394,36 @@ export function GalleryGrid() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex flex-wrap gap-1.5">
-          {CATEGORY_OPTIONS.map((opt) => (
-            <Badge key={opt.value} variant={tag === opt.value ? "default" : "outline"} asChild>
-              <button onClick={() => setTag(opt.value)} className="cursor-pointer">
-                {opt.label}
-              </button>
-            </Badge>
-          ))}
-        </div>
-        <Tabs value={sort} onValueChange={setSort}>
-          <TabsList>
-            {SORT_OPTIONS.map((opt) => (
-              <TabsTrigger key={opt.value} value={opt.value}>{opt.label}</TabsTrigger>
-            ))}
-          </TabsList>
-        </Tabs>
+      <div className="relative max-w-sm">
+        <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+        <Input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search by ART or SHARE code…"
+          className="pl-9"
+        />
       </div>
+
+      {!query && (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex flex-wrap gap-1.5">
+            {CATEGORY_OPTIONS.map((opt) => (
+              <Badge key={opt.value} variant={tag === opt.value ? "default" : "outline"} asChild>
+                <button onClick={() => setTag(opt.value)} className="cursor-pointer">
+                  {opt.label}
+                </button>
+              </Badge>
+            ))}
+          </div>
+          <Tabs value={sort} onValueChange={setSort}>
+            <TabsList>
+              {SORT_OPTIONS.map((opt) => (
+                <TabsTrigger key={opt.value} value={opt.value}>{opt.label}</TabsTrigger>
+              ))}
+            </TabsList>
+          </Tabs>
+        </div>
+      )}
 
       {error && (
         <p className="text-sm text-muted-foreground">
@@ -244,7 +440,9 @@ export function GalleryGrid() {
       )}
 
       {!error && !loading && plans.length === 0 && (
-        <p className="text-sm text-muted-foreground">No builds in the gallery yet.</p>
+        <p className="text-sm text-muted-foreground">
+          {query ? `No results for "${query}".` : "No builds in the gallery yet."}
+        </p>
       )}
 
       {!error && !loading && plans.length > 0 && (
@@ -255,7 +453,7 @@ export function GalleryGrid() {
               return (
                 <button
                   key={plan.plan_id}
-                  onClick={() => setSelectedPlanId(plan.plan_id)}
+                  onClick={() => setSelectedPlan(plan)}
                   className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted text-left cursor-pointer"
                 >
                   {plan.picture_url && (
@@ -264,6 +462,7 @@ export function GalleryGrid() {
                       alt=""
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => (e.currentTarget.style.display = "none")}
                     />
                   )}
                   <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
@@ -272,25 +471,34 @@ export function GalleryGrid() {
                       {label}
                     </span>
                   )}
+                  {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} className="absolute top-2 right-2" />}
                   <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-between gap-2">
                     <StatRow plan={plan} className="text-xs text-white/90" />
                     {plan.author_name && (
-                      <span className="text-sm text-white/80 truncate max-w-28 shrink-0">{plan.author_name}</span>
+                      <a
+                        href={builderHref(plan.author_pid)}
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-sm font-semibold text-white hover:text-primary hover:underline underline-offset-2 truncate max-w-28 shrink-0"
+                      >
+                        {plan.author_name}
+                      </a>
                     )}
                   </div>
                 </button>
               )
             })}
           </div>
-          <div ref={sentinelRef} className="flex justify-center py-4 text-sm text-muted-foreground">
-            {loadingMore && "Loading…"}
-            {!loadingMore && !hasMore && "That's everything."}
-          </div>
+          {!query && (
+            <div ref={sentinelRef} className="flex justify-center py-4 text-sm text-muted-foreground">
+              {loadingMore && "Loading…"}
+              {!loadingMore && !hasMore && "That's everything."}
+            </div>
+          )}
         </>
       )}
 
-      {selectedPlanId && (
-        <DetailModal planId={selectedPlanId} onClose={() => setSelectedPlanId(null)} />
+      {selectedPlan && (
+        <DetailModal plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
       )}
     </div>
   )

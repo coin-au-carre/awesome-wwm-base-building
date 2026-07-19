@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/main.astro"
+import { BuilderProfile } from "@/components/BuilderProfile"
+
+// Query-string route (?id=<pid>) rather than a dynamic [id] path
+// segment — the site builds statically and this page has no build-time
+// list of gallery designer pids to enumerate.
+---
+
+<Layout
+  title="Where Builders Meet | Gallery builder (preview)"
+  description="Gallery builder profile — work in progress."
+  noindex
+  fullWidth
+>
+  <BuilderProfile client:load />
+</Layout>
