@@ -21,10 +21,10 @@
     "guildName": "The Inner Ways",
     "guildId": "10183152",
     "type": "dancing",
-    "scheduledStart": "2026-07-18T21:30:00Z",
-    "scheduledEnd": "2026-07-19T00:00:00Z",
+    "scheduledStart": "2026-07-25T21:30:00Z",
+    "scheduledEnd": "2026-07-26T00:00:00Z",
     "location": "The Inner Ways Guild HQ",
-    "status": "active",
+    "status": "scheduled",
     "subscriberCount": 6,
     "discordUrl": "https://discord.com/events/1483447710617960508/1494699778762866898",
     "image": "https://cdn.discordapp.com/guild-events/1494699778762866898/b2e3585b276a25589b8179a68c57d18c.png?size=512"
@@ -36,7 +36,7 @@
     "channelType": "voice",
     "channelName": "General",
     "status": "scheduled",
-    "subscriberCount": 5,
+    "subscriberCount": 6,
     "discordUrl": "https://discord.com/events/1483447710617960508/1525792359990820875",
     "image": "https://cdn.discordapp.com/guild-events/1525792359990820875/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
   }
