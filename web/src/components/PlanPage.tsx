@@ -18,7 +18,7 @@ export function PlanPage() {
   }, [])
 
   useEffect(() => {
-    if (!shareCode) return
+    if (!shareCode) {return }
     if (!WBM_RELAY_URL) {
       setError("not deployed yet")
       return
@@ -31,7 +31,7 @@ export function PlanPage() {
           setNotFound(true)
           return null
         }
-        if (!res.ok) throw new Error(`relay returned ${res.status}`)
+        if (!res.ok) { throw new Error(`relay returned ${res.status}`) } 
         return res.json()
       })
       .then((data) => data && setDetail(data))
@@ -47,7 +47,7 @@ export function PlanPage() {
     }
   }, [detail])
 
-  if (shareCode === null) return null
+  if (shareCode === null) { return null }
 
   if (!shareCode) {
     return <p className="text-sm text-muted-foreground">No diagram specified.</p>

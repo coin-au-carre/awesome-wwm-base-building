@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, CalendarIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import {
@@ -14,6 +14,7 @@ import {
   DEFAULT_SORT,
   CATEGORY_OPTIONS,
   searchGalleryUrl,
+  isValidGalleryCode,
   designerUrl,
   formatCount,
   categoryLabel,
@@ -95,6 +96,29 @@ export function StatRow({
 function detailImages(detail: PlanDetail): string[] {
   const urls = [detail.picture_url, ...(detail.previews ?? [])].filter(Boolean)
   return Array.from(new Set(urls))
+}
+
+// A small stat card for the plan detail meta grid (Components/Industry
+// level/Prosperity/Downloads/Created) — icon + label + value, replacing
+// what used to be a plain flex row of "Label value" text pairs.
+function StatTile({
+  icon: Icon,
+  label,
+  value,
+}: {
+  icon: React.ComponentType<{ weight?: "regular" | "bold" | "duotone" | "fill"; className?: string }>
+  label: string
+  value: string | number
+}) {
+  return (
+    <div className="flex items-center gap-2.5 rounded-lg border border-border bg-muted/30 px-3 py-2">
+      <Icon weight="duotone" className="size-5 text-muted-foreground shrink-0" />
+      <div className="min-w-0">
+        <div className="text-[11px] uppercase tracking-wide text-muted-foreground leading-none">{label}</div>
+        <div className="text-sm font-semibold leading-tight whitespace-nowrap">{value}</div>
+      </div>
+    </div>
+  )
 }
 
 // A code pill (art_code / share_id) that copies its own value on click.
@@ -348,16 +372,18 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
             {detail.description}
           </p>
         )}
-        <div className="flex flex-wrap gap-4 text-sm">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {detail.components_count != null && detail.components_count > 0 && (
-            <span><span className="text-muted-foreground">Components</span> <span className="font-medium">{detail.components_count}</span></span>
+            <StatTile icon={HammerIcon} label="Components" value={detail.components_count} />
           )}
-          <span><span className="text-muted-foreground">Downloads</span> <span className="font-medium">{detail.build_num}</span></span>
           {detail.industry_level !== undefined && (
-            <span><span className="text-muted-foreground">Industry level</span> <span className="font-medium">{detail.industry_level}</span></span>
+            <StatTile icon={FactoryIcon} label="Industry level" value={detail.industry_level} />
           )}
           {detail.prosperity !== undefined && (
-            <span><span className="text-muted-foreground">Prosperity</span> <span className="font-medium">{detail.prosperity}</span></span>
+            <StatTile icon={TrendUpIcon} label="Prosperity" value={detail.prosperity} />
+          )}
+          {detail.upload_ts > 0 && (
+            <StatTile icon={CalendarIcon} label="Created" value={new Date(detail.upload_ts * 1000).toLocaleDateString()} />
           )}
         </div>
         {detail.components && Object.keys(detail.components).length > 0 && (
@@ -435,10 +461,21 @@ export function GalleryGrid() {
     return () => clearTimeout(t)
   }, [query])
 
+  // A non-empty query must be a well-formed ART/SHARE code before we'll
+  // even hit the relay — see isValidGalleryCode.
+  const queryInvalid = debouncedQuery !== "" && !isValidGalleryCode(debouncedQuery)
+
   // sort/tag/search change → reset and refetch page 0. A non-empty
   // search takes over the whole grid (single page, no pagination — see
   // wbm-relay's /api/search, only confirmed for ART/SHARE codes so far).
   useEffect(() => {
+    if (queryInvalid) {
+      setLoading(false)
+      setPlans([])
+      setHasMore(false)
+      setError(null)
+      return
+    }
     setLoading(true)
     setError(null)
     setHasMore(true)
@@ -466,7 +503,7 @@ export function GalleryGrid() {
       })
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
       .finally(() => setLoading(false))
-  }, [sort, tag, debouncedQuery])
+  }, [sort, tag, debouncedQuery, queryInvalid])
 
   function loadMore() {
     setLoadingMore(true)
@@ -512,14 +549,22 @@ export function GalleryGrid() {
     <div className="space-y-4">
       <div className="flex flex-wrap gap-3">
         <BuilderSearchInput />
-        <div className="relative flex-1 min-w-64">
-          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-          <Input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search by ART or SHARE code…"
-            className="pl-9"
-          />
+        <div className="flex-1 min-w-64">
+          <div className="relative">
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+            <Input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search by ART or SHARE code…"
+              className="pl-9"
+              aria-invalid={query.trim() !== "" && !isValidGalleryCode(query.trim())}
+            />
+          </div>
+          {query.trim() !== "" && !isValidGalleryCode(query.trim()) && (
+            <p className="mt-1 text-xs text-amber-600 dark:text-amber-400">
+              Not a valid ART or SHARE code (e.g. ARTakLUQfFVevW1Xl1A or SHAREeaea710c24cbc453).
+            </p>
+          )}
         </div>
       </div>
 

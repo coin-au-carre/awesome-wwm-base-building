@@ -119,6 +119,18 @@ export function searchGalleryUrl(q: string): string {
   return `${WBM_RELAY_URL}/api/search?q=${encodeURIComponent(q)}`
 }
 
+// ART = "ART" + base64 of a 12-byte value (16 base64 chars, no padding).
+// SHARE = "SHARE" + 8 raw hex bytes (16 hex chars). See wbm-relay's
+// wwm-presets/architecture.md "What the codes are". Free-text isn't a
+// confirmed upstream search mode, so reject anything that isn't one of
+// these two shapes before hitting the relay.
+const ART_CODE_RE = /^ART[A-Za-z0-9+/]{16}$/
+const SHARE_CODE_RE = /^SHARE[0-9a-f]{16}$/i
+
+export function isValidGalleryCode(q: string): boolean {
+  return ART_CODE_RE.test(q) || SHARE_CODE_RE.test(q)
+}
+
 // private=1 reliably means "Only Visible To Me" — private=0 covers
 // "Public," "Cannot Apply," AND "Friends Can Apply" alike, genuinely
 // indistinguishable in NetEase's own data (see cmd/diagram-lookup's
