@@ -2,7 +2,7 @@ import * as React from "react"
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { UserCircleIcon } from "@phosphor-icons/react"
-import { PlanCard, CopyPill } from "@/components/GalleryGrid"
+import { PlanCard, CopyPill, ShareButton } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
 
@@ -102,9 +102,10 @@ export function BuilderProfile() {
 
   return (
     <div className="space-y-6">
-      <div className="flex gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <BackLink />
         <GalleryLink />
+        <ShareButton label="Share profile" />
       </div>
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-3">

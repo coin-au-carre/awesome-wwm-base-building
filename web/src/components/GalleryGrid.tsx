@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import {
@@ -122,6 +122,36 @@ export function CopyPill({ label, value, className = "" }: { label: string; valu
   )
 }
 
+// Copies the current page's own URL — used on the shareable plan/
+// builder pages so visitors have an obvious "share this" action rather
+// than having to copy the address bar themselves. location.href is
+// only read at click/render time, both of which happen well after
+// hydration on these pages (they only render this once their data has
+// loaded), so it's never touched during Astro's server/build pass.
+export function ShareButton({ label = "Share" }: { label?: string }) {
+  const [copied, setCopied] = useState(false)
+  return (
+    <button
+      onClick={() => {
+        navigator.clipboard.writeText(location.href)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 1200)
+      }}
+      className={buttonVariants({ variant: "outline", size: "sm" })}
+    >
+      {copied ? (
+        <>
+          <CheckIcon weight="bold" className="size-3.5 text-green-500" /> Copied!
+        </>
+      ) : (
+        <>
+          <ShareNetworkIcon weight="bold" className="size-3.5" /> {label}
+        </>
+      )}
+    </button>
+  )
+}
+
 // A builder link — same shape whether it comes off a gallery card
 // (GalleryPlan) or a designer's own build grid (DesignerPlan). numberID
 // is the public account number — wbm-relay resolves whatever internal
@@ -221,6 +251,15 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
   const [imgIndex, setImgIndex] = useState(0)
   const images = detailImages(detail)
 
+  // Auto-advance every 4s, paused on hover so it doesn't fight anyone
+  // actually looking at a specific screenshot. No-op for a single image.
+  const [paused, setPaused] = useState(false)
+  useEffect(() => {
+    if (images.length <= 1 || paused) return
+    const t = setInterval(() => setImgIndex((i) => (i + 1) % images.length), 4000)
+    return () => clearInterval(t)
+  }, [images.length, paused])
+
   // "More by this builder" — fetched separately from detail itself
   // (which only carries author identity, not their other plans).
   // null = not loaded/loading yet, [] = loaded but nothing to show
@@ -245,7 +284,7 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
         {images[imgIndex] && (
           <img
             src={images[imgIndex]}
