@@ -35,8 +35,8 @@
     "scheduledStart": "2026-07-20T13:00:00Z",
     "channelType": "voice",
     "channelName": "General",
-    "status": "scheduled",
-    "subscriberCount": 9,
+    "status": "active",
+    "subscriberCount": 10,
     "discordUrl": "https://discord.com/events/1483447710617960508/1525792359990820875",
     "image": "https://cdn.discordapp.com/guild-events/1525792359990820875/1ec4e8fab6a8ce8e140e173ecbffcdf0.png?size=512"
   },
