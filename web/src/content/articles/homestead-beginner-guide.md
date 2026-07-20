@@ -217,6 +217,7 @@ This page is a web version of Cylos guide available on [Google Doc](https://docs
 
 
 
+
 Homestead Guide
 
 ## Basics<img src="/tutorials/homestead-beginner-guide/img-1.webp" style="width: 80%" />
@@ -229,7 +230,7 @@ Prosperity: Prosperity could be seen as the “elegance score” of the Homeste
 
 * * *
 
-<img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" />
+<img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" />
 
 Warehouse: The warehouse is your Homesteads storage. All the items you produce go into your warehouse. You can also deposit items from your normal character backpack into the warehouse. There is a deposit cap of 1200 items per week. The best use for this feature early on would be to deposit items you can buy from normal vendors across the map to save time e.g. Dushan Blue Jade, Copper, Wine-Scented Jade etc. This could give you a boost in completing the Trade for Profit packs without having to change around your whole production line.<img src="/tutorials/homestead-beginner-guide/img-6.webp" style="width: 60%" />
 
@@ -281,7 +282,7 @@ To start farming, place down the farm plot and walk up to it. You can interact w
 
 - 1\) Sow: Used to plant seeds. To choose what seeds you want to plant either left click on the sow button or click on the config button on the right. This will pull up the Seeds menu. Here you can select the seed you want to be sown by ticking the box on the right side<img src="/tutorials/homestead-beginner-guide/img-17.webp" style="width: 60%" />
 
-One thing to note is that each plot has 16 slots. So you can choose either 16 of the same seed or 8/8 of 2 different seeds. Each seed has a different growth time and yield amount. Usually the more growth time means more yield. You can check this by hovering over the seed.<img src="/tutorials/homestead-beginner-guide/img-19.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-18.webp" style="width: 60%" />
+One thing to note is that each plot has 16 slots. So you can choose either 16 of the same seed or 8/8 of 2 different seeds. Each seed has a different growth time and yield amount. Usually the more growth time means more yield. You can check this by hovering over the seed.<img src="/tutorials/homestead-beginner-guide/img-18.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-19.webp" style="width: 60%" />
 
 Alternatively you can also change the Tab to Seeds and plant them from there by pressing the number you want to sow.
 

@@ -49,7 +49,7 @@ featured: false
 ## Near a certain musician in Kaifeng Palace
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/vehs" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">vehs</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a5eb1d0&format=webp&hm=161db0d6a9d61c68571d478c34d777df6becc538cf20a04caf16d708282360c5&is=6a5d6050&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a5f5a90&format=webp&hm=031d8a45e6917aec3857a111bb1bc368a7ea3343db17f1c20026eda4c77e0cb0&is=6a5e0910&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
@@ -70,7 +70,7 @@ featured: false
 ## A bonsai is in the wall
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5ebc70&format=webp&hm=1eb76e991b4bd26e5ca04567ae6c8a6268b9d91d1a6f693664f131003b79774b&is=6a5d6af0&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a5f6530&format=webp&hm=9cb78e4a9497efd1a36a7c255663e62ed63499787e155d019845e03ef9a6e408&is=6a5e13b0&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
