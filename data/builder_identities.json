@@ -20,7 +20,11 @@
 			"siming-司命",
 			"siming",
 			"Kuri (SiMing 司命)"
-		]
+		],
+		"ingameNickname": "SiMing司命",
+		"neteaseNumberId": "1042838040",
+		"neteasePid": "aRem/4nymDB4ENeS",
+		"neteaseHostnum": 10104
 	},
 	{
 		"discordId": "126791095731486722",
@@ -28,7 +32,11 @@
 		"canonicalSlug": "aegisnite",
 		"aliases": [
 			"aegisnite-edge"
-		]
+		],
+		"ingameNickname": "AegisNite",
+		"neteaseNumberId": "2039308500",
+		"neteasePid": "aRpEIai7/r4lkyTb",
+		"neteaseHostnum": 10203
 	},
 	{
 		"discordId": "997247599880978603",
