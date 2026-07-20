@@ -13,7 +13,7 @@ export const WBM_RELAY_URL = import.meta.env.PUBLIC_WBM_RELAY_URL || (import.met
 
 // Mirrors wbm-relay's pkg/relay.PlanBrief — a gallery-listing item, not
 // the full plan detail. No title/description/previews: those only
-// exist on GET /api/plan/:id, which isn't wired into this page.
+// exist on PlanDetail (GET /api/plan?id=, see planDetailUrl).
 export interface GalleryPlan {
   plan_id: string
   art_code: string
@@ -58,6 +58,11 @@ export interface PlanDetail {
   description: string
   picture_url: string
   previews: string[] | null
+  // Resolved server-side (one extra get_players_info call) since,
+  // unlike a gallery card, a direct link to this plan (e.g. via
+  // planDetailUrl with a SHARE code) has no other source for this.
+  author_number_id?: string
+  author_name?: string
   // See GalleryPlan.build_num — a download/apply count, not a piece
   // count. components_count below is the real piece total.
   build_num: number
@@ -82,11 +87,14 @@ export interface PlanDetail {
   prosperity?: number
 }
 
-// plan_id can contain "/" and "+" (e.g. "aluKZe6M5w8b/fFP") — never
-// safe as a raw path segment even URL-encoded. Always use the query
-// form. See wbm-relay's CLAUDE.md.
-export function planDetailUrl(planID: string): string {
-  return `${WBM_RELAY_URL}/api/plan?id=${encodeURIComponent(planID)}`
+// id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
+// resolves whichever it got server-side (see its CLAUDE.md's
+// "Shareable plan links" section). plan_id specifically can contain "/"
+// and "+" (e.g. "aluKZe6M5w8b/fFP") — never safe as a raw path segment
+// even URL-encoded, so always use the query form regardless of which
+// code type this is.
+export function planDetailUrl(id: string): string {
+  return `${WBM_RELAY_URL}/api/plan?id=${encodeURIComponent(id)}`
 }
 
 // numberID is the public account number (author_number_id on a
@@ -94,6 +102,13 @@ export function planDetailUrl(planID: string): string {
 // server-side, so nothing else has to travel through this URL.
 export function designerUrl(numberID: string): string {
   return `${WBM_RELAY_URL}/api/designer?id=${encodeURIComponent(numberID)}`
+}
+
+// nickname must match exactly — confirmed live 2026-07-20, no known
+// fuzzy/substring matching on this endpoint. See wbm-relay's CLAUDE.md
+// "Shareable plan links"-adjacent designer-profile section.
+export function designerByNameUrl(nickname: string): string {
+  return `${WBM_RELAY_URL}/api/designer?name=${encodeURIComponent(nickname)}`
 }
 
 // Confirmed working for ART codes (e.g. "ARTakLUQfFVevW1Xl1A") and SHARE
@@ -113,8 +128,8 @@ export function isPrivate(private_: number): boolean {
 }
 
 // Richer 3-way label, only available where has_friends_whitelist is
-// known (PlanDetail, i.e. the detail modal — not grid thumbnails, which
-// only ever have the coarser `private` flag). "Friends Only" isn't
+// known (PlanDetail, i.e. the plan detail view — not grid thumbnails,
+// which only ever have the coarser `private` flag). "Friends Only" isn't
 // independently confirmed against a real Friends-Can-Apply diagram yet
 // — see wbm-relay's CLAUDE.md "Sharing-permission ambiguity".
 export function planVisibility(private_: number, hasFriendsWhitelist: boolean): "private" | "friends" | "public" {

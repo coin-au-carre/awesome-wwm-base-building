@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, XIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import {
@@ -13,14 +13,15 @@ import {
   SORT_OPTIONS,
   DEFAULT_SORT,
   CATEGORY_OPTIONS,
-  planDetailUrl,
   searchGalleryUrl,
+  designerUrl,
   formatCount,
   categoryLabel,
   isPrivate,
   planVisibility,
   type GalleryPlan,
   type PlanDetail,
+  type DesignerProfile,
 } from "@/lib/gallery"
 
 const VISIBILITY_STYLE = {
@@ -30,8 +31,8 @@ const VISIBILITY_STYLE = {
 } as const
 
 // Visibility pill. Grid thumbnails only ever know the coarse `private`
-// flag (hasFriendsWhitelist omitted); the detail modal has the fuller
-// PlanDetail and can tell "Friends Only" apart too — see
+// flag (hasFriendsWhitelist omitted); the plan detail view has the
+// fuller PlanDetail and can tell "Friends Only" apart too — see
 // lib/gallery.ts's planVisibility.
 export function VisibilityBadge({
   private_,
@@ -88,8 +89,8 @@ export function StatRow({
   )
 }
 
-// Every image for the modal's carousel: the cover picture first, then
-// any additional previews (deduped — the upstream API sometimes
+// Every image for the detail view's carousel: the cover picture first,
+// then any additional previews (deduped — the upstream API sometimes
 // repeats the cover inside `previews`).
 function detailImages(detail: PlanDetail): string[] {
   const urls = [detail.picture_url, ...(detail.previews ?? [])].filter(Boolean)
@@ -129,190 +130,249 @@ export function builderHref(numberID?: string): string {
   return url(`/gallery/builder?id=${encodeURIComponent(numberID ?? "")}`)
 }
 
-export function DetailModal({ plan, onClose }: { plan: Pick<GalleryPlan, "plan_id" | "author_name" | "author_number_id">; onClose: () => void }) {
-  const [detail, setDetail] = useState<PlanDetail | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [imgIndex, setImgIndex] = useState(0)
+// A search box for jumping straight to a builder's profile by their
+// public account number (all digits) or their exact in-game nickname
+// (anything else) — wbm-relay's GET /api/designer accepts either
+// (?id= or ?name=), see gallery.ts. Nickname matching is exact only,
+// confirmed live 2026-07-20 — no fuzzy/substring search upstream.
+export function BuilderSearchInput() {
+  const [value, setValue] = useState("")
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden"
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose()
-      }
-    }
-    window.addEventListener("keydown", onKey)
-    return () => {
-      document.body.style.overflow = ""
-      window.removeEventListener("keydown", onKey)
-    }
-  }, [onClose])
-
-  useEffect(() => {
-    setDetail(null)
-    setError(null)
-    setImgIndex(0)
-    fetch(planDetailUrl(plan.plan_id))
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`relay returned ${res.status}`)
-        }
-        return res.json()
-      })
-      .then(setDetail)
-      .catch((err) => setError(err instanceof Error ? err.message : String(err)))
-  }, [plan.plan_id])
-
-  const images = detail ? detailImages(detail) : []
+  function go() {
+    const v = value.trim()
+    if (!v) return
+    const param = /^\d+$/.test(v) ? "id" : "name"
+    location.href = url(`/gallery/builder?${param}=${encodeURIComponent(v)}`)
+  }
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-8"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        aria-label="Close"
-        className="absolute top-4 right-4 z-10 flex items-center justify-center size-9 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
-      >
-        <XIcon weight="bold" className="size-5" />
-      </button>
+    <div className="relative flex-1 min-w-64">
+      <UserCircleIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+      <Input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && go()}
+        placeholder="Find a builder by name or ID…"
+        className="pl-9"
+      />
+    </div>
+  )
+}
 
-      <div
-        className="relative w-full max-w-5xl max-h-full overflow-y-auto rounded-2xl bg-card ring-1 ring-white/10 shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {error && (
-          <div className="p-8 text-center text-sm text-muted-foreground">
-            Couldn't load this build ({error}).
-          </div>
+// A shareable link to one diagram's own page (gallery/plan.astro).
+// shareId is the SHARE code (not plan_id/art_code) — the same code the
+// in-game "share" button produces, more recognizable to players than
+// an internal id. wbm-relay's GET /api/plan resolves it server-side.
+export function planHref(shareId?: string): string {
+  return url(`/gallery/plan?share=${encodeURIComponent(shareId ?? "")}`)
+}
+
+// One gallery thumbnail card — used by the main grid, a builder's own
+// build grid, and "more by this builder" on the plan detail page.
+// showAuthor is off on a builder's own grid (redundant — already
+// viewing that builder) and on "more by this builder" (same reason).
+export function PlanCard({ plan, showAuthor = true }: { plan: GalleryPlan; showAuthor?: boolean }) {
+  const label = categoryLabel(plan.category_tag)
+  return (
+    <div className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted">
+      {/* The card's own link — wraps everything except the author
+          badge below, which must stay a sibling (not nested) since
+          it's its own separate link. */}
+      <a href={planHref(plan.share_id)} aria-label={plan.art_code} className="absolute inset-0">
+        {plan.picture_url && (
+          <img
+            src={plan.picture_url}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
         )}
-
-        {!error && !detail && (
-          <div className="space-y-4 p-4">
-            <Skeleton className="w-full aspect-video rounded-xl" />
-            <Skeleton className="h-6 w-1/2" />
-            <Skeleton className="h-4 w-full" />
-          </div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
+        {label && (
+          <span className="absolute top-2 left-2 text-[11px] font-medium px-2 py-0.5 rounded-md bg-black/60 text-white/90 backdrop-blur-sm">
+            {label}
+          </span>
         )}
+        {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} className="absolute top-2 right-2" />}
+        <div className="absolute bottom-0 left-0 p-3">
+          <StatRow plan={plan} className="text-xs text-white/90" />
+        </div>
+      </a>
+      {showAuthor && plan.author_name && (
+        <a
+          href={builderHref(plan.author_number_id)}
+          className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-1 text-sm font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full px-2.5 py-1 truncate max-w-28 shrink-0 transition-colors"
+        >
+          {plan.author_name}
+        </a>
+      )}
+    </div>
+  )
+}
 
-        {!error && detail && (
+// The full content of one plan's detail view — image carousel, author
+// link, stats, component breakdown, code pills. Used both by the
+// standalone shareable page (PlanPage) and could be reused anywhere
+// else a full detail view is needed; deliberately has no modal/page
+// chrome of its own; note it renders its own author link, so callers
+// must not also nest this inside another <a>.
+export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
+  const [imgIndex, setImgIndex] = useState(0)
+  const images = detailImages(detail)
+
+  // "More by this builder" — fetched separately from detail itself
+  // (which only carries author identity, not their other plans).
+  // null = not loaded/loading yet, [] = loaded but nothing to show
+  // (own request failed or no other plans) — both render nothing, no
+  // separate error state needed since this is supplementary, not core
+  // content.
+  const [moreByBuilder, setMoreByBuilder] = useState<GalleryPlan[] | null>(null)
+  useEffect(() => {
+    setMoreByBuilder(null)
+    if (!detail.author_number_id) return
+    fetch(designerUrl(detail.author_number_id))
+      .then((res) => (res.ok ? (res.json() as Promise<DesignerProfile>) : Promise.reject()))
+      .then((profile) => {
+        const others = profile.plans
+          .filter((p) => p.plan_id !== detail.plan_id)
+          .sort((a, b) => b.upload_ts - a.upload_ts)
+          .slice(0, 6)
+        setMoreByBuilder(others)
+      })
+      .catch(() => setMoreByBuilder([]))
+  }, [detail.author_number_id, detail.plan_id])
+
+  return (
+    <>
+      <div className="relative">
+        {images[imgIndex] && (
+          <img
+            src={images[imgIndex]}
+            alt={detail.title}
+            className="w-full max-h-[65vh] object-contain bg-black"
+          />
+        )}
+        {images.length > 1 && (
           <>
-            <div className="relative">
-              {images[imgIndex] && (
-                <img
-                  src={images[imgIndex]}
-                  alt={detail.title}
-                  className="w-full max-h-[65vh] object-contain bg-black"
+            <button
+              onClick={() => setImgIndex((i) => (i - 1 + images.length) % images.length)}
+              aria-label="Previous image"
+              className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center size-8 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors cursor-pointer"
+            >
+              <CaretLeftIcon weight="bold" className="size-4" />
+            </button>
+            <button
+              onClick={() => setImgIndex((i) => (i + 1) % images.length)}
+              aria-label="Next image"
+              className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center size-8 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors cursor-pointer"
+            >
+              <CaretRightIcon weight="bold" className="size-4" />
+            </button>
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setImgIndex(i)}
+                  aria-label={`Image ${i + 1}`}
+                  className={`size-1.5 rounded-full transition-colors cursor-pointer ${i === imgIndex ? "bg-white" : "bg-white/40 hover:bg-white/60"}`}
                 />
-              )}
-              {images.length > 1 && (
-                <>
-                  <button
-                    onClick={() => setImgIndex((i) => (i - 1 + images.length) % images.length)}
-                    aria-label="Previous image"
-                    className="absolute left-2 top-1/2 -translate-y-1/2 flex items-center justify-center size-8 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors cursor-pointer"
-                  >
-                    <CaretLeftIcon weight="bold" className="size-4" />
-                  </button>
-                  <button
-                    onClick={() => setImgIndex((i) => (i + 1) % images.length)}
-                    aria-label="Next image"
-                    className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center size-8 rounded-full bg-black/50 hover:bg-black/70 text-white transition-colors cursor-pointer"
-                  >
-                    <CaretRightIcon weight="bold" className="size-4" />
-                  </button>
-                  <div className="absolute top-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-                    {images.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setImgIndex(i)}
-                        aria-label={`Image ${i + 1}`}
-                        className={`size-1.5 rounded-full transition-colors cursor-pointer ${i === imgIndex ? "bg-white" : "bg-white/40 hover:bg-white/60"}`}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-              <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/40 to-transparent px-6 pt-10 pb-5">
-                {detail.title && (
-                  <h2 className="font-heading text-xl sm:text-2xl font-bold text-white drop-shadow leading-tight">
-                    {detail.title}
-                  </h2>
-                )}
-                <StatRow plan={detail} className="mt-2 text-sm text-white/85" />
-              </div>
-            </div>
-            <div className="p-6 space-y-4">
-              {plan.author_name && (
-                <div className="flex items-center gap-2 flex-wrap">
-                  <a
-                    href={builderHref(plan.author_number_id)}
-                    onClick={(e) => e.stopPropagation()}
-                    className={buttonVariants({ variant: "secondary", size: "lg", className: "text-base sm:text-lg font-semibold" })}
-                  >
-                    <UserCircleIcon weight="fill" className="size-6" />
-                    {plan.author_name}
-                    <CaretRightIcon weight="bold" className="size-4 opacity-60" />
-                  </a>
-                  {plan.author_number_id && <CopyPill label="ID" value={plan.author_number_id} />}
-                </div>
-              )}
-              {detail.description && (
-                <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-                  {detail.description}
-                </p>
-              )}
-              <div className="flex flex-wrap gap-4 text-sm">
-                {detail.components_count != null && detail.components_count > 0 && (
-                  <span><span className="text-muted-foreground">Components</span> <span className="font-medium">{detail.components_count}</span></span>
-                )}
-                <span><span className="text-muted-foreground">Downloads</span> <span className="font-medium">{detail.build_num}</span></span>
-                {detail.industry_level !== undefined && (
-                  <span><span className="text-muted-foreground">Industry level</span> <span className="font-medium">{detail.industry_level}</span></span>
-                )}
-                {detail.prosperity !== undefined && (
-                  <span><span className="text-muted-foreground">Prosperity</span> <span className="font-medium">{detail.prosperity}</span></span>
-                )}
-              </div>
-              {detail.components && Object.keys(detail.components).length > 0 && (
-                <Collapsible>
-                  <CollapsibleTrigger className="group flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-                    <CaretRightIcon weight="bold" className="size-3 transition-transform group-data-[state=open]:rotate-90" />
-                    Component list ({Object.keys(detail.components).length} types)
-                  </CollapsibleTrigger>
-                  <CollapsibleContent>
-                    <p className="text-xs text-muted-foreground mt-2 mb-1">
-                      Raw internal item codes — no name mapping exists yet, so these aren't human-readable item names.
-                    </p>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm font-mono">
-                      {Object.entries(detail.components)
-                        .sort((a, b) => b[1] - a[1])
-                        .map(([code, count]) => (
-                          <div key={code} className="flex justify-between">
-                            <span className="text-muted-foreground">#{code}</span>
-                            <span>×{count}</span>
-                          </div>
-                        ))}
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-              )}
-              <div className="flex flex-wrap gap-3 items-center">
-                <CopyPill label="ART" value={detail.art_code} />
-                {detail.share_id && <CopyPill label="Share" value={detail.share_id} />}
-                <VisibilityBadge
-                  private_={detail.private}
-                  hasFriendsWhitelist={detail.has_friends_whitelist}
-                  size="md"
-                  className="bg-muted/50! text-foreground! border border-border"
-                />
-              </div>
+              ))}
             </div>
           </>
         )}
+        <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/85 via-black/40 to-transparent px-6 pt-10 pb-5">
+          {detail.title && (
+            <h2 className="font-heading text-xl sm:text-2xl font-bold text-white drop-shadow leading-tight">
+              {detail.title}
+            </h2>
+          )}
+          <StatRow plan={detail} className="mt-2 text-sm text-white/85" />
+        </div>
       </div>
-    </div>
+      <div className="p-6 space-y-4">
+        {detail.author_name && (
+          <div className="flex items-center gap-2 flex-wrap">
+            <a
+              href={builderHref(detail.author_number_id)}
+              className={buttonVariants({ variant: "secondary", size: "lg", className: "text-base sm:text-lg font-semibold" })}
+            >
+              <UserCircleIcon weight="fill" className="size-6" />
+              {detail.author_name}
+              <CaretRightIcon weight="bold" className="size-4 opacity-60" />
+            </a>
+            {detail.author_number_id && <CopyPill label="ID" value={detail.author_number_id} />}
+          </div>
+        )}
+        {detail.description && (
+          <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+            {detail.description}
+          </p>
+        )}
+        <div className="flex flex-wrap gap-4 text-sm">
+          {detail.components_count != null && detail.components_count > 0 && (
+            <span><span className="text-muted-foreground">Components</span> <span className="font-medium">{detail.components_count}</span></span>
+          )}
+          <span><span className="text-muted-foreground">Downloads</span> <span className="font-medium">{detail.build_num}</span></span>
+          {detail.industry_level !== undefined && (
+            <span><span className="text-muted-foreground">Industry level</span> <span className="font-medium">{detail.industry_level}</span></span>
+          )}
+          {detail.prosperity !== undefined && (
+            <span><span className="text-muted-foreground">Prosperity</span> <span className="font-medium">{detail.prosperity}</span></span>
+          )}
+        </div>
+        {detail.components && Object.keys(detail.components).length > 0 && (
+          <Collapsible>
+            <CollapsibleTrigger className="group flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+              <CaretRightIcon weight="bold" className="size-3 transition-transform group-data-[state=open]:rotate-90" />
+              Component list ({Object.keys(detail.components).length} types)
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <p className="text-xs text-muted-foreground mt-2 mb-1">
+                Raw internal item codes — no name mapping exists yet, so these aren't human-readable item names.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-sm font-mono">
+                {Object.entries(detail.components)
+                  .sort((a, b) => b[1] - a[1])
+                  .map(([code, count]) => (
+                    <div key={code} className="flex justify-between">
+                      <span className="text-muted-foreground">#{code}</span>
+                      <span>×{count}</span>
+                    </div>
+                  ))}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+        )}
+        <div className="flex flex-wrap gap-3 items-center">
+          <CopyPill label="ART" value={detail.art_code} />
+          {detail.share_id && <CopyPill label="Share" value={detail.share_id} />}
+          <VisibilityBadge
+            private_={detail.private}
+            hasFriendsWhitelist={detail.has_friends_whitelist}
+            size="md"
+            className="bg-muted/50! text-foreground! border border-border"
+          />
+        </div>
+      </div>
+      {moreByBuilder && moreByBuilder.length > 0 && (
+        <div className="p-6 pt-0 space-y-3">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-semibold text-muted-foreground">
+              More by {detail.author_name || "this builder"}
+            </h3>
+            <a href={builderHref(detail.author_number_id)} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              View all
+            </a>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {moreByBuilder.map((p) => (
+              <PlanCard key={p.plan_id} plan={p} showAuthor={false} />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
@@ -325,7 +385,6 @@ export function GalleryGrid() {
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [selectedPlan, setSelectedPlan] = useState<GalleryPlan | null>(null)
   const [hasMore, setHasMore] = useState(true)
   const sentinelRef = useRef<HTMLDivElement | null>(null)
 
@@ -412,14 +471,17 @@ export function GalleryGrid() {
 
   return (
     <div className="space-y-4">
-      <div className="relative max-w-sm">
-        <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-        <Input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search by ART or SHARE code…"
-          className="pl-9"
-        />
+      <div className="flex flex-wrap gap-3">
+        <BuilderSearchInput />
+        <div className="relative flex-1 min-w-64">
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search by ART or SHARE code…"
+            className="pl-9"
+          />
+        </div>
       </div>
 
       {!query && (
@@ -466,45 +528,9 @@ export function GalleryGrid() {
       {!error && !loading && plans.length > 0 && (
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {plans.map((plan) => {
-              const label = categoryLabel(plan.category_tag)
-              return (
-                <button
-                  key={plan.plan_id}
-                  onClick={() => setSelectedPlan(plan)}
-                  className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted text-left cursor-pointer"
-                >
-                  {plan.picture_url && (
-                    <img
-                      src={plan.picture_url}
-                      alt=""
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => (e.currentTarget.style.display = "none")}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  {label && (
-                    <span className="absolute top-2 left-2 text-[11px] font-medium px-2 py-0.5 rounded-md bg-black/60 text-white/90 backdrop-blur-sm">
-                      {label}
-                    </span>
-                  )}
-                  {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} className="absolute top-2 right-2" />}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-between gap-2">
-                    <StatRow plan={plan} className="text-xs text-white/90" />
-                    {plan.author_name && (
-                      <a
-                        href={builderHref(plan.author_number_id)}
-                        onClick={(e) => e.stopPropagation()}
-                        className="inline-flex items-center gap-1 text-sm font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full px-2.5 py-1 truncate max-w-28 shrink-0 transition-colors"
-                      >
-                        {plan.author_name}
-                      </a>
-                    )}
-                  </div>
-                </button>
-              )
-            })}
+            {plans.map((plan) => (
+              <PlanCard key={plan.plan_id} plan={plan} />
+            ))}
           </div>
           {!query && (
             <div ref={sentinelRef} className="flex justify-center py-4 text-sm text-muted-foreground">
@@ -513,10 +539,6 @@ export function GalleryGrid() {
             </div>
           )}
         </>
-      )}
-
-      {selectedPlan && (
-        <DetailModal plan={selectedPlan} onClose={() => setSelectedPlan(null)} />
       )}
     </div>
   )

@@ -1,17 +1,10 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
-import { ArrowLeftIcon, UserCircleIcon } from "@phosphor-icons/react"
-import { DetailModal, StatRow, VisibilityBadge, CopyPill } from "@/components/GalleryGrid"
-import { url } from "@/lib/url"
-import {
-  WBM_RELAY_URL,
-  designerUrl,
-  categoryLabel,
-  isPrivate,
-  type DesignerProfile,
-  type DesignerPlan,
-} from "@/lib/gallery"
+import { UserCircleIcon } from "@phosphor-icons/react"
+import { PlanCard, CopyPill } from "@/components/GalleryGrid"
+import { BackLink, GalleryLink } from "@/components/BackLink"
+import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
 
 function StatTile({ value, label }: { value: number | string; label: string }) {
   return (
@@ -23,44 +16,75 @@ function StatTile({ value, label }: { value: number | string; label: string }) {
 }
 
 export function BuilderProfile() {
-  const [numberId, setNumberId] = useState<string | null>(null)
+  // undefined = not read from the URL yet (initial render), null = read
+  // and genuinely absent. Only one of id/name is expected to be set.
+  const [query, setQuery] = useState<{ id: string | null; name: string | null } | undefined>(undefined)
   const [profile, setProfile] = useState<DesignerProfile | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [selectedPlan, setSelectedPlan] = useState<DesignerPlan | null>(null)
+  const [notFound, setNotFound] = useState(false)
 
-  // Query-string route (?id=<number_id>), not a dynamic [id] path
-  // segment — the site builds statically with no build-time list of
-  // designer ids. id is the public account number; wbm-relay resolves
-  // whatever internal id it needs server-side (see gallery.ts's
-  // designerUrl). See gallery/builder.astro.
+  // Query-string route (?id=<number_id> or ?name=<exact nickname>), not
+  // a dynamic [id] path segment — the site builds statically with no
+  // build-time list of designer ids. id is the public account number;
+  // wbm-relay resolves whatever internal id it needs server-side (see
+  // gallery.ts's designerUrl/designerByNameUrl). See gallery/builder.astro.
   useEffect(() => {
-    setNumberId(new URLSearchParams(location.search).get("id"))
+    const params = new URLSearchParams(location.search)
+    setQuery({ id: params.get("id"), name: params.get("name") })
   }, [])
 
   useEffect(() => {
-    if (!numberId) return
+    if (!query || (!query.id && !query.name)) return
     if (!WBM_RELAY_URL) {
       setError("not deployed yet")
       return
     }
     setError(null)
-    fetch(designerUrl(numberId))
+    setNotFound(false)
+    const fetchUrl = query.id ? designerUrl(query.id) : designerByNameUrl(query.name!)
+    fetch(fetchUrl)
       .then((res) => {
+        if (res.status === 404) {
+          setNotFound(true)
+          return null
+        }
         if (!res.ok) throw new Error(`relay returned ${res.status}`)
         return res.json()
       })
-      .then(setProfile)
+      .then((data) => data && setProfile(data))
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
-  }, [numberId])
+  }, [query])
 
-  if (numberId === null) return null
+  if (query === undefined) return null
 
-  if (!numberId) {
+  if (!query.id && !query.name) {
     return <p className="text-sm text-muted-foreground">No builder specified.</p>
   }
 
+  if (notFound) {
+    return (
+      <div className="space-y-4">
+        <div className="flex gap-2">
+          <BackLink />
+          <GalleryLink />
+        </div>
+        <p className="text-sm text-muted-foreground">
+          No builder found for "{query.id ?? query.name}". Double-check the ID or nickname — nicknames must match exactly.
+        </p>
+      </div>
+    )
+  }
+
   if (error) {
-    return <p className="text-sm text-muted-foreground">Builder profile unavailable ({error}).</p>
+    return (
+      <div className="space-y-4">
+        <div className="flex gap-2">
+          <BackLink />
+          <GalleryLink />
+        </div>
+        <p className="text-sm text-muted-foreground">Builder profile unavailable ({error}).</p>
+      </div>
+    )
   }
 
   if (!profile) {
@@ -78,12 +102,10 @@ export function BuilderProfile() {
 
   return (
     <div className="space-y-6">
-      <a
-        href={url("/gallery")}
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-      >
-        <ArrowLeftIcon weight="bold" className="size-3.5" /> Back to gallery
-      </a>
+      <div className="flex gap-2">
+        <BackLink />
+        <GalleryLink />
+      </div>
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-3">
           <UserCircleIcon weight="fill" className="size-14 text-muted-foreground/50" />
@@ -107,45 +129,11 @@ export function BuilderProfile() {
             {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {profile.plans.map((plan) => {
-              const label = categoryLabel(plan.category_tag)
-              return (
-                <button
-                  key={plan.plan_id}
-                  onClick={() => setSelectedPlan(plan)}
-                  className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted text-left cursor-pointer"
-                >
-                  {plan.picture_url && (
-                    <img
-                      src={plan.picture_url}
-                      alt=""
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => (e.currentTarget.style.display = "none")}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-                  {label && (
-                    <span className="absolute top-2 left-2 text-[11px] font-medium px-2 py-0.5 rounded-md bg-black/60 text-white/90 backdrop-blur-sm">
-                      {label}
-                    </span>
-                  )}
-                  {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} className="absolute top-2 right-2" />}
-                  <div className="absolute bottom-0 left-0 right-0 p-3 flex items-end justify-end">
-                    <StatRow plan={plan} className="text-xs text-white/90" />
-                  </div>
-                </button>
-              )
-            })}
+            {profile.plans.map((plan) => (
+              <PlanCard key={plan.plan_id} plan={plan} showAuthor={false} />
+            ))}
           </div>
         </>
-      )}
-
-      {selectedPlan && (
-        <DetailModal
-          plan={{ plan_id: selectedPlan.plan_id, author_name: profile.nickname, author_number_id: profile.number_id }}
-          onClose={() => setSelectedPlan(null)}
-        />
       )}
     </div>
   )

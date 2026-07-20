@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/main.astro"
+import { PlanPage } from "@/components/PlanPage"
+
+// Query-string route (?share=<SHARE code>) rather than a dynamic [id]
+// path segment — the site builds statically and this page has no
+// build-time list of gallery plan ids to enumerate. Uses the SHARE
+// code specifically (not plan_id/ART code) since that's what the
+// in-game "share" button actually produces — see PlanPage.tsx and
+// wbm-relay's CLAUDE.md "Shareable plan links" section.
+---
+
+<Layout
+  title="Where Builders Meet | Gallery diagram (preview)"
+  description="A shared construction diagram from the gallery — work in progress."
+  noindex
+  fullWidth
+>
+  <PlanPage client:load />
+</Layout>
