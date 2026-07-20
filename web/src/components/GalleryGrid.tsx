@@ -481,7 +481,7 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
         )}
       </div>
       {((comments && comments.length > 0) || (moreByBuilder && moreByBuilder.length > 0)) && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 pt-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 pt-0">
           {comments && comments.length > 0 && (
             <div className="space-y-3">
               <h3 className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
