@@ -551,9 +551,23 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
   )
 }
 
+// Reads a param from the current URL at mount time only (SSR-safe:
+// window is guarded), falling back when absent/invalid — used to seed
+// sort/tag state so filters survive a refresh or a shared link.
+function initFromQuery<T>(key: string, valid: readonly T[], fallback: T): T {
+  if (typeof window === "undefined") return fallback
+  const raw = new URLSearchParams(window.location.search).get(key)
+  const match = valid.find((v) => String(v) === raw)
+  return match ?? fallback
+}
+
 export function GalleryGrid() {
-  const [sort, setSort] = useState<string>(DEFAULT_SORT)
-  const [tag, setTag] = useState<number>(CATEGORY_OPTIONS[0].value)
+  const [sort, setSort] = useState<string>(() =>
+    initFromQuery("sort", SORT_OPTIONS.map((o) => o.value), DEFAULT_SORT),
+  )
+  const [tag, setTag] = useState<number>(() =>
+    initFromQuery("tag", CATEGORY_OPTIONS.map((o) => o.value), CATEGORY_OPTIONS[0].value),
+  )
   const [query, setQuery] = useState("")
   const [plans, setPlans] = useState<GalleryPlan[]>([])
   const [nextStart, setNextStart] = useState(0)
@@ -614,6 +628,28 @@ export function GalleryGrid() {
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
       .finally(() => setLoading(false))
   }, [sort, tag, debouncedQuery, queryInvalid])
+
+  // Keep the URL in sync so filters survive a refresh and can be
+  // shared/bookmarked — omits params at their default to keep plain
+  // /gallery links clean.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    if (sort === DEFAULT_SORT) {
+      params.delete("sort")
+    } else {
+      params.set("sort", sort)
+    }
+    if (tag === CATEGORY_OPTIONS[0].value) {
+      params.delete("tag")
+    } else {
+      params.set("tag", String(tag))
+    }
+    const qs = params.toString()
+    // Preserve Astro ClientRouter's own history.state (index/scroll
+    // position) — replacing it with null breaks browser back/forward
+    // across page transitions, since the router keys off state.index.
+    history.replaceState(history.state, "", qs ? `?${qs}` : window.location.pathname)
+  }, [sort, tag])
 
   function loadMore() {
     setLoadingMore(true)

@@ -3,14 +3,13 @@ import Layout from "@/layouts/main.astro"
 import { GalleryGrid } from "@/components/GalleryGrid"
 import { Badge } from "@/components/ui/badge"
 
-// Unlisted on purpose (no nav link, noindex, excluded from sitemap —
-// see astro.config.mjs) — this fetches from wbm-relay, a private
-// backend still being built. Remove noindex + add a nav link once
-// that's ready to go public.
+// noindex + excluded from sitemap (see astro.config.mjs) while in beta —
+// this fetches from wbm-relay, a private backend still being built.
+// Remove noindex once that's stable enough to go fully public.
 ---
 
 <Layout
-  title="Where Builders Meet | Gallery (alpha)"
+  title="Where Builders Meet | Gallery (beta)"
   description="Live construction diagram gallery — work in progress."
   noindex
   fullWidth
@@ -19,7 +18,7 @@ import { Badge } from "@/components/ui/badge"
     <div class="flex flex-wrap items-center gap-2">
       <h1 class="font-heading text-2xl font-semibold">Gallery Bazaar</h1>
       <Badge variant="outline" className="border-amber-500/50 text-amber-600 dark:text-amber-400">
-        Alpha
+        Beta
       </Badge>
       <Badge variant="secondary">Work in progress</Badge>
       <p class="text-muted-foreground text-sm">
