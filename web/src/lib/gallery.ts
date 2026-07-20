@@ -40,6 +40,11 @@ export interface GalleryPlan {
   // profiles" section.
   author_number_id?: string
   author_name?: string
+  // Real in-game character portrait, resolved server-side from a
+  // third-party (yysls.cn) catalog keyed by NetEase's own head.role_icon
+  // field — see wbm-relay's CLAUDE.md/avatar.go. Empty/absent if
+  // resolution failed, same non-fatal pattern as author_name.
+  author_avatar_url?: string
 }
 
 export interface GalleryPage {
@@ -63,6 +68,7 @@ export interface PlanDetail {
   // planDetailUrl with a SHARE code) has no other source for this.
   author_number_id?: string
   author_name?: string
+  author_avatar_url?: string
   // See GalleryPlan.build_num — a download/apply count, not a piece
   // count. components_count below is the real piece total.
   build_num: number
@@ -98,6 +104,7 @@ export interface Comment {
   ts: number
   author_number_id?: string
   author_name?: string
+  author_avatar_url?: string
 }
 
 // id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
@@ -181,6 +188,7 @@ export interface DesignerProfile {
   // — the internal id wbm-relay actually queries with is never exposed.
   number_id: string
   nickname: string
+  avatar_url?: string
   follower_num: number
   like_num: number
   published_num: number

@@ -1,8 +1,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
-import { UserCircleIcon } from "@phosphor-icons/react"
-import { PlanCard, CopyPill, ShareButton } from "@/components/GalleryGrid"
+import { PlanCard, CopyPill, ShareButton, Avatar } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
 
@@ -109,7 +108,7 @@ export function BuilderProfile() {
       </div>
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-3">
-          <UserCircleIcon weight="fill" className="size-14 text-muted-foreground/50" />
+          <Avatar src={profile.avatar_url} className="size-24" />
           <h1 className="font-heading text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
         </div>
         <div className="flex items-center gap-6 ml-auto">

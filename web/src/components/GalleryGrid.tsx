@@ -119,6 +119,25 @@ function detailImages(detail: PlanDetail): string[] {
   return Array.from(new Set(urls))
 }
 
+// A builder's real in-game character portrait when resolved (see
+// wbm-relay's avatar.go), falling back to the generic icon otherwise —
+// used anywhere a specific author/designer is shown (comment rows, plan
+// detail author link, builder profile header), never for the search
+// box's decorative icon or other non-author uses of UserCircleIcon.
+export function Avatar({ src, className = "size-8" }: { src?: string; className?: string }) {
+  return src ? (
+    <img
+      src={src}
+      alt=""
+      className={`${className} rounded-full object-cover bg-muted shrink-0`}
+      loading="lazy"
+      onError={(e) => (e.currentTarget.style.display = "none")}
+    />
+  ) : (
+    <UserCircleIcon weight="fill" className={`${className} text-muted-foreground/50 shrink-0`} />
+  )
+}
+
 // One comment row (avatar + builder link + relative time + message) —
 // shared between the always-visible first 10 and the collapsible rest,
 // see PlanDetailContent's comments section.
@@ -126,7 +145,7 @@ function CommentRow({ comment: c }: { comment: Comment }) {
   return (
     <div className="flex items-start gap-2.5">
       <a href={builderHref(c.author_number_id)} className="shrink-0">
-        <UserCircleIcon weight="fill" className="size-8 text-muted-foreground/50" />
+        <Avatar src={c.author_avatar_url} className="size-8" />
       </a>
       <div className="min-w-0">
         <div className="flex items-baseline gap-2">
@@ -302,8 +321,9 @@ export function PlanCard({ plan, showAuthor = true }: { plan: GalleryPlan; showA
       {showAuthor && plan.author_name && (
         <a
           href={builderHref(plan.author_number_id)}
-          className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-1 text-sm font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full px-2.5 py-1 truncate max-w-28 shrink-0 transition-colors"
+          className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-2 text-base font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full pl-1 pr-3 py-1 truncate max-w-40 shrink-0 transition-colors"
         >
+          {plan.author_avatar_url && <Avatar src={plan.author_avatar_url} className="size-8" />}
           {plan.author_name}
         </a>
       )}
@@ -416,9 +436,9 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
           {detail.author_name && (
             <a
               href={builderHref(detail.author_number_id)}
-              className={buttonVariants({ variant: "secondary", size: "lg", className: "text-base sm:text-lg font-semibold" })}
+              className={buttonVariants({ variant: "secondary", size: "lg", className: "h-auto py-1.5 text-base sm:text-lg font-semibold" })}
             >
-              <UserCircleIcon weight="fill" className="size-6" />
+              <Avatar src={detail.author_avatar_url} className="size-9" />
               {detail.author_name}
               <CaretRightIcon weight="bold" className="size-4 opacity-60" />
             </a>
