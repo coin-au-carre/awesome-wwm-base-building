@@ -69,7 +69,7 @@ export function BuilderProfile() {
           <GalleryLink />
         </div>
         <p className="text-sm text-muted-foreground">
-          No builder found for "{query.id ?? query.name}". Double-check the ID or nickname — nicknames must match exactly.
+          No results for "{query.id ?? query.name}". Double-check the ID or nickname — nicknames must match exactly.
         </p>
       </div>
     )

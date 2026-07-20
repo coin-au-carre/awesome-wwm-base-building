@@ -61,7 +61,7 @@ export function PlanPage() {
           <GalleryLink />
         </div>
         <p className="text-sm text-muted-foreground">
-          No diagram found for share code "{shareCode}". Double-check the code.
+          No results for "{shareCode}". Double-check the share code.
         </p>
       </div>
     )
