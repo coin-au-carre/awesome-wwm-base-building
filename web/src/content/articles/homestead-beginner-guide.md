@@ -218,6 +218,7 @@ This page is a web version of Cylos guide available on [Google Doc](https://docs
 
 
 
+
 Homestead Guide
 
 ## Basics<img src="/tutorials/homestead-beginner-guide/img-1.webp" style="width: 80%" />
@@ -230,7 +231,7 @@ Prosperity: Prosperity could be seen as the “elegance score” of the Homeste
 
 * * *
 
-<img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" />
+<img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" />
 
 Warehouse: The warehouse is your Homesteads storage. All the items you produce go into your warehouse. You can also deposit items from your normal character backpack into the warehouse. There is a deposit cap of 1200 items per week. The best use for this feature early on would be to deposit items you can buy from normal vendors across the map to save time e.g. Dushan Blue Jade, Copper, Wine-Scented Jade etc. This could give you a boost in completing the Trade for Profit packs without having to change around your whole production line.<img src="/tutorials/homestead-beginner-guide/img-6.webp" style="width: 60%" />
 
@@ -335,13 +336,13 @@ Retainer skills: As previously mentioned some retainers come with innate skills 
 
 ## The Inn<img src="/tutorials/homestead-beginner-guide/img-23.webp" style="width: 70%" />
 
-The Inn is a facility building and is where you make most of your Bounty Gourds. You do this by cooking dishes and then catering them. Depending on the level of your Inn you can place a varying amount of stoves and tables & it also determines the amount of retainers you can send fishing & hunting. Stoves determine the amount of cooks you can use and tables determine the amount of dishes/drinks you can sell. There is no difference in profit or productivity between basic and standard stoves/tables, you only get more prosperity for placing them and you do need to place them to be able to upgrade your Inn. You can tell how many furnaces/tables you can place by checking the Inn UI. It will also tell you how many retainers you can employ by clicking on the icon below the hammer. Furthermore, do you get a recommendation of what to cook for the most profit and an overview of how much income you have made today. It also shows your warehouse deposit cap. The same applies for catering. You get a recommended sales plan by selecting Cater. This will show you the setup for the most profit/ideal setup you can currently make. <img src="/tutorials/homestead-beginner-guide/img-25.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-24.webp" style="width: 50%" /><img src="/tutorials/homestead-beginner-guide/img-26.webp" style="width: 40%" />
+The Inn is a facility building and is where you make most of your Bounty Gourds. You do this by cooking dishes and then catering them. Depending on the level of your Inn you can place a varying amount of stoves and tables & it also determines the amount of retainers you can send fishing & hunting. Stoves determine the amount of cooks you can use and tables determine the amount of dishes/drinks you can sell. There is no difference in profit or productivity between basic and standard stoves/tables, you only get more prosperity for placing them and you do need to place them to be able to upgrade your Inn. You can tell how many furnaces/tables you can place by checking the Inn UI. It will also tell you how many retainers you can employ by clicking on the icon below the hammer. Furthermore, do you get a recommendation of what to cook for the most profit and an overview of how much income you have made today. It also shows your warehouse deposit cap. The same applies for catering. You get a recommended sales plan by selecting Cater. This will show you the setup for the most profit/ideal setup you can currently make. <img src="/tutorials/homestead-beginner-guide/img-24.webp" style="width: 50%" /><img src="/tutorials/homestead-beginner-guide/img-25.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-26.webp" style="width: 40%" />
 
 To start cooking click on the + icon on the left side to select the dish you want to make. Then click on the + on the right side to add the retainer.
 
 Depending on what cooking level your retainer has it will take more or less time to finish the dish.
 
-The recommended dishes are always marked with a little yellow thumbs up icon. On the top right you will find the Materials Abundant option. This will give you an overview of how many raw materials you use up per hour. This will also tell you if you have a surplus production on any of your materials. It does not account for anything that is currently planted on the farms and will only tell you the surplus for materials gained from Local Specialties. <img src="/tutorials/homestead-beginner-guide/img-27.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-28.webp" style="width: 40%" />
+The recommended dishes are always marked with a little yellow thumbs up icon. On the top right you will find the Materials Abundant option. This will give you an overview of how many raw materials you use up per hour. This will also tell you if you have a surplus production on any of your materials. It does not account for anything that is currently planted on the farms and will only tell you the surplus for materials gained from Local Specialties. <img src="/tutorials/homestead-beginner-guide/img-28.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-27.webp" style="width: 60%" />
 
 Catering is your way of selling the cooked food and drinks you make in your brewery. You can tell how many gourds you get by hovering over the dish. The Unit Sale Price is the amount of gourds you get every time your retainer finishes one work cycle. You can also check your production/consumption per hour to ensure you have enough supply to keep the sales running while you’re offline.<img src="/tutorials/homestead-beginner-guide/img-29.webp" style="width: 60%" />
 

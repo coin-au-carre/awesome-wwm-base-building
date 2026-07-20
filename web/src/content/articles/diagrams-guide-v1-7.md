@@ -88,21 +88,21 @@ Found under the **"Small Diagram - Mine"** category in the Diagram tab.
 These diagrams save a **section** of your guild base, useful for replicating parts of a construction. The maximum is **1,000 components**.
 
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5ecd51&format=webp&hm=b6100da4d675510b10fa82894a425cb181644c612ad284a6e16f83753a1022b0&is=6a5d7bd1&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5f7611&format=webp&hm=b597cdb5e91ab4d5dbf63b593da9624457249ead8a2200e7a318a1c6fae235d3&is=6a5e2491&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
 ## How to save any diagram
 
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a5ecf14&hm=dcdfbe28a0a206f08d961dae092a240f910161b0888e3e0a1200a742faa984f7&is=6a5d7d94&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1516786716009304184/1516800804298817667/2026-06-17_15-16-13.mp4?ex=6a5f77d4&hm=677e5368fbbfb3b3ac2c609c0b5f5dd6c3051638dca24ac8ab29ca0ac0172c2d&is=6a5e2654&" controls></video>
 </div>
 
 The save process is the same for all diagram types:
 
 **1.** In the Diagram tab, take a free slot. You enter **diagram edit mode**.
 
-<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5ecd51&format=webp&hm=b6100da4d675510b10fa82894a425cb181644c612ad284a6e16f83753a1022b0&is=6a5d7bd1&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1516786716009304184/1516798914034929774/image.png?ex=6a5f7611&format=webp&hm=b597cdb5e91ab4d5dbf63b593da9624457249ead8a2200e7a318a1c6fae235d3&is=6a5e2491&quality=lossless" alt="Small Guild Diagram — selecting the capture region" style="border-radius: 0.75rem; width: 80%;" />
 
 
 **2.** Choose the region you want to capture (does not apply to Large Guild Diagram)

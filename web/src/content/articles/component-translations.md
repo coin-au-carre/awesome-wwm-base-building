@@ -180,7 +180,7 @@ With surging emotion, I seize the longsword. Ferrying the world, renown calls my
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a5ed900&format=webp&hm=1d454c5ca59c5344d050cf642a1b7ba420193bb36bcfc88737751d939420d7a0&is=6a5d8780&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1499598035276005406/sign15.png?ex=6a5f81c0&format=webp&hm=1f941bc15cdbe5d0ea297eab291b4baa4cbc439815b7adcf8d5fe4cc8d3cb918&is=6a5e3040&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Center:** 非攻之道   - The way of non-aggression (a key Mohist tenet)
 
