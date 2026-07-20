@@ -3,7 +3,7 @@ import Layout from "@/layouts/main.astro"
 import { getCollection } from "astro:content"
 import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
-import { resolveCanonical, BUILDER_ALIASES } from "@/lib/builder-aliases"
+import { resolveCanonical, getAllSlugsForCanonical } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
@@ -66,11 +66,11 @@ const scoutedCount = scoutedGuilds.length + scoutedSolos.length
 
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + (profile?.homesteadSheets.length ?? 0) + tutorials.length
 
-// Alias slugs are keys in BUILDER_ALIASES whose value is this builder's canonical slug,
-// excluding any alias that is the same as the display name (avoids "X also known as X")
-const aliasNames = Object.entries(BUILDER_ALIASES)
-  .filter(([alias, target]) => target === canonical && alias !== builderSlug(displayName))
-  .map(([alias]) => alias)
+// Alias slugs for this builder's canonical slug, excluding the canonical
+// itself and any alias that is the same as the display name (avoids
+// "X also known as X")
+const aliasNames = [...getAllSlugsForCanonical(canonical)]
+  .filter((alias) => alias !== canonical && alias !== builderSlug(displayName))
 
 const tagCounts = new Map<string, number>()
 for (const g of [...(profile?.guilds ?? []), ...(profile?.solos ?? [])]) {

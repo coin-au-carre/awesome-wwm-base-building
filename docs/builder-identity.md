@@ -1,7 +1,8 @@
 # Builder identity system
 
-> Design doc, not yet implemented. Written to prepare the work, not to
-> describe what exists today.
+> Implemented (Pieces 1–3 below). This started as a design doc written
+> ahead of the work; it's kept as the reference for how the system is
+> actually shaped and why, not just history.
 
 ## The problem
 
@@ -38,15 +39,27 @@ One canonical record per real person, in a new `data/builder_identities.json`:
 
 ```ts
 {
-  discordId: string            // stable anchor — every guild/solo submission already carries posterDiscordId
-  canonicalSlug: string        // today's builderSlug, kept as the display/URL identity — user-editable via /wwm-uid, must be unique across all records
-  aliasSlugs: string[]         // absorbs today's BUILDER_ALIASES reverse-lookup
+  discordId?: string           // stable anchor — every guild/solo submission already carries posterDiscordId
+  canonicalAlias: string       // display-name form, any casing — the "true" name, user-editable via /wwm-uid
+  canonicalSlug: string        // always slugify(canonicalAlias) — lowercase, the actual public URL/matching identity, must be unique across all records
+  aliases?: string[]           // other known display-name variants, any casing — absorbs today's BUILDER_ALIASES reverse-lookup
   ingameNickname?: string      // current NetEase display name — derived only, never typed by a user; overwrite on drift, no history kept
   neteaseNumberId?: string     // public-facing NetEase account number (already shown to every player in-game) — the only NetEase-side field a user actually types in
   neteasePid?: string          // NetEase's internal player id, resolved once via find_people/by_number_id
   neteaseHostnum?: number      // server-shard int paired with pid — required alongside it for designer/plan-batch calls
 }
 ```
+
+**Why `canonicalAlias` and `aliases` are separate from their slugs.**
+Display names can be any case/spacing (`"Kuri (SiMing 司命)"`, `"Ðìana"`);
+`canonicalSlug` is always the lowercase, URL-safe `slugify()` of
+`canonicalAlias`, computed at save time rather than typed by hand. This
+fixed a real bug in the old data: `BUILDER_ALIASES` required every key to
+already be pre-slugified by whoever edited the file, and one entry —
+`"Kuri (SiMing 司命)"` — never actually was, so it silently never matched
+anything. Aliases are slugified automatically now, at lookup-index-build
+time, so a raw display-name alias can't quietly stop working that way
+again.
 
 **Includes `pid`/`hostnum` directly, on purpose.** `wbm-relay`'s existing
 convention (`pkg/relay/designer.go`) never exposes them to the frontend,
@@ -61,19 +74,23 @@ of truth, no second private cache to keep in sync.
 ## Piece 1 — `builder-aliases.ts` → JSON refactor
 
 Move `BUILDER_ALIASES`'s data into `data/builder_identities.json` (the
-`aliasSlugs` field above). Keep `resolveCanonical(slug)` and
+`aliases` field above). Keep `resolveCanonical(slug)` and
 `getAllSlugsForCanonical(slug)`'s existing signatures **unchanged** in
-`builder-aliases.ts` — only their implementation changes, to read from the
-new JSON instead of an inline object literal.
+`builder-aliases.ts` — only their implementation changes: the alias→
+canonical index is built by calling `slugify()` on each raw `aliases`
+entry at load time, instead of trusting a pre-slugified map key.
 
-This keeps the refactor low-risk: every current importer keeps working
-unmodified since the function contracts don't change. Confirmed importers
-today: `web/src/lib/builders.ts`, `web/src/lib/mentions.ts`,
-`web/src/components/LeaderboardTable.tsx`,
+This kept the refactor low-risk: every current importer kept working
+unmodified since the function contracts didn't change. One importer had to
+change anyway, though — `web/src/pages/builders/[slug].astro` imported the
+old `BUILDER_ALIASES` object directly (not just the two functions) to list
+a builder's alias names; it now calls `getAllSlugsForCanonical` instead.
+Every other importer needed no changes: `web/src/lib/builders.ts`,
+`web/src/lib/mentions.ts`, `web/src/components/LeaderboardTable.tsx`,
 `web/src/components/BlueprintGrid.tsx`,
 `web/src/components/TutorialsFilter.tsx`,
-`web/src/components/BuilderLinks.astro`, and the `[slug].astro` pages for
-builders, blueprints, solos, guilds, tutorials, plus `homestead.astro` and
+`web/src/components/BuilderLinks.astro`, and the remaining `[slug].astro`
+pages for blueprints, solos, guilds, tutorials, plus `homestead.astro` and
 `credits.astro`.
 
 ## Piece 2 — Discord self-service command: `/wwm-uid`
@@ -88,10 +105,11 @@ option, though — instead:
    `TextInput`, routed back on `InteractionModalSubmit` by `CustomID`) with
    **two fields**, each pre-filled from the caller's existing record if one
    exists, empty otherwise:
-   - **"Builder Name"** — the `canonicalSlug`. Editable because it's the
-     public URL identity (`/builders/<slug>`) and people do want to fix a
-     bad auto-generated slug; **must be unique**, checked against every
-     other record's `canonicalSlug` on submit (excluding the caller's own
+   - **"Builder Name"** — the `canonicalAlias`, shown/typed with its
+     natural casing (e.g. `Hantiya`, not `hantiya`). `canonicalSlug` is
+     computed from it (`slugify(canonicalAlias)`) rather than typed
+     directly; **the slug must be unique**, checked against every other
+     record's `canonicalSlug` on submit (excluding the caller's own
      existing entry) — reject with a clear error and let them retry if
      it's already taken by someone else.
    - **"Your In-Game UID"** — the `neteaseNumberId`, **not required** (an
@@ -123,10 +141,15 @@ option, though — instead:
    itself, not by a separate `cmd/*-sync` + GitHub Actions job. The same
    shape works here — no new persistence pattern needs inventing.
 
-Left open for whoever implements this: exact command wording (beyond the
-name itself), and whether *changing* an already-registered UID should stay
-fully self-service or need a mod's approval, given it becomes a
-trust-bearing field feeding public attribution.
+Implemented in `internal/netease/resolve.go` (the `find_people/by_number_id`
+caller, shared with Piece 3), `internal/discord/builderidentity.go` (the
+`BuilderIdentity` struct + load/save/lookup helpers), and
+`internal/discord/wwm_uid.go` (the command/modal/button handlers), wired
+into `internal/discord/interactions.go`.
+
+Still open: whether *changing* an already-registered UID should stay fully
+self-service or need a mod's approval, given it becomes a trust-bearing
+field feeding public attribution.
 
 ## Piece 3 — Backfill task command for `number_id → pid/hostnum`
 
@@ -162,6 +185,8 @@ single `get_face_designer_brief_info_batch` call with all five resulting
 together — confirming the batch shape this backfill (and the eventual
 Discord-ID-first `getBuilderProfile` merge in Piece 4) can build on.
 
+Implemented in `cmd/resolve-builder-ids/main.go`.
+
 ## Piece 4 — Future: merging the two builder-profile systems
 
 Not this pass. The natural merge once `data/builder_identities.json`
@@ -176,8 +201,13 @@ has no Discord ID to anchor on.
 
 ## Open questions
 
-- Exact `/wwm-uid` command name/wording.
 - Self-service vs. mod-gated re-registration of an existing mapping.
 - Whether `ingameNickname` needs a refresh policy — it can drift
   even though `pid`/`hostnum` effectively don't, so a registered entry's
   name could go stale while its identity stays perfectly valid.
+- Migrated legacy entries (the 10 groups moved over from the old
+  `BUILDER_ALIASES` map) have `canonicalAlias` set equal to `canonicalSlug`,
+  since the old data only ever stored the slug form — nobody's actual
+  display-cased name was recorded. Cosmetic only, not a correctness issue;
+  fine to leave until/unless someone wants prettier casing for one of
+  those ten.

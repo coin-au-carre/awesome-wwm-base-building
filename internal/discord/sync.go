@@ -393,7 +393,7 @@ func SyncFetch(b *Bot, guilds []guild.Guild, cfg SyncConfig) (SyncFetchResult, e
 			data:      r.data,
 			reactions: r.reactions,
 		})
-		// Include thread author so they appear in users.json with globalName.
+		// Include thread author so they appear in discord_users.json with globalName.
 		if r.data.AuthorID != "" {
 			if userThreads[r.data.AuthorID] == nil {
 				userThreads[r.data.AuthorID] = make(map[string]bool)

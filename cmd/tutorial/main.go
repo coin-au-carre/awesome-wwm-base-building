@@ -248,7 +248,7 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 		return fmt.Errorf("writing article: %w", err)
 	}
 
-	// Persist author's Discord ID to users.json so the credits page can display their name.
+	// Persist author's Discord ID to discord_users.json so the credits page can display their name.
 	info := guild.UserInfo{
 		Username:   allMsgs[0].Author.Username,
 		GlobalName: allMsgs[0].Author.GlobalName,
@@ -258,7 +258,7 @@ func syncThread(s *discordgo.Session, root, rawURL string) error {
 	}
 	userMap[authorID] = info
 	if err := guild.SaveUsers(root, userMap); err != nil {
-		slog.Warn("saving users.json", "err", err)
+		slog.Warn("saving discord_users.json", "err", err)
 	}
 
 	fmt.Printf("wrote  %s\n", outPath)

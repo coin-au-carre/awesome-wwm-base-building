@@ -33,7 +33,7 @@ type UserMap map[string]UserInfo
 
 const (
 	reactionsFilename = "data/reactions.json"
-	usersFilename     = "data/users.json"
+	usersFilename     = "data/discord_users.json"
 )
 
 func LoadReactions(root string) (ReactionMap, error) {

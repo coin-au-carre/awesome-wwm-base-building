@@ -10,29 +10,33 @@ import (
 )
 
 const (
-	submitCommandName      = "scout-guild"
-	submitModalID          = "scout_guild_modal"
-	postCommandName        = "submit-guild"
-	postModalID            = "submit_guild_modal"
-	soloCommandName        = "submit-solo"
-	soloModalID            = "submit_solo_modal"
-	welcomeTestCommandName = "welcome-test"
-	guildLinkCommandName   = "guild"
-	soloLinkCommandName    = "solo"
-	randomCommandName      = "random"
-	myVotesCommandName     = "my-votes"
-	helpCommandName        = "commands"
-	builderCommandName     = "builder"
-	warningListCommandName = "warning-list"
+	submitCommandName        = "scout-guild"
+	submitModalID            = "scout_guild_modal"
+	postCommandName          = "submit-guild"
+	postModalID              = "submit_guild_modal"
+	soloCommandName          = "submit-solo"
+	soloModalID              = "submit_solo_modal"
+	welcomeTestCommandName   = "welcome-test"
+	guildLinkCommandName     = "guild"
+	soloLinkCommandName      = "solo"
+	randomCommandName        = "random"
+	myVotesCommandName       = "my-votes"
+	helpCommandName          = "commands"
+	builderCommandName       = "builder"
+	warningListCommandName   = "warning-list"
 	syncDataCommandName      = "sync-data"
 	syncBugsCommandName      = "sync-bugs"
 	syncUpdatesCommandName   = "sync-updates"
 	syncTagsCommandName      = "sync-tags"
 	syncTutorialsCommandName = "sync-gdoc"
 	syncHomesteadCommandName = "sync-homestead"
-	shareGuildPrefix       = "sbg:"
-	shareSoloPrefix        = "sbs:"
-	dotifyCommandName      = "dotify"
+	shareGuildPrefix         = "sbg:"
+	shareSoloPrefix          = "sbs:"
+	dotifyCommandName        = "dotify"
+	wwmUIDCommandName        = "wwm-uid"
+	wwmUIDModalID            = "wwm_uid_modal"
+	wwmUIDConfirmButton      = "wwmuid_confirm"
+	wwmUIDNotMeButton        = "wwmuid_not_me"
 )
 
 // Homestead level 5-10 roles, in addition to Trusted Eye/Member, may trigger /sync-homestead.
@@ -148,6 +152,10 @@ func RegisterSubmitCommand(s *discordgo.Session, discordGuildID string) {
 				},
 			},
 		},
+		{
+			Name:        wwmUIDCommandName,
+			Description: "Link your WWM in-game UID to your builder profile",
+		},
 	})
 	if err != nil {
 		slog.Error("registering global commands", "err", err)
@@ -244,11 +252,16 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handleSyncTagsCommand(s, i, root, guildForumChannelID, soloForumChannelID)
 			case dotifyCommandName:
 				handleDotifyCommand(s, i)
+			case wwmUIDCommandName:
+				handleWWMUIDCommand(s, i, root)
 			}
 		case discordgo.InteractionMessageComponent:
 			customID := i.MessageComponentData().CustomID
-			if strings.HasPrefix(customID, shareGuildPrefix) || strings.HasPrefix(customID, shareSoloPrefix) {
+			switch {
+			case strings.HasPrefix(customID, shareGuildPrefix) || strings.HasPrefix(customID, shareSoloPrefix):
 				handleShareBuilderButton(s, i, root)
+			case customID == wwmUIDConfirmButton || customID == wwmUIDNotMeButton:
+				handleWWMUIDButton(s, i, bot, root, devChannelID)
 			}
 		case discordgo.InteractionModalSubmit:
 			switch i.ModalSubmitData().CustomID {
@@ -258,6 +271,8 @@ func OnInteractionCreate(bot *Bot, root, submissionChannelID, discoveriesChannel
 				handlePostModal(s, i, bot, devChannelID, guildForumChannelID)
 			case soloModalID:
 				handleSoloModal(s, i, bot, submissionChannelID, soloForumChannelID, devChannelID)
+			case wwmUIDModalID:
+				handleWWMUIDModal(s, i, bot, root, devChannelID)
 			}
 		}
 	}

@@ -34,7 +34,7 @@ func main() {
 
 	users, err := guild.LoadUsers(*root)
 	if err != nil {
-		slog.Warn("could not load users.json, IDs will be shown instead", "err", err)
+		slog.Warn("could not load discord_users.json, IDs will be shown instead", "err", err)
 	}
 
 	blacklist, err := guild.LoadVoterBlacklist(filepath.Join(*root, "data", "voter_blacklist.json"))

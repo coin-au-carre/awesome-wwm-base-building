@@ -80,13 +80,13 @@ func main() {
 
 	users, err := guild.LoadUsers(root)
 	if err != nil {
-		slog.Error("loading users.json", "err", err)
+		slog.Error("loading discord_users.json", "err", err)
 		os.Exit(1)
 	}
 	usersDirty := backfillUsers(session, discordGuildID, users)
 	if usersDirty {
 		if err := guild.SaveUsers(root, users); err != nil {
-			slog.Error("saving users.json", "err", err)
+			slog.Error("saving discord_users.json", "err", err)
 			os.Exit(1)
 		}
 	}
@@ -122,7 +122,7 @@ func main() {
 }
 
 // backfillUsers fetches every guild member once and stores identity info
-// (username/globalName/nickname) for anyone missing or stale in users.json.
+// (username/globalName/nickname) for anyone missing or stale in discord_users.json.
 func backfillUsers(session *discordgo.Session, discordGuildID string, users guild.UserMap) bool {
 	var members []*discordgo.Member
 	var after string

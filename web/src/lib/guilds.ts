@@ -215,7 +215,7 @@ export function getReactions(): ReactionMap {
 
 export function getUsers(): UserMap {
   try {
-    const base: UserMap = JSON.parse(readFileSync(repoFile("data/users.json"), "utf-8"))
+    const base: UserMap = JSON.parse(readFileSync(repoFile("data/discord_users.json"), "utf-8"))
     try {
       const extra: UserMap = JSON.parse(readFileSync(repoFile("data/additionnal_users.json"), "utf-8"))
       return { ...base, ...extra }

@@ -1,6 +1,6 @@
 // One-shot: find every member holding a Homestead level role and record
 // their highest level reached in data/homestead_members.json. Backfills
-// data/users.json with identity info for anyone not already known.
+// data/discord_users.json with identity info for anyone not already known.
 package main
 
 import (
@@ -57,7 +57,7 @@ func main() {
 
 	users, err := guild.LoadUsers(root)
 	if err != nil {
-		slog.Error("loading users.json", "err", err)
+		slog.Error("loading discord_users.json", "err", err)
 		os.Exit(1)
 	}
 
@@ -116,7 +116,7 @@ func main() {
 
 	if usersDirty {
 		if err := guild.SaveUsers(root, users); err != nil {
-			slog.Error("saving users.json", "err", err)
+			slog.Error("saving discord_users.json", "err", err)
 			os.Exit(1)
 		}
 	}

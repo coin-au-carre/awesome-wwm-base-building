@@ -45,6 +45,20 @@ interface Guild {
 { [category]: { translations, [subCategory]: { translations, items: [ { name, translations, filename, tags, styles, hasVariants, category, subCategory } ] } } }
 ```
 
+`data/builder_identities.json` — array of (see [docs/builder-identity.md](docs/builder-identity.md)):
+```ts
+interface BuilderIdentity {
+  discordId?: string
+  canonicalAlias: string    // display-name form, any casing — editable via /wwm-uid
+  canonicalSlug: string     // always slugify(canonicalAlias) — lowercase, must be unique
+  aliases?: string[]        // other display-name variants, any casing — replaces the old inline BUILDER_ALIASES map in web/src/lib/builder-aliases.ts
+  ingameNickname?: string   // derived only, never typed by a user — resolved from neteaseNumberId
+  neteaseNumberId?: string  // public-facing NetEase account number, set via /wwm-uid
+  neteasePid?: string       // NetEase's internal player id, resolved via find_people/by_number_id
+  neteaseHostnum?: number   // server-shard int paired with neteasePid
+}
+```
+
 ## Architecture
 
 ```
@@ -206,7 +220,7 @@ Use `guild.LoadFile(path)` / `guild.SaveFile(path, guilds)` for arbitrary paths.
 
 - `sync.yml` — runs `task sync` on schedule (8×/day), commits `data/guilds.json data/solos.json`, triggers deploy on completion
 - `sync-events.yml` — runs `cmd/events-sync` every 30 min, commits `data/events.json` if changed, push to main triggers deploy
-- `sync-homestead.yml` — runs `cmd/homestead-sync` hourly, commits `data/homestead_members.json`/`data/users.json` if changed (does not trigger deploy)
+- `sync-homestead.yml` — runs `cmd/homestead-sync` hourly, commits `data/homestead_members.json`/`data/discord_users.json` if changed (does not trigger deploy)
 - `deploy.yml` — triggered by push to `main` or on completion of "Sync Guild Data" or "Sync Events", uses `withastro/action@v3` with `path: web`
 - `test.yml` — runs `go test ./...` on every push/PR to `main`
 - GitHub Pages source must be set to **GitHub Actions** (not "Deploy from branch")

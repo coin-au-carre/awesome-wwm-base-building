@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/homestead_members.json data/users.json
+          git add data/homestead_members.json data/discord_users.json
           if git diff --cached --quiet; then
             echo "No homestead changes, skipping commit."
           else
