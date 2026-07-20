@@ -39,10 +39,10 @@ One canonical record per real person, in a new `data/builder_identities.json`:
 ```ts
 {
   discordId: string            // stable anchor — every guild/solo submission already carries posterDiscordId
-  canonicalSlug: string        // today's builderSlug, kept as the display/URL identity
+  canonicalSlug: string        // today's builderSlug, kept as the display/URL identity — user-editable via /wwm-uid, must be unique across all records
   aliasSlugs: string[]         // absorbs today's BUILDER_ALIASES reverse-lookup
-  ingameNickname?: string      // current NetEase display name for this account — overwrite on drift, no history kept
-  neteaseNumberId?: string     // public-facing NetEase account number (already shown to every player in-game)
+  ingameNickname?: string      // current NetEase display name — derived only, never typed by a user; overwrite on drift, no history kept
+  neteaseNumberId?: string     // public-facing NetEase account number (already shown to every player in-game) — the only NetEase-side field a user actually types in
   neteasePid?: string          // NetEase's internal player id, resolved once via find_people/by_number_id
   neteaseHostnum?: number      // server-shard int paired with pid — required alongside it for designer/plan-batch calls
 }
@@ -85,29 +85,39 @@ option, though — instead:
 
 1. Running `/wwm-uid` opens a **modal** (same pattern already used by
    `scout-guild`/`submit-guild` in `submit.go`: `discordgo.InteractionResponseModal` +
-   `TextInput`, routed back on `InteractionModalSubmit` by `CustomID`).
-   The `TextInput`'s `Value` is **pre-filled with the caller's
-   currently-registered UID if one exists**, empty otherwise, and marked
-   **not required** — one interaction covers "show me what I have on
-   file," "let me set or change it," *and* "let me remove it," with no
-   branching into separate commands/subcommands.
-2. **Validate before saving.** On submit:
-   - **Field left empty** (either submitted blank, or an existing value
-     was cleared): remove `neteaseNumberId`/`neteasePid`/`neteaseHostnum`
-     from the caller's record entirely rather than writing empty strings —
-     an absent field, not a blank one, is what the rest of the system
-     (Piece 3's backfill, Piece 4's future profile merge) should treat as
-     "not registered."
-   - **Field unchanged** (resubmitted the same pre-filled value): skip
-     straight to confirmation, no need to re-hit the API for a no-op.
-   - **Field set/changed**: call `find_people/by_number_id` directly
-     (confirmed to need no auth/secret — NetEase's read endpoints work
-     unauthenticated) and show the resolved in-game nickname back to the
-     user as confirmation, so a typo doesn't silently attach a stranger's
-     account to the wrong Discord user. This same call already returns
-     `pid`/`hostnum` — save them on the record right here, so nothing
-     needs re-resolving later.
-3. **Write + commit directly from the live bot process.** This has a
+   `TextInput`, routed back on `InteractionModalSubmit` by `CustomID`) with
+   **two fields**, each pre-filled from the caller's existing record if one
+   exists, empty otherwise:
+   - **"Builder Name"** — the `canonicalSlug`. Editable because it's the
+     public URL identity (`/builders/<slug>`) and people do want to fix a
+     bad auto-generated slug; **must be unique**, checked against every
+     other record's `canonicalSlug` on submit (excluding the caller's own
+     existing entry) — reject with a clear error and let them retry if
+     it's already taken by someone else.
+   - **"Your In-Game UID"** — the `neteaseNumberId`, **not required** (an
+     empty submission clears it, same as before).
+   `ingameNickname` is **not a modal field at all** — it's never typed,
+   only ever derived server-side from resolving the UID, so there's
+   nothing for the user to edit or get wrong there.
+2. **Validate before saving.**
+   - **Slug taken by someone else**: reject immediately, before touching
+     the UID at all — ask the caller to resubmit with a different one.
+   - **UID field left empty**: remove `neteaseNumberId`/`neteasePid`/
+     `neteaseHostnum`/`ingameNickname` from the record entirely (absent,
+     not blank — see Piece 3/4's reliance on that).
+   - **UID unchanged** (resubmitted the same pre-filled value): skip
+     straight to the confirmation step below, no need to re-hit the API.
+   - **UID set/changed**: call `find_people/by_number_id` directly
+     (confirmed to need no auth/secret) to resolve `pid`/`hostnum`/
+     nickname.
+3. **Confirm before saving, don't just display-and-save.** Since the
+   nickname can only ever be *guessed* from the UID (never typed by the
+   user), a typo'd UID could resolve to a real but wrong account. Reply
+   with the resolved nickname plus **Confirm/"Not me" buttons**
+   (`discordgo.MessageComponent`s, not just a text confirmation): Confirm
+   writes the record; "Not me" drops the attempt and tells the caller to
+   run `/wwm-uid` again rather than silently saving a wrong match.
+4. **Write + commit directly from the live bot process.** This has a
    direct precedent already in this codebase: `data/streaming.json` is
    likewise owned and committed by the live, lock-holding bot process
    itself, not by a separate `cmd/*-sync` + GitHub Actions job. The same
