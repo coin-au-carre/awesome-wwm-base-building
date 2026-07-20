@@ -93,7 +93,7 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	alias := strings.TrimSpace(fields["canonical_alias"])
 	slug := slugify(alias)
 	if slug == "" {
-		respondWWMUIDMessage(s, i, "Builder name can't be empty.")
+		respondWWMUIDMessage(s, i, "❌ Builder name can't be empty.")
 		return
 	}
 	uid := strings.TrimSpace(fields["uid"])
@@ -101,13 +101,13 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	identities, err := LoadBuilderIdentities(root)
 	if err != nil {
 		slog.Error("wwm-uid: loading builder identities", "err", err)
-		respondWWMUIDMessage(s, i, "Something went wrong loading builder data. Please try again.")
+		respondWWMUIDMessage(s, i, "❌ Something went wrong loading builder data. Please try again.")
 		return
 	}
 
 	selfIdx := FindBuilderIdentityByDiscordID(identities, discordID)
 	if otherIdx := FindBuilderIdentityBySlug(identities, slug); otherIdx >= 0 && otherIdx != selfIdx {
-		respondWWMUIDMessage(s, i, fmt.Sprintf("The builder name **%s** is already taken — please pick a different one.", alias))
+		respondWWMUIDMessage(s, i, fmt.Sprintf("❌ The builder name **%s** is already taken — please pick a different one.", alias))
 		return
 	}
 
@@ -136,7 +136,7 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		ref, err := netease.ResolveByNumberID(uid)
 		if err != nil {
 			slog.Warn("wwm-uid: resolving number_id", "uid", uid, "err", err)
-			respondWWMUIDMessage(s, i, fmt.Sprintf("Couldn't find a WWM account with UID `%s` — double-check the number and try again.", uid))
+			respondWWMUIDMessage(s, i, fmt.Sprintf("❌ Couldn't find a WWM account with UID `%s` — double-check the number and try again.", uid))
 			return
 		}
 
@@ -207,7 +207,7 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, sl
 	identities, err := LoadBuilderIdentities(root)
 	if err != nil {
 		slog.Error("wwm-uid: reloading builder identities before save", "err", err)
-		return "Something went wrong saving your info. Please try again."
+		return "❌ Something went wrong saving your info. Please try again."
 	}
 
 	idx := FindBuilderIdentityByDiscordID(identities, discordID)
@@ -224,7 +224,7 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, sl
 
 	if err := SaveBuilderIdentities(root, identities); err != nil {
 		slog.Error("wwm-uid: saving builder identities", "err", err)
-		return "Something went wrong saving your info. Please try again."
+		return "❌ Something went wrong saving your info. Please try again."
 	}
 
 	go GitCommitAndPush(root, "data/builder_identities.json", "data: /wwm-uid "+slug, bot, devChannelID)
