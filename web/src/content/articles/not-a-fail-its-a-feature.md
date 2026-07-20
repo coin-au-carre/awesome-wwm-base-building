@@ -5,7 +5,7 @@ tags: ["solo", "sightseeing"]
 authors: ["alscend", "noxlamina", "Crueliet", "Ahlyam", "Skysnip", "vehs", "Carni"]
 date: 2026-05-17
 order: 12
-image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a5eee04&format=webp&hm=91a6a91b4f5648343ef1f68211c0c1f3b1026f4b498a8148a648ffe9e97ad988&is=6a5d9c84&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a5f96c4&format=webp&hm=229b4f5db90f5e14e2ebd1496be4a98adbd433c9c8bbc735717e48499063fff5&is=6a5e4544&quality=lossless"
 featured: false
 ---
 
@@ -13,7 +13,7 @@ featured: false
 ## Modern stairs
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a5eee04&format=webp&hm=91a6a91b4f5648343ef1f68211c0c1f3b1026f4b498a8148a648ffe9e97ad988&is=6a5d9c84&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1499077016052568325/202642923564.png?ex=6a5f96c4&format=webp&hm=229b4f5db90f5e14e2ebd1496be4a98adbd433c9c8bbc735717e48499063fff5&is=6a5e4544&quality=lossless" alt="A building section where the roof has clearly decided to go its own way" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
