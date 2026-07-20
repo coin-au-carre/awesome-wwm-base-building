@@ -55,6 +55,10 @@ Discord forum ──► task sync ──► data/guilds.json / data/solos.json �
 - **Astro 6 + shadcn/ui + Tailwind 4** — static website (`web/`)
 - **GitHub Actions** — `sync.yml` (data) + `deploy.yml` (site)
 
+See [docs/builder-identity.md](docs/builder-identity.md) (design doc, not
+yet implemented) for the planned system linking a builder's Discord ID,
+canonical slug, and NetEase account.
+
 ## Content Sources
 
 | Content type | Source of truth | Sync command | Output |
