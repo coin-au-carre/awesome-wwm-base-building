@@ -206,19 +206,19 @@ Each type of production will have its own decorative elements, such as a large o
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a5f4b1b&format=webp&hm=860ea3c960beb7baf733a9571364f21a4d58583a759e51f9189519443480e5ed&is=6a5df99b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108306499797112/image.png?ex=6a5ff3db&format=webp&hm=803274f8aa382680e36a42209cb1d5a3d530c5bc54641d0a96070ff01958a090&is=6a5ea25b&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 3. In pottery, you need to set up the production of wine jugs.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a5f4b85&format=webp&hm=d93eaf677a13a4102c4e66165046df4b48fc09c9152c90a6674c57fc68a519d1&is=6a5dfa05&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519108751020523743/image.png?ex=6a5ff445&format=webp&hm=6c402f3f3f4fbd0ebd9c825cd670501e4b34714623dfa9f84da3aff60dde4e59&is=6a5ea2c5&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 4. You also need to decide on a set of dishes that you will cook and sell (as well as deliver to cargo).
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a5f4bc9&format=webp&hm=18575c858992aaa96373989fb5a90d27c0bdd5078a1216ed90d2b87b1cf567b7&is=6a5dfa49&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519109036023484587/image.png?ex=6a5ff489&format=webp&hm=687a7d7fafbb6fe6a494720e1389aeaf91412038ee1b851a4579f0ab48954bd1&is=6a5ea309&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 In the same tab, you can switch to the tavern's assortment and provide waiters with created dishes and drinks.
 
@@ -238,7 +238,7 @@ This is the whole production, then you will only need to raise the level of the 
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a5f4d5e&format=webp&hm=9f76c0e97d41ab50e685050b7fb67b5913daf21efee79f48d2f16cc022df0e50&is=6a5dfbde&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1519088863446831145/1519110735052144820/image.png?ex=6a5ff61e&format=webp&hm=18d102715081fdc033f0583528d7ac5d07bea5d8494ff9a5a1d1f0faed4fda5d&is=6a5ea49e&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
