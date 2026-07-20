@@ -24,6 +24,7 @@ var (
 type pendingWWMUIDEntry struct {
 	canonicalAlias string
 	canonicalSlug  string
+	aliases        []string
 	numberID       string
 	pid            string
 	hostnum        int
@@ -40,13 +41,30 @@ func handleWWMUIDCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 		discordID = i.Member.User.ID
 	}
 
-	var aliasValue, uidValue string
+	// Default to their Discord nickname for first-time registration — just
+	// a starting suggestion, still fully editable, not an identity rule
+	// (see docs/builder-identity.md: canonicalSlug intentionally stays
+	// independent of Discord nickname, which can differ from how a
+	// builder's name is actually credited in guild/solo/blueprint data).
+	aliasValue := memberDisplayName(i)
+	var uidValue, aliasesValue string
+	uidLabel := "Your In-Game UID"
 	identities, err := LoadBuilderIdentities(root)
 	if err != nil {
 		slog.Warn("wwm-uid: loading builder identities", "err", err)
 	} else if idx := FindBuilderIdentityByDiscordID(identities, discordID); idx >= 0 {
 		aliasValue = identities[idx].CanonicalAlias
 		uidValue = identities[idx].NeteaseNumberID
+		aliasesValue = strings.Join(identities[idx].Aliases, ", ")
+		// Discord modal labels cap at 45 chars — this is display-only info,
+		// not an input, so truncate rather than error if the nickname is long.
+		if nick := identities[idx].IngameNickname; nick != "" {
+			label := fmt.Sprintf("Your In-Game UID (currently: %s)", nick)
+			if len(label) > 45 {
+				label = label[:44] + "…"
+			}
+			uidLabel = label
+		}
 	}
 
 	err = s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
@@ -68,11 +86,21 @@ func handleWWMUIDCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
 					discordgo.TextInput{
 						CustomID:    "uid",
-						Label:       "Your In-Game UID",
+						Label:       uidLabel,
 						Style:       discordgo.TextInputShort,
 						Required:    false,
 						Value:       uidValue,
 						Placeholder: "e.g. 2039668966 — leave blank to remove",
+					},
+				}},
+				discordgo.ActionsRow{Components: []discordgo.MessageComponent{
+					discordgo.TextInput{
+						CustomID:    "aliases",
+						Label:       "Other Names/Aliases (optional)",
+						Style:       discordgo.TextInputShort,
+						Required:    false,
+						Value:       aliasesValue,
+						Placeholder: "comma-separated, e.g. OldName, Nickname2",
 					},
 				}},
 			},
@@ -81,6 +109,40 @@ func handleWWMUIDCommand(s *discordgo.Session, i *discordgo.InteractionCreate, r
 	if err != nil {
 		slog.Error("responding with wwm-uid modal", "err", err)
 	}
+}
+
+// parseAliases splits a comma-separated field into trimmed, non-empty names.
+func parseAliases(raw string) []string {
+	var out []string
+	for _, a := range strings.Split(raw, ",") {
+		if a = strings.TrimSpace(a); a != "" {
+			out = append(out, a)
+		}
+	}
+	return out
+}
+
+// conflictingAlias returns the first alias in aliases whose slug collides
+// with another identity's canonicalSlug or alias (not selfIdx's own), or ""
+// if none conflict.
+func conflictingAlias(identities []BuilderIdentity, selfIdx int, aliases []string) string {
+	for _, a := range aliases {
+		aSlug := slugify(a)
+		for idx, entry := range identities {
+			if idx == selfIdx {
+				continue
+			}
+			if entry.CanonicalSlug == aSlug {
+				return a
+			}
+			for _, existingAlias := range entry.Aliases {
+				if slugify(existingAlias) == aSlug {
+					return a
+				}
+			}
+		}
+	}
+	return ""
 }
 
 func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, root, devChannelID string) {
@@ -97,6 +159,7 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		return
 	}
 	uid := strings.TrimSpace(fields["uid"])
+	aliases := parseAliases(fields["aliases"])
 
 	identities, err := LoadBuilderIdentities(root)
 	if err != nil {
@@ -108,6 +171,10 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	selfIdx := FindBuilderIdentityByDiscordID(identities, discordID)
 	if otherIdx := FindBuilderIdentityBySlug(identities, slug); otherIdx >= 0 && otherIdx != selfIdx {
 		respondWWMUIDMessage(s, i, fmt.Sprintf("❌ The builder name **%s** is already taken — please pick a different one.", alias))
+		return
+	}
+	if bad := conflictingAlias(identities, selfIdx, aliases); bad != "" {
+		respondWWMUIDMessage(s, i, fmt.Sprintf("❌ The alias **%s** is already used by another builder — please remove it.", bad))
 		return
 	}
 
@@ -124,11 +191,11 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	case uid == "":
 		// Field cleared — remove NetEase fields entirely (absent, not
 		// blank; see docs/builder-identity.md on why that matters).
-		msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, alias, slug, "", "", 0, "")
+		msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, alias, slug, aliases, "", "", 0, "")
 		respondWWMUIDMessage(s, i, msg)
 	case uid == existingUID && selfIdx >= 0:
-		// Unchanged — only the name/slug may have moved, skip re-resolving.
-		msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, alias, slug, existingUID, existingPID, existingHostnum, existingNickname)
+		// Unchanged — only the name/slug/aliases may have moved, skip re-resolving.
+		msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, alias, slug, aliases, existingUID, existingPID, existingHostnum, existingNickname)
 		respondWWMUIDMessage(s, i, msg)
 	default:
 		// Set/changed — resolve live and confirm before saving, so a
@@ -144,6 +211,7 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		pendingWWMUID[discordID] = pendingWWMUIDEntry{
 			canonicalAlias: alias,
 			canonicalSlug:  slug,
+			aliases:        aliases,
 			numberID:       uid,
 			pid:            ref.PID,
 			hostnum:        ref.Hostnum,
@@ -192,7 +260,7 @@ func handleWWMUIDButton(s *discordgo.Session, i *discordgo.InteractionCreate, bo
 		return
 	}
 
-	msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, entry.canonicalAlias, entry.canonicalSlug, entry.numberID, entry.pid, entry.hostnum, entry.nickname)
+	msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, entry.canonicalAlias, entry.canonicalSlug, entry.aliases, entry.numberID, entry.pid, entry.hostnum, entry.nickname)
 	updateWWMUIDMessage(s, i, msg)
 }
 
@@ -200,7 +268,7 @@ func handleWWMUIDButton(s *discordgo.Session, i *discordgo.InteractionCreate, bo
 // exist yet) and commits+pushes data/builder_identities.json from the live
 // bot process — same pattern as data/streaming.json, see
 // docs/builder-identity.md's Piece 2. Returns the message to show the user.
-func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, slug, numberID, pid string, hostnum int, nickname string) string {
+func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, slug string, aliases []string, numberID, pid string, hostnum int, nickname string) string {
 	submitMu.Lock()
 	defer submitMu.Unlock()
 
@@ -217,6 +285,7 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, sl
 	}
 	identities[idx].CanonicalAlias = alias
 	identities[idx].CanonicalSlug = slug
+	identities[idx].Aliases = aliases
 	identities[idx].NeteaseNumberID = numberID
 	identities[idx].NeteasePID = pid
 	identities[idx].NeteaseHostnum = hostnum

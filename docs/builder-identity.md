@@ -103,20 +103,33 @@ option, though — instead:
 1. Running `/wwm-uid` opens a **modal** (same pattern already used by
    `scout-guild`/`submit-guild` in `submit.go`: `discordgo.InteractionResponseModal` +
    `TextInput`, routed back on `InteractionModalSubmit` by `CustomID`) with
-   **two fields**, each pre-filled from the caller's existing record if one
-   exists, empty otherwise:
+   **three fields**, each pre-filled from the caller's existing record if
+   one exists, empty otherwise:
    - **"Builder Name"** — the `canonicalAlias`, shown/typed with its
-     natural casing (e.g. `Hantiya`, not `hantiya`). `canonicalSlug` is
-     computed from it (`slugify(canonicalAlias)`) rather than typed
-     directly; **the slug must be unique**, checked against every other
-     record's `canonicalSlug` on submit (excluding the caller's own
-     existing entry) — reject with a clear error and let them retry if
-     it's already taken by someone else.
+     natural casing (e.g. `Hantiya`, not `hantiya`); defaults to the
+     caller's current Discord nickname on first use (a starting
+     suggestion only, fully editable — `canonicalSlug` deliberately
+     doesn't track Discord nicknames, see the data-model note above).
+     `canonicalSlug` is computed from it (`slugify(canonicalAlias)`)
+     rather than typed directly; **the slug must be unique**, checked
+     against every other record's `canonicalSlug` on submit (excluding
+     the caller's own existing entry) — reject with a clear error and let
+     them retry if it's already taken by someone else.
    - **"Your In-Game UID"** — the `neteaseNumberId`, **not required** (an
-     empty submission clears it, same as before).
-   `ingameNickname` is **not a modal field at all** — it's never typed,
-   only ever derived server-side from resolving the UID, so there's
-   nothing for the user to edit or get wrong there.
+     empty submission clears it, same as before). Its *label* (not the
+     value) doubles as a read-only display of the currently-resolved
+     `ingameNickname`, e.g. `"Your In-Game UID (currently: Hantiya)"` —
+     Discord's modal `TextInput` has no `disabled`/read-only property at
+     all, so a label is the only way to show information in a modal
+     without it being an editable field.
+   - **"Other Names/Aliases"** — comma-separated, backs `aliases`
+     directly (self-service equivalent of hand-editing the old
+     `BUILDER_ALIASES` map). Each entered alias is slug-checked against
+     every *other* record's `canonicalSlug`/`aliases` the same way the
+     Builder Name field is, so one person can't claim an alias that's
+     already someone else's identity.
+   `ingameNickname` itself is **not a modal field at all** — it's never
+   typed, only ever derived server-side from resolving the UID.
 2. **Validate before saving.**
    - **Slug taken by someone else**: reject immediately, before touching
      the UID at all — ask the caller to resubmit with a different one.

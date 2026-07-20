@@ -44,7 +44,11 @@
 		"canonicalSlug": "carnii",
 		"aliases": [
 			"ℭ𝔞𝔯𝔫𝔦"
-		]
+		],
+		"neteaseNumberId": "2094975141",
+		"neteasePid": "aUg84DEMzeyaLDDm",
+		"neteaseHostnum": 10209,
+		"ingameNickname": "carnii"
 	},
 	{
 		"canonicalAlias": "Kirakosma",
@@ -223,57 +227,104 @@
 	{
 		"discordId": "512276516697145346",
 		"canonicalAlias": "KaiTingLi",
-		"canonicalSlug": "kaitingli"
+		"canonicalSlug": "kaitingli",
+		"neteaseNumberId": "0029274204",
+		"neteasePid": "aRij7Ja5Cgj7dDxI",
+		"neteaseHostnum": 10002,
+		"ingameNickname": "KaiTingLi"
 	},
 	{
 		"discordId": "226512871687847938",
 		"canonicalAlias": "OPM",
-		"canonicalSlug": "opm"
+		"canonicalSlug": "opm",
+		"neteaseNumberId": "0036882209",
+		"neteasePid": "aReo+1RI6Ep5Ma0Z",
+		"neteaseHostnum": 10003,
+		"ingameNickname": "OPM"
 	},
 	{
 		"discordId": "815652471438835723",
 		"canonicalAlias": "Raekiro",
-		"canonicalSlug": "raekiro"
+		"canonicalSlug": "raekiro",
+		"neteaseNumberId": "1045774878",
+		"neteasePid": "aRe1GZ7jnVZ8EZDt",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "Raekiro"
 	},
 	{
 		"discordId": "132197255993229312",
 		"canonicalAlias": "Veneslash",
-		"canonicalSlug": "veneslash"
+		"canonicalSlug": "veneslash",
+		"neteaseNumberId": "2019581374",
+		"neteasePid": "aR0UdEE+qo5ByuEQ",
+		"neteaseHostnum": 10201,
+		"ingameNickname": "Veneslash"
 	},
 	{
 		"discordId": "344062569457123328",
 		"canonicalAlias": "Izanagi-cz",
-		"canonicalSlug": "izanagi-cz"
+		"canonicalSlug": "izanagi-cz",
+		"neteaseNumberId": "2068567061",
+		"neteasePid": "aSGofliQRq/r6DfF",
+		"neteaseHostnum": 10206,
+		"ingameNickname": "Izanagi-cz"
 	},
 	{
 		"discordId": "935748222515810435",
 		"canonicalAlias": "Eulreiss",
-		"canonicalSlug": "eulreiss"
+		"canonicalSlug": "eulreiss",
+		"neteaseNumberId": "4035187006",
+		"neteasePid": "aS1c1KZ6MFmCUWaM",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "Eulreiss"
 	},
 	{
 		"discordId": "132216422897156096",
-		"canonicalAlias": "Alscend (with credits to LuckyBags and Lurzi for pitching in for some areas)",
-		"canonicalSlug": "alscend-with-credits-to-luckybags-and-lurzi-for-pitching-in-for-some-areas"
+		"canonicalAlias": "Alscend",
+		"canonicalSlug": "alscend",
+		"aliases": [
+			"°•°• alscend"
+		],
+		"neteaseNumberId": "2057236229",
+		"neteasePid": "aR2XSX8SpwNepA34",
+		"neteaseHostnum": 10205,
+		"ingameNickname": "Alscend"
 	},
 	{
 		"discordId": "207164708199989248",
-		"canonicalAlias": "(PhetaOkiya and Harass)",
-		"canonicalSlug": "phetaokiya-and-harass"
+		"canonicalAlias": "PhetaOkiya",
+		"canonicalSlug": "phetaokiya",
+		"neteaseNumberId": "1013573037",
+		"neteasePid": "aSjA1DsEVaQjV5U0",
+		"neteaseHostnum": 10101,
+		"ingameNickname": "PhetaOkiya"
 	},
 	{
 		"discordId": "450875663185084438",
 		"canonicalAlias": "SugaredKoi",
-		"canonicalSlug": "sugaredkoi"
+		"canonicalSlug": "sugaredkoi",
+		"neteaseNumberId": "1012326219",
+		"neteasePid": "aRetJbKRXEUVWjTx",
+		"neteaseHostnum": 10101,
+		"ingameNickname": "SugaredKoi"
 	},
 	{
 		"discordId": "1386339923031752886",
 		"canonicalAlias": "Kkulgomi",
-		"canonicalSlug": "kkulgomi"
+		"canonicalSlug": "kkulgomi",
+		"neteaseNumberId": "2042586172",
+		"neteasePid": "aSWn6nFg6mJe/Zr0",
+		"neteaseHostnum": 10204,
+		"ingameNickname": "Kkulgomi"
 	},
 	{
 		"discordId": "376083682076917762",
 		"canonicalAlias": "wavy波",
-		"canonicalSlug": "wavy波"
+		"canonicalSlug": "wavy波",
+		"neteaseNumberId": "1066852549",
+		"neteasePid": "aR5hEIklijZOXeUh",
+		"neteaseHostnum": 10106,
+		"ingameNickname": "wavy波"
 	},
 	{
 		"discordId": "198411878861504512",
@@ -288,37 +339,65 @@
 	{
 		"discordId": "221965752482267136",
 		"canonicalAlias": "Yuèshi",
-		"canonicalSlug": "yuèshi"
+		"canonicalSlug": "yuèshi",
+		"neteaseNumberId": "1042515036",
+		"neteasePid": "aRf7DSRkH0Z7Ihm1",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "Yuèshi"
 	},
 	{
 		"discordId": "813776087279599626",
 		"canonicalAlias": "Rastawar",
-		"canonicalSlug": "rastawar"
+		"canonicalSlug": "rastawar",
+		"neteaseNumberId": "2029780362",
+		"neteasePid": "aRfAVLsdzgdzFUNZ",
+		"neteaseHostnum": 10202,
+		"ingameNickname": "Rastawar"
 	},
 	{
 		"discordId": "320282723325444098",
 		"canonicalAlias": "Lanyueliang",
-		"canonicalSlug": "lanyueliang"
+		"canonicalSlug": "lanyueliang",
+		"neteaseNumberId": "4028390283",
+		"neteasePid": "aR9aWPAEF8t51aGk",
+		"neteaseHostnum": 10402,
+		"ingameNickname": "Lanyueliang"
 	},
 	{
 		"discordId": "700659572603355187",
 		"canonicalAlias": "xyria",
-		"canonicalSlug": "xyria"
+		"canonicalSlug": "xyria",
+		"neteaseNumberId": "2012271300",
+		"neteasePid": "aSTA+KNXWt9iGrNI",
+		"neteaseHostnum": 10201,
+		"ingameNickname": "xyria"
 	},
 	{
 		"discordId": "392597550726774796",
 		"canonicalAlias": "Pikachu",
-		"canonicalSlug": "pikachu"
+		"canonicalSlug": "pikachu",
+		"neteaseNumberId": "4025247083",
+		"neteasePid": "aReqDvAEF695IM7k",
+		"neteaseHostnum": 10402,
+		"ingameNickname": "Pikachu"
 	},
 	{
 		"discordId": "240102926398259200",
 		"canonicalAlias": "Yubi",
-		"canonicalSlug": "yubi"
+		"canonicalSlug": "yubi",
+		"neteaseNumberId": "2019247156",
+		"neteasePid": "aRevaF46kwNTAk5G",
+		"neteaseHostnum": 10201,
+		"ingameNickname": "Yubi"
 	},
 	{
 		"discordId": "211334688197967872",
 		"canonicalAlias": "Anyuexin",
-		"canonicalSlug": "anyuexin"
+		"canonicalSlug": "anyuexin",
+		"neteaseNumberId": "1077214849",
+		"neteasePid": "aR7Kr2PBwBt8PDUQ",
+		"neteaseHostnum": 10107,
+		"ingameNickname": "Anyuexin"
 	},
 	{
 		"discordId": "517335676090449930",
@@ -328,22 +407,38 @@
 	{
 		"discordId": "207512790435364865",
 		"canonicalAlias": "imBlankZ",
-		"canonicalSlug": "imblankz"
+		"canonicalSlug": "imblankz",
+		"neteaseNumberId": "4037360921",
+		"neteasePid": "aTGhH6BYoml+28y5",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "imBlankZ"
 	},
 	{
 		"discordId": "722998282313531465",
 		"canonicalAlias": "Beans",
-		"canonicalSlug": "beans"
+		"canonicalSlug": "beans",
+		"neteaseNumberId": "2019995782",
+		"neteasePid": "aRen3UPdgdg9MRoj",
+		"neteaseHostnum": 10201,
+		"ingameNickname": "Beans"
 	},
 	{
 		"discordId": "751254579743817728",
 		"canonicalAlias": "dilema",
-		"canonicalSlug": "dilema"
+		"canonicalSlug": "dilema",
+		"neteaseNumberId": "1054289720",
+		"neteasePid": "aVYvq/y57QG3IFqP",
+		"neteaseHostnum": 10105,
+		"ingameNickname": "dilema"
 	},
 	{
 		"discordId": "459769272080662529",
 		"canonicalAlias": "Wyrdrake",
-		"canonicalSlug": "wyrdrake"
+		"canonicalSlug": "wyrdrake",
+		"neteaseNumberId": "0036213257",
+		"neteasePid": "aRqBhchiw6RxgNrh",
+		"neteaseHostnum": 10003,
+		"ingameNickname": "Wyrdrake"
 	},
 	{
 		"discordId": "366949474490253315",
@@ -353,37 +448,65 @@
 	{
 		"discordId": "699308121075482776",
 		"canonicalAlias": "Liiyaxi",
-		"canonicalSlug": "liiyaxi"
+		"canonicalSlug": "liiyaxi",
+		"neteaseNumberId": "1058044948",
+		"neteasePid": "aRfYlLVqruuGbvSy",
+		"neteaseHostnum": 10105,
+		"ingameNickname": "Liiyaxi"
 	},
 	{
 		"discordId": "847136944684662804",
 		"canonicalAlias": "Rhuele",
-		"canonicalSlug": "rhuele"
+		"canonicalSlug": "rhuele",
+		"neteaseNumberId": "4016666288",
+		"neteasePid": "aTVrUoHbxOoRtFO+",
+		"neteaseHostnum": 10401,
+		"ingameNickname": "Rhuele"
 	},
 	{
 		"discordId": "176065800929542144",
 		"canonicalAlias": "Ziijing",
-		"canonicalSlug": "ziijing"
+		"canonicalSlug": "ziijing",
+		"neteaseNumberId": "1015241962",
+		"neteasePid": "aRiPFCJ2n60vh/OD",
+		"neteaseHostnum": 10101,
+		"ingameNickname": "Ziijing"
 	},
 	{
 		"discordId": "680285974571384844",
 		"canonicalAlias": "TheArçhiteçt",
-		"canonicalSlug": "thearçhiteçt"
+		"canonicalSlug": "thearçhiteçt",
+		"neteaseNumberId": "1015418227",
+		"neteasePid": "aRf0BCJ2n7kvQ3Zu",
+		"neteaseHostnum": 10101,
+		"ingameNickname": "TheArçhiteçt"
 	},
 	{
 		"discordId": "348835847941914642",
 		"canonicalAlias": "流浪貓",
-		"canonicalSlug": "流浪貓"
+		"canonicalSlug": "流浪貓",
+		"neteaseNumberId": "3018924996",
+		"neteasePid": "aSLItlhZdUojz4IQ",
+		"neteaseHostnum": 10301,
+		"ingameNickname": "流浪貓"
 	},
 	{
 		"discordId": "709029309804838963",
 		"canonicalAlias": "MOONN",
-		"canonicalSlug": "moonn"
+		"canonicalSlug": "moonn",
+		"neteaseNumberId": "4022834114",
+		"neteasePid": "aRgf5NEv6USCPM8s",
+		"neteaseHostnum": 10402,
+		"ingameNickname": "MOONN"
 	},
 	{
 		"discordId": "402707793410523136",
 		"canonicalAlias": "Li-LongDong",
-		"canonicalSlug": "li-longdong"
+		"canonicalSlug": "li-longdong",
+		"neteaseNumberId": "4017014697",
+		"neteasePid": "aRsfNj0frLEjlLBC",
+		"neteaseHostnum": 10401,
+		"ingameNickname": "Li-LongDong"
 	},
 	{
 		"discordId": "1320024968594984981",
@@ -393,72 +516,128 @@
 	{
 		"discordId": "395581235570933761",
 		"canonicalAlias": "DrugzBunny",
-		"canonicalSlug": "drugzbunny"
+		"canonicalSlug": "drugzbunny",
+		"neteaseNumberId": "4077713514",
+		"neteasePid": "aT6bIX20C2A+ZVjo",
+		"neteaseHostnum": 10407,
+		"ingameNickname": "DrugzBunny"
 	},
 	{
 		"discordId": "1199718918953115690",
 		"canonicalAlias": "BornPink",
-		"canonicalSlug": "bornpink"
+		"canonicalSlug": "bornpink",
+		"neteaseNumberId": "4104501347",
+		"neteasePid": "aT5t66FyqtwsexL9",
+		"neteaseHostnum": 10410,
+		"ingameNickname": "BornPink"
 	},
 	{
 		"discordId": "301047781311774721",
 		"canonicalAlias": "Diliria",
-		"canonicalSlug": "diliria"
+		"canonicalSlug": "diliria",
+		"neteaseNumberId": "4037849696",
+		"neteasePid": "aRimjtni5EyBdmVs",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "Diliria"
 	},
 	{
 		"discordId": "594963931357773827",
 		"canonicalAlias": "아수련",
-		"canonicalSlug": "아수련"
+		"canonicalSlug": "아수련",
+		"neteaseNumberId": "1053448941",
+		"neteasePid": "aRgHREx55C2HJvH3",
+		"neteaseHostnum": 10105,
+		"ingameNickname": "아수련"
 	},
 	{
 		"discordId": "424601166341472266",
 		"canonicalAlias": "HKT",
-		"canonicalSlug": "hkt"
+		"canonicalSlug": "hkt",
+		"neteaseNumberId": "2022433866",
+		"neteasePid": "aRev47sdzgFzH1Bq",
+		"neteaseHostnum": 10202,
+		"ingameNickname": "HKT"
 	},
 	{
 		"discordId": "320575508121124865",
 		"canonicalAlias": "Kise",
-		"canonicalSlug": "kise"
+		"canonicalSlug": "kise",
+		"neteaseNumberId": "4018182797",
+		"neteasePid": "aRekVw1QL1wZCRiM",
+		"neteaseHostnum": 10401,
+		"ingameNickname": "Kise"
 	},
 	{
 		"discordId": "200072102693306371",
 		"canonicalAlias": "AngusKhan",
-		"canonicalSlug": "anguskhan"
+		"canonicalSlug": "anguskhan",
+		"neteaseNumberId": "1042284263",
+		"neteasePid": "aS4fOiRkH417rHJN",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "AngusKhan"
 	},
 	{
 		"discordId": "1101141085151043645",
 		"canonicalAlias": "Amelouk",
-		"canonicalSlug": "amelouk"
+		"canonicalSlug": "amelouk",
+		"neteaseNumberId": "2042102508",
+		"neteasePid": "aShfgHFg6hBebbF4",
+		"neteaseHostnum": 10204,
+		"ingameNickname": "Amelouk"
 	},
 	{
 		"discordId": "574963209082109963",
 		"canonicalAlias": "峰绝",
-		"canonicalSlug": "峰绝"
+		"canonicalSlug": "峰绝",
+		"neteaseNumberId": "4037941277",
+		"neteasePid": "aRxiqaZ6MFyCWwZW",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "峰绝"
 	},
 	{
 		"discordId": "640750373014994944",
 		"canonicalAlias": "KCrazy",
-		"canonicalSlug": "kcrazy"
+		"canonicalSlug": "kcrazy",
+		"neteaseNumberId": "4032124294",
+		"neteasePid": "aTPQGnXXFBaD4nEg",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "KCrazy"
 	},
 	{
 		"discordId": "704390024212250704",
 		"canonicalAlias": "Salíx",
-		"canonicalSlug": "salíx"
+		"canonicalSlug": "salíx",
+		"neteaseNumberId": "1079283154",
+		"neteasePid": "aSJMjTncQ6yBj+XK",
+		"neteaseHostnum": 10107,
+		"ingameNickname": "Salíx"
 	},
 	{
 		"discordId": "1274077031151435939",
 		"canonicalAlias": "Kanmaniye",
-		"canonicalSlug": "kanmaniye"
+		"canonicalSlug": "kanmaniye",
+		"neteaseNumberId": "0034159745",
+		"neteasePid": "aR9eFDSgncF7qIZj",
+		"neteaseHostnum": 10003,
+		"ingameNickname": "Kanmaniye"
 	},
 	{
 		"discordId": "148984746976870400",
 		"canonicalAlias": "Min丶",
-		"canonicalSlug": "min丶"
+		"canonicalSlug": "min丶",
+		"neteaseNumberId": "4013090959",
+		"neteasePid": "aRe3PILKVQL/GgnC",
+		"neteaseHostnum": 10401,
+		"ingameNickname": "Min丶"
 	},
 	{
 		"discordId": "690759797951430716",
 		"canonicalAlias": "HazelWind",
-		"canonicalSlug": "hazelwind"
+		"canonicalSlug": "hazelwind",
+		"neteaseNumberId": "4038768974",
+		"neteasePid": "aTf9jdScEBmCKXdQ",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "HazelWind"
 	},
 	{
 		"discordId": "481445193241985024",
@@ -472,27 +651,47 @@
 	{
 		"discordId": "785485177996050442",
 		"canonicalAlias": "barashfr",
-		"canonicalSlug": "barashfr"
+		"canonicalSlug": "barashfr",
+		"neteaseNumberId": "0017165108",
+		"neteasePid": "aRes3BRlmSlLIgob",
+		"neteaseHostnum": 10001,
+		"ingameNickname": "barashfr"
 	},
 	{
 		"discordId": "183391180384370689",
 		"canonicalAlias": "Amberbelle",
-		"canonicalSlug": "amberbelle"
+		"canonicalSlug": "amberbelle",
+		"neteaseNumberId": "4039413466",
+		"neteasePid": "aSK/mnXXFP6Cr23H",
+		"neteaseHostnum": 10403,
+		"ingameNickname": "Amberbelle"
 	},
 	{
 		"discordId": "757565472219856968",
 		"canonicalAlias": "oQwQo",
-		"canonicalSlug": "oqwqo"
+		"canonicalSlug": "oqwqo",
+		"neteaseNumberId": "4023942823",
+		"neteasePid": "aR+19PAEF9F5+cxx",
+		"neteaseHostnum": 10402,
+		"ingameNickname": "oQwQo"
 	},
 	{
 		"discordId": "1179308934599806996",
 		"canonicalAlias": "Chumimaru",
-		"canonicalSlug": "chumimaru"
+		"canonicalSlug": "chumimaru",
+		"neteaseNumberId": "4017498280",
+		"neteasePid": "aRtVp2V9YIEQqnhj",
+		"neteaseHostnum": 10401,
+		"ingameNickname": "Chumimaru"
 	},
 	{
 		"discordId": "738172252025258024",
 		"canonicalAlias": "Beatzzzz",
-		"canonicalSlug": "beatzzzz"
+		"canonicalSlug": "beatzzzz",
+		"neteaseNumberId": "2074160729",
+		"neteasePid": "aRzB6o4RUQLUS19/",
+		"neteaseHostnum": 10207,
+		"ingameNickname": "Beatzzzz"
 	},
 	{
 		"discordId": "122951563256922112",
@@ -502,12 +701,20 @@
 	{
 		"discordId": "274654935923163136",
 		"canonicalAlias": "MoonlightYozora",
-		"canonicalSlug": "moonlightyozora"
+		"canonicalSlug": "moonlightyozora",
+		"neteaseNumberId": "2028266141",
+		"neteasePid": "aRftLJ/T15VtCx9c",
+		"neteaseHostnum": 10202,
+		"ingameNickname": "MoonlightYozora"
 	},
 	{
 		"discordId": "766003987785842730",
 		"canonicalAlias": "Heixianyu",
-		"canonicalSlug": "heixianyu"
+		"canonicalSlug": "heixianyu",
+		"neteaseNumberId": "2028507921",
+		"neteasePid": "aR8UpLKz6lpwxIcd",
+		"neteaseHostnum": 10202,
+		"ingameNickname": "Heixianyu"
 	},
 	{
 		"discordId": "1257502759993872477",
@@ -522,12 +729,20 @@
 	{
 		"discordId": "250096111950364672",
 		"canonicalAlias": "Andrey",
-		"canonicalSlug": "andrey"
+		"canonicalSlug": "andrey",
+		"neteaseNumberId": "2027724253",
+		"neteasePid": "aReo5UCFP2R1ZH92",
+		"neteaseHostnum": 10202,
+		"ingameNickname": "Andrey"
 	},
 	{
 		"discordId": "721510597958828183",
 		"canonicalAlias": "wind",
-		"canonicalSlug": "wind"
+		"canonicalSlug": "wind",
+		"neteaseNumberId": "1046025192",
+		"neteasePid": "aRfQt1YQ8eV2I/wL",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "wind"
 	},
 	{
 		"discordId": "507478894857945098",
@@ -537,17 +752,29 @@
 	{
 		"discordId": "387307552607830016",
 		"canonicalAlias": "Anarkysoul",
-		"canonicalSlug": "anarkysoul"
+		"canonicalSlug": "anarkysoul",
+		"neteaseNumberId": "1043756257",
+		"neteasePid": "aRjsTs5zwb5/Hu65",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "Anarkysoul"
 	},
 	{
 		"discordId": "586714186399088641",
 		"canonicalAlias": "myo-morph",
-		"canonicalSlug": "myo-morph"
+		"canonicalSlug": "myo-morph",
+		"neteaseNumberId": "1085335258",
+		"neteasePid": "aUiA/V1iM7K8knCa",
+		"neteaseHostnum": 10108,
+		"ingameNickname": "myo-morph"
 	},
 	{
 		"discordId": "314824720254238731",
 		"canonicalAlias": "Xiao",
-		"canonicalSlug": "xiao"
+		"canonicalSlug": "xiao",
+		"neteaseNumberId": "1045108888",
+		"neteasePid": "aRekOMOYRGZ5K7Ws",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "Xiao"
 	},
 	{
 		"discordId": "1160067356727455744",
@@ -557,12 +784,20 @@
 	{
 		"discordId": "959076147826688090",
 		"canonicalAlias": "Yan",
-		"canonicalSlug": "yan"
+		"canonicalSlug": "yan",
+		"neteaseNumberId": "2024917609",
+		"neteasePid": "aRemg9Krrrl1Jl/e",
+		"neteaseHostnum": 10202,
+		"ingameNickname": "Yan"
 	},
 	{
 		"discordId": "1500908775626768455",
 		"canonicalAlias": "RedHairMeng",
-		"canonicalSlug": "redhairmeng"
+		"canonicalSlug": "redhairmeng",
+		"neteaseNumberId": "2034033931",
+		"neteasePid": "aSxMxYU7BjMj1PKF",
+		"neteaseHostnum": 10203,
+		"ingameNickname": "RedHairMeng"
 	},
 	{
 		"discordId": "296685887352209408",
@@ -603,7 +838,11 @@
 	{
 		"discordId": "907746159605469274",
 		"canonicalAlias": "Pochie-Sama",
-		"canonicalSlug": "pochie-sama"
+		"canonicalSlug": "pochie-sama",
+		"neteaseNumberId": "1108533966",
+		"neteasePid": "aW0jOXRjIxOllEmr",
+		"neteaseHostnum": 10110,
+		"ingameNickname": "Pochie-Sama"
 	},
 	{
 		"discordId": "914764085143408650",
@@ -633,12 +872,20 @@
 	{
 		"discordId": "252823610614480896",
 		"canonicalAlias": "Reggaez",
-		"canonicalSlug": "reggaez"
+		"canonicalSlug": "reggaez",
+		"neteaseNumberId": "2043752089",
+		"neteasePid": "aRzuFx3F6SFhtJV4",
+		"neteaseHostnum": 10204,
+		"ingameNickname": "Reggaez"
 	},
 	{
 		"discordId": "117643997937139714",
 		"canonicalAlias": "VV",
-		"canonicalSlug": "vv"
+		"canonicalSlug": "vv",
+		"neteaseNumberId": "2012656432",
+		"neteasePid": "aReouUE+qpVBLng2",
+		"neteaseHostnum": 10201,
+		"ingameNickname": "VV"
 	},
 	{
 		"discordId": "1397676119456747671",
@@ -648,7 +895,11 @@
 	{
 		"discordId": "505726679897866242",
 		"canonicalAlias": "pixie",
-		"canonicalSlug": "pixie"
+		"canonicalSlug": "pixie",
+		"neteaseNumberId": "1042895131",
+		"neteasePid": "aRe/ys5zwZF/Xu72",
+		"neteaseHostnum": 10104,
+		"ingameNickname": "pixie"
 	},
 	{
 		"discordId": "511489842614632448",
@@ -656,12 +907,20 @@
 		"canonicalSlug": "taky",
 		"aliases": [
 			"娑婆者"
-		]
+		],
+		"neteaseNumberId": "2054218191",
+		"neteasePid": "aRo0kKz7dxNaiY3j",
+		"neteaseHostnum": 10205,
+		"ingameNickname": "TAKY"
 	},
 	{
 		"discordId": "654682480804102155",
 		"canonicalAlias": "AliciaSwan",
-		"canonicalSlug": "aliciaswan"
+		"canonicalSlug": "aliciaswan",
+		"neteaseNumberId": "2116158446",
+		"neteasePid": "aXyMWdW5B1BZrH+Z",
+		"neteaseHostnum": 10211,
+		"ingameNickname": "AliciaSwan"
 	},
 	{
 		"discordId": "1494043347600543956",
