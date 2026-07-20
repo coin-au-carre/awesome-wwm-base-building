@@ -87,6 +87,19 @@ export interface PlanDetail {
   prosperity?: number
 }
 
+// Mirrors wbm-relay's pkg/relay.Comment — one entry in a plan's
+// guestbook-style comment thread (GET /api/comments?plan_id=, see
+// commentsUrl). Confirmed live 2026-07-20 via a real wbm-tool capture of
+// the in-game comment panel — author_number_id/author_name are resolved
+// server-side the same way as PlanDetail's.
+export interface Comment {
+  comment_id: string
+  msg: string
+  ts: number
+  author_number_id?: string
+  author_name?: string
+}
+
 // id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
 // resolves whichever it got server-side (see its CLAUDE.md's
 // "Shareable plan links" section). plan_id specifically can contain "/"
@@ -95,6 +108,15 @@ export interface PlanDetail {
 // code type this is.
 export function planDetailUrl(id: string): string {
   return `${WBM_RELAY_URL}/api/plan?id=${encodeURIComponent(id)}`
+}
+
+// planID must be a bare plan_id (e.g. PlanDetail.plan_id) — unlike
+// planDetailUrl, the relay's /api/comments doesn't resolve ART/SHARE
+// codes, since every caller already has a resolved plan_id on hand by
+// the time it wants comments (it only fetches these after a plan detail
+// has already loaded).
+export function commentsUrl(planID: string): string {
+  return `${WBM_RELAY_URL}/api/comments?plan_id=${encodeURIComponent(planID)}`
 }
 
 // numberID is the public account number (author_number_id on a
@@ -112,7 +134,7 @@ export function designerByNameUrl(nickname: string): string {
 }
 
 // Confirmed working for ART codes (e.g. "ARTakLUQfFVevW1Xl1A") and SHARE
-// codes (e.g. "SHAREeaea710c24cbc453") — see wbm-relay's
+// codes (e.g. "SHARE5f223181ad510813") — see wbm-relay's
 // wbm-tool/gallery-api.md. Free-text title search isn't confirmed
 // upstream, so a plain name may return no results.
 export function searchGalleryUrl(q: string): string {

@@ -88,13 +88,13 @@ export function PlanPage() {
       </div>
 
       {!detail ? (
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="max-w-6xl mx-auto space-y-4">
           <Skeleton className="w-full aspect-video rounded-xl" />
           <Skeleton className="h-6 w-1/2" />
           <Skeleton className="h-4 w-full" />
         </div>
       ) : (
-        <div className="max-w-3xl mx-auto overflow-hidden rounded-2xl bg-card ring-1 ring-border shadow-sm">
+        <div className="max-w-6xl mx-auto overflow-hidden rounded-2xl bg-card ring-1 ring-border shadow-sm">
           <PlanDetailContent detail={detail} />
         </div>
       )}

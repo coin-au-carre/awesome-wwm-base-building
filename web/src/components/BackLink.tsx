@@ -12,7 +12,7 @@ const linkClass = buttonVariants({ variant: "outline", size: "sm" })
 export function GalleryLink() {
   return (
     <a href={url("/gallery")} className={linkClass}>
-      <ImagesSquareIcon weight="bold" className="size-3.5" /> Gallery
+      <ImagesSquareIcon weight="bold" className="size-3.5" /> Gallery Bazaar
     </a>
   )
 }

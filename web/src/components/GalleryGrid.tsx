@@ -5,9 +5,10 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, CalendarIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, TrendDownIcon, CalendarIcon, ChatCircleIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
+import { relativeTime } from "@/lib/dates"
 import {
   WBM_RELAY_URL,
   SORT_OPTIONS,
@@ -16,6 +17,7 @@ import {
   searchGalleryUrl,
   isValidGalleryCode,
   designerUrl,
+  commentsUrl,
   formatCount,
   categoryLabel,
   isPrivate,
@@ -23,12 +25,13 @@ import {
   type GalleryPlan,
   type PlanDetail,
   type DesignerProfile,
+  type Comment,
 } from "@/lib/gallery"
 
 const VISIBILITY_STYLE = {
   private: { icon: LockIcon, label: "Private", className: "bg-amber-500/80 text-white", title: "Only visible to the designer" },
-  friends: { icon: UsersIcon, label: "Friends Only", className: "bg-sky-500/80 text-white", title: "Friends Can Apply — best-effort detection, not fully confirmed yet" },
-  public: { icon: GlobeIcon, label: "Public", className: "bg-black/60 text-white/90", title: "Public or Cannot Apply — indistinguishable in the data" },
+  friends: { icon: UsersIcon, label: "Friends Can Apply", className: "bg-sky-500/80 text-white", title: "Friends Can Apply — best-effort detection, not fully confirmed yet" },
+  public: { icon: GlobeIcon, label: "Public/Friends Only/Cannot Apply", className: "bg-black/60 text-white/90", title: "Indistinguishable in the data: Public, Cannot Apply, and (since Friends Can Apply detection is best-effort) possibly Friends Can Apply too" },
 } as const
 
 // Visibility pill. Grid thumbnails only ever know the coarse `private`
@@ -90,12 +93,52 @@ export function StatRow({
   )
 }
 
+// day_hot vs the week's daily average: shows today's actual score with
+// an up/down arrow, so two cards' momentum can be compared at a glance
+// instead of just their all-time heat_val. Needs a week of history to
+// mean anything (weekHot > 0 guard), so brand-new uploads show nothing.
+function TrendBadge({ dayHot, weekHot }: { dayHot?: number; weekHot?: number }) {
+  if (dayHot == null || !weekHot) return null
+  const up = dayHot > weekHot / 7
+  const Icon = up ? TrendUpIcon : TrendDownIcon
+  return (
+    <span
+      title={up ? "Trending up vs. weekly average" : "Below weekly average pace"}
+      className={`flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-md backdrop-blur-sm ${up ? "bg-emerald-500/30 text-emerald-50" : "bg-black/30 text-white/60"}`}
+    >
+      <Icon weight="bold" className="size-3" /> {formatCount(dayHot)}
+    </span>
+  )
+}
+
 // Every image for the detail view's carousel: the cover picture first,
 // then any additional previews (deduped — the upstream API sometimes
 // repeats the cover inside `previews`).
 function detailImages(detail: PlanDetail): string[] {
   const urls = [detail.picture_url, ...(detail.previews ?? [])].filter(Boolean)
   return Array.from(new Set(urls))
+}
+
+// One comment row (avatar + builder link + relative time + message) —
+// shared between the always-visible first 10 and the collapsible rest,
+// see PlanDetailContent's comments section.
+function CommentRow({ comment: c }: { comment: Comment }) {
+  return (
+    <div className="flex items-start gap-2.5">
+      <a href={builderHref(c.author_number_id)} className="shrink-0">
+        <UserCircleIcon weight="fill" className="size-8 text-muted-foreground/50" />
+      </a>
+      <div className="min-w-0">
+        <div className="flex items-baseline gap-2">
+          <a href={builderHref(c.author_number_id)} className="text-sm font-medium hover:text-primary transition-colors truncate">
+            {c.author_name || c.author_number_id || "Unknown builder"}
+          </a>
+          <span className="text-xs text-muted-foreground shrink-0">{relativeTime(c.ts * 1000)}</span>
+        </div>
+        <p className="text-sm text-foreground/90 whitespace-pre-line wrap-break-word">{c.msg}</p>
+      </div>
+    </div>
+  )
 }
 
 // A small stat card for the plan detail meta grid (Components/Industry
@@ -248,7 +291,10 @@ export function PlanCard({ plan, showAuthor = true }: { plan: GalleryPlan; showA
             {label}
           </span>
         )}
-        {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} className="absolute top-2 right-2" />}
+        <div className="absolute top-2 right-2 flex flex-col items-end gap-1">
+          <TrendBadge dayHot={plan.day_hot} weekHot={plan.week_hot} />
+          {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
+        </div>
         <div className="absolute bottom-0 left-0 p-3">
           <StatRow plan={plan} className="text-xs text-white/90" />
         </div>
@@ -306,6 +352,18 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
       .catch(() => setMoreByBuilder([]))
   }, [detail.author_number_id, detail.plan_id])
 
+  // Same null/[] convention as moreByBuilder above — supplementary, not
+  // core content, so a failed fetch just renders nothing.
+  const [comments, setComments] = useState<Comment[] | null>(null)
+  useEffect(() => {
+    setComments(null)
+    if (!detail.plan_id) return
+    fetch(commentsUrl(detail.plan_id))
+      .then((res) => (res.ok ? (res.json() as Promise<Comment[]>) : Promise.reject()))
+      .then(setComments)
+      .catch(() => setComments([]))
+  }, [detail.plan_id])
+
   return (
     <>
       <div className="relative" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
@@ -354,8 +412,8 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
         </div>
       </div>
       <div className="p-6 space-y-4">
-        {detail.author_name && (
-          <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-2 flex-wrap">
+          {detail.author_name && (
             <a
               href={builderHref(detail.author_number_id)}
               className={buttonVariants({ variant: "secondary", size: "lg", className: "text-base sm:text-lg font-semibold" })}
@@ -364,14 +422,26 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
               {detail.author_name}
               <CaretRightIcon weight="bold" className="size-4 opacity-60" />
             </a>
-            {detail.author_number_id && <CopyPill label="ID" value={detail.author_number_id} />}
+          )}
+          {detail.author_number_id && <CopyPill label="ID" value={detail.author_number_id} />}
+          <div className="flex items-center gap-2 ml-auto">
+            <CopyPill label="ART" value={detail.art_code} />
+            {detail.share_id && <CopyPill label="Share" value={detail.share_id} />}
           </div>
-        )}
-        {detail.description && (
-          <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-            {detail.description}
-          </p>
-        )}
+        </div>
+        <div className="flex items-start justify-between gap-3">
+          {detail.description && (
+            <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+              {detail.description}
+            </p>
+          )}
+          <VisibilityBadge
+            private_={detail.private}
+            hasFriendsWhitelist={detail.has_friends_whitelist}
+            size="md"
+            className="ml-auto shrink-0 bg-muted/50! text-foreground! border border-border"
+          />
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {detail.components_count != null && detail.components_count > 0 && (
             <StatTile icon={HammerIcon} label="Components" value={detail.components_count} />
@@ -409,32 +479,52 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
             </CollapsibleContent>
           </Collapsible>
         )}
-        <div className="flex flex-wrap gap-3 items-center">
-          <CopyPill label="ART" value={detail.art_code} />
-          {detail.share_id && <CopyPill label="Share" value={detail.share_id} />}
-          <VisibilityBadge
-            private_={detail.private}
-            hasFriendsWhitelist={detail.has_friends_whitelist}
-            size="md"
-            className="bg-muted/50! text-foreground! border border-border"
-          />
-        </div>
       </div>
-      {moreByBuilder && moreByBuilder.length > 0 && (
-        <div className="p-6 pt-0 space-y-3">
-          <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-muted-foreground">
-              More by {detail.author_name || "this builder"}
-            </h3>
-            <a href={builderHref(detail.author_number_id)} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-              View all
-            </a>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {moreByBuilder.map((p) => (
-              <PlanCard key={p.plan_id} plan={p} showAuthor={false} />
-            ))}
-          </div>
+      {((comments && comments.length > 0) || (moreByBuilder && moreByBuilder.length > 0)) && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6 pt-0">
+          {comments && comments.length > 0 && (
+            <div className="space-y-3">
+              <h3 className="flex items-center gap-1.5 text-sm font-semibold text-muted-foreground">
+                <ChatCircleIcon weight="fill" className="size-4" />
+                Comments ({comments.length})
+              </h3>
+              <div className="space-y-3">
+                {comments.slice(0, 10).map((c) => (
+                  <CommentRow key={c.comment_id} comment={c} />
+                ))}
+              </div>
+              {comments.length > 10 && (
+                <Collapsible>
+                  <CollapsibleTrigger className="group flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+                    <CaretRightIcon weight="bold" className="size-3 transition-transform group-data-[state=open]:rotate-90" />
+                    Show {comments.length - 10} more comment{comments.length - 10 === 1 ? "" : "s"}
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="space-y-3 mt-3">
+                    {comments.slice(10).map((c) => (
+                      <CommentRow key={c.comment_id} comment={c} />
+                    ))}
+                  </CollapsibleContent>
+                </Collapsible>
+              )}
+            </div>
+          )}
+          {moreByBuilder && moreByBuilder.length > 0 && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm font-semibold text-muted-foreground">
+                  More by {detail.author_name || "this builder"}
+                </h3>
+                <a href={builderHref(detail.author_number_id)} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  View all
+                </a>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {moreByBuilder.map((p) => (
+                  <PlanCard key={p.plan_id} plan={p} showAuthor={false} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </>
@@ -562,7 +652,7 @@ export function GalleryGrid() {
           </div>
           {query.trim() !== "" && !isValidGalleryCode(query.trim()) && (
             <p className="mt-1 text-xs text-amber-600 dark:text-amber-400">
-              Not a valid ART or SHARE code (e.g. ARTakLUQfFVevW1Xl1A or SHAREeaea710c24cbc453).
+              Not a valid ART or SHARE code (e.g. ARTakLUQfFVevW1Xl1A or SHARE5f223181ad510813).
             </p>
           )}
         </div>
