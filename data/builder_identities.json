@@ -926,5 +926,14 @@
 		"discordId": "1494043347600543956",
 		"canonicalAlias": "Pumpkin patch",
 		"canonicalSlug": "pumpkin-patch"
+	},
+	{
+		"discordId": "460301336022351894",
+		"canonicalAlias": "Mreth",
+		"canonicalSlug": "mreth",
+		"ingameNickname": "Mreth",
+		"neteaseNumberId": "1075708330",
+		"neteasePid": "aTDE5ldLCseAKok2",
+		"neteaseHostnum": 10107
 	}
 ]
