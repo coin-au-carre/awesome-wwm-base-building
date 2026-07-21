@@ -780,6 +780,7 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
             <TabsTrigger value="wbm" className="inline-flex items-center gap-1.5">
               <img src={url("/images/logo_1.webp")} alt="" aria-hidden="true" className="size-4 object-contain" />
               WBM Builders
+              <span className="text-[10px] opacity-60 font-normal">· {Object.keys(wbmBuilders).length}</span>
             </TabsTrigger>
             <TabsTrigger value="all" className="inline-flex items-center gap-1.5">
               <GlobeIcon weight="bold" className="size-4" />
