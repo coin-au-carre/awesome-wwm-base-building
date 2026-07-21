@@ -5,7 +5,9 @@ import { PlanDetailContent, ShareButton } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, planDetailUrl, type PlanDetail } from "@/lib/gallery"
 
-export function PlanPage() {
+// wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
+// — see data/builder_identities.json, loaded server-side in gallery/plan.astro.
+export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
   const [shareCode, setShareCode] = useState<string | null>(null)
   const [detail, setDetail] = useState<PlanDetail | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -95,7 +97,7 @@ export function PlanPage() {
         </div>
       ) : (
         <div className="max-w-6xl mx-auto overflow-hidden rounded-2xl bg-card ring-1 ring-border shadow-sm">
-          <PlanDetailContent detail={detail} />
+          <PlanDetailContent detail={detail} wbmSlug={detail.author_number_id ? wbmBuilders[detail.author_number_id] : undefined} />
         </div>
       )}
     </div>

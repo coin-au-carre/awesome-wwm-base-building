@@ -311,7 +311,22 @@ export function planHref(shareId?: string): string {
 // viewing that builder) and on "more by this builder" (same reason).
 // wbmSlug, when present, means this plan's author is also a known WBM
 // builder (see data/builder_identities.json) — see docs/builder-identity.md.
-export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPlan; showAuthor?: boolean; wbmSlug?: string }) {
+// onWbmBadgeClick, when given, turns the WBM badge into a filter toggle
+// (used on the gallery grid itself) instead of its default behavior of
+// linking out to the builder's full WBM profile (used everywhere else
+// PlanCard shows up — "more by this builder", the builder profile's own
+// gallery preview — where there's no WBM-only filter to toggle).
+export function PlanCard({
+  plan,
+  showAuthor = true,
+  wbmSlug,
+  onWbmBadgeClick,
+}: {
+  plan: GalleryPlan
+  showAuthor?: boolean
+  wbmSlug?: string
+  onWbmBadgeClick?: () => void
+}) {
   const label = categoryLabel(plan.category_tag)
   return (
     <div className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted">
@@ -343,7 +358,17 @@ export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPl
           <StatRow plan={plan} className="text-xs text-white/90" compact />
         </div>
       </a>
-      {wbmSlug && (
+      {wbmSlug && (onWbmBadgeClick ? (
+        <button
+          type="button"
+          onClick={onWbmBadgeClick}
+          title="Show only WBM Builders"
+          className="absolute top-2 right-2 z-10 flex items-center gap-1 cursor-pointer"
+        >
+          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-6 sm:size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
+          {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
+        </button>
+      ) : (
         <a
           href={url(`/builders/${wbmSlug}`)}
           title="WBM Builder"
@@ -352,7 +377,7 @@ export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPl
           <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-6 sm:size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
           {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
         </a>
-      )}
+      ))}
       {showAuthor && plan.author_name && (
         <a
           href={builderHref(plan.author_number_id)}
@@ -372,7 +397,7 @@ export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPl
 // else a full detail view is needed; deliberately has no modal/page
 // chrome of its own; note it renders its own author link, so callers
 // must not also nest this inside another <a>.
-export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
+export function PlanDetailContent({ detail, wbmSlug }: { detail: PlanDetail; wbmSlug?: string }) {
   const [imgIndex, setImgIndex] = useState(0)
   const images = detailImages(detail)
 
@@ -476,6 +501,11 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
               <Avatar src={detail.author_avatar_url} className="size-9" />
               {detail.author_name}
               <CaretRightIcon weight="bold" className="size-4 opacity-60" />
+            </a>
+          )}
+          {wbmSlug && (
+            <a href={url(`/builders/${wbmSlug}`)} title="WBM Builder — see full profile">
+              <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-9 rounded-full bg-muted ring-1 ring-border object-contain p-1 hover:ring-primary transition-all" />
             </a>
           )}
           <div className="flex items-center gap-2 flex-wrap sm:ml-auto">
@@ -869,7 +899,12 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {plans.map((plan) => (
-              <PlanCard key={plan.plan_id} plan={plan} wbmSlug={plan.author_number_id ? wbmBuilders[plan.author_number_id] : undefined} />
+              <PlanCard
+                key={plan.plan_id}
+                plan={plan}
+                wbmSlug={plan.author_number_id ? wbmBuilders[plan.author_number_id] : undefined}
+                onWbmBadgeClick={() => setWbmOnly(true)}
+              />
             ))}
           </div>
           {!activeSearch && (

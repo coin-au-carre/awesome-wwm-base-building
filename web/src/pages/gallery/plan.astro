@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { PlanPage } from "@/components/PlanPage"
+import { BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 
 // Query-string route (?share=<SHARE code>) rather than a dynamic [id]
 // path segment — the site builds statically and this page has no
@@ -8,6 +9,13 @@ import { PlanPage } from "@/components/PlanPage"
 // code specifically (not plan_id/ART code) since that's what the
 // in-game "share" button actually produces — see PlanPage.tsx and
 // wbm-relay's CLAUDE.md "Shareable plan links" section.
+
+// number_id -> canonicalSlug, same map gallery.astro/gallery/builder.astro
+// build — lets PlanDetailContent show the WBM Builder badge when this
+// diagram's author is a known WBM builder.
+const wbmBuilders: Record<string, string> = Object.fromEntries(
+  BUILDER_IDENTITIES.filter((e) => e.neteaseNumberId).map((e) => [e.neteaseNumberId as string, e.canonicalSlug]),
+)
 ---
 
 <Layout
@@ -16,5 +24,5 @@ import { PlanPage } from "@/components/PlanPage"
   noindex
   fullWidth
 >
-  <PlanPage client:load />
+  <PlanPage client:load wbmBuilders={wbmBuilders} />
 </Layout>
