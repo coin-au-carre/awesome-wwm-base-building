@@ -7,8 +7,9 @@ import { MonitorEntry } from "@/components/MonitorEntry"
 // server-side auth possible), but it's not discoverable via search or
 // navigation. A hand-picked NetEase designer watchlist, grouped by the
 // LEGEND below — edit the arrays here to add/remove watched ids.
-const LEGEND: { color: "red" | "indigo" | "blue" | "purple"; label: string; description: string }[] = [
+const LEGEND: { color: "red" | "indigo" | "blue" | "purple" | "orange"; label: string; description: string }[] = [
   { color: "red", label: "Red", description: "Steal diagrams by bypassing the copyright system through \"legit\" in-game building methods, not 3rd-party tools." },
+  { color: "orange", label: "Orange", description: "Plagiarism: copy builders almost 1:1 and share them." },
   { color: "purple", label: "Purple", description: "Have the tool to retrieve diagrams. CN content only so far & share them publicly under their own name." },
   { color: "indigo", label: "Indigo", description: "Have the tool to retrieve diagrams. CN content only so far & only display them (not downloadable) in their gallery." },
   { color: "blue", label: "Blue", description: "Have the tool to retrieve diagrams. Put discreetly CN content for their own private use (guild or solo) — never shown in their gallery." }
@@ -21,11 +22,17 @@ const WATCH_LISTS: { color: (typeof LEGEND)[number]["color"]; ids: string[] }[] 
   { color: "red", ids: [] },
 ]
 
+// Orange: plagiarism cases with a specific note + the diagram(s) copied.
+const PLAGIARISM_LIST: { id: string; note: string; diagrams: string[] }[] = [
+  { id: "2072878412", note: "Copied Diana's Plazebo without remorse", diagrams: ["SHAREbfb5cb2e879a1ace"] },
+]
+
 const TEXT_COLOR = {
   red: "text-rose-500",
   indigo: "text-indigo-500",
   blue: "text-blue-500",
   purple: "text-purple-500",
+  orange: "text-orange-500",
 } as const
 ---
 
@@ -52,6 +59,19 @@ const TEXT_COLOR = {
         ))}
       </ul>
     </section>
+
+    {PLAGIARISM_LIST.length > 0 && (
+      <section class="space-y-4">
+        <h2 class={`font-heading text-lg font-semibold ${TEXT_COLOR.orange}`}>
+          {LEGEND.find((l) => l.color === "orange")?.label}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {PLAGIARISM_LIST.map((entry) => (
+            <MonitorEntry client:visible numberId={entry.id} color="orange" note={entry.note} diagrams={entry.diagrams} />
+          ))}
+        </div>
+      </section>
+    )}
 
     {WATCH_LISTS.map((list) => list.ids.length > 0 && (
       <section class="space-y-4">

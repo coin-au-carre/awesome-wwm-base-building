@@ -9,6 +9,7 @@ const RING = {
   indigo: "ring-indigo-500/60",
   blue: "ring-blue-500/60",
   purple: "ring-purple-500/60",
+  orange: "ring-orange-500/60",
 } as const
 
 // One watched designer's card: avatar/nickname header + their full
@@ -16,7 +17,17 @@ const RING = {
 // once here and passes the result into BuilderGallerySection (which would
 // otherwise redundantly fetch the exact same endpoint itself) — see its
 // providedProfile doc comment. See copyright-watch.astro.
-export function MonitorEntry({ numberId, color }: { numberId: string; color: keyof typeof RING }) {
+export function MonitorEntry({
+  numberId,
+  color,
+  note,
+  diagrams,
+}: {
+  numberId: string
+  color: keyof typeof RING
+  note?: string
+  diagrams?: string[]
+}) {
   const [profile, setProfile] = useState<DesignerProfile | null>(null)
   // profile alone can't distinguish "still loading" from "failed" (both
   // null) — without this, a failed fetch would leave BuilderGallerySection
@@ -48,6 +59,14 @@ export function MonitorEntry({ numberId, color }: { numberId: string; color: key
           <CopyPill label="ID" value={numberId} />
         </div>
       </div>
+      {note && <p className="text-sm text-muted-foreground">{note}</p>}
+      {diagrams && diagrams.length > 0 && (
+        <div className="flex flex-wrap gap-1.5">
+          {diagrams.map((code) => (
+            <CopyPill key={code} label="Diagram" value={code} />
+          ))}
+        </div>
+      )}
       {!failed && <BuilderGallerySection numberId={numberId} profile={profile} />}
     </div>
   )
