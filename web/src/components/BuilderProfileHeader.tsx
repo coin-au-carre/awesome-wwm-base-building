@@ -13,11 +13,16 @@ export function BuilderProfileHeader({
   numberId,
   displayName,
   initial,
+  subtitle,
   children,
 }: {
   numberId?: string
   displayName: string
   initial: string
+  // Rendered as one line directly under the name (Discord name / aliases)
+  // — separate from children, which renders below the whole avatar/name/
+  // stats row (contribution badges), not tucked under just the name.
+  subtitle?: React.ReactNode
   children?: React.ReactNode
 }) {
   const [profile, setProfile] = useState<DesignerProfile | null>(null)
@@ -41,9 +46,12 @@ export function BuilderProfileHeader({
               {initial}
             </div>
           )}
-          <div className="flex flex-wrap items-center gap-2">
-            <h1 className="font-heading text-xl sm:text-3xl font-bold">{displayName}</h1>
-            {profile?.number_id && <CopyPill label="ID" value={profile.number_id} />}
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="font-heading text-xl sm:text-3xl font-bold">{displayName}</h1>
+              {profile?.number_id && <CopyPill label="ID" value={profile.number_id} />}
+            </div>
+            {subtitle && <p className="text-xs text-muted-foreground mt-0.5">{subtitle}</p>}
           </div>
         </div>
         {profile && (
