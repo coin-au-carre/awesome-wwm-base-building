@@ -1,5 +1,4 @@
-import { readFileSync } from "fs"
-import { resolve } from "path"
+import identities from "../../../data/builder_identities.json"
 import { slugify } from "@/lib/format"
 
 // See docs/builder-identity.md — this file's data now lives in
@@ -21,22 +20,16 @@ export interface BuilderIdentity {
   neteaseHostnum?: number
 }
 
-function repoFile(p: string) {
-  return resolve(process.cwd(), "..", p)
-}
-
-function loadIdentities(): BuilderIdentity[] {
-  try {
-    return JSON.parse(readFileSync(repoFile("data/builder_identities.json"), "utf-8"))
-  } catch {
-    return []
-  }
-}
-
 // Alias slug → canonical slug, built once from every record's aliases —
-// replaces the old inline BUILDER_ALIASES object literal.
+// replaces the old inline BUILDER_ALIASES object literal. A plain JSON
+// import (not readFileSync) on purpose: this module is also bundled for
+// the browser (imported by client-hydrated LeaderboardTable/BlueprintGrid/
+// TutorialsFilter), where Node's fs/path don't exist — Vite inlines JSON
+// imports as plain data at build time, safe in both server and client
+// bundles, unlike guilds.ts/nav-versions.ts's readFileSync pattern, which
+// only works because those are only ever imported from .astro frontmatter.
 const ALIAS_TO_CANONICAL: Record<string, string> = {}
-for (const entry of loadIdentities()) {
+for (const entry of identities as BuilderIdentity[]) {
   for (const alias of entry.aliases ?? []) {
     ALIAS_TO_CANONICAL[slugify(alias)] = entry.canonicalSlug
   }

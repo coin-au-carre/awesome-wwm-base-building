@@ -5,7 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
-import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, TrendDownIcon, CalendarIcon, ChatCircleIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, CalendarIcon, ChatCircleIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import { relativeTime } from "@/lib/dates"
@@ -15,6 +15,7 @@ import {
   DEFAULT_SORT,
   CATEGORY_OPTIONS,
   searchGalleryUrl,
+  wbmGalleryUrl,
   isValidGalleryCode,
   designerUrl,
   commentsUrl,
@@ -93,24 +94,6 @@ export function StatRow({
   )
 }
 
-// day_hot vs the week's daily average: shows today's actual score with
-// an up/down arrow, so two cards' momentum can be compared at a glance
-// instead of just their all-time heat_val. Needs a week of history to
-// mean anything (weekHot > 0 guard), so brand-new uploads show nothing.
-function TrendBadge({ dayHot, weekHot }: { dayHot?: number; weekHot?: number }) {
-  if (dayHot == null || !weekHot) return null
-  const up = dayHot > weekHot / 7
-  const Icon = up ? TrendUpIcon : TrendDownIcon
-  return (
-    <span
-      title={up ? "Trending up vs. weekly average" : "Below weekly average pace"}
-      className={`flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-md backdrop-blur-sm ${up ? "bg-emerald-500/30 text-emerald-50" : "bg-black/30 text-white/60"}`}
-    >
-      <Icon weight="bold" className="size-3" /> {formatCount(dayHot)}
-    </span>
-  )
-}
-
 // Every image for the detail view's carousel: the cover picture first,
 // then any additional previews (deduped — the upstream API sometimes
 // repeats the cover inside `previews`).
@@ -122,8 +105,7 @@ function detailImages(detail: PlanDetail): string[] {
 // A builder's real in-game character portrait when resolved (see
 // wbm-relay's avatar.go), falling back to the generic icon otherwise —
 // used anywhere a specific author/designer is shown (comment rows, plan
-// detail author link, builder profile header), never for the search
-// box's decorative icon or other non-author uses of UserCircleIcon.
+// detail author link, builder profile header).
 export function Avatar({ src, className = "size-8" }: { src?: string; className?: string }) {
   return src ? (
     <img
@@ -246,33 +228,15 @@ export function builderHref(numberID?: string): string {
   return url(`/gallery/builder?id=${encodeURIComponent(numberID ?? "")}`)
 }
 
-// A search box for jumping straight to a builder's profile by their
-// public account number (all digits) or their exact in-game nickname
-// (anything else) — wbm-relay's GET /api/designer accepts either
-// (?id= or ?name=), see gallery.ts. Nickname matching is exact only,
-// confirmed live 2026-07-20 — no fuzzy/substring search upstream.
-export function BuilderSearchInput() {
-  const [value, setValue] = useState("")
-
-  function go() {
-    const v = value.trim()
-    if (!v) return
-    const param = /^\d+$/.test(v) ? "id" : "name"
-    location.href = url(`/gallery/builder?${param}=${encodeURIComponent(v)}`)
-  }
-
-  return (
-    <div className="relative flex-1 min-w-64">
-      <UserCircleIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-      <Input
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && go()}
-        placeholder="Find a builder by name or ID…"
-        className="pl-9"
-      />
-    </div>
-  )
+// A query is only ever treated as an ART/SHARE code attempt if it starts
+// like one — anything else (a builder's name, a bare numeric id) is left
+// alone for the Enter-to-navigate path below instead of being live-
+// validated/searched as a code. Prefix-only (not full isValidGalleryCode)
+// so "not a valid code" feedback only fires once someone's clearly
+// typing a code and getting it wrong, not while typing an unrelated name.
+function looksLikeCodeAttempt(v: string): boolean {
+  const lower = v.toLowerCase()
+  return lower.startsWith("art") || lower.startsWith("share")
 }
 
 // A shareable link to one diagram's own page (gallery/plan.astro).
@@ -287,13 +251,15 @@ export function planHref(shareId?: string): string {
 // build grid, and "more by this builder" on the plan detail page.
 // showAuthor is off on a builder's own grid (redundant — already
 // viewing that builder) and on "more by this builder" (same reason).
-export function PlanCard({ plan, showAuthor = true }: { plan: GalleryPlan; showAuthor?: boolean }) {
+// wbmSlug, when present, means this plan's author is also a known WBM
+// builder (see data/builder_identities.json) — see docs/builder-identity.md.
+export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPlan; showAuthor?: boolean; wbmSlug?: string }) {
   const label = categoryLabel(plan.category_tag)
   return (
     <div className="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted">
-      {/* The card's own link — wraps everything except the author
-          badge below, which must stay a sibling (not nested) since
-          it's its own separate link. */}
+      {/* The card's own link — wraps everything except the author badge
+          and the WBM logo badge below, which must stay siblings (not
+          nested) since they're their own separate links. */}
       <a href={planHref(plan.share_id)} aria-label={plan.art_code} className="absolute inset-0">
         {plan.picture_url && (
           <img
@@ -310,14 +276,25 @@ export function PlanCard({ plan, showAuthor = true }: { plan: GalleryPlan; showA
             {label}
           </span>
         )}
-        <div className="absolute top-2 right-2 flex flex-col items-end gap-1">
-          <TrendBadge dayHot={plan.day_hot} weekHot={plan.week_hot} />
-          {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
-        </div>
+        {!wbmSlug && isPrivate(plan.private) && (
+          <div className="absolute top-2 right-2">
+            <VisibilityBadge private_={plan.private} />
+          </div>
+        )}
         <div className="absolute bottom-0 left-0 p-3">
           <StatRow plan={plan} className="text-xs text-white/90" />
         </div>
       </a>
+      {wbmSlug && (
+        <a
+          href={url(`/builders/${wbmSlug}`)}
+          title="WBM Builder"
+          className="absolute top-2 right-2 z-10 flex items-center gap-1"
+        >
+          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
+          {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
+        </a>
+      )}
       {showAuthor && plan.author_name && (
         <a
           href={builderHref(plan.author_number_id)}
@@ -561,7 +538,10 @@ function initFromQuery<T>(key: string, valid: readonly T[], fallback: T): T {
   return match ?? fallback
 }
 
-export function GalleryGrid() {
+// wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
+// — see data/builder_identities.json, loaded server-side in gallery.astro.
+export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
+  const [wbmOnly, setWbmOnly] = useState(true)
   const [sort, setSort] = useState<string>(() =>
     initFromQuery("sort", SORT_OPTIONS.map((o) => o.value), DEFAULT_SORT),
   )
@@ -585,13 +565,26 @@ export function GalleryGrid() {
     return () => clearTimeout(t)
   }, [query])
 
-  // A non-empty query must be a well-formed ART/SHARE code before we'll
-  // even hit the relay — see isValidGalleryCode.
-  const queryInvalid = debouncedQuery !== "" && !isValidGalleryCode(debouncedQuery)
+  // The search box is shared between two unrelated intents — an
+  // ART/SHARE code (live-searched here, debounced) vs. a builder
+  // name/id (Enter navigates to their profile instead, see
+  // handleSearchKeyDown) — so only a code-shaped attempt ever engages
+  // the code-search path at all. Typing an ordinary builder name leaves
+  // the grid alone (still showing the current WBM/All feed) rather than
+  // clearing it or flashing a "not a valid code" error.
+  const codeAttempt = looksLikeCodeAttempt(debouncedQuery)
+  const queryInvalid = codeAttempt && !isValidGalleryCode(debouncedQuery)
+  const activeSearch = isValidGalleryCode(debouncedQuery) ? debouncedQuery : ""
 
-  // sort/tag/search change → reset and refetch page 0. A non-empty
-  // search takes over the whole grid (single page, no pagination — see
-  // wbm-relay's /api/search, only confirmed for ART/SHARE codes so far).
+  // sort/tag/search/wbmOnly change → reset and refetch page 0. An active
+  // code search takes over the whole grid (single page, no pagination —
+  // see wbm-relay's /api/search, only confirmed for ART/SHARE codes so
+  // far) and wins over wbmOnly, same precedence as sort/tag already had.
+  // wbmOnly (when a search isn't active) hits a separate, purpose-built
+  // endpoint (wbmGalleryUrl) that applies the same sort/tag values to its
+  // own cached aggregate of known WBM builders' plans, rather than
+  // filtering the general feed client-side (which would mean fetching
+  // and discarding most of each page).
   useEffect(() => {
     if (queryInvalid) {
       setLoading(false)
@@ -609,9 +602,11 @@ export function GalleryGrid() {
       setError("not deployed yet")
       return
     }
-    const fetchUrl = debouncedQuery
-      ? searchGalleryUrl(debouncedQuery)
-      : `${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=0&limit=${LIMIT}`
+    const fetchUrl = activeSearch
+      ? searchGalleryUrl(activeSearch)
+      : wbmOnly
+        ? wbmGalleryUrl(sort, tag, 0, LIMIT)
+        : `${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=0&limit=${LIMIT}`
     fetch(fetchUrl)
       .then((res) => {
         if (!res.ok) {
@@ -623,11 +618,11 @@ export function GalleryGrid() {
         const fetched = data.plans ?? []
         setPlans(fetched)
         setNextStart(data.next_start ?? 0)
-        setHasMore(!debouncedQuery && fetched.length > 0)
+        setHasMore(!activeSearch && fetched.length > 0)
       })
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
       .finally(() => setLoading(false))
-  }, [sort, tag, debouncedQuery, queryInvalid])
+  }, [sort, tag, activeSearch, queryInvalid, wbmOnly])
 
   // Keep the URL in sync so filters survive a refresh and can be
   // shared/bookmarked — omits params at their default to keep plain
@@ -653,7 +648,10 @@ export function GalleryGrid() {
 
   function loadMore() {
     setLoadingMore(true)
-    fetch(`${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=${nextStart}&limit=${LIMIT}`)
+    const fetchUrl = wbmOnly
+      ? wbmGalleryUrl(sort, tag, nextStart, LIMIT)
+      : `${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=${nextStart}&limit=${LIMIT}`
+    fetch(fetchUrl)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`relay returned ${res.status}`)
@@ -691,27 +689,45 @@ export function GalleryGrid() {
     return () => observer.disconnect()
   }, [loading, loadingMore, hasMore, nextStart])
 
+  // Enter navigates straight to a builder's profile — only when the box
+  // isn't holding a code attempt, which stays live-searched in place
+  // instead (see codeAttempt/activeSearch above).
+  function handleSearchKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key !== "Enter") return
+    const v = query.trim()
+    if (!v || looksLikeCodeAttempt(v)) return
+    const param = /^\d+$/.test(v) ? "id" : "name"
+    location.href = url(`/gallery/builder?${param}=${encodeURIComponent(v)}`)
+  }
+
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-3">
-        <BuilderSearchInput />
-        <div className="flex-1 min-w-64">
-          <div className="relative">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by ART or SHARE code…"
-              className="pl-9"
-              aria-invalid={query.trim() !== "" && !isValidGalleryCode(query.trim())}
-            />
-          </div>
-          {query.trim() !== "" && !isValidGalleryCode(query.trim()) && (
-            <p className="mt-1 text-xs text-amber-600 dark:text-amber-400">
-              Not a valid ART or SHARE code (e.g. ARTakLUQfFVevW1Xl1A or SHARE5f223181ad510813).
-            </p>
-          )}
+      {/* Primary choice: which gallery this is — not just another filter,
+          so it gets top billing over search/category/sort below. */}
+      <Tabs value={wbmOnly ? "wbm" : "all"} onValueChange={(v) => setWbmOnly(v === "wbm")}>
+        <TabsList>
+          <TabsTrigger value="wbm">WBM Builders</TabsTrigger>
+          <TabsTrigger value="all">All Builders</TabsTrigger>
+        </TabsList>
+      </Tabs>
+
+      <div>
+        <div className="relative">
+          <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+          <Input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={handleSearchKeyDown}
+            placeholder="Search by builder name/ID, ART or SHARE code…"
+            className="pl-9"
+            aria-invalid={queryInvalid}
+          />
         </div>
+        {queryInvalid && (
+          <p className="mt-1 text-xs text-amber-600 dark:text-amber-400">
+            Not a valid ART or SHARE code (e.g. ARTakLUQfFVevW1Xl1A or SHARE5f223181ad510813).
+          </p>
+        )}
       </div>
 
       {!query && (
@@ -751,7 +767,11 @@ export function GalleryGrid() {
 
       {!error && !loading && plans.length === 0 && (
         <p className="text-sm text-muted-foreground">
-          {query ? `No results for "${query}".` : "No builds in the gallery yet."}
+          {activeSearch
+            ? `No results for "${activeSearch}".`
+            : wbmOnly
+              ? "No WBM builders in this view yet."
+              : "No builds in the gallery yet."}
         </p>
       )}
 
@@ -759,10 +779,10 @@ export function GalleryGrid() {
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {plans.map((plan) => (
-              <PlanCard key={plan.plan_id} plan={plan} />
+              <PlanCard key={plan.plan_id} plan={plan} wbmSlug={plan.author_number_id ? wbmBuilders[plan.author_number_id] : undefined} />
             ))}
           </div>
-          {!query && (
+          {!activeSearch && (
             <div ref={sentinelRef} className="flex justify-center py-4 text-sm text-muted-foreground">
               {loadingMore && "Loading…"}
               {!loadingMore && !hasMore && "That's everything."}

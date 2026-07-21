@@ -107,6 +107,17 @@ export interface Comment {
   author_avatar_url?: string
 }
 
+// Aggregate feed of every known WBM builder's public construction
+// diagrams (see wbm-relay's relay.FetchWBMBuilderPlans and this repo's
+// docs/builder-identity.md) — a purpose-built endpoint instead of
+// paginating/filtering the general /api/gallery feed client-side.
+// sort/tag are the same SORT_OPTIONS/CATEGORY_OPTIONS values as
+// /api/gallery — the relay applies them locally to its own cached
+// aggregate rather than querying upstream per combination.
+export function wbmGalleryUrl(sort: string, tag: number, start: number, limit: number): string {
+  return `${WBM_RELAY_URL}/api/gallery/wbm?sort=${sort}&tag=${tag}&start=${start}&limit=${limit}`
+}
+
 // id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
 // resolves whichever it got server-side (see its CLAUDE.md's
 // "Shareable plan links" section). plan_id specifically can contain "/"
