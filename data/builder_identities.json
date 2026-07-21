@@ -956,5 +956,17 @@
 		"neteaseNumberId": "4106517463",
 		"neteasePid": "aTvnm81OLjMQJ99s",
 		"neteaseHostnum": 10410
+	},
+	{
+		"discordId": "180711085232357376",
+		"canonicalAlias": "Jiu",
+		"canonicalSlug": "jiu",
+		"aliases": [
+			"Jiuyuan 殷九渊"
+		],
+		"ingameNickname": "殷九渊",
+		"neteaseNumberId": "2065424190",
+		"neteasePid": "aTaLRDIrJRnovTJA",
+		"neteaseHostnum": 10206
 	}
 ]
