@@ -211,7 +211,21 @@ export function CopyPill({ label, value, className = "" }: { label: string; valu
 // only read at click/render time, both of which happen well after
 // hydration on these pages (they only render this once their data has
 // loaded), so it's never touched during Astro's server/build pass.
-export function ShareButton({ label = "Share", variant = "outline" }: { label?: string; variant?: "outline" | "default" }) {
+export function ShareButton({
+  label = "Share",
+  variant = "outline",
+  title,
+  copiedLabel = "Copied!",
+}: {
+  label?: string
+  variant?: "outline" | "default"
+  // Native tooltip — pass one on pages where it isn't obvious the copied
+  // link also carries the current filters/sort/search state (e.g. the
+  // gallery grid), so it's clear a share link is a snapshot, not just
+  // the bare page URL.
+  title?: string
+  copiedLabel?: string
+}) {
   const [copied, setCopied] = useState(false)
   return (
     <button
@@ -220,11 +234,12 @@ export function ShareButton({ label = "Share", variant = "outline" }: { label?: 
         setCopied(true)
         setTimeout(() => setCopied(false), 1200)
       }}
+      title={title}
       className={buttonVariants({ variant, size: "sm" })}
     >
       {copied ? (
         <>
-          <CheckIcon weight="bold" className="size-3.5 text-green-500" /> Copied!
+          <CheckIcon weight="bold" className="size-3.5 text-green-500" /> {copiedLabel}
         </>
       ) : (
         <>
@@ -558,7 +573,7 @@ function initFromQuery<T>(key: string, valid: readonly T[], fallback: T): T {
 // wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
 // — see data/builder_identities.json, loaded server-side in gallery.astro.
 export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
-  const [wbmOnly, setWbmOnly] = useState(true)
+  const [wbmOnly, setWbmOnly] = useState(() => initFromQuery("view", ["wbm", "all"], "wbm") === "wbm")
   const [sort, setSort] = useState<string>(() =>
     initFromQuery("sort", SORT_OPTIONS.map((o) => o.value), DEFAULT_SORT),
   )
@@ -656,12 +671,17 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
     } else {
       params.set("tag", String(tag))
     }
+    if (wbmOnly) {
+      params.delete("view")
+    } else {
+      params.set("view", "all")
+    }
     const qs = params.toString()
     // Preserve Astro ClientRouter's own history.state (index/scroll
     // position) — replacing it with null breaks browser back/forward
     // across page transitions, since the router keys off state.index.
     history.replaceState(history.state, "", qs ? `?${qs}` : window.location.pathname)
-  }, [sort, tag])
+  }, [sort, tag, wbmOnly])
 
   function loadMore() {
     setLoadingMore(true)
@@ -724,11 +744,22 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
       <div className="flex flex-wrap items-center justify-between gap-2">
         <Tabs value={wbmOnly ? "wbm" : "all"} onValueChange={(v) => setWbmOnly(v === "wbm")}>
           <TabsList>
-            <TabsTrigger value="wbm">WBM Builders</TabsTrigger>
-            <TabsTrigger value="all">All Builders</TabsTrigger>
+            <TabsTrigger value="wbm" className="inline-flex items-center gap-1.5">
+              <img src={url("/images/logo_1.webp")} alt="" aria-hidden="true" className="size-4 object-contain" />
+              WBM Builders
+            </TabsTrigger>
+            <TabsTrigger value="all" className="inline-flex items-center gap-1.5">
+              <GlobeIcon weight="bold" className="size-4" />
+              All Builders
+            </TabsTrigger>
           </TabsList>
         </Tabs>
-        <ShareButton label="Share Gallery" variant="default" />
+        <ShareButton
+          label="Share Gallery"
+          variant="default"
+          title="Copies a link to this exact view — current filters, sort, and search included"
+          copiedLabel="Copied with filters!"
+        />
       </div>
 
       <div>
