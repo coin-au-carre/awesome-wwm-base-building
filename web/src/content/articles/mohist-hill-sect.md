@@ -8,7 +8,7 @@ authors: ["OdaVa", "OracleOfXata", "Ahlyam"]
 date: 2026-07-19
 order: 26
 gdocID: "1jS4pBOtPGBy_W4EzuGjEtE9Ro_U2jZF7mNvsIdXU1pw"
-updatedDate: 2026-07-20
+updatedDate: 2026-07-21
 ---
 
 Disclaimer: This guide was written with limited knowledge prior to the official release thanks to Chinese content. Some information may differ from the sect's actual release. We will update the guide as needed.
