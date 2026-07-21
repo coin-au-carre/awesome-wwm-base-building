@@ -2,29 +2,19 @@
 import Layout from "@/layouts/main.astro"
 import { GalleryGrid } from "@/components/GalleryGrid"
 import { Badge } from "@/components/ui/badge"
-import { readFileSync } from "fs"
-import { resolve } from "path"
-import type { BuilderIdentity } from "@/lib/builder-aliases"
+import { BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 
 // noindex + excluded from sitemap (see astro.config.mjs) while in beta —
 // this fetches from wbm-relay, a private backend still being built.
 // Remove noindex once that's stable enough to go fully public.
 
 // number_id -> canonicalSlug, for gallery cards whose NetEase author is
-// also a known WBM builder (see data/builder_identities.json). Requires
-// both neteaseNumberId (to match a live gallery plan's author_number_id)
-// and discordId (a real linked Discord account, not just a stub entry).
-let wbmBuilders: Record<string, string> = {}
-try {
-  const identities: BuilderIdentity[] = JSON.parse(
-    readFileSync(resolve(process.cwd(), "..", "data/builder_identities.json"), "utf-8"),
-  )
-  wbmBuilders = Object.fromEntries(
-    identities.filter((e) => e.neteaseNumberId && e.discordId).map((e) => [e.neteaseNumberId as string, e.canonicalSlug]),
-  )
-} catch {
-  // missing/corrupt file — gallery still works, just without WBM badges
-}
+// also a known WBM builder (see data/builder_identities.json). Only the
+// entries with a neteaseNumberId are useful here — everyone else has no
+// way to be matched against a live gallery plan's author_number_id.
+const wbmBuilders: Record<string, string> = Object.fromEntries(
+  BUILDER_IDENTITIES.filter((e) => e.neteaseNumberId).map((e) => [e.neteaseNumberId as string, e.canonicalSlug]),
+)
 ---
 
 <Layout

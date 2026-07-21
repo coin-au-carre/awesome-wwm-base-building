@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { PlanCard, CopyPill, ShareButton, Avatar } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
+import { url } from "@/lib/url"
 
 function StatTile({ value, label }: { value: number | string; label: string }) {
   return (
@@ -14,7 +15,12 @@ function StatTile({ value, label }: { value: number | string; label: string }) {
   )
 }
 
-export function BuilderProfile() {
+// wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
+// — see data/builder_identities.json, loaded server-side in
+// gallery/builder.astro. Used to show a banner-link to their fuller WBM
+// profile instead of duplicating content across two pages — see
+// docs/builder-identity.md.
+export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
   // undefined = not read from the URL yet (initial render), null = read
   // and genuinely absent. Only one of id/name is expected to be set.
   const [query, setQuery] = useState<{ id: string | null; name: string | null } | undefined>(undefined)
@@ -106,6 +112,17 @@ export function BuilderProfile() {
         <GalleryLink />
         <ShareButton label="Share profile" />
       </div>
+      {wbmBuilders[profile.number_id] && (
+        <a
+          href={url(`/builders/${wbmBuilders[profile.number_id]}`)}
+          className="flex items-center gap-2 rounded-xl ring-1 ring-primary/30 bg-primary/5 hover:ring-primary/60 hover:bg-primary/10 transition-all px-4 py-2.5 text-sm"
+          data-umami-event="gallery_builder_wbm_banner_click"
+        >
+          <img src={url("/images/logo_1.webp")} alt="" aria-hidden="true" className="size-6 object-contain shrink-0" />
+          <span className="flex-1">This builder is part of <strong>Where Builders Meet</strong> — see their full profile</span>
+          <svg className="size-3.5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+        </a>
+      )}
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-3">
           <Avatar src={profile.avatar_url} className="size-24" />

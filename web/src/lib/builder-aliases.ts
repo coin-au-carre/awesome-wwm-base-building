@@ -20,6 +20,17 @@ export interface BuilderIdentity {
   neteaseHostnum?: number
 }
 
+// The full parsed list, re-exported so any caller (including .astro
+// frontmatter — e.g. builders/[slug].astro's getStaticPaths, gallery.astro,
+// gallery/builder.astro) can read it via a real module import rather than
+// each hand-rolling its own readFileSync. That matters more than it might
+// look: Astro's build extracts getStaticPaths into its own isolated
+// compiled chunk, separate from the rest of a component's frontmatter
+// scope — a same-file helper function defined alongside it does *not*
+// reliably survive that extraction (confirmed the hard way: "X is not
+// defined" at build time), but a genuine cross-module import does.
+export const BUILDER_IDENTITIES = identities as BuilderIdentity[]
+
 // Alias slug → canonical slug, built once from every record's aliases —
 // replaces the old inline BUILDER_ALIASES object literal. A plain JSON
 // import (not readFileSync) on purpose: this module is also bundled for
@@ -29,7 +40,7 @@ export interface BuilderIdentity {
 // bundles, unlike guilds.ts/nav-versions.ts's readFileSync pattern, which
 // only works because those are only ever imported from .astro frontmatter.
 const ALIAS_TO_CANONICAL: Record<string, string> = {}
-for (const entry of identities as BuilderIdentity[]) {
+for (const entry of BUILDER_IDENTITIES) {
   for (const alias of entry.aliases ?? []) {
     ALIAS_TO_CANONICAL[slugify(alias)] = entry.canonicalSlug
   }

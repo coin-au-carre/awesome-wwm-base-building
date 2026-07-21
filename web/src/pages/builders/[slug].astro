@@ -3,11 +3,14 @@ import Layout from "@/layouts/main.astro"
 import { getCollection } from "astro:content"
 import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
-import { resolveCanonical, getAllSlugsForCanonical } from "@/lib/builder-aliases"
+import { resolveCanonical, getAllSlugsForCanonical, BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
 import { HOMESTEAD_SHEETS } from "@/lib/homestead-resources"
+import { BuilderGallerySection } from "@/components/BuilderGallerySection"
+import { BuilderAvatar } from "@/components/BuilderAvatar"
+import { ShareButton } from "@/components/GalleryGrid"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -31,6 +34,16 @@ export async function getStaticPaths() {
     if (!s) continue
     if (!slugMap.has(s)) slugMap.set(s, { name: sheet.by, slug: s })
   }
+  // A builder can register via /wwm-uid before ever having a guild/solo/
+  // blueprint credit synced — without this, their page would 404 even
+  // though data/builder_identities.json already knows their canonicalSlug
+  // (see docs/builder-identity.md's "merging the two builder-profile
+  // systems").
+  for (const identity of BUILDER_IDENTITIES) {
+    if (!slugMap.has(identity.canonicalSlug)) {
+      slugMap.set(identity.canonicalSlug, { name: identity.canonicalAlias, slug: identity.canonicalSlug })
+    }
+  }
 
   return [...slugMap.values()].map(({ name, slug }) => ({
     params: { slug },
@@ -42,6 +55,13 @@ const { builderName } = Astro.props
 const slug = Astro.params.slug as string
 const profile = getBuilderProfile(slug)
 const canonical = resolveCanonical(slug)
+
+// Linked NetEase account, if this builder ever registered one via
+// /wwm-uid (data/builder_identities.json) — powers the "NetEase Gallery"
+// section below. See docs/builder-identity.md.
+const linkedNumberId = BUILDER_IDENTITIES.find(
+  (e) => e.canonicalSlug === canonical && e.neteaseNumberId,
+)?.neteaseNumberId
 
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
 const tutorials = allArticles.filter((a) =>
@@ -113,18 +133,25 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
   })} />
   <div class="space-y-8">
     <!-- Back -->
-    <button
-      onclick="history.back()"
-      class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-    >
-      ← Back
-    </button>
+    <div class="flex items-center justify-between gap-2">
+      <button
+        onclick="history.back()"
+        class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+      >
+        ← Back
+      </button>
+      <ShareButton client:load label="Share profile" />
+    </div>
 
     <!-- Header -->
     <div class="flex items-center gap-5">
-      <div class="size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold shrink-0 ring-2 ring-primary/20">
-        {initial}
-      </div>
+      {linkedNumberId ? (
+        <BuilderAvatar client:load numberId={linkedNumberId} initial={initial} className="size-16" />
+      ) : (
+        <div class="size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold shrink-0 ring-2 ring-primary/20">
+          {initial}
+        </div>
+      )}
       <div>
         <h1 class="font-heading text-2xl font-bold">{displayName}</h1>
         {aliasNames.length > 0 && (
@@ -419,7 +446,18 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
       </section>
     )}
 
-    {totalCount === 0 && (
+    <!-- NetEase Gallery -->
+    {linkedNumberId && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-4 flex items-center gap-2">
+          <img src="/images/logo_3.webp" alt="" aria-hidden="true" class="size-6 object-contain" />
+          WWM Gallery
+        </h2>
+        <BuilderGallerySection client:visible numberId={linkedNumberId} />
+      </section>
+    )}
+
+    {totalCount === 0 && !linkedNumberId && (
       <div class="text-center py-12 text-muted-foreground text-sm">
         No contributions found for this builder.
       </div>

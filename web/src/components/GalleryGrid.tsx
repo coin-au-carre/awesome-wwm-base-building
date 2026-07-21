@@ -196,7 +196,7 @@ export function CopyPill({ label, value, className = "" }: { label: string; valu
 // only read at click/render time, both of which happen well after
 // hydration on these pages (they only render this once their data has
 // loaded), so it's never touched during Astro's server/build pass.
-export function ShareButton({ label = "Share" }: { label?: string }) {
+export function ShareButton({ label = "Share", variant = "outline" }: { label?: string; variant?: "outline" | "default" }) {
   const [copied, setCopied] = useState(false)
   return (
     <button
@@ -205,7 +205,7 @@ export function ShareButton({ label = "Share" }: { label?: string }) {
         setCopied(true)
         setTimeout(() => setCopied(false), 1200)
       }}
-      className={buttonVariants({ variant: "outline", size: "sm" })}
+      className={buttonVariants({ variant, size: "sm" })}
     >
       {copied ? (
         <>
@@ -704,12 +704,15 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
     <div className="space-y-4">
       {/* Primary choice: which gallery this is — not just another filter,
           so it gets top billing over search/category/sort below. */}
-      <Tabs value={wbmOnly ? "wbm" : "all"} onValueChange={(v) => setWbmOnly(v === "wbm")}>
-        <TabsList>
-          <TabsTrigger value="wbm">WBM Builders</TabsTrigger>
-          <TabsTrigger value="all">All Builders</TabsTrigger>
-        </TabsList>
-      </Tabs>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <Tabs value={wbmOnly ? "wbm" : "all"} onValueChange={(v) => setWbmOnly(v === "wbm")}>
+          <TabsList>
+            <TabsTrigger value="wbm">WBM Builders</TabsTrigger>
+            <TabsTrigger value="all">All Builders</TabsTrigger>
+          </TabsList>
+        </Tabs>
+        <ShareButton label="Share Gallery" variant="default" />
+      </div>
 
       <div>
         <div className="relative">
