@@ -5,7 +5,7 @@ tags: ["advanced", "homestead"]
 authors: ["Crueliet"]
 date: 2026-07-07
 order: 25
-image: "https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a60295f&format=webp&hm=7f0b4b43dc2d1b921e225caac01627fb746ee4a6d724228df8e10a566f00f452&is=6a5ed7df&quality=lossless"
+image: "https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a60d21f&format=webp&hm=1dec32b378a9b01874c172678aa8bbd4e69c0ad1dc7facad07bb3db1475f720e&is=6a5f809f&quality=lossless"
 featured: true
 ---
 
@@ -13,7 +13,7 @@ featured: true
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a60295f&format=webp&hm=7f0b4b43dc2d1b921e225caac01627fb746ee4a6d724228df8e10a566f00f452&is=6a5ed7df&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524058003110887535/202677221244.png?ex=6a60d21f&format=webp&hm=1dec32b378a9b01874c172678aa8bbd4e69c0ad1dc7facad07bb3db1475f720e&is=6a5f809f&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -35,7 +35,7 @@ Build a large building. Preferably a "standard inn" or a "grand inn"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060054108770314/202677222635.png?ex=6a602b48&format=webp&hm=65bb0cf2de65bc1f6d797f317df986d609cc6fb49dfb6267f91da4cd2fd5297c&is=6a5ed9c8&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060054108770314/202677222635.png?ex=6a60d408&format=webp&hm=b06281bc25de1337b63b8517750d689bbc39161055e751a2ef7506d7deadaa98&is=6a5f8288&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -51,7 +51,7 @@ Pick it up and rotate it 45 degree like so WITH THE **FRONT** FACING DOWNWARD IF
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060808252751902/202677223241.png?ex=6a602bfc&format=webp&hm=2f6e3eb2016f7ccdc113fc0d6c3f48946ce97a9618732b4e108138110914701c&is=6a5eda7c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1524060808252751902/202677223241.png?ex=6a60d4bc&format=webp&hm=6aabf11b1e78e1135b9b6d6033a1851ff48ebfb7ce3a593c30624c974f6ce8aa&is=6a5f833c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -167,7 +167,7 @@ Build a piece of "Indoor Flooring"
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526227849818804365/1.png?ex=6a602533&format=webp&hm=54ed734fc78320eab5ea160ad87cadbbe208112cda01eab9c01012b9fba20b8a&is=6a5ed3b3&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526227849818804365/1.png?ex=6a60cdf3&format=webp&hm=1ebddb74561f4e7f0114c42275ed8df03a36befa69f4a9167806a6f9aa56a93d&is=6a5f7c73&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -183,7 +183,7 @@ If using the larger piece, make sure the wood grain runs along North-South
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526228525823295679/3.png?ex=6a6025d4&format=webp&hm=a1ef79052a2be2469df016457ead16e256258818b8321def3c887305c85dbad9&is=6a5ed454&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526228525823295679/3.png?ex=6a60ce94&format=webp&hm=7407e48a8a895bbaa8b4e6ac675e2aae0e51dc121f39ece7f79886e494274de5&is=6a5f7d14&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -199,7 +199,7 @@ Sink the correctly rotated flooring tile into the ground
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526229151067934961/4_sink_it.png?ex=6a602669&format=webp&hm=20bcae15ed64add3048614c6fff45c4a9b9ad5095b45c03684db2c0da8935013&is=6a5ed4e9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526229151067934961/4_sink_it.png?ex=6a60cf29&format=webp&hm=a48b5d634b6cca8af01aefb15fc0a80a000fe3fb41b05e0e9587c76548260231&is=6a5f7da9&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -211,7 +211,7 @@ Create a pattern of choice
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230496814829708/5_create_pattern.png?ex=6a6027aa&format=webp&hm=eb89611b4c5d0059f6b846d1dda5698f0b5510985ae8a8405b8937df35677807&is=6a5ed62a&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230496814829708/5_create_pattern.png?ex=6a60d06a&format=webp&hm=b136ed853b894f583dfff84ac7fbfe2507bc4940b304465956dbf8891d5b78d5&is=6a5f7eea&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -219,7 +219,7 @@ Manually sink each piece into the ground
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230625890341014/6.png?ex=6a6027c9&format=webp&hm=c8ff023d61a254a7d3cf674744132f80f6fe96bc240f40135e82ec9aaed92057&is=6a5ed649&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1524057838614216704/1526230625890341014/6.png?ex=6a60d089&format=webp&hm=656f10be346bfb87a144382ed49fc04059743cd524e46edcee7fc88e8fbf8882&is=6a5f7f09&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
