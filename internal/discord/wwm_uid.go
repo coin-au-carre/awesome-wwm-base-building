@@ -203,11 +203,11 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	case uid == "":
 		// Field cleared — remove NetEase fields entirely (absent, not
 		// blank; see docs/builder-identity.md on why that matters).
-		msg := applyWWMUIDUpdate(root, bot, devChannelID, i, alias, slug, aliases, "", "", 0, "")
+		msg := applyWWMUIDUpdate(s, root, bot, devChannelID, i, alias, slug, aliases, "", "", 0, "")
 		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
 	case uid == existingUID && sourceIdx >= 0:
 		// Unchanged — only the name/slug/aliases may have moved, skip re-resolving.
-		msg := applyWWMUIDUpdate(root, bot, devChannelID, i, alias, slug, aliases, existingUID, existingPID, existingHostnum, existingNickname)
+		msg := applyWWMUIDUpdate(s, root, bot, devChannelID, i, alias, slug, aliases, existingUID, existingPID, existingHostnum, existingNickname)
 		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
 	default:
 		// Set/changed — resolve live and confirm before saving, so a
@@ -272,7 +272,7 @@ func handleWWMUIDButton(s *discordgo.Session, i *discordgo.InteractionCreate, bo
 		return
 	}
 
-	msg := applyWWMUIDUpdate(root, bot, devChannelID, i, entry.canonicalAlias, entry.canonicalSlug, entry.aliases, entry.numberID, entry.pid, entry.hostnum, entry.nickname)
+	msg := applyWWMUIDUpdate(s, root, bot, devChannelID, i, entry.canonicalAlias, entry.canonicalSlug, entry.aliases, entry.numberID, entry.pid, entry.hostnum, entry.nickname)
 	updateWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
 }
 
@@ -285,8 +285,10 @@ func handleWWMUIDButton(s *discordgo.Session, i *discordgo.InteractionCreate, bo
 // here for free, so a builder registering via /wwm-uid before ever earning
 // a Homestead role doesn't have to wait for the next sync to show up in
 // name-based lookups (e.g. the "Scouted" section on /builders/<slug>).
-// Returns the message to show the user.
-func applyWWMUIDUpdate(root string, bot *Bot, devChannelID string, i *discordgo.InteractionCreate, alias, slug string, aliases []string, numberID, pid string, hostnum int, nickname string) string {
+// Also grants/revokes WBMBuilderRoleID depending on whether a UID is set —
+// mirrors cmd/assign-wbm-builder-roles' backfill logic for existing
+// entries. Returns the message to show the user.
+func applyWWMUIDUpdate(s *discordgo.Session, root string, bot *Bot, devChannelID string, i *discordgo.InteractionCreate, alias, slug string, aliases []string, numberID, pid string, hostnum int, nickname string) string {
 	submitMu.Lock()
 	defer submitMu.Unlock()
 
@@ -331,6 +333,18 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID string, i *discordgo.
 		files = append(files, "data/discord_users.json")
 	}
 	go GitCommitAndPush(root, "data: /wwm-uid "+slug, bot, devChannelID, files...)
+
+	// Best-effort — a role sync failure shouldn't block the save itself,
+	// cmd/assign-wbm-builder-roles can always backfill it later.
+	if numberID != "" {
+		if err := s.GuildMemberRoleAdd(i.GuildID, discordID, WBMBuilderRoleID); err != nil {
+			slog.Warn("wwm-uid: granting WBM Builder role", "user", discordID, "err", err)
+		}
+	} else {
+		if err := s.GuildMemberRoleRemove(i.GuildID, discordID, WBMBuilderRoleID); err != nil {
+			slog.Warn("wwm-uid: revoking WBM Builder role", "user", discordID, "err", err)
+		}
+	}
 
 	if numberID == "" {
 		return fmt.Sprintf("✅ Saved! Builder name: **%s**. UID removed.", alias)

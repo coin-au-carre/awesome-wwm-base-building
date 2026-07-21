@@ -143,6 +143,8 @@ task announce          # test-post a new-guild announcement card
 
 task diagram-lookup -- <ART code>  # look up a diagram's title/description/screenshot/date from its ART code (SHARE codes aren't resolvable externally — paste into the game instead)
 
+task assign-wbm-builder-roles  # backfill the WBM Builder role for every builder_identities.json entry with a discordId + neteaseNumberId
+
 task test              # go test ./...
 task vet               # go vet ./...
 task push              # vet + test + git push

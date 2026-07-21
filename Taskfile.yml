@@ -166,6 +166,11 @@ tasks:
     desc: "one-time: add WBM Announcements + WWM Announcements roles to every server member"
     cmd: go run ./cmd/assign-announcement-roles
 
+  # ── assign-wbm-builder-roles (backfill: WBM Builder role for linked NetEase accounts) ──
+  assign-wbm-builder-roles:
+    desc: "backfill the WBM Builder role for every builder_identities.json entry with a discordId + neteaseNumberId"
+    cmd: go run ./cmd/assign-wbm-builder-roles
+
   # ── announce (test general-channel announcement card) ────────
   announce:
     desc: "test-post a new-guild announcement card. Usage: task announce -- -guild <name> [-channel <id>] [-solo] [-screenshots]"

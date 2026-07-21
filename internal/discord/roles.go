@@ -11,6 +11,13 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+// WBMBuilderRoleID is granted to anyone with a linked NetEase account in
+// data/builder_identities.json (i.e. a real neteaseNumberId) — assigned
+// live when /wwm-uid succeeds (see applyWWMUIDUpdate in wwm_uid.go) and
+// backfilled for existing entries by cmd/assign-wbm-builder-roles. Fixed,
+// never changes — same pattern as cmd/assign-active-roles' wandererRoleID.
+const WBMBuilderRoleID = "1529115863377248368"
+
 func resolveUsername(s *discordgo.Session, userID string) string {
 	if u, err := s.User(userID); err == nil {
 		return u.Username
