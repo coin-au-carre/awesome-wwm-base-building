@@ -31,7 +31,7 @@
 		"canonicalAlias": "AegisNite Edge",
 		"canonicalSlug": "aegisnite-edge",
 		"aliases": [
-			"aegisnite-edge"
+			"AegisNite"
 		],
 		"ingameNickname": "AegisNite",
 		"neteaseNumberId": "2039308500",
@@ -1017,6 +1017,7 @@
 		"neteaseHostnum": 10401
 	},
 	{
+		"discordId": "411339877574115338",
 		"canonicalAlias": "Crueliet",
 		"canonicalSlug": "crueliet",
 		"ingameNickname": "Crueliet",

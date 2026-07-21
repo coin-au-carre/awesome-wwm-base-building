@@ -53,25 +53,26 @@ export function getAllBuilderSlugs(): { name: string; slug: string }[] {
   return [...slugMap.entries()].map(([slug, name]) => ({ name, slug }))
 }
 
-export interface NotableBuilder {
+export interface BuilderRosterEntry {
   name: string
   slug: string
   coverImage?: string
   guildCount: number
   soloCount: number
   blueprintCount: number
+  homesteadSheetCount: number
   tutorialCount: number
-  typeCount: number
 }
 
-export function getNotableBuilders(
-  tutorialCountBySlug?: Map<string, number>,
-  limit?: number,
-): NotableBuilder[] {
-  const bySlug = new Map<string, NotableBuilder>()
+// Every builder credited on at least one guild base, solo build,
+// blueprint, homestead sheet, or tutorial — no minimum-diversity filter
+// (unlike getNotableBuilders below, which curates a smaller "wall of
+// fame"). Used by the /builders directory, which wants everyone.
+export function getBuilderRoster(tutorialCountBySlug?: Map<string, number>): BuilderRosterEntry[] {
+  const bySlug = new Map<string, BuilderRosterEntry>()
 
-  function get(slug: string, name: string): NotableBuilder {
-    if (!bySlug.has(slug)) bySlug.set(slug, { name, slug, guildCount: 0, soloCount: 0, blueprintCount: 0, tutorialCount: 0, typeCount: 0 })
+  function get(slug: string, name: string): BuilderRosterEntry {
+    if (!bySlug.has(slug)) bySlug.set(slug, { name, slug, guildCount: 0, soloCount: 0, blueprintCount: 0, homesteadSheetCount: 0, tutorialCount: 0 })
     return bySlug.get(slug)!
   }
 
@@ -108,17 +109,35 @@ export function getNotableBuilders(
     entry.blueprintCount++
   }
 
+  for (const sheet of HOMESTEAD_SHEETS) {
+    const s = resolveCanonical(builderSlug(sheet.by))
+    if (!s) continue
+    get(s, sheet.by).homesteadSheetCount++
+  }
+
   if (tutorialCountBySlug) {
     for (const [s, count] of tutorialCountBySlug) {
       if (bySlug.has(s)) bySlug.get(s)!.tutorialCount = count
     }
   }
 
-  for (const entry of bySlug.values()) {
-    entry.typeCount = [entry.guildCount, entry.soloCount, entry.blueprintCount, entry.tutorialCount].filter(Boolean).length
-  }
-
   return [...bySlug.values()]
+}
+
+export interface NotableBuilder extends BuilderRosterEntry {
+  typeCount: number
+}
+
+export function getNotableBuilders(
+  tutorialCountBySlug?: Map<string, number>,
+  limit?: number,
+): NotableBuilder[] {
+  // typeCount deliberately excludes homesteadSheetCount, matching this
+  // function's original curation criteria — adding it here would newly
+  // qualify builders on the credits.astro "notable builders" wall who
+  // previously didn't meet the bar, an unrelated behavior change.
+  return getBuilderRoster(tutorialCountBySlug)
+    .map((e) => ({ ...e, typeCount: [e.guildCount, e.soloCount, e.blueprintCount, e.tutorialCount].filter(Boolean).length }))
     .filter((e) => e.typeCount >= 2)
     .sort((a, b) => {
       // 1. tutorial authors first

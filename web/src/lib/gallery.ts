@@ -133,6 +133,15 @@ export function wbmGalleryUrl(
   return `${WBM_RELAY_URL}/api/gallery/wbm?${params.toString()}`
 }
 
+// Every known WBM builder's avatar URL, keyed by number_id, in one
+// response — one batched upstream call server-side (see wbm-relay's
+// relay.FetchWBMBuilderAvatars) instead of one designerUrl request per
+// builder just to show a whole roster's pictures (e.g. the builders
+// directory).
+export function wbmAvatarsUrl(): string {
+  return `${WBM_RELAY_URL}/api/gallery/wbm/avatars`
+}
+
 // id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
 // resolves whichever it got server-side (see its CLAUDE.md's
 // "Shareable plan links" section). plan_id specifically can contain "/"

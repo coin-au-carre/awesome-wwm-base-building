@@ -19,6 +19,7 @@
 - `src/components/MediaGallery.astro` — lightbox, YouTube embed, `onerror` fallback
 - `src/components/BugsTable.tsx` — `client:load` React island, renders bug report table from CSV data; accepts `bugs: Bug[]`
 - `src/components/PatchNotes.tsx` — `client:load` React island, renders patch notes grouped by version as a card grid; accepts `patches: Patch[]`
+- `src/components/BuildersDirectory.tsx` — `client:load` React island, searchable/sortable table of every credited builder; accepts `entries: BuilderDirectoryEntry[]`
 
 ## Pages
 
@@ -39,6 +40,7 @@
 | `/ruby` | Ruby bot commands and examples |
 | `/bugs` | Bug reports — live CSV from Google Sheets |
 | `/updates` | Updates — building features per version, curated from Google Sheets |
+| `/builders` | Builders directory: search/sort every credited builder by Discord name, in-game name, alias, or NetEase ID |
 | `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials by one builder |
 | `/homestead/rankings` | Full Homestead level leaderboard (all members) |
 
