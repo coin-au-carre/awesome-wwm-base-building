@@ -255,11 +255,22 @@ export function ShareButton({
       )}
       {showLink && href !== undefined && (
         <div className="flex items-center gap-2 w-full sm:w-auto">
-          <Input
+          {/* Plain <input>, not the shadcn Input wrapper — that component
+              doesn't declare a ref param, so a scroll-to-end callback ref
+              wouldn't actually reach the DOM node. Class list mirrors
+              Input's own recipe. */}
+          <input
             readOnly
             value={href}
+            // The host/path prefix never changes — what's actually worth
+            // seeing is the query string (filters/sort/search) at the
+            // end, so scroll there by default instead of showing the
+            // same-looking start of every link.
+            ref={(el) => {
+              if (el) el.scrollLeft = el.scrollWidth
+            }}
             onFocus={(e) => e.currentTarget.select()}
-            className="font-mono text-xs h-8 sm:w-80"
+            className="h-8 sm:w-80 w-full min-w-0 rounded-md border border-input bg-transparent px-3 font-mono text-xs shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:bg-input/30"
           />
           <button onClick={() => copy(href)} className={buttonVariants({ variant, size: "sm", className: "shrink-0" })}>
             {copied ? (
