@@ -206,47 +206,75 @@ export function CopyPill({ label, value, className = "" }: { label: string; valu
 }
 
 // Copies the current page's own URL — used on the shareable plan/
-// builder pages so visitors have an obvious "share this" action rather
-// than having to copy the address bar themselves. location.href is
-// only read at click/render time, both of which happen well after
+// builder/gallery pages so visitors have an obvious "share this" action
+// rather than having to copy the address bar themselves. location.href
+// is only read at click/render time, both of which happen well after
 // hydration on these pages (they only render this once their data has
 // loaded), so it's never touched during Astro's server/build pass.
+// showLink additionally always displays a readonly input with the exact
+// link, instead of just a toast on click, so it's obvious up front that
+// a share link is a snapshot of the current view (filters/sort/search),
+// not just the bare page URL — used on the gallery grid. When showLink
+// is set, pass href explicitly and keep it in sync with whatever state
+// drives the URL (e.g. GalleryGrid's own sort/tag/wbmOnly) — reading
+// location.href here instead would go stale after a filter change
+// without a full re-render/navigation to refresh it.
 export function ShareButton({
   label = "Share",
   variant = "outline",
-  title,
-  copiedLabel = "Copied!",
+  showLink = false,
+  href,
 }: {
   label?: string
   variant?: "outline" | "default"
-  // Native tooltip — pass one on pages where it isn't obvious the copied
-  // link also carries the current filters/sort/search state (e.g. the
-  // gallery grid), so it's clear a share link is a snapshot, not just
-  // the bare page URL.
-  title?: string
-  copiedLabel?: string
+  showLink?: boolean
+  href?: string
 }) {
   const [copied, setCopied] = useState(false)
+
+  function copy(value: string) {
+    navigator.clipboard.writeText(value)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1200)
+  }
+
   return (
-    <button
-      onClick={() => {
-        navigator.clipboard.writeText(location.href)
-        setCopied(true)
-        setTimeout(() => setCopied(false), 1200)
-      }}
-      title={title}
-      className={buttonVariants({ variant, size: "sm" })}
-    >
-      {copied ? (
-        <>
-          <CheckIcon weight="bold" className="size-3.5 text-green-500" /> {copiedLabel}
-        </>
-      ) : (
-        <>
-          <ShareNetworkIcon weight="bold" className="size-3.5" /> {label}
-        </>
+    <div className="flex flex-wrap items-center gap-2">
+      {!showLink && (
+        <button onClick={() => copy(location.href)} className={buttonVariants({ variant, size: "sm" })}>
+          {copied ? (
+            <>
+              <CheckIcon weight="bold" className="size-3.5 text-green-500" /> Copied!
+            </>
+          ) : (
+            <>
+              <ShareNetworkIcon weight="bold" className="size-3.5" /> {label}
+            </>
+          )}
+        </button>
       )}
-    </button>
+      {showLink && href !== undefined && (
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <Input
+            readOnly
+            value={href}
+            onFocus={(e) => e.currentTarget.select()}
+            className="font-mono text-xs h-8 sm:w-80"
+          />
+          <button onClick={() => copy(href)} className={buttonVariants({ variant, size: "sm", className: "shrink-0" })}>
+            {copied ? (
+              <>
+                <CheckIcon weight="bold" className="size-3.5 text-green-500" /> Copied!
+              </>
+            ) : (
+              <>
+                <ShareNetworkIcon weight="bold" className="size-3.5" /> {label}
+              </>
+            )}
+          </button>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -570,6 +598,18 @@ function initFromQuery<T>(key: string, valid: readonly T[], fallback: T): T {
   return match ?? fallback
 }
 
+// Builds the ?sort&tag&view query string for the current filter state,
+// omitting params at their default to keep plain /gallery links clean —
+// shared by the URL-sync effect and the Share Gallery link so they can't
+// drift out of sync with each other.
+function galleryFilterQuery(sort: string, tag: number, wbmOnly: boolean): string {
+  const params = new URLSearchParams()
+  if (sort !== DEFAULT_SORT) params.set("sort", sort)
+  if (tag !== CATEGORY_OPTIONS[0].value) params.set("tag", String(tag))
+  if (!wbmOnly) params.set("view", "all")
+  return params.toString()
+}
+
 // wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
 // — see data/builder_identities.json, loaded server-side in gallery.astro.
 export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
@@ -659,29 +699,22 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
   // Keep the URL in sync so filters survive a refresh and can be
   // shared/bookmarked — omits params at their default to keep plain
   // /gallery links clean.
+  const filterQuery = galleryFilterQuery(sort, tag, wbmOnly)
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    if (sort === DEFAULT_SORT) {
-      params.delete("sort")
-    } else {
-      params.set("sort", sort)
-    }
-    if (tag === CATEGORY_OPTIONS[0].value) {
-      params.delete("tag")
-    } else {
-      params.set("tag", String(tag))
-    }
-    if (wbmOnly) {
-      params.delete("view")
-    } else {
-      params.set("view", "all")
-    }
-    const qs = params.toString()
     // Preserve Astro ClientRouter's own history.state (index/scroll
     // position) — replacing it with null breaks browser back/forward
     // across page transitions, since the router keys off state.index.
-    history.replaceState(history.state, "", qs ? `?${qs}` : window.location.pathname)
-  }, [sort, tag, wbmOnly])
+    history.replaceState(history.state, "", filterQuery ? `?${filterQuery}` : window.location.pathname)
+  }, [filterQuery])
+
+  // Derived straight from sort/tag/wbmOnly state (not read back off
+  // location.href), so the Share Gallery input stays correct the
+  // instant a filter changes rather than depending on the effect above
+  // having already run this render.
+  const shareUrl =
+    typeof window === "undefined"
+      ? undefined
+      : `${window.location.origin}${window.location.pathname}${filterQuery ? `?${filterQuery}` : ""}`
 
   function loadMore() {
     setLoadingMore(true)
@@ -754,12 +787,7 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
             </TabsTrigger>
           </TabsList>
         </Tabs>
-        <ShareButton
-          label="Share Gallery"
-          variant="default"
-          title="Copies a link to this exact view — current filters, sort, and search included"
-          copiedLabel="Copied with filters!"
-        />
+        <ShareButton label="Share Gallery" variant="default" showLink href={shareUrl} />
       </div>
 
       <div>
