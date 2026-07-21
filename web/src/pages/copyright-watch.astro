@@ -1,0 +1,69 @@
+---
+import Layout from "@/layouts/main.astro"
+import { MonitorEntry } from "@/components/MonitorEntry"
+
+// Private/unlisted — no nav link, noindex, excluded from sitemap (see
+// astro.config.mjs). Anyone with the URL can view it (static site, no
+// server-side auth possible), but it's not discoverable via search or
+// navigation. A hand-picked NetEase designer watchlist, grouped by the
+// LEGEND below — edit the arrays here to add/remove watched ids.
+const LEGEND: { color: "red" | "indigo" | "blue" | "purple"; label: string; description: string }[] = [
+  { color: "red", label: "Red", description: "Steal diagrams by bypassing the copyright system through \"legit\" in-game building methods, not 3rd-party tools." },
+  { color: "purple", label: "Purple", description: "Have the tool to retrieve diagrams. CN content only so far & share them publicly under their own name." },
+  { color: "indigo", label: "Indigo", description: "Have the tool to retrieve diagrams. CN content only so far & only display them (not downloadable) in their gallery." },
+  { color: "blue", label: "Blue", description: "Have the tool to retrieve diagrams. Put discreetly CN content for their own private use (guild or solo) — never shown in their gallery." }
+]
+
+const WATCH_LISTS: { color: (typeof LEGEND)[number]["color"]; ids: string[] }[] = [
+  { color: "purple", ids: ["4023849645", "1024036729", "4084519229", "4028568232"] },
+  { color: "indigo", ids: ["1013188075"] },
+  { color: "blue", ids: ["1046118676"] },
+  { color: "red", ids: [] },
+]
+
+const TEXT_COLOR = {
+  red: "text-rose-500",
+  indigo: "text-indigo-500",
+  blue: "text-blue-500",
+  purple: "text-purple-500",
+} as const
+---
+
+<Layout
+  title="Where Builders Meet | Copyright Watch"
+  description="Private watchlist."
+  noindex
+  fullWidth
+>
+  <div class="space-y-10">
+    <h1 class="font-heading text-2xl font-semibold">Copyright Watch</h1>
+
+    <section class="space-y-2 rounded-xl border border-border bg-muted/30 p-4">
+      <p class="text-sm font-medium text-muted-foreground">
+        3 colors classify players using 3rd-party tools to retrieve diagrams; 1 color classifies players stealing diagrams through in-game methods instead.
+      </p>
+      <ul class="space-y-1.5">
+        {LEGEND.map((entry) => (
+          <li class="text-sm">
+            <span class={`font-semibold ${TEXT_COLOR[entry.color]}`}>{entry.label}</span>
+            {" — "}
+            <span class="text-muted-foreground">{entry.description}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    {WATCH_LISTS.map((list) => list.ids.length > 0 && (
+      <section class="space-y-4">
+        <h2 class={`font-heading text-lg font-semibold ${TEXT_COLOR[list.color]}`}>
+          {LEGEND.find((l) => l.color === list.color)?.label}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {list.ids.map((id) => (
+            <MonitorEntry client:visible numberId={id} color={list.color} />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>

@@ -38,7 +38,7 @@ export default defineConfig({
       // sitemap since they're query-string routes with no meaningful
       // content at their bare URL (no getStaticPaths, content only
       // exists once ?id=/?share= is present and fetched client-side).
-      filter: (page) => !page.includes("/admin/") && !page.includes("/gallery/builder") && !page.includes("/gallery/plan") && !/\/media\/[^/]+\/?$/.test(page),
+      filter: (page) => !page.includes("/admin/") && !page.includes("/gallery/builder") && !page.includes("/gallery/plan") && !page.includes("/copyright-watch") && !/\/media\/[^/]+\/?$/.test(page),
       serialize(item) {
         const url = item.url
         if (/\/(guilds|solos)\/[^/]+\/?$/.test(url)) {
