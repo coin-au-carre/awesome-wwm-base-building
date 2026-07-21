@@ -480,7 +480,7 @@ func onHomesteadRoleUpdate(bot *discord.Bot, root, devChannelID string) func(*di
 			slog.Error("saving homestead_members.json", "err", err)
 			return
 		}
-		go discord.GitCommitAndPush(root, "data/homestead_members.json", "data: homestead level up", bot, devChannelID)
+		go discord.GitCommitAndPush(root, "data: homestead level up", bot, devChannelID, "data/homestead_members.json")
 
 		messageID := os.Getenv("HOMESTEAD_MESSAGE_ID")
 		if messageID == "" {

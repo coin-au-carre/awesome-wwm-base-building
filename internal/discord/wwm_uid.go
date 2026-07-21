@@ -6,6 +6,7 @@ import (
 	"strings"
 	"sync"
 
+	"ruby/internal/guild"
 	"ruby/internal/netease"
 
 	"github.com/bwmarrin/discordgo"
@@ -155,7 +156,7 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	alias := strings.TrimSpace(fields["canonical_alias"])
 	slug := slugify(alias)
 	if slug == "" {
-		respondWWMUIDMessage(s, i, "❌ Builder name can't be empty.")
+		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, "❌ Builder name can't be empty.")
 		return
 	}
 	uid := strings.TrimSpace(fields["uid"])
@@ -164,17 +165,17 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	identities, err := LoadBuilderIdentities(root)
 	if err != nil {
 		slog.Error("wwm-uid: loading builder identities", "err", err)
-		respondWWMUIDMessage(s, i, "❌ Something went wrong loading builder data. Please try again.")
+		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, "❌ Something went wrong loading builder data. Please try again.")
 		return
 	}
 
 	selfIdx := FindBuilderIdentityByDiscordID(identities, discordID)
 	if otherIdx := FindBuilderIdentityBySlug(identities, slug); otherIdx >= 0 && otherIdx != selfIdx {
-		respondWWMUIDMessage(s, i, fmt.Sprintf("❌ The builder name **%s** is already taken — please pick a different one.", alias))
+		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, fmt.Sprintf("❌ The builder name **%s** is already taken — please pick a different one.", alias))
 		return
 	}
 	if bad := conflictingAlias(identities, selfIdx, aliases); bad != "" {
-		respondWWMUIDMessage(s, i, fmt.Sprintf("❌ The alias **%s** is already used by another builder — please remove it.", bad))
+		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, fmt.Sprintf("❌ The alias **%s** is already used by another builder — please remove it.", bad))
 		return
 	}
 
@@ -191,19 +192,19 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	case uid == "":
 		// Field cleared — remove NetEase fields entirely (absent, not
 		// blank; see docs/builder-identity.md on why that matters).
-		msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, alias, slug, aliases, "", "", 0, "")
-		respondWWMUIDMessage(s, i, msg)
+		msg := applyWWMUIDUpdate(root, bot, devChannelID, i, alias, slug, aliases, "", "", 0, "")
+		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
 	case uid == existingUID && selfIdx >= 0:
 		// Unchanged — only the name/slug/aliases may have moved, skip re-resolving.
-		msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, alias, slug, aliases, existingUID, existingPID, existingHostnum, existingNickname)
-		respondWWMUIDMessage(s, i, msg)
+		msg := applyWWMUIDUpdate(root, bot, devChannelID, i, alias, slug, aliases, existingUID, existingPID, existingHostnum, existingNickname)
+		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
 	default:
 		// Set/changed — resolve live and confirm before saving, so a
 		// typo'd UID can't silently attach a stranger's account.
 		ref, err := netease.ResolveByNumberID(uid)
 		if err != nil {
 			slog.Warn("wwm-uid: resolving number_id", "uid", uid, "err", err)
-			respondWWMUIDMessage(s, i, fmt.Sprintf("❌ Couldn't find a WWM account with UID `%s` — double-check the number and try again.", uid))
+			respondWWMUIDMessage(s, i, bot, devChannelID, discordID, fmt.Sprintf("❌ Couldn't find a WWM account with UID `%s` — double-check the number and try again.", uid))
 			return
 		}
 
@@ -251,26 +252,34 @@ func handleWWMUIDButton(s *discordgo.Session, i *discordgo.InteractionCreate, bo
 	pendingWWMUIDMu.Unlock()
 
 	if !ok {
-		updateWWMUIDMessage(s, i, "This confirmation expired — run `/wwm-uid` again.")
+		updateWWMUIDMessage(s, i, bot, devChannelID, discordID, "This confirmation expired — run `/wwm-uid` again.")
 		return
 	}
 
 	if customID == wwmUIDNotMeButton {
-		updateWWMUIDMessage(s, i, "Okay, not saved. Run `/wwm-uid` again with the correct UID.")
+		updateWWMUIDMessage(s, i, bot, devChannelID, discordID, "Okay, not saved. Run `/wwm-uid` again with the correct UID.")
 		return
 	}
 
-	msg := applyWWMUIDUpdate(root, bot, devChannelID, discordID, entry.canonicalAlias, entry.canonicalSlug, entry.aliases, entry.numberID, entry.pid, entry.hostnum, entry.nickname)
-	updateWWMUIDMessage(s, i, msg)
+	msg := applyWWMUIDUpdate(root, bot, devChannelID, i, entry.canonicalAlias, entry.canonicalSlug, entry.aliases, entry.numberID, entry.pid, entry.hostnum, entry.nickname)
+	updateWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
 }
 
 // applyWWMUIDUpdate writes discordID's record (creating it if it doesn't
 // exist yet) and commits+pushes data/builder_identities.json from the live
 // bot process — same pattern as data/streaming.json, see
-// docs/builder-identity.md's Piece 2. Returns the message to show the user.
-func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, slug string, aliases []string, numberID, pid string, hostnum int, nickname string) string {
+// docs/builder-identity.md's Piece 2. Also upserts data/discord_users.json
+// with the member's current username/globalName/nickname — normally only
+// backfilled by cmd/homestead-sync, but the member info is already in hand
+// here for free, so a builder registering via /wwm-uid before ever earning
+// a Homestead role doesn't have to wait for the next sync to show up in
+// name-based lookups (e.g. the "Scouted" section on /builders/<slug>).
+// Returns the message to show the user.
+func applyWWMUIDUpdate(root string, bot *Bot, devChannelID string, i *discordgo.InteractionCreate, alias, slug string, aliases []string, numberID, pid string, hostnum int, nickname string) string {
 	submitMu.Lock()
 	defer submitMu.Unlock()
+
+	discordID := i.Member.User.ID
 
 	identities, err := LoadBuilderIdentities(root)
 	if err != nil {
@@ -296,7 +305,11 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, sl
 		return "❌ Something went wrong saving your info. Please try again."
 	}
 
-	go GitCommitAndPush(root, "data/builder_identities.json", "data: /wwm-uid "+slug, bot, devChannelID)
+	files := []string{"data/builder_identities.json"}
+	if usersDirty := upsertDiscordUser(root, i); usersDirty {
+		files = append(files, "data/discord_users.json")
+	}
+	go GitCommitAndPush(root, "data: /wwm-uid "+slug, bot, devChannelID, files...)
 
 	if numberID == "" {
 		return fmt.Sprintf("✅ Saved! Builder name: **%s**. UID removed.", alias)
@@ -304,7 +317,38 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID, discordID, alias, sl
 	return fmt.Sprintf("✅ Saved! Builder name: **%s**, UID: `%s` (**%s**).", alias, numberID, nickname)
 }
 
-func respondWWMUIDMessage(s *discordgo.Session, i *discordgo.InteractionCreate, content string) {
+// upsertDiscordUser records/refreshes discordID's username/globalName/
+// nickname in data/discord_users.json, same fresh-vs-known diff pattern as
+// cmd/homestead-sync. Returns whether the file changed (and was saved).
+func upsertDiscordUser(root string, i *discordgo.InteractionCreate) bool {
+	discordID := i.Member.User.ID
+	users, err := guild.LoadUsers(root)
+	if err != nil {
+		slog.Warn("wwm-uid: loading discord_users.json", "err", err)
+		return false
+	}
+
+	fresh := guild.UserInfo{
+		Username:   i.Member.User.Username,
+		GlobalName: i.Member.User.GlobalName,
+		Nickname:   i.Member.Nick,
+	}
+	if existing, known := users[discordID]; known && existing == fresh {
+		return false
+	}
+	users[discordID] = fresh
+
+	if err := guild.SaveUsers(root, users); err != nil {
+		slog.Warn("wwm-uid: saving discord_users.json", "err", err)
+		return false
+	}
+	return true
+}
+
+// respondWWMUIDMessage replies to the modal submission and mirrors the
+// outcome to devChannelID, so mods can see /wwm-uid successes/failures
+// without needing to be the user hitting them.
+func respondWWMUIDMessage(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, devChannelID, discordID, content string) {
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseChannelMessageWithSource,
 		Data: &discordgo.InteractionResponseData{
@@ -315,12 +359,14 @@ func respondWWMUIDMessage(s *discordgo.Session, i *discordgo.InteractionCreate, 
 	if err != nil {
 		slog.Error("responding to wwm-uid", "err", err)
 	}
+	logWWMUIDOutcome(bot, devChannelID, discordID, content)
 }
 
 // updateWWMUIDMessage edits the confirmation message in place (removing the
 // buttons) rather than posting a new message, since this is always a
-// response to one of the Confirm/"Not me" buttons on that same message.
-func updateWWMUIDMessage(s *discordgo.Session, i *discordgo.InteractionCreate, content string) {
+// response to one of the Confirm/"Not me" buttons on that same message. Also
+// mirrors the outcome to devChannelID, same as respondWWMUIDMessage.
+func updateWWMUIDMessage(s *discordgo.Session, i *discordgo.InteractionCreate, bot *Bot, devChannelID, discordID, content string) {
 	err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
 		Type: discordgo.InteractionResponseUpdateMessage,
 		Data: &discordgo.InteractionResponseData{
@@ -332,4 +378,12 @@ func updateWWMUIDMessage(s *discordgo.Session, i *discordgo.InteractionCreate, c
 	if err != nil {
 		slog.Error("updating wwm-uid confirmation message", "err", err)
 	}
+	logWWMUIDOutcome(bot, devChannelID, discordID, content)
+}
+
+func logWWMUIDOutcome(bot *Bot, devChannelID, discordID, content string) {
+	if devChannelID == "" {
+		return
+	}
+	bot.Send(devChannelID, fmt.Sprintf("🪪 `/wwm-uid` <@%s>: %s", discordID, content))
 }

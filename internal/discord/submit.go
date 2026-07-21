@@ -636,14 +636,14 @@ func filterTags(tags []string, known []string) []string {
 var gitMu sync.Mutex
 
 func gitCommitAndPush(root, message string, bot *Bot, devChannelID string) {
-	GitCommitAndPush(root, "data/guilds.json", message, bot, devChannelID)
+	GitCommitAndPush(root, message, bot, devChannelID, "data/guilds.json")
 }
 
-// GitCommitAndPush stages the given file, commits with message, and pushes,
-// pulling with rebase first to pick up concurrent changes. Errors are logged
-// and reported to devChannelID (if set) rather than returned, since callers
-// run this in the background off a Discord event handler.
-func GitCommitAndPush(root, file, message string, bot *Bot, devChannelID string) {
+// GitCommitAndPush stages the given file(s), commits with message, and
+// pushes, pulling with rebase first to pick up concurrent changes. Errors are
+// logged and reported to devChannelID (if set) rather than returned, since
+// callers run this in the background off a Discord event handler.
+func GitCommitAndPush(root, message string, bot *Bot, devChannelID string, files ...string) {
 	gitMu.Lock()
 	defer gitMu.Unlock()
 
@@ -660,7 +660,7 @@ func GitCommitAndPush(root, file, message string, bot *Bot, devChannelID string)
 		}
 	}
 
-	if out, err := run("add", file); err != nil {
+	if out, err := run(append([]string{"add"}, files...)...); err != nil {
 		fail("add", err, out)
 		return
 	}
