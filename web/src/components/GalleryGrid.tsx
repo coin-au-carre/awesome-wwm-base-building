@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, CalendarIcon, ChatCircleIcon } from "@phosphor-icons/react"
+import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, CalendarIcon, ChatCircleIcon, InfoIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import { relativeTime } from "@/lib/dates"
@@ -91,7 +91,7 @@ export function StatRow({
   const hideLikes = compact ? "hidden lg:flex" : "flex"
   const hideDownloads = compact ? "hidden sm:flex" : "flex"
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
+    <div className={`flex flex-wrap items-center gap-x-3 gap-y-0.5 ${className}`}>
       <span className="flex items-center gap-1">
         <FireIcon weight="fill" className="size-3.5 text-orange-400" /> {formatCount(plan.heat_val)}
       </span>
@@ -640,15 +640,35 @@ function initFromQuery<T>(key: string, valid: readonly T[], fallback: T): T {
   return match ?? fallback
 }
 
-// Builds the ?sort&tag&view query string for the current filter state,
-// omitting params at their default to keep plain /gallery links clean —
-// shared by the URL-sync effect and the Share Gallery link so they can't
-// drift out of sync with each other.
-function galleryFilterQuery(sort: string, tag: number, wbmOnly: boolean): string {
+// Same idea as initFromQuery, but for a free-form non-negative integer
+// (min/max components) rather than a fixed set of valid values.
+function initIntFromQuery(key: string): number | undefined {
+  if (typeof window === "undefined") return undefined
+  const raw = new URLSearchParams(window.location.search).get(key)
+  const n = raw ? Number(raw) : NaN
+  return Number.isInteger(n) && n >= 0 ? n : undefined
+}
+
+// Builds the ?sort&tag&view&min&max query string for the current filter
+// state, omitting params at their default to keep plain /gallery links
+// clean — shared by the URL-sync effect and the Share Gallery link so
+// they can't drift out of sync with each other.
+function galleryFilterQuery(
+  sort: string,
+  tag: number,
+  wbmOnly: boolean,
+  minComponents?: number,
+  maxComponents?: number,
+): string {
   const params = new URLSearchParams()
   if (sort !== DEFAULT_SORT) params.set("sort", sort)
   if (tag !== CATEGORY_OPTIONS[0].value) params.set("tag", String(tag))
   if (!wbmOnly) params.set("view", "all")
+  // min/max only ever apply to the WBM-only view (see wbmGalleryUrl) —
+  // omit them from the URL when All Builders is active so a shared link
+  // doesn't carry a filter that silently does nothing.
+  if (wbmOnly && minComponents != null) params.set("min", String(minComponents))
+  if (wbmOnly && maxComponents != null) params.set("max", String(maxComponents))
   return params.toString()
 }
 
@@ -662,6 +682,29 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
   const [tag, setTag] = useState<number>(() =>
     initFromQuery("tag", CATEGORY_OPTIONS.map((o) => o.value), CATEGORY_OPTIONS[0].value),
   )
+  // Only meaningful/sent when wbmOnly (see wbmGalleryUrl) — component
+  // count range filter, WBM-only aggregate can filter this in-memory,
+  // the general feed has no server-side way to.
+  const [minComponents, setMinComponents] = useState<number | undefined>(() => initIntFromQuery("min"))
+  const [maxComponents, setMaxComponents] = useState<number | undefined>(() => initIntFromQuery("max"))
+  // Raw text, debounced into the numeric state above — same rationale as
+  // the search box's debouncedQuery: don't refetch on every keystroke.
+  const [minInput, setMinInput] = useState(minComponents != null ? String(minComponents) : "")
+  const [maxInput, setMaxInput] = useState(maxComponents != null ? String(maxComponents) : "")
+  useEffect(() => {
+    const t = setTimeout(() => {
+      const n = minInput.trim() === "" ? undefined : Number(minInput)
+      setMinComponents(n != null && Number.isFinite(n) && n >= 0 ? Math.floor(n) : undefined)
+    }, 400)
+    return () => clearTimeout(t)
+  }, [minInput])
+  useEffect(() => {
+    const t = setTimeout(() => {
+      const n = maxInput.trim() === "" ? undefined : Number(maxInput)
+      setMaxComponents(n != null && Number.isFinite(n) && n >= 0 ? Math.floor(n) : undefined)
+    }, 400)
+    return () => clearTimeout(t)
+  }, [maxInput])
   const [query, setQuery] = useState("")
   const [plans, setPlans] = useState<GalleryPlan[]>([])
   const [nextStart, setNextStart] = useState(0)
@@ -678,6 +721,16 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
   useEffect(() => {
     if (!wbmOnly && sort === "components") setSort(DEFAULT_SORT)
   }, [wbmOnly, sort])
+
+  // Same reasoning — the components range filter only exists on the WBM
+  // aggregate endpoint, clear it rather than silently keep sending it
+  // (harmlessly ignored by /api/gallery, but confusing left set in the UI).
+  useEffect(() => {
+    if (!wbmOnly && (minInput !== "" || maxInput !== "")) {
+      setMinInput("")
+      setMaxInput("")
+    }
+  }, [wbmOnly, minInput, maxInput])
 
   // Debounce the raw input into a value the fetch effect reacts to, so
   // we don't hit the relay on every keystroke.
@@ -727,7 +780,7 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
     const fetchUrl = activeSearch
       ? searchGalleryUrl(activeSearch)
       : wbmOnly
-        ? wbmGalleryUrl(sort, tag, 0, LIMIT)
+        ? wbmGalleryUrl(sort, tag, 0, LIMIT, minComponents, maxComponents)
         : `${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=0&limit=${LIMIT}`
     fetch(fetchUrl)
       .then((res) => {
@@ -744,12 +797,12 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
       })
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
       .finally(() => setLoading(false))
-  }, [sort, tag, activeSearch, queryInvalid, wbmOnly])
+  }, [sort, tag, activeSearch, queryInvalid, wbmOnly, minComponents, maxComponents])
 
   // Keep the URL in sync so filters survive a refresh and can be
   // shared/bookmarked — omits params at their default to keep plain
   // /gallery links clean.
-  const filterQuery = galleryFilterQuery(sort, tag, wbmOnly)
+  const filterQuery = galleryFilterQuery(sort, tag, wbmOnly, minComponents, maxComponents)
   useEffect(() => {
     // Preserve Astro ClientRouter's own history.state (index/scroll
     // position) — replacing it with null breaks browser back/forward
@@ -769,7 +822,7 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
   function loadMore() {
     setLoadingMore(true)
     const fetchUrl = wbmOnly
-      ? wbmGalleryUrl(sort, tag, nextStart, LIMIT)
+      ? wbmGalleryUrl(sort, tag, nextStart, LIMIT, minComponents, maxComponents)
       : `${WBM_RELAY_URL}/api/gallery?sort=${sort}&tag=${tag}&start=${nextStart}&limit=${LIMIT}`
     fetch(fetchUrl)
       .then((res) => {
@@ -891,6 +944,38 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
               ))}
             </TabsList>
           </Tabs>
+        </div>
+      )}
+
+      {!query && wbmOnly && (
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <HammerIcon weight="duotone" className="size-4 text-violet-400 shrink-0" />
+          <span className="text-muted-foreground shrink-0">Components:</span>
+          <input
+            type="number"
+            inputMode="numeric"
+            min={0}
+            placeholder="Min"
+            value={minInput}
+            onChange={(e) => setMinInput(e.target.value)}
+            className="h-8 w-20 rounded-md border border-input bg-transparent px-2 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:bg-input/30"
+          />
+          <span className="text-muted-foreground shrink-0">–</span>
+          <input
+            type="number"
+            inputMode="numeric"
+            min={0}
+            placeholder="Max"
+            value={maxInput}
+            onChange={(e) => setMaxInput(e.target.value)}
+            className="h-8 w-20 rounded-md border border-input bg-transparent px-2 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:bg-input/30"
+          />
+          {(minInput !== "" || maxInput !== "") && (
+            <span className="flex items-center gap-1 text-xs text-muted-foreground" title="wbm-relay excludes any diagram NetEase's own feed didn't report a component count for, rather than guessing it's zero.">
+              <InfoIcon weight="fill" className="size-3.5 shrink-0" />
+              Some diagrams may be excluded — component count isn't known for every plan
+            </span>
+          )}
         </div>
       )}
 

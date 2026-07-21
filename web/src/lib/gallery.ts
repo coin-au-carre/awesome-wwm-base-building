@@ -114,8 +114,23 @@ export interface Comment {
 // sort/tag are the same SORT_OPTIONS/CATEGORY_OPTIONS values as
 // /api/gallery — the relay applies them locally to its own cached
 // aggregate rather than querying upstream per combination.
-export function wbmGalleryUrl(sort: string, tag: number, start: number, limit: number): string {
-  return `${WBM_RELAY_URL}/api/gallery/wbm?sort=${sort}&tag=${tag}&start=${start}&limit=${limit}`
+// minComponents/maxComponents filter by total placed-piece count — only
+// meaningful here (the WBM-only aggregate), not on the general gallery
+// feed, since wbm-relay holds this whole list in memory to filter
+// locally rather than sending an upstream request per range. Omit
+// either bound to leave that side unbounded.
+export function wbmGalleryUrl(
+  sort: string,
+  tag: number,
+  start: number,
+  limit: number,
+  minComponents?: number,
+  maxComponents?: number,
+): string {
+  const params = new URLSearchParams({ sort, tag: String(tag), start: String(start), limit: String(limit) })
+  if (minComponents != null) params.set("min", String(minComponents))
+  if (maxComponents != null) params.set("max", String(maxComponents))
+  return `${WBM_RELAY_URL}/api/gallery/wbm?${params.toString()}`
 }
 
 // id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
