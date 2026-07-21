@@ -6,7 +6,7 @@ authors: ["AegisNite", "Crueliet", "Wyrdrake", "KARIN", "Ahlyam"]
 date: 2026-05-26
 updatedDate: 2026-06-06
 order: 11
-image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a6009c2&format=webp&hm=eee0799310cfb20f440229c29879e32abb112adc8f4f577add81b3e8054481a2&is=6a5eb842&quality=lossless"
+image: "https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a60b282&format=webp&hm=1c6f191d7780f84fa5bc94729ff0efbb875cfbaade37f6656aaef004e05b9968&is=6a5f6102&quality=lossless"
 featured: false
 ---
 
@@ -19,9 +19,9 @@ A collection of creative tricks shared by the community builders in the Discord 
 
 Standard mode and lite mode don't share the same assets representation. Trees and vegetation can look different, and the textures and colors of certain wood and building materials also change between modes. Something that looks great in one mode can look noticeably different in the other.
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a6009c2&format=webp&hm=eee0799310cfb20f440229c29879e32abb112adc8f4f577add81b3e8054481a2&is=6a5eb842&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911531908431972/image.png?ex=6a60b282&format=webp&hm=1c6f191d7780f84fa5bc94729ff0efbb875cfbaade37f6656aaef004e05b9968&is=6a5f6102&quality=lossless" alt="Standard mode — trees and building material colors" style="border-radius: 0.75rem; width: 100%;" />
 
-<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a6009c3&format=webp&hm=9de68fe47bf54256e9a950066bd82287ca281f9519da845b59c8ab50992613ce&is=6a5eb843&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030634/1503911536706719834/image.png?ex=6a60b283&format=webp&hm=87fb7002cb5d00a68dc2f6320ffc7df6c0c34a40715173cf9b96095e856f44c0&is=6a5f6103&quality=lossless" alt="Lite mode — different trees and material tones" style="border-radius: 0.75rem; width: 100%;" />
 
 > **Warning! Using ReShade on lite mode?** ReShade is a post-processing injector not officially supported by the game. Using it would likely get you banned. Stick to vanilla visuals.
 
@@ -67,9 +67,9 @@ Sink a flat top cabinetThis cabinet component has some that make it fit the bar 
 
 Place a diagram without filling in all of its component slots. The empty slots create a screen-like void, while the filled parts form the frame around it — resulting in a clean monitor shape. Wonpil was the first to demonstrate this idea in the Heavenly Sage guild to our knowledge.
 
-<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a5ff1d8&format=webp&hm=b62b0728d1ed91f8525573cbeca77fcd2a0804e042f94fce13c4bb4270905f48&is=6a5ea058&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1483451090048520252/1499718394474397779/20265171217.png?ex=6a609a98&format=webp&hm=7780e6749a67a2e3c8bfcca816a2c96ded70a62b3a21a83b9d3457ee521ff95c&is=6a5f4918&quality=lossless" alt="Secret underground base" style="border-radius: 0.75rem; width: 80%;" />
 
 <!-- discord-video:1483447711499030634/1499730307018915970 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a5ffcef&hm=2ff233553d3cf7c600b6122c7db4ef5dab5c3457bc1d25b95d8e27fa3afe0dbb&is=6a5eab6f&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1499730300270411857/Where_Winds_Meet_2026.05.01_-_18.09.02.11.mp4?ex=6a60a5af&hm=6432dddb8c6b1a475c374e895b20987a1d9e6bf8fc0a2a4396af3f24e6b6989b&is=6a5f542f&" controls></video>
 </div>

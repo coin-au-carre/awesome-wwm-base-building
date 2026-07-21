@@ -34,7 +34,7 @@ featured: false
 ## Kaifeng: Forbidden City or Forbidden Table?
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a5ff473&format=webp&hm=83fde165f71354560597689039d9ee73c6faf0b85a7746816d61a243a0d125de&is=6a5ea2f3&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a609d33&format=webp&hm=43569c23b05bc516ced6a3644bd81177e493c37f3caf5c14a01a10c04cb61e67&is=6a5f4bb3&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -49,7 +49,7 @@ featured: false
 ## Near a certain musician in Kaifeng Palace
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/vehs" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">vehs</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a600350&format=webp&hm=006cf8daa3feaf18d04396f39a50933a182ba3f3e27b53df917dd416f35de1ec&is=6a5eb1d0&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a60ac10&format=webp&hm=7f198ca554ecb93321a26566302f6a89ff9eddd1cf3026d7c6b7a64089bd2331&is=6a5f5a90&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
