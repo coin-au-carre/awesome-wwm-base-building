@@ -63,7 +63,7 @@ Can only be used for steamed bun and food stalls, nothing else.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a60a566&format=webp&hm=66bee1c4d8578a9993e2934c75764baade5f6396a493c133c991be97f3d2d563&is=6a5f53e6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498099251224510616/Screenshot_2026-04-26_163434.png?ex=6a614e26&format=webp&hm=eff5f4fbca771f9ad91632b6b6fd218e91b3834dba984bd0021e41ca6ea9e2be&is=6a5ffca6&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 福 Fortune
 
@@ -71,7 +71,7 @@ Used for new years greetings most often.
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a60a651&format=webp&hm=125a17f9accae6e09175db8a67e84bb923604e98a9cc53ba0f4fb215ac02d8f0&is=6a5f54d1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498100235786911844/Screenshot_2026-04-26_163329.png?ex=6a614f11&format=webp&hm=c797feb8d5fcc42a54524cd0bfdaab6572ead9a803587ab3cdfcbd101da24b41&is=6a5ffd91&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 **Disclaimer:** This specific sign is written in grass script, which makes it very difficult to read, even by native Chinese readers.  
 
@@ -81,7 +81,7 @@ Roughly translated, it means "one's character does not leave the pine (tree); it
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a60a737&format=webp&hm=40d2622a92754e3a6084c19e8b397b70f92a28688f96bd1c28b74985294d7732&is=6a5f55b7&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498101198958628944/Screenshot_2026-04-26_163349.png?ex=6a614ff7&format=webp&hm=a97f668d0ebe8cea249dcaa02bb2d1781868775c11361af12bd304f015e9a0ff&is=6a5ffe77&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驿 - postal (relay station)
 
@@ -89,7 +89,7 @@ Only used for postal relay stations (courier stations) and sometimes inns
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a60a861&format=webp&hm=2cee1ea638f2014d5b6908529e90fb80db6fb061efdf35ba35ea33df761ad35a&is=6a5f56e1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498102447997190215/Screenshot_2026-04-26_164126.png?ex=6a615121&format=webp&hm=7bb084228b1fbea32e5eee4c578a59e8e55c4446f08d5e23796f9170af9b863d&is=6a5fffa1&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 天 Heaven
 石 Stone
@@ -98,7 +98,7 @@ Heavenly Stone
 
 ---
 
-<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a60aabc&format=webp&hm=b788b977fd9757ac25e3183851da2a20593c4f63661bb878af02089157092af8&is=6a5f593c&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1498068132097556530/1498104979200671865/Screenshot_2026-04-26_164202.png?ex=6a61537c&format=webp&hm=737c19e7c7116766a3a1847b029620e5b85fec71a53cb3abafd8f9d1588744bd&is=6a6001fc&quality=lossless" alt="" style="border-radius: 0.75rem; width: 100%;" />
 
 驛 - traditional version of "postal relay station" 
 
