@@ -146,7 +146,7 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
     <!-- Header -->
     <div class="flex items-center gap-5">
       {linkedNumberId ? (
-        <BuilderAvatar client:load numberId={linkedNumberId} initial={initial} className="size-16" />
+        <BuilderAvatar client:visible numberId={linkedNumberId} initial={initial} className="size-16" />
       ) : (
         <div class="size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold shrink-0 ring-2 ring-primary/20">
           {initial}
