@@ -944,5 +944,17 @@
 		"neteaseNumberId": "4059149887",
 		"neteasePid": "aUmpi5uXLxydgO7Z",
 		"neteaseHostnum": 10405
+	},
+	{
+		"discordId": "1302747114597781656",
+		"canonicalAlias": "Harsa",
+		"canonicalSlug": "harsa",
+		"aliases": [
+			"FanArsa"
+		],
+		"ingameNickname": "FanArsa",
+		"neteaseNumberId": "4106517463",
+		"neteasePid": "aTvnm81OLjMQJ99s",
+		"neteaseHostnum": 10410
 	}
 ]
