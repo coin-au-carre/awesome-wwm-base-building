@@ -13,6 +13,7 @@ import { relativeTime } from "@/lib/dates"
 import {
   WBM_RELAY_URL,
   SORT_OPTIONS,
+  WBM_SORT_OPTIONS,
   DEFAULT_SORT,
   CATEGORY_OPTIONS,
   searchGalleryUrl,
@@ -101,8 +102,8 @@ export function StatRow({
         <DownloadSimpleIcon weight="bold" className="size-3.5" /> {formatCount(plan.build_num)}
       </span>
       {plan.components_count != null && plan.components_count > 0 && (
-        <span className="flex items-center gap-1" title="Components used">
-          <HammerIcon weight="duotone" className="size-3.5" /> {formatCount(plan.components_count)}
+        <span className="flex items-center gap-1 font-semibold" title="Components used">
+          <HammerIcon weight="duotone" className="size-3.5 text-violet-400" /> {formatCount(plan.components_count)}
         </span>
       )}
     </div>
@@ -656,7 +657,7 @@ function galleryFilterQuery(sort: string, tag: number, wbmOnly: boolean): string
 export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
   const [wbmOnly, setWbmOnly] = useState(() => initFromQuery("view", ["wbm", "all"], "wbm") === "wbm")
   const [sort, setSort] = useState<string>(() =>
-    initFromQuery("sort", SORT_OPTIONS.map((o) => o.value), DEFAULT_SORT),
+    initFromQuery("sort", (wbmOnly ? WBM_SORT_OPTIONS : SORT_OPTIONS).map((o) => o.value), DEFAULT_SORT),
   )
   const [tag, setTag] = useState<number>(() =>
     initFromQuery("tag", CATEGORY_OPTIONS.map((o) => o.value), CATEGORY_OPTIONS[0].value),
@@ -669,6 +670,14 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
   const [error, setError] = useState<string | null>(null)
   const [hasMore, setHasMore] = useState(true)
   const sentinelRef = useRef<HTMLDivElement | null>(null)
+
+  // "components" only exists on the WBM aggregate endpoint (see
+  // WBM_SORT_OPTIONS in lib/gallery.ts) — falls back to the default sort
+  // rather than sending an invalid value to /api/gallery if the toggle
+  // switches away from WBM Builders while it's selected.
+  useEffect(() => {
+    if (!wbmOnly && sort === "components") setSort(DEFAULT_SORT)
+  }, [wbmOnly, sort])
 
   // Debounce the raw input into a value the fetch effect reacts to, so
   // we don't hit the relay on every keystroke.
@@ -874,8 +883,11 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
           </div>
           <Tabs value={sort} onValueChange={setSort}>
             <TabsList>
-              {SORT_OPTIONS.map((opt) => (
-                <TabsTrigger key={opt.value} value={opt.value}>{opt.label}</TabsTrigger>
+              {(wbmOnly ? WBM_SORT_OPTIONS : SORT_OPTIONS).map((opt) => (
+                <TabsTrigger key={opt.value} value={opt.value} className={opt.value === "components" ? "inline-flex items-center gap-1.5" : undefined}>
+                  {opt.value === "components" && <HammerIcon weight="duotone" className="size-3.5 text-violet-400" />}
+                  {opt.label}
+                </TabsTrigger>
               ))}
             </TabsList>
           </Tabs>

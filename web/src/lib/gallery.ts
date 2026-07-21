@@ -233,6 +233,13 @@ export const SORT_OPTIONS = [
 
 export const DEFAULT_SORT: (typeof SORT_OPTIONS)[number]["value"] = "trending_alltime"
 
+// "components" only exists on wbm-relay's /api/gallery/wbm — that handler
+// already holds the whole WBM aggregate in memory to re-sort locally, so
+// it can offer a sort key that isn't a real NetEase rec_type. The general
+// /api/gallery feed forwards SORT_OPTIONS' value straight upstream as
+// rec_type and has no such option — see wbm-relay's wbmgallery.go.
+export const WBM_SORT_OPTIONS = [...SORT_OPTIONS, { value: "components", label: "Most Components" }] as const
+
 // In-game category tag ids, confirmed 2026-07-18 (see wbm-relay's
 // wbm-tool/gallery-api.md). "Small World" (950) and "Painted Boat
 // Diagram" (1211) are omitted for now — they genuinely return 0 items,
