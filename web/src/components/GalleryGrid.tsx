@@ -365,7 +365,7 @@ export function PlanCard({
           title="Show only WBM Builders"
           className="absolute top-2 right-2 z-10 flex items-center gap-1 cursor-pointer"
         >
-          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-6 sm:size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
+          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
           {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
         </button>
       ) : (
@@ -374,7 +374,7 @@ export function PlanCard({
           title="WBM Builder"
           className="absolute top-2 right-2 z-10 flex items-center gap-1"
         >
-          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-6 sm:size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
+          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
           {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
         </a>
       ))}
