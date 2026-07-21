@@ -6,7 +6,7 @@ import { BackLink, GalleryLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
 import { url } from "@/lib/url"
 
-function StatTile({ value, label }: { value: number | string; label: string }) {
+export function StatTile({ value, label }: { value: number | string; label: string }) {
   return (
     <div className="text-center">
       <div className="font-heading text-2xl sm:text-3xl font-bold italic">{value}</div>
@@ -15,12 +15,14 @@ function StatTile({ value, label }: { value: number | string; label: string }) {
   )
 }
 
-// wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
-// — see data/builder_identities.json, loaded server-side in
-// gallery/builder.astro. Used to show a banner-link to their fuller WBM
-// profile instead of duplicating content across two pages — see
-// docs/builder-identity.md.
-export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
+// wbmSlugs maps a NetEase author_number_id to their WBM canonicalSlug —
+// see data/builder_identities.json, computed server-side in
+// gallery/builder.astro. A WBM-linked builder gets redirected to their
+// fuller /builders/<slug> page instead of duplicating this profile across
+// two URLs — see docs/builder-identity.md's "merging the two builder-
+// profile systems". Builders with no WBM link (most gallery visitors)
+// just render normally here, untouched.
+export function BuilderProfile({ wbmSlugs = {} }: { wbmSlugs?: Record<string, string> }) {
   // undefined = not read from the URL yet (initial render), null = read
   // and genuinely absent. Only one of id/name is expected to be set.
   const [query, setQuery] = useState<{ id: string | null; name: string | null } | undefined>(undefined)
@@ -35,8 +37,15 @@ export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<stri
   // gallery.ts's designerUrl/designerByNameUrl). See gallery/builder.astro.
   useEffect(() => {
     const params = new URLSearchParams(location.search)
-    setQuery({ id: params.get("id"), name: params.get("name") })
-  }, [])
+    const id = params.get("id")
+    // Known WBM builder — redirect immediately, before ever fetching the
+    // relay, so this page never renders anything for them.
+    if (id && wbmSlugs[id]) {
+      location.replace(url(`/builders/${wbmSlugs[id]}`))
+      return
+    }
+    setQuery({ id, name: params.get("name") })
+  }, [wbmSlugs])
 
   useEffect(() => {
     if (!query || (!query.id && !query.name)) return
@@ -56,9 +65,18 @@ export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<stri
         if (!res.ok) throw new Error(`relay returned ${res.status}`)
         return res.json()
       })
-      .then((data) => data && setProfile(data))
+      .then((data) => {
+        if (!data) { return }
+        // Looked up by name — the id wasn't known until now. Redirect
+        // the same way as the id-based path above.
+        if (wbmSlugs[data.number_id]) {
+          location.replace(url(`/builders/${wbmSlugs[data.number_id]}`))
+          return
+        }
+        setProfile(data)
+      })
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
-  }, [query])
+  }, [query, wbmSlugs])
 
   if (query === undefined) return null
 
@@ -112,23 +130,15 @@ export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<stri
         <GalleryLink />
         <ShareButton label="Share profile" />
       </div>
-      {wbmBuilders[profile.number_id] && (
-        <a
-          href={url(`/builders/${wbmBuilders[profile.number_id]}`)}
-          className="flex items-center gap-2 rounded-xl ring-1 ring-primary/30 bg-primary/5 hover:ring-primary/60 hover:bg-primary/10 transition-all px-4 py-2.5 text-sm"
-          data-umami-event="gallery_builder_wbm_banner_click"
-        >
-          <img src={url("/images/logo_1.webp")} alt="" aria-hidden="true" className="size-6 object-contain shrink-0" />
-          <span className="flex-1">This builder is part of <strong>Where Builders Meet</strong> — see their full profile</span>
-          <svg className="size-3.5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-        </a>
-      )}
-      <div className="flex flex-wrap items-center gap-6">
-        <div className="flex items-center gap-3">
-          <Avatar src={profile.avatar_url} className="size-14 sm:size-24" />
-          <h1 className="font-heading text-xl sm:text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
+      <div className="flex flex-wrap items-center gap-6 rounded-2xl ring-1 ring-border bg-card p-5 sm:p-6">
+        <div className="flex items-center gap-5">
+          <Avatar src={profile.avatar_url} className="flex size-14 sm:size-24" />
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="font-heading text-xl sm:text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
+            {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
+          </div>
         </div>
-        <div className="flex items-center gap-6 ml-auto">
+        <div className="flex items-center gap-6 sm:ml-auto">
           <StatTile value={profile.follower_num} label="Fans" />
           <StatTile value={profile.like_num} label="Likes" />
           <StatTile value={profile.published_num} label="Published Works" />
@@ -139,12 +149,9 @@ export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<stri
         <p className="text-sm text-muted-foreground">No published construction diagrams yet.</p>
       ) : (
         <>
-          <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-            <span>
-              Showing all {profile.plans.length} published construction diagrams by {profile.nickname || profile.number_id}.
-            </span>
-            {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
-          </div>
+          <p className="text-sm text-muted-foreground">
+            Showing all {profile.plans.length} published construction diagrams by {profile.nickname || profile.number_id}.
+          </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {profile.plans.map((plan) => (
               <PlanCard key={plan.plan_id} plan={plan} showAuthor={false} />

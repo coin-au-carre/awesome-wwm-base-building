@@ -7,12 +7,11 @@ import { BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 // segment — the site builds statically and this page has no build-time
 // list of gallery designer ids to enumerate.
 
-// number_id -> canonicalSlug, same map gallery.astro builds — lets
-// BuilderProfile show a "this builder is also on WBM" banner-link to
-// their fuller /builders/<slug> page when one exists, rather than
-// silently duplicating content across two separate profile pages. See
+// number_id -> canonicalSlug, for every WBM-linked builder identity —
+// lets BuilderProfile redirect straight to their fuller /builders/<slug>
+// page instead of duplicating this profile across two URLs. See
 // docs/builder-identity.md's "merging the two builder-profile systems".
-const wbmBuilders: Record<string, string> = Object.fromEntries(
+const wbmSlugs: Record<string, string> = Object.fromEntries(
   BUILDER_IDENTITIES.filter((e) => e.neteaseNumberId).map((e) => [e.neteaseNumberId as string, e.canonicalSlug]),
 )
 ---
@@ -23,5 +22,5 @@ const wbmBuilders: Record<string, string> = Object.fromEntries(
   noindex
   fullWidth
 >
-  <BuilderProfile client:load wbmBuilders={wbmBuilders} />
+  <BuilderProfile client:load wbmSlugs={wbmSlugs} />
 </Layout>

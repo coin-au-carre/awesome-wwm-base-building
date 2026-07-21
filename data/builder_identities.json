@@ -100,7 +100,11 @@
 		"canonicalSlug": "senèk",
 		"aliases": [
 			"Senek"
-		]
+		],
+		"ingameNickname": "Senek　",
+		"neteaseNumberId": "2025737635",
+		"neteasePid": "aScCSiv/2A1wYLHR",
+		"neteaseHostnum": 10202
 	},
 	{
 		"canonicalAlias": "Lðrd",
@@ -779,7 +783,11 @@
 	{
 		"discordId": "1160067356727455744",
 		"canonicalAlias": "AuntieGold",
-		"canonicalSlug": "auntiegold"
+		"canonicalSlug": "auntiegold",
+		"ingameNickname": "GóId",
+		"neteaseNumberId": "4075102956",
+		"neteasePid": "aUG2tE0vGlM3fNKq",
+		"neteaseHostnum": 10407
 	},
 	{
 		"discordId": "959076147826688090",
@@ -977,5 +985,35 @@
 		"neteaseNumberId": "2074367907",
 		"neteasePid": "aSMcoSrHsingshUW",
 		"neteaseHostnum": 10207
+	},
+	{
+		"discordId": "563376682673635332",
+		"canonicalAlias": "KoernigesBrot",
+		"canonicalSlug": "koernigesbrot",
+		"ingameNickname": "KoernigesBrot",
+		"neteaseNumberId": "2052658864",
+		"neteasePid": "aR5u5AVKzU9bwZYf",
+		"neteaseHostnum": 10205
+	},
+	{
+		"discordId": "1193281985993515052",
+		"canonicalAlias": "Neologic",
+		"canonicalSlug": "neologic",
+		"ingameNickname": "Neologic",
+		"neteaseNumberId": "2013052596",
+		"neteasePid": "aRelvF46k7VSeqz7",
+		"neteaseHostnum": 10201
+	},
+	{
+		"discordId": "832288826210648137",
+		"canonicalAlias": "LiXiara",
+		"canonicalSlug": "lixiara",
+		"aliases": [
+			"Ume"
+		],
+		"ingameNickname": "LiXiara",
+		"neteaseNumberId": "4016295194",
+		"neteasePid": "aS8i3ILKVSf/dGdv",
+		"neteaseHostnum": 10401
 	}
 ]

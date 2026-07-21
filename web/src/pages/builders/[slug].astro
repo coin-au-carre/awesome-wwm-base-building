@@ -3,14 +3,15 @@ import Layout from "@/layouts/main.astro"
 import { getCollection } from "astro:content"
 import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
-import { resolveCanonical, getAllSlugsForCanonical, BUILDER_IDENTITIES } from "@/lib/builder-aliases"
+import { resolveCanonical, BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
 import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
 import { HOMESTEAD_SHEETS } from "@/lib/homestead-resources"
 import { BuilderGallerySection } from "@/components/BuilderGallerySection"
-import { BuilderAvatar } from "@/components/BuilderAvatar"
+import { BuilderProfileHeader } from "@/components/BuilderProfileHeader"
 import { ShareButton } from "@/components/GalleryGrid"
+import { BackLink, GalleryLink } from "@/components/BackLink"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -56,13 +57,6 @@ const slug = Astro.params.slug as string
 const profile = getBuilderProfile(slug)
 const canonical = resolveCanonical(slug)
 
-// Linked NetEase account, if this builder ever registered one via
-// /wwm-uid (data/builder_identities.json) — powers the "NetEase Gallery"
-// section below. See docs/builder-identity.md.
-const linkedNumberId = BUILDER_IDENTITIES.find(
-  (e) => e.canonicalSlug === canonical && e.neteaseNumberId,
-)?.neteaseNumberId
-
 const allArticles = await getCollection("articles", ({ data }) => data.published !== false)
 const tutorials = allArticles.filter((a) =>
   (a.data.authors ?? []).some((n) => resolveCanonical(builderSlug(n)) === canonical)
@@ -70,12 +64,25 @@ const tutorials = allArticles.filter((a) =>
 
 const displayName = profile?.name ?? builderName
 
-// Find the Discord ID for this builder by matching their name slug against the users map
+// The matching builder_identities.json record, if this builder ever
+// registered via /wwm-uid — gives us a real discordId, a linked
+// neteaseNumberId (powers the "NetEase Gallery" section below, see
+// docs/builder-identity.md), and the properly-cased canonicalAlias/aliases
+// (getAllSlugsForCanonical only has the slugified forms, fine for
+// matching but not for display).
+const identity = BUILDER_IDENTITIES.find((e) => e.canonicalSlug === canonical)
+const linkedNumberId = identity?.neteaseNumberId
+
+// Fall back to matching their name slug against the users map when there's
+// no registered discordId yet (e.g. only credited via a guild/solo build).
 const users = getUsers()
-const scoutDiscordId = Object.entries(users).find(([, u]) => {
+const scoutDiscordId = identity?.discordId ?? Object.entries(users).find(([, u]) => {
   const name = u.nickname ?? u.globalName ?? u.username
   return name && resolveCanonical(builderSlug(name)) === canonical
 })?.[0]
+const discordName = scoutDiscordId
+  ? users[scoutDiscordId]?.nickname ?? users[scoutDiscordId]?.globalName ?? users[scoutDiscordId]?.username
+  : undefined
 const scoutedGuilds = scoutDiscordId
   ? getGuildsSortedByScore().filter((g) => g.scoutedByDiscordId === scoutDiscordId)
   : []
@@ -86,11 +93,11 @@ const scoutedCount = scoutedGuilds.length + scoutedSolos.length
 
 const totalCount = (profile?.guilds.length ?? 0) + (profile?.solos.length ?? 0) + (profile?.blueprints.length ?? 0) + (profile?.homesteadSheets.length ?? 0) + tutorials.length
 
-// Alias slugs for this builder's canonical slug, excluding the canonical
-// itself and any alias that is the same as the display name (avoids
-// "X also known as X")
-const aliasNames = [...getAllSlugsForCanonical(canonical)]
-  .filter((alias) => alias !== canonical && alias !== builderSlug(displayName))
+// Properly-cased canonical alias + other aliases from builder_identities.json,
+// excluding whichever one is already the display name (avoids "X also
+// known as X").
+const aliasNames = [...new Set([identity?.canonicalAlias, ...(identity?.aliases ?? [])])]
+  .filter((name): name is string => Boolean(name) && name !== displayName)
 
 const tagCounts = new Map<string, number>()
 for (const g of [...(profile?.guilds ?? []), ...(profile?.solos ?? [])]) {
@@ -106,6 +113,7 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
 <Layout
   title={`${displayName} — Builder Profile | Where Builders Meet`}
   description={pageDesc}
+  fullWidth
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -133,29 +141,22 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
   })} />
   <div class="space-y-8">
     <!-- Back -->
-    <div class="flex items-center justify-between gap-2">
-      <button
-        onclick="history.back()"
-        class="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-      >
-        ← Back
-      </button>
+    <div class="flex flex-wrap items-center gap-2">
+      <BackLink client:load />
+      <GalleryLink client:load />
       <ShareButton client:load label="Share profile" />
     </div>
 
     <!-- Header -->
-    <div class="flex items-center gap-5">
-      {linkedNumberId ? (
-        <BuilderAvatar client:visible numberId={linkedNumberId} initial={initial} className="flex size-14 sm:size-24" />
-      ) : (
-        <div class="flex size-14 sm:size-24 rounded-full bg-primary/10 text-primary items-center justify-center text-2xl sm:text-4xl font-bold shrink-0 ring-2 ring-primary/20">
-          {initial}
-        </div>
-      )}
-      <div>
-        <h1 class="font-heading text-xl sm:text-2xl font-bold">{displayName}</h1>
+    <div class="mb-4">
+    <BuilderProfileHeader client:visible numberId={linkedNumberId} displayName={displayName} initial={initial}>
+        {discordName && discordName !== displayName && (
+          <p class="text-xs text-muted-foreground">
+            Discord: {discordName}
+          </p>
+        )}
         {aliasNames.length > 0 && (
-          <p class="text-xs text-muted-foreground mt-0.5">
+          <p class="text-xs text-muted-foreground">
             also known as {aliasNames.join(", ")}
           </p>
         )}
@@ -216,7 +217,7 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
             ))}
           </div>
         )}
-      </div>
+    </BuilderProfileHeader>
     </div>
 
     <!-- Blueprints -->
@@ -269,22 +270,20 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {profile.guilds.map((g) => {
             const img = g.coverImage ?? g.screenshots?.[0]
-            return (
+            return img ? (
               <a
                 href={`${BASE}/guilds/${g.slug}`}
                 class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
                 data-umami-event="builder_profile_guild_click"
                 data-umami-event-name={g.name}
               >
-                {img && (
-                  <img
-                    src={thumbUrl(img)}
-                    alt={stripGuildShowcase(g.name)}
-                    loading="lazy"
-                    onerror="this.style.display='none'"
-                    class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                )}
+                <img
+                  src={thumbUrl(img)}
+                  alt={stripGuildShowcase(g.name)}
+                  loading="lazy"
+                  onerror="this.style.display='none'"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                 <div class="absolute bottom-0 left-0 right-0 p-3">
                   <p class="text-white font-medium text-sm leading-tight mb-1">
@@ -299,6 +298,31 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
                     </div>
                   )}
                 </div>
+              </a>
+            ) : (
+              <a
+                href={`${BASE}/guilds/${g.slug}`}
+                class="group flex items-center gap-3 rounded-xl ring-1 ring-border bg-card hover:ring-primary transition-all px-3 py-2.5"
+                data-umami-event="builder_profile_guild_click"
+                data-umami-event-name={g.name}
+              >
+                <div class="shrink-0 w-20 aspect-video rounded-md bg-violet-500/10 flex items-center justify-center">
+                  <img src="/images/logo_1.webp" alt="" aria-hidden="true" class="size-6 object-contain opacity-70" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium leading-tight truncate">
+                    {stripGuildShowcase(g.name)}
+                    {g.buildTitle && <span class="font-normal text-muted-foreground ml-1">— {g.buildTitle}</span>}
+                  </p>
+                  {g.tags && g.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      {g.tags.slice(0, 3).map((tag) => (
+                        <span class="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
             )
           })}
@@ -316,22 +340,20 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {profile.solos.map((g) => {
             const img = g.coverImage ?? g.screenshots?.[0]
-            return (
+            return img ? (
               <a
                 href={`${BASE}/solos/${g.slug}`}
                 class="group relative overflow-hidden rounded-xl ring-1 ring-border aspect-video bg-muted hover:ring-primary transition-all"
                 data-umami-event="builder_profile_solo_click"
                 data-umami-event-name={g.name}
               >
-                {img && (
-                  <img
-                    src={thumbUrl(img)}
-                    alt={g.name}
-                    loading="lazy"
-                    onerror="this.style.display='none'"
-                    class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                )}
+                <img
+                  src={thumbUrl(img)}
+                  alt={g.name}
+                  loading="lazy"
+                  onerror="this.style.display='none'"
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
                 <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
                 <div class="absolute bottom-0 left-0 right-0 p-3">
                   <p class="text-white font-medium text-sm leading-tight mb-1">{g.name}</p>
@@ -343,6 +365,28 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
                     </div>
                   )}
                 </div>
+              </a>
+            ) : (
+              <a
+                href={`${BASE}/solos/${g.slug}`}
+                class="group flex items-center gap-3 rounded-xl ring-1 ring-border bg-card hover:ring-primary transition-all px-3 py-2.5"
+                data-umami-event="builder_profile_solo_click"
+                data-umami-event-name={g.name}
+              >
+                <div class="shrink-0 w-20 aspect-video rounded-md bg-teal-500/10 flex items-center justify-center">
+                  <img src="/images/logo_2.webp" alt="" aria-hidden="true" class="size-6 object-contain opacity-70" />
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium leading-tight truncate">{g.name}</p>
+                  {g.tags && g.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      {g.tags.slice(0, 3).map((tag) => (
+                        <span class="inline-flex items-center rounded-full bg-muted px-2 py-0.5 text-[10px] text-muted-foreground">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <svg class="size-3.5 shrink-0 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
             )
           })}
