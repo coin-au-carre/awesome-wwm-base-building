@@ -45,7 +45,6 @@ const navLinks: { href: string; label: string; version: string; badge?: string }
 const resourceLinks: { href: string; label: string; version: string; badge?: string }[] = [
   { href: `${base}/interiors`, label: "Interiors", version: v.interiors },
   { href: `${base}/catalog`, label: "Catalog", version: v.catalog },
-  { href: `${base}/builders`, label: "Builders", version: v.builders },
   { href: `${base}/tutorials`, label: "Tutorials", version: v.tutorials },
   { href: `${base}/media`, label: "Media", version: v.media },
   { href: `${base}/events`, label: "Events", version: _latestEventId || "0" },
@@ -55,6 +54,7 @@ const resourceLinks: { href: string; label: string; version: string; badge?: str
 
 const communityLinks: { href: string; label: string; version: string; badge?: string }[] = [
   { href: `${base}/how-it-works`, label: "How it works", version: v["how-it-works"] },
+  { href: `${base}/builders`, label: "WBM Builders", version: v.builders },
   { href: `${base}/contribute`, label: "Contribute", version: v.contribute },
   { href: `${base}/ruby`, label: "Ruby", version: v.ruby },
   { href: `${base}/credits`, label: "Credits", version: v.credits },

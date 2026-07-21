@@ -112,7 +112,7 @@ function BuilderDetailPanel({ entry, avatarUrl }: { entry: BuilderDirectoryEntry
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-4">
+      <div className="flex items-start gap-4">
         {avatarUrl ? (
           <Avatar src={avatarUrl} className="flex size-24" />
         ) : (
@@ -137,6 +137,12 @@ function BuilderDetailPanel({ entry, avatarUrl }: { entry: BuilderDirectoryEntry
             </p>
           )}
         </div>
+        <a
+          href={url(`/builders/${entry.slug}`)}
+          className="ml-auto shrink-0 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+        >
+          View full profile <ArrowRightIcon weight="bold" className="size-3" />
+        </a>
       </div>
 
       {entry.neteaseNumberId && <CopyPill label="Character ID" value={entry.neteaseNumberId} />}
@@ -202,13 +208,6 @@ function BuilderDetailPanel({ entry, avatarUrl }: { entry: BuilderDirectoryEntry
           </div>
         </div>
       )}
-
-      <a
-        href={url(`/builders/${entry.slug}`)}
-        className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-      >
-        View full profile <ArrowRightIcon weight="bold" className="size-3.5" />
-      </a>
     </div>
   )
 }
@@ -258,7 +257,7 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
             </TabsTrigger>
             <TabsTrigger value="all" className="inline-flex items-center gap-1.5">
               <GlobeIcon weight="bold" className="size-4" />
-              Referenced Builders
+              All Referenced Builders
             </TabsTrigger>
           </TabsList>
         </Tabs>

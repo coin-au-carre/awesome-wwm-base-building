@@ -309,12 +309,12 @@ function looksLikeCodeAttempt(v: string): boolean {
   return lower.startsWith("art") || lower.startsWith("share")
 }
 
-// A shareable link to one diagram's own page (gallery/plan.astro).
+// A shareable link to one diagram's own page (gallery/diagram.astro).
 // shareId is the SHARE code (not plan_id/art_code) — the same code the
 // in-game "share" button produces, more recognizable to players than
 // an internal id. wbm-relay's GET /api/plan resolves it server-side.
 export function planHref(shareId?: string): string {
-  return url(`/gallery/plan?share=${encodeURIComponent(shareId ?? "")}`)
+  return url(`/gallery/diagram?share=${encodeURIComponent(shareId ?? "")}`)
 }
 
 // One gallery thumbnail card — used by the main grid, a builder's own
@@ -887,7 +887,7 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
             </TabsTrigger>
             <TabsTrigger value="all" className="inline-flex items-center gap-1.5">
               <GlobeIcon weight="bold" className="size-4" />
-              All Builders
+              Global Builders
             </TabsTrigger>
           </TabsList>
         </Tabs>

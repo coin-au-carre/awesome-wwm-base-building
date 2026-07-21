@@ -6,7 +6,7 @@ import { BackLink, GalleryLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, planDetailUrl, type PlanDetail } from "@/lib/gallery"
 
 // wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
-// — see data/builder_identities.json, loaded server-side in gallery/plan.astro.
+// — see data/builder_identities.json, loaded server-side in gallery/diagram.astro.
 export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, string> }) {
   const [shareCode, setShareCode] = useState<string | null>(null)
   const [detail, setDetail] = useState<PlanDetail | null>(null)
@@ -14,7 +14,7 @@ export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, st
   const [notFound, setNotFound] = useState(false)
 
   // Query-string route (?share=<SHARE code>), not a dynamic [id] path
-  // segment — same reasoning as BuilderProfile. See gallery/plan.astro.
+  // segment — same reasoning as BuilderProfile. See gallery/diagram.astro.
   useEffect(() => {
     setShareCode(new URLSearchParams(location.search).get("share"))
   }, [])

@@ -5,7 +5,7 @@ import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { resolveCanonical, BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
-import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon } from "@phosphor-icons/react"
+import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon, UsersThreeIcon } from "@phosphor-icons/react"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
 import { HOMESTEAD_SHEETS } from "@/lib/homestead-resources"
 import { BuilderGallerySection } from "@/components/BuilderGallerySection"
@@ -13,6 +13,7 @@ import { BuilderProfileHeader } from "@/components/BuilderProfileHeader"
 import { ShareButton } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
 import { Badge } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -156,6 +157,9 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
     <div class="flex flex-wrap items-center gap-2">
       <BackLink client:load />
       <GalleryLink client:load />
+      <a href={`${BASE}/builders`} class={buttonVariants({ variant: "outline", size: "sm" })}>
+        <UsersThreeIcon weight="bold" className="size-3.5" /> WBM Builders Directory
+      </a>
       <ShareButton client:load label="Share profile" />
       <Badge variant="outline" className="gap-1.5 py-1">
         <img src="/images/logo_1.webp" alt="" aria-hidden="true" class="size-3.5 object-contain" />
