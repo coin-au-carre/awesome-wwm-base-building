@@ -33,7 +33,12 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !page.includes("/admin/") && !page.includes("/gallery") && !/\/media\/[^/]+\/?$/.test(page),
+      // /gallery itself is now indexable (public, server-rendered browse
+      // page) — /gallery/builder and /gallery/plan stay out of the
+      // sitemap since they're query-string routes with no meaningful
+      // content at their bare URL (no getStaticPaths, content only
+      // exists once ?id=/?share= is present and fetched client-side).
+      filter: (page) => !page.includes("/admin/") && !page.includes("/gallery/builder") && !page.includes("/gallery/plan") && !/\/media\/[^/]+\/?$/.test(page),
       serialize(item) {
         const url = item.url
         if (/\/(guilds|solos)\/[^/]+\/?$/.test(url)) {

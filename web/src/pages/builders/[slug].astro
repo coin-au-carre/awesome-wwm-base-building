@@ -12,6 +12,7 @@ import { BuilderGallerySection } from "@/components/BuilderGallerySection"
 import { BuilderProfileHeader } from "@/components/BuilderProfileHeader"
 import { ShareButton } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
+import { Badge } from "@/components/ui/badge"
 
 export async function getStaticPaths() {
   const builderSlugs = getAllBuilderSlugs()
@@ -145,6 +146,10 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
       <BackLink client:load />
       <GalleryLink client:load />
       <ShareButton client:load label="Share profile" />
+      <Badge variant="outline" className="gap-1.5 py-1">
+        <img src="/images/logo_1.webp" alt="" aria-hidden="true" class="size-3.5 object-contain" />
+        WBM Builder
+      </Badge>
     </div>
 
     <!-- Header -->

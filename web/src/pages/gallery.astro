@@ -4,10 +4,6 @@ import { GalleryGrid } from "@/components/GalleryGrid"
 import { Badge } from "@/components/ui/badge"
 import { BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 
-// noindex + excluded from sitemap (see astro.config.mjs) while in beta —
-// this fetches from wbm-relay, a private backend still being built.
-// Remove noindex once that's stable enough to go fully public.
-
 // number_id -> canonicalSlug, for gallery cards whose NetEase author is
 // also a known WBM builder (see data/builder_identities.json). Only the
 // entries with a neteaseNumberId are useful here — everyone else has no
@@ -18,9 +14,8 @@ const wbmBuilders: Record<string, string> = Object.fromEntries(
 ---
 
 <Layout
-  title="Where Builders Meet | Gallery (beta)"
-  description="Live construction diagram gallery — work in progress."
-  noindex
+  title="Where Builders Meet | Gallery"
+  description="Browse live WWM construction diagrams — faster and easier to search than the in-game gallery."
   fullWidth
 >
   <div class="space-y-6">
