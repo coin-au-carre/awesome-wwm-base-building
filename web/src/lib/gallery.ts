@@ -235,11 +235,11 @@ export const SORT_OPTIONS = [
 
 export const DEFAULT_SORT: (typeof SORT_OPTIONS)[number]["value"] = "recommended"
 
-// All 12 in-game category tag ids, confirmed 2026-07-18 (see
-// wbm-relay's wbm-tool/gallery-api.md). "Small World" (950) and
-// "Painted Boat Diagram" (1211) genuinely return 0 items right now —
-// confirmed via a real fresh fetch, not a stale-cache artifact — kept
-// in the list since that can change as more builds get uploaded.
+// In-game category tag ids, confirmed 2026-07-18 (see wbm-relay's
+// wbm-tool/gallery-api.md). "Small World" (950) and "Painted Boat
+// Diagram" (1211) are omitted for now — they genuinely return 0 items,
+// confirmed via a real fresh fetch, not a stale-cache artifact. Re-add
+// if builds ever start showing up in those categories.
 export const CATEGORY_OPTIONS = [
   { value: 9, label: "All" },
   { value: 900, label: "Cloudrest Passage" },
@@ -249,10 +249,8 @@ export const CATEGORY_OPTIONS = [
   { value: 904, label: "Aromas Brewery" },
   { value: 905, label: "Crane Retreat" },
   { value: 906, label: "Residence" },
-  { value: 950, label: "Small World" },
   { value: 1100, label: "Guild Base" },
   { value: 1200, label: "Small Diagram" },
-  { value: 1211, label: "Painted Boat Diagram" },
 ] as const
 
 // Looks up a category's display label by its tag id — falls back to
