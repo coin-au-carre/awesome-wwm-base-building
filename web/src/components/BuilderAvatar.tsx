@@ -20,7 +20,7 @@ export function BuilderAvatar({ numberId, initial, className }: { numberId: stri
   if (avatarUrl) return <Avatar src={avatarUrl} className={className} />
 
   return (
-    <div className={`${className} rounded-full bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold shrink-0 ring-2 ring-primary/20`}>
+    <div className={`${className} rounded-full bg-primary/10 text-primary items-center justify-center font-bold shrink-0 ring-2 ring-primary/20`}>
       {initial}
     </div>
   )

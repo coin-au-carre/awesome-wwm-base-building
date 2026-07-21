@@ -5,6 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, CaretRightIcon, CheckIcon, CopyIcon, ShareNetworkIcon, UserCircleIcon, LockIcon, GlobeIcon, UsersIcon, MagnifyingGlassIcon, FactoryIcon, TrendUpIcon, CalendarIcon, ChatCircleIcon } from "@phosphor-icons/react"
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
@@ -50,14 +51,19 @@ export function VisibilityBadge({
   size?: "sm" | "md"
   className?: string
 }) {
-  const state = VISIBILITY_STYLE[planVisibility(private_, hasFriendsWhitelist)]
+  const visibility = planVisibility(private_, hasFriendsWhitelist)
+  const state = VISIBILITY_STYLE[visibility]
   const Icon = state.icon
   const sizeClasses = size === "md" ? "text-sm px-2 py-1 gap-1.5" : "text-[11px] px-2 py-0.5 gap-1"
   const iconSize = size === "md" ? "size-4" : "size-3"
+  // The generic "public" catch-all is the common case and not worth the
+  // screen space on small viewports — private/friends-can-apply are
+  // actually useful info, so those stay visible everywhere.
+  const displayClasses = visibility === "public" ? "hidden sm:inline-flex" : "inline-flex"
   return (
     <span
       title={state.title}
-      className={`inline-flex items-center font-medium rounded-md backdrop-blur-sm ${sizeClasses} ${state.className} ${className}`}
+      className={`${displayClasses} items-center font-medium rounded-md backdrop-blur-sm ${sizeClasses} ${state.className} ${className}`}
     >
       <Icon weight="fill" className={iconSize} />
       {state.label}
@@ -70,19 +76,28 @@ const LIMIT = 20
 export function StatRow({
   plan,
   className = "",
+  compact = false,
 }: {
   plan: Pick<GalleryPlan, "heat_val" | "like_num" | "build_num" | "components_count">
   className?: string
+  // compact hides the like/download counts on mobile (grid cards, tight
+  // on space) — the diagram detail view has room to always show them.
+  compact?: boolean
 }) {
+  // Likes are the least essential stat, so they get the widest hidden
+  // range (mobile + tablet, only shown at lg+); downloads only hide on
+  // mobile — both stay always-visible outside compact (grid card) use.
+  const hideLikes = compact ? "hidden lg:flex" : "flex"
+  const hideDownloads = compact ? "hidden sm:flex" : "flex"
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <span className="flex items-center gap-1">
         <FireIcon weight="fill" className="size-3.5 text-orange-400" /> {formatCount(plan.heat_val)}
       </span>
-      <span className="flex items-center gap-1">
+      <span className={`${hideLikes} items-center gap-1`}>
         <HeartIcon weight="fill" className="size-3.5 text-rose-400" /> {formatCount(plan.like_num)}
       </span>
-      <span className="flex items-center gap-1" title="Downloads">
+      <span className={`${hideDownloads} items-center gap-1`} title="Downloads">
         <DownloadSimpleIcon weight="bold" className="size-3.5" /> {formatCount(plan.build_num)}
       </span>
       {plan.components_count != null && plan.components_count > 0 && (
@@ -282,7 +297,7 @@ export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPl
           </div>
         )}
         <div className="absolute bottom-0 left-0 p-3">
-          <StatRow plan={plan} className="text-xs text-white/90" />
+          <StatRow plan={plan} className="text-xs text-white/90" compact />
         </div>
       </a>
       {wbmSlug && (
@@ -291,16 +306,16 @@ export function PlanCard({ plan, showAuthor = true, wbmSlug }: { plan: GalleryPl
           title="WBM Builder"
           className="absolute top-2 right-2 z-10 flex items-center gap-1"
         >
-          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
+          <img src={url("/images/logo_1.webp")} alt="WBM Builder" className="size-6 sm:size-9 rounded-full bg-black/60 backdrop-blur-sm ring-1 ring-white/20 object-contain p-1 hover:ring-primary transition-all" />
           {isPrivate(plan.private) && <VisibilityBadge private_={plan.private} />}
         </a>
       )}
       {showAuthor && plan.author_name && (
         <a
           href={builderHref(plan.author_number_id)}
-          className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-2 text-base font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full pl-1 pr-3 py-1 truncate max-w-40 shrink-0 transition-colors"
+          className="absolute bottom-2 right-2 md:bottom-2.5 md:right-2.5 lg:bottom-3 lg:right-3 z-10 inline-flex items-center gap-1.5 md:gap-2 text-xs md:text-sm lg:text-base font-semibold text-white bg-black/50 hover:bg-primary hover:text-primary-foreground backdrop-blur-sm rounded-full pl-1 pr-2 lg:pr-3 py-0.5 lg:py-1 truncate max-w-28 md:max-w-32 lg:max-w-40 shrink-0 transition-colors"
         >
-          {plan.author_avatar_url && <Avatar src={plan.author_avatar_url} className="size-8" />}
+          {plan.author_avatar_url && <Avatar src={plan.author_avatar_url} className="size-5 md:size-6 lg:size-8" />}
           {plan.author_name}
         </a>
       )}
@@ -409,20 +424,22 @@ export function PlanDetailContent({ detail }: { detail: PlanDetail }) {
         </div>
       </div>
       <div className="p-6 space-y-4">
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           {detail.author_name && (
             <a
               href={builderHref(detail.author_number_id)}
-              className={buttonVariants({ variant: "secondary", size: "lg", className: "h-auto py-1.5 text-base sm:text-lg font-semibold" })}
+              className={buttonVariants({ variant: "secondary", size: "lg", className: "h-auto py-1.5 text-base sm:text-lg font-semibold justify-start sm:justify-center" })}
             >
               <Avatar src={detail.author_avatar_url} className="size-9" />
               {detail.author_name}
               <CaretRightIcon weight="bold" className="size-4 opacity-60" />
             </a>
           )}
-          {detail.author_number_id && <CopyPill label="ID" value={detail.author_number_id} />}
-          <div className="flex items-center gap-2 ml-auto">
-            <CopyPill label="ART" value={detail.art_code} />
+          <div className="flex items-center gap-2 flex-wrap sm:ml-auto">
+            {detail.author_number_id && <CopyPill label="ID" value={detail.author_number_id} />}
+            <div className="hidden sm:block">
+              <CopyPill label="ART" value={detail.art_code} />
+            </div>
             {detail.share_id && <CopyPill label="Share" value={detail.share_id} />}
           </div>
         </div>
@@ -735,7 +752,17 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
 
       {!query && (
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap gap-1.5">
+          <Select value={String(tag)} onValueChange={(v) => setTag(Number(v))}>
+            <SelectTrigger size="sm" className="sm:hidden">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {CATEGORY_OPTIONS.map((opt) => (
+                <SelectItem key={opt.value} value={String(opt.value)}>{opt.label}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <div className="hidden sm:flex flex-wrap gap-1.5">
             {CATEGORY_OPTIONS.map((opt) => (
               <Badge key={opt.value} variant={tag === opt.value ? "default" : "outline"} asChild>
                 <button onClick={() => setTag(opt.value)} className="cursor-pointer">

@@ -125,8 +125,8 @@ export function BuilderProfile({ wbmBuilders = {} }: { wbmBuilders?: Record<stri
       )}
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-3">
-          <Avatar src={profile.avatar_url} className="size-24" />
-          <h1 className="font-heading text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
+          <Avatar src={profile.avatar_url} className="size-14 sm:size-24" />
+          <h1 className="font-heading text-xl sm:text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
         </div>
         <div className="flex items-center gap-6 ml-auto">
           <StatTile value={profile.follower_num} label="Fans" />

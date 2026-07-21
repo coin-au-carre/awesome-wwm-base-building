@@ -221,19 +221,17 @@ export function formatCount(n: number): string {
   return String(n)
 }
 
-// Mirrors wbm-relay's relay.SortToRecType keys. "recommended" currently
-// returns identical ordering to "trending_alltime" on this community's
-// dataset (see wbm-relay's gallery-api.md) — included anyway for parity
-// with the in-game tab, may diverge as the catalog grows.
+// Mirrors wbm-relay's relay.SortToRecType keys. "recommended" and
+// "trending_today" are omitted from the UI (redundant with "All-time" on
+// this community's small dataset, and too noisy a set of tabs) — the
+// backend still supports both if that changes.
 export const SORT_OPTIONS = [
-  { value: "recommended", label: "Recommended" },
-  { value: "latest", label: "Latest" },
-  { value: "trending_today", label: "Trending Today" },
-  { value: "trending_weekly", label: "Trending Weekly" },
   { value: "trending_alltime", label: "All-time" },
+  { value: "latest", label: "Latest" },
+  { value: "trending_weekly", label: "Trending Weekly" },
 ] as const
 
-export const DEFAULT_SORT: (typeof SORT_OPTIONS)[number]["value"] = "recommended"
+export const DEFAULT_SORT: (typeof SORT_OPTIONS)[number]["value"] = "trending_alltime"
 
 // In-game category tag ids, confirmed 2026-07-18 (see wbm-relay's
 // wbm-tool/gallery-api.md). "Small World" (950) and "Painted Boat
