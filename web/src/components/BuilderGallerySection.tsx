@@ -16,11 +16,26 @@ import { WBM_RELAY_URL, designerUrl, type DesignerProfile } from "@/lib/gallery"
 // (renders nothing) on error — this is a bonus section on an otherwise-
 // complete profile page, not core content worth an error message of its
 // own.
-export function BuilderGallerySection({ numberId }: { numberId: string }) {
-  const [profile, setProfile] = useState<DesignerProfile | null>(null)
+//
+// providedProfile lets a caller that already fetched this same designer
+// (e.g. MonitorEntry, which needs it for its own avatar/nickname header
+// too) pass it straight in instead of this component redundantly
+// fetching designerUrl(numberId) a second time. undefined (the default)
+// means "no caller-provided profile" and this component fetches its own,
+// same as before — null is a valid provided value (still loading).
+export function BuilderGallerySection({
+  numberId,
+  profile: providedProfile,
+}: {
+  numberId: string
+  profile?: DesignerProfile | null
+}) {
+  const externallyProvided = providedProfile !== undefined
+  const [fetchedProfile, setFetchedProfile] = useState<DesignerProfile | null>(null)
   const [failed, setFailed] = useState(false)
 
   useEffect(() => {
+    if (externallyProvided) return
     if (!WBM_RELAY_URL) {
       setFailed(true)
       return
@@ -30,9 +45,11 @@ export function BuilderGallerySection({ numberId }: { numberId: string }) {
         if (!res.ok) throw new Error(`relay returned ${res.status}`)
         return res.json()
       })
-      .then((data) => setProfile(data))
+      .then((data) => setFetchedProfile(data))
       .catch(() => setFailed(true))
-  }, [numberId])
+  }, [numberId, externallyProvided])
+
+  const profile = externallyProvided ? providedProfile : fetchedProfile
 
   if (failed || (profile && profile.plans.length === 0)) { return null }
 

@@ -11,20 +11,30 @@ const RING = {
   purple: "ring-purple-500/60",
 } as const
 
-// One watched designer's card: avatar/nickname header (fetched directly,
-// same call BuilderGallerySection makes internally for its own grid —
-// two requests per entry, acceptable for a short hand-picked watchlist,
-// not worth plumbing a shared fetch for a handful of entries) plus their
-// full diagram grid, framed in the group's color. See copyright-watch.astro.
+// One watched designer's card: avatar/nickname header + their full
+// diagram grid, framed in the group's color. Fetches designerUrl(numberId)
+// once here and passes the result into BuilderGallerySection (which would
+// otherwise redundantly fetch the exact same endpoint itself) — see its
+// providedProfile doc comment. See copyright-watch.astro.
 export function MonitorEntry({ numberId, color }: { numberId: string; color: keyof typeof RING }) {
   const [profile, setProfile] = useState<DesignerProfile | null>(null)
+  // profile alone can't distinguish "still loading" from "failed" (both
+  // null) — without this, a failed fetch would leave BuilderGallerySection
+  // reading its passed-in null as "loading" forever instead of "give up."
+  const [failed, setFailed] = useState(false)
 
   useEffect(() => {
-    if (!WBM_RELAY_URL) return
+    if (!WBM_RELAY_URL) {
+      setFailed(true)
+      return
+    }
     fetch(designerUrl(numberId))
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => data && setProfile(data))
-      .catch(() => {})
+      .then((res) => {
+        if (!res.ok) throw new Error(`relay returned ${res.status}`)
+        return res.json()
+      })
+      .then((data) => setProfile(data))
+      .catch(() => setFailed(true))
   }, [numberId])
 
   return (
@@ -38,7 +48,7 @@ export function MonitorEntry({ numberId, color }: { numberId: string; color: key
           <CopyPill label="ID" value={numberId} />
         </div>
       </div>
-      <BuilderGallerySection numberId={numberId} />
+      {!failed && <BuilderGallerySection numberId={numberId} profile={profile} />}
     </div>
   )
 }
