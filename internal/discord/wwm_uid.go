@@ -170,7 +170,14 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 	}
 
 	selfIdx := FindBuilderIdentityByDiscordID(identities, discordID)
-	if otherIdx := FindBuilderIdentityBySlug(identities, slug); otherIdx >= 0 && otherIdx != selfIdx {
+	otherIdx := FindBuilderIdentityBySlug(identities, slug)
+	// A slug can belong to an unclaimed stub entry — one auto-created from
+	// a guild/solo/blueprint credit match (see the getStaticPaths loop in
+	// builders/[slug].astro) that has no DiscordID attached yet. That's not
+	// "taken" by anyone, it's just this builder's name waiting for them to
+	// actually run /wwm-uid — let them claim it instead of rejecting.
+	claiming := otherIdx >= 0 && otherIdx != selfIdx && identities[otherIdx].DiscordID == ""
+	if otherIdx >= 0 && otherIdx != selfIdx && !claiming {
 		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, fmt.Sprintf("❌ The builder name **%s** is already taken — please pick a different one.", alias))
 		return
 	}
@@ -179,13 +186,17 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		return
 	}
 
+	sourceIdx := selfIdx
+	if sourceIdx < 0 && claiming {
+		sourceIdx = otherIdx
+	}
 	var existingUID, existingPID, existingNickname string
 	var existingHostnum int
-	if selfIdx >= 0 {
-		existingUID = identities[selfIdx].NeteaseNumberID
-		existingPID = identities[selfIdx].NeteasePID
-		existingHostnum = identities[selfIdx].NeteaseHostnum
-		existingNickname = identities[selfIdx].IngameNickname
+	if sourceIdx >= 0 {
+		existingUID = identities[sourceIdx].NeteaseNumberID
+		existingPID = identities[sourceIdx].NeteasePID
+		existingHostnum = identities[sourceIdx].NeteaseHostnum
+		existingNickname = identities[sourceIdx].IngameNickname
 	}
 
 	switch {
@@ -194,7 +205,7 @@ func handleWWMUIDModal(s *discordgo.Session, i *discordgo.InteractionCreate, bot
 		// blank; see docs/builder-identity.md on why that matters).
 		msg := applyWWMUIDUpdate(root, bot, devChannelID, i, alias, slug, aliases, "", "", 0, "")
 		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
-	case uid == existingUID && selfIdx >= 0:
+	case uid == existingUID && sourceIdx >= 0:
 		// Unchanged — only the name/slug/aliases may have moved, skip re-resolving.
 		msg := applyWWMUIDUpdate(root, bot, devChannelID, i, alias, slug, aliases, existingUID, existingPID, existingHostnum, existingNickname)
 		respondWWMUIDMessage(s, i, bot, devChannelID, discordID, msg)
@@ -289,8 +300,18 @@ func applyWWMUIDUpdate(root string, bot *Bot, devChannelID string, i *discordgo.
 
 	idx := FindBuilderIdentityByDiscordID(identities, discordID)
 	if idx < 0 {
-		identities = append(identities, BuilderIdentity{DiscordID: discordID})
-		idx = len(identities) - 1
+		// No entry for this Discord ID yet — if the slug belongs to an
+		// unclaimed stub (no DiscordID, just an auto-created guild/solo
+		// credit match), claim it instead of creating a duplicate
+		// canonicalSlug entry (see the "claiming" check in
+		// handleWWMUIDModal, which already allowed this case through).
+		if claimIdx := FindBuilderIdentityBySlug(identities, slug); claimIdx >= 0 && identities[claimIdx].DiscordID == "" {
+			idx = claimIdx
+			identities[idx].DiscordID = discordID
+		} else {
+			identities = append(identities, BuilderIdentity{DiscordID: discordID})
+			idx = len(identities) - 1
+		}
 	}
 	identities[idx].CanonicalAlias = alias
 	identities[idx].CanonicalSlug = slug
