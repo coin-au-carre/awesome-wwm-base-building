@@ -1,8 +1,9 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
-import { PlanCard, CopyPill, ShareButton, Avatar } from "@/components/GalleryGrid"
+import { PlanCard, CopyPill, ShareButton, AvatarStatus } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
+import { BuilderExtraInfo } from "@/components/BuilderExtraInfo"
 import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
 import { url } from "@/lib/url"
 
@@ -130,19 +131,27 @@ export function BuilderProfile({ wbmSlugs = {} }: { wbmSlugs?: Record<string, st
         <GalleryLink />
         <ShareButton label="Share profile" />
       </div>
-      <div className="flex flex-wrap items-center gap-6 rounded-2xl ring-1 ring-border bg-card p-5 sm:p-6">
-        <div className="flex items-center gap-5">
-          <Avatar src={profile.avatar_url} className="flex size-14 sm:size-24" />
-          <div className="flex flex-wrap items-center gap-2">
-            <h1 className="font-heading text-xl sm:text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
-            {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
+      <div className="space-y-4 rounded-2xl ring-1 ring-border bg-card p-5 sm:p-6">
+        <div className="flex flex-wrap items-center gap-6">
+          <div className="flex items-center gap-5">
+            <AvatarStatus
+              src={profile.avatar_url}
+              className="flex size-14 sm:size-24"
+              level={profile.level}
+              isOnline={profile.is_online}
+            />
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="font-heading text-xl sm:text-3xl font-bold leading-tight">{profile.nickname || profile.number_id}</h1>
+              {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
+            </div>
+          </div>
+          <div className="flex items-center gap-6 sm:ml-auto">
+            <StatTile value={profile.follower_num} label="Fans" />
+            <StatTile value={profile.like_num} label="Likes" />
+            <StatTile value={profile.published_num} label="Published Works" />
           </div>
         </div>
-        <div className="flex items-center gap-6 sm:ml-auto">
-          <StatTile value={profile.follower_num} label="Fans" />
-          <StatTile value={profile.like_num} label="Likes" />
-          <StatTile value={profile.published_num} label="Published Works" />
-        </div>
+        <BuilderExtraInfo profile={profile} />
       </div>
 
       {profile.plans.length === 0 ? (

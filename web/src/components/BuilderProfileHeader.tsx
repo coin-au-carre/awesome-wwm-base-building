@@ -1,7 +1,8 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
-import { Avatar, CopyPill } from "@/components/GalleryGrid"
+import { AvatarStatus, CopyPill } from "@/components/GalleryGrid"
 import { StatTile } from "@/components/BuilderProfile"
+import { BuilderExtraInfo } from "@/components/BuilderExtraInfo"
 import { WBM_RELAY_URL, designerUrl, type DesignerProfile } from "@/lib/gallery"
 
 // Same avatar/name/id/stats layout as the gallery profile header
@@ -40,7 +41,12 @@ export function BuilderProfileHeader({
       <div className="flex flex-wrap items-center gap-6">
         <div className="flex items-center gap-5">
           {profile?.avatar_url ? (
-            <Avatar src={profile.avatar_url} className="flex size-14 sm:size-24" />
+            <AvatarStatus
+              src={profile.avatar_url}
+              className="flex size-14 sm:size-24"
+              level={profile.level}
+              isOnline={profile.is_online}
+            />
           ) : (
             <div className="flex size-14 sm:size-24 rounded-full bg-primary/10 text-primary items-center justify-center text-2xl sm:text-4xl font-bold shrink-0 ring-2 ring-primary/20">
               {initial}
@@ -62,6 +68,7 @@ export function BuilderProfileHeader({
           </div>
         )}
       </div>
+      {profile && <BuilderExtraInfo profile={profile} />}
       {children}
     </div>
   )

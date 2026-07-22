@@ -137,26 +137,85 @@ export function Avatar({ src, className = "size-8" }: { src?: string; className?
   )
 }
 
-const EMOJI_CODE_RE = /\[#\d+\]/g
+// Avatar plus an online/offline status dot (slow pulse when online, so
+// it reads as "alive" without being distracting) and a level badge —
+// used wherever a builder's live NetEase status is known (builders
+// directory, builder profile). Wraps Avatar rather than changing it, so
+// every other call site (comments, plan cards) stays untouched.
+export function AvatarStatus({
+  src,
+  className = "size-8",
+  level,
+  isOnline,
+}: {
+  src?: string
+  className?: string
+  level?: number
+  isOnline?: boolean
+}) {
+  return (
+    <div className={`relative shrink-0 ${className}`}>
+      <Avatar src={src} className="size-full" />
+      {isOnline !== undefined && (
+        <span
+          className={`absolute top-0 right-0 block size-[22%] min-w-2 min-h-2 rounded-full ring-2 ring-card ${isOnline ? "bg-emerald-500 animate-pulse" : "bg-muted-foreground/50"}`}
+          title={isOnline ? "Online" : "Offline"}
+        />
+      )}
+      {!!level && (
+        <span className="absolute bottom-0 right-0 translate-x-[15%] translate-y-[15%] rounded bg-black/80 px-1 text-[10px] italic font-semibold text-white leading-tight">
+          {level}
+        </span>
+      )}
+    </div>
+  )
+}
 
-// Renders a comment message, swapping [#nnn] chat-emoji codes for their
-// actual sprite (see private/full wwm emojis dump) instead of raw text.
-function renderCommentMsg(msg: string) {
-  const parts = msg.split(EMOJI_CODE_RE)
-  const codes = msg.match(EMOJI_CODE_RE) ?? []
+// Matches either a [#nnn] chat-emoji code or a #rrggbb color code — WWM's
+// rich-text bios/comments use the latter as a "set text color from here
+// on" marker (not a closed span — color applies until the next code or
+// end of string), e.g. "#ff6b6bSAPPHIC #9ff3LOVER" renders two
+// differently-colored words. Tried as one alternation so the emoji
+// pattern (which starts with the same "#") always wins at a `[` — a
+// color code can't start mid-bracket.
+const CHAT_TOKEN_RE = /\[#\d+\]|#[0-9a-fA-F]{6}/g
+
+// Renders any WWM chat text: swaps [#nnn] chat-emoji codes for their
+// actual sprite (see private/full wwm emojis dump), and #rrggbb codes
+// for a color change applied to the text that follows — used for
+// comment messages and (since 2026-07-22) player bios/campaign slogans,
+// all of which can contain either code verbatim.
+export function renderChatText(msg: string) {
   const out: React.ReactNode[] = []
-  parts.forEach((part, i) => {
-    if (part) out.push(part)
-    const code = codes[i]
-    const file = code ? (EMOJI_MAP as Record<string, string>)[code] : undefined
-    out.push(
-      file ? (
-        <img key={i} src={url(`/emojis/${file}`)} alt={code} className="inline-block size-5 align-text-bottom" />
-      ) : code ? (
-        code
-      ) : null,
-    )
-  })
+  let color: string | undefined
+  let lastIndex = 0
+  let key = 0
+
+  for (const m of msg.matchAll(CHAT_TOKEN_RE)) {
+    const token = m[0]
+    const index = m.index ?? 0
+    if (index > lastIndex) {
+      const text = msg.slice(lastIndex, index)
+      out.push(color ? <span key={key++} style={{ color }}>{text}</span> : text)
+    }
+    if (token.startsWith("[")) {
+      const file = (EMOJI_MAP as Record<string, string>)[token]
+      out.push(
+        file ? (
+          <img key={key++} src={url(`/emojis/${file}`)} alt={token} className="inline-block size-5 align-text-bottom" />
+        ) : (
+          token
+        ),
+      )
+    } else {
+      color = token
+    }
+    lastIndex = index + token.length
+  }
+  if (lastIndex < msg.length) {
+    const text = msg.slice(lastIndex)
+    out.push(color ? <span key={key++} style={{ color }}>{text}</span> : text)
+  }
   return out
 }
 
@@ -176,7 +235,7 @@ function CommentRow({ comment: c }: { comment: Comment }) {
           </a>
           <span className="text-xs text-muted-foreground shrink-0">{relativeTime(c.ts * 1000)}</span>
         </div>
-        <p className="text-sm text-foreground/90 whitespace-pre-line wrap-break-word">{renderCommentMsg(c.msg)}</p>
+        <p className="text-sm text-foreground/90 whitespace-pre-line wrap-break-word">{renderChatText(c.msg)}</p>
       </div>
     </div>
   )

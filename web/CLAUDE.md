@@ -20,8 +20,10 @@
 - `src/components/BugsTable.tsx` — `client:load` React island, renders bug report table from CSV data; accepts `bugs: Bug[]`
 - `src/components/PatchNotes.tsx` — `client:load` React island, renders patch notes grouped by version as a card grid; accepts `patches: Patch[]`
 - `src/components/BuildersDirectory.tsx` — `client:load` React island, searchable/sortable table of every credited builder; accepts `entries: BuilderDirectoryEntry[]`
-- `src/components/MonitorEntry.tsx` — `client:visible` React island, one watched designer's card on `/copyright-watch`; fetches public profile via `designerUrl()` always, and mod-only PII (bio, linked accounts, home spaces/works, campaign text) via `modPlayerUrl()` when a mod key is present (see `ModKeyGate.tsx`) — 401s silently otherwise
+- `src/components/MonitorEntry.tsx` — `client:visible` React island, one watched designer's card on `/copyright-watch`; fetches public profile via `designerUrl()` always, and mod-only PII (linked accounts, home spaces) via `modPlayerUrl()` when a mod key is present (see `ModKeyGate.tsx`) — 401s silently otherwise. Most of the former mod-only detail (bio, region, device, Martial Mastery, campaign, showcased works) is now public on `DesignerProfile` — see `BuilderExtraInfo.tsx`.
 - `src/components/ModKeyGate.tsx` — `client:load` React island, gates `copyright-watch.astro`'s entire `#watch-content` wrapper (not just PII): validates a key against `wbm-relay`'s `GET /api/mod/check` before storing it in `sessionStorage` (tab-scoped) or revealing anything, then broadcasts a `wbm-mod-key-changed` window event every `MonitorEntry` listens for
+- `src/components/BuilderExtraInfo.tsx` — region/device/Martial Mastery/signature + campaign slogan/banner + showcased works, shared between `BuildersDirectory`'s detail panel (`compact`, drops campaign/showcased-works) and the full builder profile (`BuilderProfile.tsx`/`BuilderProfileHeader.tsx`) — all sourced from the public `DesignerProfile` (see wbm-relay's CLAUDE.md "Public profile fields" section for why this is public, not mod-gated)
+- `GalleryGrid.tsx`'s `AvatarStatus` — wraps `Avatar` with an online/offline pulse dot and a level badge; used wherever a builder's live NetEase status is known (builders directory rows/detail panel, builder profile header)
 
 ## Pages
 

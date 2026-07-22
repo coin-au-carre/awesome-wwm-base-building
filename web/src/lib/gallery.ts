@@ -142,6 +142,42 @@ export function wbmAvatarsUrl(): string {
   return `${WBM_RELAY_URL}/api/gallery/wbm/avatars`
 }
 
+// Mirrors wbm-relay's relay.BuilderStatus — refreshed far more often
+// than avatars (see wbm-relay's wbmStatusCache, 1 min TTL vs. avatars'
+// 10 min) since online status goes stale in minutes, not hours.
+// oversea_tag/device_name/max_xiuwei_kungfu ride along on the same
+// upstream call (no extra cost) so the directory can show/filter/sort a
+// whole roster by these without a per-row designerUrl call.
+export interface BuilderStatus {
+  level: number
+  is_online: boolean
+  oversea_tag?: string
+  device_name?: string
+  max_xiuwei_kungfu?: number
+}
+
+// device_name is NetEase's raw internal platform string, not a
+// player-facing name — "prospero" is Sony's PS5 platform codename
+// (Xbox's equivalent, unseen so far, would presumably be "scarlett").
+// Falls back to capitalizing whatever's given so an unmapped value
+// (e.g. "windows"/"android"/"ios") still reads reasonably.
+const DEVICE_LABELS: Record<string, string> = {
+  prospero: "PS5",
+  scarlett: "Xbox Series X|S",
+}
+
+export function deviceLabel(deviceName: string): string {
+  return DEVICE_LABELS[deviceName.toLowerCase()] ?? (deviceName.charAt(0).toUpperCase() + deviceName.slice(1))
+}
+
+// Every known WBM builder's level/online status, keyed by number_id, in
+// one response — same "resolve once for the whole roster" pattern as
+// wbmAvatarsUrl, just on its own short-TTL cache server-side.
+export function wbmStatusUrl(): string {
+  return `${WBM_RELAY_URL}/api/gallery/wbm/status`
+}
+
+
 // id accepts a bare plan_id, an ART code, or a SHARE code — wbm-relay
 // resolves whichever it got server-side (see its CLAUDE.md's
 // "Shareable plan links" section). plan_id specifically can contain "/"
@@ -296,6 +332,19 @@ export interface DesignerProfile {
   like_num: number
   published_num: number
   plans: DesignerPlan[]
+  // Public since 2026-07-22 — see wbm-relay's designer.go doc comment.
+  // max_xiuwei_kungfu is labeled "Martial Mastery" in this site's UI,
+  // matching the in-game name for this stat more closely than the raw
+  // upstream field name.
+  level?: number
+  oversea_tag?: string
+  is_online: boolean
+  device_name?: string
+  max_xiuwei_kungfu?: number
+  bio?: string
+  campaign_slogan?: string
+  campaign_banner_url?: string
+  home_works?: HomeWork[]
 }
 
 // wbm-relay's DesignerProfile.plans is now []*PlanBrief directly (the

@@ -8,12 +8,13 @@ import { ModKeyGate } from "@/components/ModKeyGate"
 // server-side auth possible), but it's not discoverable via search or
 // navigation. A hand-picked NetEase designer watchlist, grouped by the
 // LEGEND below — edit the arrays here to add/remove watched ids.
-const LEGEND: { color: "red" | "indigo" | "blue" | "purple" | "orange"; label: string; description: string }[] = [
+const LEGEND: { color: "red" | "indigo" | "blue" | "purple" | "orange" | "green"; label: string; description: string }[] = [
   { color: "red", label: "Red", description: "Steal diagrams by bypassing the copyright system through \"legit\" in-game building methods, not 3rd-party tools." },
   { color: "orange", label: "Orange", description: "Plagiarism: copy builders almost 1:1 and share them." },
   { color: "purple", label: "Purple", description: "Have the tool to retrieve diagrams. CN content only so far & share them publicly under their own name." },
   { color: "indigo", label: "Indigo", description: "Have the tool to retrieve diagrams. CN content only so far & only display them (not downloadable) in their gallery." },
-  { color: "blue", label: "Blue", description: "Have the tool to retrieve diagrams. Put discreetly CN content for their own private use (guild or solo) — never shown in their gallery." }
+  { color: "blue", label: "Blue", description: "Have the tool to retrieve diagrams. Put discreetly CN content for their own private use (guild or solo) — never shown in their gallery." },
+  { color: "green", label: "Green", description: "Investigated — nothing wrong with this account construction-wise." },
 ]
 
 const WATCH_LISTS: { color: (typeof LEGEND)[number]["color"]; ids: string[] }[] = [
@@ -21,6 +22,7 @@ const WATCH_LISTS: { color: (typeof LEGEND)[number]["color"]; ids: string[] }[] 
   { color: "indigo", ids: ["1013188075"] },
   { color: "blue", ids: ["1046118676"] },
   { color: "red", ids: [] },
+  { color: "green", ids: ["2037560889"] },
 ]
 
 // Orange: plagiarism cases with a specific note + the diagram(s) copied.
@@ -34,6 +36,7 @@ const TEXT_COLOR = {
   blue: "text-blue-500",
   purple: "text-purple-500",
   orange: "text-orange-500",
+  green: "text-green-500",
 } as const
 ---
 

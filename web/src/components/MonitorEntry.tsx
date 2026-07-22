@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
-import { Avatar, CopyPill, builderHref } from "@/components/GalleryGrid"
+import { Avatar, CopyPill, builderHref, renderChatText } from "@/components/GalleryGrid"
 import { BuilderGallerySection } from "@/components/BuilderGallerySection"
-import { WBM_RELAY_URL, designerUrl, modPlayerUrl, type DesignerProfile, type ModPlayerDetail } from "@/lib/gallery"
+import { WBM_RELAY_URL, designerUrl, modPlayerUrl, deviceLabel, type DesignerProfile, type ModPlayerDetail } from "@/lib/gallery"
 import { readModKey, MOD_KEY_EVENT } from "@/components/ModKeyGate"
 import { relativeTime } from "@/lib/dates"
 
@@ -12,6 +12,7 @@ const RING = {
   blue: "ring-blue-500/60",
   purple: "ring-purple-500/60",
   orange: "ring-orange-500/60",
+  green: "ring-green-500/60",
 } as const
 
 // unix seconds (this API's timestamp unit throughout) -> "3d ago" +
@@ -147,13 +148,13 @@ export function MonitorEntry({
               <Stat label="Last logout" value={formatWhen(modDetail.logout_time)!.relative} title={formatWhen(modDetail.logout_time)!.full} />
             )}
             {formatDuration(modDetail.online_time) && <Stat label="Playtime" value={formatDuration(modDetail.online_time)} />}
-            {modDetail.device_name && <Stat label="Device" value={modDetail.device_name} />}
+            {modDetail.device_name && <Stat label="Device" value={deviceLabel(modDetail.device_name)} />}
             {!!modDetail.max_xiuwei_kungfu && <Stat label="Power" value={modDetail.max_xiuwei_kungfu.toLocaleString()} />}
           </div>
 
           {modDetail.bio && (
             <p className="italic text-muted-foreground whitespace-pre-wrap wrap-break-word border-l-2 border-border pl-2">
-              "{modDetail.bio}"
+              {renderChatText(modDetail.bio)}
             </p>
           )}
 
@@ -199,7 +200,7 @@ export function MonitorEntry({
               {modDetail.campaign_banner_url && (
                 <img src={modDetail.campaign_banner_url} alt="Campaign banner" className="h-8 w-14 rounded object-cover shrink-0" />
               )}
-              {modDetail.campaign_slogan && <p className="italic text-muted-foreground">"{modDetail.campaign_slogan}"</p>}
+              {modDetail.campaign_slogan && <p className="italic text-muted-foreground">{renderChatText(modDetail.campaign_slogan)}</p>}
             </div>
           )}
         </div>
