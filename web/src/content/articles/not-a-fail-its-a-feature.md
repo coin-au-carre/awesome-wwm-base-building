@@ -74,4 +74,11 @@ featured: false
 
 ---
 
+## Lanterns floating like magic
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">carnii</a></p>
+
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1529611025198878841/image.png?ex=6a6290c7&format=webp&hm=1cd97ac0481c3f5bdfc51950a4a244360e1fd294b2ab835eccaac3cbc5da7961&is=6a613f47&quality=lossless" alt="Lanterns floating in mid-air with no wires holding them up" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
 If you find other gems, [let us know](https://discord.gg/Qygt9u26Bn) :)
