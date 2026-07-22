@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu"
 import { AvatarStatus, CopyPill } from "@/components/GalleryGrid"
 import { WBM_RELAY_URL, wbmAvatarsUrl, wbmStatusUrl, designerUrl, deviceLabel, type DesignerProfile, type BuilderStatus } from "@/lib/gallery"
@@ -193,16 +193,18 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
   return (
     <div className="space-y-4">
       <div className="flex items-start gap-4">
-        {avatarUrl ? (
-          <AvatarStatus src={avatarUrl} className="flex size-24" level={status?.level} isOnline={status?.is_online} />
-        ) : (
-          <div className="flex size-24 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-3xl font-bold ring-2 ring-primary/20">
-            {initial}
-          </div>
-        )}
+        <div style={{ viewTransitionName: `builder-avatar-${entry.slug}` }}>
+          {avatarUrl ? (
+            <AvatarStatus src={avatarUrl} className="flex size-24" level={status?.level} isOnline={status?.is_online} />
+          ) : (
+            <div className="flex size-24 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-3xl font-bold ring-2 ring-primary/20">
+              {initial}
+            </div>
+          )}
+        </div>
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="font-heading text-xl font-bold truncate">{entry.name}</h2>
+            <h2 style={{ viewTransitionName: `builder-name-${entry.slug}` }} className="font-heading text-xl font-bold truncate">{entry.name}</h2>
             {!!status?.level && <span className="font-heading text-lg font-bold text-primary shrink-0">Lv.{status.level}</span>}
             {entry.isWbmBuilder && (
               <img src={url("/images/logo_1.webp")} alt="WBM Builder" title="WBM Builder" className="size-6 object-contain shrink-0" />
@@ -218,7 +220,7 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
         </div>
         <a
           href={url(`/builders/${entry.slug}`)}
-          className="ml-auto shrink-0 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
+          className={`${buttonVariants({ variant: "default", size: "sm" })} ml-auto shrink-0`}
         >
           View full profile <ArrowRightIcon weight="bold" className="size-3" />
         </a>
@@ -294,15 +296,30 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
   )
 }
 
+// Reads the directory's filter/selection state out of the current URL's
+// query string — used for lazy useState initializers below, so a page
+// load (including a browser back-navigation landing back on /builders)
+// restores synchronously on first render rather than flashing default
+// state before an effect catches up. See the mirroring writer effect
+// (syncs state -> URL via history.replaceState) further down.
+function readDirectoryParams(): URLSearchParams {
+  if (typeof window === "undefined") {return new URLSearchParams()}
+  return new URLSearchParams(window.location.search)
+}
+
 export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[] }) {
-  const [query, setQuery] = useState("")
-  const [sort, setSort] = useState<SortKey>("total")
-  const [wbmOnly, setWbmOnly] = useState(true)
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null)
+  const [query, setQuery] = useState(() => readDirectoryParams().get("q") ?? "")
+  const [sort, setSort] = useState<SortKey>(() => (readDirectoryParams().get("sort") as SortKey | null) ?? "total")
+  const [wbmOnly, setWbmOnly] = useState(() => readDirectoryParams().get("wbm") !== "0")
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(() => readDirectoryParams().get("sel"))
   // Scrolled into view on selection — matters most on mobile/narrow
   // screens where the detail panel stacks below a possibly long list
-  // (no more sticky side panel to keep it in view automatically).
+  // (no more sticky side panel to keep it in view automatically). Guarded
+  // by hasMountedRef so restoring selectedSlug from the URL on first
+  // render doesn't also trigger a scroll-jump — only a later, genuine
+  // click should animate.
   const detailRef = useRef<HTMLDivElement>(null)
+  const hasMountedRef = useRef(false)
   // number_id -> avatar_url for every WBM builder, one bulk request
   // instead of one designerUrl call per row/selection (see wbmAvatarsUrl's
   // doc comment).
@@ -311,9 +328,34 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
   // short-TTL endpoint (see wbmStatusUrl's doc comment) since status
   // goes stale far faster than avatars/names.
   const [statuses, setStatuses] = useState<Record<string, BuilderStatus>>({})
-  const [regionFilter, setRegionFilter] = useState<string[]>([])
-  const [deviceFilter, setDeviceFilter] = useState<string[]>([])
-  const [onlineOnly, setOnlineOnly] = useState(false)
+  const [regionFilter, setRegionFilter] = useState<string[]>(() => {
+    const v = readDirectoryParams().get("region")
+    return v ? v.split(",") : []
+  })
+  const [deviceFilter, setDeviceFilter] = useState<string[]>(() => {
+    const v = readDirectoryParams().get("device")
+    return v ? v.split(",") : []
+  })
+  const [onlineOnly, setOnlineOnly] = useState(() => readDirectoryParams().get("online") === "1")
+
+  // Mirrors filter/selection state into the URL (replaceState — doesn't
+  // push a new history entry per keystroke/toggle, just keeps the
+  // current one in sync) so that navigating to a builder's full profile
+  // and then back restores the exact same view. Omits anything at its
+  // default so the URL stays clean when nothing's been touched.
+  useEffect(() => {
+    const params = new URLSearchParams()
+    if (query) {params.set("q", query)}
+    if (sort !== "total") {params.set("sort", sort)}
+    if (!wbmOnly) {params.set("wbm", "0")}
+    if (regionFilter.length > 0) {params.set("region", regionFilter.join(","))}
+    if (deviceFilter.length > 0) {params.set("device", deviceFilter.join(","))}
+    if (onlineOnly) {params.set("online", "1")}
+    if (selectedSlug) {params.set("sel", selectedSlug)}
+    const qs = params.toString()
+    const newUrl = qs ? `${window.location.pathname}?${qs}` : window.location.pathname
+    window.history.replaceState(window.history.state, "", newUrl)
+  }, [query, sort, wbmOnly, regionFilter, deviceFilter, onlineOnly, selectedSlug])
 
   useEffect(() => {
     if (!WBM_RELAY_URL) {return }
@@ -393,6 +435,10 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
   )
 
   useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true
+      return
+    }
     if (selectedSlug) {detailRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" })}
   }, [selectedSlug])
 

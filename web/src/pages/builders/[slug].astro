@@ -169,7 +169,7 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
 
     <!-- Header -->
     <div class="mb-4">
-    <BuilderProfileHeader client:visible numberId={linkedNumberId} displayName={displayName} initial={initial} subtitle={identityLine || undefined}>
+    <BuilderProfileHeader client:visible numberId={linkedNumberId} slug={slug} displayName={displayName} initial={initial} subtitle={identityLine || undefined}>
         <div class="flex flex-wrap items-center gap-2 mt-2">
           {profile && profile.guilds.length > 0 && (
             <span class="inline-flex items-center gap-1.5 text-xs font-medium rounded-full px-2.5 py-1 bg-violet-500/10 text-violet-600 dark:text-violet-300 ring-1 ring-inset ring-violet-500/25">
