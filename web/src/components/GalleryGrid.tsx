@@ -10,6 +10,7 @@ import { HammerIcon, HeartIcon, FireIcon, DownloadSimpleIcon, CaretLeftIcon, Car
 import { buttonVariants } from "@/components/ui/button"
 import { url } from "@/lib/url"
 import { relativeTime } from "@/lib/dates"
+import EMOJI_MAP from "@/lib/emoji-map.json"
 import {
   WBM_RELAY_URL,
   SORT_OPTIONS,
@@ -136,6 +137,29 @@ export function Avatar({ src, className = "size-8" }: { src?: string; className?
   )
 }
 
+const EMOJI_CODE_RE = /\[#\d+\]/g
+
+// Renders a comment message, swapping [#nnn] chat-emoji codes for their
+// actual sprite (see private/full wwm emojis dump) instead of raw text.
+function renderCommentMsg(msg: string) {
+  const parts = msg.split(EMOJI_CODE_RE)
+  const codes = msg.match(EMOJI_CODE_RE) ?? []
+  const out: React.ReactNode[] = []
+  parts.forEach((part, i) => {
+    if (part) out.push(part)
+    const code = codes[i]
+    const file = code ? (EMOJI_MAP as Record<string, string>)[code] : undefined
+    out.push(
+      file ? (
+        <img key={i} src={url(`/emojis/${file}`)} alt={code} className="inline-block size-5 align-text-bottom" />
+      ) : code ? (
+        code
+      ) : null,
+    )
+  })
+  return out
+}
+
 // One comment row (avatar + builder link + relative time + message) —
 // shared between the always-visible first 10 and the collapsible rest,
 // see PlanDetailContent's comments section.
@@ -152,7 +176,7 @@ function CommentRow({ comment: c }: { comment: Comment }) {
           </a>
           <span className="text-xs text-muted-foreground shrink-0">{relativeTime(c.ts * 1000)}</span>
         </div>
-        <p className="text-sm text-foreground/90 whitespace-pre-line wrap-break-word">{c.msg}</p>
+        <p className="text-sm text-foreground/90 whitespace-pre-line wrap-break-word">{renderCommentMsg(c.msg)}</p>
       </div>
     </div>
   )
