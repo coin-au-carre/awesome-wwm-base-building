@@ -23,6 +23,7 @@ const ogImage = it.screenshots?.[0]
   title={`${it.name} — Interior Design | Where Builders Meet`}
   description={it.description ? it.description.slice(0, 160) : `Interior design by ${it.builderName ?? "a builder"} in Where Winds Meet.`}
   image={ogImage}
+  fullWidth
 >
   <div class="space-y-5">
     <!-- Back -->
@@ -80,7 +81,7 @@ const ogImage = it.screenshots?.[0]
     {it.description && (
       <section>
         <div
-          class="text-sm text-muted-foreground leading-relaxed space-y-2 [&_strong]:text-foreground [&_strong]:font-medium [&_em]:italic"
+          class="max-w-2xl text-sm text-muted-foreground leading-relaxed space-y-2 [&_strong]:text-foreground [&_strong]:font-medium [&_em]:italic"
           set:html={renderMarkdown(it.description)}
         />
       </section>

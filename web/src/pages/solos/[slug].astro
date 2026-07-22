@@ -52,6 +52,7 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
   title={`${g.name} - A Where Winds Meet construction`}
   description={pageDesc}
   image={ogImage}
+  fullWidth
 >
   <script
     is:inline
@@ -246,7 +247,7 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><BookOpen size={13} />Lore</h2>
         <div class="border-l-2 border-border pl-4">
           <div
-            class="prose prose-sm max-w-none"
+            class="prose prose-sm max-w-2xl"
             set:html={renderMarkdown(resolvedLore)}
           />
         </div>
@@ -259,7 +260,7 @@ const pageDesc = g.lore ? lorePrefix + g.lore.slice(0, 160 - lorePrefix.length) 
         <h2 class="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5"><MapPin size={13} />What to Visit</h2>
         <div class="rounded-xl bg-muted/40 border border-border px-5 py-4">
           <div
-            class="prose prose-sm max-w-none"
+            class="prose prose-sm max-w-2xl"
             set:html={renderMarkdown(resolvedWhatToVisit)}
           />
         </div>

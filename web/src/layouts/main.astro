@@ -38,8 +38,8 @@ const navLinks: { href: string; label: string; version: string; badge?: string }
   { href: `${base}/solo`, label: "Solo", version: v.solo },
   { href: `${base}/blueprints`, label: "Blueprints", version: v.blueprints },
   { href: `${base}/homestead`, label: "Homestead", version: v.homestead },
-  { href: `${base}/gallery`, label: "Gallery", version: v.gallery, badge: "Beta" },
-  { href: `${base}/builders`, label: "The Builders", version: v.builders },
+  { href: `${base}/gallery`, label: "Gallery", version: v.gallery, badge: "New" },
+  { href: `${base}/builders`, label: "The Builders", version: v.builders, badge: "New" },
 ]
 
 const moreLinks: { href: string; label: string; version: string; badge?: string }[] = [
@@ -173,7 +173,7 @@ const discordMemberCount = await getDiscordMemberCount()
                   >
                     <span class="relative inline-flex items-center gap-1">
                       {link.label}
-                      {link.badge && <span class="inline-flex items-center rounded px-1 py-px text-[10px] font-medium leading-none bg-primary/15 text-primary border border-primary/30">{link.badge}</span>}
+                      {link.badge && <span class="inline-flex items-center rounded px-1 py-px text-[10px] font-semibold leading-none bg-primary text-primary-foreground">{link.badge}</span>}
                       <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
                     </span>
                   </a>
