@@ -19,7 +19,7 @@ Hold **Ctrl** and scroll your mouse wheel to rotate a component on a second axis
 
 <!-- discord-video:1509461162520219688/1512393533657710692 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a613b7c&hm=e370f24bf89b04f1b278bb7bc3d0bc1cb4f15680e2f6759129515d7e7091f43f&is=6a5fe9fc&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1509461162520219688/1512393530721435719/2026-06-05_11-50-45.mp4?ex=6a61e43c&hm=1b5420c76b359a5581e3970834f5623a8cd56c48c7d9e48102262e7bc1330f4d&is=6a6092bc&" controls></video>
 </div>
 
 <img src="https://media.discordapp.net/attachments/1483451090048520252/1512170492943925289/202665329.png?ex=6a61bd44&format=webp&hm=1509c023c1b56e8fae4b6ef9939ee14c6017a7494e0d285a6f98b04407d937c1&is=6a606bc4&quality=lossless" alt="2-axis rotation showcase by Crueliet" style="border-radius: 0.75rem; width: 60%;" />
@@ -38,7 +38,7 @@ Tip: With 2 axes, you can partially rotate on the 3rd axis. See the [Object Rota
 - Global cap increased to **10,000 components** (previously 5,000)
 - Density cap (local area) increased to **10,000 components** (previously 5,000)
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a61343d&format=webp&hm=0db3e5661ff08f9ab90aaf56149c9a3c0f8a1a37f25369e09e21c2b5dccc14ed&is=6a5fe2bd&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385750044250172/image.png?ex=6a61dcfd&format=webp&hm=b0d932bc14054318a40811df7f30ffd669375f077ab0bb6db6e3821e5451084e&is=6a608b7d&quality=lossless" alt="Component cap limits in guild base" style="border-radius: 0.75rem; width: 40%;" />
 
 ### For solo base
 
@@ -52,7 +52,7 @@ The Kaifeng fresh zone brought new components in 2 subcategories under `Guild Co
 
 Note: all new `Large Component` items can be placed in your guild base, but **only once each**.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a6133de&format=webp&hm=e2c8f3867144428766d3756481b5516c640ade9a7a4d621b2e9fa6b46061c094&is=6a5fe25e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385350725664768/image.png?ex=6a61dc9e&format=webp&hm=7af89f5409031057834eba06e696ebac8fee6156c640a65ba1b7a914958941c3&is=6a608b1e&quality=lossless" alt="New v1.7 Kaifeng components" style="border-radius: 0.75rem; width: 50%;" />
 
 ---
 
@@ -63,7 +63,7 @@ You can now change the time of day in your guild base, just like in solo. Go to 
 - Requires the **Management** permission.
 - The time change applies to everyone in the guild.
 
-<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a613423&format=webp&hm=d997bd0fe05e15c9405632539f7c3d77177661970209fcc15864c5f252684c76&is=6a5fe2a3&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
+<img src="https://media.discordapp.net/attachments/1509461162520219688/1512385638760976424/image.png?ex=6a61dce3&format=webp&hm=4a866ae8c8dec3befda0859db0bf620ce26811ec826425cafbfbd9fce651dc6b&is=6a608b63&quality=lossless" alt="Clock menu to change time in guild base" style="border-radius: 0.75rem; width: 80%;" />
 
 ---
 
@@ -87,7 +87,7 @@ This lets you place your small diagram more easily. As of now, small diagrams ca
 
 <!-- discord-video:1483447711499030634/1512390636047962173 -->
 <div class="video-embed">
-  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a6138c7&hm=073557598cea83fc8efc435c663fa5f05b09a22acae8c64ed2088e99f4747597&is=6a5fe747&" controls></video>
+  <video src="https://cdn.discordapp.com/attachments/1483447711499030634/1512390624706560070/2026-06-05_11-38-04.mp4?ex=6a61e187&hm=2df8f18d5e77a5f98072806b71e8db7f2aaf582f3cab0496beac844b93bbd065&is=6a609007&" controls></video>
 </div>
 
 ---
