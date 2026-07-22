@@ -40,12 +40,18 @@ export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, st
       .catch((err) => setError(err instanceof Error ? err.message : String(err)))
   }, [shareCode])
 
-  // The browser tab/bookmark should show the diagram's own name, not
-  // the generic page title — this is the one piece of "shareable link"
-  // polish a static Astro page can still do purely client-side.
+  // The browser tab/bookmark should show the diagram's own name and
+  // blurb, not the generic page title/description — this is the one
+  // piece of "shareable link" polish a static Astro page can still do
+  // purely client-side. Won't help social-preview crawlers (no JS),
+  // but does help browser tabs, history, and reader views.
   useEffect(() => {
     if (detail?.title) {
       document.title = `${detail.title} | Where Builders Meet`
+    }
+    if (detail?.description) {
+      document.querySelectorAll('meta[name="description"], meta[property="og:description"], meta[name="twitter:description"]')
+        .forEach((el) => el.setAttribute("content", detail.description))
     }
   }, [detail])
 
