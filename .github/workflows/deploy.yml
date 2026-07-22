@@ -10,6 +10,8 @@ on:
       - 'data/whatever.json'
       - 'data/bugs.json'
       - 'data/patches.json'
+      - 'data/builder_identities.json'
+      - 'data/discord_users.json'
       - 'web/public/guilds.json'
       - 'web/**'
   workflow_run:
