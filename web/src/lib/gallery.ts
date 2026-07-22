@@ -197,7 +197,27 @@ export interface ModPlayerDetail {
   psn_user_name?: string
   bio?: string
   avatar_url?: string
+  // Unix seconds (create_time/login_time/logout_time) / cumulative
+  // playtime in seconds (online_time) — added 2026-07-22.
+  create_time?: number
+  login_time?: number
+  logout_time?: number
+  online_time?: number
+  max_xiuwei_kungfu?: number
+  device_name?: string
   home_spaces?: HomeSpace[]
+  home_works?: HomeWork[]
+  campaign_slogan?: string
+  campaign_banner_url?: string
+}
+
+// Mirrors wbm-relay's pkg/relay.HomeWork — a showcased-work pointer
+// (school.homepage_ly), possibly including builds not shown in the
+// player's public gallery listing. work_type's exact meaning isn't
+// decoded upstream yet — see wbm-relay's gallery-api.md.
+export interface HomeWork {
+  work_id: string
+  work_type: number
 }
 
 // key is the shared mod secret (see ModKeyGate.tsx) — sent as a query
@@ -206,6 +226,14 @@ export interface ModPlayerDetail {
 // A wrong/missing key gets a 401, not partial data.
 export function modPlayerUrl(numberID: string, key: string): string {
   return `${WBM_RELAY_URL}/api/mod/player?id=${encodeURIComponent(numberID)}&key=${encodeURIComponent(key)}`
+}
+
+// No payload, just a 200/401 — used only to validate a key before
+// revealing copyright-watch.astro's page content at all, see
+// ModKeyGate.tsx. Same MOD_SECRET check as modPlayerUrl, no player
+// lookup involved.
+export function modCheckUrl(key: string): string {
+  return `${WBM_RELAY_URL}/api/mod/check?key=${encodeURIComponent(key)}`
 }
 
 // nickname must match exactly — confirmed live 2026-07-20, no known

@@ -2,7 +2,7 @@ import * as React from "react"
 import { useEffect, useState } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { PlanDetailContent, ShareButton } from "@/components/GalleryGrid"
-import { BackLink, GalleryLink } from "@/components/BackLink"
+import { BackLink } from "@/components/BackLink"
 import { WBM_RELAY_URL, planDetailUrl, type PlanDetail } from "@/lib/gallery"
 
 // wbmBuilders maps a NetEase author_number_id to their WBM canonicalSlug
@@ -60,7 +60,6 @@ export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, st
       <div className="space-y-4">
         <div className="flex gap-2">
           <BackLink />
-          <GalleryLink />
         </div>
         <p className="text-sm text-muted-foreground">
           No results for "{shareCode}". Double-check the share code.
@@ -74,7 +73,6 @@ export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, st
       <div className="space-y-4">
         <div className="flex gap-2">
           <BackLink />
-          <GalleryLink />
         </div>
         <p className="text-sm text-muted-foreground">Diagram unavailable ({error}).</p>
       </div>
@@ -85,7 +83,6 @@ export function PlanPage({ wbmBuilders = {} }: { wbmBuilders?: Record<string, st
     <div className="space-y-6">
       <div className="flex flex-wrap items-center gap-2">
         <BackLink />
-        <GalleryLink />
         {detail && <ShareButton label="Share diagram page" />}
       </div>
 

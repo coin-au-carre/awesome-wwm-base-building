@@ -4,6 +4,7 @@ import { Avatar, CopyPill, builderHref } from "@/components/GalleryGrid"
 import { BuilderGallerySection } from "@/components/BuilderGallerySection"
 import { WBM_RELAY_URL, designerUrl, modPlayerUrl, type DesignerProfile, type ModPlayerDetail } from "@/lib/gallery"
 import { readModKey, MOD_KEY_EVENT } from "@/components/ModKeyGate"
+import { relativeTime } from "@/lib/dates"
 
 const RING = {
   red: "ring-rose-500/60",
@@ -12,6 +13,34 @@ const RING = {
   purple: "ring-purple-500/60",
   orange: "ring-orange-500/60",
 } as const
+
+// unix seconds (this API's timestamp unit throughout) -> "3d ago" +
+// a full localized date for the title tooltip.
+function formatWhen(seconds: number | undefined): { relative: string; full: string } | null {
+  if (!seconds) return null
+  const ms = seconds * 1000
+  return { relative: relativeTime(ms), full: new Date(ms).toLocaleString() }
+}
+
+// seconds -> "12d 4h" (cumulative playtime, not a point in time).
+function formatDuration(seconds: number | undefined): string | null {
+  if (!seconds) return null
+  const days = Math.floor(seconds / 86400)
+  const hours = Math.floor((seconds % 86400) / 3600)
+  if (days > 0) return `${days}d ${hours}h`
+  const minutes = Math.floor((seconds % 3600) / 60)
+  if (hours > 0) return `${hours}h ${minutes}m`
+  return `${minutes}m`
+}
+
+function Stat({ label, value, title }: { label: string; value: React.ReactNode; title?: string }) {
+  return (
+    <div title={title}>
+      <div className="text-[11px] uppercase tracking-wide text-muted-foreground leading-none">{label}</div>
+      <div className="mt-0.5">{value}</div>
+    </div>
+  )
+}
 
 // One watched designer's card: avatar/nickname header + their full
 // diagram grid, framed in the group's color. Fetches designerUrl(numberId)
@@ -96,28 +125,81 @@ export function MonitorEntry({
         </div>
       )}
       {modDetail && (
-        <div className="rounded-lg border border-rose-500/40 bg-rose-500/5 p-3 space-y-1.5 text-sm">
-          <p className="font-semibold text-rose-500">Mod-only detail</p>
-          <p>
-            Level {modDetail.level}
-            {modDetail.oversea_tag && ` · ${modDetail.oversea_tag}`}
-            {" · "}
-            {modDetail.is_online ? "Online" : "Offline"}
-          </p>
-          {modDetail.bio && <p className="text-muted-foreground whitespace-pre-wrap wrap-break-word">"{modDetail.bio}"</p>}
-          {(modDetail.discord_account_id || modDetail.discord_global_name) && (
-            <p>Discord: {modDetail.discord_global_name || modDetail.discord_account_id}</p>
+        <div className="rounded-lg border border-border bg-muted/30 p-3 space-y-3 text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-3 gap-y-2">
+            <Stat label="Level" value={modDetail.level} />
+            <Stat label="Region" value={modDetail.oversea_tag || "—"} />
+            <Stat
+              label="Status"
+              value={
+                <span className={modDetail.is_online ? "text-emerald-500" : "text-muted-foreground"}>
+                  {modDetail.is_online ? "Online" : "Offline"}
+                </span>
+              }
+            />
+            {formatWhen(modDetail.create_time) && (
+              <Stat label="Joined" value={formatWhen(modDetail.create_time)!.relative} title={formatWhen(modDetail.create_time)!.full} />
+            )}
+            {formatWhen(modDetail.login_time) && (
+              <Stat label="Last login" value={formatWhen(modDetail.login_time)!.relative} title={formatWhen(modDetail.login_time)!.full} />
+            )}
+            {formatWhen(modDetail.logout_time) && (
+              <Stat label="Last logout" value={formatWhen(modDetail.logout_time)!.relative} title={formatWhen(modDetail.logout_time)!.full} />
+            )}
+            {formatDuration(modDetail.online_time) && <Stat label="Playtime" value={formatDuration(modDetail.online_time)} />}
+            {modDetail.device_name && <Stat label="Device" value={modDetail.device_name} />}
+            {!!modDetail.max_xiuwei_kungfu && <Stat label="Power" value={modDetail.max_xiuwei_kungfu.toLocaleString()} />}
+          </div>
+
+          {modDetail.bio && (
+            <p className="italic text-muted-foreground whitespace-pre-wrap wrap-break-word border-l-2 border-border pl-2">
+              "{modDetail.bio}"
+            </p>
           )}
-          {modDetail.steam_account_id && <p>Steam: {modDetail.steam_account_id}</p>}
-          {(modDetail.xbox_account_id || modDetail.xbox_username) && (
-            <p>Xbox: {modDetail.xbox_username || modDetail.xbox_account_id}</p>
+
+          {(modDetail.discord_account_id || modDetail.discord_global_name || modDetail.steam_account_id || modDetail.xbox_account_id || modDetail.xbox_username || modDetail.psn_user_name) && (
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
+              {(modDetail.discord_account_id || modDetail.discord_global_name) && (
+                <span><span className="text-muted-foreground">Discord:</span> {modDetail.discord_global_name || modDetail.discord_account_id}</span>
+              )}
+              {modDetail.steam_account_id && <span><span className="text-muted-foreground">Steam:</span> {modDetail.steam_account_id}</span>}
+              {(modDetail.xbox_account_id || modDetail.xbox_username) && (
+                <span><span className="text-muted-foreground">Xbox:</span> {modDetail.xbox_username || modDetail.xbox_account_id}</span>
+              )}
+              {modDetail.psn_user_name && <span><span className="text-muted-foreground">PSN:</span> {modDetail.psn_user_name}</span>}
+            </div>
           )}
-          {modDetail.psn_user_name && <p>PSN: {modDetail.psn_user_name}</p>}
+
           {modDetail.home_spaces && modDetail.home_spaces.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              {modDetail.home_spaces.map((space) => (
-                <CopyPill key={space.space_id} label={`Home (Lv.${space.level})`} value={space.space_id} />
-              ))}
+            <div className="space-y-1">
+              <p className="text-[11px] uppercase tracking-wide text-muted-foreground leading-none">Homestead</p>
+              <div className="flex flex-wrap gap-1.5">
+                {modDetail.home_spaces.map((space) => (
+                  <CopyPill key={space.space_id} label={`Lv.${space.level}`} value={space.space_id} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {modDetail.home_works && modDetail.home_works.length > 0 && (
+            <div className="space-y-1">
+              <p className="text-[11px] uppercase tracking-wide text-muted-foreground leading-none">
+                Showcased works ({modDetail.home_works.length})
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {modDetail.home_works.map((work) => (
+                  <CopyPill key={work.work_id} label={`Type ${work.work_type}`} value={work.work_id} />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {(modDetail.campaign_slogan || modDetail.campaign_banner_url) && (
+            <div className="flex items-center gap-2">
+              {modDetail.campaign_banner_url && (
+                <img src={modDetail.campaign_banner_url} alt="Campaign banner" className="h-8 w-14 rounded object-cover shrink-0" />
+              )}
+              {modDetail.campaign_slogan && <p className="italic text-muted-foreground">"{modDetail.campaign_slogan}"</p>}
             </div>
           )}
         </div>

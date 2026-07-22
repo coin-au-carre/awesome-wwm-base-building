@@ -48,45 +48,47 @@ const TEXT_COLOR = {
 
     <ModKeyGate client:load />
 
-    <section class="space-y-2 rounded-xl border border-border bg-muted/30 p-4">
-      <p class="text-sm font-medium text-muted-foreground">
-        3 colors classify players using 3rd-party tools to retrieve diagrams; 1 color classifies players stealing diagrams through in-game methods instead.
-      </p>
-      <ul class="space-y-1.5">
-        {LEGEND.map((entry) => (
-          <li class="text-sm">
-            <span class={`font-semibold ${TEXT_COLOR[entry.color]}`}>{entry.label}</span>
-            {" — "}
-            <span class="text-muted-foreground">{entry.description}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    {PLAGIARISM_LIST.length > 0 && (
-      <section class="space-y-4">
-        <h2 class={`font-heading text-lg font-semibold ${TEXT_COLOR.orange}`}>
-          {LEGEND.find((l) => l.color === "orange")?.label}
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {PLAGIARISM_LIST.map((entry) => (
-            <MonitorEntry client:visible numberId={entry.id} color="orange" note={entry.note} diagrams={entry.diagrams} />
+    <div id="watch-content" class="hidden space-y-10">
+      <section class="space-y-2 rounded-xl border border-border bg-muted/30 p-4">
+        <p class="text-sm font-medium text-muted-foreground">
+          3 colors classify players using 3rd-party tools to retrieve diagrams; 1 color classifies players stealing diagrams through in-game methods instead.
+        </p>
+        <ul class="space-y-1.5">
+          {LEGEND.map((entry) => (
+            <li class="text-sm">
+              <span class={`font-semibold ${TEXT_COLOR[entry.color]}`}>{entry.label}</span>
+              {" — "}
+              <span class="text-muted-foreground">{entry.description}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
-    )}
 
-    {WATCH_LISTS.map((list) => list.ids.length > 0 && (
-      <section class="space-y-4">
-        <h2 class={`font-heading text-lg font-semibold ${TEXT_COLOR[list.color]}`}>
-          {LEGEND.find((l) => l.color === list.color)?.label}
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {list.ids.map((id) => (
-            <MonitorEntry client:visible numberId={id} color={list.color} />
-          ))}
-        </div>
-      </section>
-    ))}
+      {PLAGIARISM_LIST.length > 0 && (
+        <section class="space-y-4">
+          <h2 class={`font-heading text-lg font-semibold ${TEXT_COLOR.orange}`}>
+            {LEGEND.find((l) => l.color === "orange")?.label}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {PLAGIARISM_LIST.map((entry) => (
+              <MonitorEntry client:visible numberId={entry.id} color="orange" note={entry.note} diagrams={entry.diagrams} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {WATCH_LISTS.map((list) => list.ids.length > 0 && (
+        <section class="space-y-4">
+          <h2 class={`font-heading text-lg font-semibold ${TEXT_COLOR[list.color]}`}>
+            {LEGEND.find((l) => l.color === list.color)?.label}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {list.ids.map((id) => (
+              <MonitorEntry client:visible numberId={id} color={list.color} />
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
   </div>
 </Layout>
