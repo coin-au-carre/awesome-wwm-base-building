@@ -20,6 +20,8 @@
 - `src/components/BugsTable.tsx` — `client:load` React island, renders bug report table from CSV data; accepts `bugs: Bug[]`
 - `src/components/PatchNotes.tsx` — `client:load` React island, renders patch notes grouped by version as a card grid; accepts `patches: Patch[]`
 - `src/components/BuildersDirectory.tsx` — `client:load` React island, searchable/sortable table of every credited builder; accepts `entries: BuilderDirectoryEntry[]`
+- `src/components/MonitorEntry.tsx` — `client:visible` React island, one watched designer's card on `/copyright-watch`; fetches public profile via `designerUrl()` always, and mod-only PII (bio, linked accounts, home spaces) via `modPlayerUrl()` when a mod key is present (see `ModKeyGate.tsx`) — 401s silently otherwise
+- `src/components/ModKeyGate.tsx` — `client:load` React island, stores the `wbm-relay` `MOD_SECRET` value in `sessionStorage` (tab-scoped) and broadcasts a `wbm-mod-key-changed` window event every `MonitorEntry` listens for; not real access control by itself, just unlocks a key already gated server-side
 
 ## Pages
 

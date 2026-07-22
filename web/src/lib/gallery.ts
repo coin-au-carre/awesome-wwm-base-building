@@ -168,6 +168,46 @@ export function designerUrl(numberID: string): string {
   return `${WBM_RELAY_URL}/api/designer?id=${encodeURIComponent(numberID)}`
 }
 
+// Mirrors wbm-relay's pkg/relay.HomeSpace — a pointer to a homestead
+// space (id/level/name), not its contents. See modPlayerUrl.
+export interface HomeSpace {
+  space_id: string
+  space_no: number
+  level: number
+  name?: string
+}
+
+// Mirrors wbm-relay's pkg/relay.ModPlayerDetail — real PII (bio, linked
+// third-party accounts) only ever returned by the mod-gated
+// GET /api/mod/player endpoint, never by designerUrl()/DesignerProfile.
+// Used exclusively by copyright-watch.astro's MonitorEntry, behind the
+// MOD_SECRET key gate (see ModKeyGate.tsx). Never fetch this for a
+// public-facing view.
+export interface ModPlayerDetail {
+  number_id: string
+  nickname: string
+  level: number
+  oversea_tag?: string
+  is_online: boolean
+  discord_account_id?: string
+  discord_global_name?: string
+  steam_account_id?: string
+  xbox_account_id?: string
+  xbox_username?: string
+  psn_user_name?: string
+  bio?: string
+  avatar_url?: string
+  home_spaces?: HomeSpace[]
+}
+
+// key is the shared mod secret (see ModKeyGate.tsx) — sent as a query
+// param since this is a plain GET, checked server-side against
+// MOD_SECRET (constant-time compare, wbm-relay's pkg/server/moddata.go).
+// A wrong/missing key gets a 401, not partial data.
+export function modPlayerUrl(numberID: string, key: string): string {
+  return `${WBM_RELAY_URL}/api/mod/player?id=${encodeURIComponent(numberID)}&key=${encodeURIComponent(key)}`
+}
+
 // nickname must match exactly — confirmed live 2026-07-20, no known
 // fuzzy/substring matching on this endpoint. See wbm-relay's CLAUDE.md
 // "Shareable plan links"-adjacent designer-profile section.

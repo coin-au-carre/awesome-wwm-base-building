@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { MonitorEntry } from "@/components/MonitorEntry"
+import { ModKeyGate } from "@/components/ModKeyGate"
 
 // Private/unlisted — no nav link, noindex, excluded from sitemap (see
 // astro.config.mjs). Anyone with the URL can view it (static site, no
@@ -44,6 +45,8 @@ const TEXT_COLOR = {
 >
   <div class="space-y-10">
     <h1 class="font-heading text-2xl font-semibold">Copyright Watch</h1>
+
+    <ModKeyGate client:load />
 
     <section class="space-y-2 rounded-xl border border-border bg-muted/30 p-4">
       <p class="text-sm font-medium text-muted-foreground">
