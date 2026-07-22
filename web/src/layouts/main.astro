@@ -37,34 +37,29 @@ const navLinks: { href: string; label: string; version: string; badge?: string }
   { href: `${base}/`, label: "Guilds", version: v.guilds },
   { href: `${base}/solo`, label: "Solo", version: v.solo },
   { href: `${base}/blueprints`, label: "Blueprints", version: v.blueprints },
-  { href: `${base}/moments`, label: "Moments", version: v.moments },
   { href: `${base}/homestead`, label: "Homestead", version: v.homestead },
   { href: `${base}/gallery`, label: "Gallery", version: v.gallery, badge: "Beta" },
+  { href: `${base}/builders`, label: "The Builders", version: v.builders },
 ]
 
-const resourceLinks: { href: string; label: string; version: string; badge?: string }[] = [
+const moreLinks: { href: string; label: string; version: string; badge?: string }[] = [
+  { href: `${base}/tutorials`, label: "Tutorials", version: v.tutorials },
   { href: `${base}/interiors`, label: "Interiors", version: v.interiors },
   { href: `${base}/catalog`, label: "Catalog", version: v.catalog },
-  { href: `${base}/tutorials`, label: "Tutorials", version: v.tutorials },
   { href: `${base}/media`, label: "Media", version: v.media },
   { href: `${base}/events`, label: "Events", version: _latestEventId || "0" },
   { href: `${base}/bugs`, label: "Bugs", version: v.bugs },
   { href: `${base}/updates`, label: "Updates", version: v.updates },
-]
-
-const communityLinks: { href: string; label: string; version: string; badge?: string }[] = [
-  { href: `${base}/builders`, label: "The Builders", version: v.builders },
   { href: `${base}/how-it-works`, label: "How it works", version: v["how-it-works"] },
   { href: `${base}/contribute`, label: "Contribute", version: v.contribute },
   { href: `${base}/ruby`, label: "Ruby", version: v.ruby },
   { href: `${base}/credits`, label: "Credits", version: v.credits },
 ]
 
-const allNavLinks = [...navLinks, ...resourceLinks, ...communityLinks]
+const allNavLinks = [...navLinks, ...moreLinks]
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || `${base}/`
-const isCommunityActive = communityLinks.some((link) => currentPath.startsWith(link.href))
-const isResourcesActive = resourceLinks.some((link) => currentPath.startsWith(link.href))
+const isMoreActive = moreLinks.some((link) => currentPath.startsWith(link.href))
 
 const discordMemberCount = await getDiscordMemberCount()
 ---
@@ -185,13 +180,13 @@ const discordMemberCount = await getDiscordMemberCount()
                 )
               })
             }
-            <!-- Resources dropdown -->
-            <div class="relative" id="resources-wrapper">
+            <!-- More dropdown -->
+            <div class="relative" id="more-wrapper">
               <button
-                id="resources-toggle"
+                id="more-toggle"
                 class={[
                   "px-3 py-1.5 text-sm transition-colors border-b-2 flex items-center gap-1 cursor-pointer",
-                  isResourcesActive
+                  isMoreActive
                     ? "border-primary font-medium text-foreground"
                     : "border-transparent text-muted-foreground hover:text-foreground",
                 ].join(" ")}
@@ -199,74 +194,24 @@ const discordMemberCount = await getDiscordMemberCount()
                 aria-expanded="false"
               >
                 <span class="relative">
-                  Resources
-                  <span class="resources-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+                  More
+                  <span class="more-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
                 </span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="resources-chevron"><path d="m6 9 6 6 6-6"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="more-chevron"><path d="m6 9 6 6 6-6"/></svg>
               </button>
               <div
-                id="resources-menu"
+                id="more-menu"
                 class="hidden absolute left-0 top-full mt-1 min-w-36 rounded-md border border-border bg-popover shadow-md z-50 py-1"
               >
                 {
-                  resourceLinks.map((link) => {
+                  moreLinks.map((link) => {
                     const isActive = currentPath.startsWith(link.href)
                     return (
                       <a
                         href={link.href}
                         data-nav-href={link.href}
                         data-nav-version={link.version}
-    
-                        class={[
-                          "flex items-center px-3 py-1.5 text-sm transition-colors",
-                          isActive
-                            ? "font-medium text-foreground bg-muted"
-                            : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
-                        ].join(" ")}
-                      >
-                        <span class="relative">
-                          {link.label}
-                          <span class="nav-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
-                        </span>
-                      </a>
-                    )
-                  })
-                }
-              </div>
-            </div>
 
-            <!-- Community dropdown -->
-            <div class="relative" id="explore-wrapper">
-              <button
-                id="explore-toggle"
-                class={[
-                  "px-3 py-1.5 text-sm transition-colors border-b-2 flex items-center gap-1 cursor-pointer",
-                  isCommunityActive
-                    ? "border-primary font-medium text-foreground"
-                    : "border-transparent text-muted-foreground hover:text-foreground",
-                ].join(" ")}
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <span class="relative">
-                  Community
-                  <span class="explore-dot hidden absolute -top-1 -right-2 size-1.5 rounded-full bg-rose-500 shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
-                </span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="explore-chevron"><path d="m6 9 6 6 6-6"/></svg>
-              </button>
-              <div
-                id="explore-menu"
-                class="hidden absolute left-0 top-full mt-1 min-w-36 rounded-md border border-border bg-popover shadow-md z-50 py-1"
-              >
-                {
-                  communityLinks.map((link) => {
-                    const isActive = currentPath.startsWith(link.href)
-                    return (
-                      <a
-                        href={link.href}
-                        data-nav-href={link.href}
-                        data-nav-version={link.version}
-    
                         class={[
                           "flex items-center px-3 py-1.5 text-sm transition-colors",
                           isActive
@@ -287,6 +232,19 @@ const discordMemberCount = await getDiscordMemberCount()
           </nav>
 
           <div class="flex items-center gap-2">
+            <!-- Moments (icon-only, Instagram-style) -->
+            <a
+              href={`${base}/moments`}
+              title="Moments"
+              aria-label="Moments"
+              data-nav-href={`${base}/moments`}
+              data-nav-version={v.moments}
+              class="relative cursor-pointer flex items-center justify-center size-9 rounded-full text-white bg-linear-to-tr from-amber-400 via-pink-500 to-fuchsia-600 shadow-sm transition-transform hover:scale-110 hover:shadow-md"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+              <span class="nav-dot hidden absolute -top-0.5 -right-0.5 size-2 rounded-full bg-rose-500 ring-2 ring-background shadow-[0_0_4px_2px_rgba(244,63,94,0.5)]"></span>
+            </a>
+
             <!-- Discord CTA (full label on sm+, icon only on mobile) -->
             <span class="relative">
               <a
@@ -427,8 +385,7 @@ const discordMemberCount = await getDiscordMemberCount()
 
         // Nav dropdowns
         var dropdowns = [
-          { toggleId: "explore-toggle", menuId: "explore-menu", chevronId: "explore-chevron" },
-          { toggleId: "resources-toggle", menuId: "resources-menu", chevronId: "resources-chevron" },
+          { toggleId: "more-toggle", menuId: "more-menu", chevronId: "more-chevron" },
         ].map(function (d) {
           return {
             toggle: document.getElementById(d.toggleId),
@@ -533,10 +490,8 @@ const discordMemberCount = await getDiscordMemberCount()
         // Nav dots
         var PREFIX = "wbm_nav:"
         var pathClean = window.location.pathname.replace(/\/$/, "") || "/"
-        var exploreMenuEl = document.getElementById("explore-menu")
-        var resourcesMenuEl = document.getElementById("resources-menu")
-        var anyExploreDot = false
-        var anyResourcesDot = false
+        var moreMenuEl = document.getElementById("more-menu")
+        var anyMoreDot = false
         document.querySelectorAll("a[data-nav-href]").forEach(function (link) {
           var href = link.dataset.navHref
           var version = link.dataset.navVersion
@@ -550,17 +505,12 @@ const discordMemberCount = await getDiscordMemberCount()
           if (stored !== version) {
             var dot = link.querySelector(".nav-dot")
             if (dot) dot.classList.remove("hidden")
-            if (exploreMenuEl && exploreMenuEl.contains(link)) anyExploreDot = true
-            if (resourcesMenuEl && resourcesMenuEl.contains(link)) anyResourcesDot = true
+            if (moreMenuEl && moreMenuEl.contains(link)) anyMoreDot = true
           }
         })
-        if (anyExploreDot) {
-          var exploreDot = document.querySelector(".explore-dot")
-          if (exploreDot) exploreDot.classList.remove("hidden")
-        }
-        if (anyResourcesDot) {
-          var resourcesDot = document.querySelector(".resources-dot")
-          if (resourcesDot) resourcesDot.classList.remove("hidden")
+        if (anyMoreDot) {
+          var moreDot = document.querySelector(".more-dot")
+          if (moreDot) moreDot.classList.remove("hidden")
         }
       })
     </script>
