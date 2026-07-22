@@ -8,8 +8,10 @@ import { url } from "@/lib/url"
 
 // number_id -> canonicalSlug, for gallery cards whose NetEase author is
 // also a known WBM builder (see data/builder_identities.json). Only the
-// entries with a neteaseNumberId are useful here — everyone else has no
-// way to be matched against a live gallery plan's author_number_id.
+// entries with both a neteaseNumberId and an explicit discordId are
+// useful here — no name-matching fallback, so this only ever reflects a
+// confirmed /wwm-uid link (see builders/index.astro's isWbmBuilder,
+// which uses the same strict rule).
 const wbmBuilders: Record<string, string> = Object.fromEntries(
   BUILDER_IDENTITIES.filter((e) => e.neteaseNumberId && e.discordId).map((e) => [
     e.neteaseNumberId as string,

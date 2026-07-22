@@ -4,7 +4,7 @@ import { getCollection } from "astro:content"
 import { getBuilderRoster, getBuilderProfile } from "@/lib/builders"
 import { builderSlug } from "@/lib/format"
 import { resolveCanonical, BUILDER_IDENTITIES } from "@/lib/builder-aliases"
-import { getUsers } from "@/lib/guilds"
+import { getUsers, getDiscordIdBySlug } from "@/lib/guilds"
 import { BuildersDirectory, type BuilderDirectoryEntry } from "@/components/BuildersDirectory"
 
 // Tutorials per canonical slug — same author-matching pattern as
@@ -50,18 +50,11 @@ for (const identity of BUILDER_IDENTITIES) {
 const identityBySlug = new Map(BUILDER_IDENTITIES.map((e) => [e.canonicalSlug, e]))
 const users = getUsers()
 
-// slug -> discordId, built once from every known Discord member (rather
-// than searching the whole user map per builder) — same fallback used
-// when a builder has no registered discordId in builder_identities.json,
-// just credited via a guild/solo/blueprint under a name that matches a
-// known Discord member's display name.
-const discordIdBySlug = new Map<string, string>()
-for (const [discordId, u] of Object.entries(users)) {
-  const name = u.nickname ?? u.globalName ?? u.username
-  if (!name) continue
-  const s = resolveCanonical(builderSlug(name))
-  if (s && !discordIdBySlug.has(s)) discordIdBySlug.set(s, discordId)
-}
+// slug -> discordId, built once from every known Discord member — same
+// fallback used when a builder has no registered discordId in
+// builder_identities.json, just credited via a guild/solo/blueprint
+// under a name that matches a known Discord member's display name.
+const discordIdBySlug = getDiscordIdBySlug(users)
 
 function discordNameFor(slug: string, identity?: (typeof BUILDER_IDENTITIES)[number]): string | undefined {
   const discordId = identity?.discordId ?? discordIdBySlug.get(slug)

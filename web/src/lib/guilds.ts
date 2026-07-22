@@ -1,8 +1,9 @@
 import { readFileSync } from "fs"
 import { resolve } from "path"
 import type { Guild, RankedGuild } from "@/types/guild"
-import { slugify, formatBuilderName } from "@/lib/format"
+import { slugify, formatBuilderName, builderSlug } from "@/lib/format"
 import { isBuilderSubmission } from "@/lib/config"
+import { resolveCanonical } from "@/lib/builder-aliases"
 
 export interface GuildRedirect {
   fromSlug: string
@@ -211,6 +212,23 @@ export function getReactions(): ReactionMap {
   } catch {
     return {}
   }
+}
+
+// slug -> discordId, resolved from every known Discord member's display
+// name — a fallback for builders credited/registered without an explicit
+// discordId on their builder_identities.json record (e.g. /wwm-uid run
+// before the Discord-linking step, or a builder only ever credited by
+// name in a guild/solo thread). Shared by builders/index.astro and
+// gallery.astro so "is this a WBM builder" agrees everywhere.
+export function getDiscordIdBySlug(users: UserMap): Map<string, string> {
+  const map = new Map<string, string>()
+  for (const [discordId, u] of Object.entries(users)) {
+    const name = u.nickname ?? u.globalName ?? u.username
+    if (!name) continue
+    const s = resolveCanonical(builderSlug(name))
+    if (s && !map.has(s)) map.set(s, discordId)
+  }
+  return map
 }
 
 export function getUsers(): UserMap {
