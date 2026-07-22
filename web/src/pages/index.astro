@@ -703,15 +703,15 @@ const articlesToShow = featuredArticles.slice(0, 3)
           <svg class="size-4 text-pink-500 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
           Featured articles
         </h2>
-        <div class="px-5 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="px-5 grid grid-cols-1 sm:grid-cols-3 gap-2">
           {articlesToShow.map((fa) => (
             <a
               href={`${BASE}/tutorials/${fa.article.id}`}
-              class="group relative rounded-xl ring-1 ring-pink-500/20 bg-card hover:ring-pink-500/45 hover:shadow-md overflow-hidden transition-all flex sm:flex-col"
+              class="group relative rounded-lg ring-1 ring-pink-500/20 bg-card hover:ring-pink-500/45 hover:shadow-md overflow-hidden transition-all flex sm:flex-col"
               data-umami-event="featured_article_click"
               data-umami-event-title={fa.article.data.title}
             >
-              <div class="relative w-24 shrink-0 sm:w-full sm:aspect-video overflow-hidden bg-muted">
+              <div class="relative w-16 shrink-0 sm:w-full sm:aspect-21/9 overflow-hidden bg-muted">
                 {fa.thumb ? (
                   <img
                     src={fa.thumb}
@@ -721,19 +721,17 @@ const articlesToShow = featuredArticles.slice(0, 3)
                   />
                 ) : (
                   <div class="w-full h-full bg-pink-500/8 flex items-center justify-center">
-                    <BookOpenIcon weight="duotone" className="size-8 text-pink-400/40" />
+                    <BookOpenIcon weight="duotone" className="size-6 text-pink-400/40" />
                   </div>
                 )}
                 {fa.article.data.date && (now - new Date(fa.article.data.date).getTime() < ARTICLE_NEW_DAYS * 86400000) && (
-                  <span class="absolute top-2 right-2 inline-flex items-center rounded-full bg-pink-500 shadow-[0_0_12px_rgba(236,72,153,0.7)] px-2.5 py-1 text-[11px] font-bold text-white tracking-wide">New</span>
+                  <span class="absolute top-1.5 right-1.5 inline-flex items-center rounded-full bg-pink-500 shadow-[0_0_12px_rgba(236,72,153,0.7)] px-2 py-0.5 text-[10px] font-bold text-white tracking-wide">New</span>
                 )}
               </div>
-              <div class="p-3 space-y-1">
-                <div class="flex items-start gap-2">
-                  <p class="flex-1 text-sm font-medium leading-snug line-clamp-2 group-hover:text-primary transition-colors">{fa.article.data.title}</p>
-                </div>
+              <div class="p-2 space-y-0.5">
+                <p class="text-xs font-medium leading-snug line-clamp-2 group-hover:text-primary transition-colors">{fa.article.data.title}</p>
                 {fa.article.data.authors && fa.article.data.authors.length > 0 && (
-                  <p class="text-xs text-muted-foreground/60">by {fa.article.data.authors.join(", ")}</p>
+                  <p class="text-[11px] text-muted-foreground/60">by {fa.article.data.authors.join(", ")}</p>
                 )}
               </div>
             </a>
@@ -892,7 +890,7 @@ const articlesToShow = featuredArticles.slice(0, 3)
     {
       SHOW_GUILD_WALL && guildsWithScreenshots.length > 0 && (
         <section>
-          <GuildWall client:visible guilds={guildsWithScreenshots} count={12} />
+          <GuildWall client:visible guilds={guildsWithScreenshots} count={6} />
         </section>
       )
     }

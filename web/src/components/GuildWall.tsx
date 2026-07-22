@@ -58,7 +58,7 @@ export function GuildWall({ guilds, count = 12 }: Props) {
 
   if (!mounted) {
     return (
-      <div className="flex overflow-x-auto sm:grid sm:overflow-visible gap-2 pb-2 sm:pb-0 sm:grid-cols-3 lg:grid-cols-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
+      <div className="flex overflow-x-auto sm:grid sm:overflow-visible gap-2 pb-2 sm:pb-0 sm:grid-cols-3 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]">
         {Array.from({ length: count }).map((_, i) => (
           <div key={i} className="aspect-video rounded-xl bg-muted animate-pulse shrink-0 w-[calc(50vw-20px)] sm:w-auto" />
         ))}
@@ -86,7 +86,7 @@ export function GuildWall({ guilds, count = 12 }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="flex overflow-x-auto sm:grid sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-2 pb-2 sm:pb-0 sm:grid-cols-3 lg:grid-cols-4 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]"
+          className="flex overflow-x-auto sm:grid sm:overflow-visible snap-x snap-mandatory sm:snap-none gap-2 pb-2 sm:pb-0 sm:grid-cols-3 [scrollbar-width:none] [-webkit-overflow-scrolling:touch]"
         >
           {tiles.map((tile, idx) => (
             <motion.a
