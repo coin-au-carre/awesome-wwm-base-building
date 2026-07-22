@@ -169,11 +169,11 @@ function statusTags(status: BuilderStatus | undefined) {
 function contributionBadges(entry: BuilderDirectoryEntry) {
   return (
     <>
-      <ContributionBadge icon={HammerIcon} count={entry.guildCount} label="guild base" className="bg-violet-500/10 text-violet-600 dark:text-violet-300"/>
-      <ContributionBadge icon={HouseIcon} count={entry.soloCount} label="solo build" className="bg-teal-500/10 text-teal-600 dark:text-teal-300"/>
+      <ContributionBadge icon={HammerIcon} count={entry.guildCount} label="guild" className="bg-violet-500/10 text-violet-600 dark:text-violet-300"/>
+      <ContributionBadge icon={HouseIcon} count={entry.soloCount} label="solo" className="bg-teal-500/10 text-teal-600 dark:text-teal-300"/>
       <ContributionBadge icon={BlueprintIcon} count={entry.blueprintCount} label="blueprint" className="bg-blue-500/10 text-blue-600 dark:text-blue-300"/>
       <ContributionBadge icon={CalculatorIcon} count={entry.homesteadSheetCount} label="homestead sheet" className="bg-orange-500/10 text-orange-600 dark:text-orange-300" />
-      <ContributionBadge icon={BookOpenIcon} count={entry.tutorialCount} label="tutorial" className="bg-pink-500/10 text-pink-600 dark:text-pink-300" />
+      <ContributionBadge icon={BookOpenIcon} count={entry.tutorialCount} label="tuto" className="bg-pink-500/10 text-pink-600 dark:text-pink-300" />
       {entry.totalCount === 0 && <Badge variant="outline" className="text-[11px]">No WBM contributions yet</Badge>}
     </>
   )
