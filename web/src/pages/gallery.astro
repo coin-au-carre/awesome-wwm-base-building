@@ -11,7 +11,10 @@ import { url } from "@/lib/url"
 // entries with a neteaseNumberId are useful here — everyone else has no
 // way to be matched against a live gallery plan's author_number_id.
 const wbmBuilders: Record<string, string> = Object.fromEntries(
-  BUILDER_IDENTITIES.filter((e) => e.neteaseNumberId).map((e) => [e.neteaseNumberId as string, e.canonicalSlug]),
+  BUILDER_IDENTITIES.filter((e) => e.neteaseNumberId && e.discordId).map((e) => [
+    e.neteaseNumberId as string,
+    e.canonicalSlug,
+  ]),
 )
 ---
 
