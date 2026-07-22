@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState } from "react"
 import { GlobeIcon, DeviceMobileIcon, SwordIcon, ClockIcon } from "@phosphor-icons/react"
-import { CopyPill, renderChatText } from "@/components/GalleryGrid"
+import { renderChatText } from "@/components/GalleryGrid"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { deviceLabel, type DesignerProfile } from "@/lib/gallery"
 import { formatUnixSeconds } from "@/lib/dates"
@@ -105,18 +105,6 @@ export function BuilderExtraInfo({ profile, compact = false }: { profile: Design
         </div>
       )}
 
-      {!compact && profile.home_works && profile.home_works.length > 0 && (
-        <div className="space-y-1.5">
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-            Showcased Works ({profile.home_works.length})
-          </h3>
-          <div className="flex flex-wrap gap-1.5">
-            {profile.home_works.map((work) => (
-              <CopyPill key={work.work_id} label={`Type ${work.work_type}`} value={work.work_id} />
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }
