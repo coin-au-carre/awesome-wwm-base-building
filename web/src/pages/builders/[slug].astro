@@ -123,11 +123,16 @@ const contributionTypes = [(profile?.guilds.length ?? 0) > 0, (profile?.solos.le
 const initial = displayName.trim()[0]?.toUpperCase() ?? "?"
 const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${totalCount} contribution${totalCount !== 1 ? "s" : ""} including guild bases, solo builds, blueprints, and tutorials.`
 
+const ogImage = [...(profile?.guilds ?? []), ...(profile?.solos ?? []), ...(profile?.blueprints ?? [])]
+  .map((entry) => entry.coverImage ?? entry.screenshots?.[0])
+  .find(Boolean)
+
 ---
 
 <Layout
   title={`${displayName} — Builder Profile | Where Builders Meet`}
   description={pageDesc}
+  image={ogImage}
   fullWidth
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify({
