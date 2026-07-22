@@ -120,13 +120,13 @@ const pageDesc = `Browse all ${entries.length} builders credited across Where Wi
 ---
 
 <Layout
-  title="Where Builders Meet | WBM Builders Directory"
+  title="Where Builders Meet | The Builders Directory"
   description={pageDesc}
   fullWidth
 >
   <div class="space-y-4">
     <div class="flex flex-wrap items-center gap-2">
-      <h1 class="font-heading text-2xl font-semibold">WBM Builders Directory</h1>
+      <h1 class="font-heading text-2xl font-semibold">The Builders Directory</h1>
     </div>
     <p class="text-sm text-muted-foreground">{pageDesc}</p>
     <BuildersDirectory client:load entries={entries} />

@@ -54,7 +54,7 @@ function countFor(entry: BuilderDirectoryEntry, sort: SortKey): number {
 }
 
 function ContributionBadge({ icon: Icon, count, label, className }: { icon: React.ComponentType<{ weight?: "duotone"; className?: string }>; count: number; label: string; className: string }) {
-  if (count === 0) return null
+  if (count === 0) { return null }
   return (
     <span title={`${count} ${label}${count !== 1 ? "s" : ""}`} className={`inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5 ${className}`}>
       <Icon weight="duotone" className="size-3" />
@@ -102,8 +102,7 @@ function BuilderDetailPanel({ entry, avatarUrl }: { entry: BuilderDirectoryEntry
   const [profile, setProfile] = useState<DesignerProfile | null>(null)
 
   useEffect(() => {
-    setProfile(null)
-    if (!entry.isWbmBuilder || !entry.neteaseNumberId || !WBM_RELAY_URL) return
+    if (!entry.isWbmBuilder || !entry.neteaseNumberId || !WBM_RELAY_URL) {return}
     fetch(designerUrl(entry.neteaseNumberId))
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => data && setProfile(data))
@@ -223,7 +222,7 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
   const [avatars, setAvatars] = useState<Record<string, string>>({})
 
   useEffect(() => {
-    if (!WBM_RELAY_URL) return
+    if (!WBM_RELAY_URL) {return }
     fetch(wbmAvatarsUrl())
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => data && setAvatars(data))
@@ -233,9 +232,9 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     let list = wbmOnly ? entries.filter((e) => e.isWbmBuilder) : entries
-    if (q) list = list.filter((e) => e.searchText.includes(q))
+    if (q) {list = list.filter((e) => e.searchText.includes(q))}
     return [...list].sort((a, b) => {
-      if (sort === "name") return a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+      if (sort === "name") {return a.name.localeCompare(b.name, undefined, { sensitivity: "base" })}
       const diff = countFor(b, sort) - countFor(a, sort)
       return diff !== 0 ? diff : a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
     })
@@ -324,7 +323,7 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
 
         <div className="rounded-xl ring-1 ring-border bg-card p-5 lg:sticky lg:top-4">
           {selected ? (
-            <BuilderDetailPanel entry={selected} avatarUrl={selected.neteaseNumberId ? avatars[selected.neteaseNumberId] : undefined} />
+            <BuilderDetailPanel key={selected.slug} entry={selected} avatarUrl={selected.neteaseNumberId ? avatars[selected.neteaseNumberId] : undefined} />
           ) : (
             <p className="text-sm text-muted-foreground text-center py-8">Select a builder from the list to see their details.</p>
           )}

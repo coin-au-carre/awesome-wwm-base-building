@@ -993,7 +993,7 @@ export function GalleryGrid({ wbmBuilders = {} }: { wbmBuilders?: Record<string,
         </div>
       )}
 
-      {!error && !loading && plans.length === 0 && (
+      {!error && !loading && !queryInvalid && plans.length === 0 && (
         <p className="text-sm text-muted-foreground">
           {activeSearch
             ? `No results for "${activeSearch}".`
