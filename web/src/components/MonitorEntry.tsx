@@ -4,7 +4,7 @@ import { Avatar, CopyPill, builderHref, renderChatText } from "@/components/Gall
 import { BuilderGallerySection } from "@/components/BuilderGallerySection"
 import { WBM_RELAY_URL, designerUrl, modPlayerUrl, deviceLabel, type DesignerProfile, type ModPlayerDetail } from "@/lib/gallery"
 import { readModKey, MOD_KEY_EVENT } from "@/components/ModKeyGate"
-import { relativeTime } from "@/lib/dates"
+import { formatUnixSeconds } from "@/lib/dates"
 
 const RING = {
   red: "ring-rose-500/60",
@@ -14,14 +14,6 @@ const RING = {
   orange: "ring-orange-500/60",
   green: "ring-green-500/60",
 } as const
-
-// unix seconds (this API's timestamp unit throughout) -> "3d ago" +
-// a full localized date for the title tooltip.
-function formatWhen(seconds: number | undefined): { relative: string; full: string } | null {
-  if (!seconds) return null
-  const ms = seconds * 1000
-  return { relative: relativeTime(ms), full: new Date(ms).toLocaleString() }
-}
 
 // seconds -> "12d 4h" (cumulative playtime, not a point in time).
 function formatDuration(seconds: number | undefined): string | null {
@@ -138,14 +130,14 @@ export function MonitorEntry({
                 </span>
               }
             />
-            {formatWhen(modDetail.create_time) && (
-              <Stat label="Joined" value={formatWhen(modDetail.create_time)!.relative} title={formatWhen(modDetail.create_time)!.full} />
+            {formatUnixSeconds(modDetail.create_time) && (
+              <Stat label="Joined" value={formatUnixSeconds(modDetail.create_time)!.relative} title={formatUnixSeconds(modDetail.create_time)!.full} />
             )}
-            {formatWhen(modDetail.login_time) && (
-              <Stat label="Last login" value={formatWhen(modDetail.login_time)!.relative} title={formatWhen(modDetail.login_time)!.full} />
+            {formatUnixSeconds(modDetail.login_time) && (
+              <Stat label="Last login" value={formatUnixSeconds(modDetail.login_time)!.relative} title={formatUnixSeconds(modDetail.login_time)!.full} />
             )}
-            {formatWhen(modDetail.logout_time) && (
-              <Stat label="Last logout" value={formatWhen(modDetail.logout_time)!.relative} title={formatWhen(modDetail.logout_time)!.full} />
+            {formatUnixSeconds(modDetail.logout_time) && (
+              <Stat label="Last logout" value={formatUnixSeconds(modDetail.logout_time)!.relative} title={formatUnixSeconds(modDetail.logout_time)!.full} />
             )}
             {formatDuration(modDetail.online_time) && <Stat label="Playtime" value={formatDuration(modDetail.online_time)} />}
             {modDetail.device_name && <Stat label="Device" value={deviceLabel(modDetail.device_name)} />}

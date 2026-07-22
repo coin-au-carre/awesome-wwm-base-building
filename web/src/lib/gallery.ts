@@ -341,6 +341,10 @@ export interface DesignerProfile {
   is_online: boolean
   device_name?: string
   max_xiuwei_kungfu?: number
+  // Unix seconds — power "Logged in since" (online) / "Last seen"
+  // (offline) on the builders directory/profile. Public since 2026-07-22.
+  login_time?: number
+  logout_time?: number
   bio?: string
   campaign_slogan?: string
   campaign_banner_url?: string

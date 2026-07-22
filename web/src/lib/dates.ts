@@ -51,3 +51,13 @@ export function formatLastModified(s: string | undefined): { relative: string; f
     full: d.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false }),
   }
 }
+
+// unix seconds (wbm-relay's timestamp unit throughout, e.g. login_time/
+// logout_time/create_time) -> "3d ago" + a full localized date for a
+// title tooltip. Distinct from formatLastModified, which parses a
+// pre-formatted date string, not a raw epoch.
+export function formatUnixSeconds(seconds: number | undefined): { relative: string; full: string } | null {
+  if (!seconds) { return null }
+  const ms = seconds * 1000
+  return { relative: relativeTime(ms), full: new Date(ms).toLocaleString() }
+}

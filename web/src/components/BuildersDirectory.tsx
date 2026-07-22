@@ -5,11 +5,28 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuCheckboxItem } from "@/components/ui/dropdown-menu"
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { AvatarStatus, CopyPill } from "@/components/GalleryGrid"
 import { WBM_RELAY_URL, wbmAvatarsUrl, wbmStatusUrl, designerUrl, deviceLabel, type DesignerProfile, type BuilderStatus } from "@/lib/gallery"
 import { MagnifyingGlassIcon, HammerIcon, HouseIcon, BlueprintIcon, CalculatorIcon, BookOpenIcon, GlobeIcon, ArrowRightIcon, UsersIcon, HeartIcon, StackIcon, SwordIcon, CaretDownIcon } from "@phosphor-icons/react"
 import { url } from "@/lib/url"
 import { BuilderExtraInfo } from "@/components/BuilderExtraInfo"
+
+// Matches Tailwind's `lg` breakpoint (1024px) — the same one the grid
+// layout below switches on. Scrolling a long list just to reach the
+// detail panel is painful on mobile (no sticky side column to keep it
+// in view), so below this width the detail opens in a Sheet instead of
+// inline in the page flow; at/above it, nothing changes from before.
+function useIsDesktop(): boolean {
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches)
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)")
+    const onChange = () => setIsDesktop(mql.matches)
+    mql.addEventListener("change", onChange)
+    return () => mql.removeEventListener("change", onChange)
+  }, [])
+  return isDesktop
+}
 
 // Generic multi-select dropdown (checkboxes) — used for the Region/
 // Platform filters. Shows "All" when nothing's selected, the single
@@ -112,12 +129,34 @@ function countFor(entry: BuilderDirectoryEntry, sort: SortKey, statuses: Record<
   }
 }
 
-function ContributionBadge({ icon: Icon, count, label, className }: { icon: React.ComponentType<{ weight?: "duotone"; className?: string }>; count: number; label: string; className: string }) {
+// iconOnlyOnMobile: the row is already tight on a phone-width screen
+// with avatar + name + these badges all on one line — drop the label
+// text below `sm` for the more common contribution types, keeping just
+// icon+count there, full "N Guild Bases" text once there's room.
+function ContributionBadge({
+  icon: Icon,
+  count,
+  label,
+  className,
+  iconOnlyOnMobile = false,
+}: {
+  icon: React.ComponentType<{ weight?: "duotone"; className?: string }>
+  count: number
+  label: string
+  className: string
+  iconOnlyOnMobile?: boolean
+}) {
   if (count === 0) { return null }
+  const plural = `${label}${count !== 1 ? "s" : ""}`
+  const display = plural.charAt(0).toUpperCase() + plural.slice(1)
   return (
-    <span title={`${count} ${label}${count !== 1 ? "s" : ""}`} className={`inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5 ${className}`}>
+    <span
+      title={iconOnlyOnMobile ? `${count} ${display}` : undefined}
+      className={`inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5 ${className}`}
+    >
       <Icon weight="duotone" className="size-3" />
       {count}
+      {iconOnlyOnMobile ? <span className="hidden sm:inline">&nbsp;{display}</span> : ` ${display}`}
     </span>
   )
 }
@@ -147,9 +186,9 @@ function statusTags(status: BuilderStatus | undefined) {
 function contributionBadges(entry: BuilderDirectoryEntry) {
   return (
     <>
-      <ContributionBadge icon={HammerIcon} count={entry.guildCount} label="guild base" className="bg-violet-500/10 text-violet-600 dark:text-violet-300" />
-      <ContributionBadge icon={HouseIcon} count={entry.soloCount} label="solo build" className="bg-teal-500/10 text-teal-600 dark:text-teal-300" />
-      <ContributionBadge icon={BlueprintIcon} count={entry.blueprintCount} label="blueprint" className="bg-blue-500/10 text-blue-600 dark:text-blue-300" />
+      <ContributionBadge icon={HammerIcon} count={entry.guildCount} label="guild base" className="bg-violet-500/10 text-violet-600 dark:text-violet-300" iconOnlyOnMobile />
+      <ContributionBadge icon={HouseIcon} count={entry.soloCount} label="solo build" className="bg-teal-500/10 text-teal-600 dark:text-teal-300" iconOnlyOnMobile />
+      <ContributionBadge icon={BlueprintIcon} count={entry.blueprintCount} label="blueprint" className="bg-blue-500/10 text-blue-600 dark:text-blue-300" iconOnlyOnMobile />
       <ContributionBadge icon={CalculatorIcon} count={entry.homesteadSheetCount} label="homestead sheet" className="bg-orange-500/10 text-orange-600 dark:text-orange-300" />
       <ContributionBadge icon={BookOpenIcon} count={entry.tutorialCount} label="tutorial" className="bg-pink-500/10 text-pink-600 dark:text-pink-300" />
       {entry.totalCount === 0 && <Badge variant="outline" className="text-[11px]">No WBM contributions yet</Badge>}
@@ -160,7 +199,7 @@ function contributionBadges(entry: BuilderDirectoryEntry) {
 // One inline stat — icon + count + label, several sit in a row rather
 // than each getting its own boxed column (which looked heavy for just
 // three numbers).
-function InlineStat({ icon: Icon, value, label, className }: { icon: React.ComponentType<{ weight?: "fill"; className?: string }>; value: number; label: string; className: string }) {
+export function InlineStat({ icon: Icon, value, label, className }: { icon: React.ComponentType<{ weight?: "fill"; className?: string }>; value: number; label: string; className: string }) {
   return (
     <span className="flex items-center gap-1.5 text-sm" title={label}>
       <Icon weight="fill" className={`size-4 ${className}`} />
@@ -218,12 +257,6 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
             <p className="text-xs text-muted-foreground">also known as {entry.aliasNames.join(", ")}</p>
           )}
         </div>
-        <a
-          href={url(`/builders/${entry.slug}`)}
-          className={`${buttonVariants({ variant: "default", size: "sm" })} ml-auto shrink-0`}
-        >
-          View full profile <ArrowRightIcon weight="bold" className="size-3" />
-        </a>
       </div>
 
       <div className="flex flex-wrap items-center gap-4">
@@ -292,6 +325,13 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
           </div>
         </div>
       )}
+
+      <a
+        href={url(`/builders/${entry.slug}`)}
+        className={`${buttonVariants({ variant: "default" })} w-full`}
+      >
+        View full profile <ArrowRightIcon weight="bold" className="size-3" />
+      </a>
     </div>
   )
 }
@@ -434,13 +474,17 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
     [selectedSlug, filtered, entries],
   )
 
+  const isDesktop = useIsDesktop()
+
   useEffect(() => {
     if (!hasMountedRef.current) {
       hasMountedRef.current = true
       return
     }
-    if (selectedSlug) {detailRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" })}
-  }, [selectedSlug])
+    // Only relevant on desktop — mobile shows the Sheet overlay instead,
+    // which needs no scroll-into-view of its own.
+    if (isDesktop && selectedSlug) {detailRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" })}
+  }, [selectedSlug, isDesktop])
 
   return (
     <div className="space-y-4">
@@ -519,7 +563,8 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
               >
                 <AvatarStatus
                   src={entry.neteaseNumberId ? avatars[entry.neteaseNumberId] : undefined}
-                  className="flex size-9 shrink-0"
+                  className="flex size-14 shrink-0"
+                  levelClassName="text-[8px] px-0.5"
                   level={entry.neteaseNumberId ? statuses[entry.neteaseNumberId]?.level : undefined}
                   isOnline={entry.neteaseNumberId ? statuses[entry.neteaseNumberId]?.is_online : undefined}
                 />
@@ -531,7 +576,7 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
                     )}
                   </div>
                   {(entry.discordName || entry.ingameNickname) && (
-                    <p className="text-xs text-muted-foreground truncate">
+                    <p className="hidden sm:block text-xs text-muted-foreground truncate">
                       {[
                         entry.discordName && `Discord: ${entry.discordName}`,
                         entry.ingameNickname && entry.ingameNickname !== entry.discordName && `In-game: ${entry.ingameNickname}`,
@@ -548,19 +593,48 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
           </div>
         )}
 
-        <div ref={detailRef} className="rounded-xl ring-1 ring-border bg-card p-5 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
-          {selected ? (
-            <BuilderDetailPanel
-              key={selected.slug}
-              entry={selected}
-              avatarUrl={selected.neteaseNumberId ? avatars[selected.neteaseNumberId] : undefined}
-              status={selected.neteaseNumberId ? statuses[selected.neteaseNumberId] : undefined}
-            />
-          ) : (
-            <p className="text-sm text-muted-foreground text-center py-8">Select a builder from the list to see their details.</p>
-          )}
-        </div>
+        {isDesktop && (
+          <div ref={detailRef} className="rounded-xl ring-1 ring-border bg-card p-5 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
+            {selected ? (
+              <BuilderDetailPanel
+                key={selected.slug}
+                entry={selected}
+                avatarUrl={selected.neteaseNumberId ? avatars[selected.neteaseNumberId] : undefined}
+                status={selected.neteaseNumberId ? statuses[selected.neteaseNumberId] : undefined}
+              />
+            ) : (
+              <p className="text-sm text-muted-foreground text-center py-8">Select a builder from the list to see their details.</p>
+            )}
+          </div>
+        )}
       </div>
+
+      {!isDesktop && (
+        <Sheet open={!!selected} onOpenChange={(open) => !open && setSelectedSlug(null)}>
+          {/* flex-col + max-h here (not overflow-y-auto directly on
+              SheetContent) so only the inner div scrolls — the close
+              button below is a direct SheetContent child, positioned
+              absolute relative to the fixed sheet itself, so it must
+              stay outside the scrolling area or it scrolls away with
+              long detail content (bio/stats/links), leaving no visible
+              way to dismiss once scrolled down. */}
+          <SheetContent side="bottom" className="flex max-h-[85vh] flex-col rounded-t-2xl p-0">
+            <SheetHeader className="sr-only">
+              <SheetTitle>{selected?.name ?? "Builder details"}</SheetTitle>
+            </SheetHeader>
+            {selected && (
+              <div className="overflow-y-auto px-4 pt-8 pb-4">
+                <BuilderDetailPanel
+                  key={selected.slug}
+                  entry={selected}
+                  avatarUrl={selected.neteaseNumberId ? avatars[selected.neteaseNumberId] : undefined}
+                  status={selected.neteaseNumberId ? statuses[selected.neteaseNumberId] : undefined}
+                />
+              </div>
+            )}
+          </SheetContent>
+        </Sheet>
+      )}
     </div>
   )
 }

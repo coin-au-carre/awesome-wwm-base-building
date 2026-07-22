@@ -147,11 +147,16 @@ export function AvatarStatus({
   className = "size-8",
   level,
   isOnline,
+  // Lets a denser layout (e.g. the builders directory's list rows, where
+  // the avatar itself is bigger but the level badge should stay
+  // unobtrusive) shrink the badge without affecting every other caller.
+  levelClassName = "text-[10px] px-1",
 }: {
   src?: string
   className?: string
   level?: number
   isOnline?: boolean
+  levelClassName?: string
 }) {
   return (
     <div className={`relative shrink-0 ${className}`}>
@@ -163,7 +168,7 @@ export function AvatarStatus({
         />
       )}
       {!!level && (
-        <span className="absolute bottom-0 right-0 translate-x-[15%] translate-y-[15%] rounded bg-black/80 px-1 text-[10px] italic font-semibold text-white leading-tight">
+        <span className={`absolute bottom-0 right-0 translate-x-[15%] translate-y-[15%] rounded bg-black/80 italic font-semibold text-white leading-tight ${levelClassName}`}>
           {level}
         </span>
       )}

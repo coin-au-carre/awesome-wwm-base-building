@@ -1,9 +1,10 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { AvatarStatus, CopyPill } from "@/components/GalleryGrid"
-import { StatTile } from "@/components/BuilderProfile"
+import { InlineStat } from "@/components/BuildersDirectory"
 import { BuilderExtraInfo } from "@/components/BuilderExtraInfo"
 import { WBM_RELAY_URL, designerUrl, type DesignerProfile } from "@/lib/gallery"
+import { UsersIcon, HeartIcon, StackIcon } from "@phosphor-icons/react"
 
 // Same avatar/name/id/stats layout as the gallery profile header
 // (BuilderProfile.tsx) — only fetches when this builder has a linked
@@ -72,10 +73,10 @@ export function BuilderProfileHeader({
           </div>
         </div>
         {profile && (
-          <div className="flex items-center gap-6 sm:ml-auto">
-            <StatTile value={profile.follower_num} label="Fans" />
-            <StatTile value={profile.like_num} label="Likes" />
-            <StatTile value={profile.published_num} label="Published Works" />
+          <div className="flex flex-wrap items-center gap-4 sm:ml-auto">
+            <InlineStat icon={UsersIcon} value={profile.follower_num} label="Fans" className="text-blue-400" />
+            <InlineStat icon={HeartIcon} value={profile.like_num} label="Likes" className="text-rose-400" />
+            <InlineStat icon={StackIcon} value={profile.published_num} label="Published Works" className="text-amber-400" />
           </div>
         )}
       </div>
