@@ -5,7 +5,8 @@ import { getAllBuilderSlugs, getBuilderProfile } from "@/lib/builders"
 import { builderSlug, stripGuildShowcase, thumbUrl } from "@/lib/format"
 import { resolveCanonical, BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 import { BASE } from "@/lib/url"
-import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon, UsersThreeIcon } from "@phosphor-icons/react"
+import { BlueprintIcon, BookOpenIcon, CalculatorIcon, CompassIcon, HammerIcon, HouseIcon, MedalIcon, PlayCircleIcon, UsersThreeIcon } from "@phosphor-icons/react"
+import { BuilderMedia } from "@/components/BuilderMedia"
 import { getGuildsSortedByScore, getSolosSortedByScore, getUsers } from "@/lib/guilds"
 import { HOMESTEAD_SHEETS } from "@/lib/homestead-resources"
 import { BuilderGallerySection } from "@/components/BuilderGallerySection"
@@ -63,6 +64,7 @@ const allArticles = await getCollection("articles", ({ data }) => data.published
 const tutorials = allArticles.filter((a) =>
   (a.data.authors ?? []).some((n) => resolveCanonical(builderSlug(n)) === canonical)
 )
+
 
 const displayName = profile?.name ?? builderName
 
@@ -267,6 +269,21 @@ const pageDesc = `Builder profile for ${displayName} in Where Winds Meet. ${tota
             )
           })}
         </div>
+      </section>
+    )}
+
+    <!-- Media: this builder's own channels/videos from videos.ts (see
+         lib/builders.ts's getBuilderProfile for the matching). Distinct
+         from the Tutorials section further down, which is site-hosted
+         written articles, not external video/channel links. Placed
+         ahead of Guild Bases on request. -->
+    {profile && profile.channels.length > 0 && (
+      <section>
+        <h2 class="font-heading text-base font-medium mb-3 flex items-center gap-2">
+          <PlayCircleIcon weight="duotone" className="size-4 text-red-500" />
+          Media
+        </h2>
+        <BuilderMedia channels={profile.channels} />
       </section>
     )}
 

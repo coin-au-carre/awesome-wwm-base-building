@@ -98,6 +98,8 @@ const entries: BuilderDirectoryEntry[] = [...rosterBySlug.values()].map((r) => {
     guilds,
     solos,
     tutorials,
+    channels: profile?.channels ?? [],
+    tutorialVideos: profile?.tutorialVideos ?? [],
     guildCount: r.guildCount,
     soloCount: r.soloCount,
     blueprintCount: r.blueprintCount,
@@ -110,6 +112,10 @@ const entries: BuilderDirectoryEntry[] = [...rosterBySlug.values()].map((r) => {
 })
 
 const pageDesc = `Browse all ${entries.length} builders credited across Where Winds Meet guild bases, solo builds, blueprints, homestead sheets, and tutorials. Search by Discord name, in-game name, alias, or Character ID.`
+// Shorter than pageDesc (used for SEO/meta below) — the search input's own
+// placeholder already spells out what you can search by, so repeating it
+// in the on-page subtitle just added a second long line under the title.
+const subtitle = `Every builder credited across guild bases, solo builds, blueprints, homestead sheets, and tutorials.`
 ---
 
 <Layout
@@ -121,7 +127,7 @@ const pageDesc = `Browse all ${entries.length} builders credited across Where Wi
     <div class="flex flex-wrap items-center gap-2">
       <h1 class="font-heading text-2xl font-semibold">The Builders Directory</h1>
     </div>
-    <p class="text-sm text-muted-foreground">{pageDesc}</p>
+    <p class="text-sm text-muted-foreground">{subtitle}</p>
     <BuildersDirectory client:load entries={entries} />
   </div>
 </Layout>

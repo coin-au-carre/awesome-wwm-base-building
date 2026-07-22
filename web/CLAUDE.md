@@ -22,6 +22,7 @@
 - `src/components/BuildersDirectory.tsx` — `client:load` React island, searchable/sortable table of every credited builder; accepts `entries: BuilderDirectoryEntry[]`
 - `src/components/MonitorEntry.tsx` — `client:visible` React island, one watched designer's card on `/copyright-watch`; fetches public profile via `designerUrl()` always, and mod-only PII (linked accounts, home spaces) via `modPlayerUrl()` when a mod key is present (see `ModKeyGate.tsx`) — 401s silently otherwise. Most of the former mod-only detail (bio, region, device, Martial Mastery, campaign, showcased works) is now public on `DesignerProfile` — see `BuilderExtraInfo.tsx`.
 - `src/components/ModKeyGate.tsx` — `client:load` React island, gates `copyright-watch.astro`'s entire `#watch-content` wrapper (not just PII): validates a key against `wbm-relay`'s `GET /api/mod/check` before storing it in `sessionStorage` (tab-scoped) or revealing anything, then broadcasts a `wbm-mod-key-changed` window event every `MonitorEntry` listens for
+- `src/lib/builders.ts` — `getBuilderProfile(slug)`: aggregates a builder's guilds/solos/blueprints/homestead sheets, plus (since 2026-07-22) their own `channels`/`tutorialVideos` from `lib/videos.ts` — `channels` matched by its hand-tagged `builderSlug` field, `tutorialVideos` by resolving `author` the same way guild/solo builder names already are (`matchesSlug`), so new video entries don't need a manually-kept slug field
 - `src/components/BuilderExtraInfo.tsx` — region/device/Martial Mastery/signature + campaign slogan/banner + showcased works, shared between `BuildersDirectory`'s detail panel (`compact`, drops campaign/showcased-works) and the full builder profile (`BuilderProfile.tsx`/`BuilderProfileHeader.tsx`) — all sourced from the public `DesignerProfile` (see wbm-relay's CLAUDE.md "Public profile fields" section for why this is public, not mod-gated)
 - `GalleryGrid.tsx`'s `AvatarStatus` — wraps `Avatar` with an online/offline pulse dot and a level badge; used wherever a builder's live NetEase status is known (builders directory rows/detail panel, builder profile header)
 
@@ -45,7 +46,7 @@
 | `/bugs` | Bug reports — live CSV from Google Sheets |
 | `/updates` | Updates — building features per version, curated from Google Sheets |
 | `/builders` | Builders directory: search/sort every credited builder by Discord name, in-game name, alias, or NetEase ID |
-| `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials by one builder |
+| `/builders/[slug]` | Builder profile: guild bases, solo builds, blueprints, tutorials, and media (own channels/videos, see `lib/builders.ts`) by one builder |
 | `/homestead/rankings` | Full Homestead level leaderboard (all members) |
 
 ## Nav dot versioning

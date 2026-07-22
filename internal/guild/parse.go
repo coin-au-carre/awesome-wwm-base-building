@@ -13,6 +13,7 @@ var (
 	reEightDigit      = regexp.MustCompile(`\b(\d{8})\b`)
 	reEightDigitName  = regexp.MustCompile(`\s*[\[(]\d{8}[\])]|\s+\d{8}\b`)
 	reBuilders           = regexp.MustCompile(`(?i)builders?:[ \t]*([^\n]*)`)
+	reAdjacentMentions   = regexp.MustCompile(`>\s+<@`)
 	reBuildersBulkBlock  = regexp.MustCompile(`(?i)builders?:[ \t]*\n((?:[ \t]*-[^\n]+\n?)*)`)
 	reAdditionalCredits  = regexp.MustCompile(`(?i)^additional\s+credits?\s+to\s+(.+)`)
 	reGuildName       = regexp.MustCompile(`(?m)^[#\s]*(?::[^:]+:|\*\*|\p{So}[\x{FE0E}\x{FE0F}]?\s*|\x{FE0F}\s*)*(?:[A-Za-z]+:\s*)?(.+?)\**\s*[\[(]\d{6,9}[\])]`)
@@ -81,6 +82,11 @@ func ParseFirstPost(content string) ParsedPost {
 
 	if m := reBuilders.FindStringSubmatch(content); len(m) > 1 {
 		if inline := strings.TrimSpace(m[1]); inline != "" {
+			// "Builders: <@id1> <@id2>" (no comma between mentions) would
+			// otherwise survive as one un-splittable entry — resolveBuilders
+			// in sync.go only resolves a string that's *entirely* one mention,
+			// so it fell through unresolved (e.g. the Corruption guild).
+			inline = reAdjacentMentions.ReplaceAllString(inline, ">, <@")
 			for b := range strings.SplitSeq(inline, ",") {
 				b = strings.TrimSpace(strings.TrimLeft(strings.TrimSpace(b), "*"))
 				if b != "" && !strings.HasPrefix(b, "#") && !strings.HasPrefix(b, ":") {

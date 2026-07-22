@@ -11,6 +11,8 @@ import { WBM_RELAY_URL, wbmAvatarsUrl, wbmStatusUrl, designerUrl, deviceLabel, t
 import { MagnifyingGlassIcon, HammerIcon, HouseIcon, BlueprintIcon, CalculatorIcon, BookOpenIcon, GlobeIcon, ArrowRightIcon, UsersIcon, HeartIcon, StackIcon, SwordIcon, CaretDownIcon } from "@phosphor-icons/react"
 import { url } from "@/lib/url"
 import { BuilderExtraInfo } from "@/components/BuilderExtraInfo"
+import { BuilderMedia } from "@/components/BuilderMedia"
+import type { Channel, TutorialVideo } from "@/lib/videos"
 
 // Matches Tailwind's `lg` breakpoint (1024px) — the same one the grid
 // layout below switches on. Scrolling a long list just to reach the
@@ -97,6 +99,11 @@ export interface BuilderDirectoryEntry {
   guilds: { name: string; slug: string }[]
   solos: { name: string; slug: string }[]
   tutorials: { title: string; id: string }[]
+  // This builder's own channel(s)/video(s) from lib/videos.ts (see
+  // lib/builders.ts's getBuilderProfile) — rendered via BuilderMedia,
+  // same component /builders/[slug] uses.
+  channels: Channel[]
+  tutorialVideos: TutorialVideo[]
   guildCount: number
   soloCount: number
   blueprintCount: number
@@ -212,8 +219,18 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
       .catch(() => {})
   }, [entry.isWbmBuilder, entry.neteaseNumberId])
 
+  // Discord name / in-game nickname / aliases collapsed into one line
+  // (same pattern as the full profile page's identityLine) instead of up
+  // to three stacked <p>s, so the header block stays short and the panel
+  // gets more of its height budget below the fold.
+  const identityLine = [
+    entry.discordName && `Discord: ${entry.discordName}`,
+    entry.ingameNickname && entry.ingameNickname !== entry.discordName ? `In-game: ${entry.ingameNickname}` : null,
+    entry.aliasNames.length > 0 ? `also known as ${entry.aliasNames.join(", ")}` : null,
+  ].filter(Boolean).join(" · ")
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div className="flex items-start gap-4">
         <div style={{ viewTransitionName: `builder-avatar-${entry.slug}` }}>
           {avatarUrl ? (
@@ -232,69 +249,70 @@ function BuilderDetailPanel({ entry, avatarUrl, status }: { entry: BuilderDirect
               <img src={url("/images/logo_1.webp")} alt="WBM Builder" title="WBM Builder" className="size-6 object-contain shrink-0" />
             )}
           </div>
-          {entry.discordName && <p className="text-xs text-muted-foreground">Discord: {entry.discordName}</p>}
-          {entry.ingameNickname && entry.ingameNickname !== entry.discordName && (
-            <p className="text-xs text-muted-foreground">In-game: {entry.ingameNickname}</p>
-          )}
-          {entry.aliasNames.length > 0 && (
-            <p className="text-xs text-muted-foreground">also known as {entry.aliasNames.join(", ")}</p>
-          )}
+          {identityLine && <p className="text-xs text-muted-foreground truncate">{identityLine}</p>}
+          <div className="flex flex-wrap items-center gap-3 mt-1.5">
+            {entry.neteaseNumberId && <CopyPill label="Character ID" value={entry.neteaseNumberId} />}
+            {profile && (
+              <>
+                <InlineStat icon={UsersIcon} value={profile.follower_num} label="Fans" className="text-blue-400" />
+                <InlineStat icon={HeartIcon} value={profile.like_num} label="Likes" className="text-rose-400" />
+                <InlineStat icon={StackIcon} value={profile.published_num} label="Published Works" className="text-amber-400" />
+              </>
+            )}
+          </div>
         </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-4">
-        {entry.neteaseNumberId && <CopyPill label="Character ID" value={entry.neteaseNumberId} />}
-        {profile && (
-          <>
-            <InlineStat icon={UsersIcon} value={profile.follower_num} label="Fans" className="text-blue-400" />
-            <InlineStat icon={HeartIcon} value={profile.like_num} label="Likes" className="text-rose-400" />
-            <InlineStat icon={StackIcon} value={profile.published_num} label="Published Works" className="text-amber-400" />
-          </>
-        )}
       </div>
 
       {profile && <BuilderExtraInfo profile={profile} compact />}
 
-      <div className="flex flex-wrap items-center gap-1.5">{contributionBadges(entry)}</div>
+      <div className="flex flex-wrap items-center gap-1.5">
+        {contributionBadges(entry)}
+      </div>
 
-      {entry.guilds.length > 0 && (
-        <div>
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">Guild Bases</h3>
-          <div className="flex flex-wrap gap-1.5">
-            {entry.guilds.map((g) => (
-              <a
-                key={g.slug}
-                href={url(`/guilds/${g.slug}`)}
-                className="text-xs rounded-full px-2.5 py-1 bg-violet-500/10 text-violet-600 dark:text-violet-300 ring-1 ring-inset ring-violet-500/25 hover:ring-violet-500/50 transition-colors"
-              >
-                {g.name}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      <BuilderMedia channels={entry.channels} />
 
-      {entry.solos.length > 0 && (
-        <div>
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">Solo Bases</h3>
-          <div className="flex flex-wrap gap-1.5">
-            {entry.solos.map((s) => (
-              <a
-                key={s.slug}
-                href={url(`/solos/${s.slug}`)}
-                className="text-xs rounded-full px-2.5 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-300 ring-1 ring-inset ring-teal-500/25 hover:ring-teal-500/50 transition-colors"
-              >
-                {s.name}
-              </a>
-            ))}
-          </div>
+      {(entry.guilds.length > 0 || entry.solos.length > 0) && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {entry.guilds.length > 0 && (
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">Guild Bases</h3>
+              <div className="flex flex-wrap gap-1.5">
+                {entry.guilds.map((g) => (
+                  <a
+                    key={g.slug}
+                    href={url(`/guilds/${g.slug}`)}
+                    className="text-xs rounded-full px-2.5 py-1 bg-violet-500/10 text-violet-600 dark:text-violet-300 ring-1 ring-inset ring-violet-500/25 hover:ring-violet-500/50 transition-colors"
+                  >
+                    {g.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {entry.solos.length > 0 && (
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">Solo Bases</h3>
+              <div className="flex flex-wrap gap-1.5">
+                {entry.solos.map((s) => (
+                  <a
+                    key={s.slug}
+                    href={url(`/solos/${s.slug}`)}
+                    className="text-xs rounded-full px-2.5 py-1 bg-teal-500/10 text-teal-600 dark:text-teal-300 ring-1 ring-inset ring-teal-500/25 hover:ring-teal-500/50 transition-colors"
+                  >
+                    {s.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
       {entry.tutorials.length > 0 && (
         <div>
           <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">Tutorials</h3>
-          <div className="flex flex-col gap-1.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
             {entry.tutorials.map((t) => (
               <a
                 key={t.id}
@@ -470,8 +488,11 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
   }, [selectedSlug, isDesktop])
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap items-center gap-3">
+    <div className="space-y-3">
+      {/* Primary: what to browse — view toggle + search, the two controls
+          almost everyone touches first. Own row, full width, so the
+          search box isn't squeezed by whatever else is in the toolbar. */}
+      <div className="flex flex-col sm:flex-row gap-3">
         <Tabs value={wbmOnly ? "wbm" : "all"} onValueChange={(v) => setWbmOnly(v === "wbm")}>
           <TabsList>
             <TabsTrigger value="wbm" className="inline-flex items-center gap-1.5">
@@ -484,7 +505,7 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
             </TabsTrigger>
           </TabsList>
         </Tabs>
-        <div className="relative flex-1 min-w-56">
+        <div className="relative flex-1 sm:min-w-56">
           <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
           <Input
             value={query}
@@ -493,6 +514,14 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
             className="pl-9"
           />
         </div>
+      </div>
+
+      {/* Secondary: how to narrow/order the results — sort, region/
+          platform filters, online toggle. Grouped in their own row so
+          they read as one "refine" cluster instead of competing with
+          search/view-toggle for the same line. */}
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
+        <span className="text-xs font-medium text-muted-foreground shrink-0">Sort</span>
         <Tabs value={sort} onValueChange={(v) => setSort(v as SortKey)}>
           <TabsList className="flex-wrap h-auto">
             {SORT_OPTIONS.map((opt) => (
@@ -500,6 +529,7 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
             ))}
           </TabsList>
         </Tabs>
+        <span className="hidden sm:block w-px h-5 bg-border mx-1" />
         <MultiSelectFilter label="Region" options={regionOptions} selected={regionFilter} onChange={setRegionFilter} />
         <MultiSelectFilter label="Platform" options={deviceOptions} selected={deviceFilter} onChange={setDeviceFilter} formatLabel={deviceLabel} />
         <Button
@@ -513,30 +543,40 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
         </Button>
       </div>
 
-      <div className="text-xs text-muted-foreground space-y-1">
-        <p>
-          {filtered.length} builder{filtered.length !== 1 ? "s" : ""}
-          {beforeOnlineFilter.length > 0 && ` · ${onlineCount}/${beforeOnlineFilter.length} online`}
+      {/* One wrapping row instead of stacked blocks — count/online, region
+          pills, and device pills only drop to their own line if the
+          viewport is too narrow to hold them all, instead of always
+          paying for three separate lines of vertical space. */}
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-muted-foreground">
+        <span>
+          <span className="font-semibold text-foreground">{filtered.length}</span> builder{filtered.length !== 1 ? "s" : ""}
           {query && ` matching "${query}"`}
-        </p>
-        {(regionCounts.length > 0 || deviceCounts.length > 0) && (
-          <p className="flex flex-wrap gap-x-3 gap-y-1">
-            {regionCounts.map(([region, count]) => (
-              <span key={region}>{region}: {count}</span>
-            ))}
-            {regionCounts.length > 0 && deviceCounts.length > 0 && <span className="text-border">|</span>}
-            {deviceCounts.map(([device, count]) => (
-              <span key={device}>{deviceLabel(device)}: {count}</span>
-            ))}
-          </p>
+        </span>
+        {beforeOnlineFilter.length > 0 && (
+          <span className="inline-flex items-center gap-1">
+            · <span className="size-1.5 rounded-full bg-emerald-500" /> {onlineCount}/{beforeOnlineFilter.length} online
+          </span>
         )}
+        {(regionCounts.length > 0 || deviceCounts.length > 0) && (
+          <span className="hidden sm:block w-px h-4 bg-border mx-0.5" />
+        )}
+        {regionCounts.map(([region, count]) => (
+          <Tag key={region} className="bg-sky-500/10 text-sky-600 dark:text-sky-300">
+            {region} <span className="opacity-60">{count}</span>
+          </Tag>
+        ))}
+        {deviceCounts.map(([device, count]) => (
+          <Tag key={device} className="bg-slate-500/10 text-slate-600 dark:text-slate-300">
+            {deviceLabel(device)} <span className="opacity-60">{count}</span>
+          </Tag>
+        ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-start">
         {filtered.length === 0 ? (
-          <p className="text-sm text-muted-foreground py-8 text-center lg:col-span-2">No builders match your search.</p>
+          <p className="text-sm text-muted-foreground py-8 text-center lg:col-span-5">No builders match your search.</p>
         ) : (
-          <div className="rounded-xl ring-1 ring-border divide-y divide-border overflow-hidden">
+          <div className="lg:col-span-2 rounded-xl ring-1 ring-border divide-y divide-border overflow-hidden">
             {filtered.map((entry) => (
               <button
                 key={entry.slug}
@@ -584,7 +624,14 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
         )}
 
         {isDesktop && (
-          <div ref={detailRef} className="rounded-xl ring-1 ring-border bg-card p-5 lg:sticky lg:top-4 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
+          // top offset clears the sticky site header (h-20, shrinks to
+          // h-14 on scroll) — top-4 used to tuck the panel's top edge
+          // right under it, so selecting a builder left the avatar/name
+          // hidden until you scrolled further. No max-h/overflow here on
+          // purpose — a builder with a lot of content just scrolls the
+          // page like the list column does, instead of trapping its own
+          // scrollbar inside a fixed-height box.
+          <div ref={detailRef} className="lg:col-span-3 rounded-xl ring-1 ring-border bg-card p-5 lg:sticky lg:top-24">
             {selected ? (
               <BuilderDetailPanel
                 key={selected.slug}

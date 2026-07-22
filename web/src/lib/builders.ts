@@ -5,6 +5,7 @@ import { getBlueprintsSortedByScore } from "@/lib/blueprints"
 import { formatBuilderName, builderSlug } from "@/lib/format"
 import { resolveCanonical, getAllSlugsForCanonical } from "@/lib/builder-aliases"
 import { HOMESTEAD_SHEETS, type HomesteadSheet } from "@/lib/homestead-resources"
+import { channels, tutorialVideos, type Channel, type TutorialVideo } from "@/lib/videos"
 
 export interface BuilderProfile {
   name: string
@@ -13,6 +14,13 @@ export interface BuilderProfile {
   solos: RankedGuild[]
   blueprints: RankedBlueprint[]
   homesteadSheets: HomesteadSheet[]
+  // A builder's own channel(s)/video(s) from videos.ts, matched by
+  // builderSlug (channels — hand-tagged there already) or by resolving
+  // author name the same way guild/solo/blueprint builders already are
+  // (tutorialVideos has no stored slug field — deriving it here avoids
+  // needing to keep one in sync by hand for every new video entry).
+  channels: Channel[]
+  tutorialVideos: TutorialVideo[]
 }
 
 function matchesSlug(rawName: string, targetCanonical: string): boolean {
@@ -207,6 +215,11 @@ export function getBuilderProfile(slug: string): BuilderProfile | null {
     (bp) => bp.builderName && allSlugs.has(resolveCanonical(builderSlug(bp.builderName)))
   )
   const homesteadSheets = HOMESTEAD_SHEETS.filter((sheet) => matchesSlug(sheet.by, canonical))
+  // channels' builderSlug is already a slug (hand-tagged in videos.ts,
+  // via the same Unicode-aware builderSlug() at the time it was added),
+  // not a raw display name — resolve it directly rather than re-slugifying.
+  const builderChannels = channels.filter((c) => c.builderSlug && resolveCanonical(c.builderSlug) === canonical)
+  const builderVideos = tutorialVideos.filter((v) => v.author && matchesSlug(v.author, canonical))
 
   if (!guilds.length && !solos.length && !blueprints.length && !homesteadSheets.length) return null
 
@@ -226,5 +239,14 @@ export function getBuilderProfile(slug: string): BuilderProfile | null {
   if (!name && homesteadSheets[0]) name = homesteadSheets[0].by
   if (!name) name = aliasFormName
 
-  return { name: name ?? canonical, slug: canonical, guilds, solos, blueprints, homesteadSheets }
+  return {
+    name: name ?? canonical,
+    slug: canonical,
+    guilds,
+    solos,
+    blueprints,
+    homesteadSheets,
+    channels: builderChannels,
+    tutorialVideos: builderVideos,
+  }
 }
