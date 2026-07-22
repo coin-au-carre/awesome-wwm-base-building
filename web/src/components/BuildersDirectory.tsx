@@ -129,34 +129,17 @@ function countFor(entry: BuilderDirectoryEntry, sort: SortKey, statuses: Record<
   }
 }
 
-// iconOnlyOnMobile: the row is already tight on a phone-width screen
-// with avatar + name + these badges all on one line — drop the label
-// text below `sm` for the more common contribution types, keeping just
-// icon+count there, full "N Guild Bases" text once there's room.
-function ContributionBadge({
-  icon: Icon,
-  count,
-  label,
-  className,
-  iconOnlyOnMobile = false,
-}: {
-  icon: React.ComponentType<{ weight?: "duotone"; className?: string }>
-  count: number
-  label: string
-  className: string
-  iconOnlyOnMobile?: boolean
-}) {
+// Row-list badges are hidden below `sm` entirely now (see the list
+// rendering below) — the row only needs to stay readable at `sm`+, so
+// this can just always show its full label text.
+function ContributionBadge({ icon: Icon, count, label, className }: { icon: React.ComponentType<{ weight?: "duotone"; className?: string }>; count: number; label: string; className: string }) {
   if (count === 0) { return null }
   const plural = `${label}${count !== 1 ? "s" : ""}`
   const display = plural.charAt(0).toUpperCase() + plural.slice(1)
   return (
-    <span
-      title={iconOnlyOnMobile ? `${count} ${display}` : undefined}
-      className={`inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5 ${className}`}
-    >
+    <span className={`inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2 py-0.5 ${className}`}>
       <Icon weight="duotone" className="size-3" />
-      {count}
-      {iconOnlyOnMobile ? <span className="hidden sm:inline">&nbsp;{display}</span> : ` ${display}`}
+      {count} {display}
     </span>
   )
 }
@@ -186,9 +169,9 @@ function statusTags(status: BuilderStatus | undefined) {
 function contributionBadges(entry: BuilderDirectoryEntry) {
   return (
     <>
-      <ContributionBadge icon={HammerIcon} count={entry.guildCount} label="guild base" className="bg-violet-500/10 text-violet-600 dark:text-violet-300" iconOnlyOnMobile />
-      <ContributionBadge icon={HouseIcon} count={entry.soloCount} label="solo build" className="bg-teal-500/10 text-teal-600 dark:text-teal-300" iconOnlyOnMobile />
-      <ContributionBadge icon={BlueprintIcon} count={entry.blueprintCount} label="blueprint" className="bg-blue-500/10 text-blue-600 dark:text-blue-300" iconOnlyOnMobile />
+      <ContributionBadge icon={HammerIcon} count={entry.guildCount} label="guild base" className="bg-violet-500/10 text-violet-600 dark:text-violet-300"/>
+      <ContributionBadge icon={HouseIcon} count={entry.soloCount} label="solo build" className="bg-teal-500/10 text-teal-600 dark:text-teal-300"/>
+      <ContributionBadge icon={BlueprintIcon} count={entry.blueprintCount} label="blueprint" className="bg-blue-500/10 text-blue-600 dark:text-blue-300"/>
       <ContributionBadge icon={CalculatorIcon} count={entry.homesteadSheetCount} label="homestead sheet" className="bg-orange-500/10 text-orange-600 dark:text-orange-300" />
       <ContributionBadge icon={BookOpenIcon} count={entry.tutorialCount} label="tutorial" className="bg-pink-500/10 text-pink-600 dark:text-pink-300" />
       {entry.totalCount === 0 && <Badge variant="outline" className="text-[11px]">No WBM contributions yet</Badge>}
@@ -583,11 +566,18 @@ export function BuildersDirectory({ entries }: { entries: BuilderDirectoryEntry[
                       ].filter(Boolean).join(" · ")}
                     </p>
                   )}
-                  <div className="flex flex-wrap items-center gap-1 mt-1">
+                  {/* Status tags and contribution badges both reappear
+                      in full in the tap-to-open detail (Sheet on
+                      mobile) — cramming them into this row too, next to
+                      an already-tight avatar+name column, is what made
+                      the list hard to read on narrow screens. Kept for
+                      desktop, where there's room and no extra tap to see
+                      them. */}
+                  <div className="hidden sm:flex flex-wrap items-center gap-1 mt-1">
                     {statusTags(entry.neteaseNumberId ? statuses[entry.neteaseNumberId] : undefined)}
                   </div>
                 </div>
-                <div className="flex flex-wrap items-center gap-1.5 shrink-0">{contributionBadges(entry)}</div>
+                <div className="hidden sm:flex flex-wrap items-center gap-1.5 shrink-0">{contributionBadges(entry)}</div>
               </button>
             ))}
           </div>
