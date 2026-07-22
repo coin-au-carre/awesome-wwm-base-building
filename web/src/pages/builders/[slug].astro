@@ -249,7 +249,7 @@ const ogImage = [...(profile?.guilds ?? []), ...(profile?.solos ?? []), ...(prof
             const img = bp.coverImage ?? bp.screenshots?.[0]
             return (
               <a
-                href={`${BASE}/blueprints`}
+                href={`${BASE}/blueprints/${bp.slug}`}
                 class="group flex items-center gap-3 rounded-xl ring-1 ring-border bg-card hover:ring-primary transition-all px-3 py-2.5"
                 data-umami-event="builder_profile_blueprint_click"
                 data-umami-event-name={bp.name}
