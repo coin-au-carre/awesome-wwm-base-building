@@ -4,17 +4,10 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { PlanCard, CopyPill, ShareButton, AvatarStatus } from "@/components/GalleryGrid"
 import { BackLink, GalleryLink } from "@/components/BackLink"
 import { BuilderExtraInfo } from "@/components/BuilderExtraInfo"
+import { InlineStat } from "@/components/BuildersDirectory"
 import { WBM_RELAY_URL, designerUrl, designerByNameUrl, type DesignerProfile } from "@/lib/gallery"
 import { url } from "@/lib/url"
-
-export function StatTile({ value, label }: { value: number | string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="font-heading text-2xl sm:text-3xl font-bold italic">{value}</div>
-      <div className="text-xs text-muted-foreground">{label}</div>
-    </div>
-  )
-}
+import { UsersIcon, HeartIcon, StackIcon } from "@phosphor-icons/react"
 
 // wbmSlugs maps a NetEase author_number_id to their WBM canonicalSlug —
 // see data/builder_identities.json, computed server-side in
@@ -145,10 +138,10 @@ export function BuilderProfile({ wbmSlugs = {} }: { wbmSlugs?: Record<string, st
               {profile.number_id && <CopyPill label="ID" value={profile.number_id} />}
             </div>
           </div>
-          <div className="flex items-center gap-6 sm:ml-auto">
-            <StatTile value={profile.follower_num} label="Fans" />
-            <StatTile value={profile.like_num} label="Likes" />
-            <StatTile value={profile.published_num} label="Published Works" />
+          <div className="flex flex-wrap items-center gap-4 sm:ml-auto">
+            <InlineStat icon={UsersIcon} value={profile.follower_num} label="Fans" className="text-blue-400" />
+            <InlineStat icon={HeartIcon} value={profile.like_num} label="Likes" className="text-rose-400" />
+            <InlineStat icon={StackIcon} value={profile.published_num} label="Published Works" className="text-amber-400" />
           </div>
         </div>
         <BuilderExtraInfo profile={profile} />
