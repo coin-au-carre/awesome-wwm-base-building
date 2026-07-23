@@ -826,11 +826,15 @@
 	},
 	{
 		"discordId": "403803695008972801",
-		"canonicalAlias": "atmaFC (SEA)",
-		"canonicalSlug": "atmafc-sea",
+		"canonicalAlias": "atmaFC SakuraFuncorp",
+		"canonicalSlug": "atmafc-sakurafuncorp",
 		"aliases": [
-			"atma"
-		]
+			"atmaFC SEA"
+		],
+		"ingameNickname": "atmaFC",
+		"neteaseNumberId": "4019022151",
+		"neteasePid": "aRfEWXrQGfgMZnRo",
+		"neteaseHostnum": 10401
 	},
 	{
 		"discordId": "907746159605469274",
