@@ -244,6 +244,7 @@ This page is a web version of Cylos guide available on [Google Doc](https://docs
 
 
 
+
 Homestead Guide
 
 ## Basics<img src="/tutorials/homestead-beginner-guide/img-1.webp" style="width: 80%" />
@@ -256,7 +257,7 @@ Prosperity: Prosperity could be seen as the “elegance score” of the Homeste
 
 * * *
 
-<img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" />
+<img src="/tutorials/homestead-beginner-guide/img-4.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-3.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-5.webp" style="width: 70%" />
 
 Warehouse: The warehouse is your Homesteads storage. All the items you produce go into your warehouse. You can also deposit items from your normal character backpack into the warehouse. There is a deposit cap of 1200 items per week. The best use for this feature early on would be to deposit items you can buy from normal vendors across the map to save time e.g. Dushan Blue Jade, Copper, Wine-Scented Jade etc. This could give you a boost in completing the Trade for Profit packs without having to change around your whole production line.<img src="/tutorials/homestead-beginner-guide/img-6.webp" style="width: 60%" />
 
@@ -321,7 +322,7 @@ Alternatively you can also change the Tab to Seeds and plant them from there by
 
 In the Tend Tab you will find the option to Remove crops. You can use this to delete unwanted crops you planted.
 
-By going to the main homestead screen and pressing on Farming you will be presented with this UI. Here you can see all your farms and what you planted on them. <img src="/tutorials/homestead-beginner-guide/img-21.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-22.webp" style="width: 20%" />
+By going to the main homestead screen and pressing on Farming you will be presented with this UI. Here you can see all your farms and what you planted on them. <img src="/tutorials/homestead-beginner-guide/img-22.webp" style="width: 20%" /><img src="/tutorials/homestead-beginner-guide/img-21.webp" style="width: 80%" />
 
 By pressing on a farm you can check:
 
@@ -337,7 +338,7 @@ By pressing on a farm you can check:
 
 ## Retainers
 
-Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" />
+Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" />
 
 There are instances where the worker has no listed skills. This means they can learn any of the skills. The level of a retainer skill determines how fast he finishes a task or how many materials per hour he will produce. You use Artisan’s Manuals to increase the skill level.
 
@@ -347,7 +348,7 @@ Recruiting Retainers: There are several different ways of recruiting retainers.
 
 Then there are the Mortals. There are different requirements to recruit them. Some require you to give them the red Companion’s Call.
 
-Some others simply need to be persuaded with GIft of Gab. Animal type workers usually need some form of food item you can buy in the Consumables store like Dried Fish or Alfalfa.<img src="/tutorials/homestead-beginner-guide/img-13.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-12.webp" style="width: 80%" />
+Some others simply need to be persuaded with GIft of Gab. Animal type workers usually need some form of food item you can buy in the Consumables store like Dried Fish or Alfalfa.<img src="/tutorials/homestead-beginner-guide/img-12.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-13.webp" style="width: 70%" />
 
 You can also filter for specific innate skills at the bottom of the retainer list. Workers with the filtered skill will show a small orange icon in their portrait to indicate that they have the skill.
 
@@ -367,7 +368,7 @@ To start cooking click on the + icon on the left side to select the dish you wan
 
 Depending on what cooking level your retainer has it will take more or less time to finish the dish.
 
-The recommended dishes are always marked with a little yellow thumbs up icon. On the top right you will find the Materials Abundant option. This will give you an overview of how many raw materials you use up per hour. This will also tell you if you have a surplus production on any of your materials. It does not account for anything that is currently planted on the farms and will only tell you the surplus for materials gained from Local Specialties. <img src="/tutorials/homestead-beginner-guide/img-28.webp" style="width: 40%" /><img src="/tutorials/homestead-beginner-guide/img-27.webp" style="width: 60%" />
+The recommended dishes are always marked with a little yellow thumbs up icon. On the top right you will find the Materials Abundant option. This will give you an overview of how many raw materials you use up per hour. This will also tell you if you have a surplus production on any of your materials. It does not account for anything that is currently planted on the farms and will only tell you the surplus for materials gained from Local Specialties. <img src="/tutorials/homestead-beginner-guide/img-27.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-28.webp" style="width: 40%" />
 
 Catering is your way of selling the cooked food and drinks you make in your brewery. You can tell how many gourds you get by hovering over the dish. The Unit Sale Price is the amount of gourds you get every time your retainer finishes one work cycle. You can also check your production/consumption per hour to ensure you have enough supply to keep the sales running while you’re offline.<img src="/tutorials/homestead-beginner-guide/img-29.webp" style="width: 60%" />
 
