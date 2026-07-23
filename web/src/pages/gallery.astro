@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { GalleryGrid } from "@/components/GalleryGrid"
-import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { BUILDER_IDENTITIES } from "@/lib/builder-aliases"
 import { url } from "@/lib/url"
@@ -28,9 +27,6 @@ const wbmBuilders: Record<string, string> = Object.fromEntries(
   <div class="space-y-6">
     <div class="flex flex-wrap items-center gap-2">
       <h1 class="font-heading text-2xl font-semibold">Gallery Bazaar</h1>
-      <Badge variant="outline" className="border-amber-500/50 text-amber-600 dark:text-amber-400">
-        Beta
-      </Badge>
       <p class="text-muted-foreground text-sm">
         A enhanced WWM gallery for builders: faster, practical, more detailed.
       </p>

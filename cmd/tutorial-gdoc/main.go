@@ -209,6 +209,14 @@ func syncDoc(root, docURL string) error {
 			markdown = preserved + "\n" + markdown
 		}
 		if fm := extractFrontmatter(string(existing)); fm != "" {
+			// Compare against the old date first: only bump updatedDate (and rewrite)
+			// if something besides the date actually changed, so re-syncing unchanged
+			// docs doesn't touch the file every run.
+			unchanged := fmt.Sprintf("---\n%s---\n\n%s\n", fm, markdown)
+			if unchanged == string(existing) {
+				fmt.Printf("unchanged %s\n", outPath)
+				return nil
+			}
 			fm = setUpdatedDate(fm)
 			content = fmt.Sprintf("---\n%s---\n\n%s\n", fm, markdown)
 		} else {

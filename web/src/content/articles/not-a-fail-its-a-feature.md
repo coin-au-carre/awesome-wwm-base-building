@@ -81,4 +81,11 @@ featured: false
 
 ---
 
+## Greeny rock
+<p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
+
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1529831819879387177/image.png?ex=6a635e68&format=webp&hm=a90594a215f890ae453104e1c729782da0125a24739be6d5c948602d90ff1922&is=6a620ce8&quality=lossless" alt="A rock that's turned suspiciously green" style="border-radius: 0.75rem; width: 100%;" />
+
+---
+
 If you find other gems, [let us know](https://discord.gg/Qygt9u26Bn) :)
