@@ -803,7 +803,11 @@
 		"canonicalSlug": "li-baide-li-ge-rae",
 		"aliases": [
 			"Li-Baide"
-		]
+		],
+		"ingameNickname": "Li-Baide",
+		"neteaseNumberId": "2059688741",
+		"neteasePid": "aSHyEaz7d0da2meb",
+		"neteaseHostnum": 10205
 	},
 	{
 		"discordId": "327762534193168396",
