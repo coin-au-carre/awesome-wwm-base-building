@@ -41,7 +41,7 @@ featured: false
 ## Kaifeng mystery geometry
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a63358c&format=webp&hm=b3035f4bde2d0e1ee7eb84add705df96893e3920b313ff58fdd4df0073b54bee&is=6a61e40c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a63de4c&format=webp&hm=3da982a62d344f85ae7ec3dbc20eb8a527f56f2688b999ad7a97b421a839d8b1&is=6a628ccc&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
@@ -56,7 +56,7 @@ featured: false
 
 ## Greenery sticking naturally to the stones
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a632678&format=webp&hm=4f4abcbfb09342be9f82044e0e397a9ca46557270b1d2de7f08dbe470c1ba104&is=6a61d4f8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a63cf38&format=webp&hm=adfbd84a5470859970626dd0cda4cd17bcd7bd78b150f779333cd472bbaeb2cb&is=6a627db8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -77,7 +77,7 @@ featured: false
 ## Lanterns floating like magic
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">carnii</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1529611025198878841/image.png?ex=6a633987&format=webp&hm=89674b39532901e277c757c21db468c7eea5b43bcda82a8d0450a4e17ca46a50&is=6a61e807&quality=lossless" alt="Lanterns floating in mid-air with no wires holding them up" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1529611025198878841/image.png?ex=6a63e247&format=webp&hm=066de33120d42458f2770795116f8646b30f5ff280e8ab4403a2071e320b7efa&is=6a6290c7&quality=lossless" alt="Lanterns floating in mid-air with no wires holding them up" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
