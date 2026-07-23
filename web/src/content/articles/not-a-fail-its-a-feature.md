@@ -34,14 +34,14 @@ featured: false
 ## Kaifeng: Forbidden City or Forbidden Table?
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/ahlyam" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Ahlyam</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a629773&format=webp&hm=c850c456c6c648b0df18b5caa604b3dc7b23d638621296b85aada5c2008cb584&is=6a6145f3&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1509868050235523167/image.png?ex=6a634033&format=webp&hm=b7cf3ed49047b8932e9f2ec80e83a56722a0dae4537aa37ce6d73a8c5c9c1101&is=6a61eeb3&quality=lossless" alt="Kaifeng: Forbidden City or Forbidden Table?" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
 ## Kaifeng mystery geometry
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a628ccc&format=webp&hm=db7109d08205b2dc69b0dfe65db0008370be8b79cd79b8dc0f3d1c2b9d8cd9d7&is=6a613b4c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1510037809455566928/image.png?ex=6a63358c&format=webp&hm=b3035f4bde2d0e1ee7eb84add705df96893e3920b313ff58fdd4df0073b54bee&is=6a61e40c&quality=lossless" alt="A suspicious geometry quirk spotted in Kaifeng" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
@@ -56,7 +56,7 @@ featured: false
 
 ## Greenery sticking naturally to the stones
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a627db8&format=webp&hm=c2e48f5b149dfad7a29258f0dc3dfa5720f48db827520d37052cb500d9f30bde&is=6a612c38&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1519806089200271512/image.png?ex=6a632678&format=webp&hm=4f4abcbfb09342be9f82044e0e397a9ca46557270b1d2de7f08dbe470c1ba104&is=6a61d4f8&quality=lossless" alt="Greenery placed in a flying state by the developer" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -77,7 +77,7 @@ featured: false
 ## Lanterns floating like magic
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/carnii" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">carnii</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1529611025198878841/image.png?ex=6a6290c7&format=webp&hm=1cd97ac0481c3f5bdfc51950a4a244360e1fd294b2ab835eccaac3cbc5da7961&is=6a613f47&quality=lossless" alt="Lanterns floating in mid-air with no wires holding them up" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1529611025198878841/image.png?ex=6a633987&format=webp&hm=89674b39532901e277c757c21db468c7eea5b43bcda82a8d0450a4e17ca46a50&is=6a61e807&quality=lossless" alt="Lanterns floating in mid-air with no wires holding them up" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
