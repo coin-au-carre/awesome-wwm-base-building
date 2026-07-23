@@ -351,6 +351,16 @@ const recentTopItems = items
     const gallery = document.getElementById("gallery")
     if (!gallery) return
 
+    // Cover-frame videos rely on the #t=0.1 URL fragment to show a frame instead of
+    // a black box, but preload="metadata" alone doesn't reliably paint it on first
+    // load (only after the browser has cached bytes from a previous visit). Forcing
+    // an explicit seek once metadata is ready makes it paint immediately.
+    document.querySelectorAll(".gallery-item video").forEach((video) => {
+      const showFrame = () => { video.currentTime = 0.1 }
+      if (video.readyState >= 1) showFrame()
+      else video.addEventListener("loadedmetadata", showFrame, { once: true })
+    })
+
     const lightbox = document.getElementById("lightbox")
     const lbImgWrap = document.getElementById("lb-img-wrap")
     const lbThumb = document.getElementById("lb-thumb")
