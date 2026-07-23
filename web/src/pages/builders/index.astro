@@ -123,11 +123,14 @@ const subtitle = `Every builder credited across guild bases, solo builds, bluepr
   description={pageDesc}
   fullWidth
 >
-  <div class="space-y-4">
+  <div class="space-y-6">
     <div class="flex flex-wrap items-center gap-2">
       <h1 class="font-heading text-2xl font-semibold">The Builders Directory</h1>
+      <p class="text-muted-foreground hidden text-sm sm:block">{subtitle}</p>
+      <p class="text-muted-foreground ml-auto text-sm">
+        Not listed? Use <code class="rounded bg-muted px-1 py-0.5 font-mono text-xs">/wwm-uid</code> in Discord to register.
+      </p>
     </div>
-    <p class="text-sm text-muted-foreground">{subtitle}</p>
     <BuildersDirectory client:load entries={entries} />
   </div>
 </Layout>
