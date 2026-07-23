@@ -76,6 +76,13 @@ export const channels: Channel[] = [
     handle: "@azzel83",
   },
   {
+    name: "barashfr",
+    url: "https://www.tiktok.com/@barashfrr5",
+    handle: "@barashfrr5",
+    platform: "tiktok",
+    builderSlug: "barashfr",
+  },
+  {
     name: "Chumimaru",
     url: "https://www.tiktok.com/@chumimaru",
     handle: "@chumimaru",
