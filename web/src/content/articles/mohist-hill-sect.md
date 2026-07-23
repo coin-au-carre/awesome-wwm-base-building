@@ -11,9 +11,9 @@ gdocID: "1jS4pBOtPGBy_W4EzuGjEtE9Ro_U2jZF7mNvsIdXU1pw"
 updatedDate: 2026-07-23
 ---
 
-Disclaimer: This guide was written with limited knowledge prior to the official release thanks to Chinese content. Some information may differ from the sect's actual release. We will update the guide as needed.
+Disclaimer: This guide was written with limited knowledge prior to the official release thanks to Chinese content. Some information may differ from the sect's actual release.
 
-Everything is community-contributed and continuously updated. Join us on Discord to discuss, participate, share your tips, and suggest improvements. We're friendly!
+Join our Discord for up to date guides,  to discuss, participate, share your tips, and suggest improvements. We're friendly!
 
 ## Things to know before you start
 
