@@ -6,13 +6,14 @@ authors: ["Cylos"]
 date: 2026-07-03
 order: 24
 gdocID: "1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s"
-updatedDate: 2026-07-22
+updatedDate: 2026-07-23
 image: "/tutorials/homestead-beginner-guide/img-14.webp"
 ---
 
 <!-- preserve:start -->
 This page is a web version of Cylos guide available on [Google Doc](https://docs.google.com/document/d/1OAZVL7zw88F9Hsu6SeKLOZaTwf8uJopFRqGI-8dxA6s/edit?usp=sharing). It is kept in sync automatically.
 <!-- preserve:end -->
+
 
 
 
@@ -320,7 +321,7 @@ Alternatively you can also change the Tab to Seeds and plant them from there by
 
 In the Tend Tab you will find the option to Remove crops. You can use this to delete unwanted crops you planted.
 
-By going to the main homestead screen and pressing on Farming you will be presented with this UI. Here you can see all your farms and what you planted on them. <img src="/tutorials/homestead-beginner-guide/img-22.webp" style="width: 20%" /><img src="/tutorials/homestead-beginner-guide/img-21.webp" style="width: 80%" />
+By going to the main homestead screen and pressing on Farming you will be presented with this UI. Here you can see all your farms and what you planted on them. <img src="/tutorials/homestead-beginner-guide/img-21.webp" style="width: 80%" /><img src="/tutorials/homestead-beginner-guide/img-22.webp" style="width: 20%" />
 
 By pressing on a farm you can check:
 
@@ -336,7 +337,7 @@ By pressing on a farm you can check:
 
 ## Retainers
 
-Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" />
+Retainers are your workforce. You use retainers inside your Inn, Porcelain Kiln, Aromas Brewery & Local Specialties. There is a maximum amount of retainers you can hire depending on what your current homestead level is. You can recruit more workers in the Retainer menu by clicking on recruit at the bottom right. This will pull up the recruitment menu. Different workers come with different innate skills. You can check the skills by clicking on the little face icon and looking for Innate or Unlearnable skills. In this example Zhang Hu comes with the Innate skills Mining & Chopping wood which means you can send him to work right away. Unlearnable means that he can not learn any of the listed professions. <img src="/tutorials/homestead-beginner-guide/img-9.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-8.webp" style="width: 70%" /><img src="/tutorials/homestead-beginner-guide/img-10.webp" style="width: 60%" />
 
 There are instances where the worker has no listed skills. This means they can learn any of the skills. The level of a retainer skill determines how fast he finishes a task or how many materials per hour he will produce. You use Artisan’s Manuals to increase the skill level.
 
