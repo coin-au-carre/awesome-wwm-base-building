@@ -49,7 +49,7 @@ featured: false
 ## Near a certain musician in Kaifeng Palace
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/vehs" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">vehs</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a634f10&format=webp&hm=c98f20316ec14b4c3821e81d77fd7df4a8cfbd319ac53af670fea51dfd062cd1&is=6a61fd90&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1518400127159767160/1782084681_Aa6a02jY.jpg?ex=6a63f7d0&format=webp&hm=e3ac23de5c8d9f44d606133ab5992126c29b49b13cbaa0b1c6e18364dc8b1151&is=6a62a650&quality=lossless" alt="A music minigame NPC spotted near Kaifeng Palace" style="border-radius: 0.75rem; width: 100%;" />
 
 
 ---
@@ -70,7 +70,7 @@ featured: false
 ## A bonsai is in the wall
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/alscend" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">alscend</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a6359b0&format=webp&hm=9c8f24b4cc0695e53164ee291e8e5e6b8acde3e4ff048749a2ec6863d48ba6ad&is=6a620830&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1527290037740372045/2026716202334.png?ex=6a640270&format=webp&hm=1c15c179e19fbacf05c0f0c3f0d860ee6d87f44115d3597d8e41176299d3dcbf&is=6a62b0f0&quality=lossless" alt="A chair is in the wall" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
@@ -84,7 +84,7 @@ featured: false
 ## Greeny rock
 <p class="not-prose -mt-4 mb-6 text-xs text-muted-foreground">by <a href="/builders/skysnip" class="font-semibold text-foreground/80 hover:text-primary underline underline-offset-2 transition-colors">Skysnip</a></p>
 
-<img src="https://media.discordapp.net/attachments/1483447711499030633/1529831819879387177/image.png?ex=6a635e68&format=webp&hm=a90594a215f890ae453104e1c729782da0125a24739be6d5c948602d90ff1922&is=6a620ce8&quality=lossless" alt="A rock that's turned suspiciously green" style="border-radius: 0.75rem; width: 100%;" />
+<img src="https://media.discordapp.net/attachments/1483447711499030633/1529831819879387177/image.png?ex=6a640728&format=webp&hm=c2193309c6126810b280cb903b960090bd91f70ac3c248da94a67b7b7b30e7cf&is=6a62b5a8&quality=lossless" alt="A rock that's turned suspiciously green" style="border-radius: 0.75rem; width: 100%;" />
 
 ---
 
